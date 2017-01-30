@@ -1,0 +1,30 @@
+/* mh13/core/classes.css */
+
+#body {}
+
+.mh-neighbors {
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.mh-neighbors .mh-button-prev,
+.mh-neighbors .mh-button-next {
+	width: 40%;
+}
+
+
+.mh-legend {
+}
+
+	.mh-legend .mh-new {
+		color: #0E7003;
+	}
+
+	.mh-new:before {}
+
+	.mh-legend .mh-updated {
+		color: #FC6A08;
+	}
+
+	.mh-updated:before {}

@@ -1,0 +1,7 @@
+<p>Estimada/o <?php echo $application['Application']['first_name'] ?>:</p>
+<p>Gracias por tu interés en estudiar con nosotros.</p>
+<p>Este es un mensaje enviado automáticamente para confirmarte que hemos recibido una solicitud de plaza para Bachillerato a nombre de: <strong><?php echo $application['Application']['first_name'].' '.$application['Application']['last_name']; ?></strong>, con DNI <strong><?php echo $application['Application']['idcard']; ?></strong></p>
+<p>Nos has indicado que optas a una plaza en el curso <strong><?php echo $levels[$application['Application']['level_id']]; ?></strong> en la modalidad de <strong><?php echo $sections[$application['Application']['group']]; ?></strong></p>
+<p>Próximamente nos pondremos en contacto contigo para concertar una entrevista en la que conocernos y conocer el centro.</p>
+<hr />
+<p>Los datos que has aportado se almacenan en un archivo informático propiedad del Colegio Miralba – Hijas de Jesús. De conformidad con la Ley Orgánica 15/1999 de 13 de diciembre, de Protección de Datos de Carácter Personal, tienes reconocido y podrás ejercitar gratuitamente los derechos de acceso, cancelación, rectificación y oposición en la Secretaría del Colegio Miralba - Hijas de Jesús en Avda. Gran Vía 164.</p>

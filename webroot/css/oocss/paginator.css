@@ -1,0 +1,8 @@
+/* mh13/oocss/paginator.css */
+/* Basic Paginator classes */
+/* Loaded by /elements/paginator.ctp */
+.paginator{}
+.pager{}
+.paging{}
+.counter{display:block;text-align:right;}
+.current,.disabled{padding:0 7px;}

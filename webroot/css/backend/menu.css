@@ -1,0 +1,19 @@
+/* .backend-menu is the main menu in the backend*/
+
+.backend-menu {
+	/* extends .menu.horizontal */
+	color: #fff;
+	background-color: #000;
+	font-size: 80%;
+}
+
+	.backend-menu .menu-item {
+		border-right: 1px solid #3F3F3F;
+		padding: 0px;
+	}
+
+	.backend-menu .menu-item:hover {
+		background-color: rgba(255, 255,255,.2);
+	}
+
+	.backend-menu .menu-item.current {}

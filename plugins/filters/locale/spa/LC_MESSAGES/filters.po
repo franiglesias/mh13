@@ -1,0 +1,20 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: filters.mh13\n"
+"POT-Creation-Date: 2014-11-17 10:46+0100\n"
+"PO-Revision-Date: 2014-11-17 10:50+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team:  <franiglesias@mac.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: /plugins/filters/views/helpers/simple_filter.php:47
+msgid "Filter by"
+msgstr "Filtrar por"

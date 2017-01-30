@@ -1,0 +1,1125 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  Revision: 8004 \console\error.php
+#  Revision: 7118 \libs\view\errors\error404.ctp
+#  Revision: 7945 \console\libs\acl.php
+#  Revision: 7945 \console\libs\bake.php
+#  Revision: 7945 \console\libs\i18n.php
+#  Revision: 7945 \console\libs\api.php
+#  Revision: 7690 \libs\folder.php
+#  Revision: 7945 \console\libs\tasks\plugin.php
+#  Revision: 7961 \console\libs\schema.php
+#  Revision: 7945 \console\libs\shell.php
+#  Revision: 7945 \console\libs\tasks\controller.php
+#  Revision: 7945 \console\libs\tasks\model.php
+#  Revision: 7945 \console\libs\tasks\project.php
+#  Revision: 7945 \console\libs\tasks\test.php
+#  Revision: 7945 \console\libs\tasks\view.php
+#  Revision: 7945 \console\libs\templates\skel\views\layouts\default.ctp
+#  Revision: 7690 \libs\view\layouts\default.ctp
+#  Revision: 7690 \tests\test_app\views\layouts\default.ctp
+#  Revision: 7945 \console\libs\templates\skel\webroot\test.php
+#  Revision: 7690 \libs\cache.php
+#  Revision: 7690 \libs\class_registry.php
+#  Revision: 7690 \libs\configure.php
+#  Revision: 7690 \libs\debugger.php
+#  Revision: 7690 \libs\error.php
+#  Revision: 6311 \libs\view\errors\missing_controller.ctp
+#  Revision: 6311 \libs\view\errors\missing_table.ctp
+#  Revision: 6311 \libs\view\errors\missing_view.ctp
+#  Revision: 6311 \libs\view\errors\missing_layout.ctp
+#  Revision: 6311 \libs\view\errors\missing_connection.ctp
+#  Revision: 6311 \libs\view\errors\missing_scaffolddb.ctp
+#  Revision: 6311 \libs\view\errors\missing_helper_file.ctp
+#  Revision: 6311 \libs\view\errors\missing_helper_class.ctp
+#  Revision: 6311 \libs\view\errors\missing_component_file.ctp
+#  Revision: 6311 \libs\view\errors\missing_component_class.ctp
+#  Revision: 6311 \libs\view\errors\missing_model.ctp
+#  Revision: 7296 \libs\http_socket.php
+#  Revision: 6311 \libs\overloadable_php4.php
+#  Revision: 6311 \libs\overloadable_php5.php
+#  Revision: 7690 \libs\security.php
+#  Revision: 7690 \libs\session.php
+#  Revision: 7690 \libs\validation.php
+#  Revision: 7690 \libs\cache\file.php
+#  Revision: 7690 \libs\controller\controller.php
+#  Revision: 7690 \libs\controller\components\auth.php
+#  Revision: 7690 \libs\controller\scaffold.php
+#  Revision: 7690 \libs\controller\components\acl.php
+#  Revision: 7690 \libs\controller\components\security.php
+#  Revision: 7690 \libs\model\connection_manager.php
+#  Revision: 7690 \libs\model\model.php
+#  Revision: 7690 \libs\model\behaviors\containable.php
+#  Revision: 7690 \libs\model\datasources\dbo_source.php
+#  Revision: 7690 \libs\model\datasources\dbo\dbo_oracle.php
+#  Revision: 7690 \libs\model\datasources\dbo\dbo_mysql.php
+#  Revision: 7690 \libs\view\helper.php
+#  Revision: 7690 \libs\view\view.php
+#  Revision: 6311 \libs\view\elements\dump.ctp
+#  Revision: 6311 \libs\view\errors\missing_action.ctp
+#  Revision: 6311 \libs\view\errors\private_action.ctp
+#  Revision: 6311 \libs\view\errors\scaffold_error.ctp
+#  Revision: 7690 \libs\view\helpers\form.php
+#  Revision: 7296 \libs\view\scaffolds\edit.ctp
+#  Revision: 7296 \libs\view\scaffolds\index.ctp
+#  Revision: 7690 \libs\view\scaffolds\view.ctp
+#  Revision: 7296 \libs\view\helpers\session.php
+#  Revision: 7690 \libs\view\helpers\text.php
+#  Revision: 7690 \libs\view\helpers\time.php
+#  Revision: 7690 \libs\view\pages\home.ctp
+#  Revision: 7296 \tests\test_app\views\posts\test_nocache_tags.ctp
+#  Revision: 7690 \tests\cases\libs\file.test.php
+#  Revision: 7690 \tests\cases\libs\i18n.test.php
+#  Revision: 7690 \tests\cases\libs\view\helpers\form.test.php
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CakePHP 1.2.1\n"
+"POT-Creation-Date: 2015-07-01 11:22+0200\n"
+"PO-Revision-Date: 2015-07-01 11:32+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: esp <manolet@gmail.com>\n"
+"Language: es_CO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /app_controller.php:131
+msgid "Authentication failed. Bad credentials."
+msgstr "Fallo de autentificación. Los datos aportados no son correctos."
+
+#: /app_controller.php:132
+msgid "You need to login to access this url."
+msgstr "Necesitas acceder para ver este apartado."
+
+#: /app_controller.php:311
+msgid "Access denied"
+msgstr "Acceso no permitido"
+
+#: /app_controller.php:412
+msgid "n/a"
+msgstr "n/a"
+
+#: /app_controller.php:421
+msgid "Data for %s: <strong>%s</strong> was saved."
+msgstr "Se han guardado los datos para %s: <strong>%s</strong>."
+
+#: /app_controller.php:425
+msgid "Failed to save %s: <strong>%s</strong>. Please, check fields."
+msgstr ""
+"No he podido guardar %s: <strong>%s</strong>. Por favor, comprueba los "
+"campos."
+
+#: /app_controller.php:429
+msgid "Can't find the %s."
+msgstr "No puedo encontrar %s"
+
+#: /app_controller.php:433
+#: /plugins/aggregator/controllers/feeds_controller.php:145
+#: /plugins/aggregator/controllers/planets_controller.php:57
+#: /plugins/cantine/controllers/cantine_rules_controller.php:128
+#: /plugins/comments/controllers/comments_controller.php:78
+#: /plugins/labels/controllers/labels_controller.php:129
+#: /plugins/uploads/controllers/image_collections_controller.php:57
+#: /plugins/uploads/controllers/uploads_controller.php:30
+msgid "%s was deleted."
+msgstr "%s fue eliminado."
+
+#: /app_controller.php:437
+msgid "Something went wrong with %s."
+msgstr "Algo ha ido mal con %s."
+
+#: /app_controller.php:441
+msgid "Action was performed with %s: <strong>%s</strong>"
+msgstr "Se ha realizado la acción con %s: <strong>%s</strong>"
+
+#: /app_error.php:20
+msgid "Not Allowed"
+msgstr "No permitido"
+
+#: /app_error.php:39
+msgid "Not Found"
+msgstr "No se encuentra"
+
+#: /app_error.php:57
+msgid "Exception"
+msgstr "Excepción"
+
+#: /app_model.php:185 /plugins/resumes/models/resume.php:260
+msgid "A valid ID is needed to perform this model method."
+msgstr "Se necesita un ID válido para ejecutar este método del modelo"
+
+#: /libs/fi_value/formatters/relative_formatter.php:14
+msgid "Today"
+msgstr "Hoy"
+
+#: /libs/fi_value/formatters/relative_formatter.php:17
+msgid "Yesterday"
+msgstr "Ayer"
+
+#: /libs/fi_value/formatters/relative_formatter.php:20
+msgid "%s days ago"
+msgstr "hace %s días"
+
+#: /libs/fi_value/formatters/relative_formatter.php:23
+msgid "Last week"
+msgstr "La semana pasada"
+
+#: /libs/fi_value/formatters/relative_formatter.php:26
+msgid "2 weeks ago"
+msgstr "Hace 2 semanas"
+
+#: /libs/fi_value/formatters/relative_formatter.php:29
+msgid "3 weeks ago"
+msgstr "Hace 3 semanas"
+
+#: /libs/fi_value/formatters/relative_formatter.php:32
+msgid "A month ago"
+msgstr "Hace un mes"
+
+#: /plugins/access/controllers/ownerships_controller.php:32
+#: /plugins/access/controllers/users_controller.php:402
+#: /plugins/aggregator/controllers/feeds_controller.php:59;82;111
+#: /plugins/aggregator/controllers/planets_controller.php:31
+#: /plugins/uploads/controllers/uploads_controller.php:45
+msgid "Changes saved to %s '%s'."
+msgstr "Cambios guardados a %s '%s'."
+
+#: /plugins/access/controllers/ownerships_controller.php:35
+#: /plugins/access/controllers/users_controller.php:405
+#: /plugins/aggregator/controllers/feeds_controller.php:62;87;114
+#: /plugins/aggregator/controllers/planets_controller.php:34
+#: /plugins/uploads/controllers/uploads_controller.php:52
+msgid "The %s data could not be saved. Please, try again."
+msgstr ""
+"Los datos para %s no pudieron guardarse. Por favor, inténtalo otra vez."
+
+#: /plugins/access/controllers/ownerships_controller.php:42
+#: /plugins/aggregator/controllers/entries_controller.php:40
+#: /plugins/aggregator/controllers/feeds_controller.php:121;141;157;172
+#: /plugins/aggregator/controllers/planets_controller.php:41;53
+#: /plugins/cantine/controllers/cantine_incidences_controller.php:139
+#: /plugins/comments/controllers/comments_controller.php:64
+#: /plugins/contents/controllers/sites_controller.php:23
+#: /plugins/contents/controllers/static_pages_controller.php:25
+#: /plugins/it/controllers/maintenance_types_controller.php:16;43
+#: /plugins/it/controllers/technicians_controller.php:17;50
+#: /plugins/resources/controllers/batches_controller.php:20;64
+#: /plugins/resources/controllers/resources_controller.php:116;147;175
+#: /plugins/resumes/controllers/merits_controller.php:53
+#: /plugins/resumes/controllers/positions_controller.php:16;49
+#: /plugins/resumes/controllers/resumes_controller.php:251
+#: /plugins/school/controllers/applications_controller.php:111
+#: /plugins/school/controllers/students_controller.php:65;81
+#: /plugins/uploads/controllers/uploads_controller.php:40;59
+msgid "Invalid %s."
+msgstr "%s no válido."
+
+#: /plugins/access/controllers/permissions_roles_controller.php:116
+msgid "Invalid id for PermissionsRole"
+msgstr "Identificador inválido para PermissionsRole"
+
+#: /plugins/access/controllers/permissions_roles_controller.php:120
+msgid "PermissionsRole deleted"
+msgstr "PermissionsRole eliminado"
+
+#: /plugins/access/controllers/permissions_roles_controller.php:123
+#, fuzzy
+msgid "PermissionsRole was not deleted"
+msgstr "%s no fue eliminado."
+
+#: /plugins/access/controllers/users_controller.php:336;380
+#: /plugins/resumes/controllers/resumes_controller.php:225
+msgid "Invalid or expired ticket."
+msgstr "Ticket no válido o caducado."
+
+#: /plugins/access/models/user.php:155;173
+msgid "Unable to save data."
+msgstr "No se ha podido guardar la información."
+
+#: /plugins/access/models/user.php:186
+msgid "A valid ID is needed to perform this model method"
+msgstr "Se necesita un ID válido para ejecutar este método del modelo"
+
+#: /plugins/access/models/user.php:245
+msgid "Unable to create Account."
+msgstr "No se ha podido crear la cuenta"
+
+#: /plugins/access/models/user.php:264
+msgid "Empty registration data for Register."
+msgstr "Datos vacíos para Register"
+
+#: /plugins/access/models/user.php:280
+msgid "Empty registration data for GRegister."
+msgstr "Datos vacíos para GRegister"
+
+#: /plugins/access/models/user.php:283
+msgid "Username and/or email probably forged or invalid."
+msgstr "Nombre de usuario y/o email posiblemente falsificado o no válido"
+
+#: /plugins/access/models/user.php:286
+msgid "User exists."
+msgstr "El usuario existe."
+
+#: /plugins/access/models/user.php:314 /plugins/resumes/models/resume.php:239
+msgid "Not enough data"
+msgstr "No hay datos suficientes"
+
+#: /plugins/access/views/permissions/index.ctp:9
+#: /plugins/access/views/roles/index.ctp:13
+#: /plugins/access/views/users/index.ctp:18
+#: /plugins/aggregator/views/feeds/index.ctp:19
+#: /plugins/aggregator/views/planets/index.ctp:9
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:8
+#: /plugins/cantine/views/cantine_groups/index.ctp:7
+#: /plugins/cantine/views/cantine_incidences/index.ctp:23
+#: /plugins/cantine/views/cantine_regulars/index.ctp:40
+#: /plugins/cantine/views/cantine_rules/index.ctp:25
+#: /plugins/cantine/views/cantine_tickets/index.ctp:23
+#: /plugins/cantine/views/cantine_turns/index.ctp:13
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:19
+#: /plugins/circulars/views/circular_boxes/index.ctp:12
+#: /plugins/circulars/views/circular_types/index.ctp:12
+#: /plugins/circulars/views/circulars/index.ctp:54;112
+#: /plugins/circulars/views/events/index.ctp:26
+#: /plugins/comments/views/comments/index.ctp:14
+#: /plugins/contents/views/channels/index.ctp:18
+#: /plugins/contents/views/items/index.ctp:29
+#: /plugins/contents/views/sites/index.ctp:9
+#: /plugins/contents/views/static_pages/index.ctp:24
+#: /plugins/it/views/device_types/index.ctp:9
+#: /plugins/it/views/devices/index.ctp:26
+#: /plugins/it/views/maintenance_types/index.ctp:8
+#: /plugins/it/views/maintenances/index.ctp:35
+#: /plugins/it/views/technicians/index.ctp:11
+#: /plugins/labels/views/labels/index.ctp:8
+#: /plugins/labels/views/labels/ajax/index.ctp:9
+#: /plugins/licenses/views/licenses/index.ctp:22
+#: /plugins/menus/views/bars/index.ctp:9
+#: /plugins/menus/views/menu_items/index.ctp:32
+#: /plugins/menus/views/menus/index.ctp:7
+#: /plugins/raffles/views/prizes/index.ctp:22
+#: /plugins/resources/views/batches/index.ctp:10
+#: /plugins/resources/views/resources/index.ctp:47
+#: /plugins/resumes/views/merit_types/index.ctp:27
+#: /plugins/resumes/views/merits/show.ctp:33
+#: /plugins/resumes/views/positions/index.ctp:12
+#: /plugins/school/views/applications/index.ctp:35
+#: /plugins/school/views/cycles/index.ctp:12
+#: /plugins/school/views/helpers/students.php:81
+#: /plugins/school/views/levels/index.ctp:11
+#: /plugins/school/views/sections/index.ctp:19
+#: /plugins/school/views/stages/index.ctp:12
+#: /plugins/school/views/subjects/index.ctp:8
+#: /plugins/uploads/views/image_collections/index.ctp:13
+#: /plugins/uploads/views/uploads/index.ctp:26
+#: /plugins/uploads/views/uploads/ajax/index.ctp:32
+msgid "Edit"
+msgstr "Modificar"
+
+#: /plugins/access/views/permissions/index.ctp:10
+#: /plugins/access/views/permissions_roles/ajax/index.ctp:24
+#: /plugins/access/views/roles/index.ctp:14
+#: /plugins/access/views/users/index.ctp:43
+#: /plugins/aggregator/views/feeds/index.ctp:22
+#: /plugins/aggregator/views/planets/index.ctp:11
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:10
+#: /plugins/cantine/views/cantine_groups/index.ctp:9
+#: /plugins/cantine/views/cantine_incidences/index.ctp:25
+#: /plugins/cantine/views/cantine_regulars/index.ctp:45
+#: /plugins/cantine/views/cantine_rules/index.ctp:27
+#: /plugins/cantine/views/cantine_rules/ajax/index.ctp:43
+#: /plugins/cantine/views/cantine_tickets/index.ctp:29
+#: /plugins/cantine/views/cantine_turns/index.ctp:15
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:21
+#: /plugins/circulars/views/circular_boxes/index.ctp:14
+#: /plugins/circulars/views/circular_types/index.ctp:14
+#: /plugins/circulars/views/circulars/index.ctp:91;149
+#: /plugins/circulars/views/events/index.ctp:28
+#: /plugins/comments/views/comments/index.ctp:16
+#: /plugins/contents/views/channels/index.ctp:20
+#: /plugins/contents/views/items/index.ctp:35
+#: /plugins/contents/views/sites/index.ctp:11
+#: /plugins/contents/views/static_pages/index.ctp:26
+#: /plugins/it/views/device_types/index.ctp:11
+#: /plugins/it/views/devices/index.ctp:33
+#: /plugins/it/views/maintenance_types/index.ctp:10
+#: /plugins/it/views/maintenances/index.ctp:37
+#: /plugins/it/views/maintenances/ajax/index.ctp:47
+#: /plugins/it/views/technicians/index.ctp:13
+#: /plugins/labels/views/labels/index.ctp:10
+#: /plugins/labels/views/labels/ajax/index.ctp:16
+#: /plugins/licenses/controllers/licenses_controller.php:13
+#: /plugins/licenses/views/licenses/index.ctp:24
+#: /plugins/menus/views/bars/index.ctp:11
+#: /plugins/menus/views/menu_items/edit.ctp:19
+#: /plugins/menus/views/menu_items/index.ctp:34
+#: /plugins/menus/views/menu_items/ajax/index.ctp:23
+#: /plugins/menus/views/menus/index.ctp:9
+#: /plugins/raffles/views/prizes/index.ctp:24
+#: /plugins/resources/views/batches/edit.ctp:16
+#: /plugins/resources/views/batches/index.ctp:12
+#: /plugins/resources/views/elements/version_history.ctp:39
+#: /plugins/resources/views/resources/edit.ctp:23
+#: /plugins/resources/views/resources/index.ctp:66
+#: /plugins/resumes/views/merit_types/index.ctp:29
+#: /plugins/resumes/views/merits/show.ctp:37
+#: /plugins/resumes/views/positions/index.ctp:14
+#: /plugins/resumes/views/resumes/index.ctp:24
+#: /plugins/school/views/applications/index.ctp:37
+#: /plugins/school/views/cycles/index.ctp:14
+#: /plugins/school/views/helpers/students.php:83
+#: /plugins/school/views/levels/index.ctp:13
+#: /plugins/school/views/sections/index.ctp:21
+#: /plugins/school/views/stages/index.ctp:14
+#: /plugins/school/views/subjects/index.ctp:10
+#: /plugins/tickets/views/tickets/index.ctp:28
+#: /plugins/uploads/views/image_collections/index.ctp:15
+#: /plugins/uploads/views/uploads/index.ctp:35
+#: /plugins/uploads/views/uploads/ajax/index.ctp:46
+msgid "Delete"
+msgstr "Eliminar"
+
+#: /plugins/access/views/permissions/index.ctp:10
+#: /plugins/access/views/permissions_roles/ajax/index.ctp:25
+#: /plugins/access/views/roles/index.ctp:14
+#: /plugins/access/views/users/index.ctp:32;36;44
+#: /plugins/aggregator/views/feeds/index.ctp:23
+#: /plugins/aggregator/views/planets/index.ctp:12
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:11
+#: /plugins/cantine/views/cantine_groups/index.ctp:10
+#: /plugins/cantine/views/cantine_incidences/index.ctp:26
+#: /plugins/cantine/views/cantine_regulars/index.ctp:46
+#: /plugins/cantine/views/cantine_rules/index.ctp:28
+#: /plugins/cantine/views/cantine_rules/ajax/index.ctp:44
+#: /plugins/cantine/views/cantine_tickets/index.ctp:30
+#: /plugins/cantine/views/cantine_turns/index.ctp:16
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:22
+#: /plugins/circulars/views/circular_boxes/index.ctp:15
+#: /plugins/circulars/views/circular_types/index.ctp:15
+#: /plugins/circulars/views/circulars/index.ctp:92;150
+#: /plugins/circulars/views/events/index.ctp:29
+#: /plugins/comments/views/comments/index.ctp:17
+#: /plugins/contents/views/channels/index.ctp:21
+#: /plugins/contents/views/items/index.ctp:36
+#: /plugins/contents/views/sites/index.ctp:12
+#: /plugins/contents/views/static_pages/index.ctp:27
+#: /plugins/it/views/device_types/index.ctp:12
+#: /plugins/it/views/devices/index.ctp:34
+#: /plugins/it/views/maintenance_types/index.ctp:11
+#: /plugins/it/views/maintenances/index.ctp:38
+#: /plugins/it/views/maintenances/ajax/index.ctp:48
+#: /plugins/it/views/technicians/index.ctp:14
+#: /plugins/labels/views/labels/index.ctp:11
+#: /plugins/labels/views/labels/ajax/index.ctp:17
+#: /plugins/licenses/views/licenses/index.ctp:25
+#: /plugins/menus/views/bars/index.ctp:12
+#: /plugins/menus/views/menu_items/index.ctp:35
+#: /plugins/menus/views/menu_items/ajax/index.ctp:24
+#: /plugins/menus/views/menus/index.ctp:10
+#: /plugins/menus/views/menus/ajax/index.ctp:23
+#: /plugins/raffles/views/prizes/index.ctp:25
+#: /plugins/resources/views/batches/index.ctp:13
+#: /plugins/resources/views/elements/version_history.ctp:41
+#: /plugins/resources/views/resources/index.ctp:67;83
+#: /plugins/resumes/views/merit_types/index.ctp:30
+#: /plugins/resumes/views/merits/show.ctp:38
+#: /plugins/resumes/views/positions/index.ctp:15
+#: /plugins/resumes/views/resumes/index.ctp:25
+#: /plugins/school/views/applications/index.ctp:38
+#: /plugins/school/views/cycles/index.ctp:15
+#: /plugins/school/views/helpers/students.php:84
+#: /plugins/school/views/levels/index.ctp:14
+#: /plugins/school/views/sections/index.ctp:22
+#: /plugins/school/views/stages/index.ctp:15
+#: /plugins/school/views/subjects/index.ctp:11
+#: /plugins/tickets/views/tickets/index.ctp:29
+#: /plugins/uploads/views/image_collections/index.ctp:16
+#: /plugins/uploads/views/uploads/index.ctp:36
+#: /plugins/uploads/views/uploads/ajax/index.ctp:47
+msgid "Are you sure?"
+msgstr "¿Estás seguro/a?"
+
+#: /plugins/access/views/permissions/index.ctp:22
+#: /plugins/access/views/roles/index.ctp:23
+#: /plugins/access/views/users/index.ctp:54
+#: /plugins/aggregator/views/feeds/index.ctp:35
+#: /plugins/aggregator/views/planets/index.ctp:21
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:20
+#: /plugins/cantine/views/cantine_groups/index.ctp:19
+#: /plugins/cantine/views/cantine_incidences/index.ctp:36
+#: /plugins/cantine/views/cantine_regulars/index.ctp:76
+#: /plugins/cantine/views/cantine_rules/index.ctp:37
+#: /plugins/cantine/views/cantine_tickets/index.ctp:52
+#: /plugins/cantine/views/cantine_turns/index.ctp:25
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:32
+#: /plugins/circulars/views/circular_boxes/index.ctp:24
+#: /plugins/circulars/views/circular_types/index.ctp:24
+#: /plugins/circulars/views/circulars/index.ctp:159
+#: /plugins/circulars/views/events/index.ctp:38
+#: /plugins/comments/views/comments/index.ctp:28
+#: /plugins/contents/views/channels/index.ctp:42
+#: /plugins/contents/views/items/index.ctp:62
+#: /plugins/contents/views/sites/index.ctp:21
+#: /plugins/contents/views/static_pages/index.ctp:36
+#: /plugins/it/views/device_types/index.ctp:21
+#: /plugins/it/views/devices/index.ctp:43
+#: /plugins/it/views/maintenance_types/index.ctp:20
+#: /plugins/it/views/maintenances/index.ctp:50
+#: /plugins/it/views/technicians/index.ctp:23
+#: /plugins/labels/views/labels/index.ctp:21
+#: /plugins/licenses/views/licenses/index.ctp:3
+#: /plugins/menus/views/bars/index.ctp:22
+#: /plugins/menus/views/menus/index.ctp:20
+#: /plugins/raffles/views/prizes/index.ctp:34
+#: /plugins/resources/views/batches/index.ctp:21
+#: /plugins/resources/views/resources/index.ctp:94
+#: /plugins/resumes/views/merit_types/index.ctp:41
+#: /plugins/resumes/views/positions/index.ctp:24
+#: /plugins/resumes/views/resumes/index.ctp:37
+#: /plugins/school/views/applications/index.ctp:47
+#: /plugins/school/views/cycles/index.ctp:24
+#: /plugins/school/views/levels/index.ctp:23
+#: /plugins/school/views/sections/index.ctp:31
+#: /plugins/school/views/stages/index.ctp:24
+#: /plugins/school/views/subjects/index.ctp:20
+#: /plugins/tickets/views/tickets/index.ctp:40
+#: /plugins/ui/views/helpers/header.php:27
+#: /plugins/uploads/views/image_collections/index.ctp:25
+#: /plugins/uploads/views/uploads/index.ctp:45
+msgid "Admin %s"
+msgstr "Administrar %s"
+
+#: /plugins/access/views/permissions/index.ctp:30
+#: /plugins/access/views/roles/index.ctp:32
+#: /plugins/access/views/users/index.ctp:62
+#: /plugins/aggregator/views/feeds/index.ctp:43
+#: /plugins/aggregator/views/planets/index.ctp:29
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:28
+#: /plugins/cantine/views/cantine_groups/index.ctp:27
+#: /plugins/cantine/views/cantine_incidences/index.ctp:45
+#: /plugins/cantine/views/cantine_regulars/index.ctp:103
+#: /plugins/cantine/views/cantine_rules/index.ctp:45
+#: /plugins/cantine/views/cantine_tickets/index.ctp:60
+#: /plugins/cantine/views/cantine_turns/index.ctp:33
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:40
+#: /plugins/circulars/views/circular_boxes/index.ctp:32
+#: /plugins/circulars/views/circular_types/index.ctp:32
+#: /plugins/circulars/views/circulars/index.ctp:167
+#: /plugins/circulars/views/events/index.ctp:46
+#: /plugins/comments/views/comments/index.ctp:37
+#: /plugins/contents/views/channels/index.ctp:50
+#: /plugins/contents/views/items/index.ctp:70
+#: /plugins/contents/views/sites/index.ctp:29
+#: /plugins/contents/views/static_pages/index.ctp:44
+#: /plugins/it/views/device_types/index.ctp:29
+#: /plugins/it/views/devices/index.ctp:51
+#: /plugins/it/views/maintenance_types/index.ctp:28
+#: /plugins/it/views/maintenances/index.ctp:58
+#: /plugins/it/views/technicians/index.ctp:31
+#: /plugins/labels/views/labels/index.ctp:29
+#: /plugins/menus/views/bars/index.ctp:30
+#: /plugins/menus/views/menu_items/index.ctp:5
+#: /plugins/menus/views/menus/index.ctp:28
+#: /plugins/raffles/views/prizes/index.ctp:43
+#: /plugins/resources/views/batches/index.ctp:24
+#: /plugins/resumes/views/merit_types/index.ctp:49
+#: /plugins/resumes/views/positions/index.ctp:32
+#: /plugins/school/views/applications/index.ctp:55
+#: /plugins/school/views/cycles/index.ctp:32
+#: /plugins/school/views/levels/index.ctp:31
+#: /plugins/school/views/sections/index.ctp:39
+#: /plugins/school/views/stages/index.ctp:32
+#: /plugins/school/views/subjects/index.ctp:28
+#: /plugins/tickets/views/tickets/index.ctp:48
+#: /plugins/uploads/views/image_collections/index.ctp:33
+msgid "Add"
+msgstr "Crear"
+
+#: /plugins/access/views/users/edit.ctp:83
+#: /plugins/access/views/users/profile.ctp:57
+#: /plugins/ui/views/helpers/f_form.php:485
+#: /plugins/ui/views/helpers/x_form.php:481
+msgid "Save and Done"
+msgstr "Guardar y salir"
+
+#: /plugins/access/views/users/profile.ctp:126
+#: /plugins/menus/views/menu_items/edit.ctp:57
+#: /plugins/resources/views/batches/edit.ctp:70
+#: /plugins/ui/views/helpers/f_form.php:186
+#: /plugins/ui/views/helpers/x_form.php:329
+msgid "Submit %s"
+msgstr "Guardar los cambios en %s"
+
+#: /plugins/aggregator/views/elements/entries/index.ctp:55
+#: /plugins/aggregator/views/elements/entries/last.ctp:59
+msgid " in "
+msgstr " en "
+
+#: /plugins/aggregator/views/elements/entries/metadata.ctp:7
+msgid "by"
+msgstr "por"
+
+#: /plugins/aggregator/views/feeds/thanks.ctp:11
+msgid "Return"
+msgstr "Volver"
+
+#: /plugins/cantine/controllers/cantine_incidences_controller.php:120
+#: /plugins/circulars/controllers/events_controller.php:50
+#: /plugins/comments/controllers/comments_controller.php:55;142
+#: /plugins/it/controllers/maintenance_types_controller.php:33
+#: /plugins/it/controllers/technicians_controller.php:36
+#: /plugins/resources/controllers/batches_controller.php:46
+#: /plugins/resources/controllers/resources_controller.php:106;136
+#: /plugins/resumes/controllers/merits_controller.php:44
+#: /plugins/resumes/controllers/positions_controller.php:35
+#: /plugins/school/controllers/students_controller.php:55
+#: /plugins/uploads/controllers/image_collections_controller.php:33
+msgid "The %s has been saved."
+msgstr "El %s ha sido guardado."
+
+#: /plugins/cantine/controllers/cantine_incidences_controller.php:131
+#: /plugins/cantine/controllers/cantine_tickets_controller.php:67
+#: /plugins/circulars/controllers/events_controller.php:53
+#: /plugins/comments/controllers/comments_controller.php:58;144
+#: /plugins/it/controllers/maintenance_types_controller.php:36
+#: /plugins/it/controllers/technicians_controller.php:41
+#: /plugins/resources/controllers/batches_controller.php:57
+#: /plugins/resources/controllers/resources_controller.php:109;140
+#: /plugins/resumes/controllers/merits_controller.php:47
+#: /plugins/resumes/controllers/positions_controller.php:40
+#: /plugins/school/controllers/students_controller.php:58
+#: /plugins/uploads/controllers/image_collections_controller.php:36
+msgid "The %s could not be saved. Please, try again."
+msgstr "El %s no pudo ser guardado. Por favor, inténtalo otra vez."
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:186
+msgid "september"
+msgstr "septiembre"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:187
+msgid "october"
+msgstr "octubre"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:188
+msgid "november"
+msgstr "noviembre"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:189
+msgid "december"
+msgstr "diciembre"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:190
+msgid "january"
+msgstr "enero"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:191
+msgid "february"
+msgstr "febrero"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:192
+msgid "march"
+msgstr "marzo"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:193
+msgid "april"
+msgstr "abril"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:194
+msgid "may"
+msgstr "mayo"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:195
+msgid "june"
+msgstr "junio"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:213
+#: /plugins/cantine/controllers/cantine_tickets_controller.php:139
+#: /plugins/contents/controllers/items_controller.php:545
+#: /plugins/licenses/controllers/licenses_controller.php:81
+msgid "Selected %s deleted"
+msgstr "Se han eliminado los/as %s seleccionados/as"
+
+#: /plugins/cantine/controllers/cantine_rules_controller.php:126
+#: /plugins/comments/controllers/comments_controller.php:75
+#: /plugins/labels/controllers/labels_controller.php:127
+#: /plugins/uploads/controllers/image_collections_controller.php:54
+#: /plugins/uploads/controllers/uploads_controller.php:28
+msgid "%s was not deleted."
+msgstr "%s no fue eliminado."
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:42
+#: /plugins/cantine/views/cantine_tickets/index.ctp:25
+#: /plugins/circulars/views/circulars/index.ctp:88;145
+#: /plugins/contents/views/items/index.ctp:32
+#: /plugins/it/views/devices/index.ctp:27
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:92
+msgid "Print"
+msgstr "Imprimir"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:58
+#: /plugins/cantine/views/helpers/cantine.php:105
+#: /plugins/ui/views/helpers/f_form.php:871;878
+#: /plugins/ui/views/helpers/table.php:1319
+#: /plugins/ui/views/helpers/x_form.php:79;86
+msgid "monday"
+msgstr "lunes"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:59
+#: /plugins/cantine/views/helpers/cantine.php:106
+#: /plugins/ui/views/helpers/f_form.php:872;879
+#: /plugins/ui/views/helpers/table.php:1320
+#: /plugins/ui/views/helpers/x_form.php:80;87
+msgid "tuesday"
+msgstr "martes"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:60
+#: /plugins/cantine/views/helpers/cantine.php:107
+#: /plugins/ui/views/helpers/f_form.php:873;880
+#: /plugins/ui/views/helpers/table.php:1321
+#: /plugins/ui/views/helpers/x_form.php:81;88
+msgid "wednesday"
+msgstr "miércoles"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:61
+#: /plugins/cantine/views/helpers/cantine.php:108
+#: /plugins/ui/views/helpers/f_form.php:874;881
+#: /plugins/ui/views/helpers/table.php:1322
+#: /plugins/ui/views/helpers/x_form.php:82;89
+msgid "thursday"
+msgstr "jueves"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:62
+#: /plugins/cantine/views/helpers/cantine.php:109
+#: /plugins/ui/views/helpers/f_form.php:875;882
+#: /plugins/ui/views/helpers/table.php:1323
+#: /plugins/ui/views/helpers/x_form.php:83;90
+msgid "friday"
+msgstr "viernes"
+
+#: /plugins/circulars/views/circulars/edit.ctp:3
+#: /plugins/circulars/views/circulars/review.ctp:2
+msgid "Spanish"
+msgstr "Español"
+
+#: /plugins/circulars/views/circulars/edit.ctp:4
+#: /plugins/circulars/views/circulars/review.ctp:3
+msgid "Galician"
+msgstr "Galego"
+
+#: /plugins/circulars/views/circulars/index.ctp:57;115
+#: /plugins/resources/views/resources/found.ctp:19
+#: /plugins/resources/views/resources/index.ctp:50
+msgid "View"
+msgstr "Ver"
+
+#: /plugins/circulars/views/circulars/ready.ctp:6
+#: /plugins/menus/views/menu_items/edit.ctp:14
+#: /plugins/resources/views/batches/edit.ctp:10
+#: /plugins/resources/views/resources/edit.ctp:17
+#: /plugins/resources/views/resources/found.ctp:39
+#: /plugins/resources/views/resources/search.ctp:6
+msgid "Admin"
+msgstr "Administrar"
+
+#: /plugins/contents/controllers/items_controller.php:477
+msgid "Invalid %s"
+msgstr "%s no válido"
+
+#: /plugins/contents/controllers/sites_controller.php:62
+msgid "Changes saved to Site"
+msgstr "Cambios guardados a Sitio"
+
+#: /plugins/contents/controllers/sites_controller.php:65
+msgid "Site couldn't be saved"
+msgstr "Sitio no se pudo guardar"
+
+#: /plugins/contents/controllers/sites_controller.php:73
+msgid "Invalid Site"
+msgstr "Sitio no válido"
+
+#: /plugins/contents/views/elements/items/widgets/social.ctp:27
+msgid "Like"
+msgstr "Me gusta"
+
+#: /plugins/contents/views/elements/items/widgets/social.ctp:28
+msgid "Twitt"
+msgstr "Tuitear"
+
+#: /plugins/contents/views/elements/items/widgets/social.ctp:29;31
+msgid "Share"
+msgstr "Compartir"
+
+#: /plugins/contents/views/items/add.ctp:4
+#: /plugins/licenses/views/licenses/index.ctp:9
+#: /plugins/raffles/views/prizes/edit.ctp:11
+#: /plugins/ui/views/helpers/backend.php:124
+#: /plugins/ui/views/helpers/header.php:37
+msgid "Create %s"
+msgstr "Crear %s"
+
+#: /plugins/contents/views/items/edit.ctp:20
+#: /plugins/raffles/views/prizes/edit.ctp:13
+#: /plugins/ui/views/helpers/backend.php:126
+#: /plugins/ui/views/helpers/header.php:39
+msgid "Modify %s '%s'"
+msgstr "Modificar %s '%s'"
+
+#: /plugins/filters/views/helpers/simple_filter.php:65
+#: /plugins/menus/views/elements/subnav.ctp:25
+msgid "Filter"
+msgstr "Aplicar Filtro"
+
+#: /plugins/filters/views/helpers/simple_filter.php:70
+msgid "Reset Filter"
+msgstr "Quitar filtro"
+
+#: /plugins/filters/views/helpers/simple_filter.php:154
+msgid "Whatever"
+msgstr "Cualquiera"
+
+#: /plugins/filters/views/helpers/simple_filter.php:176
+msgid "No"
+msgstr "No"
+
+#: /plugins/filters/views/helpers/simple_filter.php:177
+msgid "Yes"
+msgstr "Sí"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:46
+msgid "start_date is a required condition"
+msgstr "start_date es una condición requerida"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:51
+msgid "start_date must be in the format yyyy-mm-dd"
+msgstr "start_date debe estar en el formato yyyy-mm-dd"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:56
+msgid "end_date is a required condition"
+msgstr "end_date es una condición requerida"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:61
+msgid "end_date must be in the format yyyy-mm-dd"
+msgstr "end_date debe estar e el formato yyyy-mm-dd"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:67
+msgid "limit must be an integer"
+msgstr "limit debe ser un entero"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:72
+msgid "limit must be between 1 and 10,000"
+msgstr "limit debe estar entre 1 y 10.000"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:82
+msgid "page must be an integer"
+msgstr "page debe ser un entero"
+
+#: /plugins/gdata/models/datasources/gdata/gdata_analytics.php:86
+msgid "page must be greater than or equal to 1"
+msgstr "page debe ser mayor que o igual a 1"
+
+#: /plugins/gdata/views/analytics/index.ctp:63
+msgid "Results %start% to %end% of <b>%count%</b>"
+msgstr "Resultados %start% a %end% de <b>%count%</b>"
+
+#: /plugins/gdata/views/analytics/index.ctp:102
+msgid "Previous"
+msgstr "Anterior"
+
+#: /plugins/gdata/views/analytics/index.ctp:104
+msgid "Next"
+msgstr "Siguiente"
+
+#: /plugins/licenses/views/licenses/edit.ctp:4
+msgid "Editing %s"
+msgstr "Modificando %s"
+
+#: /plugins/menus/views/helpers/bar.php:80
+msgid "Search..."
+msgstr "Buscar…"
+
+#: /plugins/menus/views/helpers/bar.php:88
+#: /plugins/resources/views/resources/search.ctp:37
+#: /plugins/searchable/views/elements/search.ctp:12
+msgid "Search"
+msgstr "Buscar"
+
+#: /plugins/menus/views/menu_items/edit.ctp:23
+#: /plugins/resources/views/batches/edit.ctp:20
+#: /plugins/resources/views/resources/edit.ctp:27
+msgid "Are you sure you want to delete %s?"
+msgstr "¿Esta seguro que desea eliminar %S?"
+
+#: /plugins/menus/views/menus/ajax/index.ctp:19
+msgid "Remove"
+msgstr "Quitar"
+
+#: /plugins/resources/controllers/resources_controller.php:233
+msgid " (Me)"
+msgstr " (Yo)"
+
+#: /plugins/resources/views/elements/file_metadata.ctp:6
+#: /plugins/resources/views/resources/found.ctp:22
+#: /plugins/resources/views/resources/index.ctp:28
+#: /plugins/uploads/views/uploads/index.ctp:28
+msgid "Download"
+msgstr "Descargar"
+
+#: /plugins/resources/views/resources/found.ctp:36
+msgid "Search results for term \"%s\""
+msgstr "Resultados de búsqueda para el término \"%s\""
+
+#: /plugins/resources/views/resources/search.ctp:3
+msgid "Search %s"
+msgstr "Buscar %s"
+
+#: /plugins/resources/views/resources/search.ctp:25
+#: /plugins/searchable/views/elements/search.ctp:11
+msgid "Terms to find"
+msgstr "Buscar por palabras"
+
+#: /plugins/resources/views/resources/upgrade.ctp:47
+#: /plugins/resources/views/resources/view.ctp:74
+msgid "Submit %s '%s'"
+msgstr "Guardar los cambios en %s '%s'"
+
+#: /plugins/resumes/views/resumes/confirm.ctp:3
+msgid "Terms and conditions"
+msgstr "Términos y condiciones"
+
+#: /plugins/resumes/views/resumes/confirm.ctp:4
+msgid "Please, read the following terms and conditions."
+msgstr "Por favor, lee los siguientes términos y condiciones"
+
+#: /plugins/resumes/views/resumes/confirm.ctp:16
+#: /views/elements/confirm/confirmation.ctp:7
+#: /views/elements/confirm/delete.ctp:7
+#: /views/elements/confirm/selection.ctp:7
+msgid "Cancel"
+msgstr "No acepto"
+
+#: /plugins/resumes/views/resumes/confirm.ctp:17
+msgid "Accept"
+msgstr "Acepto"
+
+#: /plugins/school/views/students/index.ctp:10
+msgid "Add %s"
+msgstr "Añadir %s"
+
+#: /plugins/searchable/views/elements/search.ctp:2
+msgid "Looking for something?"
+msgstr "¿Buscas algo?"
+
+#: /plugins/tickets/controllers/tickets_controller.php:69;76
+msgid "Invalid Ticket"
+msgstr "Ticket no válido"
+
+#: /plugins/tickets/controllers/tickets_controller.php:78
+msgid "Ticket deleted"
+msgstr "Ticket eliminado"
+
+#: /plugins/tickets/controllers/tickets_controller.php:98
+msgid "Data purged"
+msgstr "Fecha limpieza"
+
+#: /plugins/tickets/controllers/tickets_controller.php:100
+msgid "No changes"
+msgstr "Sin cambios"
+
+#: /plugins/ui/views/helpers/button.php:16
+msgid "alert"
+msgstr "Alerta"
+
+#: /plugins/ui/views/helpers/f_form.php:162
+#: /plugins/ui/views/helpers/x_form.php:288
+msgid "Add a new %s to this %s"
+msgstr "Añadir un nuevo %s a este %s"
+
+#: /plugins/ui/views/helpers/f_form.php:235;483
+msgid "Discard changes"
+msgstr "Descartar cambios"
+
+#: /plugins/ui/views/helpers/f_form.php:484
+msgid "Save and Keep Working"
+msgstr "Guardar y seguir trabajando"
+
+#: /plugins/ui/views/helpers/f_form.php:811
+#: /plugins/ui/views/helpers/x_form.php:125
+msgid "Check All"
+msgstr "Marcar todos"
+
+#: /plugins/ui/views/helpers/f_form.php:812
+#: /plugins/ui/views/helpers/x_form.php:126
+msgid "Uncheck All"
+msgstr "Desmarcar todos"
+
+#: /plugins/ui/views/helpers/f_form.php:883
+#: /plugins/ui/views/helpers/table.php:1324
+#: /plugins/ui/views/helpers/x_form.php:91
+msgid "saturday"
+msgstr "sábado"
+
+#: /plugins/ui/views/helpers/f_form.php:884
+#: /plugins/ui/views/helpers/table.php:1325
+#: /plugins/ui/views/helpers/x_form.php:92
+msgid "sunday"
+msgstr "domingo"
+
+#: /plugins/ui/views/helpers/f_html.php:38
+msgid "Permalink"
+msgstr "Enlace permantente"
+
+#: /plugins/ui/views/helpers/table.php:86
+msgid "There is no data to show."
+msgstr "No hay datos para mostrar"
+
+#: /plugins/ui/views/helpers/table.php:151;185
+msgid "Are you sure? This action affects several records and is no undoable."
+msgstr ""
+"¿Estás seguro/a? Esta acción afecta a varios registros y no se puede "
+"deshacer."
+
+#: /plugins/ui/views/helpers/table.php:154;189
+msgid "Action to perform with selection"
+msgstr "Acción para realizar con la selección"
+
+#: /plugins/ui/views/helpers/table.php:161;191
+msgid "-- Select an action --"
+msgstr "-- Escoge una acción --"
+
+#: /plugins/ui/views/helpers/table.php:165;196
+msgid "Execute"
+msgstr "Ejecutar"
+
+#: /plugins/ui/views/helpers/table.php:705
+msgid "Select"
+msgstr "Seleccionar"
+
+#: /plugins/ui/views/helpers/table.php:1039
+msgid "Actions"
+msgstr "Acciones"
+
+#: /plugins/ui/views/helpers/table.php:1329
+msgid "mo"
+msgstr "lu"
+
+#: /plugins/ui/views/helpers/table.php:1330
+msgid "tu"
+msgstr "ma"
+
+#: /plugins/ui/views/helpers/table.php:1331
+msgid "we"
+msgstr "mi"
+
+#: /plugins/ui/views/helpers/table.php:1332
+msgid "th"
+msgstr "ju"
+
+#: /plugins/ui/views/helpers/table.php:1333
+msgid "fr"
+msgstr "vi"
+
+#: /plugins/ui/views/helpers/table.php:1334
+msgid "sa"
+msgstr "sá"
+
+#: /plugins/ui/views/helpers/table.php:1335
+msgid "su"
+msgstr "do"
+
+#: /plugins/ui/views/helpers/x_form.php:475
+msgid "Save and continue working"
+msgstr "Guardar y seguir trabajando"
+
+#: /plugins/uploads/controllers/image_collections_controller.php:44
+msgid "Invalid Image Collection"
+msgstr "Colección de imágenes no válida"
+
+#: /plugins/uploads/controllers/uploads_controller.php:181
+msgid "Invalid Upload"
+msgstr "Archivo no válido"
+
+#: /plugins/uploads/vendors/file_uploader.php:112
+msgid "untitled"
+msgstr "Sin título"
+
+#: /views/elements/mh-footer.ctp:33
+msgid "Powered by Milhojas. Credits"
+msgstr "Hecho con Milhojas. Créditos"
+
+#: /views/elements/mh-mini-paginator.ctp:9
+#: /views/elements/paginators/mh-mini-paginator.ctp:9
+msgid "Count: %count%. Page %page% of %pages%."
+msgstr "Total: %count%. Página %page% de %pages%."
+
+#: /views/elements/confirm/confirmation.ctp:4
+#: /views/elements/confirm/delete.ctp:4
+msgid "About to <strong>%s</strong> %s, identified by <strong>%s</strong>"
+msgstr "Voy a <strong>%s</strong> %s, identificado por <strong>%s</strong>."
+
+#: /views/elements/confirm/confirmation.ctp:20
+#: /views/elements/confirm/delete.ctp:20
+msgid "You requested to delete %s, identified by %s: <strong>%s</strong>."
+msgstr "Has seleccionado borrar %s, identificado por %s: <strong>%s</strong>."
+
+#: /views/elements/confirm/confirmation.ctp:31
+#: /views/elements/confirm/delete.ctp:31
+#: /views/elements/confirm/selection.ctp:45
+msgid "Don't execute"
+msgstr "No Ejecutar"
+
+#: /views/elements/confirm/confirmation.ctp:32
+#: /views/elements/confirm/delete.ctp:32
+#: /views/elements/confirm/selection.ctp:46
+msgid "Yes, continue"
+msgstr "Sí, continuar"
+
+#: /views/elements/confirm/selection.ctp:4
+msgid "About to execute action on a selection of %s"
+msgstr "Estás a punto de ejecutar una acción en una selección de %s"
+
+#: /views/elements/confirm/selection.ctp:21
+msgid ""
+"You requested <strong>%s</strong> with the following selection of records: "
+msgstr ""
+"Has solicitado <strong>%s</strong> con la siguiente selección de registros:"
+
+#: /views/elements/paginators/mh-public-paginator.ctp:14
+msgid "Page %page% of %pages%."
+msgstr "Página %page% de %pages%."
+
+#: /views/helpers/presentation_model/transition_builder.php:14
+msgid "Available actions"
+msgstr "Acciones disponibles"
+
+#: /views/pages/credits.ctp:3
+msgid "Credits"
+msgstr "Créditos"
+
+#: /views/pages/home.ctp:4
+msgid "Site feed"
+msgstr "Feed del sitio"
+
+#: /views/pages/playground.ctp:4
+msgid "Playground"
+msgstr "Patio"
+
+#: /webroot/test.php:95
+msgid "Debug setting does not allow access to this url."
+msgstr "El ajuste de Debug no permite el acceso a esta url."
+
+#~ msgid " has "
+#~ msgstr "tiene"
+
+#~ msgid " hasn't "
+#~ msgstr "no tiene"
+
+#~ msgid "The %s could not be found. Please, try again."
+#~ msgstr "El %s no pudo ser encontrado. Por favor, inténtalo otra vez."

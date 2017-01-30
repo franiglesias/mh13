@@ -1,0 +1,28 @@
+/* mh13/core/entry.css */
+
+.entry {
+	margin-bottom: 30px;
+}
+
+.entry.featured {
+}
+
+.entry-footer {
+	margin-top: 15px;
+	color: #7F7F7F;
+}
+
+.entry-object {
+	margin-right: 15px;
+	margin-bottom: 15px;
+	}
+
+.entry-heading {
+}
+
+.widget .entry-heading {
+}
+
+#home-featured .entry-body {
+min-height: 160px;
+}

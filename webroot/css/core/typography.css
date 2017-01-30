@@ -1,0 +1,13 @@
+/* mh13/core/typography.css */
+
+.heading {
+	font-size: 150%;
+	color: #000;
+	font-weight: bold;
+}
+
+.subheading {
+	font-size: 120%;
+	color: #595959;
+	font-weight: bold;
+}

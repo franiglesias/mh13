@@ -1,0 +1,55 @@
+/* mh13/core/story.css */
+
+
+.story {
+	overflow: hidden;
+}
+
+.story-header {
+	overflow: hidden;
+}
+
+.story-heading {
+}
+
+.story-body {
+	overflow: hidden;
+}
+
+.story-extras {
+	overflow: hidden;
+}
+
+.story-image {
+}
+
+.story-body h2,
+.story-body h3,
+.story-body h4,
+.story-body h5,
+.story-body h6 {
+}
+
+.story-extras h2,
+.story-extras h3,
+.story-extras h4,
+.story-extras h5,
+.story-extras h6 {
+}
+
+
+.story-body > p {
+}
+
+.story-body > ul, .story-body > ol {
+}
+
+.story-body li {
+}
+
+.story-body blockquote{
+}
+
+
+/* .story (end) */
+

@@ -1,0 +1,1 @@
+<div class="panel callout"><p class="text-center"><?php __d('uploads', 'No files yet.'); ?></p></div>

@@ -1,0 +1,1 @@
+<p><strong><?php echo $candidate['Resume']['firstname'].' '. $candidate['Resume']['lastname']; ?></strong> ha añadido su currículum a nuestra base de datos.</p>

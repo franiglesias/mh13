@@ -1,0 +1,781 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: RESUMES-MILHOJAS 13\n"
+"POT-Creation-Date: 2015-01-12 13:21+0100\n"
+"PO-Revision-Date: 2015-01-12 15:41+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@mac.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/resumes/controllers/merit_types_controller.php:28;31;37
+#: /plugins/resumes/views/merit_types/index.ctp:5
+msgid "Merit Type"
+msgstr "Categoría"
+
+#: /plugins/resumes/controllers/merits_controller.php:46;49;55
+msgid "Merit"
+msgstr "Mérito"
+
+#: /plugins/resumes/controllers/positions_controller.php:16;35;40;49
+msgid "position"
+msgstr "puesto"
+
+#: /plugins/resumes/controllers/resumes_controller.php:46;64
+#: /plugins/resumes/views/resumes/changepwd.ctp:9
+#: /plugins/resumes/views/resumes/login.ctp:10
+#: /plugins/resumes/views/resumes/remove.ctp:12
+msgid "Resume"
+msgstr "Currículum Vitae"
+
+#: /plugins/resumes/controllers/resumes_controller.php:58
+msgid "We have received your resume"
+msgstr "Hemos recibido tu currículum"
+
+#: /plugins/resumes/controllers/resumes_controller.php:89
+msgid "There is no resume registered with that email."
+msgstr "No encontramos un currículum registrado con ese correo electrónico."
+
+#: /plugins/resumes/controllers/resumes_controller.php:109
+msgid "Googbye!"
+msgstr "¡Adiós!"
+
+#: /plugins/resumes/controllers/resumes_controller.php:118;138
+msgid "Changes has been applied."
+msgstr "Se han guardado los cambios."
+
+#: /plugins/resumes/controllers/resumes_controller.php:121;141
+msgid "Data could not be saved."
+msgstr "No se pudo guardar la información."
+
+#: /plugins/resumes/controllers/resumes_controller.php:158
+msgid "Your data has been permanently removed."
+msgstr "Tus datos han sido borrados permanentemente."
+
+#: /plugins/resumes/controllers/resumes_controller.php:160
+msgid "You selected not to remove you data."
+msgstr "Has elegido no eliminar tus datos."
+
+#: /plugins/resumes/controllers/resumes_controller.php:213
+msgid "Email unknown."
+msgstr "Correo electrónico desconocido."
+
+#: /plugins/resumes/models/resume.php:244
+msgid "Unable to found a valid Resume with the data provided."
+msgstr "No encuentro un curriculum válido con los datos proporcionados."
+
+#: /plugins/resumes/views/elements/resume.ctp:3
+#: /plugins/resumes/views/resumes/create.ctp:24
+#: /plugins/resumes/views/resumes/index.ctp:14
+#: /plugins/resumes/views/resumes/login.ctp:14
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: /plugins/resumes/views/elements/resume.ctp:4
+#: /plugins/resumes/views/resumes/create.ctp:68
+#: /plugins/resumes/views/resumes/modify.ctp:79
+msgid "Phone"
+msgstr "Teléfono"
+
+#: /plugins/resumes/views/elements/resume.ctp:5
+#: /plugins/resumes/views/resumes/create.ctp:73
+#: /plugins/resumes/views/resumes/index.ctp:18
+#: /plugins/resumes/views/resumes/modify.ctp:84
+msgid "Mobile"
+msgstr "Móvil"
+
+#: /plugins/resumes/views/elements/resume.ctp:6
+#: /plugins/resumes/views/resumes/modify.ctp:43
+msgid "Address"
+msgstr "Dirección"
+
+#: /plugins/resumes/views/elements/resume.ctp:7
+#: /plugins/resumes/views/resumes/modify.ctp:67
+msgid "City"
+msgstr "Ciudad"
+
+#: /plugins/resumes/views/elements/resume.ctp:55
+msgid "There are no data for this section."
+msgstr "No hay datos para esta sección."
+
+#: /plugins/resumes/views/helpers/resume.php:43
+msgid "Category"
+msgstr "Categoria"
+
+#: /plugins/resumes/views/helpers/resume.php:44
+msgid "Merits in this category"
+msgstr "Méritos en esta categoría"
+
+#: /plugins/resumes/views/helpers/resume.php:45
+msgid "Add merits"
+msgstr "Añade méritos"
+
+#: /plugins/resumes/views/helpers/resume.php:51
+msgid "You haven't any merits yet in this category. Add some."
+msgstr "No tienes méritos en esta categoría. Añade algunos."
+
+#: /plugins/resumes/views/helpers/resume.php:53
+msgid "Add new merits in this category."
+msgstr "Añade nuevos méritos en esta categoría."
+
+#: /plugins/resumes/views/helpers/resume.php:86;120
+msgid "Visit web: %s"
+msgstr "Visitar la web: %s"
+
+#: /plugins/resumes/views/layouts/resumes.ctp:6
+#: /plugins/resumes/views/resumes/forgot_ticket_sent.ctp:9
+#: /plugins/resumes/views/resumes/recover.ctp:9
+msgid "Go to main page"
+msgstr "Ir a la página principal."
+
+#: /plugins/resumes/views/layouts/resumes.ctp:10
+msgid "Preview your CV"
+msgstr "Previsualiza tu CV"
+
+#: /plugins/resumes/views/layouts/resumes.ctp:14
+msgid "Personal and contact data"
+msgstr "Datos personales y de contacto"
+
+#: /plugins/resumes/views/layouts/resumes.ctp:21
+#: /plugins/resumes/views/resumes/changepwd.ctp:4
+msgid "Change your password"
+msgstr "Cambia tu contraseña"
+
+#: /plugins/resumes/views/layouts/resumes.ctp:25
+msgid "Remove your CV"
+msgstr "Elimina tu CV"
+
+#: /plugins/resumes/views/layouts/resumes.ctp:30
+msgid "Exit"
+msgstr "Salir"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:9
+msgid "Edit Merit Categories"
+msgstr "Modificar Categorías de Méritos"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:14
+msgid "Merit Category"
+msgstr "Categoría"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:16
+msgid "A category to group facts in applicant's CV."
+msgstr ""
+"Una categoría para agrupar los méritos en los currículums de los solicitantes"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:19
+msgid "Merit Help"
+msgstr "Texto de ayuda para categoría"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:21
+msgid ""
+"A text to help our visitor to understand the kind of information they should "
+"provide here."
+msgstr ""
+"Un texto para ayudar a nuestro visitante a entender la clase de información "
+"que debe proporcionar aquí."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:28
+#: /plugins/resumes/views/merit_types/index.ctp:8
+msgid "Label for title"
+msgstr "Etiqueta para título"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:30
+msgid "A label for the title field."
+msgstr "Una etiqueta para el campo de título en esta categoría."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:33
+#: /plugins/resumes/views/merit_types/index.ctp:12
+msgid "Label for remarks"
+msgstr "Etiqueta para observaciones"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:35
+msgid "A label for the description field."
+msgstr "Una etiqueta para el campo de descripción en esta categoría."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:42
+msgid "Ignore dates"
+msgstr "Ignorar fechas"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:43
+msgid "Check this if dates are not needed to evaluate this merit."
+msgstr ""
+"Marcar esta casilla si no son necesarias las fechas para evaluar este mérito."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:48
+msgid "How to use dates"
+msgstr "Como usar las fechas"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:50
+msgid "No dates"
+msgstr "No usar fechas"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:51
+msgid "Unique date"
+msgstr "Fecha única"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:52
+msgid "Use both start and end dates"
+msgstr "Usar fecha de inicio y fin"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:54
+msgid "Select how to use dates for this merit type"
+msgstr "Escoge cómo usar las fechas para esta categoría"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:58
+msgid "Label for start date"
+msgstr "Etiqueta para fecha de inicio"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:60
+msgid "A label for the start date field."
+msgstr "Una etiqueta para el campo de año de inicio esta categoría."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:63
+msgid "Label for end date"
+msgstr "Etiqueta para fecha de finalización"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:65
+msgid "A label for the end date field."
+msgstr "Una etiqueta para el campo de año de finalización en esta categoría."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:72
+msgid "Allow URL"
+msgstr "Permitir una URL"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:73
+msgid "Check if a URL is needed to provide evidence for this merit."
+msgstr ""
+"Marcar esta casilla si es necesaria una URL para proporcionar evidencia para "
+"este mérito."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:77
+msgid "Label for URL field"
+msgstr "Etiqueta para el campo de URL"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:78
+msgid "A text label for the URL field."
+msgstr "Una etiqueta para el campo de URL en esta categoría."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:86
+msgid "Allow File"
+msgstr "Permitir archivo"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:87
+msgid ""
+"Check if it is allowed to upload a file to provide evidence for this merit."
+msgstr ""
+"Marcar esta casilla se permite subir un documento como evidencia de este "
+"mérito."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:91
+msgid "Label for file field"
+msgstr "Etiqueta para el campo de subida de archivo"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:92
+msgid "A text label for the file field."
+msgstr "Una etiqueta para el campo de subida de archivo en esta categoría."
+
+#: /plugins/resumes/views/merit_types/edit.ctp:100
+msgid "Merit alias"
+msgstr "Alias de mérito"
+
+#: /plugins/resumes/views/merit_types/edit.ctp:102
+msgid "An alias for internal bindings. No special characters."
+msgstr "Un alias para enlaces internos. No usar caracteres especiales."
+
+#: /plugins/resumes/views/merit_types/index.ctp:16
+msgid "URL"
+msgstr "Web"
+
+#: /plugins/resumes/views/merit_types/index.ctp:21
+msgid "File"
+msgstr "ARchivo"
+
+#: /plugins/resumes/views/merit_types/index.ctp:41
+msgid "Merit Types"
+msgstr "Categorías"
+
+#: /plugins/resumes/views/merits/edit.ctp:1
+msgid "Job application edit %s"
+msgstr "Editar %s en solicitud de empleo"
+
+#: /plugins/resumes/views/merits/edit.ctp:25
+msgid "Title"
+msgstr "Título"
+
+#: /plugins/resumes/views/merits/edit.ctp:34
+msgid "Any detail you consider important to tell us."
+msgstr "Cualquier detalle que consideres importante contarnos."
+
+#: /plugins/resumes/views/merits/edit.ctp:44;50
+msgid "A year"
+msgstr "Un año"
+
+#: /plugins/resumes/views/merits/edit.ctp:62
+msgid ""
+"File size limited to 300 MB. Document format: we recommend PDF, others "
+"admitted. Video formats: mp4/H264. Image formats: png, jpg, gif."
+msgstr ""
+"Tamaño de archivo limitado a 300 MB. Formato de documento recomendado: PDF. "
+"Vídeos mp4/H264. Imágenes: png, jpg, gif"
+
+#: /plugins/resumes/views/merits/edit.ctp:74
+msgid "URL to an online resource relevant for this merit."
+msgstr "Dirección de un recurso en línea relevante para este mérito."
+
+#: /plugins/resumes/views/merits/show.ctp:1
+msgid "Job application manage %s"
+msgstr "Gestionar %s en solicitud de empleo"
+
+#: /plugins/resumes/views/merits/show.ctp:10
+msgid "You don't have any data for this section yet."
+msgstr "Aún no tienes datos en esta sección."
+
+#: /plugins/resumes/views/merits/show.ctp:17
+msgid "Start year"
+msgstr "Año inicio"
+
+#: /plugins/resumes/views/merits/show.ctp:21
+msgid "End year"
+msgstr "Año fin"
+
+#: /plugins/resumes/views/merits/show.ctp:59
+msgid "Add"
+msgstr "Añadir"
+
+#: /plugins/resumes/views/positions/edit.ctp:12
+msgid "Position Definition"
+msgstr "Defición de puesto"
+
+#: /plugins/resumes/views/positions/edit.ctp:17
+#: /plugins/resumes/views/positions/index.ctp:5
+msgid "Position"
+msgstr "Puesto"
+
+#: /plugins/resumes/views/positions/edit.ctp:25
+#: /plugins/resumes/views/positions/index.ctp:8
+msgid "Description"
+msgstr "Descripción"
+
+#: /plugins/resumes/views/positions/index.ctp:24
+msgid "Positions"
+msgstr "Puestos"
+
+#: /plugins/resumes/views/resumes/changepwd.ctp:1
+msgid "Job application change password"
+msgstr "Cambio de contraseña en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/changepwd.ctp:16
+#: /plugins/resumes/views/resumes/create.ctp:40
+#: /plugins/resumes/views/resumes/login.ctp:22
+msgid "Password"
+msgstr "Contraseña"
+
+#: /plugins/resumes/views/resumes/changepwd.ctp:17
+msgid "Your new password."
+msgstr "Tu nueva contraseña"
+
+#: /plugins/resumes/views/resumes/changepwd.ctp:24
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: /plugins/resumes/views/resumes/changepwd.ctp:25
+msgid "Retype your password."
+msgstr "Vuelve a escribir tu contraseña"
+
+#: /plugins/resumes/views/resumes/confirm.ctp:1
+msgid "Job application terms acceptance"
+msgstr "Aceptación de términos en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/create.ctp:1
+msgid "Create a job application"
+msgstr "Crea una solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/create.ctp:4
+msgid "Create Resume"
+msgstr "Crear currículum"
+
+#: /plugins/resumes/views/resumes/create.ctp:15
+msgid "Create your account"
+msgstr "Crea tu cuenta"
+
+#: /plugins/resumes/views/resumes/create.ctp:26
+msgid "An email for contact"
+msgstr "En correo para contacto"
+
+#: /plugins/resumes/views/resumes/create.ctp:29
+msgid "Confirm email"
+msgstr "Confirmar email"
+
+#: /plugins/resumes/views/resumes/create.ctp:31
+msgid "Please, retype the email"
+msgstr "Por favor, vuelve a escribir tu correo."
+
+#: /plugins/resumes/views/resumes/create.ctp:41
+msgid "A password"
+msgstr "Una contraseña"
+
+#: /plugins/resumes/views/resumes/create.ctp:45
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+#: /plugins/resumes/views/resumes/create.ctp:47
+msgid "Please, retype the password"
+msgstr "Por favor, vuelve a escribir tu contraseña"
+
+#: /plugins/resumes/views/resumes/create.ctp:54
+#: /plugins/resumes/views/resumes/modify.ctp:27
+msgid "First name"
+msgstr "Nombre"
+
+#: /plugins/resumes/views/resumes/create.ctp:56
+#: /plugins/resumes/views/resumes/modify.ctp:29
+msgid "Your first name"
+msgstr "Tu nombre"
+
+#: /plugins/resumes/views/resumes/create.ctp:59
+#: /plugins/resumes/views/resumes/modify.ctp:32
+msgid "Last name"
+msgstr "Apellido"
+
+#: /plugins/resumes/views/resumes/create.ctp:61
+#: /plugins/resumes/views/resumes/modify.ctp:34
+msgid "Your Last name"
+msgstr "Tu apellido"
+
+#: /plugins/resumes/views/resumes/create.ctp:70
+#: /plugins/resumes/views/resumes/modify.ctp:81
+msgid "Your contact phone"
+msgstr "Tu teléfono de contacto"
+
+#: /plugins/resumes/views/resumes/create.ctp:75
+#: /plugins/resumes/views/resumes/modify.ctp:86
+msgid "Mobile or alternative phone"
+msgstr "Teléfono móvil o alternativo"
+
+#: /plugins/resumes/views/resumes/create.ctp:83
+msgid "Create my resume, please!"
+msgstr "Crea mi currículum, por favor."
+
+#: /plugins/resumes/views/resumes/forgot.ctp:1
+msgid "Job application forgotted credentials"
+msgstr "Credenciales olvidadas  en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/forgot.ctp:4
+msgid "Forgotted credentials"
+msgstr "Credenciales olvidadas"
+
+#: /plugins/resumes/views/resumes/forgot.ctp:7
+msgid "Please, provide your email so we can generate a new password for you."
+msgstr ""
+"Por favor, indícanos tu correo electrónico para que podamos generar una "
+"contraseña nueva para ti."
+
+#: /plugins/resumes/views/resumes/forgot.ctp:8
+msgid ""
+"We will send you an email with a link to regenerate the password when you "
+"are ready. If, at the last moment, you decide that you don't want to renew "
+"the password, ignore the message. The link will expire in a few days."
+msgstr ""
+"Te enviaremos un correo con un enlace para regenerar la contraseña cuando te "
+"parezca bien. Si, en el último momento decides que no quieres renovar la "
+"contraseña, ignora el mensaje. El enlace se invalidará en unos días."
+
+#: /plugins/resumes/views/resumes/forgot.ctp:9
+msgid ""
+"As last step, we will send the new provisional password to your email. "
+"Please, access to your profile and change the password as soon as posible."
+msgstr ""
+"Como último paso, te enviaremos una contraseña provisional a tu correo. Por "
+"favor, accede a tu CV y cambia la contraseña tan pronto como puedas."
+
+#: /plugins/resumes/views/resumes/forgot.ctp:13
+msgid "Identification data"
+msgstr "Datos de identificación"
+
+#: /plugins/resumes/views/resumes/forgot.ctp:17
+msgid "Recovery Email"
+msgstr "Correo para recuperar la contraseña"
+
+#: /plugins/resumes/views/resumes/forgot.ctp:18
+msgid "The email associated with your resume."
+msgstr "El correo electrónico asociado a tu CV"
+
+#: /plugins/resumes/views/resumes/forgot.ctp:27
+msgid "No, thanks"
+msgstr "No, gracias."
+
+#: /plugins/resumes/views/resumes/forgot.ctp:28
+msgid "Help me to recover my password"
+msgstr "Ayúdame a recuperar mi contraseña"
+
+#: /plugins/resumes/views/resumes/forgot_ticket_sent.ctp:1
+msgid "Job application forgotten credentials last step"
+msgstr "Último paso de recuperación de credenciales en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/forgot_ticket_sent.ctp:4
+msgid "Recovering password"
+msgstr "Recuperando la contraseña"
+
+#: /plugins/resumes/views/resumes/forgot_ticket_sent.ctp:5
+msgid "Only one step more, and you will be done"
+msgstr "Sólo un paso más, y habremos terminado"
+
+#: /plugins/resumes/views/resumes/forgot_ticket_sent.ctp:8
+msgid ""
+"Please, check your email and visit the URL provided to renew your password."
+msgstr ""
+"Por favor, comprueba tu correo y visita el enlace incluído para renovar tu "
+"contraseña."
+
+#: /plugins/resumes/views/resumes/home.ctp:3
+msgid "Job zone"
+msgstr "Empleo"
+
+#: /plugins/resumes/views/resumes/home.ctp:5
+#: /plugins/resumes/views/resumes/login.ctp:5
+msgid "Would you like to work with us?"
+msgstr "¿Te gustaría trabajar con nosotros?"
+
+#: /plugins/resumes/views/resumes/home.ctp:6
+msgid "We are looking forward educators like you"
+msgstr "Buscamos educadores como tú"
+
+#: /plugins/resumes/views/resumes/home.ctp:16
+msgid "Do you want to send us your CV?"
+msgstr "¿Quieres enviarnos tu currículum?"
+
+#: /plugins/resumes/views/resumes/home.ctp:19
+msgid "Create a resume"
+msgstr "Envía un currículum"
+
+#: /plugins/resumes/views/resumes/home.ctp:28
+msgid "Have you send us your CV and want to review it?"
+msgstr "¿Has enviado tu CV y quieres revisarlo?"
+
+#: /plugins/resumes/views/resumes/home.ctp:31
+msgid "Modify your resume"
+msgstr "Modifica tu currículum"
+
+#: /plugins/resumes/views/resumes/home.ctp:41
+msgid "Have you forgot your password?"
+msgstr "¿Has olvidado o perdido tu contraseña?"
+
+#: /plugins/resumes/views/resumes/home.ctp:44
+msgid "Reset your password"
+msgstr "Cambia tu contraseña"
+
+#: /plugins/resumes/views/resumes/home.ctp:55
+msgid "Resume management page for %s"
+msgstr "Página de gestión de currículum para %s"
+
+#: /plugins/resumes/views/resumes/home.ctp:58
+msgid "Your personal zone"
+msgstr "Tu área personal"
+
+#: /plugins/resumes/views/resumes/home.ctp:59
+msgid "Manage your resume here"
+msgstr "Gestiona tu currículum"
+
+#: /plugins/resumes/views/resumes/home.ctp:62
+msgid "You are logged in with the following data:"
+msgstr "Estás conectado con los siguientes datos:"
+
+#: /plugins/resumes/views/resumes/home.ctp:63
+msgid "Email: %s"
+msgstr "Correo electrónico: %s"
+
+#: /plugins/resumes/views/resumes/home.ctp:64
+msgid "Name: %s"
+msgstr "Nombre: %s"
+
+#: /plugins/resumes/views/resumes/home.ctp:66
+msgid "Great! Your profile is complete."
+msgstr "¡Bien! Tu datos de contacto están completos."
+
+#: /plugins/resumes/views/resumes/home.ctp:68
+msgid "Please, complete your personal and contact data"
+msgstr "Por favor, completa tus datos personales y de contacto"
+
+#: /plugins/resumes/views/resumes/home.ctp:69
+msgid "You have completed %.2f %% of your profile."
+msgstr "Has completado un %.2f %% de tus datos de contacto."
+
+#: /plugins/resumes/views/resumes/home.ctp:78
+msgid "Go to Personal and contact data"
+msgstr "Ir a datos personales y de contacto"
+
+#: /plugins/resumes/views/resumes/home.ctp:85
+msgid "Complete curriculum data into the following categories:"
+msgstr "Completa los datos de tu currículum en las siguientes categorías:"
+
+#: /plugins/resumes/views/resumes/index.ctp:7
+#: /plugins/resumes/views/resumes/modify.ctp:94
+msgid "Photo"
+msgstr "Fotografía"
+
+#: /plugins/resumes/views/resumes/index.ctp:10
+msgid "Full name"
+msgstr "Nombre completo"
+
+#: /plugins/resumes/views/resumes/index.ctp:37
+msgid "Resumes"
+msgstr "Currículums"
+
+#: /plugins/resumes/views/resumes/index.ctp:45
+#: /plugins/resumes/views/resumes/search.ctp:27
+msgid "Search"
+msgstr "Buscar"
+
+#: /plugins/resumes/views/resumes/login.ctp:1
+msgid "Job application login"
+msgstr "Entrada a zona de empleo"
+
+#: /plugins/resumes/views/resumes/login.ctp:4
+msgid "Applicants login"
+msgstr "Entrada de solicitante"
+
+#: /plugins/resumes/views/resumes/login.ctp:32
+msgid "Login"
+msgstr "Acceder"
+
+#: /plugins/resumes/views/resumes/login.ctp:33
+msgid "Forgot your password?"
+msgstr "¿Olvidaste o perdiste tu contraseña?"
+
+#: /plugins/resumes/views/resumes/modify.ctp:1
+msgid "Job application Resume edition"
+msgstr "Editar currículum en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/modify.ctp:10
+msgid "Edit your resume"
+msgstr "Modifica tu currículum"
+
+#: /plugins/resumes/views/resumes/modify.ctp:14;105
+msgid "Introduce yourself"
+msgstr "Tu carta de presentación"
+
+#: /plugins/resumes/views/resumes/modify.ctp:15;21
+msgid "Contact data"
+msgstr "Datos de contacto"
+
+#: /plugins/resumes/views/resumes/modify.ctp:42
+msgid "Your complete address"
+msgstr "Tu dirección completa"
+
+#: /plugins/resumes/views/resumes/modify.ctp:51
+msgid "2nd line address"
+msgstr "2ª línea de dirección"
+
+#: /plugins/resumes/views/resumes/modify.ctp:52
+msgid "Optional. If you need to include more data"
+msgstr "Opcional, si necesitas incluir más datos"
+
+#: /plugins/resumes/views/resumes/modify.ctp:61
+msgid "PC"
+msgstr "CP"
+
+#: /plugins/resumes/views/resumes/modify.ctp:62
+msgid "Post Code"
+msgstr "Código postal"
+
+#: /plugins/resumes/views/resumes/modify.ctp:66
+msgid "Your City Name"
+msgstr "El nombre de tu ciudad"
+
+#: /plugins/resumes/views/resumes/modify.ctp:71;72
+msgid "Province"
+msgstr "Provincia"
+
+#: /plugins/resumes/views/resumes/modify.ctp:95
+msgid "Photograph with centered face (will be framed)."
+msgstr "Fotografía con la cara centrada (será recortada)."
+
+#: /plugins/resumes/views/resumes/modify.ctp:109
+msgid "Position you apply for"
+msgstr "Tipo de puesto que solicitas"
+
+#: /plugins/resumes/views/resumes/modify.ctp:118
+msgid "Introduction"
+msgstr "Presentación"
+
+#: /plugins/resumes/views/resumes/preview.ctp:2
+#: /plugins/resumes/views/resumes/view.ctp:2
+msgid "Resume preview %s"
+msgstr "Vista previa de Currículum Vitae de %s"
+
+#: /plugins/resumes/views/resumes/recover.ctp:1
+msgid "Job application renew password"
+msgstr "Renovar contraseña en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/recover.ctp:4
+msgid "Your password has been renewed."
+msgstr "Tu contraseña ha sido cambiada."
+
+#: /plugins/resumes/views/resumes/recover.ctp:5
+msgid ""
+"We have generated a new password for you and just send it to your email."
+msgstr ""
+"Hemos creado una contraseña nueva para ti y acabamos de enviarla a tu correo "
+"electrónico."
+
+#: /plugins/resumes/views/resumes/recover.ctp:8
+msgid "Please, check your email."
+msgstr "Por favor, comprueba tu correo."
+
+#: /plugins/resumes/views/resumes/remove.ctp:1
+msgid "Job application remove resume"
+msgstr "Eliminar currículum en solicitud de empleo"
+
+#: /plugins/resumes/views/resumes/remove.ctp:4
+msgid "Are you sure do you want to remove your Resume?"
+msgstr "¿Seguro que quieres eliminar tu Currículum?"
+
+#: /plugins/resumes/views/resumes/remove.ctp:17
+msgid "Yes, remove my CV"
+msgstr "Sí, eliminar mi CV"
+
+#: /plugins/resumes/views/resumes/remove.ctp:25
+msgid "I want to delete my resume"
+msgstr "Quiero eliminar mi currículum"
+
+#: /plugins/resumes/views/resumes/remove.ctp:26
+msgid "No, go back"
+msgstr "No. Vuelve atrás."
+
+#: /plugins/resumes/views/resumes/search.ctp:4
+msgid "Search resumes"
+msgstr "Buscar currículums"
+
+#: /plugins/resumes/views/resumes/search.ctp:8
+msgid "Index"
+msgstr "Índice"
+
+#: /plugins/resumes/views/resumes/search.ctp:17
+msgid "Search Resumes"
+msgstr "Buscar currículums"
+
+#: /plugins/resumes/views/resumes/search.ctp:20
+msgid "Search terms"
+msgstr "Palabras para buscar"
+
+#: /plugins/resumes/views/resumes/search.ctp:21
+msgid ""
+"<p>You can use boolean operator such +term (means AND), -term (means NO). No "
+"operator implies OR.</p>"
+msgstr ""
+"<p>Puedes utilizar operadores booleanos como +palabra (significa Y), -"
+"palabra (significa NO). Si no hay operador se entiende que es O. Por "
+"ejemplo: Lengua +Inglés busca currículums que incluyan a la vez lengua e "
+"inglés.</p>"
+
+#: /plugins/resumes/views/resumes/view.ctp:6
+msgid "Showing %s's resume"
+msgstr "Mostrando el CV de %s"

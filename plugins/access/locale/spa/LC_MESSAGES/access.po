@@ -1,0 +1,718 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Milhojas.Access\n"
+"POT-Creation-Date: 2015-07-01 11:24+0200\n"
+"PO-Revision-Date: 2015-07-01 11:30+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <cakephpilia@gmail.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/access/controllers/ownerships_controller.php:32;35;42
+msgid "Ownership"
+msgstr "Propiedad"
+
+#: /plugins/access/controllers/users_controller.php:35
+msgid "Unable to login with Google Apps."
+msgstr "Incapaz de acceder con la cuenta Google Apps"
+
+#: /plugins/access/controllers/users_controller.php:247
+msgid "Account activated."
+msgstr "Cuenta activada."
+
+#: /plugins/access/controllers/users_controller.php:249
+msgid "No changes. Account activated yet."
+msgstr "Sin cambios porque la cuenta ya estaba activada."
+
+#: /plugins/access/controllers/users_controller.php:252
+msgid "Invalid User or User was active. No account was activated."
+msgstr ""
+"Usuario/a no válido/a o estaba activo. No se ha activado ninguna cuenta."
+
+#: /plugins/access/controllers/users_controller.php:254
+msgid "Account activated, but I've been unable to send email."
+msgstr "Cuenta activada, pero no he podido enviar el email."
+
+#: /plugins/access/controllers/users_controller.php:267
+msgid "Account deactivated."
+msgstr "Cuenta desactivada."
+
+#: /plugins/access/controllers/users_controller.php:269
+msgid "No changes. Account deactivated yet."
+msgstr "Sin cambios porque la cuenta ya estaba desactivada."
+
+#: /plugins/access/controllers/users_controller.php:272
+msgid "Invalid User or User was inactive. No account was deactivated."
+msgstr ""
+"Usuario/a no válido/a o estaba inactivo. No se ha desactivado ninguna cuenta."
+
+#: /plugins/access/controllers/users_controller.php:274
+msgid "Account deactivated, but I've been unable to send email."
+msgstr "Cuenta desactivada, pero no he podido enviar el email."
+
+#: /plugins/access/controllers/users_controller.php:296
+msgid "The account %s has been created."
+msgstr "La cuenta %s ha sido creada."
+
+#: /plugins/access/controllers/users_controller.php:304
+msgid "Thanks for registering."
+msgstr "Gracias por registrarte."
+
+#: /plugins/access/controllers/users_controller.php:308
+msgid "Something went wrong with your account. Please, try again."
+msgstr "Algo ha ido mal con tu cuenta. Inténtalo otra vez, por favor."
+
+#: /plugins/access/controllers/users_controller.php:390
+#: /plugins/resumes/controllers/resumes_controller.php:234
+msgid "Your new password"
+msgstr "Tu nueva contraseña"
+
+#: /plugins/access/controllers/users_controller.php:402;405
+#: /plugins/access/views/roles/edit.ctp:27
+msgid "User"
+msgstr "Usuario/a"
+
+#: /plugins/access/controllers/components/g_api.php:101
+msgid "The domain %s is not allowed for this site."
+msgstr "El dominio %s no está permitido en este sitio."
+
+#: /plugins/access/libs/user_observer.php:29
+msgid "User %s login."
+msgstr "Usuario/a %s se conectó"
+
+#: /plugins/access/libs/user_observer.php:35
+msgid "User %s logout."
+msgstr "%s se desconectó."
+
+#: /plugins/access/libs/user_observer.php:41
+msgid "User %s registered with account %s."
+msgstr "Usuario %s registrado con la cuenta %s."
+
+#: /plugins/access/libs/user_observer.php:51
+msgid "Your account has been activated"
+msgstr "Tu cuenta ha sido activada."
+
+#: /plugins/access/libs/user_observer.php:63
+msgid "Your account has been deactivated"
+msgstr "Tu cuenta ha sido desactivada"
+
+#: /plugins/access/libs/user_observer.php:76
+#: /plugins/resumes/controllers/resumes_controller.php:201
+msgid "Recover your lost password."
+msgstr "Recupera tu contraseña perdida."
+
+#: /plugins/access/models/user.php:319 /plugins/resumes/models/resume.php:251
+msgid "Unable to get a ticket to recover password."
+msgstr "No puedo obtener un ticket para recuperar la contraseña."
+
+#: /plugins/access/models/user.php:337
+msgid "Unable to found a valid User with the data provided."
+msgstr "No puedo encontrar un usuario válido con los datos proporcionados."
+
+#: /plugins/access/views/elements/forgot.ctp:24
+msgid "Try our recovery form"
+msgstr "Prueba nuestro formulario de recuperación"
+
+#: /plugins/access/views/elements/registration.ctp:26
+msgid "Register now"
+msgstr "Regístrate ahora"
+
+#: /plugins/access/views/elements/registration.ctp:35
+msgid "Public registration is not available for this site."
+msgstr "No te puedes registrar en este sitio."
+
+#: /plugins/access/views/permissions/edit.ctp:17
+#: /plugins/access/views/permissions_roles/edit.ctp:11
+#: /plugins/access/views/permissions_roles/ajax/edit.ctp:11
+msgid "Permission Definition"
+msgstr "Definir Permiso"
+
+#: /plugins/access/views/permissions/edit.ctp:23
+#: /plugins/access/views/permissions/index.ctp:5
+#: /plugins/access/views/roles/edit.ctp:35
+#: /plugins/access/views/roles/index.ctp:9
+msgid "Description"
+msgstr "Descripción"
+
+#: /plugins/access/views/permissions/edit.ctp:24
+msgid "Brief description of the rule"
+msgstr "Breve descripción de la regla"
+
+#: /plugins/access/views/permissions/edit.ctp:33
+msgid "Url pattern"
+msgstr "Patrón de URL"
+
+#: /plugins/access/views/permissions/edit.ctp:34
+#: /plugins/access/views/permissions_roles/edit.ctp:20
+#: /plugins/access/views/permissions_roles/ajax/edit.ctp:21
+msgid "A MySQL pattern that describes a set of url. Use % as placeholder"
+msgstr "Un patrón MySQL que describe un conjunto de url. Usa % como comodín"
+
+#: /plugins/access/views/permissions/index.ctp:22
+msgid "Permissions"
+msgstr "Permisos"
+
+#: /plugins/access/views/permissions_roles/edit.ctp:3
+#: /plugins/access/views/permissions_roles/ajax/edit.ctp:3
+msgid "Edit Permissions for Role"
+msgstr "Modificar permisos del rol"
+
+#: /plugins/access/views/permissions_roles/edit.ctp:18
+#: /plugins/access/views/permissions_roles/ajax/edit.ctp:18
+#: /plugins/access/views/permissions_roles/ajax/index.ctp:6
+msgid "Permission"
+msgstr "Permiso"
+
+#: /plugins/access/views/permissions_roles/edit.ctp:25
+#: /plugins/access/views/permissions_roles/ajax/edit.ctp:33
+#: /plugins/access/views/permissions_roles/ajax/index.ctp:11
+msgid "Access"
+msgstr "Acceso"
+
+#: /plugins/access/views/permissions_roles/edit.ctp:27
+#: /plugins/access/views/permissions_roles/ajax/edit.ctp:34
+msgid "Allow or Deny these urls to the role"
+msgstr "Permitir o Denegar estas url al rol"
+
+#: /plugins/access/views/permissions_roles/ajax/index.ctp:44
+msgid "Permissions for role"
+msgstr "Permisos del rol"
+
+#: /plugins/access/views/roles/edit.ctp:19
+msgid "Role data"
+msgstr "Datos del Rol"
+
+#: /plugins/access/views/roles/edit.ctp:25
+#: /plugins/access/views/roles/index.ctp:5;40
+#: /plugins/access/views/users/edit.ctp:62
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:21
+msgid "Role"
+msgstr "Rol"
+
+#: /plugins/access/views/roles/edit.ctp:26
+msgid "Name for role"
+msgstr "Nombre para el rol"
+
+#: /plugins/access/views/roles/edit.ctp:36
+msgid "Verbose description of the role capabilities"
+msgstr "Descripción de las capacidades del rol"
+
+#: /plugins/access/views/roles/edit.ctp:37
+msgid "This role allows access to some part"
+msgstr "Este rol accede a alguna parte"
+
+#: /plugins/access/views/roles/index.ctp:23
+msgid "Roles"
+msgstr "Roles"
+
+#: /plugins/access/views/users/auto_registration.ctp:3
+#: /plugins/access/views/users/managed_registration.ctp:3
+msgid "Thank you for registering"
+msgstr "Gracias por registrarte"
+
+#: /plugins/access/views/users/auto_registration.ctp:4
+#: /plugins/access/views/users/forgot_ticket_sent.ctp:4
+msgid "Only one step more, and you will be done"
+msgstr "Sólo un paso más, y habremos acabado"
+
+#: /plugins/access/views/users/auto_registration.ctp:7
+msgid ""
+"Please, check your email an visit the URL sent to you to confirm your "
+"registration"
+msgstr ""
+"Por favor, revisa tu email y visita la URL que te enviamos para confirmar tu "
+"registro"
+
+#: /plugins/access/views/users/auto_registration.ctp:8
+#: /plugins/access/views/users/confirm.ctp:6
+#: /plugins/access/views/users/forgot_ticket_sent.ctp:8
+#: /plugins/access/views/users/managed_registration.ctp:8
+#: /plugins/access/views/users/recover.ctp:8
+msgid "Go to main page"
+msgstr "Ir a la página principal"
+
+#: /plugins/access/views/users/confirm.ctp:3
+msgid "Your registration is now completed"
+msgstr "Tu registro está completo"
+
+#: /plugins/access/views/users/confirm.ctp:6
+msgid "Go to login page"
+msgstr "Ir a la página de acceso"
+
+#: /plugins/access/views/users/dashboard.ctp:4
+msgid "Hello, %s. This is your dashboard"
+msgstr "Hola, %s. Este es tu panel de control"
+
+#: /plugins/access/views/users/edit.ctp:13
+#: /plugins/access/views/users/profile.ctp:13
+msgid "Account"
+msgstr "Cuenta"
+
+#: /plugins/access/views/users/edit.ctp:14;106
+#: /plugins/access/views/users/profile.ctp:14;80;126
+msgid "Profile"
+msgstr "Perfil"
+
+#: /plugins/access/views/users/edit.ctp:15
+#: /plugins/access/views/users/profile.ctp:15
+msgid "Stats"
+msgstr "Estadísticas"
+
+#: /plugins/access/views/users/edit.ctp:20
+#: /plugins/access/views/users/profile.ctp:20
+msgid "Account data"
+msgstr "Datos de la cuenta"
+
+#: /plugins/access/views/users/edit.ctp:25
+#: /plugins/access/views/users/gregister.ctp:15
+#: /plugins/access/views/users/index.ctp:71
+#: /plugins/access/views/users/login.ctp:53
+#: /plugins/access/views/users/profile.ctp:25
+#: /plugins/access/views/users/register.ctp:21
+msgid "User name"
+msgstr "Usuario/a"
+
+#: /plugins/access/views/users/edit.ctp:27
+#: /plugins/access/views/users/profile.ctp:27
+msgid "Name for the access account."
+msgstr "Nombre para la cuenta de acceso"
+
+#: /plugins/access/views/users/edit.ctp:31
+#: /plugins/access/views/users/gregister.ctp:27
+#: /plugins/access/views/users/index.ctp:7;72
+#: /plugins/access/views/users/profile.ctp:31
+#: /plugins/access/views/users/register.ctp:26
+msgid "Real name"
+msgstr "Nombre real"
+
+#: /plugins/access/views/users/edit.ctp:33
+#: /plugins/access/views/users/profile.ctp:33
+msgid "Real name of the user, to show in the screen."
+msgstr "Nombre real, que se mostrará en pantalla."
+
+#: /plugins/access/views/users/edit.ctp:42
+#: /plugins/access/views/users/gregister.ctp:21
+#: /plugins/access/views/users/index.ctp:73
+#: /plugins/access/views/users/profile.ctp:37
+#: /plugins/access/views/users/register.ctp:49
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: /plugins/access/views/users/edit.ctp:44
+#: /plugins/access/views/users/profile.ctp:39
+msgid "To contact the user."
+msgstr "Para contactar con el usuario/a"
+
+#: /plugins/access/views/users/edit.ctp:48
+#: /plugins/access/views/users/register.ctp:54
+msgid "Confirm email"
+msgstr "Confirmar correo"
+
+#: /plugins/access/views/users/edit.ctp:49
+msgid "Confirm email to avoid errors."
+msgstr "Confirma el email para evitar errores."
+
+#: /plugins/access/views/users/edit.ctp:57
+#: /plugins/access/views/users/index.ctp:12;74
+msgid "Active"
+msgstr "Activo"
+
+#: /plugins/access/views/users/edit.ctp:58
+msgid "Only active users can access to the site."
+msgstr "Sólo usuarios/as activos/as pueden acceder al sitio"
+
+#: /plugins/access/views/users/edit.ctp:65
+msgid "Roles that this user plays in the application."
+msgstr "Roles que este usuario/a tiene en la aplicación"
+
+#: /plugins/access/views/users/edit.ctp:73;82
+#: /plugins/access/views/users/profile.ctp:47;56
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+#: /plugins/access/views/users/edit.ctp:82
+#: /plugins/access/views/users/profile.ctp:56
+msgid ""
+"To change your password, click on the <strong>%s</strong> button and type "
+"the new password and a confirmation."
+msgstr ""
+"Para cambiar la contraseña, haz clic en el botón <strong>%s</strong> y "
+"escribe la nueva contraseña y una confirmación."
+
+#: /plugins/access/views/users/edit.ctp:83
+#: /plugins/access/views/users/profile.ctp:57
+msgid ""
+"It will be saved when you click on the <strong>%s</strong> button. and will "
+"take effect in your next login."
+msgstr ""
+"Será guardada cuando hagas clic en el botón <strong>%s</strong> y tendrá "
+"efecto en tu próxima conexión."
+
+#: /plugins/access/views/users/edit.ctp:89
+#: /plugins/access/views/users/login.ctp:62
+#: /plugins/access/views/users/profile.ctp:63
+#: /plugins/access/views/users/register.ctp:36
+msgid "Password"
+msgstr "Contraseña"
+
+#: /plugins/access/views/users/edit.ctp:91
+#: /plugins/access/views/users/profile.ctp:65
+msgid ""
+"Keep this password secret. The longer, the better. On edit leave blank to "
+"keep unmodified."
+msgstr ""
+"Mantén esta clave en secreto. Cuanto más larga mejor. Al editar déjala en "
+"blanco para no modificarla."
+
+#: /plugins/access/views/users/edit.ctp:95
+#: /plugins/access/views/users/profile.ctp:69
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: /plugins/access/views/users/edit.ctp:97
+#: /plugins/access/views/users/profile.ctp:71
+msgid "Retype the password to be sure."
+msgstr "Vuelve a teclear la contraseña para asegurarte."
+
+#: /plugins/access/views/users/edit.ctp:111
+#: /plugins/access/views/users/profile.ctp:86
+msgid "Photo"
+msgstr "Foto"
+
+#: /plugins/access/views/users/edit.ctp:112
+#: /plugins/access/views/users/profile.ctp:87
+msgid "Photograph with centered face (will be framed)."
+msgstr "Foto con la cara centrada (será recortada)"
+
+#: /plugins/access/views/users/edit.ctp:116
+#: /plugins/access/views/users/profile.ctp:91
+msgid "Brief Biography"
+msgstr "Breve Biografía"
+
+#: /plugins/access/views/users/edit.ctp:118
+#: /plugins/access/views/users/profile.ctp:93
+msgid "A paragraph or two."
+msgstr "Un párrafo o dos"
+
+#: /plugins/access/views/users/edit.ctp:127
+#: /plugins/access/views/users/profile.ctp:102
+msgid "Current status"
+msgstr "Status actual"
+
+#: /plugins/access/views/users/edit.ctp:131
+#: /plugins/access/views/users/profile.ctp:106
+msgid "User is online"
+msgstr "Usuario/a conectado"
+
+#: /plugins/access/views/users/edit.ctp:133
+#: /plugins/access/views/users/profile.ctp:108
+msgid "User is offline"
+msgstr "Usuario/a desconectado/a"
+
+#: /plugins/access/views/users/edit.ctp:140
+#: /plugins/access/views/users/profile.ctp:115
+msgid "Last login was the %s"
+msgstr "La última conexión fue %s"
+
+#: /plugins/access/views/users/edit.ctp:142
+#: /plugins/access/views/users/profile.ctp:117
+msgid "Never connected yet"
+msgstr "No se ha conectado"
+
+#: /plugins/access/views/users/forgot.ctp:3
+msgid "Forgotted credentials"
+msgstr "Credenciales olvidadas"
+
+#: /plugins/access/views/users/forgot.ctp:6
+msgid ""
+"Please, provide your username and/or email so we can generate a new password "
+"for you."
+msgstr ""
+"Por favor, danos tu nombre de usuario/a y/o email para que podamos generarte "
+"una nueva contraseña."
+
+#: /plugins/access/views/users/forgot.ctp:7
+msgid ""
+"We will send you an email with a link to regenerate the password when you "
+"are ready. If, at the last moment, you decide that you don't want to renew "
+"the password, ignore the message. The link will expire in a few days."
+msgstr ""
+"Te enviaremos un email con un enlace para regenerar la contraseña cuanto "
+"estés listo/a. Si, en el último momento, decides que no quieres renovar la "
+"contraseña, ignora el mensaje. El enlace expirará en unos pocos días."
+
+#: /plugins/access/views/users/forgot.ctp:8
+msgid ""
+"As last step, we will send the new provisional password to your email. "
+"Please, access to your profile and change the password as soon as posible."
+msgstr ""
+"Como último paso, te enviaremos la nueva contraseña provisional a tu correo. "
+"Por favor, accede a tu perfil y cambia la contraseña cuando puedas."
+
+#: /plugins/access/views/users/forgot.ctp:15
+msgid "Identification data"
+msgstr "Datos de identificación"
+
+#: /plugins/access/views/users/forgot.ctp:19
+msgid "Recovery Username"
+msgstr "Usuario/a"
+
+#: /plugins/access/views/users/forgot.ctp:20
+msgid "<p>Your account username.</p>"
+msgstr "<p>El nombre de usuario/a de tu cuenta.</p>"
+
+#: /plugins/access/views/users/forgot.ctp:23
+msgid "Recovery Email"
+msgstr "Correo electrónico"
+
+#: /plugins/access/views/users/forgot.ctp:24
+msgid "<p>The email associated with your account.</p>"
+msgstr "<p>El correo electrónico asociado con tu cuenta</p>"
+
+#: /plugins/access/views/users/forgot.ctp:32
+msgid "Forget about it"
+msgstr "Olvídalo"
+
+#: /plugins/access/views/users/forgot.ctp:33
+msgid "Try to recover my credentials"
+msgstr "Intenta recuperar mis credenciales"
+
+#: /plugins/access/views/users/forgot_ticket_sent.ctp:3
+msgid "Recovering password"
+msgstr "Recuperar la contraseña"
+
+#: /plugins/access/views/users/forgot_ticket_sent.ctp:7
+msgid ""
+"Please, check your email and visit the URL provided to renew your password."
+msgstr ""
+"Por favor, comprueba tu correo y visita la URL que te proporcionamos para "
+"renovar tu contraseña."
+
+#: /plugins/access/views/users/gregister.ctp:3
+#: /plugins/access/views/users/register.ctp:8
+msgid "Create a new account"
+msgstr "Crea una cuenta"
+
+#: /plugins/access/views/users/gregister.ctp:6
+msgid ""
+"Please, provide the following data in order to complete the account data."
+msgstr ""
+"Por favor, cubre los siguientes datos a fin de completar los datos de la "
+"cuenta"
+
+#: /plugins/access/views/users/gregister.ctp:12
+#: /plugins/access/views/users/register.ctp:17
+msgid "Create your account"
+msgstr "Crea tu cuenta"
+
+#: /plugins/access/views/users/gregister.ctp:32
+msgid "Short Bio"
+msgstr "Cargo o comentario"
+
+#: /plugins/access/views/users/gregister.ctp:41
+#: /plugins/access/views/users/register.ctp:65
+msgid "Create my account, please!"
+msgstr "Crea mi cuenta, por favor."
+
+#: /plugins/access/views/users/index.ctp:31
+msgid "Activate"
+msgstr "Activar"
+
+#: /plugins/access/views/users/index.ctp:35
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: /plugins/access/views/users/index.ctp:54
+msgid "Users"
+msgstr "Usuarios"
+
+#: /plugins/access/views/users/login.ctp:11
+msgid "Login to %s"
+msgstr "Acceder a %s"
+
+#: /plugins/access/views/users/login.ctp:19
+msgid "Access with Google Apps"
+msgstr "Acceder con tu cuenta Google Apps"
+
+#: /plugins/access/views/users/login.ctp:24
+msgid ""
+"You will be redirected to log into your account, with your credentials for "
+"mail."
+msgstr ""
+"Te redirigiremos para acceder a tu cuenta con tus credenciales para el "
+"correo."
+
+#: /plugins/access/views/users/login.ctp:25
+msgid ""
+"After that, you will be brought back to this site and automatically logged "
+"into your account."
+msgstr ""
+"Después, te volveremos a traer a esta sitio y te conectaremos "
+"automáticamente con tu cuenta."
+
+#: /plugins/access/views/users/login.ctp:27
+msgid "Login with your Google Apps account"
+msgstr "Accede con tu cuenta Google Apps"
+
+#: /plugins/access/views/users/login.ctp:36
+msgid "Direct login"
+msgstr "Acceso directo"
+
+#: /plugins/access/views/users/login.ctp:37
+msgid ""
+"Login with the user and password created during registration or given to you "
+"by a site administrator."
+msgstr ""
+"Accede con el usuario y contraseña creados durante el registro o que te haya "
+"dado un administrador."
+
+#: /plugins/access/views/users/login.ctp:39
+msgid "Login with your credentials"
+msgstr "Accede con tus credenciales"
+
+#: /plugins/access/views/users/login.ctp:50;76
+msgid "Login"
+msgstr "Acceder"
+
+#: /plugins/access/views/users/login.ctp:74
+msgid "Forgot password?"
+msgstr "¿Olvidaste la contraseña?"
+
+#: /plugins/access/views/users/login.ctp:20
+msgid ""
+"If you have an account in the following domain, use this method to login."
+msgid_plural ""
+"If you have an account in some of the following domains, use this method to "
+"login."
+msgstr[0] ""
+"Si tienes una cuenta en el siguiente dominio, utiliza este método para "
+"conectarte."
+msgstr[1] ""
+"Si tienes una cuenta en alguno de los siguientes dominios, utiliza este "
+"método para conectarte."
+
+#: /plugins/access/views/users/managed_registration.ctp:4
+msgid "An admin will review your registration."
+msgstr "Un/a administrador/a revisará tu registro."
+
+#: /plugins/access/views/users/managed_registration.ctp:7
+msgid "Please, check your email in the following days."
+msgstr "Por favor, comprueba tu correo en los próximos días."
+
+#: /plugins/access/views/users/profile.ctp:7
+msgid "%s, Edit your profile"
+msgstr "%s, edita tu perfil"
+
+#: /plugins/access/views/users/recover.ctp:3
+msgid "Your password has been renewed."
+msgstr "Tu contraseña ha sido renovada."
+
+#: /plugins/access/views/users/recover.ctp:4
+msgid ""
+"We have generated a new password for you and just send it to your email."
+msgstr ""
+"Hemos generado una contraseña nueva para ti y la acabamos de enviar a tu "
+"correo."
+
+#: /plugins/access/views/users/recover.ctp:7
+msgid "Please, check your email."
+msgstr "Por favor, comprueba tu correo."
+
+#: /plugins/access/views/users/register.ctp:11
+msgid ""
+"Please, provide the following data in order to create an account to access "
+"this site."
+msgstr ""
+"Por favor, completa los siguientes datos para crear una cuenta de acceso a "
+"este sitio"
+
+#: /plugins/access/views/users/register.ctp:22
+msgid "A name for your account"
+msgstr "Un nombre para tu cuenta"
+
+#: /plugins/access/views/users/register.ctp:27
+msgid "Your real full name or preferred nickname"
+msgstr "Tu nombre real o apodo preferido."
+
+#: /plugins/access/views/users/register.ctp:37
+msgid "A password"
+msgstr "Una contraseña"
+
+#: /plugins/access/views/users/register.ctp:40
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+#: /plugins/access/views/users/register.ctp:42
+msgid "Please, retype the password"
+msgstr "Por favor, vuelve a teclear la contraseña."
+
+#: /plugins/access/views/users/register.ctp:51
+msgid "An email for contact"
+msgstr "Correo para contactar."
+
+#: /plugins/access/views/users/register.ctp:56
+msgid "Please, retype the email"
+msgstr "Por favor, vuelve a escribir tu correo."
+
+#: /plugins/cantine/controllers/cantine_rules_controller.php:126;128
+msgid "Cantine Rule"
+msgstr "Regla de asignación de turnos de comedor"
+
+#: /plugins/it/views/elements/devices_dashboard.ctp:21
+msgid "# %s"
+msgstr "# %s"
+
+#: /plugins/menus/views/bars/index.ctp:22
+msgid "Bar"
+msgstr "Barra"
+
+#: /views/layouts/access.ctp:18
+msgid "Registration"
+msgstr "Registro"
+
+#~ msgid "Delete"
+#~ msgstr "Borrar"
+
+#~ msgid "Write"
+#~ msgstr "Escribir"
+
+#~ msgid "Read"
+#~ msgstr "Leer"
+
+#~ msgid "Deny"
+#~ msgstr "Denegar"
+
+#~ msgid "Allow"
+#~ msgstr "Permitir"
+
+#~ msgid "GApps"
+#~ msgstr "GApps"
+
+#~ msgid "Standard"
+#~ msgstr "Acceso normal"
+
+#~ msgid "User %s connected via %s login"
+#~ msgstr "Usuario %s conectado a través de %s"
+
+#~ msgid "You didn't authorized your Google account or some problem happened."
+#~ msgstr "No autorizaste tu cuenta Google o ha habido algún problema."
+
+#~ msgid "Access to channel"
+#~ msgstr "Acceso al canal"
+
+#~ msgid "The role to which this rule is applied"
+#~ msgstr "El rol al que se aplica esta regla"
+
+#~ msgid "URL pattern"
+#~ msgstr "Patrón de URL"
+
+#~ msgid "Rule description"
+#~ msgstr "Descripción de la regla"

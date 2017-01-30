@@ -1,0 +1,1231 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mh13\n"
+"POT-Creation-Date: 2015-07-01 11:24+0200\n"
+"PO-Revision-Date: 2015-07-01 11:29+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franigesias@me.com>\n"
+"Language: spa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: /plugins/comments/views/elements/comments_dashboard.ctp:18
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:25
+msgid "# %s"
+msgstr "# %s"
+
+#: /plugins/contents/contents_app_controller.php:24
+msgid "%s: <strong>%s</strong> was automatically saved."
+msgstr "%s: <strong>%s</strong> fue guardado automáticamente."
+
+#: /plugins/contents/contents_app_controller.php:29
+msgid "Some problemas found. Please. Check the following fields."
+msgstr "Se han encontrado algunos problemas. Comprueba los campos indicados."
+
+#: /plugins/contents/controllers/channels_controller.php:27
+msgid "Activate Channel"
+msgstr "Activar canal"
+
+#: /plugins/contents/controllers/channels_controller.php:28
+msgid "Deactivate Channel"
+msgstr "Desactivar canales"
+
+#: /plugins/contents/controllers/channels_controller.php:339;345
+#: /plugins/contents/controllers/items_controller.php:527;533;539
+msgid "Selected %s set to %s"
+msgstr "%s seleccionados ajustados a %s"
+
+#: /plugins/contents/controllers/channels_controller.php:339;345
+#: /plugins/contents/views/channels/index.ctp:42
+#: /plugins/contents/views/elements/channels/list.ctp:48
+msgid "Channels"
+msgstr "Canales"
+
+#: /plugins/contents/controllers/channels_controller.php:339
+#: /plugins/contents/views/channels/index.ctp:12;60
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:6
+msgid "Active"
+msgstr "Activo"
+
+#: /plugins/contents/controllers/channels_controller.php:345
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: /plugins/contents/controllers/items_controller.php:41
+msgid "Change status to Draft"
+msgstr "Cambiar estado a borrador"
+
+#: /plugins/contents/controllers/items_controller.php:42
+msgid "Change status to Expired"
+msgstr "Cambiar estado a Caducado"
+
+#: /plugins/contents/controllers/items_controller.php:43
+msgid "Change status to Publish"
+msgstr "Cambiar estado a Publicado"
+
+#: /plugins/contents/controllers/items_controller.php:44
+msgid "Delete"
+msgstr "Borrar"
+
+#: /plugins/contents/controllers/items_controller.php:53
+msgid "You need a password to see this item."
+msgstr "Necesitas una contraseña para ver este artículo."
+
+#: /plugins/contents/controllers/items_controller.php:527;533;539;545
+#: /plugins/contents/views/items/index.ctp:62
+msgid "Items"
+msgstr "Artículos"
+
+#: /plugins/contents/controllers/items_controller.php:527
+#: /plugins/contents/views/helpers/Item.php:23
+msgid "draft"
+msgstr "borrador"
+
+#: /plugins/contents/controllers/items_controller.php:533
+#: /plugins/contents/views/helpers/Item.php:26
+msgid "expired"
+msgstr "expirado"
+
+#: /plugins/contents/controllers/items_controller.php:539
+#: /plugins/contents/views/helpers/Item.php:25
+msgid "published"
+msgstr "publicado"
+
+#: /plugins/contents/controllers/sites_controller.php:23
+#: /plugins/contents/controllers/static_pages_controller.php:25
+msgid "site"
+msgstr "sitio"
+
+#: /plugins/contents/controllers/static_pages_controller.php:38
+msgid "New page"
+msgstr "Página nueva"
+
+#: /plugins/contents/controllers/static_pages_controller.php:39
+msgid "Content for the page"
+msgstr "Contenido para la página"
+
+#: /plugins/contents/models/channel.php:148
+msgid "Untitled channel"
+msgstr "Canal sin título"
+
+#: /plugins/contents/models/item.php:515
+msgid ""
+"The author has marked this item as Private. You will need a password to see "
+"it."
+msgstr ""
+"El autor ha marcado este artículo como privado. Necesitas una contraseña "
+"para verlo."
+
+#: /plugins/contents/views/channels/edit.ctp:20
+msgid "Manage Items"
+msgstr "Gestionar artículos"
+
+#: /plugins/contents/views/channels/edit.ctp:33
+#: /plugins/contents/views/sites/edit.ctp:17
+msgid "Definition"
+msgstr "Definición"
+
+#: /plugins/contents/views/channels/edit.ctp:34
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:2
+msgid "Options"
+msgstr "Opciones"
+
+#: /plugins/contents/views/channels/edit.ctp:35
+msgid "Labels"
+msgstr "Etiquetas"
+
+#: /plugins/contents/views/channels/edit.ctp:36
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:2
+msgid "Private Channel"
+msgstr "Canal privado"
+
+#: /plugins/contents/views/channels/edit.ctp:37
+#: /plugins/contents/views/channels/members.ctp:2
+#: /plugins/contents/views/items/members.ctp:8
+msgid "Members"
+msgstr "Miembros"
+
+#: /plugins/contents/views/channels/edit.ctp:38
+msgid "Comments"
+msgstr "Comentarios"
+
+#: /plugins/contents/views/channels/index.ctp:6;59
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:6
+#: /plugins/contents/views/elements/items/forms/content.tab.ctp:7
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:23
+#: /plugins/contents/views/items/index.ctp:6;81
+#: /plugins/contents/views/sites/edit.ctp:30
+#: /plugins/contents/views/sites/index.ctp:4;38
+#: /plugins/contents/views/static_pages/edit.ctp:33
+#: /plugins/contents/views/static_pages/index.ctp:53
+msgid "Title"
+msgstr "Título"
+
+#: /plugins/contents/views/channels/members.ctp:6
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:20
+#: /plugins/contents/views/items/members.ctp:12
+msgid "User"
+msgstr "Usuario"
+
+#: /plugins/contents/views/channels/members.ctp:7
+msgid "Role"
+msgstr "Rol"
+
+#: /plugins/contents/views/channels/members.ctp:8
+#: /plugins/contents/views/items/members.ctp:14
+msgid "Action"
+msgstr "Acción"
+
+#: /plugins/contents/views/channels/members.ctp:33
+#: /plugins/contents/views/items/members.ctp:23
+msgid "unbind"
+msgstr "desvincular"
+
+#: /plugins/contents/views/channels/members.ctp:62
+#: /plugins/contents/views/items/members.ctp:52
+msgid "Select a user"
+msgstr "Seleccionar un usuario"
+
+#: /plugins/contents/views/channels/members.ctp:68
+#: /plugins/contents/views/items/members.ctp:58
+msgid "Select a role"
+msgstr "Seleccionar un rol"
+
+#: /plugins/contents/views/channels/members.ctp:88
+msgid "All available users are members of this Channel"
+msgstr "Todos los usuarios disponibles son miembros de este canal"
+
+#: /plugins/contents/views/channels/menu.ctp:9
+msgid "All channels in %s"
+msgstr "Todos los canales en %s"
+
+#: /plugins/contents/views/channels/menu.ctp:3
+msgid "There is only %s channel available."
+msgid_plural "There are %s channels available"
+msgstr[0] "Sólo hay un canal disponible"
+msgstr[1] "Hay %s canales disponibles"
+
+#: /plugins/contents/views/channels/ajax/layouts.ctp:3
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:39
+#: /plugins/contents/views/sites/edit.ctp:69
+msgid "Layout"
+msgstr "Plantilla"
+
+#: /plugins/contents/views/channels/ajax/layouts.ctp:5
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:41
+#: /plugins/contents/views/sites/edit.ctp:71
+msgid "-- Select a layout --"
+msgstr "-- Selecciona una plantilla --"
+
+#: /plugins/contents/views/channels/ajax/layouts.ctp:6
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:42
+msgid "Layout for Channel's main page."
+msgstr "Plantilla para la página principal del canal"
+
+#: /plugins/contents/views/elements/channels/channels_dashboard.ctp:21
+msgid "Your Channels"
+msgstr "Tus canales"
+
+#: /plugins/contents/views/elements/channels/channels_dashboard.ctp:50
+msgid "Owned by you"
+msgstr "De tu propiedad"
+
+#: /plugins/contents/views/elements/channels/channels_dashboard.ctp:51
+msgid "You can write"
+msgstr "Puedes escribir aquí"
+
+#: /plugins/contents/views/elements/channels/channels_dashboard.ctp:55
+msgid "Do you want to create a new Channel?"
+msgstr "¿Deseas crear un canal nuevo?"
+
+#: /plugins/contents/views/elements/channels/readable_channels_dashboard.ctp:19
+msgid "Private contents"
+msgstr "Contenidos privados"
+
+#: /plugins/contents/views/elements/channels/readable_channels_dashboard.ctp:40
+msgid "Private channels you can read."
+msgstr "Canales privados que puedes leer"
+
+#: /plugins/contents/views/elements/channels/blocks/description.ctp:14
+#: /plugins/contents/views/elements/sites/description.ctp:14
+msgid "Visit"
+msgstr "Visita"
+
+#: /plugins/contents/views/elements/channels/blocks/recent.ctp:14
+#: /plugins/contents/views/items/index.ctp:90
+msgid "Featured"
+msgstr "Destacado"
+
+#: /plugins/contents/views/elements/channels/blocks/recent.ctp:15
+msgid "Recently featured articles in this channel."
+msgstr "Artículos recientes destacados en este canal."
+
+#: /plugins/contents/views/elements/channels/blocks/tags.ctp:14
+#: /plugins/contents/views/elements/items/widgets/tags.ctp:23
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: /plugins/contents/views/elements/channels/blocks/tags.ctp:15
+msgid "Tags provide a way to classify Items on a Channel."
+msgstr "Las etiquetas permiten clasificar los artículos en un canal."
+
+#: /plugins/contents/views/elements/channels/blocks/tags.ctp:16
+msgid "Click a Tag to see all Items with the same Tag."
+msgstr ""
+"Haz click en una etiqueta para ver todos los artículos que tengan la misma."
+
+#: /plugins/contents/views/elements/channels/forms/comments.tab.ctp:2
+msgid "Manage Comments"
+msgstr "Gestionar comentarios"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:2
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:7
+#: /plugins/contents/views/items/add.ctp:13
+#: /plugins/contents/views/items/index.ctp:80
+msgid "Channel"
+msgstr "Canal"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:8
+msgid "An attractive and unique title for this Channel."
+msgstr "Un título atractivo y único para este canal."
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:11
+msgid "Slug"
+msgstr "Enlace"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:16
+msgid "A name for the URL of this channel"
+msgstr "Un nombre del canal para la URL"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:19
+msgid "Tag line"
+msgstr "Lema"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:20
+msgid "A short sentence about your channel."
+msgstr "Una frase corta acerca de tu canal."
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:29
+#: /plugins/contents/views/sites/edit.ctp:45
+#: /plugins/contents/views/sites/index.ctp:5
+msgid "Description"
+msgstr "Descripción"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:34
+msgid "A brief description of the channel or a welcome message."
+msgstr "Una breve descripción del canal o un mensaje de bienvenida"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:41
+msgid "Icon"
+msgstr "Icono"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:42
+msgid "An image for listings."
+msgstr "Una imagen para los listados."
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:46
+msgid "Image"
+msgstr "Imagen"
+
+#: /plugins/contents/views/elements/channels/forms/definition.tab.ctp:47
+msgid "A nice image for channel home page."
+msgstr "Una imagen bonita para la portada del canal."
+
+#: /plugins/contents/views/elements/channels/forms/labels.tab.ctp:2
+msgid "Manage Channel Labels"
+msgstr "Gestionar etiquetas del canal"
+
+#: /plugins/contents/views/elements/channels/forms/members.tab.ctp:2
+msgid "Team"
+msgstr "Equipo"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:7
+msgid "Check to get your Channel Online."
+msgstr "Marca para poner tu canal en línea."
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:13
+msgid "Aggregate this channel to the following sites"
+msgstr "Agrupar este canal en los siguientes sitios"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:25
+msgid "Design options"
+msgstr "Opciones de apariencia y diseño"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:28
+#: /plugins/contents/views/sites/edit.ctp:58
+msgid "Theme"
+msgstr "Tema"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:30
+#: /plugins/contents/views/sites/edit.ctp:60
+msgid "Default theme"
+msgstr "Tema por defecto"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:31
+#: /plugins/contents/views/sites/edit.ctp:61
+msgid "Appearance theme."
+msgstr "Tema de apariencia."
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:47
+msgid "Main menu for the channel."
+msgstr "Menú principal para el canal."
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:51
+msgid "Associate a menu to this channel"
+msgstr "Asociar un menú a este canal"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:58
+msgid "Channel Policies"
+msgstr "Políticas"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:61
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:80
+msgid "No comments"
+msgstr "Sin comentarios"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:62
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:81
+msgid "Comments closed"
+msgstr "Comentarios cerrados"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:63
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:82
+msgid "Moderated comments"
+msgstr "Comentarios moderados"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:64
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:83
+msgid "Free comments"
+msgstr "Comentarios libres"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:66
+msgid "Default status for comments."
+msgstr "Estado por defecto de los comentarios."
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:68
+msgid "Default Comments policy"
+msgstr "Política de comentarios por defecto"
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:71
+msgid ""
+"Default license type for the contents of the Channel. Authors can set their "
+"own on item basis."
+msgstr ""
+"Tipo de licencia por defecto para los contenidos del canal. Los autores "
+"podrías usar las suyas propias en cada artículo."
+
+#: /plugins/contents/views/elements/channels/forms/options.tab.ctp:74
+msgid "License"
+msgstr "Licencia"
+
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:7
+msgid "You can restrict access to this channel."
+msgstr "Puedes restringir el acceso a este canal."
+
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:8
+msgid ""
+"Check on the private switch and select the roles that can access to the "
+"contents on this channel."
+msgstr ""
+"Activar el interruptor privado y selecciona los roles que tienen acceso a "
+"los contenidos de este canal"
+
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:9
+msgid "Check off the private switch to make this channel open to all visitors."
+msgstr ""
+"Desmarcar el interruptor privado para abrir el canal a todos los visitantes"
+
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:16
+msgid "Private"
+msgstr "Privado"
+
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:18
+msgid "Make this channel private for roles"
+msgstr "Hacer privado este canal para los roles"
+
+#: /plugins/contents/views/elements/channels/forms/private.tab.ctp:24
+msgid "Roles that can access this channel."
+msgstr "Roles que pueden acceder a este canal"
+
+#: /plugins/contents/views/elements/items/all.ctp:27
+msgid "Recent entries"
+msgstr "Artículos recientes"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:24
+msgid "Your Pending Items"
+msgstr "Tus artículos pendientes"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:32
+msgid "You have no items pending."
+msgstr "No tienes artículos pendientes"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:46
+msgid "Editor's note: %s"
+msgstr "Nota del editor: %s"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:68
+msgid "Ready to review"
+msgstr "Listo para revisar"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:69
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:13
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:13
+msgid "Draft"
+msgstr "Borrador"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:70
+msgid "Has editor notes"
+msgstr "Tiene notas del editor"
+
+#: /plugins/contents/views/elements/items/items_dashboard.ctp:74
+msgid "Do you want to create a new Item?"
+msgstr "¿Deseas crear un artículo nuevo?"
+
+#: /plugins/contents/views/elements/items/forms/author.ctp:2
+#: /plugins/contents/views/elements/items/forms/contributor.ctp:2
+#: /plugins/contents/views/elements/items/forms/editor.ctp:2
+#: /plugins/contents/views/static_pages/edit.ctp:21
+msgid "Contents"
+msgstr "Contenidos"
+
+#: /plugins/contents/views/elements/items/forms/author.ctp:3
+#: /plugins/contents/views/elements/items/forms/contributor.ctp:3
+#: /plugins/contents/views/elements/items/forms/editor.ctp:3
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:3
+#: /plugins/contents/views/static_pages/edit.ctp:56
+msgid "Images and files"
+msgstr "Imágenes y archivos"
+
+#: /plugins/contents/views/elements/items/forms/author.ctp:4
+#: /plugins/contents/views/elements/items/forms/contributor.ctp:4
+#: /plugins/contents/views/elements/items/forms/editor.ctp:4
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:3
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:3
+#: /plugins/contents/views/items/index.ctp:82
+msgid "Publication"
+msgstr "Publicación"
+
+#: /plugins/contents/views/elements/items/forms/author.ctp:5
+#: /plugins/contents/views/elements/items/forms/contributor.ctp:5
+#: /plugins/contents/views/elements/items/forms/editor.ctp:5
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:3
+msgid "Taxonomy"
+msgstr "Clasificación"
+
+#: /plugins/contents/views/elements/items/forms/author.ctp:6
+#: /plugins/contents/views/elements/items/forms/authoring.tab.ctp:3
+#: /plugins/contents/views/elements/items/forms/editor.ctp:6
+msgid "Authoring"
+msgstr "Autoría"
+
+#: /plugins/contents/views/elements/items/forms/author.ctp:7
+#: /plugins/contents/views/elements/items/forms/editor.ctp:7
+#: /plugins/contents/views/items/members.ctp:13
+msgid "Access"
+msgstr "Acceso"
+
+#: /plugins/contents/views/elements/items/forms/content.tab.ctp:3
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:3
+#: /plugins/contents/views/items/add.ctp:4
+#: /plugins/contents/views/items/edit.ctp:20
+msgid "Item"
+msgstr "Artículo"
+
+#: /plugins/contents/views/elements/items/forms/content.tab.ctp:8
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:24
+#: /plugins/contents/views/static_pages/edit.ctp:34
+msgid "Provide a descriptive title for this item."
+msgstr "Ponte un título descriptivo a este artículo"
+
+#: /plugins/contents/views/elements/items/forms/content.tab.ctp:18
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:33
+#: /plugins/contents/views/static_pages/edit.ctp:43
+msgid "Content"
+msgstr "Contenido"
+
+#: /plugins/contents/views/elements/items/forms/content.tab.ctp:24
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:37
+#: /plugins/contents/views/static_pages/edit.ctp:47
+msgid "The content of the item. Be careful with the style."
+msgstr "El contenido del artículo. Ten cuidado con el estilo."
+
+#: /plugins/contents/views/elements/items/forms/content.tab.ctp:25
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:38
+msgid ""
+"<p>Insert YouTube: insert video url as http://www.youtube.com/watch?v=-"
+"asdfasfg</p>"
+msgstr ""
+"<p>Insertar un vídeo de  YouTube: pega la url del vídedo como http://www."
+"youtube.com/watch?v=-asdfasfg</p>"
+
+#: /plugins/contents/views/elements/items/forms/content_limited.tab.ctp:8
+msgid "Editor's note: "
+msgstr "Nota del editor:"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:8
+#: /plugins/contents/views/static_pages/edit.ctp:62
+#: /plugins/uploads/views/image_collections/edit.ctp:56
+msgid "Files"
+msgstr "Archivos"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:12
+#: /plugins/contents/views/static_pages/edit.ctp:65
+msgid ""
+"<p>Put here all related files. The first image will be used as the item main "
+"image.</p>"
+msgstr ""
+"<p>Añade aquí todos los archivos relacionados. La primera imagen será usada "
+"como imagen principal del artículo.</p>"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:29
+#: /plugins/contents/views/static_pages/edit.ctp:78
+msgid "How to show images"
+msgstr "Cómo mostrar las imágenes"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:31
+#: /plugins/contents/views/static_pages/edit.ctp:80
+msgid "Gallery with full photo view"
+msgstr "Galería con vista completa de foto"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:32
+#: /plugins/contents/views/static_pages/edit.ctp:81
+msgid "Step by step explanations. Use title and description for images."
+msgstr ""
+"Explicaciones paso a paso. Utiliza el título y descripción para las imágenes"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:33
+#: /plugins/contents/views/static_pages/edit.ctp:82
+msgid "Automatic sliding gallery."
+msgstr "Galería automática"
+
+#: /plugins/contents/views/elements/items/forms/files.tab.ctp:34
+#: /plugins/contents/views/static_pages/edit.ctp:83
+msgid "A very simple gallery"
+msgstr "Un galería realmente sencilla"
+
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:3
+msgid "Private Item"
+msgstr "Artículo privado"
+
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:9
+msgid ""
+"If you want to restrict access to this Item, create a pair User/password to "
+"lock it, and pass them along to the authorized visitor you want to allow "
+"read the Item."
+msgstr ""
+"Si quieres restringir el acceso a este artículo, crea un par Usuario/"
+"contraseña para bloquearlo y pásalo a los visitantes autorizados a ver sus "
+"contenidos"
+
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:10
+msgid ""
+"If you want to turn the item Public again, simply clear the user and "
+"password data."
+msgstr ""
+"Si quieres volver a hacer público el artículo, borra los datos de usuario y "
+"contraseña"
+
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:21
+msgid "User name for the authorized visitors."
+msgstr "Nombre de usuario para los visitantes autorizados"
+
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:24
+msgid "Password"
+msgstr "Contraseña"
+
+#: /plugins/contents/views/elements/items/forms/private.tab.ctp:25
+msgid "Password for the authorized visitors."
+msgstr "Contraseña para visitantes autorizados"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:9
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:10
+#: /plugins/contents/views/items/index.ctp:12;88
+msgid "Status"
+msgstr "Estado"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:14
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:14
+msgid "Ready for Review"
+msgstr "Lista para revisar"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:15
+msgid "Publish"
+msgstr "Publicar"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:16
+msgid "Expired"
+msgstr "Expirado"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:18
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:16
+msgid "Set as Publish when ready to at <strong>%s</strong>."
+msgstr "Ajustar a publicar cuando esté lista en <strong>%s</strong>"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:26
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:24
+msgid "Publication Date"
+msgstr "Fecha de publicación"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:27
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:25
+msgid ""
+"You can set dates in advance for future Publishing. Status must be set to "
+"'Publish'."
+msgstr ""
+"Puedes fijar una fecha para publicar por adelantado. Recuerda que debes "
+"fijar el estado a 'Publicar'"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:33
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:29
+msgid "Expiration date"
+msgstr "Fecha de caducidad"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:38
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:34
+msgid ""
+"Set a date if you want your post automatically removed from that date in "
+"advance."
+msgstr ""
+"Escoge una fecha en la que quieras que tu artículo sea retirado "
+"automáticamente"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:42
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:38
+msgid "Search even expired"
+msgstr "Buscar includo caducado"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:44
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:40
+msgid ""
+"Include this items in searches even if expired. It will be marked "
+"accordingly."
+msgstr ""
+"Incluye estos artículos en las búsquedas incluso si han caducado. Este hecho "
+"será señalado al lector."
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:53
+msgid "Publish at home page"
+msgstr "Publicar en la página principal"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:54
+msgid "Publish this item main home page."
+msgstr "Publicar este artículo en la página principal"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:60
+msgid "Feature?"
+msgstr "¿Destacar?"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:61
+msgid ""
+"If set, this item could get a special treatment in listings or selections of "
+"items."
+msgstr ""
+"Si está marcado, este artículo podría recibir un tratamiento especial en "
+"listados o selecciones de artículos"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:65
+msgid "Stick in the top of the channel home page?"
+msgstr "Mantener fijo al principio de la portada del canal."
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:66
+msgid "If set, this item will appear at the top of listings."
+msgstr "Si está marcado, este artículo aparecerá en lo alto de los listados"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:78
+msgid "Allow comments?"
+msgstr "¿Permitir comentarios?"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:85
+msgid "Allow (or not) to post comments to this article."
+msgstr "Permitir (o no) publicar comentarios en este artículo."
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:95
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:48
+msgid "license"
+msgstr "licencia"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:96
+#: /plugins/contents/views/elements/items/forms/publication_limited.tab.ctp:49
+msgid "license lets you state how you allow others to use this material."
+msgstr ""
+"La licencia te permite definir como autorizar a otros a usar este material"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:107
+msgid "Editor remarks"
+msgstr "Observaciones del editor"
+
+#: /plugins/contents/views/elements/items/forms/publication.tab.ctp:108
+msgid ""
+"Editors may use this fielt to leave notes to authors aboute the article."
+msgstr ""
+"Los editores pueden usar este campo para dejar notas a los autores acerca "
+"del artículo."
+
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:9
+msgid "The channel to publish this piece."
+msgstr "El canal para publicar este artículo."
+
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:14
+#: /plugins/contents/views/items/index.ctp:85
+msgid "Level"
+msgstr "Curso"
+
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:18
+msgid "Level for this item if relevant."
+msgstr "Curso para este artículo si es relevante"
+
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:26
+msgid "Global labels"
+msgstr "Etiquetas comunes a toda la web"
+
+#: /plugins/contents/views/elements/items/forms/taxonomy.tab.ctp:34
+msgid "Channel specific labels"
+msgstr "Etiquetas específicas de este canal"
+
+#: /plugins/contents/views/elements/items/templates/search.ctp:8
+msgid "Relevance: %s"
+msgstr "Relevancia: %s"
+
+#: /plugins/contents/views/elements/items/widgets/abstract.ctp:23
+msgid "Abstract"
+msgstr "Resumen"
+
+#: /plugins/contents/views/elements/items/widgets/downloads.ctp:4
+msgid "Download"
+msgstr "Descargar"
+
+#: /plugins/contents/views/elements/items/widgets/gallery.ctp:4
+msgid "See %s photos"
+msgstr "Ver %s fotos"
+
+#: /plugins/contents/views/elements/items/widgets/license.ctp:23
+msgid "Licensing"
+msgstr "Licencia"
+
+#: /plugins/contents/views/elements/items/widgets/mdata.ctp:23
+msgid "This article has"
+msgstr "Este artículo tiene"
+
+#: /plugins/contents/views/elements/items/widgets/mdata.ctp:30
+msgid "%s images"
+msgstr "%s imágenes"
+
+#: /plugins/contents/views/elements/items/widgets/mdata.ctp:31
+msgid "%s multimedia"
+msgstr "%s multimedia"
+
+#: /plugins/contents/views/elements/items/widgets/mdata.ctp:32
+msgid "%s downloads"
+msgstr "%s archivos"
+
+#: /plugins/contents/views/elements/items/widgets/mdata.ctp:33
+msgid "Read %s times"
+msgstr "Leído %s veces"
+
+#: /plugins/contents/views/elements/items/widgets/multimedia.ctp:4
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: /plugins/contents/views/elements/items/widgets/neighbors.ctp:3
+msgid "Previous and next"
+msgstr "Anterior y siguiente"
+
+#: /plugins/contents/views/elements/items/widgets/social.ctp:23
+msgid "Share"
+msgstr "Compartir"
+
+#: /plugins/contents/views/elements/items/widgets/tags.ctp:27
+msgid "This item hasn't been tagged yet"
+msgstr "Este artículo no tiene etiquetas todavía"
+
+#: /plugins/contents/views/elements/sites/channels.ctp:5
+msgid "Channels in <strong>%s</strong>"
+msgstr "Canales en <strong>%s</strong>"
+
+#: /plugins/contents/views/helpers/Item.php:24
+msgid "review"
+msgstr "revisar"
+
+#: /plugins/contents/views/helpers/Item.php:27
+msgid "retired"
+msgstr "retirado"
+
+#: /plugins/contents/views/helpers/Item.php:28
+msgid "waiting"
+msgstr "esperando"
+
+#: /plugins/contents/views/helpers/Item.php:32
+msgid "D"
+msgstr "B"
+
+#: /plugins/contents/views/helpers/Item.php:33
+msgid "R"
+msgstr "L"
+
+#: /plugins/contents/views/helpers/Item.php:34
+msgid "P"
+msgstr "P"
+
+#: /plugins/contents/views/helpers/Item.php:35
+msgid "E"
+msgstr "C"
+
+#: /plugins/contents/views/helpers/Item.php:36
+msgid "X"
+msgstr "X"
+
+#: /plugins/contents/views/helpers/Item.php:37
+msgid "W"
+msgstr "E"
+
+#: /plugins/contents/views/helpers/Item.php:122
+msgid ""
+"This item is expired, so information contained could be out of date or "
+"inaccurate. It is presented here for historic interest."
+msgstr ""
+"Este artículo está caducao, por tanto la información que contiene podría "
+"estar desactualizada o ser incorrecta. Se muestra por interés histórico."
+
+#: /plugins/contents/views/helpers/channel.php:50
+#: /plugins/contents/views/helpers/site.php:51
+msgid "%s RSS Feed"
+msgstr "índice RSS de %s"
+
+#: /plugins/contents/views/helpers/channel.php:73
+msgid "Channel feed"
+msgstr "Índice del canal"
+
+#: /plugins/contents/views/helpers/channel.php:132
+msgid "This channel has no content yet."
+msgstr "Lo sentimos. Este canal todavía no tiene contenido."
+
+#: /plugins/contents/views/helpers/site.php:72
+msgid "Site feed"
+msgstr "Índice del sitio"
+
+#: /plugins/contents/views/items/add.ctp:10
+msgid "Select a channel to publish your item"
+msgstr "Seleccionar un canal para publicar tu artículo"
+
+#: /plugins/contents/views/items/add.ctp:14
+msgid "<p>The channel to publish this piece.</p>"
+msgstr "<p>El canal para publicar esta pieza</p>"
+
+#: /plugins/contents/views/items/add.ctp:21
+msgid "Create the new Article"
+msgstr "Crea el artículo nuevo"
+
+#: /plugins/contents/views/items/edit.ctp:25
+#: /plugins/contents/views/items/index.ctp:25
+#: /plugins/contents/views/static_pages/index.ctp:10
+#: /plugins/ui/views/helpers/page.php:51
+msgid "Preview"
+msgstr "Ver cómo queda"
+
+#: /plugins/contents/views/items/index.ctp:19
+msgid "Stick?"
+msgstr "¿Fijo?"
+
+#: /plugins/contents/views/items/index.ctp:83
+msgid "No level"
+msgstr "Sin curso"
+
+#: /plugins/contents/views/items/index.ctp:89
+msgid "Home"
+msgstr "Principal"
+
+#: /plugins/contents/views/items/index.ctp:91
+msgid "Sticky"
+msgstr "Fijo"
+
+#: /plugins/contents/views/items/members.ctp:79
+msgid "All available users are autors of this Item"
+msgstr "Todos los usaurios disponibles son autores de este artículo"
+
+#: /plugins/contents/views/items/search.ctp:6
+msgid "Search results for term <strong>%s</strong>"
+msgstr "Resultados de la búsqueda para el término: <strong>%s</strong>"
+
+#: /plugins/contents/views/items/tagged.ctp:3;9
+msgid "Entries labeled with <strong>%s</strong>"
+msgstr "Artículos etiquetados con <strong>%s</strong>"
+
+#: /plugins/contents/views/items/view.ctp:19
+msgid "Published by "
+msgstr "Publicado por"
+
+#: /plugins/contents/views/items/json/edit.ctp:5
+msgid "Please, provide a title for the Item."
+msgstr "Por favor, ponle título al artículo"
+
+#: /plugins/contents/views/items/json/edit.ctp:8
+msgid "Please, provide a minimal content the Item."
+msgstr "Por favor, añade un contenido mínimo al artículo"
+
+#: /plugins/contents/views/sites/edit.ctp:18
+msgid "Associated Channels"
+msgstr "Canales asociados"
+
+#: /plugins/contents/views/sites/edit.ctp:25
+msgid "Site Definition"
+msgstr "Definición del sitio"
+
+#: /plugins/contents/views/sites/edit.ctp:32
+msgid "The title of the Site."
+msgstr "El título del sitio"
+
+#: /plugins/contents/views/sites/edit.ctp:35
+msgid "Key"
+msgstr "Clave"
+
+#: /plugins/contents/views/sites/edit.ctp:37
+msgid "The key of the Site."
+msgstr "Clave para el Sitio"
+
+#: /plugins/contents/views/sites/edit.ctp:49
+msgid "A brief description of the site."
+msgstr "Una breve descripción del sitio"
+
+#: /plugins/contents/views/sites/edit.ctp:72
+msgid "Layout for Site's main page."
+msgstr "Plantilla para la página principal del sitio"
+
+#: /plugins/contents/views/sites/edit.ctp:82
+msgid "Associated Channels (click to edit)"
+msgstr "Canales asociados (haz clic para modificarlos)"
+
+#: /plugins/contents/views/sites/edit.ctp:87
+msgid "Channels aggregated by this site"
+msgstr "Canales reunidos por este Sitio"
+
+#: /plugins/contents/views/sites/index.ctp:6
+msgid "Site Key"
+msgstr "Clave del sitio"
+
+#: /plugins/contents/views/sites/index.ctp:21
+msgid "Sites"
+msgstr "Sitios"
+
+#: /plugins/contents/views/static_pages/edit.ctp:22
+msgid "Upload Images and files"
+msgstr "Subir imágenes y archivos"
+
+#: /plugins/contents/views/static_pages/edit.ctp:23
+#: /plugins/contents/views/static_pages/home.ctp:92
+#: /plugins/contents/views/static_pages/view.ctp:78
+msgid "Related Pages"
+msgstr "Páginas relacionadas"
+
+#: /plugins/contents/views/static_pages/edit.ctp:29
+msgid "StaticPage Content"
+msgstr "Contenido de la página"
+
+#: /plugins/contents/views/static_pages/edit.ctp:48
+msgid ""
+"Insert YouTube: insert video url as http://www.youtube.com/watch?v=-asdfasfg"
+msgstr ""
+"Insertar un vídeo de  YouTube: pega la url del vídedo como http://www."
+"youtube.com/watch?v=-asdfasfg"
+
+#: /plugins/contents/views/static_pages/edit.ctp:104
+msgid "Related pages"
+msgstr "Páginas relacionadas"
+
+#: /plugins/contents/views/static_pages/edit.ctp:108
+msgid "Page descendant from"
+msgstr "Página descendiente de"
+
+#: /plugins/contents/views/static_pages/edit.ctp:110
+msgid "--This is a root or project main page--"
+msgstr "-- Esta es la raíz o la página principal de un proyecto --"
+
+#: /plugins/contents/views/static_pages/edit.ctp:111
+msgid ""
+"Select a page from this one should descent. Leave empty to create a root or "
+"a project main page."
+msgstr ""
+"Selecciona la página de la que esta debería descender. Déjalo vacío para "
+"crear una página raíz o página principal de proyecto."
+
+#: /plugins/contents/views/static_pages/edit.ctp:118
+msgid "Project key"
+msgstr "Clave del proyecto"
+
+#: /plugins/contents/views/static_pages/edit.ctp:119
+msgid ""
+"<p>If this is the main page for a project, type the tag to retrieve all "
+"items related to it.</p>"
+msgstr ""
+"<p>Si esta es la página principal de un proyecto, escribe la clave para "
+"recuperar todos los contenidos relacionados con él.</p>"
+
+#: /plugins/contents/views/static_pages/edit.ctp:121
+msgid "-- Select a label ---"
+msgstr "-- Selecciona una etiqueta --"
+
+#: /plugins/contents/views/static_pages/edit.ctp:125
+msgid "Order"
+msgstr "Órden"
+
+#: /plugins/contents/views/static_pages/edit.ctp:126
+msgid "Position of this page in the listing"
+msgstr "Posición de esta página en el listado"
+
+#: /plugins/contents/views/static_pages/home.ctp:54
+#: /plugins/contents/views/static_pages/view.ctp:43
+msgid "Related content in this site"
+msgstr "Contenido relacionado en esta web"
+
+#: /plugins/contents/views/static_pages/home.ctp:83
+#: /plugins/contents/views/static_pages/view.ctp:69
+msgid "Detailed Information"
+msgstr "Información detallada"
+
+#: /plugins/contents/views/static_pages/index.ctp:17
+msgid "Project Label"
+msgstr "Etiqueta del proyecto"
+
+#: /plugins/contents/views/static_pages/index.ctp:36
+msgid "Static Pages"
+msgstr "Páginas estáticas"
+
+#: /plugins/contents/views/static_pages/index.ctp:54
+msgid "Parent Page"
+msgstr "Página madre"
+
+#: /plugins/contents/views/static_pages/json/edit.ctp:5
+msgid "Please, provide a title for the Static Page"
+msgstr "Por favor, ponle título a la página"
+
+#: /plugins/contents/views/static_pages/json/edit.ctp:8
+msgid "Please, provide a minimal content the Static Page."
+msgstr "Por favor, añade un contenido mínimo a la página"
+
+#: /plugins/ui/views/elements/images/galleries/lightbox/layout.ctp:1
+msgid "Click on a photo to open the Gallery"
+msgstr "Haz clic en una foto para abrir la galería"
+
+#: /plugins/ui/views/helpers/f_html.php:71
+msgid "Last articles in channel <strong>%s</strong>"
+msgstr "Últimos artículos en el canal <strong>%s</strong>"
+
+#: /plugins/ui/views/helpers/f_html.php:73;77
+msgid " labeled with <strong>%s</strong>"
+msgstr " etiquetados con <strong>%s</strong>"
+
+#~ msgid "Remove from home page"
+#~ msgstr "Quitar de la página principal"
+
+#~ msgid "Selected %s published at home page"
+#~ msgstr "%s seleccionados publicados en la página principal"
+
+#~ msgid "Selected %s removed from home page"
+#~ msgstr "%s seleccionados retirados de la página principal"
+
+#~ msgid "About <strong>%s</strong>"
+#~ msgstr "Acerca de <strong>%s</strong>"
+
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#~ msgid "This will determine how your items will look like."
+#~ msgstr "Esto determina cómo se verán tus artículos."
+
+#~ msgid "Access Control"
+#~ msgstr "Control de acceso"
+
+#~ msgid "Last articles in site <strong>%s</strong>"
+#~ msgstr "Últimos artículos en el sitio <strong>%s</strong>"
+
+#~ msgid "Permalink"
+#~ msgstr "Enlace permanente"
+
+#~ msgid "You need a password to see %s"
+#~ msgstr "Necesitas una contraseña para ver %s"
+
+#~ msgid "Publish at Home Page"
+#~ msgstr "Publicar en la página principal"
+
+#~ msgid "Don't publish at Home Page"
+#~ msgstr "No publicar en la página principal"
+
+#~ msgid "page"
+#~ msgstr "página"
+
+#~ msgid "Home page"
+#~ msgstr "Página principal"
+
+#~ msgid "Items published in this channels appears at main home page."
+#~ msgstr ""
+#~ "Los artículos publicados en este canal aparecen en la página principal"
+
+#~ msgid "Order for icon menus, 0 to omit"
+#~ msgstr "Órden para el menú de iconos, 0 para omitir"
+
+#~ msgid "Tags for this item. Separated with comma (,)."
+#~ msgstr "Etiquetas para este artículo, separadas por comas (,)."
+
+#~ msgid "Make live?"
+#~ msgstr "En vivo?"
+
+#~ msgid ""
+#~ "Items is set to live-blogging. Additions will be marked with a timestamp."
+#~ msgstr "A cada inserción en este artículo se le pondrá una marca de tiempo."
+
+#~ msgid "Main"
+#~ msgstr "Principal"
+
+#~ msgid "Tag"
+#~ msgstr "Etiqueta"
+
+#~ msgid "Use one tag to collect the channels that build the site."
+#~ msgstr "Usa una etiqueta para seleccionar los canales que forman el sitio."
+
+#~ msgid "There are not associated channels."
+#~ msgstr "No hay canales asociados."
+
+#~ msgid "The article has been saved"
+#~ msgstr "El artículo ha sido guardado"
+
+#~ msgid "Article"
+#~ msgstr "Artículo"
+
+#~ msgid "%s reading"
+#~ msgstr "% lectura"
+
+#~ msgid "%s readings"
+#~ msgstr "%s lecturas"
+
+#~ msgid "No readings"
+#~ msgstr "No leído"
+
+#~ msgid "Published: %s"
+#~ msgstr "Publicado: %s"
+
+#~ msgid "Expires: %s"
+#~ msgstr "Expira: %s"
+
+#~ msgid "Expired: %s"
+#~ msgstr "Expirado: %s"
+
+#~ msgid "%s image"
+#~ msgstr "%s imagen"
+
+#~ msgid "No images"
+#~ msgstr "No hay imágenes"
+
+#~ msgid "No multimedia"
+#~ msgstr "No hay vídeos"
+
+#~ msgid "%s download"
+#~ msgstr "%s archivo"
+
+#~ msgid "No download"
+#~ msgstr "No hay archivos"

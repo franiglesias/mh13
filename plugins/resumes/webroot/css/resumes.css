@@ -1,0 +1,73 @@
+/* Resume viewing */
+
+.resume {
+	padding: 15px;
+}
+
+.resume-header {
+	
+}
+
+.resume-heading {
+	
+}
+
+
+.resume-section {
+	margin-bottom: 15px;
+}
+
+.resume-section-header {
+	border-bottom: 1px solid black;
+	margin-bottom: 15px;
+}
+
+.resume-section-body {
+	
+}
+
+.resume-section-body p {
+	margin-bottom: 5px;
+}
+
+.merit {
+	margin-bottom: 5px;
+}
+
+.merit-media-object {
+	width: 7em;
+}
+
+.resume-line {
+	
+}
+
+.resume-field {
+	width: 100px;
+	font-weight: bold;
+}
+
+.resume-value {
+	
+}
+
+/* User Interface */
+
+.resume-section-header {
+	margin: 15px 0 5px 0;
+	border-bottom: 1px solid #000;
+}
+
+.resume-field {
+	width: 150px;
+	font-weight: bold;
+}
+
+.mh-sidebar-button {
+	display: block;
+}
+
+.mh-button-warning {
+	color: red !important;
+}
+

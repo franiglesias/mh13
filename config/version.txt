@@ -1,0 +1,24 @@
+2.0.4
+2015-02-19
+- Restyling
+- Improving many views
+
+2.0.3
+2015-01-23
+- PresentationModel introduction
+- Styling improvements. Best flat design
+- Transitional revision
+
+2.0.2
+2015-01-16
+Bug fixing:
+
+- Restored channel list in footer
+- Fixed a bug with $scripts_for_layout in footer
+- Item metadata now is responsive
+- Item permalink now sshows the right label
+
+
+2.0.1
+2015-01-12
+Several bug fixing

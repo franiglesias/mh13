@@ -1,0 +1,7 @@
+php_value allow_url_fopen 1
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule    ^$    webroot/    [L]
+    RewriteRule    (.*) webroot/$1    [L]
+ </IfModule>

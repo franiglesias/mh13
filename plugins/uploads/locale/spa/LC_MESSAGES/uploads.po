@@ -1,0 +1,223 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Uploads.Milhojas13\n"
+"POT-Creation-Date: 2015-02-19 12:49+0100\n"
+"PO-Revision-Date: 2015-02-19 12:54+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@me.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/ui/views/helpers/f_form.php:1266
+msgid "⟲"
+msgstr "⟲"
+
+#: /plugins/ui/views/helpers/f_form.php:1269
+msgid "⟳"
+msgstr "⟳"
+
+#: /plugins/ui/views/helpers/f_form.php:1272
+msgid "⥀"
+msgstr "⥀"
+
+#: /plugins/ui/views/helpers/x_form.php:437
+msgid "-90°"
+msgstr "-90°"
+
+#: /plugins/ui/views/helpers/x_form.php:440
+msgid "+90°"
+msgstr "+90°"
+
+#: /plugins/ui/views/helpers/x_form.php:443
+msgid "180°"
+msgstr "180°"
+
+#: /plugins/uploads/controllers/image_collections_controller.php:33;36;54;57
+msgid "Image collection"
+msgstr "Colección de imágenes"
+
+#: /plugins/uploads/controllers/uploads_controller.php:29;31;41;46;53;60
+msgid "Upload"
+msgstr "Archivo"
+
+#: /plugins/uploads/controllers/uploads_controller.php:260
+msgid "Bad parameters"
+msgstr "Parámetros inválidos"
+
+#: /plugins/uploads/controllers/components/up.php:70
+msgid "Error moving file to %s"
+msgstr "Error moviendo el archivo a %s"
+
+#: /plugins/uploads/views/helpers/upload.php:257
+msgid "n/a"
+msgstr "n/a"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:11
+msgid "Definition"
+msgstr "Descripción"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:12
+msgid "Upload Images and files"
+msgstr "Subir imágenes y archivos"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:18
+msgid "ImageCollection Definition"
+msgstr "Definición de la colección de imágenes"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:23
+msgid "Title"
+msgstr "Título"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:27
+msgid "Gallery type"
+msgstr "Tipo de Galería"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:32
+msgid "Slug"
+msgstr "Alias"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:42
+#: /plugins/uploads/views/uploads/edit.ctp:34
+#: /plugins/uploads/views/uploads/index.ctp:13;58
+#: /plugins/uploads/views/uploads/ajax/edit.ctp:37
+#: /plugins/uploads/views/uploads/ajax/index.ctp:14
+msgid "Description"
+msgstr "Descripción"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:51
+msgid "Upload images"
+msgstr "Subir imágenes"
+
+#: /plugins/uploads/views/image_collections/edit.ctp:59
+msgid "Add images to this gallery"
+msgstr "Añadir imágenes a esta galería"
+
+#: /plugins/uploads/views/image_collections/index.ctp:9
+msgid "Wall"
+msgstr "Muro"
+
+#: /plugins/uploads/views/image_collections/index.ctp:9
+msgid "Gallery"
+msgstr "Galería"
+
+#: /plugins/uploads/views/image_collections/index.ctp:25
+msgid "Image Collections"
+msgstr "Colecciones de imágenes"
+
+#: /plugins/uploads/views/uploads/attachments.ctp:1
+#: /plugins/uploads/views/uploads/single.ctp:6
+msgid "No files yet."
+msgstr "No hay archivos todavía."
+
+#: /plugins/uploads/views/uploads/edit.ctp:25
+#: /plugins/uploads/views/uploads/ajax/edit.ctp:24
+msgid "File identification data"
+msgstr "Datos de identificación del archivo"
+
+#: /plugins/uploads/views/uploads/edit.ctp:30
+#: /plugins/uploads/views/uploads/index.ctp:11;55
+#: /plugins/uploads/views/uploads/ajax/edit.ctp:29
+#: /plugins/uploads/views/uploads/ajax/index.ctp:11
+msgid "Name"
+msgstr "Nombre"
+
+#: /plugins/uploads/views/uploads/edit.ctp:41
+msgid "Meta data"
+msgstr "Meta datos"
+
+#: /plugins/uploads/views/uploads/edit.ctp:45
+#: /plugins/uploads/views/uploads/index.ctp:18;64
+#: /plugins/uploads/views/uploads/ajax/index.ctp:22
+msgid "Size"
+msgstr "Tamaño"
+
+#: /plugins/uploads/views/uploads/edit.ctp:56
+msgid "Width"
+msgstr "Ancho"
+
+#: /plugins/uploads/views/uploads/edit.ctp:65
+msgid "Height"
+msgstr "Altura"
+
+#: /plugins/uploads/views/uploads/edit.ctp:74
+msgid "Play Time"
+msgstr "Duración"
+
+#: /plugins/uploads/views/uploads/edit.ctp:91
+#: /plugins/uploads/views/uploads/index.ctp:14;61
+msgid "Type"
+msgstr "Tipo"
+
+#: /plugins/uploads/views/uploads/edit.ctp:98
+msgid "Relative path"
+msgstr "Ruta relativa"
+
+#: /plugins/uploads/views/uploads/edit.ctp:110
+msgid "Full path"
+msgstr "Ruta completa"
+
+#: /plugins/uploads/views/uploads/edit.ctp:122
+msgid "Relationships"
+msgstr "Relaciones"
+
+#: /plugins/uploads/views/uploads/edit.ctp:126
+msgid "Model"
+msgstr "Modelo"
+
+#: /plugins/uploads/views/uploads/edit.ctp:131
+msgid "Key"
+msgstr "Clave"
+
+#: /plugins/uploads/views/uploads/edit.ctp:136
+msgid "Is enclosure"
+msgstr "Incluído (Podcast)"
+
+#: /plugins/uploads/views/uploads/edit.ctp:144
+msgid "Physical files"
+msgstr "Archivo físicos"
+
+#: /plugins/uploads/views/uploads/index.ctp:6
+#: /plugins/uploads/views/uploads/ajax/index.ctp:6
+msgid "Preview"
+msgstr "Vista previa"
+
+#: /plugins/uploads/views/uploads/index.ctp:22
+#: /plugins/uploads/views/uploads/ajax/index.ctp:27
+msgid "Exists"
+msgstr "Existe"
+
+#: /plugins/uploads/views/uploads/index.ctp:45
+msgid "Uploads"
+msgstr "Archivos"
+
+#: /plugins/uploads/views/uploads/ajax/edit.ctp:45
+msgid "Link"
+msgstr "Enlace"
+
+#: /plugins/uploads/views/uploads/ajax/edit.ctp:56
+msgid "order"
+msgstr "orden"
+
+#: /plugins/uploads/views/uploads/ajax/edit.ctp:61
+msgid "Enclosure"
+msgstr "Incluído (Podcast)"
+
+#: /plugins/uploads/views/uploads/ajax/index.ctp:17
+msgid "Order"
+msgstr "Orden"
+
+#: /plugins/uploads/views/uploads/ajax/index.ctp:39
+msgid "Download"
+msgstr "Descarga"
+
+#: /plugins/uploads/views/uploads/ajax/index.ctp:67
+msgid "Uploads for this Item"
+msgstr "Archivos para este elemento"

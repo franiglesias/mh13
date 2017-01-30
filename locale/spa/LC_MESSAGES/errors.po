@@ -1,0 +1,102 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: MILHOJAS 1.3\n"
+"POT-Creation-Date: 2014-11-17 10:46+0100\n"
+"PO-Revision-Date: 2014-11-17 10:49+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@mac.com>\n"
+"Language: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /app_controller.php:416
+msgid "Nothing selected."
+msgstr "Nada seleccionado."
+
+#: /app_controller.php:440
+msgid "No action performed on selection."
+msgstr "No se ha realizado ninguna acción sobre los registros seleccionados."
+
+#: /controllers/components/notify.php:42
+msgid "Email not sent."
+msgstr "No se ha enviado correo electrónico."
+
+#: /views/elements/confirm/delete.ctp:17
+#: /views/elements/confirm/selection.ctp:17
+#: /views/themed/mh3/elements/confirm/delete.ctp:17
+#: /views/themed/mh3/elements/confirm/selection.ctp:17
+msgid "Warning! This action is not undoable."
+msgstr "¡Atención! Esta acción no se puede deshacer."
+
+#: /views/errors/error404.ctp:3
+msgid "The requested item was not found "
+msgstr "El ítem solicitado no se encuentra"
+
+#: /views/errors/error404.ctp:6 /views/themed/mh3/errors/error404.ctp:2
+msgid ""
+"We are sorry. The url you entered has some errors or doesn't exist in the "
+"server."
+msgstr ""
+"Lo sentimos. La dirección que has introducido tiene algunos errores o no "
+"existe en el servidor."
+
+#: /views/errors/error404.ctp:7
+msgid "Click here to return to the home page."
+msgstr "Click aquí para volver a la página principal."
+
+#: /views/errors/exception.ctp:3 /views/themed/mh3/errors/exception.ctp:1
+msgid "Generic Exception"
+msgstr "Excepción genérica."
+
+#: /views/errors/exception.ctp:7 /views/errors/not_allowed.ctp:7
+msgid "Click here to return to the previous page."
+msgstr "Haz click aquí para volver a la página anterior."
+
+#: /views/errors/not_allowed.ctp:3
+#, fuzzy
+msgid "You don't have access to the Item "
+msgstr "No tienes acceso al ítem"
+
+#: /views/errors/not_allowed.ctp:6 /views/themed/mh3/errors/not_allowed.ctp:2
+msgid "You need a username and a password to access that content."
+msgstr ""
+"Necesitas un nombre de usuario y contraseña para acceder a ese contenido."
+
+#: /views/layouts/error.ctp:8 /views/themed/mh3/layouts/error.ctp:8
+msgid "Sorry, we have some problem here."
+msgstr "Lo sentimos, tenemos algún problema aquí."
+
+#: /views/layouts/error.ctp:9 /views/themed/mh3/layouts/error.ctp:9
+msgid "Error code: %s"
+msgstr "Código de error: %s"
+
+#: /views/layouts/error.ctp:10 /views/themed/mh3/layouts/error.ctp:10
+msgid "Error description: %s"
+msgstr "Descripción del error: %s"
+
+#: /views/layouts/error.ctp:11 /views/themed/mh3/layouts/error.ctp:11
+msgid "Extra data: %s"
+msgstr "Información extra: %s"
+
+#: /views/layouts/error.ctp:12 /views/themed/mh3/layouts/error.ctp:12
+msgid "Technical stuff"
+msgstr "Información técnica"
+
+#: /views/themed/mh3/errors/error404.ctp:2
+msgid "The requested item <strong>%s</strong> was not found"
+msgstr "El ítem solicitado <strong>%s</strong> no se encuentra"
+
+#: /views/themed/mh3/errors/not_allowed.ctp:1
+msgid "You are not allowed to access <strong>%s</strong>"
+msgstr "No tienes permiso para acceder a <strong>%s</strong>"
+
+#: /views/themed/mh3/layouts/error.ctp:15
+msgid "Click here to return to the previous or main page."
+msgstr "Haz click aquí para volver a la página principal o a la anterior."

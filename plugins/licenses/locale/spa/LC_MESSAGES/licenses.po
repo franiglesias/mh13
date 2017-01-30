@@ -1,0 +1,53 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: licenses.milhojas13\n"
+"POT-Creation-Date: 2015-01-12 13:21+0100\n"
+"PO-Revision-Date: 2015-01-12 15:40+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@me.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/licenses/controllers/licenses_controller.php:81
+msgid "Licenses"
+msgstr "LIcencias"
+
+#: /plugins/licenses/views/helpers/license.php:19
+msgid "License Definition"
+msgstr "Definición de la licencia"
+
+#: /plugins/licenses/views/helpers/license.php:25;51
+msgid "License"
+msgstr "LIcencia"
+
+#: /plugins/licenses/views/helpers/license.php:26
+msgid "Descriptive name for the license."
+msgstr "Nombre descriptivo para la licencia."
+
+#: /plugins/licenses/views/helpers/license.php:32;52
+msgid "Type"
+msgstr "Tipo"
+
+#: /plugins/licenses/views/helpers/license.php:33
+msgid "Type or family of licenses."
+msgstr "Tipo o familia de licencias."
+
+#: /plugins/licenses/views/helpers/license.php:39
+msgid "Code"
+msgstr "Código"
+
+#: /plugins/licenses/views/helpers/license.php:40
+msgid ""
+"Paste here the code provided to show the license. Leave blank if you don't "
+"have one."
+msgstr ""
+"Pega aquí el código proporcionado para mostrar la licencia. Deja en blanco "
+"si no tienes o no sabes de qué va esto."

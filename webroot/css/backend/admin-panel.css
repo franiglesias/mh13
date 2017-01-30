@@ -1,0 +1,106 @@
+/* ADMIN PANEL .mh-admin-panel is the base class for all backend views */
+
+.mh-admin-panel {
+	background-color: #fff;
+	overflow: hidden;
+}
+	
+	.mh-admin-panel-header {
+		background-color: #000;
+	}
+	
+		.mh-admin-panel-heading {
+			text-align: left;
+			text-transform: none;
+			font-weight: normal;
+			font-size: 24px;
+			padding: 15px 30px;
+			color: #fff;
+			margin-bottom: 0;
+		}
+
+		.mh-admin-panel-subheading {
+			padding: 5px 30px;
+			color: #fff;
+			line-height: 200%;
+		}
+
+	.mh-admin-panel-body {
+		margin: 5px;
+		padding: 5px;
+	}
+
+	.mh-admin-panel-footer {
+	
+	}
+
+/* .mh-admin-panel-menu is the button bar in the header of some mh-admin-panels */
+
+.mh-admin-panel-menu {
+	padding: 0px 30px;
+	overflow: hidden;
+}
+
+	.mh-admin-panel-menu-item {
+		font-size: 12px;
+		color: #fff;
+		border-left: 1px outset #036;
+		border-right: 1px outset #036;
+		padding: 7px 15px;
+		margin: 10px 10px 10px 0px;
+		border-radius: 5px;
+		-webkit-box-shadow: inset 0px 15px 6px 0px rgba(255,255,255,.1);
+		-moz-box-shadow: inset 0px 15px 6px 0px rgba(255,255,255,.1);
+		box-shadow: inset 0px 15px 6px 0px rgba(255,255,255,.1);
+	}
+
+	.mh-admin-panel-menu-item-alt {
+		/* extends mh-admin-panel-menu-item */
+		float: right;
+		margin: 10px 0 10px 10px;
+	}
+
+
+.mh-admin-subpanel {
+	background-color: #fff;
+	overflow: hidden;
+}
+
+	.mh-admin-subpanel-header {
+		margin-bottom: 15px;
+	}
+
+		.mh-admin-subpanel-heading {
+			background-color: #052E6C;
+			text-align: left;
+			text-transform: none;
+			font-weight: normal;
+			font-size: 18px;
+			padding: 8px 15px;
+			color: #fff;
+			-webkit-box-shadow: inset 0px 15px 20px 0px rgba(255,255,255,.1);
+			-moz-box-shadow: inset 0px 15px 20px 0px rgba(255,255,255,.1);
+			box-shadow: inset 0px 15px 20px 0px rgba(255,255,255,.1);
+			border-radius: 5px;
+		}
+
+		.mh-admin-subpanel-subheading {
+			padding: 5px 15px;
+			color: #000;
+			line-height: 200%;
+		}
+
+	.mh-admin-subpanel-body {
+		margin: 5px;
+		padding: 5px;
+	}
+
+	.mh-admin-subpanel-footer {
+
+	}
+	
+
+.mh-admin-administrator{background-color: #063206;}
+.mh-admin-contents{background-color: #300004;}
+.mh-admin-circulars{background-color: #250052;}
+.mh-admin-it {background-color: #052E6C}

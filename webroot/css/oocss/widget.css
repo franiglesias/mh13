@@ -1,0 +1,19 @@
+/* mh13/oocss/widget.css */
+/* .widget is a class to display a generic widget unless custom rules apply */
+
+.widget { /* extends: .media */
+}
+
+.widget-header { /* extends: .media-header */
+}
+
+.widget-heading { /* extends: .heading */
+}
+
+.widget-body {
+}
+
+.widget-footer {
+}
+
+/* .widget (end) */

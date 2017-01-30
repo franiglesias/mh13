@@ -1,0 +1,68 @@
+/* FILE LIST FOR UPLOADS */
+
+.mh-download-list {
+	background-color:#BFBFBF;border:1px solid #999;list-style:none;height:150px;overflow-y:scroll;
+}
+
+.mh-download-list-item {
+	width: 180px;
+	overflow: hidden;
+	border: 1px solid #808080;
+	background-color: #fff;
+	padding: 0px;
+	display: inline-block;
+	margin: 0 3px 3px 0;
+	border-radius: 5px;
+	moz-border-radius: 5px;
+}
+
+.media.mh-download-list-link {
+	padding: 4px 8px;
+	display: block;
+}
+
+
+.mh-download-list-preview {
+	/* extends object*/
+	margin-right: 10px;
+	display: block;
+	margin-bottom: 0px;
+}
+
+.mh-download-list-data {
+	/* extends media body */
+	display: block;
+}
+
+.mh-download-list-delete {
+	margin-left: 10px;
+	display: block;
+	background-color: #DC0009;
+	padding: 3px;
+	width: 15px;
+	height: 15px;
+	color: #fff !important;
+	text-decoration: none;
+	text-align: center;
+}
+
+.mh-download-list-data span {
+	display: block;
+	margin-bottom: 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+
+.mh-download-list-data-name {
+	font-weight: bold;
+}
+
+.mh-download-list-data-size {
+	color: #1768BF;
+}
+
+.mh-download-list-data-type {
+	color: #1768BF;
+}

@@ -1,0 +1,796 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-07-01 11:24+0200\n"
+"PO-Revision-Date: 2015-07-01 11:32+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: \n"
+"Language: glg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: /plugins/circulars/controllers/events_controller.php:50;53
+msgid "Event"
+msgstr "Evento"
+
+#: /plugins/circulars/views/circular_boxes/edit.ctp:12
+msgid "CircularBox Definition"
+msgstr "Datos da caixa de respostas"
+
+#: /plugins/circulars/views/circular_boxes/edit.ctp:17
+#: /plugins/circulars/views/circular_boxes/index.ctp:5
+msgid "Circular Box title"
+msgstr "Caixa de resposta"
+
+#: /plugins/circulars/views/circular_boxes/edit.ctp:21
+#: /plugins/circulars/views/circular_boxes/index.ctp:8
+#: /plugins/circulars/views/circular_types/edit.ctp:21
+#: /plugins/circulars/views/circular_types/index.ctp:8
+msgid "Template name"
+msgstr "Nombre de la plantilla"
+
+#: /plugins/circulars/views/circular_boxes/index.ctp:24
+msgid "Circular Boxes"
+msgstr "Caixas de resposta"
+
+#: /plugins/circulars/views/circular_types/edit.ctp:12
+msgid "CircularType Definition"
+msgstr "Datos do Tipo de Circular"
+
+#: /plugins/circulars/views/circular_types/edit.ctp:17
+#: /plugins/circulars/views/circular_types/index.ctp:5
+msgid "Circular Type title"
+msgstr "Tipo de circular"
+
+#: /plugins/circulars/views/circular_types/index.ctp:24
+msgid "Circular Types"
+msgstr "Tipos de circular"
+
+#: /plugins/circulars/views/circulars/add.ctp:12
+msgid "Select a Circular Type"
+msgstr "Selecciona o tipo de circular que desexas crear"
+
+#: /plugins/circulars/views/circulars/current.ctp:7
+msgid "Last circulars"
+msgstr "Últimas circulares"
+
+#: /plugins/circulars/views/circulars/current.ctp:19
+msgid "Published: %s"
+msgstr "Publicada: %s"
+
+#: /plugins/circulars/views/circulars/edit.ctp:16
+msgid "Definition"
+msgstr "Definición"
+
+#: /plugins/circulars/views/circulars/edit.ctp:17
+#: /plugins/circulars/views/elements/circulars/form.ctp:15
+#: /plugins/circulars/views/elements/circulars/form/common.ctp:15
+msgid "Content"
+msgstr "Contido"
+
+#: /plugins/circulars/views/circulars/edit.ctp:18
+msgid "Other info"
+msgstr "Outra información"
+
+#: /plugins/circulars/views/circulars/edit.ctp:35
+msgid "Circular Definition"
+msgstr "Definición da Circular"
+
+#: /plugins/circulars/views/circulars/edit.ctp:39
+#: /plugins/circulars/views/circulars/index.ctp:14;188
+msgid "Type"
+msgstr "Tipo"
+
+#: /plugins/circulars/views/circulars/edit.ctp:44
+msgid "Box"
+msgstr "Caixa de resposta"
+
+#: /plugins/circulars/views/circulars/edit.ctp:45
+msgid "None"
+msgstr "Nada"
+
+#: /plugins/circulars/views/circulars/edit.ctp:57
+#: /plugins/circulars/views/circulars/index.ctp:180
+msgid "Addressee"
+msgstr "Destinatario"
+
+#: /plugins/circulars/views/circulars/edit.ctp:62
+msgid "Addressee (spa)"
+msgstr "Destinatario (español)"
+
+#: /plugins/circulars/views/circulars/edit.ctp:65;73
+msgid "You must indicate an addressee"
+msgstr "Debes indicar os destinatarios"
+
+#: /plugins/circulars/views/circulars/edit.ctp:70
+msgid "Addressee (glg)"
+msgstr "Destinatario (galego)"
+
+#: /plugins/circulars/views/circulars/edit.ctp:78
+msgid "Course selector"
+msgstr "Selector de curso"
+
+#: /plugins/circulars/views/circulars/edit.ctp:93
+msgid "Familias"
+msgstr "Familias"
+
+#: /plugins/circulars/views/circulars/edit.ctp:94
+msgid "Profesorado"
+msgstr "Profesorado"
+
+#: /plugins/circulars/views/circulars/edit.ctp:95
+msgid "Alumnado"
+msgstr "Alumnado"
+
+#: /plugins/circulars/views/circulars/edit.ctp:98
+msgid "Group"
+msgstr "Grupo"
+
+#: /plugins/circulars/views/circulars/edit.ctp:102
+msgid "E. Infantil"
+msgstr "E. Infantil"
+
+#: /plugins/circulars/views/circulars/edit.ctp:103
+msgid "E. Primaria"
+msgstr "E. Primaria"
+
+#: /plugins/circulars/views/circulars/edit.ctp:104
+msgid "ESO"
+msgstr "ESO"
+
+#: /plugins/circulars/views/circulars/edit.ctp:105
+msgid "Bachillerato"
+msgstr "Bacharelato"
+
+#: /plugins/circulars/views/circulars/edit.ctp:108
+msgid "Stage"
+msgstr "Etapa"
+
+#: /plugins/circulars/views/circulars/edit.ctp:112
+msgid "1º"
+msgstr "1º"
+
+#: /plugins/circulars/views/circulars/edit.ctp:113
+msgid "2º"
+msgstr "2º"
+
+#: /plugins/circulars/views/circulars/edit.ctp:114
+msgid "3º"
+msgstr "3º"
+
+#: /plugins/circulars/views/circulars/edit.ctp:115
+msgid "4º"
+msgstr "4º"
+
+#: /plugins/circulars/views/circulars/edit.ctp:116
+msgid "5º"
+msgstr "5º"
+
+#: /plugins/circulars/views/circulars/edit.ctp:117
+msgid "6º"
+msgstr "6º"
+
+#: /plugins/circulars/views/circulars/edit.ctp:120
+msgid "Level"
+msgstr "Curso"
+
+#: /plugins/circulars/views/circulars/edit.ctp:124
+#: /plugins/circulars/views/helpers/circular.php:37
+msgid "A"
+msgstr "A"
+
+#: /plugins/circulars/views/circulars/edit.ctp:125
+msgid "B"
+msgstr "B"
+
+#: /plugins/circulars/views/circulars/edit.ctp:126
+msgid "C"
+msgstr "C"
+
+#: /plugins/circulars/views/circulars/edit.ctp:129
+msgid "Class"
+msgstr "Clase"
+
+#: /plugins/circulars/views/circulars/edit.ctp:138
+#: /plugins/circulars/views/circulars/review.ctp:17
+msgid "Publication details"
+msgstr "Detalles da publicación"
+
+#: /plugins/circulars/views/circulars/edit.ctp:143
+#: /plugins/circulars/views/circulars/index.ctp:191
+#: /plugins/circulars/views/circulars/review.ctp:33
+msgid "Publication"
+msgstr "Data de publicación"
+
+#: /plugins/circulars/views/circulars/edit.ctp:148
+msgid "A publication date should be selected."
+msgstr "Tes que seleccionar unha data de publicación da circular"
+
+#: /plugins/circulars/views/circulars/edit.ctp:152
+#: /plugins/circulars/views/circulars/review.ctp:40
+msgid "Expiration"
+msgstr "Caducidade"
+
+#: /plugins/circulars/views/circulars/edit.ctp:158
+msgid "An expiration date should be selected."
+msgstr "Tes que seleccionar unha data de caducidade."
+
+#: /plugins/circulars/views/circulars/edit.ctp:163
+msgid "Publish to web"
+msgstr "Publicar na páxina web"
+
+#: /plugins/circulars/views/circulars/edit.ctp:169
+msgid "Publish related event"
+msgstr "Publicar evento relacionado"
+
+#: /plugins/circulars/views/circulars/edit.ctp:174
+#: /plugins/circulars/views/circulars/review.ctp:51
+msgid "Preview PDF"
+msgstr "Proba o PDF"
+
+#: /plugins/circulars/views/circulars/edit.ctp:190;196
+#: /plugins/circulars/views/circulars/review.ctp:67;74
+msgid "Copy this text and paste in the HTML of the circular."
+msgstr "Copia este texto é pégao no apartado Fuente HTML da circular"
+
+#: /plugins/circulars/views/circulars/edit.ctp:207
+msgid "Created by"
+msgstr "Creada por"
+
+#: /plugins/circulars/views/circulars/edit.ctp:212
+msgid "Published by"
+msgstr "Publicada por"
+
+#: /plugins/circulars/views/circulars/edit.ctp:217
+msgid "Archived by"
+msgstr "Arquivada por"
+
+#: /plugins/circulars/views/circulars/edit.ctp:222
+msgid "Revoked by"
+msgstr "Retirada por"
+
+#: /plugins/circulars/views/circulars/index.ctp:6;177
+#: /plugins/circulars/views/elements/circulars/form.ctp:8
+#: /plugins/circulars/views/elements/circulars/form/common.ctp:8
+#: /plugins/circulars/views/events/index.ctp:17;56
+msgid "Title"
+msgstr "Título"
+
+#: /plugins/circulars/views/circulars/index.ctp:25;184
+msgid "Status"
+msgstr "Estado"
+
+#: /plugins/circulars/views/circulars/index.ctp:32
+msgid "Web"
+msgstr "Web"
+
+#: /plugins/circulars/views/circulars/index.ctp:75;133
+#: /plugins/circulars/views/events/edit.ctp:35
+#: /plugins/circulars/views/events/index.ctp:20
+msgid "Publish"
+msgstr "Publicar"
+
+#: /plugins/circulars/views/circulars/index.ctp:80;138
+msgid "Archive"
+msgstr "Arquivar"
+
+#: /plugins/circulars/views/circulars/index.ctp:159
+msgid "Circulars"
+msgstr "Circulares"
+
+#: /plugins/circulars/views/circulars/ready.ctp:3
+msgid "Ready"
+msgstr "Lista"
+
+#: /plugins/circulars/views/circulars/ready.ctp:17
+msgid ""
+"Circular %s, with title \"%s\" has been successfully set to <strong>%s</"
+"strong>"
+msgstr ""
+"A circular %s, có título \"%s\" foi correctamente marcada como <strong>%s</"
+"strong>"
+
+#: /plugins/circulars/views/circulars/ready.ctp:19
+msgid "Return to circulars"
+msgstr "Voltar a circulares"
+
+#: /plugins/circulars/views/circulars/review.ctp:10
+msgid "Review circular %s"
+msgstr "Revisar a circular %s"
+
+#: /plugins/circulars/views/circulars/review.ctp:43
+msgid "End of school year"
+msgstr "Fin do curso escolar"
+
+#: /plugins/circulars/views/circulars/review.ctp:105
+msgid "Back to circulars"
+msgstr "Voltar a circulares"
+
+#: /plugins/circulars/views/circulars/view.ctp:5
+msgid "Circular"
+msgstr "Circular"
+
+#: /plugins/circulars/views/circulars/pdf/view.ctp:32
+msgid "city"
+msgstr "Vigo"
+
+#: /plugins/circulars/views/circulars/pdf/view.ctp:35
+msgid "gretting"
+msgstr "Estimadas familias"
+
+#: /plugins/circulars/views/circulars/pdf/view.ctp:40
+msgid "reminders"
+msgstr "Recordatorios"
+
+#: /plugins/circulars/views/circulars/pdf/view.ctp:54
+msgid "goodbye"
+msgstr "Recibide un atento saúdo"
+
+#: /plugins/circulars/views/circulars/pdf/view.ctp:56
+msgid "footer"
+msgstr ""
+"Colexio Miralba. Gran Vía 164, 36211 Vigo. Tel: 986 21 30 47 Fax: 986 29 10 "
+"44. http://miralba.org"
+
+#: /plugins/circulars/views/elements/circulars/current.ctp:10
+msgid "Latest Circulars"
+msgstr "Últimas circulares"
+
+#: /plugins/circulars/views/elements/circulars/current.ctp:11
+msgid "Currently vigent published circulars"
+msgstr "Circulares vixentes actualmente"
+
+#: /plugins/circulars/views/elements/circulars/current.ctp:35
+#: /plugins/circulars/views/elements/events/next.ctp:45
+#: /plugins/circulars/views/elements/events/today.ctp:38
+msgid "There are no events to show"
+msgstr "Non hai eventos que amosar"
+
+#: /plugins/circulars/views/elements/circulars/current.ctp:40
+msgid "Current circulars"
+msgstr "Circulares actuales"
+
+#: /plugins/circulars/views/elements/circulars/form.ctp:10
+#: /plugins/circulars/views/elements/circulars/form/common.ctp:10
+msgid "Circular needs a title"
+msgstr "A circular precisa dun título"
+
+#: /plugins/circulars/views/elements/circulars/form.ctp:20
+#: /plugins/circulars/views/elements/circulars/form/details.ctp:9
+msgid "Extra content and remainders"
+msgstr "Contido extra e recordatorios"
+
+#: /plugins/circulars/views/elements/circulars/form.ctp:25
+#: /plugins/circulars/views/elements/circulars/form/details.ctp:14
+msgid "Signature"
+msgstr "Sinatura"
+
+#: /plugins/circulars/views/elements/circulars/boxes/authorization.ctp:15
+msgid "Authorization for %s"
+msgstr "Autorización para %s"
+
+#: /plugins/circulars/views/elements/circulars/boxes/authorization.ctp:30
+#: /plugins/circulars/views/elements/circulars/boxes/consent.ctp:30
+#: /plugins/circulars/views/elements/circulars/boxes/receipt.ctp:30
+msgid "treatment"
+msgstr "D/Dª"
+
+#: /plugins/circulars/views/elements/circulars/boxes/authorization.ctp:34
+#: /plugins/circulars/views/elements/circulars/boxes/consent.ctp:34
+#: /plugins/circulars/views/elements/circulars/boxes/receipt.ctp:34
+msgid "role"
+msgstr "Nai, pai, titor/a de"
+
+#: /plugins/circulars/views/elements/circulars/boxes/authorization.ctp:38
+msgid "authorization action"
+msgstr "Autorizo ó meu fillo/a participar en"
+
+#: /plugins/circulars/views/elements/circulars/boxes/authorization.ctp:42
+#: /plugins/circulars/views/elements/circulars/boxes/consent.ctp:42
+#: /plugins/circulars/views/elements/circulars/boxes/receipt.ctp:42
+msgid "place, date and signature"
+msgstr "Lugar, data e sinatura"
+
+#: /plugins/circulars/views/elements/circulars/boxes/consent.ctp:15
+msgid "Consent for %s"
+msgstr "Consentimento para %s"
+
+#: /plugins/circulars/views/elements/circulars/boxes/consent.ctp:38
+msgid "consent action"
+msgstr "       Consinte           Non Consinte"
+
+#: /plugins/circulars/views/elements/circulars/boxes/consent.ctp:39
+msgid "mark"
+msgstr "Marcar cun X"
+
+#: /plugins/circulars/views/elements/circulars/boxes/receipt.ctp:15
+msgid "Receipt for %s"
+msgstr "Acuse de recibo para %s"
+
+#: /plugins/circulars/views/elements/circulars/boxes/receipt.ctp:38
+msgid "receipt-action"
+msgstr "Recibín a circular"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/event.ctp:8
+msgid "Field trip to"
+msgstr "Excursión a"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/event.ctp:12
+msgid "Field trip programme"
+msgstr "Programa da excursión"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:3
+msgid "Field trip details"
+msgstr "Detalles da excursión"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:4
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:4
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:4
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:5
+msgid "This details will be showed in the events calendar"
+msgstr "Estos detalles amosaránse na axenda de eventos"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:9
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:9
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:9
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:9
+#: /plugins/circulars/views/events/edit.ctp:46
+#: /plugins/circulars/views/events/index.ctp:7;59
+msgid "Start Date"
+msgstr "Data de comenzo"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:11
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:11
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:11
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:11;26
+msgid "Provide a date for this %s"
+msgstr "Indica unha data para %s"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:11
+msgid "field trip"
+msgstr "saída didáctica"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:19
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:19
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:19
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:20
+#: /plugins/circulars/views/events/edit.ctp:51
+msgid "Start Time"
+msgstr "Hora de comezo"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/form.ctp:25
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:25
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:25
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:36
+#: /plugins/circulars/views/events/edit.ctp:64
+msgid "End Time"
+msgstr "Hora de finalización"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/pdf.ctp:3
+msgid "field trip data"
+msgstr "Datos da saída"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/pdf.ctp:5
+msgid "Field trip place: %s"
+msgstr "Lugar: %s"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/pdf.ctp:7
+msgid "Field trip outline"
+msgstr "Programa da Saída"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/web.ctp:1
+msgid "Field Trip data"
+msgstr "Datos da saída didáctica"
+
+#: /plugins/circulars/views/elements/circulars/fieldtrip/web.ctp:2
+#: /plugins/circulars/views/elements/circulars/trip/web.ctp:2
+msgid "Destination: %s"
+msgstr "Destino: %s"
+
+#: /plugins/circulars/views/elements/circulars/form/common.ctp:3
+msgid "Title and introduction (%s)"
+msgstr "Título e introdución (%s)"
+
+#: /plugins/circulars/views/elements/circulars/form/details.ctp:3
+msgid "Details and signature (%s)"
+msgstr "Detalles e firma (%s)"
+
+#: /plugins/circulars/views/elements/circulars/internal/event.ctp:8
+msgid "Internal place"
+msgstr "Lugar da actividade"
+
+#: /plugins/circulars/views/elements/circulars/internal/event.ctp:12
+msgid "Internal outline"
+msgstr "Programa da actividade"
+
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:3
+msgid "Internal Activity details"
+msgstr "Detalles da actividade"
+
+#: /plugins/circulars/views/elements/circulars/internal/form.ctp:11
+msgid "internal activity"
+msgstr "Actividade no colexio"
+
+#: /plugins/circulars/views/elements/circulars/internal/pdf.ctp:3
+msgid "Internal activity data"
+msgstr "Datos da actividade"
+
+#: /plugins/circulars/views/elements/circulars/internal/pdf.ctp:6
+msgid "Activity place: %s"
+msgstr "Lugar da actividade: %s"
+
+#: /plugins/circulars/views/elements/circulars/internal/pdf.ctp:8
+#: /plugins/circulars/views/elements/circulars/internal/web.ctp:4
+msgid "Activity outline"
+msgstr "Programa da actividade"
+
+#: /plugins/circulars/views/elements/circulars/internal/web.ctp:1
+msgid "Internal Activity data"
+msgstr "Datos da actividade"
+
+#: /plugins/circulars/views/elements/circulars/internal/web.ctp:2
+#: /plugins/circulars/views/elements/circulars/meeting/web.ctp:2
+msgid "Place: %s"
+msgstr "Lugar: %s"
+
+#: /plugins/circulars/views/elements/circulars/internal/web.ctp:3
+#: /plugins/circulars/views/elements/circulars/meeting/web.ctp:3
+msgid "Date and time: %s"
+msgstr "Data e hora: %s"
+
+#: /plugins/circulars/views/elements/circulars/meeting/event.ctp:8
+msgid "Meeting place"
+msgstr "Lugar da reunión"
+
+#: /plugins/circulars/views/elements/circulars/meeting/event.ctp:12
+msgid "Meeting outline"
+msgstr "Orde do día da reunión"
+
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:3
+msgid "Meeting details"
+msgstr "Detalles da reunión"
+
+#: /plugins/circulars/views/elements/circulars/meeting/form.ctp:11
+msgid "meeting"
+msgstr "reunión"
+
+#: /plugins/circulars/views/elements/circulars/meeting/pdf.ctp:3
+msgid "meeting data"
+msgstr "Datos da reunión"
+
+#: /plugins/circulars/views/elements/circulars/meeting/pdf.ctp:6
+msgid "Meeting place: %s"
+msgstr "Lugar da reunión: %s"
+
+#: /plugins/circulars/views/elements/circulars/meeting/pdf.ctp:8
+msgid "meeting outline"
+msgstr "Orde do día"
+
+#: /plugins/circulars/views/elements/circulars/meeting/web.ctp:1
+msgid "Meeting data"
+msgstr "Datos da reunión"
+
+#: /plugins/circulars/views/elements/circulars/meeting/web.ctp:4
+msgid "Outline"
+msgstr "Orde do día"
+
+#: /plugins/circulars/views/elements/circulars/trip/event.ctp:8
+msgid "Trip to"
+msgstr "Viaxe a"
+
+#: /plugins/circulars/views/elements/circulars/trip/event.ctp:12
+msgid "Trip programme"
+msgstr "Programa da viaxe"
+
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:4
+msgid "Trip details"
+msgstr "Detalles da viaxe"
+
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:11;26
+msgid "trip"
+msgstr "viaxe"
+
+#: /plugins/circulars/views/elements/circulars/trip/form.ctp:24
+#: /plugins/circulars/views/events/edit.ctp:59
+#: /plugins/circulars/views/events/index.ctp:13
+msgid "End Date"
+msgstr "Data de finalización"
+
+#: /plugins/circulars/views/elements/circulars/trip/pdf.ctp:3
+#: /plugins/circulars/views/elements/circulars/trip/web.ctp:1
+msgid "Trip data"
+msgstr "Datos da viaxe"
+
+#: /plugins/circulars/views/elements/circulars/trip/pdf.ctp:4
+msgid "Trip place: %s"
+msgstr "Destino: %s"
+
+#: /plugins/circulars/views/elements/circulars/trip/pdf.ctp:7
+msgid "Trip outline"
+msgstr "Programa da viaxe"
+
+#: /plugins/circulars/views/elements/events/next.ctp:12
+#: /plugins/circulars/views/events/next.ctp:7
+msgid "Next events"
+msgstr "Próximos eventos"
+
+#: /plugins/circulars/views/elements/events/next.ctp:13
+msgid "Events to take place in the next days"
+msgstr "Próximos eventos"
+
+#: /plugins/circulars/views/elements/events/next.ctp:50
+#: /plugins/circulars/views/elements/events/today.ctp:43
+msgid "More events"
+msgstr "Máis eventos"
+
+#: /plugins/circulars/views/elements/events/today.ctp:9
+msgid "Events for today"
+msgstr "Eventos para hoxe"
+
+#: /plugins/circulars/views/events/edit.ctp:16
+msgid "Event Definition"
+msgstr "Datos do Evento"
+
+#: /plugins/circulars/views/events/edit.ctp:22
+msgid "Event title"
+msgstr "Título do evento"
+
+#: /plugins/circulars/views/events/edit.ctp:25
+msgid "Event description"
+msgstr "Descrición do evento"
+
+#: /plugins/circulars/views/events/edit.ctp:28
+#: /plugins/circulars/views/events/view.ctp:13
+msgid "Place"
+msgstr "Lugar"
+
+#: /plugins/circulars/views/events/edit.ctp:76
+msgid "Continuous"
+msgstr "Contínuo"
+
+#: /plugins/circulars/views/events/index.ctp:38
+msgid "Events"
+msgstr "Eventos"
+
+#: /plugins/circulars/views/events/view.ctp:16
+msgid "Event data"
+msgstr "Datos do evento"
+
+#: /plugins/circulars/views/events/view.ctp:17
+msgid "Start Date: %s"
+msgstr "Data de comenzo: %s"
+
+#: /plugins/circulars/views/events/view.ctp:18
+msgid "Start Time: %s"
+msgstr "Hora de comenzo: %s"
+
+#: /plugins/circulars/views/events/view.ctp:19
+msgid "End Date: %s"
+msgstr "Data de finalización: %s"
+
+#: /plugins/circulars/views/helpers/circular.php:29
+msgid "Draft"
+msgstr "Borrador"
+
+#: /plugins/circulars/views/helpers/circular.php:30
+msgid "Published"
+msgstr "Publicada"
+
+#: /plugins/circulars/views/helpers/circular.php:31
+msgid "Archived"
+msgstr "Arquivada"
+
+#: /plugins/circulars/views/helpers/circular.php:32
+msgid "Revoked"
+msgstr "Retirada"
+
+#: /plugins/circulars/views/helpers/circular.php:35
+msgid "D"
+msgstr "B"
+
+#: /plugins/circulars/views/helpers/circular.php:36
+msgid "P"
+msgstr "P"
+
+#: /plugins/circulars/views/helpers/circular.php:38
+msgid "X"
+msgstr "X"
+
+#: /plugins/circulars/views/helpers/circular.php:57
+msgid "spa"
+msgstr "español"
+
+#: /plugins/circulars/views/helpers/circular.php:58
+msgid "glg"
+msgstr "galego"
+
+#: /plugins/circulars/views/helpers/circular.php:78
+msgid "This Circular requires a response."
+msgstr "Esta circular require unha resposta."
+
+#: /plugins/circulars/views/helpers/circular.php:108
+msgid "Translate from %s"
+msgstr "Traduce dende %s"
+
+#: /plugins/circulars/views/helpers/circular.php:119
+msgid "Remainders"
+msgstr "Recordatorios"
+
+#: /plugins/circulars/views/helpers/event.php:80;99;116
+msgid "%s: %s at %s"
+msgstr "%s: %s ás %s"
+
+#: /plugins/circulars/views/helpers/event.php:83;102
+msgid "Departure"
+msgstr "Saída"
+
+#: /plugins/circulars/views/helpers/event.php:89;108
+msgid "Return"
+msgstr "Regreso"
+
+#: /plugins/circulars/views/helpers/event.php:107
+msgid "%s at %s"
+msgstr "%s ás %s"
+
+#: /plugins/circulars/views/helpers/event.php:119
+msgid "Meeting start"
+msgstr "Inicio da reunión"
+
+#: /plugins/ui/views/helpers/f_form.php:778
+msgid "%s"
+msgstr "%s"
+
+#~ msgid "Revoke"
+#~ msgstr "Retirar"
+
+#~ msgid "circular"
+#~ msgstr "Circular"
+
+#~ msgid "Workflow information"
+#~ msgstr "Información de proceso da circular"
+
+#~ msgid "Extra"
+#~ msgstr "Recordatorios"
+
+#~ msgid "Programme"
+#~ msgstr "Programa"
+
+#~ msgid "Dates: %s"
+#~ msgstr "Datas: %s"
+
+#~ msgid "Description"
+#~ msgstr "Descripción"
+
+#~ msgid "More info and details"
+#~ msgstr "Más información e detalles"
+
+#~ msgid "Date: %s"
+#~ msgstr "Data: %s"
+
+#~ msgid "Start time: %s"
+#~ msgstr "Hora de comenzo: %s"
+
+#~ msgid "Return time: %s"
+#~ msgstr "Hora de retorno: %s"
+
+#~ msgid "circular box"
+#~ msgstr "Caixa de resposta"
+
+#~ msgid "circular type"
+#~ msgstr "Tipo de circular"
+
+#~ msgid "Spanish"
+#~ msgstr "Español"
+
+#~ msgid "Galician"
+#~ msgstr "Galego"
+
+#~ msgid "Return date: %s"
+#~ msgstr "Data de regreso: %s"

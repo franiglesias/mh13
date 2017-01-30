@@ -1,0 +1,18 @@
+<?php
+
+$defaults = array(
+	'search' => false,
+);
+
+extract($defaults, EXTR_SKIP);
+
+$data = $this->requestAction(array(
+		'plugin' => 'menus',
+		'controller' => 'bars',
+		'action' => 'bar',
+		),
+		array('pass' => array($bar))
+	);
+
+echo $this->Wbar->render($data);
+?>

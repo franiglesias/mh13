@@ -1,0 +1,197 @@
+/* mh13/oocss/buttons.css */
+/* Defaults for buttons */
+
+.mh-button {/* extends media */
+	display:inline-block;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.mh-button:before, .mh-button:after {
+	font-family: IconicFill;
+	color: rgba(255,255,255,.6);
+	font-size: 133%;
+	padding-left: .2em;
+}
+
+.mh-button:before {
+	padding-right: 0.4em;
+	margin-left: -0.4em;
+}
+
+.mh-button:after {
+	padding-left: 0.4em;
+	margin-right: -0.4em;
+}
+
+.mh-button:hover {
+}
+
+.mh-button-action {
+}
+
+.mh-button-alt {
+	float: right;
+}
+
+.mh-button-disabled {
+	background-color: #CFCFCF !important;
+	color: #949494 !important;
+}
+
+
+/* Buttons. This styles add skins to some special buttons, 
+named after some common actions showed in index view,
+but you could use them as needed to skin individual buttons. 
+Add new classes as needed. */
+
+.mh-button-activate {
+}
+.mh-button-activate:before {
+	content: '\e008';
+}
+.mh-button-back {/*extends:.mh-button*/
+}
+.mh-button-back:before {
+	content: '\2190';
+}
+.mh-button-back {
+}
+.mh-button-back:before {
+	content: '\2190';
+}
+
+.mh-button-admin {/* extends .mh-button-back*/
+}
+.mh-button-admin:before {
+	content: '\e055';
+}
+
+.mh-button-call {
+}
+.mh-button-call:before {
+}
+.mh-button-call {
+	font-size: 175%;
+}
+.mh-button-cancel:before {
+	content: '\2713';
+}
+.mh-button-cancel {/* extends mh-button */
+}
+.mh-button-deactivate:before {
+	content: '\e009';
+}
+.mh-button-deactivate {
+}
+.mh-button-delete:before {
+	content: '\2713';
+}
+.mh-button-delete {
+}
+.mh-button-download:before {
+	content: '\2193';
+}
+.mh-button-download {
+}
+.mh-button-duplicate:before {
+	content: '\e059';
+}
+.mh-button-duplicate {
+}
+.mh-button-edit:before {
+	content: '\270e';
+}
+.mh-button-edit {
+}
+.mh-button-ok:before {
+	content: '\2717';
+}
+.mh-button-ok {/* extends mh-button */
+}
+
+.mh-button-add {/* extends mh-button-ok*/
+}
+.mh-button-add:before {
+	content: '\2795';
+}
+
+.mh-button-print {
+}
+.mh-button-print:before {
+	content: '\e066';
+}
+.mh-button-refresh:before {
+	content: '\e030';
+}
+.mh-button-refresh {
+}
+.mh-button-rotate {
+}
+.mh-button-rotate:before {
+	content: '\e030';
+}
+.mh-button-search {
+}
+.mh-button-search:before {
+	content: '\e074';
+}
+.mh-button-undo {
+}
+.mh-button-undo:before {
+	content: '\e02f';
+}
+.mh-button-view {
+}
+.mh-button-view:before {
+	content: '\e025';
+}
+.mh-button-forward {/*extends:.mh-button*/
+}
+.mh-button-forward:after {
+	content: '\2192';
+}
+
+.mh-button-external {/*extends .mh-button-forward*/
+}
+.mh-button-external:after {
+	content: '\2192';
+}
+.mh-button-next {/*extends: .mh-button-forward*/ 
+	float:right;
+	text-align: right;
+}
+.mh-button-prev {/*extends: .mh-button-back*/ 
+	float:left;
+	text-align: left;
+}
+.mh-button-readmore {/*extends .mh-button-forward*/
+}
+.mh-button-readmore:after {
+	content: '\2795';
+}
+.mh-button-rss {/*extends:.mh-button*/ 
+	background-color:#E76008;
+	color: #fff;
+}
+.mh-button-rss:before {
+	content: '\e02d';
+}
+
+.mh-button-upload {
+	
+}
+
+.mh-button-upload:before {
+	content: '\e043';
+}
+
+.mh-button-warning {
+}
+
+.mh-button-warning:before {
+	content: '\26a1';
+}

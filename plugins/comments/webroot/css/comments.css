@@ -1,0 +1,74 @@
+/* COMMENT SYSTEM */
+
+.mh-comment {
+	margin-bottom: 15px;
+}
+
+.mh-comment-metadata {
+	font-size: 10px;
+	margin-right: 10px;
+	width: 120px;	
+}
+
+.mh-comment-author {
+	font-weight: bold;
+}
+
+.mh-comment-body {
+	font-size: 16px;
+	line-height: 145%;
+	background-color: white;
+	border-radius: 5px 5px 5px 5px;
+	border: 1px solid #aaa;
+	padding: 5px 15px;
+}
+
+.mh-comments-metadata {
+	overflow: hidden;
+	padding: 3px 15px;
+	background-color: #C8C8C8;
+	margin: 15px 0 15px 0;
+}
+
+.mh-comments-count {
+	display: inline-block;
+}
+
+.mh-comments-form-link {
+	display: inline-block;
+	float: right;
+}
+
+
+/* Fancy balloon look */
+
+.mh-comment-body {
+	position: relative;
+	margin-left: 135px;
+	margin-bottom: 24px;
+	overflow: visible !important;	
+}
+
+.mh-comment-body::after,
+.mh-comment-body::before{
+	display:block;
+	position:absolute;
+	z-index:1;
+	left:-14px;
+	top:8px;
+	width:0px;
+	height:0px;
+	border-style:solid;
+	border-width:5px 7px 5px 7px;
+	border-color: transparent #aaa transparent transparent ;
+	content:' ';
+}
+.mh-comment-body::before{
+	z-index:2;
+	left:-12px;
+	border-right-color:#fff;
+}
+
+.mh-form-trick {
+	display: none !important;
+}

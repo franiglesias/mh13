@@ -1,0 +1,20 @@
+/* mh13/core/paginator.css */
+
+.mh-paginator {}
+
+	.mh-paginator-block {}
+		
+		.mh-paginator-pager {}
+			
+	.mh-paginator-button {}
+		
+		.mh-paginator-back {}
+		.mh-paginator-next {}
+			
+.disabled {}	
+
+	.mh-paginator-paging {}
+		
+	.mh-paginator-page {}
+		
+	.mh-paginator-counter {}

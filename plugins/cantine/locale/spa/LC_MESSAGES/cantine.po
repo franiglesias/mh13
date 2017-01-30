@@ -1,0 +1,517 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cantine.Milhojas13.\n"
+"POT-Creation-Date: 2015-02-19 12:49+0100\n"
+"PO-Revision-Date: 2015-02-19 12:50+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@me.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/cantine/controllers/cantine_date_remarks_controller.php:24;27;34
+msgid "Cantine Date Remark"
+msgstr "Observación de comedor"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:13
+#: /plugins/cantine/controllers/cantine_tickets_controller.php:13
+msgid "Delete"
+msgstr "Eliminar"
+
+#: /plugins/cantine/controllers/cantine_regulars_controller.php:176
+msgid "CantineRegular"
+msgstr "Fijo"
+
+#: /plugins/cantine/controllers/cantine_rules_controller.php:44;53;60
+msgid "Cantine Rule"
+msgstr "Regla"
+
+#: /plugins/cantine/controllers/cantine_tickets_controller.php:130
+msgid "CantineTicket"
+msgstr "Vale"
+
+#: /plugins/cantine/controllers/cantine_turns_controller.php:24;27;34
+#: /plugins/cantine/views/cantine_rules/edit.ctp:25
+msgid "Cantine Turn"
+msgstr "Turno"
+
+#: /plugins/cantine/models/cantine_rule.php:35
+msgid "Ignore"
+msgstr "Ignorar"
+
+#: /plugins/cantine/models/cantine_rule.php:36
+msgid "No"
+msgstr "No"
+
+#: /plugins/cantine/models/cantine_rule.php:37
+msgid "Yes"
+msgstr "Sí"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:5;51
+#: /plugins/cantine/views/cantine_groups/edit.ctp:41
+#: /plugins/cantine/views/cantine_turns/edit.ctp:17
+#: /plugins/cantine/views/cantine_turns/index.ctp:5
+msgid "Turn"
+msgstr "Turno"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:10
+#: /plugins/cantine/views/cantine_incidences/index.ctp:9
+#: /plugins/cantine/views/cantine_regulars/index.ctp:9;127
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:8
+#: /plugins/cantine/views/cantine_tickets/index.ctp:15;83
+#: /plugins/cantine/views/elements/student_data.ctp:8
+msgid "Section"
+msgstr "Sección"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:14;34
+#: /plugins/cantine/views/cantine_tickets/index.ctp:5
+msgid "Full Name"
+msgstr "Nombre"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:18;38
+#: /plugins/cantine/views/cantine_incidences/edit.ctp:61
+#: /plugins/cantine/views/cantine_incidences/index.ctp:19
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:29
+#: /plugins/cantine/views/cantine_tickets/index.ctp:19
+#: /plugins/cantine/views/elements/student_data.ctp:24
+msgid "Remarks"
+msgstr "Observaciones"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:55;130
+msgid "Attendances"
+msgstr "Asistentes"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:59
+msgid "EI"
+msgstr "EI"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:63
+msgid "EP"
+msgstr "EP"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:67
+msgid "ESO"
+msgstr "ESO"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:71
+msgid "Bac"
+msgstr "Bac"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:85
+msgid "Cantine Attendance List for %s"
+msgstr "Lista de asistentes al comedor para %s"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:95
+msgid "Add Ticket"
+msgstr "Crear Vale"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:100
+#: /plugins/cantine/views/cantine_incidences/index.ctp:50
+msgid "Manage Tickets"
+msgstr "Gestionar vales"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:105
+msgid "Add Incidence"
+msgstr "Crear incidencia"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:110
+#: /plugins/cantine/views/cantine_tickets/index.ctp:65
+msgid "Manage Incidences"
+msgstr "Gestionar Incidencias de Comedor"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:115
+#: /plugins/it/views/maintenances/report.ctp:79
+msgid "Print"
+msgstr "Imprimir"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:132
+msgid "Incidences"
+msgstr "Incidencias"
+
+#: /plugins/cantine/views/cantine/attendances.ctp:134
+msgid "Attendances list"
+msgstr "Lista de asistentes"
+
+#: /plugins/cantine/views/cantine/month.ctp:9
+#: /plugins/cantine/views/cantine/week.ctp:9
+msgid "Menu from :start to :end"
+msgstr "Menú desde :start hasta :end"
+
+#: /plugins/cantine/views/cantine/today.ctp:3
+msgid "Menu for today"
+msgstr "Menú para hoy"
+
+#: /plugins/cantine/views/cantine/today.ctp:6
+msgid "Meals"
+msgstr "Comida"
+
+#: /plugins/cantine/views/cantine/today.ctp:8
+msgid "Nutritional information (mean)"
+msgstr "Información nutricional (promedio semanal)"
+
+#: /plugins/cantine/views/cantine_date_remarks/edit.ctp:12
+msgid "Remarks for date"
+msgstr "Observaciones para la fecha"
+
+#: /plugins/cantine/views/cantine_date_remarks/edit.ctp:17
+#: /plugins/cantine/views/cantine_incidences/edit.ctp:39;48
+#: /plugins/cantine/views/cantine_incidences/index.ctp:13;64
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:42;53
+#: /plugins/cantine/views/cantine_tickets/index.ctp:9;80
+msgid "Date"
+msgstr "Fecha"
+
+#: /plugins/cantine/views/cantine_date_remarks/edit.ctp:22
+msgid "Change or remark"
+msgstr "Cambio u observación"
+
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:20
+msgid "Cantine Date Remarks"
+msgstr "Observaciones para una fecha"
+
+#: /plugins/cantine/views/cantine_date_remarks/index.ctp:33
+msgid "Manage Menus"
+msgstr "Gestionar menús"
+
+#: /plugins/cantine/views/cantine_groups/edit.ctp:17
+msgid "CantineGroup Definition"
+msgstr "Definición del Grupo"
+
+#: /plugins/cantine/views/cantine_groups/edit.ctp:21
+#: /plugins/cantine/views/cantine_groups/index.ctp:4
+msgid "Group"
+msgstr "Grupo"
+
+#: /plugins/cantine/views/cantine_groups/edit.ctp:30
+msgid "Cantine Rules for this group"
+msgstr "Reglas de comedor para este grupo"
+
+#: /plugins/cantine/views/cantine_groups/edit.ctp:38
+msgid "Day of week"
+msgstr "Día de la semana"
+
+#: /plugins/cantine/views/cantine_groups/index.ctp:19
+msgid "Cantine Groups"
+msgstr "Grupos de comedor"
+
+#: /plugins/cantine/views/cantine_groups/index.ctp:32
+msgid "Manage Cantine Turns"
+msgstr "Gestionar Turnos de Comedor"
+
+#: /plugins/cantine/views/cantine_incidences/edit.ctp:12
+msgid "CantineIncidence Definition"
+msgstr "Definición de la Incidencia"
+
+#: /plugins/cantine/views/cantine_incidences/edit.ctp:19;28
+#: /plugins/cantine/views/cantine_incidences/index.ctp:65
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:21;29
+#: /plugins/cantine/views/cantine_regulars/index.ctp:124
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:25;32
+#: /plugins/cantine/views/cantine_tickets/index.ctp:81
+msgid "Student full name"
+msgstr "Nombre del alumno/a"
+
+#: /plugins/cantine/views/cantine_incidences/edit.ctp:41;50
+msgid "User has a incidence that day"
+msgstr "El usuario tiene una incidencia para esa fecha"
+
+#: /plugins/cantine/views/cantine_incidences/edit.ctp:42;51
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:48;58
+msgid "Date should be a labour day"
+msgstr "La fecha debería ser un día laborable"
+
+#: /plugins/cantine/views/cantine_incidences/index.ctp:5
+msgid "Full name"
+msgstr "Nombre completo"
+
+#: /plugins/cantine/views/cantine_incidences/index.ctp:36
+msgid "Cantine Incidences"
+msgstr "Incidencias de comedor"
+
+#: /plugins/cantine/views/cantine_incidences/index.ctp:55
+#: /plugins/cantine/views/cantine_tickets/index.ctp:70
+msgid "Attendances for today"
+msgstr "Asistentes para hoy"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:12
+msgid "CantineRegular Definition"
+msgstr "Alumno Fijo"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:31
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:34
+msgid "Invalid student or bad selection in list"
+msgstr "Estudiante no válido o mal seleccionado de la lista"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:32
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:35
+msgid "Select a valid student name"
+msgstr "Seleccionar un nombre de estudiante válido"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:43
+msgid "Months"
+msgstr "Meses"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:47
+msgid "Please, check at least a month"
+msgstr "Por favor, marca al menos un mes"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:48;58
+msgid "This student is registered for this same month"
+msgstr "Este estudiante ya está apuntado para el mismo mes"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:56
+#: /plugins/cantine/views/cantine_regulars/index.ctp:14;121
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:11
+msgid "Month"
+msgstr "Mes"
+
+#: /plugins/cantine/views/cantine_regulars/edit.ctp:66
+#: /plugins/cantine/views/cantine_rules/edit.ctp:29
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:21
+msgid "Days of week"
+msgstr "Días de la semana"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:5
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:5
+msgid "Student"
+msgstr "Estudiante"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:20
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:16
+msgid "Week days"
+msgstr "Días de la semana"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:26
+msgid "Extra1"
+msgstr "Extraescolar"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:32
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:26
+msgid "Total"
+msgstr "Total"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:76
+msgid "Cantine Regulars"
+msgstr "Fijos"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:87
+msgid "Manage"
+msgstr "Gestionar"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:97
+msgid "Download CSV"
+msgstr "Descargar Hoja de Cálculo CSV"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:108
+msgid "Invoicing"
+msgstr "Recibos"
+
+#: /plugins/cantine/views/cantine_regulars/csv/index.ctp:21
+msgid "Extra 1"
+msgstr "Extraescolar"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:17
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:16
+msgid "CantineRule Definition"
+msgstr "Definir regla de turno de comedor"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:26
+msgid "The turn to apply this rule"
+msgstr "El turno al que aplicar esta regla"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:30
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:22
+msgid "Check all days of week for this rule to apply"
+msgstr "Marcar todos los días de las semana para los que se aplica esta regla"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:43
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:35
+msgid "Cantine group"
+msgstr "Grupo de comedor"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:44
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:36
+msgid "The group to apply this rule"
+msgstr "El grupo al que se aplica esta regla"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:50
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:42
+msgid "extra1"
+msgstr "Extraescolar"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:51
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:43
+msgid "Apply to students with extra classes?"
+msgstr "¿Aplicar a estudiantes con extraescolares?"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:58
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:50
+msgid "extra2"
+msgstr "Alcor"
+
+#: /plugins/cantine/views/cantine_rules/edit.ctp:59
+#: /plugins/cantine/views/cantine_rules/ajax/edit.ctp:51
+msgid "Apply to students with Alcor?"
+msgstr "¿Aplicar a estudiantes apuntados a Alcor?"
+
+#: /plugins/cantine/views/cantine_rules/index.ctp:37
+msgid "Cantine Rules"
+msgstr "Reglas"
+
+#: /plugins/cantine/views/cantine_rules/ajax/index.ctp:58
+msgid "Cantine Rules for this turn"
+msgstr "Reglas de comedor para este turno"
+
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:16
+msgid "CantineTicket Definition"
+msgstr "Vale de comedor"
+
+#: /plugins/cantine/views/cantine_tickets/edit.ctp:47;57
+msgid "User has a ticket that day"
+msgstr "El usaurio tiene un vale para esa fecha"
+
+#: /plugins/cantine/views/cantine_tickets/index.ctp:52
+msgid "Cantine Tickets"
+msgstr "Vales"
+
+#: /plugins/cantine/views/cantine_turns/edit.ctp:12
+msgid "CantineTurn Definition"
+msgstr "Turno de Comedor"
+
+#: /plugins/cantine/views/cantine_turns/edit.ctp:21
+#: /plugins/cantine/views/cantine_turns/index.ctp:10
+msgid "Slot"
+msgstr "Orden"
+
+#: /plugins/cantine/views/cantine_turns/index.ctp:25
+msgid "Cantine Turns"
+msgstr "Turnos"
+
+#: /plugins/cantine/views/cantine_turns/index.ctp:38
+msgid "Manage Cantine Groups"
+msgstr "Gestionar Grupos de Comedor"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:12
+msgid "Menu common data"
+msgstr "Datos comunes del menú"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:17
+msgid "An identifier for this menu"
+msgstr "Un identificador para este menú"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:19
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:4
+msgid "Title"
+msgstr "Título"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:23
+msgid "Nutrition facts"
+msgstr "Datos nutricionales"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:27
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:6
+msgid "Calories"
+msgstr "Calorías"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:32
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:15
+msgid "Proteines"
+msgstr "Proteínas"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:37
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:12
+msgid "Lipids"
+msgstr "Lípidos"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:42
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:9
+msgid "Glucides"
+msgstr "Glúcidos"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:51
+msgid "Menus for every day"
+msgstr "Menús para cada día"
+
+#: /plugins/cantine/views/cantine_week_menus/edit.ctp:85
+msgid "Starting dates for this menu"
+msgstr "Fecha de comienzo para este menú"
+
+#: /plugins/cantine/views/cantine_week_menus/index.ctp:32
+msgid "Cantine Menus"
+msgstr "Menús del comedor"
+
+#: /plugins/cantine/views/elements/menu.ctp:5
+msgid "Today"
+msgstr "Hoy"
+
+#: /plugins/cantine/views/elements/menu.ctp:12
+msgid "A week from now"
+msgstr "Próxima semana desde hoy"
+
+#: /plugins/cantine/views/elements/menu.ctp:19
+msgid "This week"
+msgstr "Esta semana"
+
+#: /plugins/cantine/views/elements/menu.ctp:27
+msgid "A month from now"
+msgstr "Un mes desde hoy"
+
+#: /plugins/cantine/views/elements/menu.ctp:34
+msgid "This month"
+msgstr "Este mes"
+
+#: /plugins/cantine/views/elements/menu.ctp:44
+msgid "More menus"
+msgstr "Mas menús"
+
+#: /plugins/cantine/views/elements/student_data.ctp:2
+msgid "Student data"
+msgstr "Datos del alumno/a"
+
+#: /plugins/cantine/views/elements/today.ctp:10
+msgid "Cantine Menu for Today"
+msgstr "Menú del comedor para hoy"
+
+#: /plugins/cantine/views/elements/today.ctp:14
+msgid "No cantine service today"
+msgstr "Hoy no hay servicio de comedor"
+
+#: /plugins/cantine/views/elements/today.ctp:29
+msgid "Go to cantine"
+msgstr "Ir al Comedor"
+
+#: /plugins/cantine/views/helpers/cantine.php:116
+msgid "Nutrition"
+msgstr "Datos nutricionales"
+
+#: /plugins/cantine/views/helpers/cantine.php:135
+msgid "calories"
+msgstr "calorías"
+
+#: /plugins/cantine/views/helpers/cantine.php:136
+msgid "glucides"
+msgstr "glúcidos"
+
+#: /plugins/cantine/views/helpers/cantine.php:137
+msgid "lipids"
+msgstr "lípidos"
+
+#: /plugins/cantine/views/helpers/cantine.php:138
+msgid "proteines"
+msgstr "proteínas"
+
+#: /plugins/school/models/student.php:181
+msgid ">>> "
+msgstr "Hoy >>>"
+
+#: /plugins/school/views/sections/edit.ctp:55
+#: /plugins/school/views/sections/index.ctp:48
+msgid "Cantine Group"
+msgstr "Grupo de Comedor"

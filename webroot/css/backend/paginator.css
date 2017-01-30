@@ -1,0 +1,49 @@
+/* ADMIN PAGINATOR .mh-paginator is intended to be displayed at the top of the data, to ensure an easy location*/
+
+.mh-paginator{
+	background-color: #D8D8D8;
+	padding: 0px 30px;
+	overflow: hidden;
+	border-top: 1px solid #7F7F7F;
+	border-bottom: 1px solid #7F7F7F;
+	-webkit-box-shadow: inset 0px -8px 6px 0px rgba(0,0,0,.1);
+	-moz-box-shadow: inset 0px -8px 6px 0px rgba(0,0,0,.1);
+	box-shadow: inset 0px -8px 6px 0px rgba(0,0,0,.1);
+}
+
+	.mh-paginator-block {
+		font-size: 12px;
+		margin-right: 15px;
+		display: inline-block;
+		padding: 0 0;
+	}
+
+	.mh-paginator-button, .mh-paginator-block span.disabled, .mh-paginator-block span.current {
+		display: inline-block;
+		padding: 4px 10px;
+		font-size: inherit;
+		border-left: 1px solid #7F7F7F;
+		border-right: 1px solid #7F7F7F;
+		moz-border-radius: 0;
+		border-radius: 0;
+	}
+
+	.mh-paginator-button:hover {
+		background-color: #888;
+	}
+
+	.mh-paginator-pager {}
+
+	.mh-paginator-paging {}
+	
+	.mh-paginator-counter {
+		float: right;
+		margin-right: 0;
+		padding: 4px 10px;
+	}
+
+	.mh-paginator-block span.current {
+		background-color: #A8A8A8;
+		-webkit-box-shadow: inset 0px -8px 6px 0px rgba(255,255,255,.2);
+		margin-right: 3px;
+	}

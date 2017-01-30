@@ -1,0 +1,216 @@
+/* mh13/oocss/forms.css */
+/* FORM ELEMENTS */
+form {
+	padding: 15px;
+	font-size: 16px;
+}
+
+legend {
+	-webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+	font-weight: bold;
+	padding: 10px;
+	width: 100%;
+	margin-bottom: 15px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #EEEFEE;
+	border: 1px solid #C0C0C0;
+	position: static;
+}
+fieldset {
+	margin-bottom: 10px;
+}
+select {
+	font-size: 90%;
+	padding: 3px 15px;
+}
+
+input[type=checkbox] {
+	float: left;
+	margin-right: 10px;
+}
+input[type=text],textarea,input[type=password] {
+	-webkit-appearance: none;
+	padding: 6px;
+	display: block;
+	background-color: #fff;
+	border: 1px solid #BFBFBF;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 100%;
+}
+
+.input .mh-button-cancel {
+	padding: 2px 5px;
+}
+
+.input .mh-button-cancel:before {
+	padding-right: 0px;
+	margin-left: 0px;
+}
+
+/* CakePHP generated classes */
+.input,.submit {
+	padding: 5px 10px 5px 120px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 5px;
+}
+.input {
+	overflow: hidden;
+}
+.input.required label {
+	color: #F00;
+}
+
+.input.required label:after {
+	content: ' *';
+}
+
+.input.error {
+	background-color: #FBB9B8;
+}
+.input label {
+	width: 100px;
+	float: left;
+	margin-left: -110px;
+	display: block;
+	padding-top: 6px;
+	font-size: 90%;
+	font-weight: bold;
+	text-align: left;
+}
+
+.input p {
+	font-size: 90%;
+	clear: both;
+	margin-bottom: 5px;
+	color: #1768BF;
+}
+.checkbox {
+	overflow: hidden;
+	display: inline-block;
+}
+
+.input.checkbox {
+	display: block;
+}
+.checkbox label {
+	margin-left: 0;
+	width: auto;
+	padding-top: 0;
+}
+/* Classes for fields */
+.input-short {
+	width: 25%;
+}
+.input-medium {
+	width: 50%;
+}
+.input-long {
+	width: 95%;
+}
+
+.input .file-list {
+	margin: 0 15px;
+	width: 30%;
+}
+
+
+/* Inline forms */
+
+.mh-inline-form {
+	margin: 0;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.mh-inline-form .input,
+.mh-inline-form .submit {
+	padding: 10px 10px 10px 10px;
+	background-color: transparent;
+}
+
+.mh-inline-form .input label {
+	margin-left: 0;
+	float: none;
+}
+
+
+.mh-inline-form-block {
+	overflow: hidden;
+	background-color: rgba(0,0,0,.1);
+	border-top: 1px solid #959595;
+}
+
+.mh-inline-input {
+	display: inline-block;
+	margin: 0;
+	padding: 5px;
+	vertical-align: top;
+}
+
+.mh-inline-input label{
+	margin-left: 0;
+	margin-right: 10px;
+	width: auto;
+}
+
+.mh-inline-submit {
+	float: left;
+	padding: 10px;
+}
+
+.mh-inline-submit .input{
+	float: left;
+}
+
+.mh-inline-input .checkbox {
+	display: inline-block;
+}
+
+.help-block {
+}
+
+
+.help-text {
+/*	font-size: 16px;
+*/	line-height: 22px;
+	margin-bottom: 8px;
+}
+
+.mh-file-preview {
+}
+
+.mh-file-preview li {
+	border: 1px solid #DFDFDF;
+	padding: 3px 5px;
+}
+
+.mh-file-preview li .media-object {}
+
+
+.mh-filter-form {
+	background-color: #D1D1D1;
+	font-size: 12px;
+}
+
+
+.mh-filter-form input[type=text],
+.mh-filter-form textarea,
+.mh-filter-form input[type=password]
+ {
+	font-size: 12px;
+	padding: 3px;
+}
+
+.mh-filter-title {
+	padding: 15px 0 0 15px;
+	font-size: 100%;
+}

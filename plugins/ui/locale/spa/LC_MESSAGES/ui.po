@@ -1,0 +1,45 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ui.milhojas13\n"
+"POT-Creation-Date: 2015-02-19 12:49+0100\n"
+"PO-Revision-Date: 2015-02-19 12:54+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@me.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/ui/views/elements/nocontent.ctp:3
+msgid "We don't have yet any content to put here"
+msgstr "No encontramos contenido para poner aquí."
+
+#: /plugins/ui/views/helpers/article.php:30
+msgid "Untitled"
+msgstr "Sin título"
+
+#: /plugins/ui/views/helpers/f_form.php:1208
+msgid "-- Select an icon --"
+msgstr "-- Selecciona un icono --"
+
+#: /plugins/ui/views/helpers/table.php:646;811
+msgid "and"
+msgstr "y"
+
+#~ msgid "We are soooo sorry!"
+#~ msgstr "¡Lo sentimos tanto!"
+
+#~ msgid "Apologizes!"
+#~ msgstr "¡Disculpas!"
+
+#~ msgid "Upps!"
+#~ msgstr "¡Huy, huy!"
+
+#~ msgid "Come bak a little later, while we finish to write it"
+#~ msgstr "Vuelve un poco más tarde, mientras terminados de escribirlo."

@@ -1,0 +1,32 @@
+/* mh13/oocss/grid.css */
+/* LAYOUT ELEMENTS */
+.container{position:relative;overflow:hidden;}
+.column{overflow:hidden;float:left;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:auto;min-height:15px;/*Forces empty columns to claim their space*/}
+.wide,.col1of1,.col2of2,.col3of3,.col4of4,.col5of5,.col6of6,.col7of7,.col8of8{width:100%;float:none;}
+.col1of2,.col2of4,.col3of6,.col4of8{width:50%;}
+.col1of3,.col2of6{width:33.3333%}
+.col2of3,.col4of6{width:66.6666%;}
+.col1of4,.col2of8{width:25%;}
+.col3of4,.col6of8{width:75%;}
+.col1of5{width:20%;}
+.col2of5{width:40%;}
+.col3of5{width:60%;}
+.col4of5{width:80%;}
+.col1of6{width:16.6666%;}
+.col5of6{width:83.3333%;}
+.col1if7{width:14.28%;}
+.col2of7{width:28.36%;}
+.col3of7{width:42.84%;}
+.col4of7{width:57.12%;}
+.col5of7{width:71.40%;}
+.col6of7{width:85.68%;}
+.col1of8{width:12.5%;}
+.col3of8{width:37.5%;}
+.col5of8{width:62.5%;}
+.col7of8{width:87.5%;}
+.column:last-child,
+.last-column{float:none;width:auto;}
+/* .full-height sort of a hack to get full height columns. Use when needed */
+.full-height{padding-bottom:20000px !important;margin-bottom:-20000px !important;}
+/* ,dry-column is used to grant a column as container, not for grid purposes */
+.dry-column{/*extends:column;*/padding:0 !important;margin:0 !important;}

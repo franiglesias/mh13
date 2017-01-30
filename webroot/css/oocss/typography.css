@@ -1,0 +1,16 @@
+/* mh13/oocss/typography.css */
+.heading {
+}
+.subheading {
+}
+/* When used in headings,a elements should inherit main properties */
+.heading a {
+	font-family: inherit;
+	text-decoration: inherit;
+	font-weight: inherit;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+.heading:hover a {
+}

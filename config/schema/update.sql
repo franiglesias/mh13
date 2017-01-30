@@ -1,0 +1,2 @@
+-- 2014-04-30
+ALTER TABLE `channels` ADD `private` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `order`;

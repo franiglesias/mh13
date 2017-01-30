@@ -1,0 +1,710 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-12 09:39+0100\n"
+"PO-Revision-Date: 2015-03-12 09:40+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/cantine/views/cantine_groups/edit.ctp:46
+#: /plugins/cantine/views/elements/student_data.ctp:13
+#: /plugins/school/views/helpers/students.php:39;71
+#: /plugins/school/views/students/edit.ctp:38
+msgid "Extra1"
+msgstr "Extraescolares"
+
+#: /plugins/cantine/views/cantine_groups/edit.ctp:51
+#: /plugins/cantine/views/elements/student_data.ctp:17
+#: /plugins/school/views/helpers/students.php:44;76
+#: /plugins/school/views/students/edit.ctp:43
+#: /plugins/school/views/students/index.ctp:28
+msgid "Extra2"
+msgstr "Alcor"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:130
+#: /plugins/cantine/views/cantine_tickets/index.ctp:86
+#: /plugins/school/views/sections/edit.ctp:39
+#: /plugins/school/views/sections/index.ctp:15;50
+#: /plugins/school/views/students/index.ctp:25
+msgid "Cycle"
+msgstr "Ciclo"
+
+#: /plugins/cantine/views/cantine_regulars/index.ctp:131
+#: /plugins/cantine/views/cantine_tickets/index.ctp:87
+#: /plugins/school/views/applications/index.ctp:15;72
+#: /plugins/school/views/sections/edit.ctp:33
+#: /plugins/school/views/sections/index.ctp:51
+#: /plugins/school/views/students/index.ctp:26
+msgid "Level"
+msgstr "Nivel"
+
+#: /plugins/school/controllers/applications_controller.php:35;100;121;128;179
+msgid "application"
+msgstr "solicitud"
+
+#: /plugins/school/controllers/applications_controller.php:107
+msgid "Your application for our school"
+msgstr "Tu solicitud para nuestro colegio"
+
+#: /plugins/school/controllers/applications_controller.php:114
+msgid "Application received"
+msgstr "Solicitud recibida"
+
+#: /plugins/school/controllers/cycles_controller.php:17;36;41;50
+msgid "cycle"
+msgstr "ciclo"
+
+#: /plugins/school/controllers/levels_controller.php:16;35;40;48
+msgid "level"
+msgstr "mivel"
+
+#: /plugins/school/controllers/sections_controller.php:27;31;38
+#: /plugins/school/views/students/index.ctp:24
+msgid "Section"
+msgstr "Sección"
+
+#: /plugins/school/controllers/stages_controller.php:26;31;40
+msgid "stage"
+msgstr "etapa"
+
+#: /plugins/school/controllers/students_controller.php:55;58;65;81
+#: /plugins/school/views/applications/index.ctp:10;64
+#: /plugins/school/views/applications/review.ctp:10;54
+#: /plugins/school/views/helpers/students.php:25;60
+#: /plugins/school/views/students/index.ctp:10;23
+msgid "Student"
+msgstr "Estudiante"
+
+#: /plugins/school/controllers/subjects_controller.php:16;35;40;49
+msgid "subject"
+msgstr "asignatura"
+
+#: /plugins/school/views/applications/apply.ctp:4
+msgid "Apply for our school"
+msgstr "Solicita tu plaza"
+
+#: /plugins/school/views/applications/apply.ctp:5
+msgid "Fill in the data"
+msgstr "Rellenar los datos"
+
+#: /plugins/school/views/applications/apply.ctp:11
+#: /plugins/school/views/applications/edit.ctp:72
+msgid "Application Data"
+msgstr "Datos de la solicitud"
+
+#: /plugins/school/views/applications/apply.ctp:17;18
+#: /plugins/school/views/applications/edit.ctp:25;26
+msgid "First name"
+msgstr "Nombre"
+
+#: /plugins/school/views/applications/apply.ctp:20
+#: /plugins/school/views/applications/edit.ctp:28
+msgid "Please, provide student name"
+msgstr "Por favor, indica el nombre del estudiante"
+
+#: /plugins/school/views/applications/apply.ctp:25;26
+#: /plugins/school/views/applications/edit.ctp:33;34
+msgid "Last name"
+msgstr "Apellidos"
+
+#: /plugins/school/views/applications/apply.ctp:28
+#: /plugins/school/views/applications/edit.ctp:36
+msgid "Please, provide student last name"
+msgstr "Por favor, indica el apellido del estudiante"
+
+#: /plugins/school/views/applications/apply.ctp:37
+#: /plugins/school/views/applications/edit.ctp:81
+msgid "Current studies"
+msgstr "Estudios actuales"
+
+#: /plugins/school/views/applications/apply.ctp:38
+msgid "What are you studying currently?"
+msgstr "¿Qué curso estás estudiando actualmente?"
+
+#: /plugins/school/views/applications/apply.ctp:42
+msgid "Your current school"
+msgstr "Tu centro actual"
+
+#: /plugins/school/views/applications/apply.ctp:43
+msgid "What school are you studying at?"
+msgstr "¿En qué centro estás estudiando actualmente?"
+
+#: /plugins/school/views/applications/apply.ctp:51
+#: /plugins/school/views/applications/edit.ctp:89
+#: /plugins/school/views/applications/review.ctp:19;63
+msgid "Target level"
+msgstr "Nivel al que opta"
+
+#: /plugins/school/views/applications/apply.ctp:53
+#: /plugins/school/views/applications/edit.ctp:91
+msgid "Select the level you apply for"
+msgstr "Selecciona el nivel que solicitas"
+
+#: /plugins/school/views/applications/apply.ctp:57
+#: /plugins/school/views/applications/edit.ctp:95
+#: /plugins/school/views/applications/review.ctp:25
+msgid "Target section"
+msgstr "Sección deseada"
+
+#: /plugins/school/views/applications/apply.ctp:60
+#: /plugins/school/views/applications/edit.ctp:98
+msgid "Select the group of you preference"
+msgstr "Selecciona la modalidad que prefieres"
+
+#: /plugins/school/views/applications/apply.ctp:67
+#: /plugins/school/views/applications/edit.ctp:65;179
+msgid "Contact data"
+msgstr "Datos de contacto"
+
+#: /plugins/school/views/applications/apply.ctp:71
+#: /plugins/school/views/applications/edit.ctp:183
+msgid "Parent full name"
+msgstr "Nombre completo de uno de los padres o tutores"
+
+#: /plugins/school/views/applications/apply.ctp:72
+#: /plugins/school/views/applications/edit.ctp:184
+msgid ""
+"Please, provide the name of your father, mother or legal tutor for contact"
+msgstr ""
+"Por favor, proporciona el nombre de tu padre, madre o tutor legal para "
+"contacto"
+
+#: /plugins/school/views/applications/apply.ctp:74
+#: /plugins/school/views/applications/edit.ctp:186
+msgid "You must provide this data"
+msgstr "Debes proporcionar este dato"
+
+#: /plugins/school/views/applications/apply.ctp:79
+#: /plugins/school/views/applications/edit.ctp:191
+msgid "Address"
+msgstr "Domicilio (calle, número y piso)"
+
+#: /plugins/school/views/applications/apply.ctp:80
+#: /plugins/school/views/applications/edit.ctp:192
+msgid "We will use this address for written contact"
+msgstr "Usaremos esta dirección para contactos por escrito"
+
+#: /plugins/school/views/applications/apply.ctp:83
+#: /plugins/school/views/applications/edit.ctp:195
+msgid "Extra data for address"
+msgstr "Datos adicionales para dirección"
+
+#: /plugins/school/views/applications/apply.ctp:84
+#: /plugins/school/views/applications/edit.ctp:196
+msgid "If you need to provide more data for contact"
+msgstr "Si necesitas proporcionar más datos para contacto"
+
+#: /plugins/school/views/applications/apply.ctp:87
+#: /plugins/school/views/applications/edit.ctp:199
+msgid "Code"
+msgstr "CP"
+
+#: /plugins/school/views/applications/apply.ctp:88
+#: /plugins/school/views/applications/edit.ctp:200
+msgid "Postal Code"
+msgstr "Código Postal"
+
+#: /plugins/school/views/applications/apply.ctp:92
+#: /plugins/school/views/applications/edit.ctp:204
+msgid "City"
+msgstr "Ciudad"
+
+#: /plugins/school/views/applications/apply.ctp:93
+#: /plugins/school/views/applications/edit.ctp:205
+msgid "Your city"
+msgstr "Tu ciudad"
+
+#: /plugins/school/views/applications/apply.ctp:102
+#: /plugins/school/views/applications/edit.ctp:44
+msgid "Phone"
+msgstr "Teléfono"
+
+#: /plugins/school/views/applications/apply.ctp:104
+#: /plugins/school/views/applications/edit.ctp:46
+msgid "We will use this telephone number to contact you for an interview."
+msgstr ""
+"Usaremos este número de teléfono para ponernos en contacto y concertar una "
+"entrevista"
+
+#: /plugins/school/views/applications/apply.ctp:106
+#: /plugins/school/views/applications/edit.ctp:48
+msgid "Please, provide a phone number for contact about your application"
+msgstr "Por favor, indica un teléfono para contactar acerca de tu solicitud"
+
+#: /plugins/school/views/applications/apply.ctp:110
+#: /plugins/school/views/applications/edit.ctp:52
+msgid "EMail for further contact"
+msgstr "Correo electrónico"
+
+#: /plugins/school/views/applications/apply.ctp:111
+#: /plugins/school/views/applications/edit.ctp:53
+msgid "We will use this email to several notifications."
+msgstr ""
+"Utilizaremos este email para varias notificaciones relacionadas con tu "
+"solicitud."
+
+#: /plugins/school/views/applications/apply.ctp:114
+#: /plugins/school/views/applications/edit.ctp:56
+msgid "Please, provide a valid email"
+msgstr "Por favor, indica un email válido"
+
+#: /plugins/school/views/applications/apply.ctp:121
+#: /plugins/school/views/applications/edit.ctp:135
+msgid "Identifiers"
+msgstr "Identificadores"
+
+#: /plugins/school/views/applications/apply.ctp:124
+msgid ""
+"You can use the ID cards to review the status of the application. Provide at "
+"least one. All of them will be valid to access the application."
+msgstr ""
+"Puedes usar los DNI para revisar el estado de tu solicitud. Proporciona al "
+"menos uno. Todos ellos serán válidos para acceder a la solicitud."
+
+#: /plugins/school/views/applications/apply.ctp:130
+#: /plugins/school/views/applications/edit.ctp:144
+msgid "Student Id card"
+msgstr "DNI Estudiante"
+
+#: /plugins/school/views/applications/apply.ctp:131
+#: /plugins/school/views/applications/edit.ctp:145
+msgid "A valid and unique Spanish DNI"
+msgstr "DNI válido y único del estudiante"
+
+#: /plugins/school/views/applications/apply.ctp:134;144;154
+#: /plugins/school/views/applications/edit.ctp:148;158;168
+msgid "This is not a valid Spanish DNI"
+msgstr "Este no es un DNI válido, comprueba los datos"
+
+#: /plugins/school/views/applications/apply.ctp:135;145;155
+#: /plugins/school/views/applications/edit.ctp:149;159;169
+msgid "Provide at least one valid identifier to access the application"
+msgstr ""
+"Proporciona al menos un identificador válido para acceder a la solicitud"
+
+#: /plugins/school/views/applications/apply.ctp:136
+#: /plugins/school/views/applications/edit.ctp:150
+msgid "Only one application for student"
+msgstr "Sólo una solicitud por estudiante"
+
+#: /plugins/school/views/applications/apply.ctp:140
+#: /plugins/school/views/applications/edit.ctp:154
+msgid "Father Id card"
+msgstr "DNI del padre o tutor"
+
+#: /plugins/school/views/applications/apply.ctp:141;151
+#: /plugins/school/views/applications/edit.ctp:155;165
+msgid "A valid Spanish DNI"
+msgstr "Un DNI válido"
+
+#: /plugins/school/views/applications/apply.ctp:150
+#: /plugins/school/views/applications/edit.ctp:164
+msgid "Mother Id card"
+msgstr "DNI de la madre o tutora"
+
+#: /plugins/school/views/applications/check.ctp:4;22
+msgid "Review your application"
+msgstr "Revisa tu solicitud"
+
+#: /plugins/school/views/applications/check.ctp:5
+msgid "Check the status or resolution of your application"
+msgstr "Comprueba el estado o resolución de tu solicitud"
+
+#: /plugins/school/views/applications/check.ctp:19
+msgid "ID Card"
+msgstr "DNI"
+
+#: /plugins/school/views/applications/edit.ctp:14
+msgid "Student data"
+msgstr "Datos Estudiante"
+
+#: /plugins/school/views/applications/edit.ctp:18
+msgid "Application type"
+msgstr "Tipo de solicitud"
+
+#: /plugins/school/views/applications/edit.ctp:64
+msgid "Application data"
+msgstr "Datos de la solicitud"
+
+#: /plugins/school/views/applications/edit.ctp:66
+msgid "Identifier"
+msgstr "Identificadores"
+
+#: /plugins/school/views/applications/edit.ctp:67;108
+msgid "Application status"
+msgstr "Estado solicitud"
+
+#: /plugins/school/views/applications/edit.ctp:77
+msgid "Date created"
+msgstr "Solicitud iniciada"
+
+#: /plugins/school/views/applications/edit.ctp:85
+msgid "Current school"
+msgstr "Colegio actual"
+
+#: /plugins/school/views/applications/edit.ctp:112
+#: /plugins/school/views/applications/index.ctp:25;80
+msgid "Status"
+msgstr "Estado"
+
+#: /plugins/school/views/applications/edit.ctp:119
+msgid "Interview date"
+msgstr "Fecha de la entrevista"
+
+#: /plugins/school/views/applications/edit.ctp:124
+#: /plugins/school/views/applications/index.ctp:30;84
+#: /plugins/school/views/applications/review.ctp:36;80
+msgid "Resolution"
+msgstr "Resolución"
+
+#: /plugins/school/views/applications/edit.ctp:138
+msgid ""
+"You can use the ID cards to review the status of the application. PRovide at "
+"least on. All of them will be valid to access the application."
+msgstr ""
+"Puedes usar los DNI para revisar el estado de tu solicitud. Proporciona al "
+"menos uno. Todos ellos serán válidos para acceder a la solicitud."
+
+#: /plugins/school/views/applications/index.ctp:7;68
+#: /plugins/school/views/applications/review.ctp:5;49
+msgid "Type"
+msgstr "Tipo"
+
+#: /plugins/school/views/applications/index.ctp:20;76
+msgid "Group"
+msgstr "Modalidad"
+
+#: /plugins/school/views/applications/index.ctp:47
+msgid "Applications"
+msgstr "Solicitudes"
+
+#: /plugins/school/views/applications/review.ctp:14;58
+msgid "Application date"
+msgstr "Fecha de la solicitud"
+
+#: /plugins/school/views/applications/review.ctp:30;69
+msgid "Application Status"
+msgstr "Estado"
+
+#: /plugins/school/views/applications/review.ctp:75
+msgid "Score"
+msgstr "Puntuación"
+
+#: /plugins/school/views/applications/review.ctp:93
+msgid "Review Applications"
+msgstr "Revisión de Solicitudes"
+
+#: /plugins/school/views/applications/review.ctp:94
+msgid "For ID %s"
+msgstr "Para el DNI %s"
+
+#: /plugins/school/views/applications/review.ctp:99
+msgid "Private levels applications"
+msgstr "Solicitudes Bachillerato (nivel privado)"
+
+#: /plugins/school/views/applications/review.ctp:103
+msgid "Public levels applications"
+msgstr "Solicitudes niveles concertados"
+
+#: /plugins/school/views/applications/start.ctp:14
+msgid "Apply"
+msgstr "Solicita plaza"
+
+#: /plugins/school/views/applications/start.ctp:23
+msgid "Check your application"
+msgstr "Comprueba tu solicitud"
+
+#: /plugins/school/views/cycles/edit.ctp:12
+msgid "Cycle Definition"
+msgstr "Datos de Ciclo"
+
+#: /plugins/school/views/cycles/edit.ctp:17
+msgid "Cycle title"
+msgstr "Ciclo"
+
+#: /plugins/school/views/cycles/edit.ctp:21
+#: /plugins/school/views/cycles/index.ctp:7
+#: /plugins/school/views/stages/edit.ctp:24
+msgid "Coordinated by"
+msgstr "Coordinado por"
+
+#: /plugins/school/views/cycles/edit.ctp:23
+#: /plugins/school/views/stages/edit.ctp:26
+msgid "-- Select a coordinator --"
+msgstr "-- Escoge un coordinador --"
+
+#: /plugins/school/views/cycles/index.ctp:24
+msgid "Cycles"
+msgstr "Ciclos"
+
+#: /plugins/school/views/helpers/application.php:33
+msgid "Received"
+msgstr "Recibida"
+
+#: /plugins/school/views/helpers/application.php:34
+msgid "Opened"
+msgstr "Abierta"
+
+#: /plugins/school/views/helpers/application.php:35
+msgid "Interviewed"
+msgstr "Entrevista realizada"
+
+#: /plugins/school/views/helpers/application.php:36
+msgid "Accepted"
+msgstr "Aceptada"
+
+#: /plugins/school/views/helpers/application.php:37
+msgid "Resolved"
+msgstr "Resuelta"
+
+#: /plugins/school/views/helpers/application.php:41
+msgid "Science and technology"
+msgstr "Ciencias y Tecnología"
+
+#: /plugins/school/views/helpers/application.php:42
+msgid "Humanitites and Social Studies"
+msgstr "Humanidades y Ciencias Sociales"
+
+#: /plugins/school/views/helpers/application.php:46
+msgid "1st level"
+msgstr "1º curso"
+
+#: /plugins/school/views/helpers/application.php:47
+msgid "2nd level"
+msgstr "2º curso"
+
+#: /plugins/school/views/helpers/application.php:51
+msgid "Pending"
+msgstr "Pendiente"
+
+#: /plugins/school/views/helpers/application.php:52
+msgid "Rejected"
+msgstr "Rechazada"
+
+#: /plugins/school/views/helpers/application.php:53
+msgid "Not confirmed"
+msgstr "No confirmada"
+
+#: /plugins/school/views/helpers/application.php:54
+msgid "Accepted. Waiting for confirmation."
+msgstr "Aceptada. Esperando confirmación."
+
+#: /plugins/school/views/helpers/application.php:55
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#: /plugins/school/views/helpers/application.php:59
+msgid "Reservation"
+msgstr "Reserva de plaza"
+
+#: /plugins/school/views/helpers/application.php:60
+msgid "New application"
+msgstr "Nueva solicitud"
+
+#: /plugins/school/views/helpers/application.php:67
+msgid "Open"
+msgstr "Abrir"
+
+#: /plugins/school/views/helpers/application.php:74
+msgid "Interview"
+msgstr "Entrevista convocada"
+
+#: /plugins/school/views/helpers/application.php:81
+msgid "Accept"
+msgstr "Aceptar"
+
+#: /plugins/school/views/helpers/application.php:86;98
+msgid "Reject"
+msgstr "Rechazar"
+
+#: /plugins/school/views/helpers/application.php:93
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: /plugins/school/views/helpers/students.php:32
+msgid "Cantine"
+msgstr "Comedor"
+
+#: /plugins/school/views/helpers/students.php:64
+#: /plugins/school/views/sections/edit.ctp:17
+#: /plugins/school/views/sections/index.ctp:5
+#: /plugins/school/views/students/edit.ctp:33
+msgid "Section title"
+msgstr "Sección"
+
+#: /plugins/school/views/levels/edit.ctp:12
+msgid "Level Definition"
+msgstr "Datos de nivel"
+
+#: /plugins/school/views/levels/edit.ctp:17
+msgid "Level title"
+msgstr "Nivel"
+
+#: /plugins/school/views/levels/edit.ctp:21
+msgid "Private"
+msgstr "Privado"
+
+#: /plugins/school/views/levels/index.ctp:23
+msgid "Levels"
+msgstr "Niveles"
+
+#: /plugins/school/views/sections/edit.ctp:12
+msgid "Section Definition"
+msgstr "Datos de sección"
+
+#: /plugins/school/views/sections/edit.ctp:21
+msgid "Tutorized by"
+msgstr "Tutoría de"
+
+#: /plugins/school/views/sections/edit.ctp:23
+msgid "-- Select a tutor --"
+msgstr "-- Escoge un tutor --"
+
+#: /plugins/school/views/sections/edit.ctp:45
+#: /plugins/school/views/sections/index.ctp:49
+msgid "Stage"
+msgstr "Etapa"
+
+#: /plugins/school/views/sections/index.ctp:10
+msgid "Tutor"
+msgstr "Tutor"
+
+#: /plugins/school/views/sections/index.ctp:31
+msgid "Sections"
+msgstr "Secciones"
+
+#: /plugins/school/views/sections/index.ctp:47
+msgid "Title"
+msgstr "Título"
+
+#: /plugins/school/views/stages/edit.ctp:12
+msgid "Stage Definition"
+msgstr "Datos de etapa"
+
+#: /plugins/school/views/stages/edit.ctp:16
+msgid "Stage Title"
+msgstr "Etapa"
+
+#: /plugins/school/views/stages/edit.ctp:20
+msgid "Abbr"
+msgstr "Abrev"
+
+#: /plugins/school/views/stages/index.ctp:24
+msgid "Stages"
+msgstr "Etapas"
+
+#: /plugins/school/views/students/edit.ctp:12
+msgid "Student Definition"
+msgstr "Datos de estudiante"
+
+#: /plugins/school/views/students/edit.ctp:17
+msgid "First Name"
+msgstr "Nombre"
+
+#: /plugins/school/views/students/edit.ctp:21
+msgid "Last Name 1"
+msgstr "Primer apellido"
+
+#: /plugins/school/views/students/edit.ctp:25
+msgid "Last Name 2"
+msgstr "Segundo apellido"
+
+#: /plugins/school/views/students/edit.ctp:51
+msgid "Remarks"
+msgstr "Observaciones"
+
+#: /plugins/school/views/students/index.ctp:3
+msgid "Students"
+msgstr "Estudiantes"
+
+#: /plugins/school/views/students/index.ctp:14
+msgid "Manage Sections"
+msgstr "Gestionar secciones"
+
+#: /plugins/school/views/subjects/edit.ctp:12
+msgid "Subject Definition"
+msgstr "Definición de la asignatura"
+
+#: /plugins/school/views/subjects/edit.ctp:17
+msgid "Subject Title"
+msgstr "Asignatura"
+
+#: /plugins/school/views/subjects/index.ctp:20
+msgid "Subjects"
+msgstr "Asignaturas"
+
+#~ msgid "New"
+#~ msgstr "Nueva"
+
+#~ msgid "Reviewed"
+#~ msgstr "Revisada"
+
+#~ msgid "<p>First name</p>"
+#~ msgstr "<p>Nombre</p>"
+
+#~ msgid "<p>Last name</p>"
+#~ msgstr "<p>Apellidos</p>"
+
+#~ msgid "<p>What are you studing presently?</p>"
+#~ msgstr "<p>¿Qué curso estás estudiando actualmente?</p>"
+
+#~ msgid "<p>Select the level you apply for</p>"
+#~ msgstr "<p>Selecciona el nivel que solicitas</p>"
+
+#~ msgid "<p>Select the group of you preference</p>"
+#~ msgstr "<p>Selecciona la modalidad que prefieres</p>"
+
+#~ msgid ""
+#~ "<p>We will use this telephone number to contact you for an interview.</p>"
+#~ msgstr ""
+#~ "<p>Usaremos este número de teléfono para ponernos en contacto y concertar "
+#~ "una entrevista</p>"
+
+#~ msgid "<p>We will use this email to several notifications.</p>"
+#~ msgstr ""
+#~ "<p>Utilizaremos este email para varias notificaciones relacionadas con tu "
+#~ "solicitud.</p>"
+
+#~ msgid "<p>A valid and unique Spanish DNI</p>"
+#~ msgstr "<p>DNI válido y único del estudiante</p>"
+
+#~ msgid "<p>A valid Spanish DNI</p>"
+#~ msgstr "<p>Un DNI válido</p>"
+
+#~ msgid "Application"
+#~ msgstr "Solicitud"
+
+#~ msgid "Id card"
+#~ msgstr "DNIDNI del padre o tutor"
+
+#~ msgid "Email"
+#~ msgstr "Correo"
+
+#~ msgid "School management"
+#~ msgstr "Gestión del Colegio"
+
+#~ msgid "Manage Students"
+#~ msgstr "Gestionar estudiantes"
+
+#~ msgid "Admin Students"
+#~ msgstr "Gestionar estudiantes"
+
+#~ msgid "Subject"
+#~ msgstr "Asignatura"
+
+#~ msgid "Without extra"
+#~ msgstr "No tiene extraescolares"
+
+#~ msgid "With extra"
+#~ msgstr "Con extraescolares"
+
+#~ msgid "eMail for further contact"
+#~ msgstr "email para contacto"

@@ -1,0 +1,357 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: it.mh13\n"
+"POT-Creation-Date: 2015-03-04 18:10+0100\n"
+"PO-Revision-Date: 2015-03-04 18:13+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2 plural=n!=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/it/controllers/maintenance_types_controller.php:16;33;36;43
+msgid "maintenance type"
+msgstr "tipo de acción de mantenimiento"
+
+#: /plugins/it/controllers/technicians_controller.php:17;36;41;50
+msgid "technician"
+msgstr "técnico"
+
+#: /plugins/it/models/device.php:68
+msgid "Will be repaired in house"
+msgstr "Será reparado aquí"
+
+#: /plugins/it/models/device.php:78
+msgid "Sent to an external SAT"
+msgstr "Enviado a SAT externo"
+
+#: /plugins/it/models/device.php:88
+msgid "This device is working"
+msgstr "Este equipo está funcionando"
+
+#: /plugins/it/models/device.php:98
+msgid "Retired. This device is no longer in use"
+msgstr "Retirado. Este equipo ya no se usa"
+
+#: /plugins/it/models/device.php:108
+msgid "A maintenance action has been set for this Device"
+msgstr "Se ha abierto una acción de mantenimiento para este equipo"
+
+#: /plugins/it/models/maintenance.php:136;144
+msgid "Total %s"
+msgstr "Total de %s"
+
+#: /plugins/it/views/device_types/edit.ctp:12
+msgid "DeviceType Definition"
+msgstr "Tipo de dispositivo"
+
+#: /plugins/it/views/device_types/edit.ctp:17
+#: /plugins/it/views/maintenances/report.ctp:6;93
+msgid "Device Type"
+msgstr "Tipo de dispositivo"
+
+#: /plugins/it/views/device_types/edit.ctp:21
+msgid "Abbreviation"
+msgstr "Abreviatura"
+
+#: /plugins/it/views/device_types/index.ctp:21
+msgid "Device Types"
+msgstr "Tipos de dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:31
+#: /plugins/it/views/devices/index.ctp:5;60
+#: /plugins/it/views/maintenances/index.ctp:5
+msgid "Device"
+msgstr "Dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:41
+msgid "Device type"
+msgstr "Tipo de dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:46
+msgid "Device name"
+msgstr "Nombre del dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:50
+msgid "Device status"
+msgstr "Estado del dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:61
+msgid "Status remarks"
+msgstr "Observaciones sobre estado del dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:66
+msgid "Device remarks"
+msgstr "Observaciones del dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:76;82
+msgid "Maintenance Actions"
+msgstr "Acciones de mantenimiento"
+
+#: /plugins/it/views/devices/edit.ctp:77
+msgid "Device Details"
+msgstr "Detalles del dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:112
+msgid "Device details"
+msgstr "Detalles del dispositivo"
+
+#: /plugins/it/views/devices/edit.ctp:116
+#: /plugins/it/views/devices/index.ctp:63
+msgid "Identifier"
+msgstr "Identificador"
+
+#: /plugins/it/views/devices/edit.ctp:120
+msgid "MAC address"
+msgstr "Dirección MAC"
+
+#: /plugins/it/views/devices/edit.ctp:124
+#: /plugins/it/views/devices/index.ctp:13
+msgid "Location"
+msgstr "Localización"
+
+#: /plugins/it/views/devices/edit.ctp:132
+msgid "Vendor"
+msgstr "Fabricante"
+
+#: /plugins/it/views/devices/edit.ctp:136
+msgid "Model"
+msgstr "Modelo"
+
+#: /plugins/it/views/devices/edit.ctp:140
+msgid "Serial number"
+msgstr "Número de serie"
+
+#: /plugins/it/views/devices/edit.ctp:149
+msgid "Image"
+msgstr "Imagen"
+
+#: /plugins/it/views/devices/index.ctp:10;67
+#: /plugins/it/views/maintenances/ajax/index.ctp:10
+msgid "Type"
+msgstr "Tipo"
+
+#: /plugins/it/views/devices/index.ctp:19;71
+#: /plugins/it/views/maintenances/edit.ctp:67
+#: /plugins/it/views/maintenances/ajax/edit.ctp:62
+#: /plugins/it/views/maintenances/ajax/index.ctp:31
+msgid "Status"
+msgstr "Estado"
+
+#: /plugins/it/views/devices/index.ctp:29
+msgid "Retire"
+msgstr "Retirar"
+
+#: /plugins/it/views/devices/index.ctp:43
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: /plugins/it/views/elements/devices_dashboard.ctp:21
+msgid "IT Devices with problems"
+msgstr "Equipos TIC en mantenimiento"
+
+#: /plugins/it/views/elements/devices_dashboard.ctp:38
+msgid "All registered devices are working OK."
+msgstr "Todos los equipos registrados están funcionando correctamente"
+
+#: /plugins/it/views/elements/devices_dashboard.ctp:45
+msgid "Maintenance started"
+msgstr "Mantenimiento iniciado"
+
+#: /plugins/it/views/elements/devices_dashboard.ctp:46
+msgid "In repairing"
+msgstr "En reparación"
+
+#: /plugins/it/views/elements/devices_dashboard.ctp:47
+msgid "Retired"
+msgstr "Retirado"
+
+#: /plugins/it/views/helpers/device.php:33
+msgid "Active"
+msgstr "Activo"
+
+#: /plugins/it/views/helpers/device.php:34
+msgid "SAT"
+msgstr "SAT"
+
+#: /plugins/it/views/helpers/device.php:35
+msgid "Retired for Maintenance"
+msgstr "Retirado para mantenimiento"
+
+#: /plugins/it/views/helpers/device.php:36
+msgid "Removed"
+msgstr "Retirado"
+
+#: /plugins/it/views/helpers/device.php:39
+msgid "A"
+msgstr "A"
+
+#: /plugins/it/views/helpers/device.php:40
+msgid "S"
+msgstr "S"
+
+#: /plugins/it/views/helpers/device.php:41
+msgid "R"
+msgstr "R"
+
+#: /plugins/it/views/helpers/device.php:42
+msgid "X"
+msgstr "X"
+
+#: /plugins/it/views/helpers/maintenance.php:51
+msgid "Open"
+msgstr "Abierta"
+
+#: /plugins/it/views/helpers/maintenance.php:52
+msgid "Sent to SAT"
+msgstr "Enviar a SAT"
+
+#: /plugins/it/views/helpers/maintenance.php:53
+msgid "Repair in house"
+msgstr "Reparar aquí"
+
+#: /plugins/it/views/helpers/maintenance.php:54
+#: /plugins/it/views/maintenances/index.ctp:21
+#: /plugins/it/views/maintenances/ajax/index.ctp:19
+msgid "Resolved"
+msgstr "Resuelta"
+
+#: /plugins/it/views/helpers/maintenance.php:55
+msgid "Unresolved"
+msgstr "Sin resolver"
+
+#: /plugins/it/views/maintenance_types/edit.ctp:11
+msgid "MaintenanceType Definition"
+msgstr "Tipo de acción de mantenimiento"
+
+#: /plugins/it/views/maintenance_types/edit.ctp:16
+#: /plugins/it/views/maintenances/edit.ctp:53
+#: /plugins/it/views/maintenances/report.ctp:9
+#: /plugins/it/views/maintenances/ajax/edit.ctp:48
+msgid "Maintenance Type"
+msgstr "Acción de mantenimiento"
+
+#: /plugins/it/views/maintenance_types/index.ctp:20
+msgid "Maintenance Types"
+msgstr "Tipos de acción de mantenimiento"
+
+#: /plugins/it/views/maintenances/edit.ctp:14
+#: /plugins/it/views/maintenances/ajax/edit.ctp:14
+msgid "Maintenance Definition"
+msgstr "Acción de mantenimiento"
+
+#: /plugins/it/views/maintenances/edit.ctp:24
+#: /plugins/it/views/maintenances/ajax/edit.ctp:19
+#: /plugins/it/views/maintenances/ajax/index.ctp:13
+msgid "Requested"
+msgstr "Solicitada"
+
+#: /plugins/it/views/maintenances/edit.ctp:31
+#: /plugins/it/views/maintenances/index.ctp:12
+#: /plugins/it/views/maintenances/ajax/edit.ctp:26
+#: /plugins/it/views/maintenances/ajax/index.ctp:5
+msgid "Description"
+msgstr "Descripción"
+
+#: /plugins/it/views/maintenances/edit.ctp:36
+#: /plugins/it/views/maintenances/ajax/edit.ctp:31
+msgid "Detected"
+msgstr "Detectado"
+
+#: /plugins/it/views/maintenances/edit.ctp:47
+#: /plugins/it/views/maintenances/ajax/edit.ctp:42
+msgid "Assigned to"
+msgstr "Asignada a"
+
+#: /plugins/it/views/maintenances/edit.ctp:58
+#: /plugins/it/views/maintenances/ajax/edit.ctp:53
+msgid "Action"
+msgstr "Acción"
+
+#: /plugins/it/views/maintenances/edit.ctp:74
+#: /plugins/it/views/maintenances/ajax/edit.ctp:69
+msgid "Resolution date"
+msgstr "Fecha de resolución"
+
+#: /plugins/it/views/maintenances/edit.ctp:86
+#: /plugins/it/views/maintenances/ajax/edit.ctp:81
+#: /plugins/it/views/technicians/edit.ctp:27
+msgid "Remarks"
+msgstr "Observaciones"
+
+#: /plugins/it/views/maintenances/index.ctp:15
+msgid "Opened"
+msgstr "Abierta"
+
+#: /plugins/it/views/maintenances/index.ctp:50
+msgid "Maintenances"
+msgstr "Mantenimientos"
+
+#: /plugins/it/views/maintenances/report.ctp:12
+msgid "Tech"
+msgstr "Técnico"
+
+#: /plugins/it/views/maintenances/report.ctp:15
+msgid "Actions"
+msgstr "Acciones"
+
+#: /plugins/it/views/maintenances/report.ctp:19
+msgid "Avg. response"
+msgstr "Resp. media"
+
+#: /plugins/it/views/maintenances/report.ctp:25;41
+msgid "Min"
+msgstr "Mín"
+
+#: /plugins/it/views/maintenances/report.ctp:30;46
+msgid "Max"
+msgstr "Máx"
+
+#: /plugins/it/views/maintenances/report.ctp:35
+msgid "Avg. total"
+msgstr "Media total"
+
+#: /plugins/it/views/maintenances/report.ctp:70
+msgid "Maintenance report (%s-%s)"
+msgstr "Informe de mantenimiento (%s-%s)"
+
+#: /plugins/it/views/maintenances/report.ctp:90
+msgid "Date range"
+msgstr "Fechas"
+
+#: /plugins/it/views/maintenances/ajax/index.ctp:25
+msgid "Days"
+msgstr "Días"
+
+#: /plugins/it/views/maintenances/ajax/index.ctp:36
+msgid "Technician"
+msgstr "Técnico"
+
+#: /plugins/it/views/maintenances/ajax/index.ctp:69
+msgid "Maintenance actions for this device"
+msgstr "Acciones de mantenimiento para este dispositivo"
+
+#: /plugins/it/views/technicians/edit.ctp:12
+msgid "Technician Definition"
+msgstr "Datos del técnico"
+
+#: /plugins/it/views/technicians/edit.ctp:18
+msgid "Technician title"
+msgstr "Nombre Técnico"
+
+#: /plugins/it/views/technicians/edit.ctp:21
+msgid "Contact email"
+msgstr "Email de contacto"
+
+#: /plugins/it/views/technicians/edit.ctp:24
+msgid "Contact phone"
+msgstr "Teléfono de contacto"
+
+#: /plugins/it/views/technicians/index.ctp:23
+msgid "Technicians"
+msgstr "Técnicos"

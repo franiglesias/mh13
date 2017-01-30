@@ -1,0 +1,34 @@
+/* mh13/oocss/media.css */
+/* 
+MEDIA OBJECT. A basic object that contains at least an image or similar object and a variable content.
+Can have a header and/or a footer,object wide
+*/
+
+.media{overflow:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+
+/* 
+
+.media-object 
+
+subclasses should specify margins
+
+.media-object {
+	margin-right: ##px;
+	margin-bottom: ##px;
+}
+
+.media-object-alt {
+	margin-left: ##px;
+	margin-bottom: ##px;
+}
+
+
+*/
+
+.media-object{float:left;}
+.media-object-alt{float:right;}
+
+
+.media-header{overflow:hidden;}
+.media-body{overflow:hidden;min-width: 1px;}
+.media-footer{overflow:hidden;clear:both;}

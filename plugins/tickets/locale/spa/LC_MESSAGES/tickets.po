@@ -1,0 +1,39 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-11-04 11:12+0100\n"
+"PO-Revision-Date: 2014-11-10 10:54+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: /plugins/tickets/views/tickets/index.ctp:23
+#: /views/themed/mh3/plugins/tickets/tickets/index.ctp:26
+msgid "Tickets"
+msgstr "Tickets"
+
+#: /plugins/tickets/views/tickets/index.ctp:32
+msgid "Purgue"
+msgstr "Purgar"
+
+#: /plugins/tickets/views/tickets/index.ctp:44
+#: /views/themed/mh3/plugins/tickets/tickets/index.ctp:44
+msgid "Pending"
+msgstr "Pendientes"
+
+#: /plugins/tickets/views/tickets/index.ctp:45
+#: /views/themed/mh3/plugins/tickets/tickets/index.ctp:45
+msgid "Expired"
+msgstr "Expirados"
+
+#: /plugins/tickets/views/tickets/index.ctp:46
+#: /views/themed/mh3/plugins/tickets/tickets/index.ctp:46
+msgid "Used"
+msgstr "Usados"

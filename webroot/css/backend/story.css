@@ -1,0 +1,94 @@
+/* .story */
+
+.story {
+	margin-bottom: 30px;
+	font-size: 16px;
+	line-height: 145%;
+}
+
+.story-header {
+	color: #311B46;
+	border-bottom: 1px dotted #311B46;
+	margin-bottom: 15px;
+}
+
+.story-heading {
+	/* Extends heading */
+	
+}
+
+.story-body {
+	overflow: hidden;
+	margin-right: 5em;
+}
+
+.story-footer {
+	margin-bottom: 30px;
+	margin-right: 5em;
+}
+
+.story-extras {
+	padding: 15px 0;
+	border-top: 1px solid #4C4C4C;
+	margin-right: 5em;
+}
+
+.story-body h2,
+.story-body h3,
+.story-body h4,
+.story-body h5,
+.story-body h6 {
+	color: #052E6C;
+	margin-bottom: 15px;
+}
+
+.story-body h2 {
+	font-size: 120%;
+}
+
+.story-body h3,
+.story-body h4,
+.story-body h5,
+.story-body h6 {
+	font-size: 100%;
+}
+
+.story-body h4 {
+	color: #1768BF;
+	font-weight: normal;
+}
+
+.story-body h5,
+.story-body h6 {
+	color: #3C3C3C;
+	font-weight: normal;
+}
+
+.story-extras h2,
+.story-extras h3,
+.story-extras h4,
+.story-extras h5,
+.story-extras h6 {
+	color: #000;
+	margin-bottom: 15px;
+	font-size: 120%;
+}
+
+
+.story-body > p {
+	margin-bottom: 15px;
+}
+
+.story-body > ul, .story-body > ol {
+	margin-bottom: 15px;
+}
+
+.story-body li {
+	list-style-type: disc;
+}
+
+.story-body {
+	overflow: hidden;
+}
+
+

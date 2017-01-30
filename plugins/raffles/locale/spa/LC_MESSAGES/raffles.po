@@ -1,0 +1,153 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: raffles.milhojas.13\n"
+"POT-Creation-Date: 2014-11-17 10:46+0100\n"
+"PO-Revision-Date: 2014-11-17 10:52+0100\n"
+"Last-Translator: Fran Iglesias <franiglesias@me.com>\n"
+"Language-Team: Fran Iglesias <franiglesias@mac.com>\n"
+"Language: spa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: /plugins/raffles/controllers/prizes_controller.php:36;39;46
+msgid "prize"
+msgstr "premio"
+
+#: /plugins/raffles/views/elements/sponsors.ctp:12
+#: /views/themed/mh3/plugins/raffles/elements/sponsors.ctp:12
+msgid "Sponsors"
+msgstr "Patrocinadores"
+
+#: /plugins/raffles/views/prizes/check.ctp:4
+#: /plugins/raffles/views/prizes/prizelist.ctp:28
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:3
+#: /views/themed/mh3/plugins/raffles/prizes/prizelist.ctp:28
+msgid "Check your tickets"
+msgstr "Comprueba tus rifas"
+
+#: /plugins/raffles/views/prizes/check.ctp:9
+#: /plugins/raffles/views/prizes/prizelist.ctp:24
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:7
+#: /views/themed/mh3/plugins/raffles/prizes/prizelist.ctp:24
+msgid "Prizes list"
+msgstr "Lista de Premios"
+
+#: /plugins/raffles/views/prizes/check.ctp:20
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:18
+msgid "Congratulations! Your ticket has a prize."
+msgstr "¡Felicidades! Tu rifa tiene premio."
+
+#: /plugins/raffles/views/prizes/check.ctp:21
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:19
+msgid "Your ticket: "
+msgstr "Tu rifa:"
+
+#: /plugins/raffles/views/prizes/check.ctp:22
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:20
+msgid "Your prize: "
+msgstr "Tu premio:"
+
+#: /plugins/raffles/views/prizes/check.ctp:23
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:21
+msgid "Sponsored by: "
+msgstr "Patrocinado por:"
+
+#: /plugins/raffles/views/prizes/check.ctp:25
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:23
+msgid "Sorry. Try again"
+msgstr "Lo siento. Prueba otra vez."
+
+#: /plugins/raffles/views/prizes/check.ctp:26
+msgid "The number %s has no prize"
+msgstr "La rifa con número %s no tiene premio"
+
+#: /plugins/raffles/views/prizes/check.ctp:33
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:33
+msgid "Ticket number"
+msgstr "Número de rifa"
+
+#: /plugins/raffles/views/prizes/check.ctp:34
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:41
+msgid "Check your ticket"
+msgstr "Comprueba tu rifa"
+
+#: /plugins/raffles/views/prizes/edit.ctp:6;8;37;41
+#: /plugins/raffles/views/prizes/index.ctp:9;51
+#: /plugins/raffles/views/prizes/official.ctp:9
+#: /plugins/raffles/views/prizes/prizelist.ctp:10
+#: /views/themed/mh3/plugins/raffles/prizes/edit.ctp:6;8;25
+#: /views/themed/mh3/plugins/raffles/prizes/index.ctp:9;62
+#: /views/themed/mh3/plugins/raffles/prizes/official.ctp:9
+#: /views/themed/mh3/plugins/raffles/prizes/prizelist.ctp:10
+msgid "Prize"
+msgstr "Premio"
+
+#: /plugins/raffles/views/prizes/edit.ctp:33
+#: /views/themed/mh3/plugins/raffles/prizes/edit.ctp:16
+msgid "Prize Definition"
+msgstr "Definición del premio"
+
+#: /plugins/raffles/views/prizes/edit.ctp:36
+#: /plugins/raffles/views/prizes/index.ctp:5;50
+#: /plugins/raffles/views/prizes/official.ctp:5
+#: /plugins/raffles/views/prizes/prizelist.ctp:6
+#: /views/themed/mh3/plugins/raffles/prizes/edit.ctp:21
+#: /views/themed/mh3/plugins/raffles/prizes/index.ctp:5;59
+#: /views/themed/mh3/plugins/raffles/prizes/official.ctp:5
+#: /views/themed/mh3/plugins/raffles/prizes/prizelist.ctp:6
+msgid "Number"
+msgstr "Número"
+
+#: /plugins/raffles/views/prizes/edit.ctp:38
+#: /plugins/raffles/views/prizes/index.ctp:12;52
+#: /plugins/raffles/views/prizes/official.ctp:12
+#: /plugins/raffles/views/prizes/prizelist.ctp:14
+#: /views/themed/mh3/plugins/raffles/prizes/edit.ctp:34
+#: /views/themed/mh3/plugins/raffles/prizes/index.ctp:12;65
+#: /views/themed/mh3/plugins/raffles/prizes/official.ctp:12
+#: /views/themed/mh3/plugins/raffles/prizes/prizelist.ctp:14
+msgid "Sponsor"
+msgstr "Patrocinador"
+
+#: /plugins/raffles/views/prizes/edit.ctp:39
+#: /plugins/raffles/views/prizes/index.ctp:18
+#: /views/themed/mh3/plugins/raffles/prizes/edit.ctp:38
+#: /views/themed/mh3/plugins/raffles/prizes/index.ctp:18
+msgid "Special"
+msgstr "Especial"
+
+#: /plugins/raffles/views/prizes/index.ctp:33
+#: /views/themed/mh3/plugins/raffles/prizes/index.ctp:34
+msgid "Prizes"
+msgstr "Premios"
+
+#: /plugins/raffles/views/prizes/index.ctp:41
+#: /views/themed/mh3/plugins/raffles/prizes/index.ctp:48
+msgid "Print Prizes list"
+msgstr "Imprimir lista de premios"
+
+#: /plugins/raffles/views/prizes/official.ctp:22
+#: /views/themed/mh3/plugins/raffles/prizes/official.ctp:23
+msgid "Official Prizes List"
+msgstr "Lista de Premios Oficial"
+
+#: /plugins/raffles/views/prizes/official.ctp:25
+#: /views/themed/mh3/plugins/raffles/prizes/official.ctp:29
+msgid "Manage Prizes"
+msgstr "Gestionar Premios"
+
+#: /plugins/raffles/views/prizes/official.ctp:30
+#: /views/themed/mh3/plugins/raffles/prizes/official.ctp:34
+msgid "Print"
+msgstr "Imprimir"
+
+#: /views/themed/mh3/plugins/raffles/prizes/check.ctp:24
+msgid "The number <strong>%s</strong> has no prize"
+msgstr "La rifa con número<strong>%s</strong> no tiene premio"

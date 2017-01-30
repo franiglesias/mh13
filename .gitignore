@@ -1,0 +1,12 @@
+webroot/img/
+webroot/files/
+
+.svn
+.DS_Store
+
+config/google_api.json
+
+config/database.php
+
+config/mh13.php
+tmp/

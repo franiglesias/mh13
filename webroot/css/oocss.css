@@ -1,0 +1,28 @@
+/* mh13/oocss.css */
+@import url("oocss/media.css");
+@import url("oocss/grid.css");
+@import url("oocss/typography.css");
+@import url("oocss/table.css");
+@import url("oocss/forms.css");
+@import url("oocss/widget.css");
+@import url("oocss/messages.css");
+@import url("oocss/buttons.css");
+@import url("oocss/lists.css");
+
+
+@font-face {
+font-family: 'IconicFill';
+src: url('../fonts/iconic_fill.eot');
+src: url('../fonts/iconic_fill.eot?#iefix') format('embedded-opentype'), url('../fonts/iconic_fill.ttf') format('truetype'), url('../fonts/iconic_fill.svg#iconic') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'IconicStroke';
+src: url('../fonts/iconic_stroke.eot');
+src: url('../fonts/iconic_stroke.eot?#iefix') format('embedded-opentype'), url('../fonts/iconic_stroke.ttf') format('truetype'), url('../fonts/iconic_stroke.svg#iconic') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+

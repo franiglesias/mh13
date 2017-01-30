@@ -1,0 +1,1 @@
+<div class="panel callout"><ul class="small-block-grid-3"><?php foreach ($attachments as $attachment): ?><li><?php echo $this->Media->preview($attachment['Upload']['path'], array('size' => 'itemGalleryThumb', 'attr' => array('title' => $attachment['Upload']['name']))); ?></li><?php endforeach ?></ul></div>

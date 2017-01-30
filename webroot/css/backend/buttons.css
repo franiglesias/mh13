@@ -1,0 +1,61 @@
+.mh-button {/* extends media */ display:inline-block;
+	padding: .5em 1em;
+	border-radius: .5em;
+	font-size: 80%;
+	line-height: 133%;
+	font-weight: normal ;
+	background-color: #1768BF;
+	color: #fff;
+	-webkit-box-shadow: inset 1px 1px 1px rgba(255,255,255,.7),inset -1px -1px 1px rgba(0,0,0,.5);
+	-moz-box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+	-o-box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+	box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+	border: none;
+}
+
+.mh-button:hover {
+	-webkit-box-shadow:inset 0px 2em 5px rgba(255,255,255,.2);
+	-moz-box-shadow:inset 0px 2em 5px rgba(255,255,255,.2);
+	-o-box-shadow:inset 0px 2em 5px rgba(255,255,255,.2);
+	box-shadow:inset 0px 2em 5px rgba(255,255,255,.2);
+}
+.mh-button-action {
+	-webkit-box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+	-moz-box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+	-o-box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+	box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5);
+}
+
+.mh-button-call {
+	font-size: 120%;
+	width: 100%;
+	text-align: center;
+}
+
+.mh-button-call:before {
+	font-size: 120%;
+	padding-left: 0.6em;
+	margin-left: -.8em;
+}
+
+
+/* Buttons. This styles add skins to some special buttons,named after some common actions showed in index view,but you could use them as needed to skin individual buttons. Add new classes as needed. */
+.mh-button-edit{background-color:#006D07;color:#fff;}
+.mh-button-duplicate{}
+.mh-button-activate{background-color:#006D07;color:#fff;}
+.mh-button-deactivate{background-color:#4F659C;color:#fff;}
+.mh-button-delete{background-color:#DC0009;color:#fff;}
+.mh-button-download{background-color:#052E6C;color:#fff;}
+.mh-button-cancel{background-color:#DC0009;color:#fff;}
+.mh-button-ok{background-color:#006D07;color:#fff;}
+.mh-button-add{background-color:#006D07;color:#fff;}
+.mh-button-back{}
+.mh-button-admin{/* extends .mh-button-back*/}
+.mh-button-print{background-color:#DB4916;color:#fff;}
+.mh-button-undo{background-color:#052E6C;color:#fff;}
+.mh-button-search{}
+/* BUTTON LIKE CHILDREN CLASSES */
+.mh-link{/* extends mh-button */
+background-color:#1768BF;color:#fff;}
+.mh-tab{/* extends mh-button */
+border-radius:5px 5px 0 0;}

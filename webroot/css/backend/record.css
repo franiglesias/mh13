@@ -1,0 +1,35 @@
+.mh-record {
+	padding: 1em 2em;
+}
+
+.mh-record-wide {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.mh-record-field {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.mh-record-wide .mh-record-field {
+	padding-left: 160px;
+	margin-bottom: 20px;
+}
+
+.mh-record-field-label {
+	margin-bottom: 5px;
+	color: #69F;
+}
+
+.mh-record-wide .mh-record-field-label {
+	float: left;
+	margin-left: -160px;
+	width: 150px;
+	text-align: right;
+}
+
+.mh-record form {
+	margin: 0;
+	padding: 0;
+}

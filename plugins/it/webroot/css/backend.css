@@ -1,0 +1,12 @@
+.mh-admin-it,
+.mh-admin-panel-header {background-color: #052E6C !important;}
+
+.mh-subpanel-button {
+	background-color: #1768BF !important;
+}
+
+.mh-admin-subpanel-heading {
+	background-color: #C1DEFE !important;
+	color: #052E6C !important;
+	border: 1px solid #052E6C;
+}

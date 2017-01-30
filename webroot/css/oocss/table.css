@@ -1,0 +1,138 @@
+/* mh13/oocss/table.css */
+/* Basic defaults for table elements and some common classes 
+
+skin detalis in core/table.css or skin/table.css in themes
+*/
+
+table {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+thead {
+}
+
+tbody {
+}
+
+td,th {
+	vertical-align: top;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr {
+}
+
+th {
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+thead tr {
+}
+
+td {
+	text-align: left;
+}
+
+tr:nth-child(even) {
+}
+
+/* CLASSES FOR CELLS. Format cells according to content or function */
+td.cell-number {
+	text-align: right;
+}
+td.cell-text {
+	text-align: left;
+}
+td.cell-date {
+	text-align: center;
+}
+td.cell-boolean {/* Boolean/Error cell styling */
+}
+	.cell-boolean-true {/*inside:.cell-boolean */
+		color:green;
+		display: block;
+	}
+	.cell-boolean-false {/*inside:.cell-boolean */
+		color:red;
+		display: block;
+	}
+td.cell-toggle {/*extends:.cell-boolean */
+}
+td.cell-toggle, td.cell-rotate {
+	cursor: pointer;
+}
+td.cell-toggle,td.cell-rotate,td.cell-boolean {
+	text-align: center;
+	vertical-align: middle;
+}
+td.cell-toggle:hover,
+td.cell-rotate:hover {
+}
+
+td.cell-link a {
+}
+
+td.cell-link a:hover:after {
+	content: '\270e';
+	font-family: IconicFill;
+	margin-left:1em;
+	text-decoration: none;
+}
+
+td.cell-preview a:hover:after {
+	content: '\e025';
+}
+
+/* CELLS by size. Basic size provided as a reference */
+.cell-short {
+	width: 6em;
+	max-width: 6em;
+}
+.cell-medium {
+	width: 10em;
+	max-width: 10em;
+}
+.cell-long {
+	width: 20em;
+}
+.cell-big {
+	width: 28em;
+}
+
+.cell-stretch,.actions {/* Adjust width according to content */
+	white-space:nowrap;
+	width: 1px;
+}
+
+/* Special functions */
+.breakrow td {
+}
+.row-selected {
+}
+
+.mh-table-group-row {
+	border-top: 1px solid;
+	font-weight: bold;
+}
+
+.mh-table-group-row-level-0 {
+	background-color: #999 !important;
+}
+
+.mh-table-group-row-level-1 {
+	background-color: #BBB !important;
+}
+
+.mh-table-group-row-level-2 {
+	background-color: #DDD !important;
+}
+
+.mh-table-group-row-level-3 {
+	background-color: #EEE;
+}

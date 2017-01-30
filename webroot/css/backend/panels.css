@@ -1,0 +1,47 @@
+/* BACKEND PANELS */
+
+
+.mh-button-backend-panel {
+	/* extends media */
+	margin: 15px 30px;
+	padding: 9px;
+	border: 1px solid #808080;
+	border-radius: 7px;
+}
+
+	.mh-button-backend-panel-body {
+		/* extends media-body*/
+	}
+
+	.mh-button-backend-panel-button {
+		/* extends mh-button */
+		width: 200px;
+		background-color: #1768BF;
+		color: #fff;
+		float: left;
+		margin-right: 15px;
+		font-size: 16px;
+		line-height: 32px;
+		text-align: center;
+	}
+
+	.mh-button-backend-panel-help {
+		overflow: hidden;
+	}
+
+.mh-button-backend-subpanel-buttons-list {
+	list-style: none;
+}
+
+.mh-button-backend-subpanel-button {
+	float: left;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.mh-subpanel-button {
+	border-radius: 9px;
+	padding: 8px 15px;
+	font-size: 105%;
+}
+

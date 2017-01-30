@@ -1,0 +1,61 @@
+/* FORMS details. Extends form definitions to allow some customization. We want to have a submit button fixed position, so the user doen't need to scroll in some tall forms */
+
+form, .pseudo-form {
+	margin: 15px 30px 75px 30px;
+}
+
+.mh-inline-form {
+	padding: 0;
+}
+
+.fixed-submit {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 10px 10px 10px 150px;
+	background-color: rgba(0,0,0,.3);
+	border-top: 1px solid #808080;
+	overflow: hidden;
+	width: 100%;
+}
+
+/* Date pickers */
+
+.a-date, .a-multidate {
+	display: inline-block !important;
+	margin-right: 10px;
+}
+
+.ui-datepicker-trigger {
+	position: relative;
+	top: 3px !important;
+}
+
+/* Special form fields */
+
+.mh-form-cell {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+	.mh-form-cell label,
+	.mh-form-cell input,
+	.mh-form-cell textarea
+	{
+		position: static;
+		float: none;
+		margin: 0;
+	}
+
+	.mh-form-cell label {
+		margin-bottom: 3px;
+	}
+	
+#upload-image-preview {
+	width: 250px;
+	min-width: 250px;
+}
+
+.mh-file-preview li .media-object {
+	margin-right: 10px;
+}
