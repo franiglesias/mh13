@@ -148,11 +148,16 @@ class AppController extends Controller
         $this->setJsVar('assets', Router::url('/').'ui'.DS.IMAGES_URL.'assets'.DS);
 
         $loader = new Twig_Loader_Filesystem('../views');
-        $this->twig = new Twig_Environment($loader);
+        $this->twig = new Twig_Environment($loader, [
+            'debug' => true,
+        ]);
+        $this->twig->addExtension(new Twig_Extension_Debug());
         $this->twig->addGlobal('Site', Configure::read('Site'));
+        $this->twig->addGlobal('Organization', Configure::read('Organization'));
+
         $this->twig->addGlobal('Analytics', Configure::read('Analytics'));
         $this->twig->addGlobal('jsVars', $this->_jsVars);
-        $this->twig->addGlobal('BaseUrl', Router::url('/'));
+        $this->twig->addGlobal('BaseUrl', Router::url('/', true));
         $this->twig->addGlobal('Auth', $this->Session->read('Auth'));
     }
 

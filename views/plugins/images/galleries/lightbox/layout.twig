@@ -1,0 +1,6 @@
+<p>Clic en una foto para ver la galería</p>
+<ul class="clearing-thumbs clearing-feature" data-clearing>
+    {% for image in item.Image %}
+        {% include ('plugins/images/galleries/lightbox/template.twig') %}
+    {% endfor %}
+</ul>

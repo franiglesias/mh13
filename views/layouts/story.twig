@@ -7,17 +7,18 @@
 			{{ include('elements/mh-global-navigation.twig') }}
 		</div>
 		<div id = "mh-messages" >
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->Session->flash('auth'); ?>
+			{# echo $this->Session->flash(); #}
+			{# echo $this->Session->flash('auth'); #}
 			<div id = "output" >< /div>
 		</div>
-		{% block content %}
-		{% endblock %}
-		// <?php echo $this->Page->block('page/foot', compact('scripts_for_layout')); ?> <
+			{% block content %}
+			{% endblock %}
 		<script type="text/javascript">
-			$.get( "/menus/bars/menubar/main", function( data ) {
-				$( "#mh-global-main-menu" ).html( data );
-			});
+		$.get("/menus/bars/menubar/main", function (data) {
+			$("#mh-global-main-menu")
+				.html(data);
+		});
 		</script>
+		{{ include ('elements/page/foot.twig') }}
 	</body>
 </html>

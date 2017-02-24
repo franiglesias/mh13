@@ -1,0 +1,9 @@
+<aside class="mh-widget">
+	<header>
+		<h1>Resumen{# __d('contents', 'Abstract'); #}</h1>
+	</header>
+	<div class="body">
+		<p>{{ item.Item.content|length > 50 ? item.Item.content|raw|striptags|slice(0, 50) ~ '...' : item.Item.content|raw|striptags  }}</p>
+        {# echo $this->Item->format('content', 'excerpt', 50); #}
+	</div>
+</aside>

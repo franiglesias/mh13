@@ -1,0 +1,1 @@
+<li><?php echo $this->Image->render(array('size' => 'itemListImage-2')); ?></li>
