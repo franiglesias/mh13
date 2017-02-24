@@ -1,0 +1,12 @@
+
+<nav id="mh-global-navigation" class="top-bar" data-topbar>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="{{ BaseUrl }}"><img src="img/{{ Site.icon}}" alt="" class="mh-channel-menu-home-icon" width="48">{{ Site.title }}</a></h1>
+		</li>
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menú</span></a></li>
+	</ul>
+	<section class="top-bar-section" id="mh-global-main-menu">
+	{% include ('plugins/access/elements/status.twig') %}
+	</section>
+</nav>

@@ -10,3 +10,5 @@ config/database.php
 
 config/mh13.php
 tmp/
+
+/vendor/
