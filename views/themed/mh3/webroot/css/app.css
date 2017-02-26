@@ -2240,7 +2240,7 @@ button::-moz-focus-inner {
 
 .clearing-feature li {
   display: none; }
-  .clearing-feature li.clearing-featured-img {
+  .clearing-feature li:nth-child(6n) {
     display: block; }
 
 @media only screen and (min-width: 40.0625em) {
@@ -6244,7 +6244,7 @@ th.hide-for-touch {
 @media not print {
   .show-for-print {
     display: none !important; } }
-/* 
+/*
  * Foundation Icons v 3.0
  * Made by ZURB 2013 http://zurb.com/playground/foundation-icon-fonts-3
  * MIT License
@@ -8883,7 +8883,7 @@ img.ui-datepicker-trigger {
     background-color: #0097FF;
     color: #b3e0ff; }
 
-/* 
+/*
 MEDIA OBJECT. A basic object that contains at least an image or similar object and a variable content.
 Can have a header and/or a footer,object wide
 */

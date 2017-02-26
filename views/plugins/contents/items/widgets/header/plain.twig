@@ -1,0 +1,10 @@
+<div class="mh-header mh-header-simple">
+	<div class="mh-header-overlay">
+		<div class="icon">
+            <a href="blog/{{ item.Channel.slug }}">{% include 'plugins/images/image/logo.twig' with {'image' : item.Channel.logo} only %} {{item.Channel.title}}</a></div>
+		<div class="rss"></div>
+		<h1>{{ item.Item.title }}</h1>
+
+		{% include 'plugins/contents/items/widgets/header/author.twig' %}
+	</div>
+</div>

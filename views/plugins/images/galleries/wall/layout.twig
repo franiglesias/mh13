@@ -1,0 +1,7 @@
+<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+    {% for image in item.Image %}
+        <li>
+            <a href="{{ BaseUrl ~ image.path }}"><img src="image.path" width="164" data-caption="<strong>{{ image.name }}:</strong> {{ image.description}}"/></a>
+        </li>
+    {% endfor %}
+</ul>

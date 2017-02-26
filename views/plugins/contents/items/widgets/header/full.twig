@@ -1,0 +1,12 @@
+<div class="mh-header mh-header-full">
+	<div class="mh-background-image">
+        {% include 'plugins/images/image/included.twig' with {'image': img.Image[0]} %}
+	</div>
+	<div class="mh-header-overlay">
+		<div class="icon">
+            <a href="blog/{{ item.Channel.slug }}">{% include 'plugins/images/image/logo.twig' with {'image' : item.Channel.logo} only %} {{item.Channel.title}}</a></div>
+		<div class="rss"></div>
+		<h1>{{ item.Item.title }}</h1>
+        {% include 'plugins/contents/items/widgets/header/author.twig' %}
+	</div>
+</div>
