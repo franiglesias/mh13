@@ -12,3 +12,5 @@ config/mh13.php
 tmp/
 
 /vendor/
+
+/vendors/cakephp/
