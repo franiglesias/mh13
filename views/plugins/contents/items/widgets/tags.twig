@@ -1,0 +1,15 @@
+<aside class="mh-widget">
+	<header>
+		<h1>Etiquetas</h1>
+	</header>
+	<div class="body">
+    {% if item.Label|length == 0 %}
+        <p>Este artículo no ha sido etiquetado todavía.</p>
+    {% else %}
+        {% for label in item.Label %}
+            <p class="mh-tag"><a href="contents/channels/tagged/{{item.Channel.slug}}/{{label.Label.id}}"></a></p>
+        {% endfor %}
+    {% endif %}
+
+	</div>
+</aside>

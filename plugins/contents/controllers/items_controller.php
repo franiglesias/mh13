@@ -5,7 +5,7 @@ class ItemsController extends ContentsAppController
 {
     public $name = 'Items';
 
-    public $helpers = array('Uploads.Upload', 'Access.Owner', 'Contents.Post', 'Comments.Comment', 'Contents.Items', 'Contents.Item', 'Contents.Channel', 'Contents.Authors', 'Contents.Author', 'Ui.Images', 'Ui.Image');
+    public $helpers = array('Uploads.Upload', 'Access.Owner', 'Comments.Comment', 'Contents.Items', 'Contents.Item', 'Contents.Channel', 'Contents.Authors', 'Contents.Author', 'Ui.Images', 'Ui.Image');
 
     public $components = array('Security', 'Filters.SimpleFilters', 'Notify', 'Contents.Feed');
     //var $layout = 'backend';
@@ -207,15 +207,16 @@ class ItemsController extends ContentsAppController
     {
         $this->layout = 'story';
         $this->setTheme();
-        $this->set(array(
+        $data = array(
             'item' => $this->Item->data,
             'showExtras' => $this->Item->hasExtras(),
             'backToIndex' => $this->backLink(),
             'neighbors' => $this->Item->neighbors(),
-        ));
+        );
+        $this->set($data);
 
         $this->autoRender = false;
-        echo $this->twig->render('plugins/contents/items/view.twig', array('item' => $this->Item->data));
+        echo $this->twig->render('plugins/contents/items/view.twig', $data);
     }
 
     private function setTheme()

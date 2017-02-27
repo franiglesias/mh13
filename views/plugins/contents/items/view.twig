@@ -5,7 +5,7 @@
 
 	<article class="mh-page">
 		<pre>
-		
+
 		</pre>
 		{% if preview %}
 			<aside class="mh-preview-ribbon">Así es como se verá</aside>
@@ -49,12 +49,13 @@
 				{# echo $this->Comment->render('Contents.Item', $item['Item']['id'], $item['Item']['allow_comments']); #}
 			</div>
 			<section class="small-12 medium-4 columns">
-				{% include ('plugins/contents/items/widgets/abstract.twig') %}
-				{% include ('plugins/contents/items/widgets/mdata.twig') %}
-				{% include ('plugins/contents/items/widgets/social.twig') %}
-				{# echo $this->Page->block('/contents/items/widgets/tags'); #}
-				{# echo $this->Page->block('/contents/items/widgets/neighbors', array('neighbors' => $neighbors)); #}
+				{% include 'plugins/contents/items/widgets/abstract.twig' %}
+				{% include 'plugins/contents/items/widgets/mdata.twig' %}
+				{% include 'plugins/contents/items/widgets/social.twig' %}
+				{% include 'plugins/contents/items/widgets/tags.twig' %}
+				{% include 'plugins/contents/items/widgets/neighbors.twig' %}
 				{# echo $this->Page->block('/contents/channels/blocks/description'); #}
+				{% include 'plugins/contents/items/widgets/license.twig' %}
 				{# echo $this->Page->block('/contents/items/widgets/license'); #}
 			</section>
 		</div>
