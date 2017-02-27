@@ -10,7 +10,7 @@
 		{% if preview %}
 			<aside class="mh-preview-ribbon">Así es como se verá</aside>
 		{% endif %}
-		{# echo $this->Page->isPreview(); #}
+		
 		{% include 'plugins/contents/items/widgets/header/plain.twig' %}
 		{# echo $this->Page->block('/contents/items/widgets/header', array(
 	        'imagePath' => $this->Image->value('path'),
@@ -54,9 +54,8 @@
 				{% include 'plugins/contents/items/widgets/social.twig' %}
 				{% include 'plugins/contents/items/widgets/tags.twig' %}
 				{% include 'plugins/contents/items/widgets/neighbors.twig' %}
-				{# echo $this->Page->block('/contents/channels/blocks/description'); #}
+				{% include 'plugins/contents/items/widgets/description.twig' %}
 				{% include 'plugins/contents/items/widgets/license.twig' %}
-				{# echo $this->Page->block('/contents/items/widgets/license'); #}
 			</section>
 		</div>
 	</article>
