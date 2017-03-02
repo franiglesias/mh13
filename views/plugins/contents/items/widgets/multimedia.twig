@@ -1,0 +1,8 @@
+<aside class="mh-page-extras" id="mh-multimedia">
+	<div class="mh-page-extras-container">
+		<h2 class="mh-page-extras-title">Multimedia</h2>
+			{% for video in item.Multimedia %}
+				{% include 'plugins/media/video.twig' with {'video': video} only %}
+			{% endfor %}
+	</div>
+</aside>

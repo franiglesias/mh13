@@ -7,7 +7,7 @@
         <p>Este artículo no ha sido etiquetado todavía.</p>
     {% else %}
         {% for label in item.Label %}
-            <p class="mh-tag"><a href="contents/channels/tagged/{{item.Channel.slug}}/{{label.Label.id}}"></a></p>
+            <p class="mh-tag"><a href="contents/channels/tagged/{{item.Channel.slug}}/{{label.Label.id}}">{{label.Label.title}}</a></p>
         {% endfor %}
     {% endif %}
 

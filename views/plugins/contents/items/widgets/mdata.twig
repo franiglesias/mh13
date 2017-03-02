@@ -4,7 +4,7 @@
 	</header>
 	<div class="body">
 		<ul class="mh-metadata">
-			<li class="fi-link">{# echo $this->FHtml->permalink($this->Item); #}</li>
+			<li class="fi-link"><a href="contents/items/view/{{ item.Item.slug }}">Enlace permanente</a></li>
 			<li class="fi-calendar">{{ item.Item.pubDate|date('j/m/Y') }}</li>
             {% if item.Item.expiration %}
             <li class="fi-alert">Válido hasta: {{ item.Item.expiration|date('j/m') }}</li>

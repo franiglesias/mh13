@@ -8643,7 +8643,8 @@ a.mh-story-channel-link {
     width: 100%;
     left: 0; }
   .mh-multimedia object, .mh-multimedia video, .mh-multimedia embed {
-    height: auto; }
+    /*height: auto; */
+}
 
 .mh-multimedia-header {
   background-color: #000;

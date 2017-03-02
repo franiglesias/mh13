@@ -152,6 +152,8 @@ class AppController extends Controller
             'debug' => true,
         ]);
         $this->twig->addExtension(new Twig_Extension_Debug());
+        require_once 'libs/twig/Twig_Extension_Media.php';
+        $this->twig->addExtension(new Twig_Extension_Media());
         $this->twig->addGlobal('Site', Configure::read('Site'));
         $this->twig->addGlobal('Organization', Configure::read('Organization'));
 

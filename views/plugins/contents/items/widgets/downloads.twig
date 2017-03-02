@@ -1,0 +1,20 @@
+<aside class="mh-page-extras" id="mh-downloads">
+	<div class="mh-page-extras-container">
+		<h2 class="mh-page-extras-title">Descargas</h2>
+		<ul class="mh-download-list">
+			{% for download in item.Download %}
+			<li class="media mh-download-list-item">
+				<a href="{{ download.path }}" class="mh-download-button">
+				<div class="mh-media-object">
+					{# Here goes the preview image #}
+				</div>
+				<div>
+					<span class="mh-download-name"><strong>{{download.name|humanize}}</strong></span>
+					<span class="mh-download-size">{{download.size|readable_size}}</span><span class="mh-download-type">{{download.type}}</span>
+				</div>
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</aside>
