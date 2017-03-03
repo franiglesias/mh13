@@ -1,0 +1,133 @@
+.mh-dashboard-widget {
+	@include panel(
+		// Sets the panel background color. Default: $panel-pg
+		$bg:#fff,
+		// Sets the panel padding amount. Default: $panel-padding
+		$padding:$small-spacing,
+		// Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
+		$adjust:true
+	);
+	@include clearfix();
+
+	> header {
+		overflow: hidden;
+		background-color: $info-color;
+		margin-bottom: $small-spacing;
+		border-radius: $global-radius;
+		padding: {
+			left: $x-small-spacing;
+			right: $x-small-spacing;
+		};
+		color: #fff;
+
+		h1 {
+			font: {
+				size: $large-font-size;
+				family: $special-font;
+			};
+			color: mh-contrasting-color($info-color);
+			text-transform: uppercase;
+	
+			span {
+				color: scale-color($info-color, $lightness: 75%);
+				float: right;
+			}
+		}
+	}
+	
+	
+	footer {
+		padding: 0;
+		margin: $small-spacing 0;
+		
+		p {}
+	}
+	
+	li {
+		a, p {
+			display: block;
+			padding: $small-spacing;
+			font:{
+				size: $base-font-size;
+				weight: bold;
+			};
+			background: $body-background;
+			line-height: 100%;
+			margin: 0;
+			border-left: $small-spacing solid $info-color;
+			color: $body-font-color;
+		
+			&.mh-allowed {
+				border-left-color: $success-color;
+				&:before {color: $success-color;}
+			}
+		
+			&.mh-forbidden {
+				border-left-color: $alert-color;
+			
+				&:before {color: $alert-color;}
+			}
+
+			&.mh-limited {
+				border-left-color: $warning-color;
+				:before {color: $warning-color;}
+			}
+		}
+	
+		a:hover {
+			background-color: $neutral-background-color;
+		};
+	}
+	
+	
+	.mh-dashboard-button {
+		@include button(
+			$padding: $button-action,
+			$bg: $success-color,
+			$radius: $global-radius,
+			$full-width: false
+		);
+		float: right;
+		margin-bottom: 0;
+	}
+
+	.mh-dashboard-legend {
+		@include clearfix();
+		padding: $small-spacing 0;
+		list-style: none;
+		margin: 0;
+		display: block;
+
+		li {
+			border: 1px solid scale-color($neutral-background-color, $lightness: -10%);
+			margin {
+				bottom: $x-small-spacing;
+				right: $x-small-spacing;
+			}
+			float: left;
+			display: inline-block;
+		}
+	}
+
+	.mh-dashboard-list {
+		background-color: $neutral-background-color;
+		list-style: none;
+		margin: 0;
+		max-height: 14rem;
+		min-height: 14rem;
+		overflow-y: scroll;
+	
+		li {
+			border: 1px solid scale-color($neutral-background-color, $lightness: -10%);
+			margin-bottom: $x-small-spacing;
+		}
+	
+
+	}
+
+	
+
+}
+
+
+

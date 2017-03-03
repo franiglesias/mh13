@@ -1,0 +1,46 @@
+/* 
+MEDIA OBJECT. A basic object that contains at least an image or similar object and a variable content.
+Can have a header and/or a footer,object wide
+*/
+
+.mh-media {
+overflow: hidden;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.mh-media-object {
+float: left;
+display: block;
+margin-right: $small-spacing;
+margin-left: 0;
+margin-bottom: $x-small-spacing;
+}
+
+.mh-media-header {
+overflow: hidden;
+display: block;
+}
+.mh-media-body {
+overflow: hidden;
+min-width: 1px;
+display: block;
+}
+.mh-media-footer {
+display: block;
+overflow: hidden;
+clear: both;
+}
+
+.mh-media-object.right {
+margin-right: 0;
+margin-left: $small-spacing;
+}
+
+.mh-media-object.fullwidth {
+	width: 100%;
+	clear: both;
+	float: none;
+	margin: $x-small-spacing 0;
+}

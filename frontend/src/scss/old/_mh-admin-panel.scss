@@ -1,0 +1,254 @@
+.mh-admin-panel {
+	@include grid-row($behavior: false);
+	@include mh-shadow();
+	margin: {
+		top: 0;
+		bottom: $spacing;
+	};
+	padding: {
+		top: $spacing;
+		bottom: $spacing;
+		left: $spacing;
+		right: $spacing;
+	};
+	background-color: $body-background;
+	max-width: 100%;
+	
+	.row {
+		max-width: 100% !important;
+	}
+	
+	> header {
+		background-color: $primary-color;
+		overflow: hidden;
+		margin-bottom: rem-calc(5px);
+		border-radius: rem-calc(5px);
+		padding: {
+			left: rem-calc(15px);
+			right: rem-calc(15);
+		};
+		color: #fff;
+		
+		h1 {
+			font: {
+				size: rem-calc(36);
+				family: $special-font;
+				weight: normal;
+			};
+			color: #fff !important;
+			text-transform: uppercase;
+			
+			a {
+				color: inherit !important;
+			}
+	
+			> span {
+				$admin-header-color-button: scale-color($primary-color, $lightness: 35%);
+				color: scale-color($primary-color, $lightness: 75%);
+				float: right;
+				line-height: 90%;
+				
+				.mh-btn-create {
+					@include mh-button-in-header($admin-header-color-button, $icon: plus);
+				}
+				.mh-btn-edit {
+					@include mh-button-in-header($admin-header-color-button, $icon: pencil);
+				}
+				.mh-btn-index {
+					@include mh-button-in-header($admin-header-color-button, $icon: results);
+				}
+				.mh-btn-view {
+					@include mh-button-in-header($admin-header-color-button, $icon: eye);
+				}
+				.mh-btn-delete {
+					@include mh-button-in-header($admin-header-color-button, $icon: trash);
+				}
+				.mh-btn-duplicate {
+					@include mh-button-in-header($admin-header-color-button, $icon: page-copy);
+				}
+				.mh-btn-download {
+					@include mh-button-in-header($admin-header-color-button, $icon: download);
+				}
+				.mh-btn-person {
+					@include mh-button-in-header($admin-header-color-button, $icon: torso);
+				}
+				.mh-btn-people {
+					@include mh-button-in-header($admin-header-color-button, $icon: torsos-all);
+				}
+				.mh-btn-save {
+					@include mh-button-in-header($admin-header-color-button, $icon: check);
+				}
+				.mh-btn-cancel {
+					@include mh-button-in-header($admin-header-color-button, $icon: x);
+				}
+				.mh-btn-print {
+					@include mh-button-in-header($admin-header-color-button, $icon: print);
+				}
+				.mh-btn-care {
+					@include mh-button-in-header($admin-header-color-button, $icon: first-aid);
+				}
+			}
+			
+			> span span {
+				line-height: 120%;
+				color: scale-color($primary-color, $lightness: 50%);
+			}
+		}
+	}
+}
+
+.mh-ajax-admin-panel {
+	
+	position: relative;
+	
+	> header {
+		background-color: scale-color($primary-color, $lightness: 10%);
+		overflow: hidden;
+		margin-bottom: rem-calc(5px);
+		border-radius: rem-calc(5px);
+		padding: {
+			left: rem-calc(15px);
+			right: rem-calc(15);
+		};
+		color: #fff;
+		
+		h1 {
+			font: {
+				size: rem-calc(24);
+				family: $special-font;
+				weight: bold;
+			};
+			color: #fff !important;
+			text-transform: uppercase;
+	
+			> span {
+				color: scale-color($primary-color, $lightness: 75%);
+				float: right;
+			}
+			
+			> span span {
+				color: scale-color($primary-color, $lightness: 50%);
+			}
+		}
+	}
+	
+}
+
+ul.pagination {
+	display: inline-block;
+	margin-bottom: 0;
+	
+	li, li a {
+		color: inherit;
+	}
+}
+
+.mh-admin-widget {
+	@include panel(
+		// Sets the panel background color. Default: $panel-pg
+		$bg:#fff,
+		// Sets the panel padding amount. Default: $panel-padding
+		$padding:rem-calc(5),
+		// Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
+		$adjust:true
+	);
+	@include radius();
+	border: 1px solid #ccc;
+	
+	> header {
+		background-color: $info-color;
+		overflow: hidden;
+		margin-bottom: rem-calc(5px);
+		border-radius: rem-calc(5px);
+		padding: {
+			left: rem-calc(5px);
+			right: rem-calc(5);
+		};
+		color: #fff;
+
+		h1 {
+			font: {
+				size: rem-calc(24);
+				family: $special-font;
+			};
+			color: #fff !important;
+			text-transform: uppercase;
+	
+			span {
+				color: scale-color($info-color, $lightness: 75%);
+				float: right;
+			}
+		}
+	}
+	
+	.mh-btn-create {
+		@include mh-button-admin($success-color, $icon: plus);
+	}
+	.mh-btn-index {
+		@include mh-button-admin($info-color, $icon: results);
+	}
+	.mh-btn-search {
+		@include mh-button-admin($info-color, $icon: magnifying-glass);
+	}
+	.mh-btn-edit {
+		@include mh-button-admin($warning-color, $icon: pencil);
+	}
+	.mh-btn-view {
+		@include mh-button-admin($info-color, $icon: eye);
+	}
+	.mh-btn-delete {
+		@include mh-button-admin($alert-color, $icon: trash);
+	}
+	.mh-btn-duplicate {
+		@include mh-button-admin($success-color, $icon: page-copy);
+	}
+	.mh-btn-download {
+		@include mh-button-admin($info-color, $icon: download);
+	}
+	.mh-btn-person {
+		@include mh-button-admin($info-color, $icon: torso);
+	}
+	.mh-btn-people {
+		@include mh-button-admin($info-color, $icon: torsos-all);
+	}
+	.mh-btn-save, .mh-btn-ok {
+		@include mh-button-admin($success-color, $icon: check);
+	}
+	.mh-btn-print {
+		@include mh-button-admin($success-color, $icon: print);
+	}
+	.mh-btn-care {
+		@include mh-button-admin($success-color, $icon: first-aid);
+	}
+	.mh-btn-cancel {
+		@include mh-button-admin($success-color, $icon: x);
+	}
+	.mh-btn-key {
+		@include mh-button-admin($warning-color, $icon: key);
+	}
+	.mh-btn-rss {
+		@include mh-button-admin($warning-color, $icon: rss);
+	}
+	
+	
+}
+
+
+.mh-filter-form {
+	.mh-btn-ok {
+		@include mh-button-action($success-color, $icon: filter);
+		float: right;
+		width: 45%;
+	}
+	
+	.mh-btn-cancel {
+		@include mh-button-action($warning-color, $icon: x);
+		float: left;
+		width: 45%;
+	}
+}
+
+input.form-error {
+	margin-bottom: 0;
+	background-color: scale-color($warning-color, $lightness: 65%);
+}

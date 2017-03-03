@@ -1,0 +1,25 @@
+.mh-pricing  {
+	
+  	@include pricing-table-container;
+	@include radius($global-radius);
+	
+	.title  {
+		@include pricing-table-title;
+		@include radius(0);
+		@include side-radius(top, $global-radius);
+	}
+	.price  {
+		@include pricing-table-price;
+	}
+	.description   {
+		@include pricing-table-description;
+	}
+	.bullet-item {
+		@include pricing-table-bullet;
+	}
+	.cta-button    {
+		@include pricing-table-cta;
+		@include radius(0);
+		@include side-radius(bottom, $global-radius);
+	}
+}

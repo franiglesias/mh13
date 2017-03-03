@@ -1,0 +1,61 @@
+.top-bar {
+
+	.top-bar-section > ul li > a[class^="fi-"]:before {
+		color: rgba(0,0,0,.5);
+	}
+	
+	a i {
+		font-size: 1.5rem;
+		line-height: 175%;
+		color: $medium-dark-color;
+	}
+	
+	a:hover i {
+		color: #fff;
+	};
+
+	.title-area {
+		background-color: $primary-color;
+		position: relative;
+		margin-right: 24px;
+		h1 a {
+			color: #fff;
+			font:{
+				weight: bold;
+				size: $small-font-size;
+			};
+		}
+		
+		img {
+			margin-right: rem-calc(8);
+		}
+	}
+	
+	.title-area:after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		border-top: 24px solid transparent;
+		border-bottom: 24px solid transparent;
+		border-left: 12px solid $primary-color;
+		border-right: 12px solid transparent;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-right: -24px;
+	};
+	
+	ul.access-icons li {
+		background-color: transparent !important;
+		
+		a {
+			background-color: transparent !important;
+		}
+		
+		a:hover {
+			background-color: $info-color !important;
+			color: $body-background !important;
+		};
+	}
+}

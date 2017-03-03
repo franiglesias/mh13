@@ -1,0 +1,16 @@
+#mh-social-widget {
+	li {
+		a:before {
+			font-size: 24px;
+		}
+		a.fi-social-facebook:before {
+			color: #3b5998;
+		}
+		a.fi-social-twitter:before {
+			color: #55acce;
+		}
+		a.fi-social-youtube:before {
+			color: #ee0f0f;
+		}
+	}
+}

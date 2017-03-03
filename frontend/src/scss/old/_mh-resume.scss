@@ -1,0 +1,70 @@
+.mh-resume {
+	margin: 1rem 0;
+	background-color: white;
+	border: 1px solid #CCC;
+	padding: 2rem; 
+	
+	.mh-resume-section {
+		margin-bottom: 2rem;
+		border-top: 3px solid $secondary-color;
+		background-color: scale-color($secondary-color, $lightness: +80%);
+		padding: {
+			top: 1rem;
+			bottom: 1rem;
+		};
+		&:first-child {
+			border-top: none;
+			background-color: transparent;
+		}
+	}
+	
+	h1.mh-resume-title {
+		font: {
+			family: $special-font;
+			weight: bold;
+			size: rem-calc(66);
+		};
+		text: {
+			transform: uppercase;
+		};
+		color: $primary-color;
+	}
+	
+	h2.mh-resume-section-title {
+		font: {
+			family: $special-font;
+			size: rem-calc(44);
+		};
+		
+		text: {
+			transform: uppercase;
+		};
+		color: $secondary-color;
+	}
+	
+	h3.mh-resume-merit-title {
+		font: {
+			family: $special-font;
+		};
+	}
+	
+	h3.mh-resumes-dates {
+		font: {
+			family: $special-font;
+			size: rem-calc(24);
+		};
+		color: $secondary-color;
+		text-align: right;
+	}
+	
+	
+	.vcard {
+		
+		background-color: scale-color($accent-color, $lightness: +60%);
+		border-color: $accent-color;
+		
+		li {
+			
+		}
+	}
+}

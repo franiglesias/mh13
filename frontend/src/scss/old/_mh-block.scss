@@ -1,0 +1,32 @@
+.mh-block-title {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: $large-spacing;
+	
+	img.mh-background-image {
+		width: 100%;
+	}
+	
+	img.logo {
+		float: left;
+	}
+	
+	header {
+		padding: $spacing $large-spacing;
+		@include mh-vertical-top-gradient($primary-color, 15%);
+
+		h1 {
+			color: $body-background;
+			text-shadow: 2px 2px 6px rgba(0,0,0,.7);
+		}
+		h2 {
+			color: $accent-color;
+			text-shadow: 2px 2px 4px rgba(0,0,0,.7);
+		}
+	}
+	
+	header.mh-overlay {
+		background: none;
+		background-color: transparent;
+	}
+}

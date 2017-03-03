@@ -1,0 +1,9 @@
+.mh-label-circular-adressee {
+	@include label;
+	@include label-style(scale-color(#fff, $alpha: -50%), 5px);
+}
+
+.mh-label-circular-type {
+	@include label;
+	@include label-style(scale-color(#fff, $alpha: -30%), 5px);
+}

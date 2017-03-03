@@ -1,0 +1,31 @@
+#mh-secondary-navigation.top-bar {
+
+	.top-bar-section ul li {
+//		background-color: $body-bg;
+	}
+
+	.top-bar-section ul li>a {
+//		color: $body-font-color;
+//		background-color: $body-bg;
+	}
+
+	.toggle-topbar.menu-icon a {
+//		color: $body-font-color;
+	}
+
+	.top-bar-section li:not(.has-form) a:not(.button) {
+//		background-color: $body-bg;
+	}
+
+	a:hover {
+//		background-color: #ccc !important;
+	};
+
+	.dropdown {
+		border: 1px solid #444;
+		li.title h5 a {
+			color: $body-font-color;
+		}
+	}
+
+}

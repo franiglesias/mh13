@@ -1,0 +1,128 @@
+// @include foundation-table;
+//
+// Table color-schema
+//
+$table-color-scale: 50%;
+$table-hover-scale: $table-color-scale / 25;
+$table-stripe-scale: $table-color-scale / 15;
+
+$table-base-color: $primary-color;
+$table-header-bg-color: $table-base-color;
+$table-background-color: smart-scale($table-base-color, $table-color-scale * 1.8);
+$table-row-color: $table-background-color;
+$table-row-header-bg-color: lighten($table-base-color, $table-color-scale * 1.1);
+$table-border-color: $white;
+//
+// Other table properties
+//
+$table-padding: rem-calc(15 20);
+$table-border: 1px solid $medium-gray;
+
+$table-body-font: $body-font-family;
+$table-header-font: $header-font-family;
+// Not used
+$table-head-font-color: $body-font-color;
+$table-foot-font-color: $body-font-color;
+$show-header-for-stacked: false;
+$table-radius: $global-radius;
+$table-cell-border: 1px solid $table-border-color;
+$table-external-border: 3px solid $table-border-color;
+
+$table-is-striped: true;
+$table-stripe: even;
+
+table {
+    font            : {
+        family: $table-body-font;
+        weight: normal;
+        size  : rem-calc(14);
+    };
+
+    width           : 100%;
+
+    border-spacing  : 0;
+    border-collapse : separate;
+
+    border          : $table-external-border;
+    border-radius   : $table-radius $table-radius 0 0;
+    background-color: $table-background-color;
+    box-shadow      : 2px 2px 3px rgba(0,0,0,.2);
+
+    thead {
+        background-color: $table-header-bg-color;
+        box-shadow      : inset 0 10px 20px -10px rgba(smart-scale($table-header-bg-color, 90%), .3);
+
+        th {
+            font   : {
+                family: $table-header-font;
+                size  : rem-calc(20);
+                weight: 400;
+            }
+
+            padding: $table-padding;
+
+            color  : $white;
+
+            &:first-child {
+                border-radius: $table-radius 0 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 $table-radius 0 0;
+            }
+
+            &:only-child-child {
+                border-radius: $table-radius $table-radius 0 0;
+            }
+        }
+    }
+
+    td {
+        padding: $table-padding;
+    }
+
+    tbody {
+        tr:nth-child(even) {
+            background-color: darken($table-row-color, $table-stripe-scale);
+
+            th {
+                background-color: darken($table-row-header-bg-color, $table-stripe-scale);
+            }
+        }
+
+        tr {
+            td,
+            th {
+                border-bottom: $table-cell-border;
+            }
+
+            th {
+                font            : {
+                    weight: 300;
+                };
+
+                padding         : $table-padding;
+
+                background-color: $table-row-header-bg-color;
+
+                text            : {
+                    align: left;
+                }
+            }
+
+            td {
+                padding: $table-padding;
+            }
+
+            &:hover {
+                td {
+                    background-color: darken($table-row-color, $table-hover-scale);
+                }
+
+                th {
+                    background-color: darken($table-row-header-bg-color, $table-hover-scale);
+                }
+            }
+        }
+    }
+}

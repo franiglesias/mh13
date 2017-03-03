@@ -1,0 +1,259 @@
+// Use for send in form and other positive actions
+
+$mh-buttons-icon-color-opacity: .6;
+
+
+.mh-btn-child-ok {
+  @include button(
+    $padding: $button-sml,
+    $bg: scale-color($success-color, $lightness: +20%),
+    $radius: $global-radius,
+    $full-width: false
+  );
+
+	@extend .right;
+	margin-bottom: 0;
+	
+	&:before {@extend .fi-check:before; margin-left:.5rem;}
+}
+
+
+// Cancel forms, forgot password, go back
+
+.mh-btn-back {
+  @include button(
+    $padding: $button-med,
+    $bg: $warning-color,
+    $radius: $global-radius,
+    $full-width: false
+  );
+	&:before {@extend .fi-x:before; margin-left:.5rem;}
+}
+
+// Basic button for pricing lists
+
+.mh-btn-pricing {
+  @include button(
+    $padding: $button-med,
+    $bg: $info-color,
+    $radius: $global-radius,
+    $full-width: true
+  );
+}
+
+.mh-btn-rss {
+  @include button(
+    $padding: $button-tny,
+    $bg: $warning-color,
+    $radius: $global-radius,
+    $full-width: false
+  );
+}
+
+.mh-btn-visit {
+  @include button(
+    $padding: $button-tny,
+    $bg: $secondary-color,
+    $radius: $global-radius,
+    $full-width: false
+  );
+}
+
+// The standard button for the theme
+@mixin mh-base-button ($bg-color: $info-color, $size: $button-sml, $icon: false, $full: false, $variant: 25%) {
+	@include button(
+		$padding: $size,
+		$bg: $bg-color,
+		$radius: $global-radius,
+		$full-width: $full,
+		$bg-hover: scale-color($bg-color, $lightness: -$variant)
+	);
+	text-align: left;
+	font:{
+		size: rem-calc(14);
+	};
+	color: mh-contrasting-color($bg-color);
+	@if $icon == false {
+		padding-left: .5rem;
+	} @else {
+		&:before {
+			@extend .fi-#{$icon}:before; 
+			margin-left:.3rem; 
+			color: mh-contrasting-color($bg-color);
+		}
+	}
+}
+
+@mixin mh-button ($bg-color: $info-color, $icon: false){
+	@include button(
+		$padding: $button-sml,
+		$bg: $bg-color,
+		$radius: $global-radius,
+		$full-width: false,
+		$bg-hover: scale-color($bg-color, $lightness: -25%)
+	);
+	text-align: left;
+	font:{
+		size: rem-calc(14);
+	};
+	color: mh-contrasting-color($bg-color);
+	@if $icon == false {
+		padding-left: .5rem;
+	} @else {
+		&:before {
+			@extend .fi-#{$icon}:before; 
+			margin-left:.3rem; 
+			color: mh-contrasting-color($bg-color);
+		}
+	}
+	&.right {
+		margin-left: rem-calc(24);
+	}
+}
+
+// Button for mh-adminn-wdiget, a list of button in the left sidebar of a backend view 
+
+@mixin mh-button-admin ($bg-color: $info-color, $icon: false){
+	@include button(
+		$padding: $button-action,
+		$bg: $bg-color,
+		$radius: $global-radius,
+		$full-width: true,
+		$bg-hover: scale-color($bg-color, $lightness: -25%)
+	);
+	margin-bottom: rem-calc(5);
+	text-align: left;
+	color: mh-contrasting-color($bg-color);
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+	@if $icon == false {
+		padding-left: .5rem;
+	} @else {
+		&:before {
+			@extend .fi-#{$icon}:before; 
+			margin-left:0.4rem; 
+			color: mh-contrasting-color($bg-color);
+		}
+	}
+}
+
+// Special button for embed in headers
+
+@mixin mh-button-in-header ($bg-color: $info-color, $icon: false){
+	@include button(
+		$padding: $button-action,
+		$bg: $bg-color,
+		$radius: $global-radius,
+		$full-width: false,
+		$bg-hover: scale-color($bg-color, $lightness: -45%)
+	);
+	margin-bottom: rem-calc(5);
+	text:{
+		transform: none; 
+		align:left;
+	};
+	color: mh-contrasting-color($bg-color);
+	@if $icon == false {
+		padding-left: .5rem;
+	} @else {
+		&:before {
+			@extend .fi-#{$icon}:before; 
+			margin-left:0rem; 
+			color: mh-contrasting-color($bg-color);
+		}
+	}
+}
+
+// Buttons for actions in tables
+
+@mixin mh-button-action ($bg-color: $info-color, $icon: false){
+	@include button(
+		$padding: $button-action,
+		$bg: $bg-color,
+		$radius: $global-radius,
+		$full-width: false,
+		$bg-hover: scale-color($bg-color, $lightness: -25%)
+	);
+	color: mh-contrasting-color($bg-color);
+	margin: 0;
+	text-align: left;
+	text:{
+		align: left;
+		transform: uppercase;
+	};
+	font: {
+		size: rem-calc(12);
+		weight: normal;
+		family: $button-font;
+	};
+	@if $icon == false {
+		padding-left: .5rem;
+	} @else {
+		&:before {
+			@extend .fi-#{$icon}:before; 
+			margin-left: .1rem; 
+			color: mh-contrasting-color($bg-color);
+		}
+	}
+}
+
+.mh-btn-ok {
+	@include mh-button($success-color, $icon: check);
+	@extend .right;
+	margin-bottom: 0;
+	margin-left: rem-calc(24);
+}
+
+.mh-btn-create {
+	@include mh-button($success-color, $icon: plus);
+}
+.mh-btn-edit {
+	@include mh-button($warning-color, $icon: pencil);
+}
+.mh-btn-index {
+	@include mh-button($info-color, $icon: results);
+}
+.mh-btn-view {
+	@include mh-button($info-color, $icon: eye);
+}
+.mh-btn-delete {
+	@include mh-button($alert-color, $icon: trash);
+}
+.mh-btn-duplicate {
+	@include mh-button($success-color, $icon: page-copy);
+}
+.mh-btn-download {
+	@include mh-button($info-color, $icon: download);
+}
+.mh-btn-person {
+	@include mh-button($info-color, $icon: torso);
+}
+.mh-btn-people {
+	@include mh-button($info-color, $icon: torsos-all);
+}
+.mh-btn-save {
+	@include mh-button($success-color, $icon: check);
+}
+.mh-btn-cancel {
+	@include mh-button($success-color, $icon: x);
+}
+.mh-btn-print {
+	@include mh-button($success-color, $icon: print);
+}
+.mh-btn-care {
+	@include mh-button($success-color, $icon: first-aid);
+}
+.mh-btn-key {
+	@include mh-button($warning-color, $icon: key);
+}
+.mh-btn-rss {
+	@include mh-button($warning-color, $icon: rss);
+}
+.mh-btn-prev {
+	@include mh-button($success-color, $icon: arrow-left);
+}
+.mh-btn-next {
+	@include mh-button($success-color, $icon: arrow-right);
+}

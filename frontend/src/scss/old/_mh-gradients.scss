@@ -1,0 +1,39 @@
+// 
+// @TODO: Add docs to linear-gradient!
+//
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+@mixin generic-linear-gradient($fromColor, $toColor, $direction) {
+	background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left $direction, left $direction, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient($direction, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient($direction, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient($direction, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient($direction, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient($direction, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+  
+}
+
+// Vertical linear gradient with baseColor at the bottom and variant at the top
+@mixin mh-vertical-top-gradient($baseColor, $amount: 90%) {
+	$toColor: $baseColor;
+	$fromColor: scale-color($baseColor, $lightness: $amount);
+	@include linear-gradient($fromColor, $toColor);
+}
+
+// Vertical linear gradient with base Color at the top, and variant at the bottom
+@mixin mh-vertical-bottom-gradient($baseColor, $amount: 90%) {
+	$fromColor: $baseColor;
+	$toColor: scale-color($baseColor, $lightness: $amount);
+	@include linear-gradient($fromColor, $toColor);
+}

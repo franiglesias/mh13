@@ -1,0 +1,89 @@
+.mh-calendar-block {
+	padding: rem-calc(5);
+	background-color: $neutral-background-color;
+	@include mh-fixed-width(96px);
+	
+	p {
+		margin: 0 !important;
+		font: {
+			weight: bold;
+		};
+		text-align: center;
+		
+		&.month {
+			background-color: $alert-color;
+			color: #fff;
+			text:{
+				transform: uppercase;
+			};
+			font:{
+				size: rem-calc(16) !important;
+			};
+		}
+	
+		&.day {
+			background-color: $body-background;
+			font: {
+				size: rem-calc(40) !important;
+			};
+			line-height: 120% !important;
+		}
+	
+		&.dayname {
+			background-color: $body-background;
+			font: {
+				size: rem-calc(16) !important;
+			};
+			color: $info-color;
+		}
+	
+		&.time {
+			background-color: #000;
+			color: $success-color;
+			font:{
+				family: courier, monospace;
+			};
+		}	
+	}
+}
+
+.mh-event {
+	@include grid-row();
+	padding: rem-calc(36);
+	header {
+		
+		h1 {
+			color: $mh-story-heading-color;
+			font: {
+				family: $special-font;
+				size: rem-calc(67.733);
+				weight: bold;
+			}
+			text: {
+				transform: uppercase;
+			};
+			
+		}
+	}
+	
+	.body {
+		h2 {
+			font: {
+				family: $special-font;
+			}
+		}
+
+	}
+	
+}
+
+.mh-calendar-events-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	
+	li {
+		@include clearfix();
+		margin-bottom: 1rem;
+	}
+}

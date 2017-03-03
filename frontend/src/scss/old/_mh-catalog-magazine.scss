@@ -1,0 +1,171 @@
+$featured-overlay-color: $primary-color;
+$overlay-color: rgba(0, 0, 0, .5);
+.mh-catalog-magazine {
+	.row {
+		@include grid-row($behavior: nest);
+		margin-bottom: $large-spacing;
+		
+		.small-3 {
+			@include grid-column(3, $collapse:false);
+		}
+		
+		.small-6 {
+			@include grid-column(6, $collapse:false);
+		}
+		
+		.small-9 {
+			@include grid-column(9, $collapse:false);
+		}
+		
+		.small-12 {
+			@include grid-column(12, $collapse:false);
+		}
+	}
+	
+	
+	article {
+		position: relative;
+		@include grid-column(12, $collapse:true);
+	
+		//	Images extends to fill width
+		img {
+			width: 100%;
+			display: block;
+		}
+		
+		header {
+			h1 {
+				font:{
+					size: $base-font-size;
+					weight: bold;
+				};
+			}
+		}
+		
+		
+		.metadata {
+			a {
+				width: 100%;
+			}
+			
+			.timestamp {
+				width: 100%;
+			}
+		}
+		
+
+		&.has-image .metadata {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-color: $featured-overlay-color;
+			
+			a {
+				width: auto;
+			}
+			.timestamp {
+				float: right;
+				width: auto;
+			}
+		}
+
+		&.has-image > div {
+			@extend .mh-overlay;
+			background-color: $overlay-color;
+			color: #fff;
+			top: auto;
+			bottom: 0;
+			padding: rem-calc(8) rem-calc(16*3) rem-calc(8) rem-calc(16);
+			
+			header {
+				h1 {
+					font:{
+						family: $special-font;
+						size: $xxx-large-font-size;
+					};
+					
+					color: #fff;
+					text:{
+						transform: uppercase;
+					};
+					
+					a {
+						color: inherit;
+					}
+				}
+			}
+		}
+		
+		
+		
+		&.featured {
+			padding: 0;
+			margin: 0;
+			
+			
+		}
+
+		&.featured.has-image > div {
+			background-color: $featured-overlay-color;
+		}
+	}
+}
+
+
+@media #{$small-only} {
+	
+	.mh-catalog-magazine {
+		
+		.row {
+			margin-bottom: 0;
+			
+			.small-3,
+			.small-6,
+			.small-9,
+			.small-12 {
+				@include grid-column(12, $collapse:true);
+				margin-bottom: $spacing;
+				border-bottom: 1px solid $primary-color;	
+			}
+	
+			article {
+				position: static;
+				
+				header {
+					h1 {
+						a{
+							display: block;
+						}
+					}
+				}
+				
+				&:not(.has-image) .metadata {
+					a {
+						width: auto;
+					}
+					.timestamp {
+						float: right;
+						width: auto;
+					}
+				}
+
+				> div {
+					padding: $spacing;
+					div {
+						display: none;
+					}
+				}
+			}
+			
+		}
+	}
+
+}
+
+@media #{$medium-up} {
+	.mh-catalog-magazine {
+		
+	}
+}
+

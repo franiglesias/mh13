@@ -1,0 +1,46 @@
+$top: rem-calc(16);
+$bottom: rem-calc(96);
+
+#mh-upload-image-preview {
+	
+	position: relative;
+	padding: $spacing $spacing $spacing $spacing;
+	@include clearfix();
+	
+	#upload-image-preview {
+		img {
+			display: block;
+			margin: $spacing auto $large-spacing auto;
+		}
+	}
+
+	.mh-rotate-combo {
+		@include button-group-container();
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 8.2rem;
+		margin: 0 auto 0 auto;
+		display: table;
+		bottom: 3.5rem;
+		
+		.mh-btn-rotate {
+			@include button(
+				$padding: $small-spacing,
+				$bg: rgba(0, 0, 0, 0.5),
+				$radius: false,
+				$full-width: false
+			);
+			margin-bottom: 0;
+			font-weight: bold;
+			font-size: 1rem;
+		}
+
+		& > li {
+			@include button-group-style(
+				$radius: $global-rounded
+			);
+		}
+		
+	}
+}

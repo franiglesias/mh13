@@ -1,0 +1,30 @@
+.metadata {
+	border: 1px solid $primary-color;
+	padding: 0;
+	background-color: $primary-color;
+	color: $body-background;
+	line-height: normal;
+	font:{
+		size: $small-font-size;
+	};
+	
+	span {
+		display: inline-block;
+		padding: $x-small-spacing $small-spacing;
+	}
+	
+	.stick & span.timestamp:before{
+		@extend .fi-flag:before;
+	}
+	
+	span.timestamp {
+		margin-left: $small-spacing;
+		background-color: $body-background;
+		color: $primary-color;
+		float: right;
+	}
+	
+	span.score {
+		background-color: scale-color($primary-color, $lightness: 30%);
+	}
+}

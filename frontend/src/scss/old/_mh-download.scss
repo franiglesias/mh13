@@ -1,0 +1,66 @@
+.mh-download-list {
+	@include block-grid(1);
+	list-style: none;
+	margin-left: 0;
+	
+	li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.mh-download-list-unique {
+	@include block-grid(1);
+	list-style: none;
+	margin-left: 0;
+}
+
+
+@media #{$medium-up} {
+	.mh-download-list {
+		@include block-grid(2);
+	}
+}
+
+
+.mh-download-button {
+	@include button($padding: $button-med, $bg: $extra-color, $radius: $global-radius * 2, $full-width: true);
+	@extend .mh-media;
+	margin-bottom: $small-spacing;
+	width: 100%;
+	
+	img {
+		
+	}
+	
+	> div {
+		@extend .mh-media-body;
+		
+		&:first-child {
+			@extend .mh-media-object;
+		}
+		
+		span {
+			display: block;
+			font:{
+				size: $small-font-size;
+			};
+			text-align: left;
+		}
+		.mh-download-name {
+			font:{
+				size: $base-font-size;
+			};
+			margin-bottom: $x-small-spacing;
+		}
+	
+		.mh-download-size {
+		
+		}
+	
+		.mh-download-type {
+		
+		}
+	}
+	
+}

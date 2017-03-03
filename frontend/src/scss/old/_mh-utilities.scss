@@ -1,0 +1,401 @@
+ul ul,
+ul ol,
+ol ul,
+ol ol
+{
+    margin-bottom: 0;
+}
+
+.mh-no-content
+{
+    color: mh-contrasting-color($warning-color);
+
+    @extend .alert-box;
+    @include alert(
+    $warning-color
+    );
+    @include radius($global-radius);
+}
+
+.mh-oneliner
+{
+    overflow-x: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mh-off-more-info
+{
+    font-size: 2.5rem;
+
+    display: inline-block;
+
+    color: $info-color;
+    &:before
+    {
+        padding-left: .5rem;
+    }
+}
+
+.mh-off-related-content
+{
+    color: $extra-color;
+
+    @extend .mh-off-more-info;
+    &:before
+    {
+        padding-left: .5rem;
+    };
+}
+
+.mh-overlay
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.mh-busy-indicator
+{
+    z-index: 1000;
+
+    background-color: rgba(0,0,0,.3);
+
+    @extend .mh-overlay;
+
+    img
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        display: block;
+
+        width: 220px;
+        height: 19px;
+        margin-top: -10px;
+        margin-left: -110px;
+    }
+}
+
+.mh-tag
+{
+    display: inline-block;
+    float: left;
+
+    margin-right: $button-tny / 2;
+    margin-bottom: $button-tny / 2;
+
+    a
+    {
+        font-size: inherit;
+
+        margin: 0;
+
+        color: #fff;
+
+        @include button($padding: $button-tny / 2, $bg: $primary-color, $radius: $global-radius);
+    }
+}
+
+
+a.mh-story-channel-link
+{
+    color: inherit;
+}
+
+// Some foundation classes styled
+
+.clearing-assembled
+{
+    padding: 1rem;
+
+    background-color: $primary-color;
+
+    @include radius(rem-calc(8));
+}
+
+.clearing-caption
+{
+    background-color: rgba(51, 51, 51, .7);
+}
+
+.sticky
+{
+    border-bottom: 1px solid #000;
+}
+
+
+.mh-multimedia
+{
+    @include flex-video-container();
+    object,
+    video,
+    embed
+    {
+        height: auto;
+    }
+}
+
+.mh-multimedia-header
+{
+    font:
+    {
+        family: $special-font;
+    };
+
+    margin-bottom: 0;
+    padding: rem-calc(3) rem-calc(8);
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #fff;
+    background-color: $media-background-color;
+}
+
+form div.error-message
+{
+    @include form-error-message;
+}
+
+img.ui-datepicker-trigger
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 32px;
+    height: 32px;
+}
+
+.mh-multiple-checkbox
+{
+    margin-bottom: rem-calc(16);
+
+    .checkbox
+    {
+        display: inline-block;
+
+        input[type=checkbox]
+        {
+            display: none;
+        }
+
+        label
+        {
+            font-size: rem-calc(14);
+
+            margin: 0;
+            margin-right: rem-calc(8);
+            padding: rem-calc(2) rem-calc(4);
+
+            text-align: center;
+
+            border-radius: rem-calc(5);
+            background-color: scale-color($neutral-color, $lightness: 50%);
+        }
+
+        label:hover,
+        input[type=checkbox]:checked + label:hover
+        {
+            background-color: scale-color($success-color, $lightness: +30%);
+        }
+
+        label:before
+        {
+            font-size: rem-calc(14);
+            line-height: rem-calc(16);
+
+            display: inline-block;
+
+            width: 100%;
+            height: rem-calc(16);
+
+            content: '\2713';
+
+            color: #fff;
+            border-radius: 3px;
+            background-color: $neutral-color;
+        }
+
+
+        input[type=checkbox]:checked + label:before
+        {
+            content: '\2713';
+
+            color: #fff;
+            background-color: $success-color;
+        }
+
+
+        input[type=checkbox]:checked + label
+        {
+            background-color: scale-color($success-color, $lightness: +70%);
+        }
+    }
+}
+
+
+@mixin mh-fixed-width ($width)
+{
+    width: rem-calc($width);
+    min-width: rem-calc($width);
+    max-width: rem-calc($width);
+}
+
+@mixin mh-circle ($size: 1.5rem)
+{
+    line-height: $size;
+
+    display: inline-block;
+
+    width: $size;
+    min-width: $size;
+    min-width: $size;
+    max-width: $size;
+    height: $size;
+    max-height: $size;
+
+    text-align: center;
+
+    border-radius: 1000px;
+}
+
+@mixin mh-rotate($angle)
+{
+    -webkit-transform: rotate($angle);
+        -ms-transform: rotate($angle);
+            transform: rotate($angle);
+}
+
+@mixin mh-ribbon($bg-color: $alert-color, $size: 30rem)
+{
+    font-size: 1.5rem;
+    line-height: round($size/6);
+
+    position: fixed;
+    z-index: 1000;
+    top: floor($size/6);
+    right: -$size/4;
+
+    width: $size;
+    height: round($size/6);
+
+    text-align: center;
+
+    color: mh-contrasting-color($bg-color);
+
+    @include mh-rotate(45deg);
+    @include mh-vertical-top-gradient($bg-color, $amount: 25%);
+}
+
+
+
+.mh-preview-ribbon
+{
+    @include mh-ribbon($bg-color: $info-color);
+    @include mh-shadow();
+}
+
+
+$arrow-size: rem-calc(16);
+
+
+@mixin mh-heading ($bg-color)
+{
+    font:
+    {
+        family: $special-font;
+        size: $x-large-font-size;
+    };
+
+    padding: $x-small-spacing $small-spacing;
+
+    color: mh-contrasting-color($bg-color);
+    background-color: $bg-color;
+
+    text:
+    {
+        transform: uppercase;
+    };
+}
+
+.mh-pagination
+{
+    margin-bottom: 1rem;
+
+    ul
+    {
+        display: inline-block;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+        li
+        {
+            font-size: $arrow-size;
+            line-height: $arrow-size * 2;
+
+            display: inline-block;
+            float: left;
+
+            width: $arrow-size * 2;
+            height: $arrow-size * 2;
+            margin-right: $arrow-size/2;
+
+            text-align: center;
+
+            background-color: transparent;
+
+            a
+            {
+                display: block;
+
+                text-align: center;
+
+                background-color: $extra-color;
+            }
+        }
+
+        .current
+        {
+            background-color: transparent;
+        }
+
+
+        .arrow-right
+        {
+            margin-left: $arrow-size/2;
+
+            @include css-triangle($arrow-size, $extra-color, left);
+        }
+
+        .current.arrow-right
+        {
+            @include css-triangle($arrow-size, scale-color($extra-color, $lightness: +20%), left);
+        }
+
+        .arrow-left
+        {
+            @include css-triangle($arrow-size, $extra-color, right);
+        }
+
+        .current.arrow-left
+        {
+            @include css-triangle($arrow-size, scale-color($extra-color, $lightness: +20%), right);
+        }
+
+
+        .arrow
+        {
+            display: inline-block;
+
+            background-color: transparent !important;
+        }
+    }
+}

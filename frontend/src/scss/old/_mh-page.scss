@@ -1,0 +1,71 @@
+// Base class for any page
+
+.mh-page {
+	@include grid-row($behavior: false);
+	@include mh-shadow();
+	margin: {
+		top: 0;
+		bottom: $spacing;
+	};
+	padding: {
+		top: $spacing;
+		bottom: $spacing;
+	};
+	background-color: $body-background;
+	
+	p {
+		margin-bottom: $spacing;
+		font: {
+			family: $body-font-family;
+		};
+		&.authoring {
+			color: $neutral-color;
+			font: {
+				size: $small-font-size;
+			};
+			text:{
+				transform: uppercase;
+			};
+		}
+	}
+	h1, h2,h3,h4,h5,h6 {
+		font: {
+			family: $special-font;
+		}
+	}
+	
+	
+	
+	header {
+		margin-bottom: $spacing;
+		h1 {
+			line-height: 100%;
+			color: $mh-story-heading-color;
+			font: {
+				family: $special-font;
+				size: $xx-large-font-size;
+				weight: bold;
+			}
+			text: {
+				transform: uppercase;
+			};
+		}
+		
+		h2 {
+			color: $neutral-color;
+			font: {
+				family: $special-font;
+				size: $x-large-font-size;
+			}
+			text: {
+				transform: uppercase;
+			};
+		}
+	}
+	
+	
+	
+	footer {
+		
+	}
+}

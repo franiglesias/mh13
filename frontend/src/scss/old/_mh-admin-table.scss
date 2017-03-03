@@ -1,0 +1,181 @@
+table.admin-table {
+	width: 100%;
+	
+	.breakrow {
+		background-color: scale-color($primary-color, $lightness: 50%);
+	}
+	
+	thead tr th {
+		text-align: center;
+		padding: rem-calc(2);
+		a {
+			display: block;
+			width: 100%;
+			padding: rem-calc(3) rem-calc(6);
+			text-align: center;
+		}
+	}
+	
+	td small {
+		display: block;
+	}
+	
+	// Sort
+
+	.mh-sort-asc a {
+		&:after {
+			@extend .fi-arrow-up:before;
+			float: right;
+			color: inherit;
+			margin-right: 0 - rem-calc(6);
+		};
+	}
+
+	.mh-sort-desc a {
+		&:after {
+			@extend .fi-arrow-down:before;
+			float: right;
+			color: inherit;
+			margin-right: 0 - rem-calc(6);
+		};
+	}
+	
+	
+	
+// By semantic
+	
+	
+	.cell-number {
+		text-align: right;
+	}
+	
+	.cell-date {
+		text-align: center;
+	}
+	
+	.cell-toggle {
+		cursor: pointer;
+	}
+	
+	.cell-toggle:hover {
+		span {
+			border: 1px solid #000;
+		}
+	};
+	
+	.cell-boolean, .cell-status{
+		@extend .cell-stretch;
+		text-align: center;
+		span {
+			@include mh-circle(1.5rem);
+//			border: 1px solid #000;
+			background-color: #fff;
+			font-family: "foundation-icons";
+			
+			&.cell-boolean-true, &.cell-status-allowed {
+				background-color: $success-color;
+				color: contrasting-color($success-color);
+			}
+
+			&.cell-boolean-false, &.cell-status-forbidden {
+				background-color: $alert-color;
+				color: contrasting-color($alert-color);
+			}
+
+			&.cell-status-limited {
+				background-color: $warning-color;
+				color: contrasting-color($warning-color);
+			}
+
+			&.cell-status-info {
+				background-color: $info-color;
+				color: contrasting-color($info-color);
+			}
+
+			&.cell-status-undefined {
+				background-color: $neutral-background-color;
+				color: contrasting-color($neutral-background-color);
+			}
+			
+		}
+	}
+
+	
+//	By size
+
+	.actions, .cell-stretch {
+		white-space:nowrap;
+		width: 1px;
+	}
+	
+	.cell-short {
+		width: 4rem;
+	}
+	
+	.cell-medium {
+		width: 7rem;
+	}
+	
+	.cell-long {
+		width: 10rem;
+	}
+	
+	.actions {
+		.mh-btn-action {
+			@include mh-button-action(#444);
+		}
+		
+		.mh-btn-create {
+			@include mh-button-action($success-color, $icon: plus);
+		}
+		.mh-btn-index {
+			@include mh-button-action($info-color, $icon: results);
+		}
+		.mh-btn-edit {
+			@include mh-button-action($warning-color, $icon: pencil);
+		}
+		.mh-btn-view {
+			@include mh-button-action($info-color, $icon: eye);
+		}
+		.mh-btn-delete {
+			@include mh-button-action($alert-color, $icon: trash);
+		}
+		.mh-btn-duplicate {
+			@include mh-button-action($success-color, $icon: page-copy);
+		}
+		.mh-btn-download {
+			@include mh-button-action($info-color, $icon: download);
+		}
+		.mh-btn-person {
+			@include mh-button-action($info-color, $icon: torso);
+		}
+		.mh-btn-people {
+			@include mh-button-action($info-color, $icon: torsos-all);
+		}
+		.mh-btn-save, .mh-btn-ok {
+			@include mh-button-action($success-color, $icon: check);
+		}
+		.mh-btn-print {
+			@include mh-button-action($success-color, $icon: print);
+		}
+		.mh-btn-care {
+			@include mh-button-action($success-color, $icon: first-aid);
+		}
+		.mh-btn-cancel {
+			@include mh-button-action($success-color, $icon: x);
+		}
+		.mh-btn-key {
+			@include mh-button-action($warning-color, $icon: key);
+		}
+		.mh-btn-rss {
+			@include mh-button-action($warning-color, $icon: rss);
+		}
+		
+		
+	}
+}
+
+input[type='checkbox']#select-all,
+input[type='checkbox'].cell-select {
+	margin: 0;
+}

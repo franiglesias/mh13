@@ -1,0 +1,50 @@
+$widget-header-font-family: 'Yanone Kaffeesatz';
+$widget-base-color: $success-color;
+$widget-background-color: lighten($widget-base-color, 70%);
+$widget-footer-color: darken($widget-background-color, 30%);
+
+.mh-widget
+{
+    margin-bottom: $global-margin;
+
+    background-color: $widget-background-color;
+
+    header
+    {
+        background-color: $widget-base-color;
+        h1
+        {
+            font:
+            {
+                line-height: 1rem;
+
+                family: $widget-header-font-family;
+                size: $global-font-size * 1.2;
+            };
+
+            text-transform: uppercase;
+
+            color: $white;
+        }
+    }
+
+    > div.body
+    {
+        font:
+        {
+            size: .8 * $global-font-size;
+        };
+
+        padding: $global-padding;
+    }
+
+    footer
+    {
+        font:
+        {
+            family: $widget-header-font-family;
+        };
+
+        background-color: $widget-footer-color;
+    }
+}

@@ -1,0 +1,107 @@
+dl.tabs {
+	@include mh-vertical-top-gradient($neutral-color, -10%);
+
+	dd {
+		margin-right: $x-small-spacing;
+		
+		> a {
+		padding: $small-spacing $spacing;
+		border-top: $x-small-spacing solid $medium-dark-color;
+		}
+	}
+
+	dd.active > a{
+		border-top: $x-small-spacing solid $success-color;
+	}
+
+}
+
+
+
+
+$mh-tab-color: $secondary-color;
+$mh-active-tab-color: $primary-color;
+
+#mh-home-page-tabs {
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	
+	.tab-title {
+		width: 33%;
+		padding-right: 2px;
+		padding-left: 2px;
+		border-bottom: 5px solid $mh-tab-color;
+	}
+	
+	.tab-title > a{
+		@include radius(0);
+		@include side-radius(top, $global-radius);
+		background-color: $mh-tab-color;
+		color: #fff;
+		text-align: left;
+		padding: .5rem 1rem;
+		font-size: 0.8rem;
+		font-weight: bold;
+		&:hover {
+			background-color: scale-color($mh-tab-color, $lightness: +30%);
+		}
+	}
+	
+	.tab-title.active {
+		border-bottom: 5px solid $mh-active-tab-color;
+		& > a {
+			background-color: $mh-active-tab-color;
+		}
+	}
+	
+}
+
+@media #{$small-only} {
+	#mh-home-page-tabs {
+	    .tab-title {
+			width: 100%;
+			padding-right: 0;
+			padding-left: 0;
+			padding-bottom: 1px;
+			border-bottom: none;
+			& > a {
+				@include radius(0);
+				text-align: center;
+			}
+			&:first-child {
+				& > a{
+				@include side-radius(top, $global-radius);
+				}
+			}
+			&:last-child {
+				padding-bottom: 0;
+				& > a {
+				@include side-radius(bottom, $global-radius);
+				}
+			}
+			&.active {
+				border-bottom: none;
+			}
+			&.active > a {
+			}
+	    }
+	}
+}
+
+@media #{$medium-only} {
+	#mh-home-page-tabs {
+		margin-left: auto;
+		margin-right: auto;
+		.tab-title {
+			& > a {
+				padding: 0.5rem 1rem;
+			}
+		}
+	}
+}
+
+@media #{$large-up} {
+}
+

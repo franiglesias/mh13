@@ -14,3 +14,5 @@ tmp/
 /vendor/
 
 /vendors/cakephp/
+
+/frontend/node_modules/

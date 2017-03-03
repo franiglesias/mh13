@@ -1,0 +1,118 @@
+.main-header
+{
+    margin-bottom: $global-padding;
+    padding: $global-padding;
+
+    color: $white;
+    background-color: $primary-color;
+    h1
+    {
+        text-align: center;
+    }
+
+    p
+    {
+        text-align: center;
+    }
+
+    .button
+    {
+        @include button(false, $white, auto, auto, hollow);
+    }
+
+    .secondary.button
+    {
+        @include button(false, transparentize($white, .8), auto, auto, hollow);
+    }
+}
+
+.button
+{
+    font-family: $header-font-family;
+
+    @extend button;
+}
+
+@mixin stat-box ($color)
+{
+    .header
+    {
+        color: foreground($color, $white);
+        background-color: $color;
+    }
+
+    .body
+    {
+        color: $color;
+        border-bottom: 2px solid $color;
+        background-color: scale-color($color, $lightness: +85%);
+    }
+}
+.stats-display
+{
+    font:
+    {
+        family: $header-font-family;
+    }
+
+    .header
+    {
+        font:
+        {
+            size: $small-font-size;
+            weight: bold;
+        };
+
+        height: 2em;
+
+        text-align: center;
+
+        color: $white;
+        background-color: $primary-color;
+    }
+
+    p
+    {
+        margin-bottom: 0;
+    }
+
+    .body
+    {
+        font:
+        {
+            size: $stat-font-size;
+            weight: bold;
+        };
+
+        text-align: center;
+
+        color: $black;
+        background-color: scale-color($primary-color, $lightness: +75%);
+    }
+
+    &.alert
+    {
+        @include stat-box($alert-color);
+    }
+
+    &.success
+    {
+        @include stat-box($success-color);
+    }
+    &.warning
+    {
+        @include stat-box($warning-color);
+    }
+
+    &.info
+    {
+        @include stat-box($primary-color);
+    }
+}
+
+// Active state
+li > a.active
+{
+    color: $menu-item-color-active;
+    background: $menu-item-background-active;
+}

@@ -1,0 +1,291 @@
+@mixin mh-widget($widget-main-color) {
+	$widget-background-color: scale-color($widget-main-color, $lightness: 80%);
+	$widget-text-color: mh-contrasting-color($widget-background-color);
+	$widget-title-text-color: mh-contrasting-color($widget-main-color);
+	$widget-footer-color: scale-color($widget-main-color, $lightness: 60%);
+	
+	@include clearfix;
+	@include mh-shadow;
+	
+	background-color: $widget-background-color;
+    margin-top: $small-spacing;
+	color: $widget-text-color;
+	
+	> header {
+		margin-bottom:$small-spacing;
+		h1 {
+			color: $widget-title-text-color;
+			background-color: $widget-main-color;
+			padding: $x-small-spacing $small-spacing;
+			text-transform: uppercase;
+			margin: 0;
+			font:{
+				family: $special-font;
+				size: $large-font-size;
+				weight: normal;
+				}
+		}
+
+		p {
+			color: $widget-main-color;
+			padding: $x-small-spacing $small-spacing;
+			line-height: 110%;
+			text-transform: uppercase;
+			font: {
+				family: $special-font;
+				size: rem-calc(20);
+				weight: normal;
+			};
+		}
+	}
+	
+	.body{
+		padding: $spacing;
+	}
+
+
+	footer {
+		background-color: $widget-footer-color;
+		padding: $small-spacing $spacing;
+		font: {
+			size: $x-small-font-size;
+		};
+	}
+	
+	
+	.mh-catalog-list {
+		list-style: none;
+		margin-left: 0;
+
+		li {
+			margin-bottom: $small-spacing;
+			clear: left;
+		}
+
+		li a {
+			@extend .mh-media;
+			color: inherit;
+			display: block;
+			line-height: 120%;
+
+			&:hover {
+				background-color: $widget-main-color;
+				color: $widget-title-text-color !important;
+				
+				.mh-catalog-list-item-prefix {
+					color: $widget-title-text-color !important;;
+				}
+			};
+		}
+
+		.mh-catalog-list-item-prefix {
+			@extend .mh-media-object;
+			font:{
+				family: $special-font;
+				size: $large-font-size;
+			}
+			color: $widget-main-color;
+			
+			&.short {
+				width: $spacing;
+				margin-left: $large-spacing;
+			}
+		}
+
+		.mh-catalog-list-item-main {
+			@extend .mh-media-body;
+		}
+	}
+	
+	.mh-metadata {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		
+		li {
+			display: block;
+			padding: $xx-small-spacing $small-spacing;
+			color: $widget-title-text-color;
+			background-color: $widget-main-color;
+			margin-bottom: $small-spacing;
+			font:{
+				size: $base-font-size;
+			};
+			
+			a {
+				font: inherit;
+				color: inherit;
+				
+				&:hover {
+					background-color: scale-color($widget-main-color, $lightness: -20%);
+				}
+			}
+			
+		}
+	}
+	
+	
+	.mh-share {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		
+		li {
+			margin-bottom: $small-spacing;
+			font:{
+				size: $base-font-size;
+			};
+
+			a {
+				display: block;
+				padding: $xx-small-spacing $small-spacing;
+				font: inherit;
+				color: #fff;
+				background-color: $widget-main-color;
+				
+				&:hover {
+					background-color: scale-color($widget-main-color, $lightness: -20%);
+				};
+				
+
+				&.fi-social-facebook {
+					background-color: #3B5998;
+					&:hover {
+						background-color: scale-color(#3B5998, $lightness: -20%);
+					};
+					
+				}
+
+				&.fi-social-twitter {
+					background-color: #4099ff;
+					&:hover {
+						background-color: scale-color(#4099ff, $lightness: -20%);
+					};
+					
+				}
+
+				&.fi-social-google-plus {
+					background-color: #D50F0F;
+					&:hover {
+						background-color: scale-color(#D50F0F, $lightness: -20%);
+					};
+					
+				}
+
+				&.fi-social-tumblr {
+					background-color: #0A5790;
+					&:hover {
+						background-color: scale-color(#0A5790, $lightness: -20%);
+					};
+				}
+
+			}
+			
+
+		}
+	}
+	
+	
+	
+}
+
+.mh-widget {
+	@include mh-widget($widget-color);
+	
+	.mh-btn-create {
+		@include mh-button-action($success-color, $icon: plus);
+	}
+	.mh-btn-index {
+		@include mh-button-action($widget-color, $icon: results);
+	}
+	.mh-btn-edit {
+		@include mh-button-action($warning-color, $icon: pencil);
+	}
+	.mh-btn-view {
+		@include mh-button-action($widget-color, $icon: eye);
+	}
+	.mh-btn-delete {
+		@include mh-button-action($alert-color, $icon: trash);
+	}
+	.mh-btn-duplicate {
+		@include mh-button-action($success-color, $icon: page-copy);
+	}
+	.mh-btn-download {
+		@include mh-button-action($info-color, $icon: download);
+	}
+	.mh-btn-person {
+		@include mh-button-action($info-color, $icon: torso);
+	}
+	.mh-btn-people {
+		@include mh-button-action($info-color, $icon: torsos-all);
+	}
+	.mh-btn-save, .mh-btn-ok {
+		@include mh-button-action($success-color, $icon: check);
+	}
+	.mh-btn-print {
+		@include mh-button-action($success-color, $icon: print);
+	}
+	.mh-btn-care {
+		@include mh-button-action($success-color, $icon: first-aid);
+	}
+	.mh-btn-cancel {
+		@include mh-button-action($success-color, $icon: x);
+	}
+	.mh-btn-key {
+		@include mh-button-action($warning-color, $icon: key);
+	}
+	.mh-btn-rss {
+		@include mh-button-action($warning-color, $icon: rss);
+	}
+	.mh-btn-action {
+		@include mh-button-action(#444, $icon: widget);
+	}
+	
+	
+}
+
+
+
+
+
+.main-content {
+	.mh-widget {
+		@include mh-widget($alt-widget-color);
+	    padding: 0rem;
+	    margin-top: 0rem;
+	}
+	
+}
+
+.mh-widget-alt {
+	@include mh-widget($body-background);
+}
+
+.mh-channels {
+	.mh-widget {
+		@include mh-widget($info-color);
+	}
+}
+
+@media #{$medium-up} {
+	.mh-catalog-list {
+		.mh-catalog-list-item-prefix {
+			width: 3rem;
+			text-align: right;
+		}
+	}	
+}
+
+@media #{$small-only} {
+	.mh-catalog-list {
+		.mh-catalog-list-item-prefix {
+			float: none;
+			text-align: left;
+			width: 100%;
+		}
+	}
+	
+	li small {
+		display: none;
+	}
+}

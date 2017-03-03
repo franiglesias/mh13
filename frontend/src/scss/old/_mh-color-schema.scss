@@ -1,0 +1,39 @@
+$primary-color: #8544B1; // Violeta
+$secondary-color: #3FB153; // Verde
+$accent-color: #F4A50D; // Naranja
+
+$body-background: #fff; // Papel
+$ink-color: #222; // Tinta
+
+$success-color: $secondary-color;
+$warning-color: $accent-color;
+$alert-color: #FF1900; // Rojo
+$info-color: #0097FF;  // Azul
+$extra-color: #D59AFD; // Rosa
+$neutral-color: #ddd;
+$medium-dark-color: #aaa;
+
+$neutral-background-color: $neutral-color; // Gris
+$medium-dark-background-color: #333;
+
+$media-background-color: #000;
+
+$body-font-color-inverse: #fff; // ????
+
+// mh-color-utilities
+
+// Defines how mh-contrasting-color varies the resulting color
+
+$color-base-variant: 70%;
+$color-light-variant: $color-base-variant;
+$color-dark-variant: $color-base-variant;
+
+// mh-widget
+
+$widget-color: $secondary-color;
+$alt-widget-color: $primary-color;
+
+
+// Foundation
+$body-bg: scale-color($warning-color, $lightness: +75%);
+$body-font-color: $ink-color;

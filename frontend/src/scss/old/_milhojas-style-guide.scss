@@ -1,0 +1,50 @@
+.color-block {
+	.primary {
+		background-color: get-color('primary');
+	}
+	.secondary {
+		background-color: get-color('secondary');
+	}
+	.success {
+		background-color: $success-color;
+	}
+	.warning {
+		background-color: $warning-color;
+	}
+	.alert {
+		background-color: $alert-color;
+	}
+	.black {
+		background-color: $black;
+	}
+	.dark-gray {
+		background-color: $dark-gray;
+	}
+	.medium-gray {
+		background-color: $medium-gray;
+	}
+	.light-gray {
+		background-color: $light-gray;
+	}
+	.white {
+		background-color: $white;
+	}
+}
+
+.typography {
+	.body::before {
+		font-family: $body-font-family;
+		content: $body-font-family;
+		padding: .5em;
+	}
+
+	.headings::before {
+		font-family: $header-font-family;
+		content:$header-font-family;
+		padding: .5em;
+	}
+
+	span {
+		border: 1px solid $medium-gray;
+	}
+}

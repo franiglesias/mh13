@@ -1,0 +1,62 @@
+.mh-header {
+	
+	position: relative;
+	margin-bottom: 2rem;
+	
+	h1 {
+		font:{
+			size: $xx-large-font-size;
+			weight: bold;
+		};
+		color: #fff;
+		text-shadow: 2px 2px 2px rgba(0,0,0,.6);
+	}
+
+	h2 {
+		color: $warning-color;
+		text-shadow: 2px 2px 5px rgba(0,0,0,.6);
+	}
+	
+	.mh-background-image img {
+		width: 100%;
+	}
+
+	.author {
+		color: $warning-color;
+	}
+	
+	.icon {
+		
+		text-transform: uppercase;
+		letter-spacing: 0.7rem;
+		
+		a {
+			color: #fff;
+		}
+	}
+}
+
+@media #{$small-only} {
+	
+	.mh-header {
+		h1 {
+			font: {
+				size: $large-font-size;
+			};
+		}
+		
+		h2 {
+			font: {
+				size: $small-font-size;
+			};
+		}
+		
+		.icon {
+			display: none !important;
+		}
+		
+		.author {
+			display: none !important;
+		}
+	}
+}

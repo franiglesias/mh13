@@ -1,0 +1,46 @@
+// https://gist.github.com/jlong
+// Brightness math based on:
+//   http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+ 
+$color-dark-variant: $color-light-variant;
+ 
+@function brightness($color) {
+	$red-magic-number: 241;
+	$green-magic-number: 691;
+	$blue-magic-number: 68;
+	$brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number;
+  	// Extract color components
+	$red-component: red($color);
+	$green-component: green($color);
+	$blue-component: blue($color);
+	$r: $red-component * $red-component * $red-magic-number;
+	$g: $green-component * $green-component * $green-magic-number;
+	$b: $blue-component * $blue-component * $blue-magic-number;
+	// Calculate a brightness value in 3d color space between 0 and 255
+	$number: ($r + $g + $b) / $brightness-divisor;
+	$number: sqrt($number);
+	$result: $number * 100 /255;
+
+  // Convert to percentage and return
+  @return $result;
+}
+ 
+@function contrasting-color($color, $light: #fff, $dark: #000) {
+  @if brightness($color) < 65% {
+    @return $light;
+  } @else {
+    @return $dark;
+  }
+}
+
+@function mh-contrasting-color($color, $light-variant: 0, $dark-variant: 0) {
+	@if $light-variant == 0 {
+		$light-variant: $color-light-variant;
+	}
+	@if $dark-variant == 0 {
+		$dark-variant: $color-dark-variant;
+	}
+	$light: scale-color($color, $lightness: $light-variant);
+	$dark: scale-color($color, $lightness: -$dark-variant);
+	@return contrasting-color($color, $light, $dark);
+}

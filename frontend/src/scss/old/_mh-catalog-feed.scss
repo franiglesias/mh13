@@ -1,0 +1,161 @@
+$metadata-color: scale-color($primary-color, $lightness: +20%);
+
+.mh-channel-home {
+	> header {
+		h1 {
+			@include mh-heading($primary-color);
+		}
+	}
+}
+
+.mh-catalog {
+	> header {
+		h1 {
+			@include mh-heading($primary-color);
+		}
+	}
+}
+
+ul.mh-catalog-feed {
+	list-style: none;
+	margin-left: 0;
+	background-color: $body-background;
+	padding: 0;
+	li {
+		margin-bottom: $spacing;
+		padding: 0;
+		article {
+			border-top: $spacing solid $metadata-color;
+			padding: 0;
+			background-color: $body-background;
+			
+			.metadata {
+				.channel {
+					a {
+						color: #fff;
+					}
+				}
+				margin-bottom: $small-spacing;
+			}
+			
+			&.featured {
+				border-top-color: $primary-color;
+			}
+			
+			&.stick {
+				border-top-color: $alert-color;
+			}
+			img {
+			margin: 0;
+			}
+			
+			header {
+				h1 {
+					font:{
+						size: $large-font-size;
+						weight: bold;
+					};
+				}
+			}
+			
+			p {
+				
+			}
+			
+			footer {
+			}
+		}
+	}
+}
+
+@media #{$small-only} {
+	ul.mh-catalog-feed {
+		li {
+			article{
+				img {
+					width: 100%;
+				}
+				> div {
+					font: {
+						size: $small-font-size;
+					};
+				}
+			}
+		}
+	}
+	
+}
+
+@media #{$medium} {
+	
+	ul.mh-catalog-feed {
+		li {
+			article {
+				border-left: $spacing solid $metadata-color;
+				border-top: none;
+				overflow: hidden;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				
+				padding-left: $spacing;
+				
+				.metadata {
+					margin-left: -$spacing;
+					.channel {
+						a {
+							color: #fff;
+						}
+					}
+				}
+				
+				
+			
+				&.featured {
+					border-left-color: $primary-color;
+				}
+			
+				&.stick {
+					border-left-color: $alert-color;
+				}
+			
+				img {
+					float: left;
+					display: block;
+					margin-right: $spacing;
+					margin-left: 0;
+					margin-bottom: $x-small-spacing;
+				}
+			
+				header {
+					h1 {
+						font:{
+							size: $large-font-size;
+							weight: bold;
+						};
+					}
+				}
+			
+				footer {
+				}
+			}
+			
+			article.has-image {
+				padding-left: 0;
+				
+				.metadata {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+@media #{$large} {
+	ul.mh-catalog-feed {
+		li {
+			article{
+			}
+		}
+	}
+}

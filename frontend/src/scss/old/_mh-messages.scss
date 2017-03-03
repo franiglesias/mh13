@@ -1,0 +1,49 @@
+#mh-messages {
+	position: fixed;
+	top: rem-calc(64);
+	width: 50%;
+	left: 50%;
+	margin-left: -25%;
+	//padding: rem-calc(8) rem-calc(16);
+	z-index: 10000;
+	display: block;
+}
+
+#output {
+	display: none;
+}
+
+.mh-flash {
+	@include alert(
+	// Adjust the background of the alert
+	$bg: #cccccc,
+	// Give a border to the alert box
+	$radius: true
+	);
+	display: none;
+	font: {
+		size: rem-calc(16);
+	};
+
+	&.mh-alert {
+		background-color: $alert-color;
+		color: mh-contrasting-color($alert-color);
+	}
+	&.mh-error {
+		background-color: $alert-color;
+		color: mh-contrasting-color($alert-color);
+	}
+	&.mh-success {
+		background-color: $success-color;
+		color: mh-contrasting-color($success-color);
+	}
+	&.mh-validation {
+		background-color: $warning-color;
+		color: mh-contrasting-color($warning-color);
+	}
+	&.mh-info {
+		background-color: $info-color;
+		color: mh-contrasting-color($info-color);
+	}
+}
+

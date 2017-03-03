@@ -1,0 +1,43 @@
+.mh-cantine-cell {
+	vertical-align: top;
+	width: 18%;
+	p {
+		font:{
+			size: rem-calc(12);
+		};
+		margin-bottom: rem-calc(5);
+		line-height: 130%;
+		border-bottom: 1px solid #ccc;
+	}
+	
+	p:last-child {
+		border-bottom: none;
+	};
+	
+	.mh-cantine-day {
+		color: $success-color;
+		text: {
+			align: right;
+		};
+		border-bottom: 1px solid $success-color;
+		font:{
+			weight:bold;
+		};
+	}
+	
+	&.mh-today {
+		background-color: scale-color($warning-color, $lightness: 70%);
+	}
+	
+	&.mh-cantine-cell-facts {
+		width: 10%;
+		
+		strong {
+			color: $primary-color;
+		}
+		
+		p {
+			border-bottom: none;
+		}
+	}
+}

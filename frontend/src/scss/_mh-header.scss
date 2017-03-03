@@ -1,0 +1,58 @@
+.mh-header-simple
+{
+    .mh-header-overlay
+    {
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display:    -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        display:         flex;
+        flex-direction: column;
+
+        margin-bottom: $global-margin;
+        padding: $global-padding;
+
+        background-color: $primary-color;
+
+        align-items: center;
+
+
+
+        h1
+        {
+            font:
+            {
+                weight: bold;
+            };
+
+            color: $white;
+        }
+
+        .icon *
+        {
+            font:
+            {
+                family: $header-font-family;
+            };
+
+            letter-spacing: $spacing / 2;
+
+            color: lighten($primary-color, 60%);
+
+            text:
+            {
+                transform: uppercase;
+            };
+        }
+
+        .author
+        {
+            font:
+            {
+                family: $header-font-family;
+            };
+
+            color: $secondary-color;
+        }
+    }
+}

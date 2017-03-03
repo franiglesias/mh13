@@ -1,0 +1,28 @@
+.mh-media
+{
+    overflow: hidden;
+
+    img
+    {
+        display: block;
+
+        margin: $spacing / 4;
+        &.left
+        {
+            float: left;
+        }
+
+        &.right
+        {
+            float: right;
+        }
+    }
+
+    .mh-media-body
+    {
+        display: block;
+        overflow: hidden;
+
+        min-width: 1px;
+    }
+}
