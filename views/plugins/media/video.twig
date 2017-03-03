@@ -3,7 +3,7 @@
 <!-- first try HTML5 playback. if serving as XML, expand `controls` to `controls="controls"` and autoplay likewise -->
 <p class="mh-multimedia-header clearfix"><span class="left">{{ video.name|humanize}}</span> <small class="right">Duración: {{ video.playtime|readable_playtime }}</small> </p>
 <div class="mh-multimedia">
-<video id="{{video.name}}" width="{{video.width}}" height="{{video.height}}" controls class="clearfix">
+<video id="{{video.name}}" width="100%" height="auto" controls class="clearfix">
 	<source src="{{video.path}}" type='video/mp4'>
 	<source src="{{video.path}}.ogg" type='video/ogg; codecs="theora, vorbis"'>
 	<!-- IE only QuickTime embed: IE6 is ignored as it does not support `<object>` in `<object>` so we skip QuickTime

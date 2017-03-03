@@ -1,0 +1,19 @@
+<ul class="dropdown menu" data-dropdown-menu>
+    {% for menu in menubar %}
+        <li>
+            <a href="{{ menu.Menu.url }}">{{ menu.Menu.label }}</a>
+            {% if menu.MenuItem %}
+            <ul class="menu vertical">
+                {% for item in menu.MenuItem %}
+                {% if item.label == '/' %}
+                <li class="divider"></li>
+                {% else %}
+                <li><a href="{{ item.url}}">{% if item.icon %}<i class="fi-{{item.icon}}"></i>{% endif %}{{item.label}}</a></li>
+                {% endif %}
+
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

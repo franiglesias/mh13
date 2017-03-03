@@ -1,7 +1,7 @@
 {% import 'macros/blocks.twig' as blocks %}
 {% set widget_body %}
 	{% for label in item.Label %}
-	<p class="mh-tag"><a href="contents/channels/tagged/{{item.Channel.slug}}/{{label.Label.id}}">{{label.Label.title}}</a></p>
+	<p class="mh-tag"><a href="/contents/channels/tagged/{{item.Channel.slug}}/{{label.Label.id}}">{{label.Label.title}}</a></p>
 	{% else %}
 	<p>Este artículo no ha sido etiquetado todavía.</p>
 	{% endfor %}

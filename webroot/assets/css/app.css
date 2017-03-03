@@ -5929,3 +5929,7 @@ a.thumbnail {
   .mh-widget footer {
     font-family: "Yanone Kaffeesatz";
     background-color: #4dff4d; }
+
+li.divider {
+  height: 1px;
+  border-bottom: 1px solid #cacaca; }

@@ -74,6 +74,8 @@ class BarsController extends MenusAppController
     {
         $this->autorender = false;
         $data = $this->Bar->getByTitle($bar, $this->Auth->user('id'));
-        $this->set(compact('data'));
+
+        echo $this->twig->render('plugins/menus/bars/menubar.twig', ['menubar' => $data]);
+        // $this->set(compact('data'));
     }
 }

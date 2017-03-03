@@ -1,11 +1,25 @@
-<nav id="mh-global-navigation" class="top-bar" data-topbar>
-	<ul class="title-area">
-		<li class="name">
-			<h1><a href="{{ BaseUrl }}"><img src="img/{{ Site.icon}}" alt="" class="mh-channel-menu-home-icon" width="48">{{ Site.title }}</a></h1>
-		</li>
-		<li class="toggle-topbar menu-icon"><a href="#"><span>Menú</span></a></li>
-	</ul>
-	<section class="top-bar-section" id="mh-global-main-menu">
-	{% include ('plugins/access/elements/status.twig') %}
-	</section>
+<div data-sticky-container>
+
+<nav class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+	<div class="top-bar-title">
+	  	<span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+			<button class="menu-icon dark" type="button" data-toggle></button>
+	  	</span>
+	  	<strong><a href="{{ BaseUrl }}"><img src="img/{{ Site.icon}}" alt="" class="mh-channel-menu-home-icon" width="48">{{ Site.title }}</a></strong>
+	</div>
+	<div id="responsive-menu">
+		<div class="top-bar-left" id="mh-global-main-menu">
+
+		</div>
+
+	</div>
+	<div class="top-bar-right">
+	  <ul class="menu">
+		<!-- {% include ('plugins/access/elements/status.twig') %} -->
+		<li><input type="search" placeholder="Search"></li>
+		<li><button type="button" class="button">Search</button></li>
+	  </ul>
+	</div>
 </nav>
+
+</div>

@@ -1,3 +1,9 @@
+<pre>
 <?php
 
-echo $this->Bar->render($data, compact('search'));
+
+print_r($data);
+
+//echo $this->Bar->render($data, compact('search'));
+?>
+</pre>
