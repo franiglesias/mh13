@@ -2,6 +2,8 @@
 
 class Twig_Extension_Media extends Twig_Extension
 {
+    private $environment;
+
     public function getFilters()
     {
         return array(
@@ -30,15 +32,17 @@ class Twig_Extension_Media extends Twig_Extension
             }),
 
             new Twig_SimpleFilter('parse', function ($environment, $text) {
-                $text = preg_replace_callback('/https?:\/\/(?:www)?\.youtube\.com\/watch\?v=([^<&]*)(&\S*)?/', function ($videoId) use ($environment) {
-                    return $environment->render('plugins/media/youtube.twig', ['videoid' => $videoId[1]]);
-                }, $text);
-                $text = preg_replace_callback('/https?:\/\/youtu\.be\/([a-zA-Z0-9\-]*)/', function ($videoId) use ($environment) {
-                    return $environment->render('plugins/media/youtube.twig', ['videoid' => $videoId[1]]);
-                }, $text);
+                $this->environment = $environment;
+                $text = preg_replace_callback('/https?:\/\/(?:www)?\.youtube\.com\/watch\?v=([^<&]*)(&\S*)?/', [$this, 'buildYoutubePlayer'], $text);
+                $text = preg_replace_callback('/https?:\/\/youtu\.be\/([a-zA-Z0-9\-]*)/', [$this, 'buildYoutubePlayer'], $text);
 
                 return $text;
             }, array('needs_environment' => true)),
         );
+    }
+
+    private function buildYoutubePlayer($videoId)
+    {
+        return $this->environment->render('plugins/media/youtube.twig', ['videoid' => $videoId[1]]);
     }
 }
