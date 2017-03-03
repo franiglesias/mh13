@@ -1,12 +1,12 @@
 {% import 'macros/blocks.twig' as blocks %}
 
+{% set description %}
+	<p class="mh-media-body">{{ item.Channel.tagline }}</p>
+{% endset %}
+
 {% set widget_body %}
-	<div class="mh-media">
-		{% include 'plugins/images/image/icon.twig' with {'image': item.Channel.icon} only %}
-		<p class="mh-media-body">{{ item.Channel.tagline }}</p>
-	</div>
-	{# echo $this->FHtml->image($this->Channel, 'image', array('size' => 'channelDescription', 'class' => 'mh-media-object fullwidth')); #}
-	<p>{{ item.Channel.description|slice(0, 30) }}</p>
+	{{ blocks.media_object(item.Channel.icon, description)}}
+	{{ blocks.card(item.Channel.image, item.Channel.description)}}
 {% endset %}
 
 {% set widget_footer %}

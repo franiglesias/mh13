@@ -22,3 +22,21 @@
     </footer>
 </aside>
 {% endmacro %}
+
+{% macro media_object(image, body, class) %}
+<div class="mh-media">
+	{% if image %}
+	<img src="img/{{image}}" width="64" height="64" class="{{class|default('left')}}">
+	{% endif %}
+	<div class="mh-media-body">{{ body|raw }}</div>
+</div>
+{% endmacro media_object%}
+
+{% macro card(image, body) %}
+<div class="mh-card">
+	{% if image %}
+	<img src="img/{{image}}" width="100%">
+	{% endif %}
+	<div class="body">{{ body|raw }}</div>
+</div>
+{% endmacro card%}

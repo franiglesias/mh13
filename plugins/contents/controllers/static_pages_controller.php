@@ -29,7 +29,6 @@ class StaticPagesController extends ContentsAppController
             $this->redirect(array('action' => 'index'));
         }
         $this->StaticPage->view($slug);
-        // $this->set('staticPage', $this->StaticPage->data);
         $this->autoRender = false;
         echo $this->twig->render('plugins/contents/static_pages/view.twig', ['staticPage' => $this->StaticPage->data]);
     }
