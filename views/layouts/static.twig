@@ -1,0 +1,24 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	{{ include ('elements/page/head.twig') }}
+	<body>
+		{{ include('elements/page/analytics.twig') }}
+		<div class = "sticky">
+			{{ include('elements/mh-global-navigation.twig') }}
+		</div>
+		<div id = "mh-messages" >
+			{# echo $this->Session->flash(); #}
+			{# echo $this->Session->flash('auth'); #}
+			<div id = "output" ></div>
+		</div>
+		{% block content %}
+		{% endblock %}
+		<script type="text/javascript">
+		$.get("/menus/bars/menubar/main", function (data) {
+			$("#mh-global-main-menu")
+				.html(data);
+		});
+		</script>
+		{{ include ('elements/page/foot.twig') }}
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{% macro minimal(title) %}
+<div class="mh-header mh-header-simple">
+	<div class="mh-header-overlay">
+		<h1>{{ title }}</h1>
+	</div>
+</div>
+{% endmacro minimal %}
+
+{% macro minimal_with_image(title, image) %}
+<div class="mh-header mh-header-full">
+	<div class="mh-background-image">
+        {% include 'plugins/images/image/included.twig' with {'image': image} only %}
+	</div>
+	<div class="mh-header-overlay">
+		<h1>{{ title }}</h1>
+	</div>
+</div>
+{% endmacro minimal_with_image %}

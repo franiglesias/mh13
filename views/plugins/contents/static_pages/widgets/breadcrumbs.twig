@@ -1,0 +1,5 @@
+<ul class="breadcrumbs">
+	{% for parent in parents %}
+	    <li><a href="/contents/static_pages/view/{{ parent.StaticParent.slug }}">{{ parent.StaticParent.title }}</a></li>
+	{% endfor %}
+</ul>
