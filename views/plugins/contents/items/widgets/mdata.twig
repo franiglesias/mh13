@@ -1,23 +1,20 @@
-<aside class="mh-widget">
-	<header>
-		<h1>Este artículo{# __d('contents', 'This article has'); #}</h1>
-	</header>
-	<div class="body">
-		<ul class="mh-metadata">
-			<li class="fi-link"><a href="contents/items/view/{{ item.Item.slug }}">Enlace permanente</a></li>
-			<li class="fi-calendar">{{ item.Item.pubDate|date('j/m/Y') }}</li>
-            {% if item.Item.expiration %}
-            <li class="fi-alert">Válido hasta: {{ item.Item.expiration|date('j/m') }}</li>
-            {% endif %}
-			<li class="fi-photo"><a href="#mh-images">{{ item.Image|length }} imágenes</a></li>
-			<li class="fi-video"><a href="#mh-multimedia">{{ item.Multimedia|length }} videos</a></li>
-			<li class="fi-download"><a href="mh-downloads">{{ item.Download|length }} archivos</a></li>
-			<li class="fi-eye" id="mh-item-readings"></li>
-		</ul>
-	</div>
+{% import 'macros/blocks.twig' as blocks %}
+{% set widget_body %}
+	<ul class="mh-metadata">
+		<li class="fi-link"><a href="contents/items/view/{{ item.Item.slug }}">Enlace permanente</a></li>
+		<li class="fi-calendar">{{ item.Item.pubDate|date('j/m/Y') }}</li>
+		{% if item.Item.expiration %}
+		<li class="fi-alert">Válido hasta: {{ item.Item.expiration|date('j/m') }}</li>
+		{% endif %}
+		<li class="fi-photo"><a href="#mh-images">{{ item.Image|length }} imágenes</a></li>
+		<li class="fi-video"><a href="#mh-multimedia">{{ item.Multimedia|length }} videos</a></li>
+		<li class="fi-download"><a href="mh-downloads">{{ item.Download|length }} archivos</a></li>
+		<li class="fi-eye" id="mh-item-readings"></li>
+	</ul>
 	<script>
 	$(function(){
-	    $("#mh-item-readings").load("/contents/items/readings/{{ item.Item.id }}");
+		$("#mh-item-readings").load("/contents/items/readings/{{ item.Item.id }}");
 	});
 	</script>
-</aside>
+{% endset %}
+{{ blocks.widget('Este artículo…', widget_body, 'fi-zoom-in') }}

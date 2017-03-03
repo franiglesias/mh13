@@ -47,13 +47,14 @@
 				{# echo $this->Comment->render('Contents.Item', $item['Item']['id'], $item['Item']['allow_comments']); #}
 			</div>
 			<section class="small-12 medium-4 columns">
-				{% include 'plugins/contents/items/widgets/abstract.twig' %}
+				{% import 'macros/blocks.twig' as blocks %}
+				{{ blocks.widget('Resumen', item.Item.content|length > 50 ? item.Item.content|striptags|slice(0, 50) ~ '...' : item.Item.content|striptags, 'fi-check' ) }}
 				{% include 'plugins/contents/items/widgets/mdata.twig' %}
 				{% include 'plugins/contents/items/widgets/social.twig' %}
 				{% include 'plugins/contents/items/widgets/tags.twig' %}
 				{% include 'plugins/contents/items/widgets/neighbors.twig' %}
 				{% include 'plugins/contents/items/widgets/description.twig' %}
-				{% include 'plugins/contents/items/widgets/license.twig' %}
+				{{ blocks.widget('Licencia', item.License.code, 'fi-info' )}}
 			</section>
 		</div>
 	</article>

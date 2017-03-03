@@ -5,7 +5,7 @@ class StaticPagesController extends ContentsAppController
     public $name = 'StaticPages';
     public $layout = 'backend';
     public $components = array('Filters.SimpleFilters');
-    public $helpers = array('Ui.Mptt', 'Contents.StaticPage', 'Ui.Images', 'Ui.Image');
+    public $helpers = array('Contents.StaticPage', 'Ui.Images', 'Ui.Image');
 
     public function beforeFilter()
     {

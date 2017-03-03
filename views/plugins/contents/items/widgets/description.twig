@@ -1,17 +1,17 @@
-<div class="mh-widget">
-	<header>
-		<h1 class="fi-megaphone">{{ item.Channel.title }}</h1>
-	</header>
-	<div class="body">
-		<div class="mh-media">
-			{% include 'plugins/images/image/icon.twig' with {'image': item.Channel.icon} only %}
-			<p class="mh-media-body">{{ item.Channel.tagline }}</p>
-		</div>
-	{# echo $this->FHtml->image($this->Channel, 'image', array('size' => 'channelDescription', 'class' => 'mh-media-object fullwidth')); #}
-		<p>{{ item.Channel.description|slice(0, 30) }}</p>
+{% import 'macros/blocks.twig' as blocks %}
+
+{% set widget_body %}
+	<div class="mh-media">
+		{% include 'plugins/images/image/icon.twig' with {'image': item.Channel.icon} only %}
+		<p class="mh-media-body">{{ item.Channel.tagline }}</p>
 	</div>
-	<footer>
-		<a href="blog/{{item.Channel.slug}}" class="mh-btn-view">Visita</a>
-		<a href="contents/items/feed/{{item.Channel.slug}}.rss" class="mh-btn-rss right">RSS</a>
-	</footer>
-</div>
+	{# echo $this->FHtml->image($this->Channel, 'image', array('size' => 'channelDescription', 'class' => 'mh-media-object fullwidth')); #}
+	<p>{{ item.Channel.description|slice(0, 30) }}</p>
+{% endset %}
+
+{% set widget_footer %}
+	<a href="blog/{{item.Channel.slug}}" class="mh-btn-view">Visita</a>
+	<a href="contents/items/feed/{{item.Channel.slug}}.rss" class="mh-btn-rss right">RSS</a>
+{% endset %}
+
+{{ blocks.widget_with_footer(item.Channel.title, widget_body, widget_footer, 'fi-megaphone') }}

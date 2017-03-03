@@ -54,33 +54,18 @@
 
 		</div>
 		<section class="small-12 medium-4 columns">
-			{#
+			
+			{% import 'macros/blocks.twig' as blocks %}
+			{% import 'macros/lists.twig' as lists %}
 
-			$template = $this->Html->link(':title', array(
-				'plugin' => 'contents',
-				'controller' => 'static_pages',
-				'action' => 'view', ':slug'
-				));
+			{% if staticPage.Descendants %}
+			{{ blocks.widget('Información detallada',  lists.tree(staticPage.Descendants) ) }}
+			{% endif %}
 
-			#}
+			{% if staticPage.Siblings %}
+			{{ blocks.widget('Páginas relacionadas',  lists.tree(staticPage.Siblings)) }}
+			{% endif %}
 
-			{# if (count($descendants)): // Build related pages section #}
-				{# echo $this->Page->block('/contents/items/widgets/related', array(
-					'related' => $descendants,
-					'model' => 'StaticDescendant',
-					'template' => $template,
-					'title' => __d('contents', 'Detailed Information', true)
-				)); #}
-			{# endif #}
-
-			{# if (count($siblings)): // Build related pages section #}
-				{# echo $this->Page->block('/contents/items/widgets/related', array(
-					'related' => $siblings,
-					'model' => 'StaticPage',
-					'template' => $template,
-					'title' => __d('contents', 'Related Pages', true)
-				)); #}
-			{# endif #}
 		</section>
 	</div>
 </article>

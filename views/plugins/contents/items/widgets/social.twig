@@ -1,13 +1,10 @@
-<aside class="mh-widget">
-	<header>
-		<h1>Comparte este artículo</h1>
-	</header>
-	<div class="body">
-		<ul class="mh-share">
-		<li><a href="JavaScript:window.open('http://www.facebook.com/sharer.php?u={{ BaseUrl ~ item.Item.slug }}','','width=657,height=400,scrollbars=1')" class="fi-social-facebook">Me gusta</a></li>
-		<li><a href="JavaScript:window.open('https://twitter.com/share?url={{ BaseUrl ~ item.Item.slug }}&text={{ item.Item.title }}','','width=450,height=350')" class="fi-social-twitter">Twitter</a></li>
-		<li><a href="https://plus.google.com/share?url={{ BaseUrl ~ item.Item.slug }}" target="_blank" class="fi-social-google-plus">Compartir</a></li>
-		<li><a href="http://www.tumblr.com/share" title="Share on Tumblr" class="fi-social-tumblr">Compartir</a></li>
-		</ul>
-	</div>
-</aside>
+{% import 'macros/blocks.twig' as blocks %}
+{% set widget_body %}
+<ul class="mh-share">
+	<li><a href="JavaScript:window.open('http://www.facebook.com/sharer.php?u={{ BaseUrl ~ item.Item.slug }}','','width=657,height=400,scrollbars=1')" class="fi-social-facebook">Me gusta</a></li>
+	<li><a href="JavaScript:window.open('https://twitter.com/share?url={{ BaseUrl ~ item.Item.slug }}&text={{ item.Item.title }}','','width=450,height=350')" class="fi-social-twitter">Twitter</a></li>
+	<li><a href="https://plus.google.com/share?url={{ BaseUrl ~ item.Item.slug }}" target="_blank" class="fi-social-google-plus">Compartir</a></li>
+	<li><a href="http://www.tumblr.com/share" title="Share on Tumblr" class="fi-social-tumblr">Compartir</a></li>
+</ul>
+{% endset %}
+{{ blocks.widget('Comparte este artículo', widget_body, 'fi-like') }}

@@ -1,11 +1,8 @@
-<aside class="mh-widget">
-	<header>
-		<h1>Anterior y siguiente</h1>
-	</header>
-	<div class="body">
-		<div class="mh-neighbors">
-			<p><a href="/contents/items/view/{{neighbors.prev.Item.slug}}" class="mh-button-prev">{{ neighbors.prev.Item.title|slice(0,30)}}</a></p>
-			<p><a href="/contents/items/view/{{neighbors.next.Item.slug}}" class="mh-button-next">{{ neighbors.next.Item.title|slice(0,30)}}</a></p>
-		</div>
+{% import 'macros/blocks.twig' as blocks %}
+{% set widget_body %}
+	<div class="mh-neighbors">
+		<p><a href="/contents/items/view/{{neighbors.prev.Item.slug}}" class="mh-button-prev">{{ neighbors.prev.Item.title|slice(0,30)}}</a></p>
+		<p><a href="/contents/items/view/{{neighbors.next.Item.slug}}" class="mh-button-next">{{ neighbors.next.Item.title|slice(0,30)}}</a></p>
 	</div>
-</aside>
+{% endset %}
+{{ blocks.widget('Anterior y siguiente', widget_body, 'fi-list') }}

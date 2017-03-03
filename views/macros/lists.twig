@@ -1,0 +1,14 @@
+{% macro tree(data) %}
+<ul>
+{% for root in data %}
+    {% for key, page in root %}
+        {% if key == 'children' %}
+        {% import _self as lists %}
+            {{ lists.tree(page) }}
+        {% else %}
+        <li><a href="/contents/static_pages/view/{{ page.slug }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</ul>
+{% endmacro %}
