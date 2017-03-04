@@ -156,7 +156,7 @@ class AppController extends Controller
         $this->twig->addExtension(new Twig_Extension_Media());
         $this->twig->addGlobal('Site', Configure::read('Site'));
         $this->twig->addGlobal('Organization', Configure::read('Organization'));
-
+        $this->twig->addGlobal('Home', Configure::read('Home'));
         $this->twig->addGlobal('Analytics', Configure::read('Analytics'));
         $this->twig->addGlobal('jsVars', $this->_jsVars);
         $this->twig->addGlobal('BaseUrl', Router::url('/', true));

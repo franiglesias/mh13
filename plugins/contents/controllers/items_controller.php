@@ -154,6 +154,8 @@ class ItemsController extends ContentsAppController
             return $items;
         }
         $this->set(compact('items'));
+        $this->autoRender = false;
+        echo $this->twig->render('plugins/contents/items/catalog.twig', ['items' => $items]);
     }
 
     public function tagged()

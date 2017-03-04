@@ -1,0 +1,6 @@
+{% for item in items %}
+{# Item Channel MainImage #}
+{% import 'macros/catalog.twig' as catalog %}
+{% set abstract = item.Item.content|striptags|slice(0, 50) ~ '...' %}
+{{ catalog.index(item.Item.title, abstract, item.Item.pubDate|date("j/m/y"), item.Channel.title, item.MainImage.path, '/' ~ item.Item.slug, '/blog/' ~ item.Channel.slug) }}
+{% endfor %}

@@ -1,0 +1,8 @@
+{% import 'macros/blocks.twig' as blocks %}
+{% set body %}
+<div id="{{selector}}"></div>
+{% endset %}
+{{ blocks.widget( title, body )}}
+<script type="text/javascript">
+$("#{{ selector }}").load('/menus/menus/items/{{ menu }}');
+</script>
