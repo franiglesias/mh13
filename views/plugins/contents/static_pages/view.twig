@@ -40,14 +40,16 @@
 
 			{% if staticPage.StaticPage.project_key %}
 			<div id="mh-page-dinamic-related" class="mh-page-extras">
-				{# echo $this->Page->block('/contents/home-main', array(
-				'items' => null,
-				'title' => __d('contents', 'Related content in this site', true),
-				'label' => $this->StaticPage->value('project_key'),
-				'paginate' => false,
-				'layout' => 'items/layouts/feed',
-				'template' => 'items/templates/combifeed',
-				)); #}
+				<div class="mh-catalog">
+					<header>
+						<h1>Contenido relacionado en nuestra web.</h1>
+					</header>
+					<div id="mh-related-content">
+					</div>
+				</div>
+				<script type="text/javascript">
+				$('#mh-related-content').load('/contents/items/catalog/limit:10/label:{{staticPage.StaticPage.project_key}}/sticky:1/excludePrivate:1/layout:feed');
+				</script>
 			</div>
 
 			{% endif %}
