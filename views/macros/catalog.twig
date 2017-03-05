@@ -1,14 +1,30 @@
-{% macro index(title, abstract, date, channel, image, article_url, channel_url) %}
+{% macro index(article, channel, image) %}
+{% set abstract = article.content|striptags|slice(0, 50) ~ '...' %}
 <div class="article mh-media">
     {% if image %}
-    <img src="img/{{ image }}" alt="{{title}}" width="210" height="210" class="left">
+    <img src="img/{{ image.path }}" alt="{{article.title}}" width="210" height="210" class="left">
     {% endif %}
     <div class="mh-media-body">
-        <h2><a href="{{ article_url}}">{{ title }}</a></h2>
+        <h2><a href="/contents/items/view/{{ article.slugl}}">{{ article.title }}</a></h2>
         <div class="metadata">
-            <span class="date left">{{ date }}</span><span class="channel right"><a href="{{ channel_url }}">{{ channel }}</a></span>
+            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span><span class="channel right"><a href="/blog/{{ channel.slug }}">{{ channel.title }}</a></span>
         </div>
         <p>{{ abstract }}</p>
     </div>
 </div>
 {% endmacro index %}
+
+
+{% macro feed(article, channel, image) %}
+<div class="article mh-media">
+    {% if image %}
+    <img src="img/{{ image.path }}" alt="{{article.title}}" width="64" height="64" class="left">
+    {% endif %}
+    <div class="mh-media-body">
+        <h2><a href="/contents/items/view/{{ article.slugl}}">{{ article.title }}</a></h2>
+        <div class="metadata">
+            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span><span class="channel right"><a href="/blog/{{ channel.slug }}">{{ channel.title }}</a></span>
+        </div>
+    </div>
+</div>
+{% endmacro feed %}

@@ -155,7 +155,10 @@ class ItemsController extends ContentsAppController
         }
         $this->set(compact('items'));
         $this->autoRender = false;
-        echo $this->twig->render('plugins/contents/items/catalog.twig', ['items' => $items]);
+        echo $this->twig->render('plugins/contents/items/catalog.twig', [
+            'items' => $items,
+            'layout' => $this->params['named']['layout'],
+        ]);
     }
 
     public function tagged()
