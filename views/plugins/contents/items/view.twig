@@ -7,12 +7,8 @@
 		{% if preview %}
 			<aside class="mh-preview-ribbon">Así es como se verá</aside>
 		{% endif %}
-
-		{% include 'plugins/contents/items/widgets/header/plain.twig' %}
-		{# echo $this->Page->block('/contents/items/widgets/header', array(
-	        'imagePath' => $this->Image->value('path'),
-	        'title' => $this->Item->value('title'),
-	    )); #}
+		{% import 'macros/headers.twig' as headers %}
+		{{ headers.article_no_image(item.Item, item.Channel, item.MainImage) }}
 		{% if date(item.Item.expiration) < date('now')%}
 		<div class="alert-box warning radius">
 			<p>Este artículo ha caducado, por lo que la información que contiene podría no ser válida actualmente. Se mantiene por razones históricas.</p>
@@ -34,7 +30,6 @@
 				{% if item.Download %}
 					{% include 'plugins/contents/items/widgets/downloads.twig' %}
 				{% endif %}
-
 
 				{% if item.Multimedia %}
 					{% include 'plugins/contents/items/widgets/multimedia.twig' %}

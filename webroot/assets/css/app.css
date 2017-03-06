@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Montserrat:500,600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,500,600");
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i&subset=latin-ext");
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200,700&subset=latin,latin-ext);
@@ -4056,7 +4056,7 @@ a.thumbnail {
 .top-bar-title {
   display: inline-block;
   float: left;
-  padding: 0.5rem 1rem 0.5rem 0; }
+  padding: 0rem 1rem 0rem 0; }
   .top-bar-title .menu-icon {
     bottom: 2px; }
 
@@ -5887,7 +5887,7 @@ a.thumbnail {
   .mh-page h6 {
     font-family: "Signika", "Helvetica Neue", sans-serif; }
 
-.mh-header-simple .mh-header-overlay {
+.mh-header {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
@@ -5901,15 +5901,15 @@ a.thumbnail {
   padding: 1rem;
   background-color: #642f6c;
   align-items: center; }
-  .mh-header-simple .mh-header-overlay h1 {
+  .mh-header h1 {
     font-weight: bold;
     color: #fefefe; }
-  .mh-header-simple .mh-header-overlay .icon * {
+  .mh-header .icon * {
     font-family: "Signika", "Helvetica Neue", sans-serif;
     letter-spacing: 0.5rem;
     color: #eeddf0;
     text-transform: uppercase; }
-  .mh-header-simple .mh-header-overlay .author {
+  .mh-header .author {
     font-family: "Signika", "Helvetica Neue", sans-serif;
     color: #ff8200; }
 
@@ -5931,10 +5931,6 @@ a.thumbnail {
     font-family: "Yanone Kaffeesatz";
     background-color: #4dff4d; }
 
-li.divider {
-  height: 1px;
-  border-bottom: 1px solid #cacaca; }
-
 .mh-main-header {
   width: 100%;
   height: 21.875rem; }
@@ -5942,7 +5938,7 @@ li.divider {
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: rgba(100, 47, 108, 0.7);
+    background-color: rgba(10, 10, 10, 0.7);
     justify-content: center;
     align-content: flex-end; }
     .mh-main-header .bg .mh-text-block {
@@ -5977,7 +5973,13 @@ li.divider {
   .top-bar ul li a {
     font-family: "Montserrat", sans-serif;
     font-size: 80%;
-    font-weight: 500;
+    font-weight: 300;
     color: #0a0a0a; }
     .top-bar ul li a i {
       color: #ff8200; }
+  .top-bar li.divider {
+    height: 1px;
+    border-bottom: 1px solid #cacaca; }
+  .top-bar .top-bar-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 80%; }

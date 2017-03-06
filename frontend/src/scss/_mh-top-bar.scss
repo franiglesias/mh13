@@ -5,7 +5,7 @@
     {
         font-family: $interface-font;
         font-size: 80%;
-        font-weight: 500;
+        font-weight: 300;
 
         color: $black;
 
@@ -13,5 +13,19 @@
         {
             color: $secondary-color;
         }
+    }
+
+    li.divider
+    {
+        height: 1px;
+
+        border-bottom: 1px solid $medium-gray;
+    }
+
+
+    .top-bar-title
+    {
+        font-family: $interface-font;
+        font-size: 80%;
     }
 }

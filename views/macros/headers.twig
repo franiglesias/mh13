@@ -1,18 +1,33 @@
 {% macro minimal(title) %}
-<div class="mh-header mh-header-simple">
-	<div class="mh-header-overlay">
+<div class="mh-header">
 		<h1>{{ title }}</h1>
-	</div>
 </div>
 {% endmacro minimal %}
 
 {% macro minimal_with_image(title, image) %}
-<div class="mh-header mh-header-full">
-	<div class="mh-background-image">
-        {% include 'plugins/images/image/included.twig' with {'image': image} only %}
-	</div>
-	<div class="mh-header-overlay">
-		<h1>{{ title }}</h1>
-	</div>
+<div class="mh-header" style="background: url(/{{ image.path }}); background-size: cover;">
+	<h1>{{ title }}</h1>
 </div>
 {% endmacro minimal_with_image %}
+
+{% macro article(article, channel, image) %}
+<div class="mh-header" style="background: url(/{{ image.path }}); background-size: cover;">
+	<div class="icon">
+        <a href="blog/{{ channel.slug }}">{% include 'plugins/images/image/logo.twig' with {'image' : channel.logo} only %} {{channel.title}}</a></div>
+	<div class="rss"></div>
+	<h1>{{ article.title }}</h1>
+	{% include 'plugins/contents/items/widgets/header/author.twig' %}
+</div>
+{% endmacro article %}
+
+{% macro article_no_image(article, channel) %}
+<div class="mh-header">
+	<div class="icon">
+        <a href="blog/{{ channel.slug }}">{% include 'plugins/images/image/logo.twig' with {'image' : channel.logo} only %} {{channel.title}}</a></div>
+	<div class="rss"></div>
+	<h1>{{ article.title }}</h1>
+	{% include 'plugins/contents/items/widgets/header/author.twig' %}
+</div>
+
+
+{% endmacro article_no_image %}
