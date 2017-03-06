@@ -6,7 +6,12 @@
 #}
 {% extends 'layouts/basic.twig' %}
 {% block content %}
-
+<div id="mh-main-header">
+</div>
+<script type="text/javascript">
+	$('#mh-main-header').load('/uploads/image_collections/collection/home');
+</script>
+{% include 'elements/mh-direct-links.twig' %}
 <div class="mh-page">
 	<div class="row">
 		<div class="small-12 medium-8 columns" data-equalizer-watch>
@@ -64,16 +69,17 @@
 
 		<div class="small-12 medium-4 columns" data-equalizer-watch>
 			{% include 'widgets/menu.twig' with {'title': 'Encuentranos en', 'menu': 'social', 'selector': 'mh-social'} only %}
-			{# echo $this->Page->block('/uploads/collection', array(
-				'slug' => 'concertada',
-				'columns' => 1,
-				'width' => '480',
-				'cache' => array('time' => '+3 week', 'key' => '-mh-images-collection-concertada-'),
-				'type' => 'bx',
-				'classes' => array('widget' => 'mh-widget-alt'),
-				'id' => 'ec-concertada',
-				'intro' => '<a href="http://www.concertados.edu.es">En colegios también puedes elegir</a>'
-				)); #}
+			<div class="mh-widget">
+				<header>
+					<h1>En colegios también puedes elegir</h1>
+				</header>
+				<div class="body" id="mh-collection-concertada">
+
+				</div>
+				<script type="text/javascript">
+					$('#mh-collection-concertada').load('/uploads/image_collections/collection/concertada');
+				</script>
+			</div>
 
 			{# echo $this->Page->block('/circulars/events/next', array(
 				'cache' => '+2 days'
@@ -81,20 +87,20 @@
 			{# echo $this->Page->block('/cantine/today', array(
 				'cache' => '+12 hour'
 			)); #}
-			{# echo $this->Page->block('/uploads/collection', array(
-				'slug' => 'programas',
-				'columns' => 1,
-				'width' => '480',
-				'cache' => array('time' => '+3 week', 'key' => '-mh-images-collection-programas-'),
-				'type' => 'column',
-				'classes' => array('widget' => 'mh-widget-alt'),
-				'id' => 'miralba-programas',
-				'intro' => 'Certificaciones educativas'
-				)); #}
+			<div class="mh-widget">
+				<header>
+					<h1>Nuestras certificaciones</h1>
+				</header>
+				<div class="body" id="mh-collection-programas">
+
+				</div>
+				<script type="text/javascript">
+					$('#mh-collection-programas').load('/uploads/image_collections/collection/programas');
+				</script>
+			</div>
 			{# echo $this->Page->block('/circulars/circulars/current', array(
 				'cache' => '+2 days'
 			)); #}
-			{# echo $this->Page->block('miralba/proyectos'); #}
 			{% include 'widgets/menu.twig' with {'title': 'Proyectos', 'menu': 'proyectos', 'selector': 'mh-proyectos'} only %}
 
 		</div>

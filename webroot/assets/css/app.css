@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,600");
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i&subset=latin-ext");
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200,700&subset=latin,latin-ext);
@@ -5933,3 +5934,47 @@ a.thumbnail {
 li.divider {
   height: 1px;
   border-bottom: 1px solid #cacaca; }
+
+.mh-main-header {
+  width: 100%;
+  height: 21.875rem; }
+  .mh-main-header .bg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 47, 108, 0.7);
+    justify-content: center;
+    align-content: flex-end; }
+    .mh-main-header .bg .mh-text-block {
+      display: flex;
+      max-width: 75%;
+      color: #fefefe;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-end; }
+
+#mh-direct-links {
+  width: 100%;
+  margin-bottom: 1rem; }
+  #mh-direct-links .column, #mh-direct-links .columns {
+    background-color: #642f6c; }
+    #mh-direct-links .column a, #mh-direct-links .columns a {
+      display: flex;
+      padding: 0.25rem;
+      flex-wrap: nowrap;
+      align-items: center; }
+      #mh-direct-links .column a img, #mh-direct-links .columns a img {
+        margin-right: 0.5rem;
+        flex-shrink: 1; }
+      #mh-direct-links .column a label, #mh-direct-links .columns a label {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.2em;
+        color: #fefefe;
+        flex-shrink: 2; }
+
+.top-bar {
+  z-index: 1000; }
+  .top-bar ul li a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 60%;
+    font-weight: 500; }

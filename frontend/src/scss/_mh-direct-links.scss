@@ -1,0 +1,33 @@
+#mh-direct-links
+{
+    width: 100%;
+    margin-bottom: $global-margin;
+    .column
+    {
+        background-color: $primary-color;
+        a
+        {
+            display: flex;
+
+            padding: $global-padding / 4;
+
+            flex-wrap: nowrap;
+            align-items: center;
+            img
+            {
+                margin-right: $global-margin / 2;
+
+                flex-shrink: 1;
+            }
+            label
+            {
+                font-family: $interface-font;
+                line-height: 1.2em;
+
+                color: $white;
+
+                flex-shrink: 2;
+            }
+        }
+    }
+}

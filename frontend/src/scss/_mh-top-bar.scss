@@ -1,0 +1,10 @@
+.top-bar
+{
+    z-index: 1000;
+    ul li a
+    {
+        font-family: $interface-font;
+        font-size: 60%;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,9 @@
+<div class="orbit" role="region" aria-label="Images gallery" data-orbit>
+    <ul class="orbit-container">
+        {% for image in images %}
+            <li class="orbit-slide is-active">
+                <img class="orbit-image" src="/{{ image.path }}" alt="{{ image.title }}">
+            </li>
+        {% endfor %}
+    </ul>
+</div>
