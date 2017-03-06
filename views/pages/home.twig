@@ -95,6 +95,8 @@
 				'cache' => '+2 days'
 			)); #}
 			{# echo $this->Page->block('miralba/proyectos'); #}
+			{% include 'widgets/menu.twig' with {'title': 'Proyectos', 'menu': 'proyectos', 'selector': 'mh-proyectos'} only %}
+
 		</div>
 
 	</div>
