@@ -208,7 +208,8 @@ $callout-padding: 1rem;
 $callout-font-color: $body-font-color;
 $callout-font-color-alt: $body-background;
 $callout-radius: $global-radius;
-$callout-link-tint: 30%; // 14. Card
+$callout-link-tint: 30%;
+// 14. Card
 // --------
 $card-background: $white;
 $card-font-color: $body-font-color;
@@ -217,7 +218,8 @@ $card-border: 1px solid $light-gray;
 $card-shadow: none;
 $card-border-radius: $global-radius;
 $card-padding: $global-padding;
-$card-margin: $global-margin; // 15. Close Button
+$card-margin: $global-margin;
+// 15. Close Button
 // ----------------
 $closebutton-position: right top;
 $closebutton-offset-horizontal: ( small: .66rem, medium: 1rem, );
@@ -225,13 +227,15 @@ $closebutton-offset-vertical: ( small: .33em, medium: .5rem, );
 $closebutton-size: ( small: 1.5em, medium: 2em, );
 $closebutton-lineheight: 1;
 $closebutton-color: $dark-gray;
-$closebutton-color-hover: $black; // 16. Drilldown
+$closebutton-color-hover: $black;
+// 16. Drilldown
 // -------------
 $drilldown-transition: transform .15s linear;
 $drilldown-arrows: true;
 $drilldown-arrow-color: $primary-color;
 $drilldown-arrow-size: 6px;
-$drilldown-background: $white; // 17. Dropdown
+$drilldown-background: $white;
+// 17. Dropdown
 // ------------
 $dropdown-padding: 1rem;
 $dropdown-background: $body-background;
@@ -239,7 +243,8 @@ $dropdown-border: 1px solid $medium-gray;
 $dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;
-$dropdown-sizes: ( tiny: 100px, small: 200px, large: 400px, ); // 18. Dropdown Menu
+$dropdown-sizes: ( tiny: 100px, small: 200px, large: 400px, );
+// 18. Dropdown Menu
 // -----------------
 $dropdownmenu-arrows: true;
 $dropdownmenu-arrow-color: $anchor-color;

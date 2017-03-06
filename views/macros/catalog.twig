@@ -2,7 +2,7 @@
 {% set abstract = article.content|striptags|slice(0, 50) ~ '...' %}
 <div class="article mh-media">
     {% if image %}
-    <img src="img/{{ image.path }}" alt="{{article.title}}" width="210" height="210" class="left">
+    <img src="/{{ image[0].path }}" alt="{{article.title}}" width="210" height="210" class="left">
     {% endif %}
     <div class="mh-media-body">
         <h2><a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a></h2>
@@ -18,7 +18,7 @@
 {% macro feed(article, channel, image) %}
 <div class="article mh-media">
     {% if image %}
-    <img src="img/{{ image.path }}" alt="{{article.title}}" width="64" height="64" class="left">
+    <img src="/img/{{ image.path }}" alt="{{article.title}}" width="64" height="64" class="left">
     {% endif %}
     <div class="mh-media-body">
         <h2><a href="/contents/items/view/{{ article.slugl}}">{{ article.title }}</a></h2>

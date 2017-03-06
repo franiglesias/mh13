@@ -17,6 +17,7 @@ var jsVendorSource = 'src/js/vendor';
 var jsxSource = 'src/js/**/*.jsx';
 var jsSource = ['src/js/**/*.js', '!src/js/foundation/*.js'];
 var htmlSource = 'src/**/*.html';
+var imgSource = ['src/img/**/*.jpg', 'src/img/**/*.png']
 
 var foundationSrc = [
     'node_modules/foundation-sites/dist/js/foundation.js',
@@ -43,6 +44,7 @@ gulp.task('update', [
     'copy-react',
     'copy-react-dom',
     'copy-foundation',
+    'copy-images',
     'default'
 ]);
 
@@ -68,6 +70,12 @@ gulp.task('sass', function () {
         }))
         .pipe(cssnano())
         .pipe(gulp.dest(destination + '/css'))
+});
+
+gulp.task('copy-images', function () {
+    gulp.src(imgSource)
+        .pipe(newer(destination + '/img'))
+        .pipe(gulp.dest(destination + '/img'))
 });
 
 // Javascript

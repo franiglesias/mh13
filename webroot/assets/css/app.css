@@ -5976,5 +5976,8 @@ li.divider {
   z-index: 1000; }
   .top-bar ul li a {
     font-family: "Montserrat", sans-serif;
-    font-size: 60%;
-    font-weight: 500; }
+    font-size: 80%;
+    font-weight: 500;
+    color: #0a0a0a; }
+    .top-bar ul li a i {
+      color: #ff8200; }
