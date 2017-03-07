@@ -15,13 +15,13 @@
 				<li class="fn">{{ Organization.title }}</li>
 				<li class="street-address">{{ Organization.address }}</li>
 				<li class="locality">{{ Organization.city }}</li>
-				<li><span class="state">{{ Organization.state }}</span>, <span class="zip">{{ 'Organization.zip' }}</span></li>
+				<li><span class="state">{{ Organization.state }}</span>, <span class="zip">{{ Organization.zip }}</span></li>
 				<li class="phone">986 213 047</li>
 				<li class="email"><a href="mailto:{{ Organization.email }}">{{ Organization.email }}</a></li>
 			</ul>
 		</div>
 	</div>
-	{# echo $this->Page->block('/menus/wbar', array('bar' => 'main')); #}
+	<div id="mh-global-wide-menu"></div>
 	<div class="row">
 		{# echo $this->Page->block('/contents/channels/modules/external', array(
 			'cache' => '+1 month',
@@ -30,8 +30,7 @@
 	</div>
 	<div class="row">
 		<div class="small-12">
-			<p class="right">{# echo $this->Html->link(__('Powered by Milhojas. Credits', true), array('plugin' => false, 'controller' => 'pages', 'action' => 'display', 'credits')
-		); #}.</p>
+			<p class="right"><a href="/pages/credits">Milhojas web application.</a>º</p>
 		</div>
 	</div>
 </footer>

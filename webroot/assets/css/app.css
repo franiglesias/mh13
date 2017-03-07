@@ -5983,3 +5983,14 @@ a.thumbnail {
   .top-bar .top-bar-title {
     font-family: "Montserrat", sans-serif;
     font-size: 80%; }
+
+.vcard {
+  display: block;
+  list-style-type: none; }
+  .vcard .phone {
+    font-size: 1.5rem;
+    line-height: 1.5rem; }
+  .vcard .email a {
+    padding: inherit;
+    border: none;
+    background: transparent; }

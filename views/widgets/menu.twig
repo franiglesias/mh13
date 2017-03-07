@@ -2,7 +2,7 @@
 {% set body %}
 <div id="{{selector}}"></div>
 {% endset %}
-{{ blocks.widget( title, body )}}
+{{ blocks.widget( title, body, icon )}}
 <script type="text/javascript">
 $("#{{ selector }}").load('/menus/menus/items/{{ menu }}');
 </script>

@@ -1,14 +1,21 @@
-	{{ include ('elements/mh-footer.twig') }}
-	<!-- Foundation scripts -->
+{{ include ('elements/mh-footer.twig') }}
+<!-- Foundation scripts -->
 
-	<script src="/assets/js/vendor/foundation.min.js" charset="utf-8"></script>
-	<script src="/assets/js/app.js" charset="utf-8"></script>
+<script src="/assets/js/vendor/foundation.min.js" charset="utf-8"></script>
+<script src="/assets/js/app.js" charset="utf-8"></script>
 
-	{# echo $scripts_for_layout; #}
-	{# echo $this->Js->writeBuffer(); #}
-	<script type="text/javascript">
-	$.get("/menus/bars/menubar/main", function (data) {
-		$("#mh-global-main-menu")
-			.html(data);
-	});
-	</script>
+{# echo $scripts_for_layout; #}
+{# echo $this->Js->writeBuffer(); #}
+<script type="text/javascript">
+$.get("/menus/bars/menubar/main", function (data) {
+	$("#mh-global-main-menu")
+		.html(data);
+});
+</script>
+
+<script type="text/javascript">
+$.get("/menus/bars/widebar/main", function (data) {
+	$("#mh-global-wide-menu")
+		.html(data);
+});
+</script>

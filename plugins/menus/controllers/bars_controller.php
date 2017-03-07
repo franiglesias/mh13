@@ -9,7 +9,7 @@ class BarsController extends MenusAppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('bar', 'menubar');
+        $this->Auth->allow('bar', 'menubar', 'widebar');
     }
 
     public function index()
@@ -72,10 +72,17 @@ class BarsController extends MenusAppController
 
     public function menubar($bar)
     {
-        $this->autorender = false;
+        $this->autoRender = false;
         $data = $this->Bar->getByTitle($bar, $this->Auth->user('id'));
 
         echo $this->twig->render('plugins/menus/bars/menubar.twig', ['menubar' => $data]);
-        // $this->set(compact('data'));
+    }
+
+    public function widebar($bar)
+    {
+        $this->autoRender = false;
+        $data = $this->Bar->getByTitle($bar, $this->Auth->user('id'));
+
+        echo $this->twig->render('plugins/menus/bars/widebar.twig', ['menubar' => $data]);
     }
 }
