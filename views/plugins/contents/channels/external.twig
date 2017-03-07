@@ -1,0 +1,19 @@
+<div class="small-up-1 medium-up-4 large-up-6 row">
+    {% for channel in channels %}
+        <div class="column">
+            {% if channel.Channel.icon %}
+                {% set icon = '/img/' ~channel.Channel.icon %}
+            {% else %}
+                {% set icon = '/' ~ Site.icon %}
+            {% endif %}
+            <a href="/blog/{{ channel.Channel.slug }}">
+                <div class="media-object button">
+                    <div class="media-object-section align-self-center">
+                        <img src="{{icon}}" alt="" width="48">
+                    </div>
+                    <div class="media-object-section main-section text-left">{{ channel.Channel.title }}</div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>

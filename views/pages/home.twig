@@ -4,6 +4,7 @@
 	echo $this->XHtml->rssLink(__('Site feed', true));
 
 #}
+{% import 'macros/modules.twig' as modules %}
 {% extends 'layouts/basic.twig' %}
 {% block content %}
 <div id="mh-main-header">
@@ -26,41 +27,24 @@
 				  	<header>
 				  		<h1>Últimas noticias</h1>
 				  	</header>
-				  	<div id="mh-catalog-news-feed">
-					</div>
+						{{ modules.module('mh-catalog-news-feed', '/contents/items/catalog/limit:10/siteName:'~Home.main~'/sticky:1/excludePrivate:1/layout:index') }}
 				  </div>
-				  <script type="text/javascript">
-				  $('#mh-catalog-news-feed').load('/contents/items/catalog/limit:10/siteName:{{Home.main}}/sticky:1/excludePrivate:1/layout:index');
-
-				  </script>
 		 	  </div><!--#mh-news-->
 			  <div class="tabs-panel" id="mh-anuncios">
 				  <div class="mh-catalog">
 					<header>
 						<h1>Tablón de anuncios</h1>
 					</header>
-					<div id="mh-catalog-announces-feed">
-					</div>
+					{{ modules.module('mh-catalog-announces-feed', '/contents/items/catalog/limit:10/siteName:'~Home.announces~'/sticky:1/excludePrivate:1/layout:feed') }}
 				  </div>
-				  <script type="text/javascript">
-				  $('#mh-catalog-announces-feed').load('/contents/items/catalog/limit:10/siteName:{{Home.announces}}/sticky:1/excludePrivate:1/layout:feed');
-
-				  </script>
-
 			  </div> <!--#mh-anuncios-->
 			  <div class="tabs-panel" id="mh-resto">
 				  <div class="mh-catalog">
 					<header>
 						<h1>Últimas novedades</h1>
 					</header>
-					<div id="mh-catalog-all-feed">
-					</div>
+					{{ modules.module('mh-catalog-all-feed', '/contents/items/catalog/limit:10/excludePrivate:1/layout:index') }}
 				  </div>
-				  <script type="text/javascript">
-				  $('#mh-catalog-all-feed').load('/contents/items/catalog/limit:10/sticky:1/excludePrivate:1/layout:feed');
-
-				  </script>
-
 			  </div> <!-- mh-resto-->
 			</div>
 		</div>

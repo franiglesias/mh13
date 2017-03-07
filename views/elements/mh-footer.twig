@@ -1,9 +1,12 @@
+{% import 'macros/modules.twig' as modules %}
 <footer>
 	<div class="row">
 		<div class="small-12 medium-6 large-8 columns">
-			<div class="mh-media">
-				<img src="/img/{{ Site.icon}}" alt="" class="mh-channel-menu-home-icon mh-media-object" width="48">
-				<div class="mh-media-body mh-footer-title-block">
+			<div class="media-object">
+				<div class="media-object-section">
+					<img src="{{ Site.icon}}" alt="" width="64">
+				</div>
+				<div class="media-object-section main-section">
 					<p class="mh-footer-title">{{ Site.title }}</p>
 					<p class="mh-footer-tagline">{{ Site.tagline }}</p>
 					<p class="mh-footer-description">{{ Site.description }}</p>
@@ -21,16 +24,15 @@
 			</ul>
 		</div>
 	</div>
-	<div id="mh-global-wide-menu"></div>
 	<div class="row">
-		{# echo $this->Page->block('/contents/channels/modules/external', array(
-			'cache' => '+1 month',
-			)); #}
-
+		{{ modules.module('mh-global-wide-menu', '/menus/bars/widebar/main') }}
+	</div>
+	<div class="row">
+		{{ modules.module('mh-global-channels-available', '/contents/channels/external') }}
 	</div>
 	<div class="row">
 		<div class="small-12">
-			<p class="right"><a href="/pages/credits">Milhojas web application.</a>º</p>
+			<p class="test-right"><a href="/pages/credits">Milhojas web application.</a></p>
 		</div>
 	</div>
 </footer>

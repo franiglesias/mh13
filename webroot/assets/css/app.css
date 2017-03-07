@@ -5994,3 +5994,7 @@ a.thumbnail {
     padding: inherit;
     border: none;
     background: transparent; }
+
+.button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500; }

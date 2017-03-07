@@ -6,16 +6,3 @@
 
 {# echo $scripts_for_layout; #}
 {# echo $this->Js->writeBuffer(); #}
-<script type="text/javascript">
-$.get("/menus/bars/menubar/main", function (data) {
-	$("#mh-global-main-menu")
-		.html(data);
-});
-</script>
-
-<script type="text/javascript">
-$.get("/menus/bars/widebar/main", function (data) {
-	$("#mh-global-wide-menu")
-		.html(data);
-});
-</script>

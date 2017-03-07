@@ -1,0 +1,10 @@
+{# Modules are dynamic page blocks, able to load themselves from remote #}
+{% macro module(selector, url, class) %}
+<div id="{{ selector }}" class="{{ class }}"></div>
+<script type="text/javascript">
+    $.get("{{ url }}", function (data) {
+    $("#{{ selector }}")
+        .html(data);
+    });
+</script>
+{% endmacro module %}
