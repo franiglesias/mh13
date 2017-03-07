@@ -1,0 +1,12 @@
+{% for circular in circulars %}
+	<article class="row">
+		<div class="small-9 columns end">
+			<h2><a href="/circulars/circulars/view/{{ circular.Circular.id }}">{{circular.Circular.title}}</a></h2>
+			<p>{{ circular.Circular.adressee }}</p>
+			<p>Publicada en {{ circular.Circular.pubDate|date('j/n')}}</p>
+			<p>{% if circular.CircularBox.id %}<i class="fi-alert"></i>Require respuesta{% endif %}</p>
+		</div>
+	</article>
+{% else %}
+    <p>No hay circulares publicadas en este momento.</p>
+{% endfor %}

@@ -1,0 +1,20 @@
+<article>
+	<header>
+		<h1>Menú para hoy ({{ date()|date('l, j/n/Y') }}){# echo $this->Page->title(__d('cantine', 'Menu for today', true)); #}</h1>
+	</header>
+	<div class="body">
+		<h2>Platos{# __d('cantine', 'Meals'); #}</h2>
+		<p>{{meals.menu|nl2br}}</p>
+		<h2>Información nutricional (media){# __d('cantine', 'Nutritional information (mean)'); #}</h2>
+		<dl class="mh-nutrition-facts">
+			<dt>Calorías:</dt>
+			<dd>{{nutrition.calories}}</dd>
+			<dt>Hidratos de carbono:</dt>
+			<dd>{{nutrition.glucides}}</dd>
+			<dt>Grasas:</dt>
+			<dd>{{nutrition.lipids}}</dd>
+			<dt>Proteínas:</dt>
+			<dd>{{nutrition.proteines}}</dd>
+		</dl>
+	</div>
+</article>

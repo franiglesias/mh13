@@ -158,11 +158,16 @@ class AppController extends Controller
         $this->twig->addGlobal('Organization', Configure::read('Organization'));
         $this->twig->addGlobal('Home', Configure::read('Home'));
         $this->twig->addGlobal('Analytics', Configure::read('Analytics'));
+        $this->twig->addGlobal('SchoolYear', Configure::read('SchoolYear'));
         $this->twig->addGlobal('jsVars', $this->_jsVars);
         $this->twig->addGlobal('BaseUrl', Router::url('/', true));
         $this->twig->addGlobal('Auth', $this->Session->read('Auth'));
     }
 
+    protected function isRequestedViaAjax()
+    {
+        return (!empty($this->params['requested'])) || $this->RequestHandler->isAjax();
+    }
     /**
      * Wraps AccessComponent->isAuthorized.
      *

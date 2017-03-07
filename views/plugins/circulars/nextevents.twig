@@ -1,0 +1,27 @@
+{% extends 'layouts/main.twig' %}
+{% block content %}
+	<header>
+		<h1>Próximos eventos {{SchoolYear.string}}</h1>
+	</header>
+	<div class="body">
+		<ul class="mh-calendar-events-list">
+			{% for event in events %}
+			<li class="row">
+				<div class="small-3 medium-2 columns">
+					{{ event.Event.startDate|date('j/m')}} - {{event.Event.startTime|date('H:m')}}
+				</div>
+				<div class="small-9 medium-10 columns">
+					<header>
+						<h2>{{ event.Event.title }}{# echo $this->FHtml->permalink($this->Event, 'title'); #}</h2>
+					</header>
+					<p>{{ event.Event.description|raw }} {# echo $this->Event->format('description', 'html'); #}</p>
+				</div>
+			</li>
+			{% else %}
+			    <p>No tenemos eventos programados.</p>
+			{% endfor %}
+		</ul>
+	</div>
+	<footer>{# echo $this->Page->paginator('mh-public-paginator'); #}</footer>
+
+{% endblock %}

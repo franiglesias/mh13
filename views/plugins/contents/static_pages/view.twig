@@ -1,75 +1,56 @@
-{% extends 'layouts/story.twig' %}
+{% extends 'layouts/main.twig' %}
+{% block header %}
+
+	{% import "macros/headers.twig" as headers %}
+	{% if staticPage.MainImage %}
+	{{ headers.minimal_with_image(staticPage.StaticPage.title, staticPage.MainImage.path )}}
+	{% else %}
+		{{ headers.minimal(staticPage.StaticPage.title )}}
+	{% endif %}
+{% endblock %}
+
 {% block content %}
 
-{#
-	$this->Page->browserTitle($this->StaticPage->value('title').' @ ' . Configure::read('Site.title'));
-#}
-
-<article class="mh-page">
 	{% if preview %}
 		<aside class="mh-preview-ribbon">Así es como se verá</aside>
 	{% endif %}
 
+
 	{% if staticPage.Parents %}
-		{% include 'plugins/contents/static_pages/widgets/breadcrumbs.twig' with { 'parents': staticPage.Parents } only %}
+	{% include 'plugins/contents/static_pages/widgets/breadcrumbs.twig' with { 'parents': staticPage.Parents } only %}
 	{% endif %}
 
-	{% import "macros/headers.twig" as headers %}
-	{% if staticPage.MainImage %}
-		{{ headers.minimal_with_image(staticPage.StaticPage.title, staticPage.MainImage.path )}}
-	{% else %}
-		{{ headers.minimal(staticPage.StaticPage.title )}}
+	{{ staticPage.StaticPage.content|parse|raw }}
+
+	{% if staticPage.Image|length > 1 %}
+		{% include ('plugins/images/galleries/'~staticPage.StaticPage.gallery~'/layout.twig')  %}
 	{% endif %}
 
-	<div class="row">
-		<div class="small-12 medium-7 large-8 columns">
+	{% if staticPage.Multimedia %}
+		{% include 'plugins/contents/items/widgets/multimedia.twig' %}
+	{% endif %}
 
-			{{ staticPage.StaticPage.content|parse|raw }}
+	{% if staticPage.Download %}
+		{% include 'plugins/contents/items/widgets/downloads.twig' %}
+	{% endif %}
 
-			{% if staticPage.Image|length > 1 %}
-				{% include ('plugins/images/galleries/'~staticPage.StaticPage.gallery~'/layout.twig')  %}
-			{% endif %}
+	{% if staticPage.StaticPage.project_key %}
+	{% import 'macros/modules.twig' as modules %}
+	{{ modules.widget('mh-related-content', '/contents/items/catalog/limit:10/label:'~staticPage.StaticPage.project_key~'/sticky:1/excludePrivate:1/layout:feed', 'Contenido relacionado en nuestra web.')}}
 
-			{% if staticPage.Multimedia %}
-				{% include 'plugins/contents/items/widgets/multimedia.twig' %}
-			{% endif %}
+	{% endif %}
 
-			{% if staticPage.Download %}
-				{% include 'plugins/contents/items/widgets/downloads.twig' %}
-			{% endif %}
+{% endblock %}
 
-			{% if staticPage.StaticPage.project_key %}
-			<div id="mh-page-dinamic-related" class="mh-page-extras">
-				<div class="mh-catalog">
-					<header>
-						<h1>Contenido relacionado en nuestra web.</h1>
-					</header>
-					<div id="mh-related-content">
-					</div>
-				</div>
-				<script type="text/javascript">
-				$('#mh-related-content').load('/contents/items/catalog/limit:10/label:{{staticPage.StaticPage.project_key}}/sticky:1/excludePrivate:1/layout:feed');
-				</script>
-			</div>
+{% block sidebar %}
+	{% import 'macros/blocks.twig' as blocks %}
+	{% import 'macros/lists.twig' as lists %}
 
-			{% endif %}
+	{% if staticPage.Descendants %}
+	{{ blocks.widget('Información detallada',  lists.tree(staticPage.Descendants) ) }}
+	{% endif %}
 
-		</div>
-		<section class="small-12 medium-5 large-4 columns">
-
-			{% import 'macros/blocks.twig' as blocks %}
-			{% import 'macros/lists.twig' as lists %}
-
-			{% if staticPage.Descendants %}
-			{{ blocks.widget('Información detallada',  lists.tree(staticPage.Descendants) ) }}
-			{% endif %}
-
-			{% if staticPage.Siblings %}
-			{{ blocks.widget('Páginas relacionadas',  lists.tree(staticPage.Siblings)) }}
-			{% endif %}
-
-		</section>
-	</div>
-</article>
-
+	{% if staticPage.Siblings %}
+	{{ blocks.widget('Páginas relacionadas',  lists.tree(staticPage.Siblings)) }}
+	{% endif %}
 {% endblock %}

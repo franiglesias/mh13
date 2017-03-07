@@ -2,7 +2,7 @@
     <ul class="orbit-container">
         {% for image in images %}
             <li class="orbit-slide is-active">
-                <div class="mh-main-header" style="background: url({{ image.path }}); background-size: cover;">
+                <div class="mh-main-header" style="background: url(/{{ image.path }}); background-size: cover;">
                     <div class="bg">
                         <div class="mh-text-block">
                             <h1 class="text-center">{{ image.name }}</h1>

@@ -1,65 +1,22 @@
-{#
-	$this->Page->title(Configure::read('Site.title').': '.Configure::read('Site.tagline'));
-	$site = 'noticias'; // Move to a preference
-	echo $this->XHtml->rssLink(__('Site feed', true));
-
-#}
 {% import 'macros/modules.twig' as modules %}
-{% extends 'layouts/basic.twig' %}
+{% extends 'layouts/main.twig' %}
 {% block content %}
-
-{{ modules.module('mh-main-header', '/uploads/image_collections/collection/home') }}
-
-{% include 'elements/mh-direct-links.twig' %}
-
-<div class="mh-page">
-	<div class="row">
-		<div class="small-12 medium-8 columns" data-equalizer-watch>
-			<ul id="mh-home-page-tabs" class="tabs" data-tabs>
-			  <li class="tabs-title is-active"><a href="#mh-news">Noticias</a></li>
-			  <li class="tabs-title"><a href="#mh-anuncios">Tablón de anuncios </a></li>
-			  <li class="tabs-title"><a href="#mh-resto">Todas las novedades</a></li>
-			</ul>
-			<div class="tabs-content" data-tabs-content="mh-home-page-tabs">
-				<div class="tabs-panel is-active" id="mh-news">
-					  {{ modules.widget('mh-catalog-news-feed', '/contents/items/catalog/limit:10/siteName:'~Home.main~'/sticky:1/excludePrivate:1/layout:index', 'Últimas noticias', '', 'mh-catalog') }}
-			 	</div>
-				<div class="tabs-panel" id="mh-anuncios">
-					  {{ modules.widget('mh-catalog-announces-feed', '/contents/items/catalog/limit:10/siteName:'~Home.announces~'/sticky:1/excludePrivate:1/layout:feed', 'Tablón de anuncios', '', 'mh-catalog') }}
-				</div>
-				<div class="tabs-panel" id="mh-resto">
-					{{ modules.widget('mh-catalog-all-feed', '/contents/items/catalog/limit:10/excludePrivate:1/layout:index', 'Últimas novedades', '', 'mh-catalog') }}
-				</div>
-			</div>
+	<ul id="mh-home-page-tabs" class="tabs" data-tabs>
+	  <li class="tabs-title is-active"><a href="#mh-news">Noticias</a></li>
+	  <li class="tabs-title"><a href="#mh-anuncios">Tablón de anuncios </a></li>
+	  <li class="tabs-title"><a href="#mh-resto">Todas las novedades</a></li>
+	</ul>
+	<div class="tabs-content" data-tabs-content="mh-home-page-tabs">
+		<div class="tabs-panel is-active" id="mh-news">
+			{{ modules.widget('mh-catalog-news-feed', '/contents/items/catalog/limit:10/siteName:'~Home.main~'/sticky:1/excludePrivate:1/layout:index', 'Últimas noticias', '', 'mh-catalog') }}
+	 	</div>
+		<div class="tabs-panel" id="mh-anuncios">
+			{{ modules.widget('mh-catalog-announces-feed', '/contents/items/catalog/limit:10/siteName:'~Home.announces~'/sticky:1/excludePrivate:1/layout:feed', 'Tablón de anuncios', '', 'mh-catalog') }}
 		</div>
-
-
-
-		<div class="small-12 medium-4 columns" data-equalizer-watch>
-			{% include 'widgets/menu.twig' with {'title': 'Encuentranos en', 'menu': 'social', 'selector': 'mh-social', 'icon': 'fi-eye'} only %}
-			{{ modules.widget('mh-collection-concertada', '/uploads/image_collections/collection/concertada', 'En colegios también puedes elegir') }}
-
-			{# echo $this->Page->block('/circulars/events/next', array(
-				'cache' => '+2 days'
-			)); #}
-			{# echo $this->Page->block('/cantine/today', array(
-				'cache' => '+12 hour'
-			)); #}
-
-			{{ modules.widget('mh-collection-programas', '/uploads/image_collections/collection/programas', 'Nuestras certificaciones') }}
-
-			{# echo $this->Page->block('/circulars/circulars/current', array(
-				'cache' => '+2 days'
-			)); #}
-			{% include 'widgets/menu.twig' with {'title': 'Proyectos', 'menu': 'proyectos', 'selector': 'mh-proyectos'} only %}
-
+		<div class="tabs-panel" id="mh-resto">
+			{{ modules.widget('mh-catalog-all-feed', '/contents/items/catalog/limit:10/excludePrivate:1/layout:index', 'Últimas novedades', '', 'mh-catalog') }}
 		</div>
-
 	</div>
-
-</div>
-
-
 {% endblock %}
 
 {% block page_scripts %}

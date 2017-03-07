@@ -1,0 +1,21 @@
+{% extends 'layouts/main.twig' %}
+{% block content %}
+	<header>
+		<h1>Últimas circulares. Curso {{ SchoolYear.string }}</h1>
+	</header>
+	<div>
+		{% for circular in circulars %}
+		<article>
+			<div>
+				<h2><a href="/circulars/circulars/view/{{ circular.Circular.id }}">{{circular.Circular.title}}</a></h2>
+				<p>{{ circular.Circular.adressee }}</p>
+				<p>Publicada en {{ circular.Circular.pubDate|date('j/n')}}</p>
+				<p>{% if circular.CircularBox.id %}<i class="fi-alert"></i>Require respuesta{% endif %}</p>
+			</div>
+		</article>
+		{% else %}
+		    <p>No hay circulares publicadas en este momento.</p>
+		{% endfor %}
+	</div>
+	<footer>{# echo $this->Page->paginator('mh-public-paginator'); #}</footer>
+{% endblock %}
