@@ -1,4 +1,4 @@
-<asdfasdf></asdfasdf><asdfasdf></asdfasdf><?php
+<?php
 
 class StaticPagesController extends ContentsAppController
 {

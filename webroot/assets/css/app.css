@@ -5915,21 +5915,22 @@ a.thumbnail {
 
 .mh-widget {
   margin-bottom: 1rem;
-  background-color: #e6ffe6; }
+  background-color: #fefefe; }
   .mh-widget header {
-    background-color: #008000; }
+    border-bottom: 1px solid #008000;
+    background-color: #fefefe; }
     .mh-widget header h1 {
       font-line-height: 1rem;
       font-family: "Yanone Kaffeesatz";
       font-size: 120%;
       text-transform: uppercase;
-      color: #fefefe; }
+      color: #008000; }
   .mh-widget > div.body {
     font-size: 80%;
     padding: 1rem; }
   .mh-widget footer {
     font-family: "Yanone Kaffeesatz";
-    background-color: #4dff4d; }
+    background-color: #cbcbcb; }
 
 .mh-main-header {
   width: 100%;

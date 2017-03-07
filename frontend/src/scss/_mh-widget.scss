@@ -1,7 +1,7 @@
 $widget-header-font-family: 'Yanone Kaffeesatz';
 $widget-base-color: $success-color;
-$widget-background-color: lighten($widget-base-color, 70%);
-$widget-footer-color: darken($widget-background-color, 30%);
+$widget-background-color: $white;
+$widget-footer-color: darken($widget-background-color, 20%);
 
 .mh-widget
 {
@@ -11,7 +11,8 @@ $widget-footer-color: darken($widget-background-color, 30%);
 
     header
     {
-        background-color: $widget-base-color;
+        border-bottom: 1px solid $widget-base-color;
+        background-color: $widget-background-color;
         h1
         {
             font:
@@ -24,7 +25,7 @@ $widget-footer-color: darken($widget-background-color, 30%);
 
             text-transform: uppercase;
 
-            color: $white;
+            color: $widget-base-color;
         }
     }
 
