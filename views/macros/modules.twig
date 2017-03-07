@@ -1,4 +1,5 @@
 {# Modules are dynamic page blocks, able to load themselves from remote #}
+{# module is the basic module a div that is updaated from a url #}
 {% macro module(selector, url, class) %}
 <div id="{{ selector }}" class="{{ class }}"></div>
 <script type="text/javascript">
@@ -8,3 +9,19 @@
     });
 </script>
 {% endmacro module %}
+
+{# widget allows special formattin, with a title header and a intro text #}
+{% macro widget(selector, url, title, intro, class) %}
+{% import _self as modules %}
+<div class="{{ class|default('mh-widget') }}">
+    {% if title %}
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+    {% endif %}
+    <div class="body">
+        {% if intro %}<p>{{ intro }}</p>{% endif %}
+    {{ modules.module(selector, url) }}
+    </div>
+</div>
+{% endmacro widget %}
