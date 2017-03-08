@@ -1,0 +1,56 @@
+#mh-social
+{
+    li
+    {
+        display: inline-block !important;
+
+        a
+        {
+            font:
+            {
+                family: $interface-font;
+            };
+
+            padding: $global-padding / 2;
+
+            color: $dark-gray;
+            &::before
+            {
+                font-size: 2em;
+                line-height: 1.5em;
+
+                display: block;
+
+                width: 2em;
+                height: 2em;
+                margin: 0 auto $global-margin/2 auto;
+                padding: $global-padding/2;
+
+                text-align: center;
+
+                color: #fff;
+                border-radius: 1000px;
+                background-color: $success-color;
+            }
+            &.fi-social-facebook::before
+            {
+                background-color: #3b5998;
+            };
+
+            &.fi-social-twitter::before
+            {
+                background-color: #55acce;
+            };
+
+            &.fi-social-youtube::before
+            {
+                background-color: #ee0f0f;
+            };
+
+            &.fi-social-instagram::before
+            {
+                background-color: #3b5998;
+            };
+        }
+    }
+}

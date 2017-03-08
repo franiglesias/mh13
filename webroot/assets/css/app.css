@@ -5888,19 +5888,27 @@ a.thumbnail {
     font-family: "Signika", "Helvetica Neue", sans-serif; }
 
 .mh-header {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
+  height: 15em;
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: #642f6c;
   align-items: center; }
+  .mh-header .bg {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: flex-end; }
+    .mh-header .bg .mh-text-block {
+      display: flex;
+      max-width: 75%;
+      color: #fefefe;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-end; }
+      .mh-header .bg .mh-text-block .text-center {
+        width: 100%; }
   .mh-header h1 {
     font-weight: bold;
     color: #fefefe; }
@@ -6044,3 +6052,34 @@ a.thumbnail {
   .mh-image-crop.x-large {
     width: 210px;
     height: 210px; }
+  .mh-image-crop.circle {
+    border-radius: 1000px; }
+  .mh-image-crop.rounded {
+    border-radius: 5px; }
+
+#mh-social li {
+  display: inline-block !important; }
+  #mh-social li a {
+    font-family: "Montserrat", sans-serif;
+    padding: 0.5rem;
+    color: #8a8a8a; }
+    #mh-social li a::before {
+      font-size: 2em;
+      line-height: 1.5em;
+      display: block;
+      width: 2em;
+      height: 2em;
+      margin: 0 auto 0.5rem auto;
+      padding: 0.5rem;
+      text-align: center;
+      color: #fff;
+      border-radius: 1000px;
+      background-color: #008000; }
+    #mh-social li a.fi-social-facebook::before {
+      background-color: #3b5998; }
+    #mh-social li a.fi-social-twitter::before {
+      background-color: #55acce; }
+    #mh-social li a.fi-social-youtube::before {
+      background-color: #ee0f0f; }
+    #mh-social li a.fi-social-instagram::before {
+      background-color: #3b5998; }

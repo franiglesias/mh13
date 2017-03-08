@@ -1,5 +1,5 @@
 {% for item in items %}
-{# Item Channel MainImage #}
-{% import 'macros/catalog.twig' as catalog %}
-{{ attribute(catalog, layout|default('index'), [item.Item, item.Channel, item.MainImage]) }}
+    {# Item Channel MainImage #}
+    {% import 'macros/catalog.twig' as catalog %}
+    {{ attribute(catalog, layout|default('index'), [item.Item, item.Channel, item.MainImage[0].path]) }}
 {% endfor %}

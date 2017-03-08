@@ -1,25 +1,29 @@
 {% import 'macros/modules.twig' as modules %}
 {% extends 'layouts/main.twig' %}
 {% block content %}
-	<ul id="mh-home-page-tabs" class="tabs" data-tabs>
-	  <li class="tabs-title is-active"><a href="#mh-news">Noticias</a></li>
-	  <li class="tabs-title"><a href="#mh-anuncios">Tablón de anuncios </a></li>
-	  <li class="tabs-title"><a href="#mh-resto">Todas las novedades</a></li>
-	</ul>
-	<div class="tabs-content" data-tabs-content="mh-home-page-tabs">
-		<div class="tabs-panel is-active" id="mh-news">
-			{{ modules.widget('mh-catalog-news-feed', '/contents/items/catalog/limit:10/siteName:'~Home.main~'/sticky:1/excludePrivate:1/layout:index', 'Últimas noticias', '', 'mh-catalog') }}
-	 	</div>
-		<div class="tabs-panel" id="mh-anuncios">
-			{{ modules.widget('mh-catalog-announces-feed', '/contents/items/catalog/limit:10/siteName:'~Home.announces~'/sticky:1/excludePrivate:1/layout:feed', 'Tablón de anuncios', '', 'mh-catalog') }}
-		</div>
-		<div class="tabs-panel" id="mh-resto">
-			{{ modules.widget('mh-catalog-all-feed', '/contents/items/catalog/limit:10/excludePrivate:1/layout:index', 'Últimas novedades', '', 'mh-catalog') }}
-		</div>
-	</div>
+    <ul id="mh-home-page-tabs" class="tabs" data-tabs>
+        <li class="tabs-title is-active">
+            <a href="#mh-news">Noticias</a>
+        </li>
+        <li class="tabs-title">
+            <a href="#mh-anuncios">Tablón de anuncios
+            </a>
+        </li>
+        <li class="tabs-title">
+            <a href="#mh-resto">Todas las novedades</a>
+        </li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
+        <div class="tabs-panel is-active" id="mh-news">
+            {{ modules.widget('mh-catalog-news-feed', '/contents/items/catalog/limit:10/siteName:'~Home.main~'/sticky:1/excludePrivate:1/layout:index', 'Últimas noticias', '', 'mh-catalog') }}
+        </div>
+        <div class="tabs-panel" id="mh-anuncios">
+            {{ modules.widget('mh-catalog-announces-feed', '/contents/items/catalog/limit:10/siteName:'~Home.announces~'/sticky:1/excludePrivate:1/layout:feed', 'Tablón de anuncios', '', 'mh-catalog') }}
+        </div>
+        <div class="tabs-panel" id="mh-resto">
+            {{ modules.widget('mh-catalog-all-feed', '/contents/items/catalog/limit:10/excludePrivate:1/layout:feed', 'Últimas novedades', '', 'mh-catalog') }}
+        </div>
+    </div>
 {% endblock %}
 
-{% block page_scripts %}
-
-
-{% endblock %}
+{% block page_scripts %}{% endblock %}

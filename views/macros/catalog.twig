@@ -1,65 +1,85 @@
 {% macro index(article, channel, image) %}
-{% set abstract = article.content|striptags|slice(0, 50) ~ '...' %}
-<div class="article mh-media">
-    {% if image %}
-    <img src="/{{ image[0].path }}" alt="{{article.title}}" width="210" height="210" class="left">
-    {% endif %}
-    <div class="mh-media-body">
-        <h2><a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a></h2>
-        <div class="metadata">
-            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span><span class="channel right"><a href="/blog/{{ channel.slug }}">{{ channel.title }}</a></span>
+    {% set abstract = article.content | striptags | slice(0, 50) ~ '...' %}
+    <div class="article media-object">
+        {% if image %}
+            <div class="media-object-section">
+                <div class="mh-image-crop x-large" style="background-image: url(/{{ image }})"></div>
+            </div>
+        {% endif %}
+        <div class="media-object-section main-section">
+            <h2>
+                <a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a>
+            </h2>
+            <div class="metadata">
+                <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+                {% if channel %}
+                    <span class="channel right">
+                        <a href="/blog/{{ channel.slug }}">{{ channel.title }}</a>
+                    </span>
+                {% endif %}
+            </div>
+            <p>{{ abstract }}</p>
         </div>
-        <p>{{ abstract }}</p>
     </div>
-</div>
 {% endmacro index %}
 
-
 {% macro feed(article, channel, image) %}
-<div class="article mh-media">
-    {% if image %}
-    <img src="/img/{{ image.path }}" alt="{{article.title}}" width="64" height="64" class="left">
-    {% endif %}
-    <div class="mh-media-body">
-        <h2><a href="/contents/items/view/{{ article.slugl}}">{{ article.title }}</a></h2>
-        <div class="metadata">
-            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span><span class="channel right"><a href="/blog/{{ channel.slug }}">{{ channel.title }}</a></span>
+    <div class="article media-object">
+        {% if image %}
+            <div class="media-object-section">
+                <div class="mh-image-crop small" style="background-image: url(/{{ image }})"></div>
+            </div>
+        {% endif %}
+        <div class="media-object-section main-section">
+            <h2>
+                <a href="/contents/items/view/{{ article.slugl}}">{{ article.title }}</a>
+            </h2>
+            <div class="metadata">
+                <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+                {% if channel %}
+                    <span class="channel right">
+                        <a href="/blog/{{ channel.slug }}">{{ channel.title }}</a>
+                    </span>
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 {% endmacro feed %}
 
-
 {% macro channel_index(article, image) %}
-{% set abstract = article.content|striptags|slice(0, 50) ~ '...' %}
-<div class="article media-object">
-    {% if image %}
-    <div class="media-object-section">
-        <div class="mh-image-crop x-large" style="background-image: url({{ image }})"></div>
-    </div>
-    {% endif %}
-    <div class="media-object-section main-section">
-        <h2><a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a></h2>
-        <div class="metadata">
-            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+    {% set abstract = article.content | striptags | slice(0, 50) ~ '...' %}
+    <div class="article media-object">
+        {% if image %}
+            <div class="media-object-section">
+                <div class="mh-image-crop large" style="background-image: url(/{{ image }})"></div>
+            </div>
+        {% endif %}
+        <div class="media-object-section main-section">
+            <h2>
+                <a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a>
+            </h2>
+            <div class="metadata">
+                <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+            </div>
+            <p>{{ abstract }}</p>
         </div>
-        <p>{{ abstract }}</p>
     </div>
-</div>
 {% endmacro channel_index %}
 
 {% macro channel_feed(article, channel, image) %}
-<div class="article media-object">
-    {% if image %}
-    <div class="media-object-section">
-        <div class="mh-image-crop small" style="background-image: url(/{{ image[0].path }})"></div>
-    </div>
-    {% endif %}
-    <div class="media-object-section main-section">
-        <h2><a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a></h2>
-        <div class="metadata">
-            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+    <div class="article media-object">
+        {% if image %}
+            <div class="media-object-section">
+                <div class="mh-image-crop small circle" style="background-image: url(/{{ image }})"></div>
+            </div>
+        {% endif %}
+        <div class="media-object-section main-section">
+            <h2>
+                <a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a>
+            </h2>
+            <div class="metadata">
+                <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+            </div>
         </div>
     </div>
-</div>
 {% endmacro channel_feed %}

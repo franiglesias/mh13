@@ -39,4 +39,14 @@ $image-x-large: 210px;
         width: $image-x-large;
         height: $image-x-large;
     }
+
+    &.circle
+    {
+        border-radius: 1000px;
+    }
+
+    &.rounded
+    {
+        border-radius: $global-radius;
+    }
 }
