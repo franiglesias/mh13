@@ -1,0 +1,13 @@
+{% extends 'layouts/main.twig' %}
+
+{% block header %}
+    {% import 'macros/headers.twig' as headers %}
+    {{ headers.site(site.title, site.description) }}
+    <div class="container mh-channel-menu">{# echo $this->Channel->menu(); #}</div>
+{% endblock %}
+
+{% block content %}
+    {% import 'macros/modules.twig' as modules %}
+
+    {{ modules.widget('mh-site-home', '/contents/items/catalog/limit:10/siteName:'~site.key~'/sticky:0/paginate:1/layout:feed', 'Últimas entradas', '', 'mh-catalog') }}
+{% endblock %}

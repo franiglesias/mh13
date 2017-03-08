@@ -17,7 +17,7 @@
 		<div id="home-navigation-column" class="medium-4 columns" data-equalizer-watch>
 			<?php echo $this->Page->block('/contents/sites/description');?>
 			<?php echo $this->Page->block('/contents/sites/channels');?>
-			<?php echo $this->Page->block('/circulars/events/next', array(
+			<?php echo $this->Page->block('/circulars/events/next', array(<pre>{{ dump(Paging) }}</pre>
 				'cache' => '+2 days'
 			));?>
 			<?php echo $this->Page->block('/cantine/today', array(

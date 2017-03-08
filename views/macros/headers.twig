@@ -1,54 +1,66 @@
 {% macro article(article, channel, image) %}
-    <div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
-        <div class="bg">
-            <div class="mh-text-block">
-                <div class="icon text-center">
-                    <a href="/blog/{{ channel.slug }}"><img src="{{channel.icon}}" alt="" width="51">
-                        {{channel.title}}</a>
-                </div>
-                <h1 class="text-center">{{ article.title }}</h1>
-                {% include 'plugins/contents/items/widgets/header/author.twig' %}
+<div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
+    <div class="bg">
+        <div class="mh-text-block">
+            <div class="icon text-center">
+                <a href="/blog/{{ channel.slug }}"><img src="{{ channel.icon }}" alt="" width="51">
+                    {{ channel.title }}</a>
             </div>
+            <h1 class="text-center">{{ article.title }}</h1>
+            {% include 'plugins/contents/items/widgets/header/author.twig' %}
         </div>
     </div>
+</div>
 {% endmacro article %}
 
 {% macro page(article, image) %}
-    <div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
-        <div class="bg">
-            <div class="mh-text-block">
-                <h1>{{ article.title }}</h1>
-            </div>
+<div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
+    <div class="bg">
+        <div class="mh-text-block">
+            <h1>{{ article.title }}</h1>
         </div>
-
     </div>
+
+</div>
 {% endmacro page %}
 
-{% macro channel(title, lead, icon, background) %}
-    <div class="mh-main-header" style="background: url({{ background }}); background-size: cover;">
-        <div class="bg">
-            <div class="mh-text-block">
-                <p class="text-center"><img src="{{ icon }}" alt="logotipo de {{ title }}" width="81" height="auto"></p>
-                <h1 class="text-center">{{ title }}</h1>
-                <p class="lead text-center">{{ lead }}</p>
-            </div>
+{% macro site(title, description, image) %}
+<div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
+    <div class="bg">
+        <div class="mh-text-block">
+            <h1 class="text-center">{{ title }}</h1>
+            <p class="lead text-center">{{ description|raw }}</p>
         </div>
     </div>
+
+</div>
+{% endmacro site %}
+
+{% macro channel(title, lead, icon, background) %}
+<div class="mh-main-header" style="background: url({{ background }}); background-size: cover;">
+    <div class="bg">
+        <div class="mh-text-block">
+            <p class="text-center"><img src="{{ icon }}" alt="logotipo de {{ title }}" width="81" height="auto"></p>
+            <h1 class="text-center">{{ title }}</h1>
+            <p class="lead text-center">{{ lead }}</p>
+        </div>
+    </div>
+</div>
 {% endmacro %}
 
 {% macro home(title, lead, url, background) %}
-    <div class="mh-main-header" style="background: url({{ background }}); background-size: cover;">
-        <div class="bg">
-            <div class="mh-text-block">
-                <h1 class="text-center">{{ title }}</h1>
-                <p class="lead text-center">{{ lead }}</p>
-                {% if url %}
-                    <p class="text-center">
-                        <a href="{{ url }}" class="small hollow secondary radius button fi-plus">Más información</a>
-                    </p>
-                {% endif %}
-            </div>
+<div class="mh-main-header" style="background: url({{ background }}); background-size: cover;">
+    <div class="bg">
+        <div class="mh-text-block">
+            <h1 class="text-center">{{ title }}</h1>
+            <p class="lead text-center">{{ lead }}</p>
+            {% if url %}
+            <p class="text-center">
+                <a href="{{ url }}" class="small hollow secondary radius button fi-plus">Más información</a>
+            </p>
+            {% endif %}
         </div>
     </div>
+</div>
 
 {% endmacro %}

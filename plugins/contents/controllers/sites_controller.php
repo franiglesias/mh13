@@ -27,6 +27,7 @@ class SitesController extends ContentsAppController {
 		$this->setTheme($site);
 		$this->setLayout($site);
 		$this->set('site', $site);
+		return $this->render('plugins/contents/sites/view.twig', ['site' => $site['Site']]);
 	}
 	
 	private function setTheme(&$site)
