@@ -24,11 +24,13 @@
 {% endmacro %}
 
 {% macro media_object(image, body, class) %}
-<div class="mh-media">
+<div class="media-object">
 	{% if image %}
-	<img src="/img/{{image}}" width="64" height="64" class="{{class|default('left')}}">
+	<div class="media-object-section">
+		<img src="{{image}}" width="64" height="64" class="{{class|default('left')}}">
+	</div>
 	{% endif %}
-	<div class="mh-media-body">{{ body|raw }}</div>
+	<div class="media-object-section main-section">{{ body|raw }}</div>
 </div>
 {% endmacro media_object%}
 

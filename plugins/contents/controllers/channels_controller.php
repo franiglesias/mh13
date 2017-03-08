@@ -227,6 +227,13 @@ class ChannelsController extends ContentsAppController
 
         $this->setThemeAndLayout();
         $this->set($data);
+        $this->autoRender = false;
+        echo $this->twig->render(
+            'plugins/contents/channels/view.twig', [
+                'channel' => $data['channel']['Channel'],
+                'articles' => $data['items'],
+            ]
+        );
     }
 
     private function setThemeAndLayout()
@@ -285,11 +292,18 @@ class ChannelsController extends ContentsAppController
      */
     public function tags($id)
     {
-        if (empty($this->params['requested'])) {
-            return false;
-        }
+        $tags = $this->Channel->labels($id);
+        $this->autoRender = false;
+        $max = array_reduce($tags, function ($max, $tag) {
+            return $tag['Label']['weight'] > $max ? $tag['Label']['weight'] : $max;
+        });
+        echo $this->twig->render(
+            'plugins/contents/channels/widgets/tags.twig', [
+                'tags' => $tags,
+                'max' => $max,
+            ]
 
-        return $this->Channel->labels($id);
+        );
     }
 
     /**

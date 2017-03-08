@@ -1,0 +1,27 @@
+{% extends 'layouts/main.twig' %}
+{% block header %}
+    {% import 'macros/headers.twig' as headers %}
+    {{ headers.channel(channel.title, channel.tagline, '/img/'~channel.icon, '/img/'~channel.image) }}
+	<div class="container mh-channel-menu">{# echo $this->Channel->menu(); #}</div>
+{% endblock %}
+
+{% block content %}
+<p class="lead">{{channel.tagline}}</p>
+    {% import 'macros/catalog.twig' as catalog %}
+
+    {% for article in articles %}
+        {% if not article.MainImage.path %}
+            {% set image = article.MainImage[0] %}
+        {% else %}
+            {% set image = article.MainImage %}
+        {% endif %}
+        {{ catalog.channel_index( article.Item, '/'~image.path)}}
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+{% import 'macros/modules.twig' as modules %}
+{% include 'plugins/contents/channels/widgets/description.twig' with {'channel': channel} only %}
+{{ modules.widget('mh-channel-labels', '/contents/channels/tags/'~channel.id, 'Etiquetas', '') }}
+{{ modules.widget('mh-channel-recent', '/contents/items/catalog/limit:10/channelList:'~channel.id~'/featured:1/layout:channel_feed', 'Artículos destacados', '') }}
+{% endblock %}

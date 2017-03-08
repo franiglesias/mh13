@@ -1,0 +1,34 @@
+{#
+	$items = $this->requestAction(
+	array('plugin' => 'contents', 'controller' => 'items', 'action' => 'catalog'),
+	array(
+		'named' => 	array(
+			'channelList' => $this->Channel->value('id'),
+			'featured' => true
+			)
+		)
+	);
+#}
+<div class="mh-widget">
+	<header>
+		<h1 class="fi-archive">{# __d('contents', 'Featured'); #}</h1>
+		<p>{# __d('contents', 'Recently featured articles in this channel.'); #}</p>
+	</header>
+	<div class="body">
+		{# if ($items): #}
+		{#
+			$this->Items->bind($items);
+			$this->Items->attach($this->Item);
+
+			$B = LayoutFactory::get('List', $this->Items);
+			echo $B->withTitle('')
+					->usingLayout('items/layouts/body_list')
+					->usingTemplate('items/templates/linked_list')
+					->withFooter()
+					->render();
+		#}
+		{# else: #}
+		  	{# echo $this->Channel->noContent(); #}
+		{# endif; #}
+	</div>
+</div>

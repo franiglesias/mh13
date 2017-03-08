@@ -1,0 +1,3 @@
+{% for tag in tags %}
+	<span class="mh-tag"><a href="/contents/channels/tagged/{{channel.slug}}/{{tag.Label.id}}" style="font-size: {{ 50 + (tag.Label.weight *50/ max)}}%">{{tag.Label.title}}</a></span>
+{% endfor %}

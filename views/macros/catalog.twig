@@ -28,3 +28,38 @@
     </div>
 </div>
 {% endmacro feed %}
+
+
+{% macro channel_index(article, image) %}
+{% set abstract = article.content|striptags|slice(0, 50) ~ '...' %}
+<div class="article media-object">
+    {% if image %}
+    <div class="media-object-section">
+        <div class="mh-image-crop x-large" style="background-image: url({{ image }})"></div>
+    </div>
+    {% endif %}
+    <div class="media-object-section main-section">
+        <h2><a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a></h2>
+        <div class="metadata">
+            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+        </div>
+        <p>{{ abstract }}</p>
+    </div>
+</div>
+{% endmacro channel_index %}
+
+{% macro channel_feed(article, channel, image) %}
+<div class="article media-object">
+    {% if image %}
+    <div class="media-object-section">
+        <div class="mh-image-crop small" style="background-image: url(/{{ image[0].path }})"></div>
+    </div>
+    {% endif %}
+    <div class="media-object-section main-section">
+        <h2><a href="/contents/items/view/{{ article.slug}}">{{ article.title }}</a></h2>
+        <div class="metadata">
+            <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
+        </div>
+    </div>
+</div>
+{% endmacro channel_feed %}

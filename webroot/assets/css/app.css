@@ -5934,7 +5934,11 @@ a.thumbnail {
 
 .mh-main-header {
   width: 100%;
-  height: 21.875rem; }
+  height: 21.875rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-origin: border-box;
+  background-size: cover; }
   .mh-main-header .bg {
     display: flex;
     width: 100%;
@@ -5949,6 +5953,8 @@ a.thumbnail {
       flex-wrap: wrap;
       justify-content: center;
       align-content: flex-end; }
+      .mh-main-header .bg .mh-text-block .text-center {
+        width: 100%; }
 
 #mh-direct-links {
   width: 100%;
@@ -5999,3 +6005,42 @@ a.thumbnail {
 .button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500; }
+
+.mh-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 150%;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+  background-color: #008000;
+  display: inline-block;
+  padding: 0.33333rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: default; }
+  .mh-tag a {
+    color: #fefefe; }
+
+.mh-image-crop {
+  position: relative;
+  overflow: hidden;
+  width: 51px;
+  height: 51px;
+  background-color: gray;
+  background-position: center;
+  background-size: cover; }
+  .mh-image-crop.small {
+    width: 51px;
+    height: 51px; }
+  .mh-image-crop.medium {
+    width: 81px;
+    height: 81px; }
+  .mh-image-crop.large {
+    width: 131px;
+    height: 131px; }
+  .mh-image-crop.x-large {
+    width: 210px;
+    height: 210px; }

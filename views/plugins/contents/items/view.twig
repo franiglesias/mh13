@@ -46,6 +46,6 @@
 	{% include 'plugins/contents/items/widgets/social.twig' %}
 	{% include 'plugins/contents/items/widgets/tags.twig' %}
 	{% include 'plugins/contents/items/widgets/neighbors.twig' %}
-	{% include 'plugins/contents/items/widgets/description.twig' %}
+	{% include 'plugins/contents/channels/widgets/description.twig' with {'channel' : item.Channel }%}
 	{{ blocks.widget('Licencia', item.License.code, 'fi-info' )}}
 {% endblock %}

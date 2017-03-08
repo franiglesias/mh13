@@ -8,6 +8,11 @@ $overlay-header-color: $black;
     width: 100%;
     height: rem-calc($main-header-height);
 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-origin: border-box;
+    background-size: cover;
+
     .bg
     {
         display: flex;
@@ -31,6 +36,11 @@ $overlay-header-color: $black;
             flex-wrap: wrap;
             justify-content: center;
             align-content: flex-end;
+
+            .text-center
+            {
+                width: 100%;
+            }
         }
     }
 }

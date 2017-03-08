@@ -1,0 +1,23 @@
+.mh-tag
+{
+    font:
+    {
+        family: $interface-font;
+        size: 150%;
+    }
+
+    display: inline-block;
+
+    margin-right: $global-margin / 2;
+    margin-bottom: $global-margin / 2;
+    padding: 0 $global-padding;
+
+    background-color: $success-color;
+
+    @include label;
+
+    a
+    {
+        color: $white;
+    }
+}

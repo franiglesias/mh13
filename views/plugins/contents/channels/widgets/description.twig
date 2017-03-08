@@ -1,0 +1,24 @@
+{% import 'macros/blocks.twig' as blocks %}
+
+{% set widget_body %}
+	<div class="media-object">
+		<div class="media-object-section">
+			<img src="/img/{{ channel.icon }}" alt="" width="51">
+		</div>
+		<div class="media-object-section main-section">
+			<p>{{ channel.tagline }}</p>
+		</div>
+	</div>
+	<div class="card">
+		<img src="/img/{{channel.image}}" alt="" width="100%">
+		<div class="card-section">
+			<p>{{channel.description|raw}}</p>
+		</div>
+		<div class="button-group tiny float-right">
+			<a href="/blog/{{channel.slug}}" class="button success fi-eye">Visita</a>
+			<a href="/contents/items/feed/{{channel.slug}}.rss" class="button secondary fi-rss">RSS</a>
+		</div>
+	</div>
+{% endset %}
+
+{{ blocks.widget(channel.title, widget_body, 'fi-megaphone') }}

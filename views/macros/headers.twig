@@ -5,13 +5,13 @@
 {% endmacro minimal %}
 
 {% macro minimal_with_image(title, image) %}
-<div class="mh-header" style="background: url(/{{ image.path }}); background-size: cover;">
+<div class="mh-header" style="background: url({{ image }}); background-size: cover;">
 	<h1>{{ title }}</h1>
 </div>
 {% endmacro minimal_with_image %}
 
 {% macro article(article, channel, image) %}
-<div class="mh-header" style="background: url(/{{ image.path }}); background-size: cover;">
+<div class="mh-header" style="background: url({{ image }}); background-size: cover;">
 	<div class="icon">
         <a href="blog/{{ channel.slug }}">{% include 'plugins/images/image/logo.twig' with {'image' : channel.logo} only %} {{channel.title}}</a></div>
 	<div class="rss"></div>
@@ -28,6 +28,31 @@
 	<h1>{{ article.title }}</h1>
 	{% include 'plugins/contents/items/widgets/header/author.twig' %}
 </div>
-
-
 {% endmacro article_no_image %}
+
+{% macro channel(title, lead, icon, background) %}
+<div class="mh-main-header" style="background: url({{ background }}); background-size: cover;">
+	<div class="bg">
+		<div class="mh-text-block">
+			<p class="text-center"><img src="{{ icon }}" alt="logotipo de {{ title }}" width="81" height="auto"></p>
+			<h1 class="text-center">{{ title }}</h1>
+			<p class="lead text-center">{{ lead }}</p>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro home(title, lead, url, background) %}
+<div class="mh-main-header" style="background: url({{ background }}); background-size: cover;">
+	<div class="bg">
+		<div class="mh-text-block">
+			<h1 class="text-center">{{ title }}</h1>
+			<p class="lead text-center">{{ lead }}</p>
+			{% if image.url %}
+			<p class="text-center"><a href="{{ url }}" class="small hollow secondary radius button fi-plus">Más información</a></p>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{% endmacro %}

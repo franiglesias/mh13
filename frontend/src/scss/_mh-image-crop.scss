@@ -1,0 +1,42 @@
+$image-small: 51px;
+$image-medium: 81px;
+$image-large: 131px;
+$image-x-large: 210px;
+
+.mh-image-crop
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 51px;
+    height: 51px;
+
+    background-color: gray;
+    background-position: center;
+    background-size: cover;
+
+    &.small
+    {
+        width: $image-small;
+        height: $image-small;
+    }
+
+    &.medium
+    {
+        width: $image-medium;
+        height: $image-medium;
+    }
+
+    &.large
+    {
+        width: $image-large;
+        height: $image-large;
+    }
+
+    &.x-large
+    {
+        width: $image-x-large;
+        height: $image-x-large;
+    }
+}

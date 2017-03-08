@@ -1,18 +1,10 @@
+{% import 'macros/headers.twig' as headers %}
+
 <div class="orbit" role="region" aria-label="Images gallery" data-orbit>
     <ul class="orbit-container">
         {% for image in images %}
             <li class="orbit-slide is-active">
-                <div class="mh-main-header" style="background: url(/{{ image.path }}); background-size: cover;">
-                    <div class="bg">
-                        <div class="mh-text-block">
-                            <h1 class="text-center">{{ image.name }}</h1>
-                            <p class="lead text-center">{{ image.description }}</p>
-                            {% if image.url %}
-                            <p class="text-center"><a href="{{ image.url }}" class="small hollow secondary radius button fi-plus">Más información</a></p>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
+                {{ headers.home(image.name, image.description, image.url, '/'~image.path) }}
             </li>
         {% endfor %}
     </ul>

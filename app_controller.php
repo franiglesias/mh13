@@ -162,6 +162,7 @@ class AppController extends Controller
         $this->twig->addGlobal('jsVars', $this->_jsVars);
         $this->twig->addGlobal('BaseUrl', Router::url('/', true));
         $this->twig->addGlobal('Auth', $this->Session->read('Auth'));
+        $this->twig->addGlobal('Params', $this->params);
     }
 
     protected function isRequestedViaAjax()
