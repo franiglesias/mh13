@@ -1,44 +1,44 @@
 {% macro widget(title, body, icon) %}
-<aside class="mh-widget">
-	<header>
-		<h1 class="{{ icon }}">{{ title|raw }}</h1>
-	</header>
-	<div class="body">
-        {{ body|raw }}
-	</div>
-</aside>
+    <aside class="mh-widget">
+        <header>
+            <h1 class="{{ icon }}">{{ title|raw }}</h1>
+        </header>
+        <div class="body">
+            {{ body|raw }}
+        </div>
+    </aside>
 {% endmacro %}
 
 {% macro widget_with_footer(title, body, footer, icon) %}
-<aside class="mh-widget">
-	<header>
-		<h1 class="{{ icon }}">{{ title|raw }}</h1>
-	</header>
-	<div class="body">
-        {{ body|raw }}
-	</div>
-    <footer>
-        {{ footer|raw }}
-    </footer>
-</aside>
+    <aside class="mh-widget">
+        <header>
+            <h1 class="{{ icon }}">{{ title|raw }}</h1>
+        </header>
+        <div class="body">
+            {{ body|raw }}
+        </div>
+        <footer>
+            {{ footer|raw }}
+        </footer>
+    </aside>
 {% endmacro %}
 
 {% macro media_object(image, body, class) %}
-<div class="media-object">
-	{% if image %}
-	<div class="media-object-section">
-		<img src="{{image}}" width="64" height="64" class="{{class|default('left')}}">
-	</div>
-	{% endif %}
-	<div class="media-object-section main-section">{{ body|raw }}</div>
-</div>
+    <div class="media-object">
+        {% if image %}
+            <div class="media-object-section">
+                <img src="{{image}}" width="64" height="64" class="{{class|default('left')}}">
+            </div>
+        {% endif %}
+        <div class="media-object-section main-section">{{ body|raw }}</div>
+    </div>
 {% endmacro media_object%}
 
 {% macro card(image, body) %}
-<div class="mh-card">
-	{% if image %}
-	<img src="/img/{{image}}" width="100%">
-	{% endif %}
-	<div class="body">{{ body|raw }}</div>
-</div>
+    <div class="mh-card">
+        {% if image %}
+            <img src="{{image}}" width="100%">
+        {% endif %}
+        <div class="body">{{ body|raw }}</div>
+    </div>
 {% endmacro card%}

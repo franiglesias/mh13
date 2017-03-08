@@ -86,7 +86,7 @@ class ImageCollectionsController extends UploadsAppController
             'conditions' => array('slug' => $slug),
         ));
         $this->autoRender = false;
-        echo $this->twig->render('plugins/images/collections/collection.twig', [
+        return $this->render('plugins/images/collections/collection.twig', [
             'collection' => $result['ImageCollection'],
             'images' => $result['Image'],
         ]);

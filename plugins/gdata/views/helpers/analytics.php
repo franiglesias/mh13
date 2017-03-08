@@ -26,7 +26,7 @@ class AnalyticsHelper extends AppHelper {
 			return false;
 		}
 		if ($view =& ClassRegistry::getObject('view')) {
-			echo $this->render($data['domain'], $data['id']);
+			return $this->render($data['domain'], $data['id']);
 		}
 	}
 	

@@ -1,7 +1,7 @@
 {% extends 'layouts/main.twig' %}
 {% block header %}
     {% import "macros/headers.twig" as headers %}
-    {{ headers.page(staticPage.StaticPage, '/'~staticPage.MainImage.path )}}
+    {{ headers.page(staticPage.StaticPage, staticPage.MainImage.path )}}
 {% endblock %}
 
 {% block content %}

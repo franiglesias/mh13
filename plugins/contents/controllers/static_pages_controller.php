@@ -30,7 +30,7 @@ class StaticPagesController extends ContentsAppController
         }
         $this->StaticPage->view($slug);
         $this->autoRender = false;
-        echo $this->twig->render('plugins/contents/static_pages/view.twig', ['staticPage' => $this->StaticPage->data]);
+        return $this->render('plugins/contents/static_pages/view.twig', ['staticPage' => $this->StaticPage->data]);
     }
 
     public function home($slug = null)

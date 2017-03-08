@@ -214,21 +214,19 @@ class ChannelsController extends ContentsAppController
             $this->paginate['Item']['level'] = $level_id;
         }
 
-        $data = array(
+        $data = [
             'channel' => $this->Channel->data,
             'items' => $this->paginate('Item'),
-            'tag' => $tag,
             'level_id' => $level_id,
-        );
+            'tag' => $tag,
+        ];
 
         if (!empty($this->params['requested'])) {
             return $data;
         }
-
         $this->setThemeAndLayout();
-        $this->set($data);
         $this->autoRender = false;
-        echo $this->twig->render(
+        return $this->render(
             'plugins/contents/channels/view.twig', [
                 'channel' => $data['channel']['Channel'],
                 'articles' => $data['items'],
@@ -297,7 +295,7 @@ class ChannelsController extends ContentsAppController
         $max = array_reduce($tags, function ($max, $tag) {
             return $tag['Label']['weight'] > $max ? $tag['Label']['weight'] : $max;
         });
-        echo $this->twig->render(
+        return $this->render(
             'plugins/contents/channels/widgets/tags.twig', [
                 'tags' => $tags,
                 'max' => $max,
@@ -319,8 +317,7 @@ class ChannelsController extends ContentsAppController
      */
     public function external()
     {
-        $this->autoRender = false;
-        echo $this->twig->render('plugins/contents/channels/external.twig', [
+        return $this->render('plugins/contents/channels/external.twig', [
             'channels' => $this->Channel->findExternal(),
         ]);
     }

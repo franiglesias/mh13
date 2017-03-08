@@ -4,7 +4,7 @@
     <ul class="orbit-container">
         {% for image in images %}
             <li class="orbit-slide is-active">
-                {{ headers.home(image.name, image.description, image.url, '/'~image.path) }}
+                {{ headers.home(image.name, image.description, image.url, image.path) }}
             </li>
         {% endfor %}
     </ul>

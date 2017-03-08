@@ -40,7 +40,7 @@ class CantineController extends CantineAppController
             'plugins/cantine/today.twig';
 
         $this->autoRender = false;
-        echo $this->twig->render(
+        return $this->render(
             $template, [
                 'meals' => $result[0]['CantineWeekMenu']['CantineDayMenu'][date('w') - 1],
                 'nutrition' => $result[0]['CantineWeekMenu'],

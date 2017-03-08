@@ -2,7 +2,7 @@
 
 {% block header %}
     {% import 'macros/headers.twig' as headers %}
-    {{ headers.article(item.Item, item.Channel, '/'~item.MainImage.path) }}
+    {{ headers.article(item.Item, item.Channel, item.MainImage.path) }}
     <div class="container mh-channel-menu">{# echo $this->Channel->menu(); #}</div>
 {% endblock %}
 

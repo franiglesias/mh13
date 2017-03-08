@@ -83,7 +83,7 @@ class EventsController extends CircularsAppController
             'plugins/circulars/nextevents.twig';
 
         $this->autoRender = false;
-        echo $this->twig->render(
+        return $this->render(
             $template,
             ['events' => $events]
         );

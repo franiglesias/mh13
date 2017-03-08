@@ -2,9 +2,9 @@
     {% for channel in channels %}
         <div class="column">
             {% if channel.Channel.icon %}
-                {% set icon = '/img/' ~channel.Channel.icon %}
+                {% set icon = channel.Channel.icon %}
             {% else %}
-                {% set icon = '/' ~ Site.icon %}
+                {% set icon = Site.icon %}
             {% endif %}
             <a href="/blog/{{ channel.Channel.slug }}">
                 <div class="media-object button">

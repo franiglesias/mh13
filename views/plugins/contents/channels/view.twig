@@ -1,12 +1,11 @@
 {% extends 'layouts/main.twig' %}
 {% block header %}
     {% import 'macros/headers.twig' as headers %}
-    {{ headers.channel(channel.title, channel.tagline, '/img/'~channel.icon, '/img/'~channel.image) }}
+    {{ headers.channel(channel.title, channel.tagline, channel.icon, channel.image) }}
     <div class="container mh-channel-menu">{# echo $this->Channel->menu(); #}</div>
 {% endblock %}
 
 {% block content %}
-    <p class="lead">{{channel.tagline}}</p>
     {% import 'macros/catalog.twig' as catalog %}
 
     {% for article in articles %}

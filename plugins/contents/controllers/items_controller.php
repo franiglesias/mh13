@@ -155,7 +155,7 @@ class ItemsController extends ContentsAppController
         }
         $this->set(compact('items'));
         $this->autoRender = false;
-        echo $this->twig->render('plugins/contents/items/catalog.twig', [
+        return $this->render('plugins/contents/items/catalog.twig', [
             'items' => $items,
             'layout' => $this->params['named']['layout'],
         ]);
@@ -221,7 +221,7 @@ class ItemsController extends ContentsAppController
         $this->set($data);
 
         $this->autoRender = false;
-        echo $this->twig->render('plugins/contents/items/view.twig', $data);
+        return $this->render('plugins/contents/items/view.twig', $data);
     }
 
     private function setTheme()

@@ -75,7 +75,7 @@ class BarsController extends MenusAppController
         $this->autoRender = false;
         $data = $this->Bar->getByTitle($bar, $this->Auth->user('id'));
 
-        echo $this->twig->render('plugins/menus/bars/menubar.twig', ['menubar' => $data]);
+        return $this->render('plugins/menus/bars/menubar.twig', ['menubar' => $data]);
     }
 
     public function widebar($bar)
@@ -83,6 +83,6 @@ class BarsController extends MenusAppController
         $this->autoRender = false;
         $data = $this->Bar->getByTitle($bar, $this->Auth->user('id'));
 
-        echo $this->twig->render('plugins/menus/bars/widebar.twig', ['menubar' => $data]);
+        return $this->render('plugins/menus/bars/widebar.twig', ['menubar' => $data]);
     }
 }

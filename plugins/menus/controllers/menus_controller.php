@@ -23,7 +23,7 @@ class MenusController extends MenusAppController
         try {
             $menu = $this->Menu->getByTitle($menuTitle, $this->Auth->user('id'));
             $this->autoRender = false;
-            echo $this->twig->render('plugins/menus/menu.twig', ['menu' => $menu]);
+            return $this->render('plugins/menus/menu.twig', ['menu' => $menu]);
         } catch (InvalidArgumentException $e) {
             return false;
         }

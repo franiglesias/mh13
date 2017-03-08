@@ -78,7 +78,7 @@ class PagesController extends AppController
         $template = 'pages/'.implode('/', $path).'.twig';
 
         $this->autoRender = false;
-        echo $this->twig->render($template, [
+        return $this->render($template, [
             'page' => $page,
             'subpage' => $subpage,
             'title_for_layout' => $title_for_layout,

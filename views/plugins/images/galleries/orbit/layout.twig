@@ -2,7 +2,7 @@
     <ul class="orbit-container">
         {% for image in images %}
             <li class="orbit-slide is-active">
-                <img class="orbit-image" src="/{{ image.path }}" alt="{{ image.title }}">
+                <img class="orbit-image" src="{{ image.path }}" alt="{{ image.title }}">
             </li>
         {% endfor %}
     </ul>

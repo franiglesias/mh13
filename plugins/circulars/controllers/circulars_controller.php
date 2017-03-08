@@ -257,7 +257,7 @@ class CircularsController extends CircularsAppController
             'plugins/circulars/current.twig';
 
         $this->autoRender = false;
-        echo $this->twig->render(
+        return $this->render(
             $template, [
                 'circulars' => $circulars,
             ]);

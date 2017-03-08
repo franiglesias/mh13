@@ -179,6 +179,21 @@ class AppController extends Controller
         return $this->Access->isAuthorizedToken($this->params);
     }
 
+
+    /**
+     * Generic Method to render template
+     *
+     * @param string $template
+     * @param array$vars
+     */
+    function render($template, $vars = null) {
+        $this->beforeRender();
+        $this->Component->triggerCallback('beforeRender', $this);
+        $this->autoRender = false;
+        $vars = array_merge($vars, ['Paging' => $this->paginate]);
+        return $this->twig->render($template, $vars);
+    }
+
     public function beforeRender()
     {
         // Error Layout
