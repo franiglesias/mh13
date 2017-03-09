@@ -1,8 +1,9 @@
-#mh-social
+#mh-social, #mh-metadata
 {
     li
     {
         display: inline-block !important;
+        margin-right: $global-margin /2;
 
         a
         {
@@ -11,7 +12,7 @@
                 family: $interface-font;
             };
 
-            padding: $global-padding / 2;
+            padding: 0;
 
             color: $dark-gray;
             &::before
@@ -30,7 +31,7 @@
 
                 color: #fff;
                 border-radius: 1000px;
-                background-color: $success-color;
+                background-color: $dark-gray;
             }
             &.fi-social-facebook::before
             {
@@ -49,8 +50,23 @@
 
             &.fi-social-instagram::before
             {
-                background-color: #3b5998;
+                background-color: #125688;
             };
+
+            &.fi-social-tumblr::before {
+                background-color: #32506d;
+            }
+        ;
+
+            &.fi-social-google-plus::before {
+                background-color: #dd4b39;
+            }
+        ;
+
+            &.fi-social-pinterest::before {
+                background-color: #cb2027;
+            }
+        ;
         }
     }
 }

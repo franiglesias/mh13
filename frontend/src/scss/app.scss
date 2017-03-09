@@ -55,6 +55,7 @@
 @include foundation-flex-classes;
 @include motion-ui-transitions;
 @include motion-ui-animations;
+@include foundation-card;
 
 @import 'foundation-icons';
 @import 'mh-media';
@@ -70,3 +71,4 @@
 @import 'mh-tags';
 @import 'mh-image-crop';
 @import 'mh-social'
+

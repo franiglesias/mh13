@@ -27,7 +27,7 @@ class CircularsController extends CircularsAppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('current', 'view', 'toggle');
+        $this->Auth->allow('*');
         $this->setJsVar('translate', Router::url(array(
             'plugin' => 'circulars',
             'controller' => 'circulars',
@@ -52,7 +52,6 @@ class CircularsController extends CircularsAppController
 
     public function view($id = null)
     {
-        try {
             $this->Circular->retrieve($id);
             $this->set('circular', $this->Circular->data);
             if ($this->params['url']['ext'] == 'pdf') {
@@ -60,10 +59,19 @@ class CircularsController extends CircularsAppController
                 $this->setAssets();
                 $this->set('show', true);
             }
-        } catch (Exception $e) {
-            $this->message('invalid');
-            $this->redirect(array('action' => 'index'));
+        return $this->render('plugins/circulars/view.twig', [
+            'circular' => $this->Circular->data
+        ]);
+
+    }
+
+    private function setAssets()
+    {
+        $assets = 'img' . DS . 'assets' . DS;
+        if (!empty($this->theme)) {
+            $assets = VIEWS . 'themed' . DS . $this->theme . DS . 'webroot' . DS . $assets;
         }
+        $this->set('assets', $assets);
     }
 
     public function review($id = null)
@@ -256,7 +264,6 @@ class CircularsController extends CircularsAppController
             'plugins/circulars/ajax/current.twig' :
             'plugins/circulars/current.twig';
 
-        $this->autoRender = false;
         return $this->render(
             $template, [
                 'circulars' => $circulars,
@@ -273,14 +280,5 @@ class CircularsController extends CircularsAppController
         $this->set(compact('circular', 'assets'));
         $this->set('show', false);
         $this->render('pdf/view');
-    }
-
-    private function setAssets()
-    {
-        $assets = 'img'.DS.'assets'.DS;
-        if (!empty($this->theme)) {
-            $assets = VIEWS.'themed'.DS.$this->theme.DS.'webroot'.DS.$assets;
-        }
-        $this->set('assets', $assets);
     }
 }

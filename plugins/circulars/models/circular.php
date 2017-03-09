@@ -105,16 +105,16 @@ class Circular extends CircularsAppModel {
 		$this->refreshCache();
 	}
 
-	function afterDelete() {
-		$this->refreshCache();
-	}
-	
 	private function refreshCache()
 	{
 		$this->_deleteCache('circulars_current');
 		$this->_deleteCache('events_next');
 	}
-	
+
+    function afterDelete()
+    {
+        $this->refreshCache();
+    }
 	
 /**
  * Manage duplication of Event and Addressee in Circular that has one attached
@@ -161,6 +161,7 @@ class Circular extends CircularsAppModel {
 			$fields = array(
 				'Circular.id',
 				'Circular.title',
+                'Circular.content',
 				'Circular.addressee',
 				'Circular.pubDate',
 				'Circular.filename',
@@ -213,24 +214,12 @@ class Circular extends CircularsAppModel {
 		return $results;
 	}
 
-
-/**
- * Returns file path to the PDF circular file
- *
- * @param string $id 
- * @return string the file path
- */
-	public function getFilePath($id = null)
-	{
-		$this->setId($id);
-		return 'files'.DS.$this->field('filename');
-	}
 /**
  * Reads current circular data
  *
- * @param string $id 
+ * @param string $id
  * @return circular data
- */	
+ */
 	public function load($id = null)
 	{
 		$this->setId($id);
@@ -247,7 +236,7 @@ class Circular extends CircularsAppModel {
 		}
 		return $circular;
 	}
-	
+
 	public function retrieve($id)
 	{
 		$this->setId($id);
@@ -269,6 +258,18 @@ class Circular extends CircularsAppModel {
 		$file = new File($this->getFilePath($id));
 		$file->delete();
 	}
+
+    /**
+     * Returns file path to the PDF circular file
+     *
+     * @param string $id
+     * @return string the file path
+     */
+    public function getFilePath($id = null)
+    {
+        $this->setId($id);
+        return 'files' . DS . $this->field('filename');
+    }
 	
 	public function init($type, $user_id)
 	{
@@ -297,6 +298,22 @@ class Circular extends CircularsAppModel {
 		));
 		$this->changeEventPublishedState(false);
 	}
+
+    private function changeEventPublishedState($state)
+    {
+        if ($this->field('publish_event') == false) {
+            $state = false;
+        }
+        $this->Event->id = Set::extract('/Event/id', $this->Event->find('first', array(
+            'fields' => array(
+                'id'
+            ),
+            'conditions' => array(
+                'Event.circular_id' => $this->id
+            )
+        )));
+        $this->Event->saveField('publish', $state);
+    }
 	
 	public function setToPublished($publisher_id)
 	{
@@ -307,8 +324,8 @@ class Circular extends CircularsAppModel {
 		$this->save(null, false, false);
 		$this->changeEventPublishedState(true);
 	}
-	
-	public function setToArchived($publisher_id)
+
+    public function setToArchived($publisher_id)
 	{
 		$this->set(array(
 			'status' => Circular::ARCHIVED,
@@ -318,7 +335,7 @@ class Circular extends CircularsAppModel {
 		$this->changeEventPublishedState(true);
 	}
 
-	public function setToRevoked($publisher_id)
+    public function setToRevoked($publisher_id)
 	{
 		$this->set(array(
 			'status' => Circular::REVOKED,
@@ -326,22 +343,6 @@ class Circular extends CircularsAppModel {
 		));
 		$this->save(null, false, false);
 		$this->changeEventPublishedState(false);
-	}
-	
-	private function changeEventPublishedState($state)
-	{
-		if ($this->field('publish_event') == false) {
-			$state = false;
-		}
-		$this->Event->id = Set::extract('/Event/id', $this->Event->find('first', array(
-			'fields' => array(
-				'id'
-			),
-			'conditions' => array(
-				'Event.circular_id' => $this->id
-			)
-		)));
-		$this->Event->saveField('publish', $state);
 	}
 	
 }

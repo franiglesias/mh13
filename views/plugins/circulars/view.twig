@@ -1,0 +1,17 @@
+{% extends 'layouts/main.twig' %}
+{% block content %}
+    <div class="card">
+        <header class="card-divider">
+            <h2>{{ circular.Circular.addressee.spa }}</h2>
+            <h1>{{ circular.CircularType.title }}: {{ circular.Circular.title.spa }}</h1>
+		</header>
+        <div class="card-section">
+            {{ circular.Circular.content.spa|nl2br }}
+            {# echo $this->element('circulars/'.$circular['CircularType']['template'].'/web', array('plugin' => 'circulars')); #}
+        </div>
+        <div class="card-divider">
+            <p><a href="https://www.jesuitinas.net/miralba/alumno/login.asp">Consulta la Plataforma educativa para más
+                    información.</a></p>
+        </div>
+	</div>
+{% endblock %}

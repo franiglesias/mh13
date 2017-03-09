@@ -68,14 +68,6 @@ class ItemsController extends ContentsAppController
         $this->render('ajax/readings', 'ajax');
     }
 
-    protected function updateReadingCount()
-    {
-        if (!$this->itemWasVisited()) {
-            $this->Item->updateReadingCount();
-            $this->updateVisitedSessionRegistry();
-        }
-    }
-
     private function itemWasVisited()
     {
         $visited = $this->Session->read('Items.visited');
@@ -188,8 +180,9 @@ class ItemsController extends ContentsAppController
         }
         $this->Item->retrieve($id);
         $this->set('preview', true);
-        $this->setAction('show');
+        return $this->setAction('show');
     }
+
     /**
      * Shows an Item.
      *
@@ -205,12 +198,11 @@ class ItemsController extends ContentsAppController
             $this->message('invalid');
             $this->redirect($this->referer());
         }
-        $this->setAction('show');
+        return $this->setAction('show');
     }
 
     public function show()
     {
-        $this->layout = 'story';
         $this->setTheme();
         $data = array(
             'item' => $this->Item->data,
@@ -218,9 +210,6 @@ class ItemsController extends ContentsAppController
             'backToIndex' => $this->backLink(),
             'neighbors' => $this->Item->neighbors(),
         );
-        $this->set($data);
-
-        $this->autoRender = false;
         return $this->render('plugins/contents/items/view.twig', $data);
     }
 
@@ -245,6 +234,7 @@ class ItemsController extends ContentsAppController
             $this->Item->data['Channel']['slug'],
             );
     }
+
     /**
      * Implements search for Items. Preserves pagination data via Session.
      */
@@ -268,9 +258,6 @@ class ItemsController extends ContentsAppController
     }
 
     /**
-     * Backend actions.
-     */
-    /**
      * Administrative index. Select only items owned by the current user.
      */
     public function index()
@@ -291,6 +278,27 @@ class ItemsController extends ContentsAppController
         $this->set('filterChannelsOptions', $channels);
         $this->set('items', $this->paginate('Item'));
         $this->_prepareLists();
+    }
+
+    /**
+     * Backend actions.
+     */
+
+    /**
+     * Prepare common data lists for some views.
+     */
+    protected function _prepareLists()
+    {
+        App::import('Model', 'School.Level');
+        $this->set(array(
+            'licenses' => $this->Item->License->find('list'),
+            'levels' => ClassRegistry::init('Level')->find('list'),
+        ));
+        if ($this->Access->isAuthorizedToken('//contents/administrator')) {
+            $this->set('channels', $this->Item->Channel->listActive());
+        } else {
+            $this->set('channels', $this->Item->Channel->findAvailable($this->Auth->user('id')));
+        }
     }
 
     /**
@@ -379,6 +387,22 @@ class ItemsController extends ContentsAppController
     }
 
     /**
+     * Gets all data needed to send a notification about a new Item pending for review to all editors in a channel.
+     *
+     * @param string $item
+     */
+    protected function _notifyNewItemToEditors($item)
+    {
+        $this->Item->Channel->load($item['Item']['channel_id']);
+        $to = Set::extract('/User/email', $this->Item->Channel->editors());
+        $user = $this->Auth->user();
+        // $channel = $this->Item->Channel->read(null, $item['Item']['channel_id']);
+        $channel = $this->Item->Channel->data;
+        $this->set(compact('user', 'channel', 'item'));
+        $this->Notify->send('item_created', $to, 'New Item in your Channel');
+    }
+
+    /**
      * Loads model data.
      *
      * @param string $id
@@ -399,39 +423,6 @@ class ItemsController extends ContentsAppController
         )));
         $this->data['Label'] = Set::extract('/Labelled/label_id', $labels);
         $this->restoreAppData();
-    }
-
-    /**
-     * Gets all data needed to send a notification about a new Item pending for review to all editors in a channel.
-     *
-     * @param string $item
-     */
-    protected function _notifyNewItemToEditors($item)
-    {
-        $this->Item->Channel->load($item['Item']['channel_id']);
-        $to = Set::extract('/User/email', $this->Item->Channel->editors());
-        $user = $this->Auth->user();
-        // $channel = $this->Item->Channel->read(null, $item['Item']['channel_id']);
-        $channel = $this->Item->Channel->data;
-        $this->set(compact('user', 'channel', 'item'));
-        $this->Notify->send('item_created', $to, 'New Item in your Channel');
-    }
-
-    /**
-     * Prepare common data lists for some views.
-     */
-    protected function _prepareLists()
-    {
-        App::import('Model', 'School.Level');
-        $this->set(array(
-            'licenses' => $this->Item->License->find('list'),
-            'levels' => ClassRegistry::init('Level')->find('list'),
-        ));
-        if ($this->Access->isAuthorizedToken('//contents/administrator')) {
-            $this->set('channels', $this->Item->Channel->listActive());
-        } else {
-            $this->set('channels', $this->Item->Channel->findAvailable($this->Auth->user('id')));
-        }
     }
 
     protected function passLabelsToView()
@@ -526,6 +517,14 @@ class ItemsController extends ContentsAppController
         $comments = array();
         // $comments = $this->Item->Comment->find('all', compact('conditions'));
         return $comments;
+    }
+
+    protected function updateReadingCount()
+    {
+        if (!$this->itemWasVisited()) {
+            $this->Item->updateReadingCount();
+            $this->updateVisitedSessionRegistry();
+        }
     }
 
     /**
