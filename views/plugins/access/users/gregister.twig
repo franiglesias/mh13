@@ -1,0 +1,44 @@
+{% extends 'layouts/main.twig' %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    <header>
+        <h1>Crea una cuenta nueva</h1>
+    </header>
+    <p class="callout success">Por favor, introduce los datos solicitados para completar la creación de tu cuenta.</p>
+    <form action="/access/users/gregister" id="UserGregisterForm" method="post" accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="POST"><input type="hidden"
+                                                                                           name="data[_Token][key]"
+                                                                                           value="c842ae118dfa7512b39d8ca3aea6517e12bb6c9c"
+                                                                                           id="Token461436118"></div>
+        <fieldset>
+            <legend>Confirma estos datos, por favor:</legend>
+            <label>
+                Usuario/a
+                <input name="data[User][username]" type="text" value="{{ data.User.username }}" id="UserUsername">
+
+            </label>
+            <label>Correo electrónico
+                <input name="data[User][email]" type="email"
+                       value="{{ data.User.email }}"
+                       id="UserEmail">
+            </label>
+            <label>Nombre real
+                <input name="data[User][realname]" type="text" value="{{ data.User.realname }}" id="UserRealname">
+            </label>
+            <label>Cargo o comentario
+                <textarea name="data[User][bio]" rows="5" id="{{ data.User.bio }}"></textarea>
+            </label>
+        </fieldset>
+
+        <input type="hidden" name="data[_App][referer]" id="_AppReferer">
+        <input name="done" value="Crea mi cuenta, por favor."
+               class="button primary float-right" type="submit">
+
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="3db68162a54053bdb176ef5b15ef926e7268102a%3A_App.referer"
+                                          id="TokenFields2113998733"></div>
+    </form>
+
+{% endblock %}

@@ -38,8 +38,7 @@ class UsersController extends AccessAppController {
 		$this->User->getActive($user['User']['username']);
 		if ($this->User->null()) {
 			$this->storeUserDataInSession($user);
-			$this->setAction('gregister', $user);
-			return;
+            return $this->setAction('gregister', $user);
 		}
 		$this->loginUser($this->User);
 	}
@@ -67,7 +66,7 @@ class UsersController extends AccessAppController {
  *
  * @return void
  */
-	public function gregister($userData)
+    public function gregister($userData = null)
 	{
 		$this->layout = 'access';
 		// Check if the access to this action is a valid one
@@ -100,7 +99,7 @@ class UsersController extends AccessAppController {
 		if (empty($this->data)) {
 			$this->preloadFormData($userData);
 		}
-
+        return $this->render('plugins/access/users/gregister.twig', ['data' => $this->data]);
 	}
 
 	private function checkValidGoogleAppsRegistrationAttempt($userData)
@@ -315,7 +314,7 @@ class UsersController extends AccessAppController {
 					$this->data['User']['email'],
 					__d('access','Thanks for registering.', true)
 					);
-				$this->render($template);
+                return $this->render('plugins/access/users/register.twig');
 			} catch (Exception $e) {
 				$this->Session->setFlash(__d('access', 'Something went wrong with your account. Please, try again.', true), 'flash_error');
 				$this->_resetPasswordErrors();
@@ -365,6 +364,7 @@ class UsersController extends AccessAppController {
 			$this->Session->setFlash(__('Invalid or expired ticket.', true),  'flash_error');
 			$this->redirect('/');
 		}
+        return $this->render('plugins/access/users/confirm.twig');
 	}
 
 /**

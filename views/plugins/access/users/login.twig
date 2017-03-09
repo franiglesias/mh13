@@ -1,4 +1,6 @@
 {% extends 'layouts/main.twig' %}
+{% block header %}
+{% endblock %}
 {% block content %}
     <header>
         <h1>Acceso a {{ Site.title }}</h1>
@@ -55,28 +57,26 @@
             </div>
             <fieldset>
                 <legend>Acceder</legend>
-                <div class="row">
-                    <div class="small-12 columns" id="divUserUsername">
-                        <label>
-                            Usuario:
-                            <input name="data[User][username]" type="text" id="UserUsername">
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns" id="divUserPassword">
-                        <label>
-                            Contraseña:
-                            <input type="password" name="data[User][password]" id="UserPassword">
-                        </label>
-                    </div>
-                </div>
+
+
+                <label>
+                    Usuario:
+                    <input name="data[User][username]" type="text" id="UserUsername">
+                </label>
+
+
+                <label>
+                    Contraseña:
+                    <input type="password" name="data[User][password]" id="UserPassword">
+                </label>
+
+
             </fieldset>
-            <div class="row column">
-                <input type="hidden" name="data[_App][referer]" id="_AppReferer">
-                <a href="/access/users/forgot" class="button secondary float-left">¿Olvidaste la contraseña?</a>
-                <input name="done" value="Acceder" class="button primary float-right" type="submit">
-            </div>
+
+            <input type="hidden" name="data[_App][referer]" id="_AppReferer">
+            <a href="/access/users/forgot" class="button secondary float-left">¿Olvidaste la contraseña?</a>
+            <input name="done" value="Acceder" class="button primary float-right" type="submit">
+
             <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
                                               value="af9469290119e570700b32af58e2293a091fd202%3A_App.referer"
                                               id="TokenFields1105866753"></div>
@@ -87,4 +87,9 @@
 
 
     </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'plugins/access/widgets/forgot.twig' %}
+    {% include 'plugins/access/widgets/registration.twig' %}
 {% endblock %}

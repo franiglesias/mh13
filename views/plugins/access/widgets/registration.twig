@@ -1,0 +1,9 @@
+{% import 'macros/blocks.twig' as blocks %}
+{% set body %}
+    {% if Access.registration != 'no' %}
+        <p><a href="/access/users/register" class="button primary expand">Regístrate ahora</a></p>
+    {% else %}
+        <p>No está permitido registrase al público en general.</p>
+    {% endif %}
+{% endset %}
+{{ blocks.widget('Registro', body, key) }}
