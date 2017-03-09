@@ -159,16 +159,22 @@ class AppController extends Controller
         $this->twig->addGlobal('Home', Configure::read('Home'));
         $this->twig->addGlobal('Analytics', Configure::read('Analytics'));
         $this->twig->addGlobal('SchoolYear', Configure::read('SchoolYear'));
+        $this->twig->addGlobal('GApps', Configure::read('GApps'));
+
         $this->twig->addGlobal('jsVars', $this->_jsVars);
         $this->twig->addGlobal('BaseUrl', Router::url('/', true));
         $this->twig->addGlobal('Auth', $this->Session->read('Auth'));
         $this->twig->addGlobal('Params', $this->params);
     }
 
-    protected function isRequestedViaAjax()
+    /**
+     * http://www.sanisoft.com/blog/2010/09/20/cakephp-passing-data-from-controller-to-javascript-files/.
+     */
+    public function setJsVar($name, $value)
     {
-        return (!empty($this->params['requested'])) || $this->RequestHandler->isAjax();
+        $this->_jsVars[$name] = $value;
     }
+
     /**
      * Wraps AccessComponent->isAuthorized.
      *
@@ -178,54 +184,6 @@ class AppController extends Controller
     {
         return $this->Access->isAuthorizedToken($this->params);
     }
-
-
-    /**
-     * Generic Method to render template
-     *
-     * @param string $template
-     * @param array$vars
-     */
-    function render($template, $vars = null) {
-        $this->beforeRender();
-        $this->Component->triggerCallback('beforeRender', $this);
-        $this->autoRender = false;
-        $vars = array_merge($vars, ['Paging' => $this->paginate]);
-        return $this->twig->render($template, $vars);
-    }
-
-    public function beforeRender()
-    {
-        // Error Layout
-        $this->_setErrorLayout();
-        // Pass needed vars to JS
-        $this->set('jsVars', $this->_jsVars);
-        $this->set('Site', Configure::read('Site'));
-
-        // Force browser to reload the page instead of showing the cached view
-        if (in_array($this->action, array('delete', 'logout', 'index'))) {
-            $this->disableCache();
-        }
-
-        if (!empty($this->selectionActions) && ($this->action == 'index' || $this->action == 'selection')) {
-            $this->set('selectionActions', $this->selectionActions);
-        }
-
-        // Globally manages print named param setting layout to print
-        if (!empty($this->params['named']['print'])) {
-            $this->layout = 'print';
-        }
-    }
-
-    public function _setErrorLayout()
-    {
-        if ($this->name == 'CakeError' && !defined('CAKE_TEST_EXECUTION')) {
-            $this->layout = 'error';
-            $this->log(sprintf('[%s] %s: %s', $this->viewVars['code'], $this->viewVars['name'], $this->viewVars['message']), 'mh-error');
-        }
-    }
-
-    // Redirection management
 
     /**
      * Saves referer when needed for 2-pass controller action.
@@ -241,50 +199,6 @@ class AppController extends Controller
             return;
         }
         $this->data['_App']['referer'] = $this->referer();
-    }
-
-    /**
-     * Resets stored referer.
-     *
-     * @author Fran Iglesias
-     */
-    public function resetReferer()
-    {
-        unset($this->data['_App']['referer']);
-    }
-
-    /**
-     * Redirects, managing Save and Work condition and stored referers.
-     *
-     * @param string $parent_id
-     * @param string $action
-     *
-     * @author Fran Iglesias
-     */
-    public function xredirect($parent_id = null, $action = 'index')
-    {
-        if (!empty($this->params['form']['save_and_work'])) {
-            return false;
-        }
-        if ($this->RequestHandler->isAjax()) {
-            $url = array('action' => $action, $parent_id);
-            $this->redirect($url);
-
-            return true;
-        }
-
-        if (!empty($this->data['_App']['referer'])) {
-            $referer = $this->data['_App']['referer'];
-            $this->resetReferer();
-            $this->redirect($referer);
-
-            return true;
-        }
-        $url = $this->referer();
-        if (method_exists($this, 'index')) {
-            $url = array('action' => 'index');
-        }
-        $this->redirect($url);
     }
 
     /**
@@ -309,22 +223,7 @@ class AppController extends Controller
         $this->tmp = null;
     }
 
-    // End redirect Management
-
-    /**
-     * http://www.sanisoft.com/blog/2010/09/20/cakephp-passing-data-from-controller-to-javascript-files/.
-     */
-    public function setJsVar($name, $value)
-    {
-        $this->_jsVars[$name] = $value;
-    }
-
-    /**
-     * Manage Secure deletion of models. Forces a POST request and shows a confirmation dialog.
-     *
-     * http://articles.classoutfit.com/cakephp-adding-a-delete-confirm-function/
-     * https://archive.ad7six.com/2007/08/23/Generic-capability-based-security-(CSRF-prevention).html
-     */
+    // Redirection management
 
     /**
      * Manage actions catch by Security Component.
@@ -378,6 +277,54 @@ class AppController extends Controller
     }
 
     /**
+     * Generic Method to render template
+     *
+     * @param string $template
+     * @param array $vars
+     */
+    function render($template, $vars = null)
+    {
+        $this->beforeRender();
+        $this->Component->triggerCallback('beforeRender', $this);
+        $this->autoRender = false;
+        $vars = array_merge($vars, ['Paging' => $this->paginate]);
+        return $this->twig->render($template, $vars);
+    }
+
+    public function beforeRender()
+    {
+        // Error Layout
+        $this->_setErrorLayout();
+        // Pass needed vars to JS
+        $this->set('jsVars', $this->_jsVars);
+        $this->set('Site', Configure::read('Site'));
+
+        // Force browser to reload the page instead of showing the cached view
+        if (in_array($this->action, array('delete', 'logout', 'index'))) {
+            $this->disableCache();
+        }
+
+        if (!empty($this->selectionActions) && ($this->action == 'index' || $this->action == 'selection')) {
+            $this->set('selectionActions', $this->selectionActions);
+        }
+
+        // Globally manages print named param setting layout to print
+        if (!empty($this->params['named']['print'])) {
+            $this->layout = 'print';
+        }
+    }
+
+    public function _setErrorLayout()
+    {
+        if ($this->name == 'CakeError' && !defined('CAKE_TEST_EXECUTION')) {
+            $this->layout = 'error';
+            $this->log(sprintf('[%s] %s: %s', $this->viewVars['code'], $this->viewVars['name'], $this->viewVars['message']), 'mh-error');
+        }
+    }
+
+    // End redirect Management
+
+    /**
      * Generic/default delete action for any controller.
      *
      * Set following fields as hidden
@@ -397,50 +344,11 @@ class AppController extends Controller
     }
 
     /**
-     * Receives Selection data and prepares for a confirm action. Assumes find('list') can provide
-     * a significative identity for the model. Set displayField as needed in the model. Heavily relies
-     * in cakephp naming conventions.
+     * Manage Secure deletion of models. Forces a POST request and shows a confirmation dialog.
+     *
+     * http://articles.classoutfit.com/cakephp-adding-a-delete-confirm-function/
+     * https://archive.ad7six.com/2007/08/23/Generic-capability-based-security-(CSRF-prevention).html
      */
-    public function selection()
-    {
-        $ids = array();
-        // debug($this->data);
-        foreach ($this->data[$this->modelClass]['id'] as $id => $selected) {
-            if ($selected) {
-                $ids[] = $id;
-            }
-        }
-        if (empty($ids)) {
-            $this->Session->setFlash(__d('errors', 'Nothing selected.', true), 'flash_error');
-            $this->redirect($this->referer());
-        }
-        $referer = $this->referer();
-        $action = $this->data['_Selection']['action'];
-        $records = $this->{$this->modelClass}->find('list', array('conditions' => array($this->modelClass.'.id' => $ids)));
-        $this->set(compact('referer', 'action', 'records'));
-        $this->set('modelClass', $this->modelClass);
-        $this->render('/elements/confirm/selection');
-    }
-
-    /**
-     * Generic action to postprocess selections.
-     */
-    public function executeSelection()
-    {
-        if (empty($this->data)) {
-            $this->redirect($this->referer());
-        }
-        $this->autoRender = false;
-        $action = '_'.$this->data['_Selection']['action'];
-        if (!method_exists($this, $action)) {
-            $this->Session->setFlash(__d('errors', 'No action performed on selection.', true), 'flash_error');
-            $this->log(sprintf('Action %s doesn\'t exists on model %s', $action, $this->alias), 'mh-error');
-            $this->redirect($this->data['_Selection']['referer']);
-        }
-        $ids = Set::extract($this->data, '/'.$this->modelClass.'/id');
-        $this->$action($ids);
-        $this->redirect($this->data['_Selection']['referer']);
-    }
 
     public function message($type = false)
     {
@@ -483,5 +391,100 @@ class AppController extends Controller
         $this->log($message, 'mh-messages');
 
         return $message;
+    }
+
+    /**
+     * Redirects, managing Save and Work condition and stored referers.
+     *
+     * @param string $parent_id
+     * @param string $action
+     *
+     * @author Fran Iglesias
+     */
+    public function xredirect($parent_id = null, $action = 'index')
+    {
+        if (!empty($this->params['form']['save_and_work'])) {
+            return false;
+        }
+        if ($this->RequestHandler->isAjax()) {
+            $url = array('action' => $action, $parent_id);
+            $this->redirect($url);
+
+            return true;
+        }
+
+        if (!empty($this->data['_App']['referer'])) {
+            $referer = $this->data['_App']['referer'];
+            $this->resetReferer();
+            $this->redirect($referer);
+
+            return true;
+        }
+        $url = $this->referer();
+        if (method_exists($this, 'index')) {
+            $url = array('action' => 'index');
+        }
+        $this->redirect($url);
+    }
+
+    /**
+     * Resets stored referer.
+     *
+     * @author Fran Iglesias
+     */
+    public function resetReferer()
+    {
+        unset($this->data['_App']['referer']);
+    }
+
+    /**
+     * Receives Selection data and prepares for a confirm action. Assumes find('list') can provide
+     * a significative identity for the model. Set displayField as needed in the model. Heavily relies
+     * in cakephp naming conventions.
+     */
+    public function selection()
+    {
+        $ids = array();
+        // debug($this->data);
+        foreach ($this->data[$this->modelClass]['id'] as $id => $selected) {
+            if ($selected) {
+                $ids[] = $id;
+            }
+        }
+        if (empty($ids)) {
+            $this->Session->setFlash(__d('errors', 'Nothing selected.', true), 'flash_error');
+            $this->redirect($this->referer());
+        }
+        $referer = $this->referer();
+        $action = $this->data['_Selection']['action'];
+        $records = $this->{$this->modelClass}->find('list', array('conditions' => array($this->modelClass . '.id' => $ids)));
+        $this->set(compact('referer', 'action', 'records'));
+        $this->set('modelClass', $this->modelClass);
+        $this->render('/elements/confirm/selection');
+    }
+
+    /**
+     * Generic action to postprocess selections.
+     */
+    public function executeSelection()
+    {
+        if (empty($this->data)) {
+            $this->redirect($this->referer());
+        }
+        $this->autoRender = false;
+        $action = '_' . $this->data['_Selection']['action'];
+        if (!method_exists($this, $action)) {
+            $this->Session->setFlash(__d('errors', 'No action performed on selection.', true), 'flash_error');
+            $this->log(sprintf('Action %s doesn\'t exists on model %s', $action, $this->alias), 'mh-error');
+            $this->redirect($this->data['_Selection']['referer']);
+        }
+        $ids = Set::extract($this->data, '/' . $this->modelClass . '/id');
+        $this->$action($ids);
+        $this->redirect($this->data['_Selection']['referer']);
+    }
+
+    protected function isRequestedViaAjax()
+    {
+        return (!empty($this->params['requested'])) || $this->RequestHandler->isAjax();
     }
 }

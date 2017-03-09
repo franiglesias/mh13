@@ -51,7 +51,15 @@ class UsersController extends AccessAppController {
 			'email' => $user['User']['email'],
 		));
 	}
-	
+
+    private function loginUser(User $User)
+    {
+        $User->connect();
+        $this->Auth->login($User->data);
+        // $this->Session->write('Auth.User.Role', $userData['Role']);
+        $this->redirect($this->Auth->redirect());
+    }
+
 /**
  * If GApps login is valid (the visitor has an account in the domain) but it is not registered in the application
  * show a form to complete the profile. This action is allowed if there is a session key GApps.Register.User with
@@ -98,10 +106,13 @@ class UsersController extends AccessAppController {
 	private function checkValidGoogleAppsRegistrationAttempt($userData)
 	{
 		$data = $this->Session->read('GApps.Register.User');
-		
+
 		return $userData['User']['username'] == $data['username'] &&
 				$userData['User']['email'] == $data['email'];
 	}
+
+
+# Login and login utility functions
 
 	private function preLoadFormData($userData)
 	{
@@ -113,9 +124,6 @@ class UsersController extends AccessAppController {
 			$this->data['User']['realname'] = ucfirst($userData['User']['username']);
 		}
 	}
-
-
-# Login and login utility functions
 
 /**
  * Manages login. This action copies the User roles in the Session and connection status
@@ -131,15 +139,10 @@ class UsersController extends AccessAppController {
 		if (!$this->User->null()) {
 			$this->loginUser($this->User);
 		}
-		$this->set('available', $this->GApi->available());
-	}
-
-	private function loginUser(User $User)
-	{
-		$User->connect();
-		$this->Auth->login($User->data);
-		// $this->Session->write('Auth.User.Role', $userData['Role']);
-		$this->redirect($this->Auth->redirect());
+//		$this->set('available', $this->GApi->available());
+        return $this->render('plugins/access/users/login.twig', [
+            'available' => $this->GApi->available()
+        ]);
 	}
 
 /**
@@ -238,12 +241,17 @@ class UsersController extends AccessAppController {
 		$this->restoreAppData();
 	}
 
+    protected function _setCommonOptions()
+    {
 
+        $roles = $this->User->Role->find('list');
+        $this->set(compact('roles'));
+    }
 
 /**
  * Activates an account. Sends an email to notify user.
  *
- * @param string $id 
+ * @param string $id
  * @return void
  */
 	public function activate($id) {
@@ -256,14 +264,15 @@ class UsersController extends AccessAppController {
 		} catch (InvalidArgumentException $e) {
 			$this->Session->setFlash(__d('access', 'Invalid User or User was active. No account was activated.', true),  'flash_error');
 		} catch (Exception $e) {
-			$this->Session->setFlash(__d('access', 'Account activated, but I\'ve been unable to send email.', true), 'flash_alert');	
+            $this->Session->setFlash(__d('access', 'Account activated, but I\'ve been unable to send email.', true), 'flash_alert');
 		}
 		$this->redirect($this->referer());
 	}
+
 /**
  * Deactivates an account. Sends an email to notify user.
  *
- * @param string $id 
+ * @param string $id
  * @return void
  */
 	public function deactivate($id) {
@@ -281,14 +290,12 @@ class UsersController extends AccessAppController {
 		$this->redirect($this->referer());
 	}
 
-
-
-/**
+    /**
  * Manages new User registration. Takes care of the user data and send and email
  * to confirm if necessary.
  *
  * @return void
- */	
+     */
 	public function register() {
 		$this->layout = 'access';
 		if (!$this->isRegistrationAllowed()) {
@@ -304,7 +311,7 @@ class UsersController extends AccessAppController {
 				$this->set('user', $this->data['User']);
 				$template = Configure::read('Access.registration').'_registration';
 				$result = $this->Notify->send(
-					$template, 
+                    $template,
 					$this->data['User']['email'],
 					__d('access','Thanks for registering.', true)
 					);
@@ -315,22 +322,39 @@ class UsersController extends AccessAppController {
 			}
 		}
 	}
-	
+
 	private function isRegistrationAllowed()
 	{
 		$registrationMode = Configure::read('Access.registration');
 		return in_array($registrationMode, array('auto', 'managed'));
 	}
 
+    /**
+     * Provide a simple way to manage passwords when validation errors happen.
+     *
+     * If a password validation error happens then reset the password
+     * If password is valid, then reset to the plain value in confirm_password
+     *
+     * @return void
+     */
+    protected function _resetPasswordErrors()
+    {
+        if (array_key_exists('password', $this->User->invalidFields())) {
+            $this->data['User']['password'] = $this->data['User']['confirm_password'] = '';
+        } else {
+            $this->data['User']['password'] = $this->data['User']['confirm_password'];
+        }
+    }
+
 /**
  * Manages second step in the registration process. User arrive here with a ticket
  * attached to a confirm registration method in the Model that activates the User.
  *
- * @param string $ticket 
+ * @param string $ticket
  * @return void
  */
 	public function confirm($ticket = null) {
-		$this->layout = 'access';		
+        $this->layout = 'access';
 
 		if (Configure::read('Access.registration') !== 'auto') {
 			$this->redirect('/');
@@ -343,7 +367,6 @@ class UsersController extends AccessAppController {
 		}
 	}
 
- 
 /**
  * Manages first step of password recovery. User arrive here and provide username
  * and/or email, so we can find him in the database and generate a ticket for recover.
@@ -357,7 +380,7 @@ class UsersController extends AccessAppController {
 		if (!empty($this->data)) {
 			try {
 				$this->User->forgot(
-					$this->data['User']['recovery_username'], 
+                    $this->data['User']['recovery_username'],
 					$this->data['User']['recovery_email']
 				);
 				$this->render('forgot_ticket_sent');
@@ -376,9 +399,9 @@ class UsersController extends AccessAppController {
  * We send the generated password by email and notify the user the result of the
  * operation.
  *
- * @param string $ticket 
+ * @param string $ticket
  * @return void
- */	
+ */
 	public function recover($ticket = null) {
 		$this->layout = 'access';
 		if (!$ticket || !($password = $this->User->redeemTicket($ticket))) {
@@ -417,47 +440,23 @@ class UsersController extends AccessAppController {
 		}
 	}
 
-/**
+    /**
  * Landing page for users in the application. The idea is to have a bunch of modules
  * to inform user of her status.
  *
  * Dashboard are *_dashboard.ctp files in any elements folder
  * $Folder for testing only
  * @return void
- */	
-	
+     */
+
 	public function dashboard($base = APP) {
 		$dashboards = glob($base.'plugins/*/views/elements/dashboards/*.ctp');
 		foreach ($dashboards as &$dashboard) {
 			$dashboard = preg_replace('/^.*plugins/', '', $dashboard);
 			$dashboard = str_replace(array('views'.DS, 'elements'.DS, '.ctp'), '', $dashboard);
 		}
-		// 
+        //
 		$this->set('dashboards', array_unique($dashboards));
-	}
-
-
-	
-/**
- * Provide a simple way to manage passwords when validation errors happen.
- * 
- * If a password validation error happens then reset the password
- * If password is valid, then reset to the plain value in confirm_password
- * 
- * @return void
- */	
-	protected function _resetPasswordErrors() {
-		if (array_key_exists('password', $this->User->invalidFields())) {
-			$this->data['User']['password'] = $this->data['User']['confirm_password'] = '';
-		} else {
-			$this->data['User']['password'] = $this->data['User']['confirm_password'];
-		}
-	}
-	
-	protected function _setCommonOptions() {
-		
-		$roles = $this->User->Role->find('list');
-		$this->set(compact('roles'));
 	}
 
 }

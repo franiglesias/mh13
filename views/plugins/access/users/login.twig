@@ -1,0 +1,90 @@
+{% extends 'layouts/main.twig' %}
+{% block content %}
+    <header>
+        <h1>Acceso a {{ Site.title }}</h1>
+    </header>
+
+    <div class="medium-up-2 row">
+        <div class="column">
+
+            <div id="login-with-google-apps" class="card">
+                {# if ($gappsLogin): #}
+
+                <div class="card-divider"><h2>Acceso con Google Apps</h2></div>
+                <div class="card-section">Si tienes una cuenta en alguno de estos dominios, utiliza este método para
+                    acceder.
+                    {% for domain in GApps.domain %}
+                        <p class="text-center">cuenta.ejemplo@{{ domain }}</p>
+                    {% endfor %}
+                    {# endforeach #}
+                </div>
+                <div class="card-section">
+                    <p>Te llevaremos al login de Google para que te identifiques con tu usuario y contraseña.</p>
+                    <p>Después de eso, te volveremos a traer de vuelta y te conectaremos automáticamente a nuestra
+                        web.</p>
+                </div>
+
+                <div class="card-divider text-center"><a href="/access/users/gauth" class="button primary medium">Conéctate
+                        con Google Apps</a></div>
+
+                {# endif #}
+            </div>
+        </div>
+        <div class="column">
+            <div id="login-standard" class="card">
+                <div class="card-divider"><h2>Acceso directo</h2></div>
+                <div class="card-section">
+                    <p>Accede con el usuario y contraseña creados durante el registro o que te haya proporcionado un
+                        administrador del sitio</p>
+                </div>
+                <div class="card-divider text-center">
+                    <a href="#" class="button secondary medium" data-open="mh-login-form">Accede con tus
+                        credenciales</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="mh-login-form" class="reveal" data-reveal>
+        <form action="/access/users/login" class="frontend" id="UserLoginForm" method="post" accept-charset="utf-8">
+            <div style="display:none;"><input type="hidden" name="_method" value="POST"><input type="hidden"
+                                                                                               name="data[_Token][key]"
+                                                                                               value="6922f91e84d893cc88d87f1a89b330482ab99c62"
+                                                                                               id="Token1714998501">
+            </div>
+            <fieldset>
+                <legend>Acceder</legend>
+                <div class="row">
+                    <div class="small-12 columns" id="divUserUsername">
+                        <label>
+                            Usuario:
+                            <input name="data[User][username]" type="text" id="UserUsername">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns" id="divUserPassword">
+                        <label>
+                            Contraseña:
+                            <input type="password" name="data[User][password]" id="UserPassword">
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="row column">
+                <input type="hidden" name="data[_App][referer]" id="_AppReferer">
+                <a href="/access/users/forgot" class="button secondary float-left">¿Olvidaste la contraseña?</a>
+                <input name="done" value="Acceder" class="button primary float-right" type="submit">
+            </div>
+            <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                              value="af9469290119e570700b32af58e2293a091fd202%3A_App.referer"
+                                              id="TokenFields1105866753"></div>
+        </form>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% import 'macros/blocks.twig' as blocks %}
 {% set widget_body %}
     <ul id="mh-metadata">
-        <li><a href="contents/items/view/{{ item.Item.slug }}" class="fi-link">Enlace</a></li>
+        <li><a href="/contents/items/view/{{ item.Item.slug }}" class="fi-link">Enlace</a></li>
         <li><a href="#" class="fi-calendar">{{ item.Item.pubDate|date('j/m/Y') }}</a></li>
 		{% if item.Item.expiration %}
             <li><a href="#" class="fi-alert">Válido hasta: {{ item.Item.expiration|date('j/m') }}</a></li>
@@ -13,7 +13,7 @@
             <li><a href="#mh-multimedia" class="fi-video">{{ item.Multimedia|length }} videos</a></li>
         {% endif %}
         {% if item.Download|length %}
-            <li><a href="mh-downloads" class="fi-download">{{ item.Download|length }} archivos</a></li>
+            <li><a href="#mh-downloads" class="fi-download">{{ item.Download|length }} archivos</a></li>
         {% endif %}
         <li><a class="fi-eye" id="mh-item-readings">0</a></li>
 	</ul>
