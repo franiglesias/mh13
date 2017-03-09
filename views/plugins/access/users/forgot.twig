@@ -1,0 +1,31 @@
+	<header>
+		<h1>Recupera tus credenciales olvidadas</h1>
+	</header>
+	<div class="body">
+		<p>Por favor, introducr tu nombre de usuario o correo para que podamos generar una nueva contraseña para ti.</p>
+		<p>Te enviaremos un email con un enlace para crear una nueva contraseña cuando lo necesites. Si finalmente decides que no necesitas o que no deseas recuperar la contraseña no tienes más que ignorar el mensaje.</p>
+		<p>Como último paso, te enviaremos una contraseña nueva. Por favor, accede cuanto antes para actulizarla.</p>
+	</div>
+
+{# echo $this->Form->create('User');#}
+	<fieldset>
+ 		<legend>{# printf(__d('access', 'Identification data', true)); #}</legend>
+		<div class="row">
+			{#
+			echo $this->FForm->input('recovery_username', array(
+				'label' => __d('access', 'Recovery Username', true),
+				'help' => __d('access', '<p>Your account username.</p>', true),
+			));
+			echo $this->FForm->email('recovery_email', array(
+				'label' => __d('access', 'Recovery Email', true),
+				'help' => __d('access', '<p>The email associated with your account.</p>', true),
+			));
+			#}
+		</div>
+	</fieldset>
+	{# echo $this->FForm->end(array(
+		'returnTo' => '/',
+		'saveAndWork' => false,
+		'discard' => __d('access', 'Forget about it', true),
+		'saveAndDone' => __d('access', 'Try to recover my credentials', true)
+	)); #}

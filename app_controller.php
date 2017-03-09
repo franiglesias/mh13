@@ -282,7 +282,7 @@ class AppController extends Controller
      * @param string $template
      * @param array $vars
      */
-    function render($template, $vars = null)
+    function render($template, $vars = [])
     {
         $this->beforeRender();
         $this->Component->triggerCallback('beforeRender', $this);
