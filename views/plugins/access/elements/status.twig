@@ -1,6 +1,6 @@
 	{% if Auth.User %}
-		<li><a href="/access/users/login"><i class="fi-key"></i></a></li>
-	{% else %}
 		<li><a href="/access/users/dashboard"><i class="fi-clipboard-notes"></i></a></li>
 		<li><a href="/access/users/logout"><i class="fi-power"></i></a></li>
+    {% else %}
+		<li><a href="/access/users/login"><i class="fi-key"></i></a></li>
 	{% endif %}
