@@ -3,21 +3,30 @@
 {% extends 'layouts/cantine.twig' %}
 {% block content %}
     <ul id="mh-home-page-tabs" class="tabs" data-tabs>
-        <li class="tabs-title is-active">
-            <a href="#mh-cantine-advice">Consejos</a>
-        </li>
         <li class="tabs-title">
-            <a href="#mh-cantine-today">Hoy</a>
+            <a href="#mh-cantine-today">Menú de hoy</a>
         </li>
 
         <li class="tabs-title">
-            <a href="#mh-cantine-week">Menú semanal</a>
+            <a href="#mh-cantine-week">Menú de la semana</a>
         </li>
         <li class="tabs-title">
             <a href="#mh-cantine-month">Menú del mes</a>
         </li>
+        <li class="tabs-title float-right is-active">
+            <a href="#mh-cantine-advice">Consejos</a>
+        </li>
     </ul>
     <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
+        <div class="tabs-panel" id="mh-cantine-today">
+            {{ modules.widget('mh-cantine-today-menu', '/cantine/cantine/today', 'Menú de hoy', '', 'mh-cantine-menu') }}
+        </div>
+        <div class="tabs-panel" id="mh-cantine-week">
+            {{ modules.widget('mh-cantine-week-menu', '/cantine/cantine/week', 'Menú de la semana', '', 'mh-cantine-menu') }}
+        </div>
+        <div class="tabs-panel" id="mh-cantine-month">
+            {{ modules.widget('mh-cantine-month-menu', '/cantine/cantine/month', 'Menú del mes', '', 'mh-cantine-menu') }}
+        </div>
         <div class="tabs-panel is-active" id="mh-cantine-advice">
             <header>
                 <h1>Guía para una vida sana y larga</h1>
@@ -48,15 +57,6 @@
                 <p>Y, por último, en la cúspide de la pirámide tenemos los alimentos que debemos tomar muy, muy, muy de
                     vez en cuando: dulces, bollería, helados, refrescos...</p>
             </div>
-        </div>
-        <div class="tabs-panel" id="mh-cantine-today">
-            {{ modules.widget('mh-cantine-today-menu', '/cantine/cantine/today', 'Menú de hoy', '', 'mh-cantine-menu') }}
-        </div>
-        <div class="tabs-panel" id="mh-cantine-week">
-            {{ modules.widget('mh-cantine-week-menu', '/cantine/cantine/week', 'Menú de la semana', '', 'mh-cantine-menu') }}
-        </div>
-        <div class="tabs-panel" id="mh-cantine-month">
-            {{ modules.widget('mh-cantine-month-menu', '/cantine/cantine/month', 'Menú del mes', '', 'mh-cantine-menu') }}
         </div>
     </div>
 
