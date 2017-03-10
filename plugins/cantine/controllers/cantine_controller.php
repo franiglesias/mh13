@@ -32,11 +32,11 @@ class CantineController extends CantineAppController
     /**
      * Returns the cantine menu for today.
      */
-    public function today()
+    public function today($short = false)
     {
         $result = $this->CantineMenuDate->find('today');
 
-        $template = $this->isRequestedViaAjax() ?
+        $template = $this->isRequestedViaAjax() && $short ?
             'plugins/cantine/ajax/today.twig' :
             'plugins/cantine/today.twig';
 
@@ -51,34 +51,29 @@ class CantineController extends CantineAppController
 
     public function week($week = false)
     {
-        if ($week) {
-            $range = array(
-                'start' => strtotime('last monday'),
-                'end' => strtotime('Friday this week'),
-            );
-        } else {
-            $range = array(
-                'start' => strtotime(date('Y-m-d')),
-                'end' => strtotime('+ 1 week'),
-            );
-        }
+        $range = array(
+            'start' => strtotime('last monday'),
+            'end' => strtotime('Friday this week'),
+        );
         $result = $this->CantineMenuDate->find('range', $range);
         $this->set(compact('range', 'result'));
+
+        return $this->render(
+            'plugins/cantine/week.twig',
+            [
+                'range' => $range,
+                'month' => $result,
+            ]
+        );
+
     }
 
     public function month($month = false)
     {
-        if ($month) {
-            $range = array(
-                'start' => strtotime(date('Y-m-01')),
-                'end' => strtotime(date('Y-m-t')),
-            );
-        } else {
-            $range = array(
-                'start' => strtotime(date('Y-m-d')),
-                'end' => strtotime('+ 1 month'),
-            );
-        }
+        $range = array(
+            'start' => strtotime(date('Y-m-01')),
+            'end' => strtotime(date('Y-m-t')),
+        );
         $result = $this->CantineMenuDate->find('range', $range);
 
         $this->set(compact('range', 'result'));

@@ -1,0 +1,32 @@
+{% import 'macros/headers.twig' as headers %}
+<!doctype html>
+<html class="no-js" lang="en">
+{{ include ('elements/page/head.twig') }}
+<body>
+{{ include('elements/page/analytics.twig') }}
+{{ include('elements/mh-global-navigation.twig') }}
+<div id="mh-messages">
+    {# echo $this->Session->flash(); #}
+    {# echo $this->Session->flash('auth'); #}
+    <div id="output"></div>
+</div>
+{% block header %}
+    {{ headers.simple('Servicio de comedor') }}
+{% endblock %}
+
+<div class="mh-page">
+    <div class="row">
+        <div class="small-12 columns">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+
+{{ include ('elements/page/foot.twig') }}
+{% block page_scripts %}
+{% endblock %}
+</body>
+</html>

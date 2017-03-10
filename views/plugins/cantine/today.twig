@@ -1,9 +1,7 @@
-<article>
-	<header>
-		<h1>Menú para hoy ({{ date()|date('l, j/n/Y') }}){# echo $this->Page->title(__d('cantine', 'Menu for today', true)); #}</h1>
-	</header>
+<h2>Menú para el día ({{ date()|date('l, j/n/Y') }}
+	){# echo $this->Page->title(__d('cantine', 'Menu for today', true)); #}</h2>
 	<div class="body">
-		<h2>Platos{# __d('cantine', 'Meals'); #}</h2>
+		<h3>Platos{# __d('cantine', 'Meals'); #}</h3>
 		<p>{{meals.menu|nl2br}}</p>
 		<h2>Información nutricional (media){# __d('cantine', 'Nutritional information (mean)'); #}</h2>
 		<dl class="mh-nutrition-facts">
@@ -17,4 +15,3 @@
 			<dd>{{nutrition.proteines}}</dd>
 		</dl>
 	</div>
-</article>

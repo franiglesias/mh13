@@ -29,7 +29,7 @@
 				{% include 'widgets/menu.twig' with {'title': 'Encuentranos en', 'menu': 'social', 'selector': 'mh-social', 'icon': 'fi-eye'} only %}
 				{{ modules.widget('mh-advert-charters', '/uploads/image_collections/collection/concertada', 'En colegios también puedes elegir') }}
 				{{ modules.widget('mh-next-events', '/circulars/events/next', 'Próximos eventos') }}
-				{{ modules.widget('mh-cantine-today', '/cantine/cantine/today',' Menú para hoy ('~ date()|date('l, j/n/Y') ~')') }}
+                {{ modules.widget('mh-cantine-today', '/cantine/cantine/today/1',' Menú para hoy ('~ date()|date('l, j/n/Y') ~')') }}
 				{{ modules.widget('mh-miralba-certifications', '/uploads/image_collections/collection/programas', 'Nuestras certificaciones') }}
 				{{ modules.widget('mh-current-circulars', '/circulars/circulars/current', 'Últimas circulares') }}
 				{% include 'widgets/menu.twig' with {'title': 'Proyectos', 'menu': 'proyectos', 'selector': 'mh-proyectos'} only %}

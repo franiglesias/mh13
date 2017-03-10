@@ -1,22 +1,35 @@
-<header>
-    <h1>Menú desde {{ range.start|date('j/m/Y') }}
-        hasta {{ range.end|date('j/m/Y') }}{# echo $this->Page->title($title); #}</h1>
-</header>
-{# echo $this->Cantine->table($result, $range); #}
+<h2>Menú desde {{ range.start|date('j/m/Y') }}
+    hasta {{ range.end|date('j/m/Y') }}{# echo $this->Page->title($title); #}</h2>
 
-{% set counter = 0 %}
+{% set days = 0 %}
+{% set current = range.start %}
 <table>
-    <thead></thead>
+    <thead>
+    <th>Lunes</th>
+    <th>Martes</th>
+    <th>Miércoles</th>
+    <th>Jueves</th>
+    <th>Viernes</th>
+    <th>Info. nutricional</th>
+    </thead>
     <tbody>
     {% for week in month %}
         <tr>
             {% for day in week.CantineWeekMenu.CantineDayMenu %}
-                {% set counter = counter + 1 %}
-                <td {% if date() == date(range.start) %}class="cantine-today"{% endif %}>
-                    <p>{{ range.start|date_modify("+"~counter~" days")|date("j/n/y") }}</p>
-                    {{ day.menu|nl2br }}
-                </td>
+                {% set weekday = current|date('w') %}
+                {% if loop.index == weekday %}
+                    <td {% if date(current)|date('ymd') == date()|date('ymd') %}class="today"{% endif %}>
+                        <p class="text-right">{{ current|date("j/n") }}</p>
+                        <p>{{ day.menu|nl2br }}</p>
+
+                    </td>
+                    {% set current = weekday < 5 ? current|date_modify('+1day') : current|date_modify('+3day') %}
+                {% else %}
+                    <td></td>
+                {% endif %}
+
             {% endfor %}
+
             <td>
                 <dl class="mh-nutrition-facts">
                     <dt>Calorías:</dt>
@@ -34,4 +47,3 @@
     {% endfor %}
     </tbody>
 </table>
-<pre>{{ dump(month) }}</pre>

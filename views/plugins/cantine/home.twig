@@ -1,24 +1,65 @@
-{% extends 'layouts/main.twig' %}
-{% block content %}
-	<header>
-        <h1>Guía para una vida sana y larga</h1>
-	</header>
-	<div class="body">
-        <img src="/assets/img/cantine/paponata.png" alt="" class="float-left">
+{% import 'macros/modules.twig' as modules %}
 
-        <p>La gallina Paponata es la envidia del corral, es la más fuerte y suma en cada piernapio un montón de años. ¿Quieres estar sano y vivir muchos, muchos años? Sigue sus consejos:</p>
-		<ul>
-			<li>Procura hacer 5 comidas al días: desayuno, media mañana, comida, merienda y cena</li>
-			<li>Bebe mucha agua, ¡cuanta más mejor! A tu cuerpo no le gustan nada los refrescos azucarados</li>
-			<li>Haz de porte y diviértete. No abuses de la tele, del ordenador y de la consola, ¿eh? A mover tus piernapios, tu cuerpo necesita moverse.</li>
-		</ul>
-		<p>Come sano, es fácil y divertido. Juega a combinar los alimentos de cada día.</p>
-		<h2>¡Diviértete con la pirámide nutricional!</h2>
-        <img src="/assets/img/cantine/piramide.png" alt="" class="float-right">
-		<p>Paponata sube y baja la pirámide nutricional a diario y va picoteando en cada escalón en función de su valor alimenticio. Ella ha aprendido a combinar los alimentos para tener una dieta saludable. ¿Quieres aprender?. Es muy fácil:</p>
-		<p>En el primer escalón tenemos los alimentos que debemos tomar todos los días, varias veces: cereales y derivados (pasta, pan, arroz).</p>
-		<p>En el segundo, muy importante tomar de 2 a 3 piezas de fruta al día. Y no os olvidéis de la leche, el queso y/o el yogur, que nos ayudan a crecer y a tener los huesos sanos y fuertes.</p>
-		<p>Dos raciones de los alimentos que están en el tercer escalón: pescado, carne, verdura, huevos...</p>
-		<p>Y, por último, en la cúspide de la pirámide tenemos los alimentos que debemos tomar muy, muy, muy de vez en cuando: dulces, bollería, helados, refrescos...</p>
-	</div>
+{% extends 'layouts/cantine.twig' %}
+{% block content %}
+    <ul id="mh-home-page-tabs" class="tabs" data-tabs>
+        <li class="tabs-title is-active">
+            <a href="#mh-cantine-advice">Consejos</a>
+        </li>
+        <li class="tabs-title">
+            <a href="#mh-cantine-today">Hoy</a>
+        </li>
+
+        <li class="tabs-title">
+            <a href="#mh-cantine-week">Menú semanal</a>
+        </li>
+        <li class="tabs-title">
+            <a href="#mh-cantine-month">Menú del mes</a>
+        </li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
+        <div class="tabs-panel is-active" id="mh-cantine-advice">
+            <header>
+                <h1>Guía para una vida sana y larga</h1>
+            </header>
+            <div class="body">
+                <img src="/assets/img/cantine/paponata.png" alt="" class="float-left">
+
+                <p>La gallina Paponata es la envidia del corral, es la más fuerte y suma en cada piernapio un montón de
+                    años. ¿Quieres estar sano y vivir muchos, muchos años? Sigue sus consejos:</p>
+                <ul>
+                    <li>Procura hacer 5 comidas al días: desayuno, media mañana, comida, merienda y cena</li>
+                    <li>Bebe mucha agua, ¡cuanta más mejor! A tu cuerpo no le gustan nada los refrescos azucarados</li>
+                    <li>Haz de porte y diviértete. No abuses de la tele, del ordenador y de la consola, ¿eh? A mover tus
+                        piernapios, tu cuerpo necesita moverse.
+                    </li>
+                </ul>
+                <p>Come sano, es fácil y divertido. Juega a combinar los alimentos de cada día.</p>
+                <h2>¡Diviértete con la pirámide nutricional!</h2>
+                <img src="/assets/img/cantine/piramide.png" alt="" class="float-right">
+                <p>Paponata sube y baja la pirámide nutricional a diario y va picoteando en cada escalón en función de
+                    su valor alimenticio. Ella ha aprendido a combinar los alimentos para tener una dieta saludable.
+                    ¿Quieres aprender?. Es muy fácil:</p>
+                <p>En el primer escalón tenemos los alimentos que debemos tomar todos los días, varias veces: cereales y
+                    derivados (pasta, pan, arroz).</p>
+                <p>En el segundo, muy importante tomar de 2 a 3 piezas de fruta al día. Y no os olvidéis de la leche, el
+                    queso y/o el yogur, que nos ayudan a crecer y a tener los huesos sanos y fuertes.</p>
+                <p>Dos raciones de los alimentos que están en el tercer escalón: pescado, carne, verdura, huevos...</p>
+                <p>Y, por último, en la cúspide de la pirámide tenemos los alimentos que debemos tomar muy, muy, muy de
+                    vez en cuando: dulces, bollería, helados, refrescos...</p>
+            </div>
+        </div>
+        <div class="tabs-panel" id="mh-cantine-today">
+            {{ modules.widget('mh-cantine-today-menu', '/cantine/cantine/today', 'Menú de hoy', '', 'mh-cantine-menu') }}
+        </div>
+        <div class="tabs-panel" id="mh-cantine-week">
+            {{ modules.widget('mh-cantine-week-menu', '/cantine/cantine/week', 'Menú de la semana', '', 'mh-cantine-menu') }}
+        </div>
+        <div class="tabs-panel" id="mh-cantine-month">
+            {{ modules.widget('mh-cantine-month-menu', '/cantine/cantine/month', 'Menú del mes', '', 'mh-cantine-menu') }}
+        </div>
+    </div>
+
+
+
 {% endblock %}

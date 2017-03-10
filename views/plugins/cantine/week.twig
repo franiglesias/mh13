@@ -1,0 +1,52 @@
+
+	<header>
+		<h1>Menú desde {{ range.start|date('j/m/Y') }}
+			hasta {{ range.end|date('j/m/Y') }}{# echo $this->Page->title($title); #}</h1>
+	</header>
+
+    {% set days = 0 %}
+    {% set current = range.start %}
+	<table>
+		<thead>
+		<th>Lunes</th>
+		<th>Martes</th>
+		<th>Miércoles</th>
+		<th>Jueves</th>
+		<th>Viernes</th>
+		<th>Info. nutricional</th>
+		</thead>
+		<tbody>
+        {% for week in month %}
+			<tr>
+                {% for day in week.CantineWeekMenu.CantineDayMenu %}
+                    {% set weekday = current|date('w') %}
+                    {% if loop.index == weekday %}
+						<td {% if date(current)|date('ymd') == date()|date('ymd') %}class="today"{% endif %}>
+							<p class="text-right">{{ current|date("j/n") }}</p>
+							<p>{{ day.menu|nl2br }}</p>
+
+						</td>
+                        {% set current = weekday < 5 ? current|date_modify('+1day') : current|date_modify('+3day') %}
+                    {% else %}
+						<td></td>
+                    {% endif %}
+
+                {% endfor %}
+
+				<td>
+					<dl class="mh-nutrition-facts">
+						<dt>Calorías:</dt>
+						<dd>{{ week.CantineWeekMenu.calories }}</dd>
+						<dt>Hidratos de carbono:</dt>
+						<dd>{{ week.CantineWeekMenu.glucides }}</dd>
+						<dt>Grasas:</dt>
+						<dd>{{ week.CantineWeekMenu.lipids }}</dd>
+						<dt>Proteínas:</dt>
+						<dd>{{ week.CantineWeekMenu.proteines }}</dd>
+					</dl>
+
+				</td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
