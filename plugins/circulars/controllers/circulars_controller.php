@@ -260,6 +260,9 @@ class CircularsController extends CircularsAppController
         }
 
         $circulars = $this->paginate();
+        if (isset($this->params['requested'])) {
+            return $circulars;
+        }
         $template = $this->isRequestedViaAjax() ?
             'plugins/circulars/ajax/current.twig' :
             'plugins/circulars/current.twig';
