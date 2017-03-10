@@ -1,31 +1,41 @@
-	<header>
-		<h1>Recupera tus credenciales olvidadas</h1>
-	</header>
-	<div class="body">
-		<p>Por favor, introducr tu nombre de usuario o correo para que podamos generar una nueva contraseña para ti.</p>
-		<p>Te enviaremos un email con un enlace para crear una nueva contraseña cuando lo necesites. Si finalmente decides que no necesitas o que no deseas recuperar la contraseña no tienes más que ignorar el mensaje.</p>
-		<p>Como último paso, te enviaremos una contraseña nueva. Por favor, accede cuanto antes para actulizarla.</p>
-	</div>
+{% extends 'layouts/access.twig' %}
 
-{# echo $this->Form->create('User');#}
-	<fieldset>
- 		<legend>{# printf(__d('access', 'Identification data', true)); #}</legend>
-		<div class="row">
-			{#
-			echo $this->FForm->input('recovery_username', array(
-				'label' => __d('access', 'Recovery Username', true),
-				'help' => __d('access', '<p>Your account username.</p>', true),
-			));
-			echo $this->FForm->email('recovery_email', array(
-				'label' => __d('access', 'Recovery Email', true),
-				'help' => __d('access', '<p>The email associated with your account.</p>', true),
-			));
-			#}
-		</div>
-	</fieldset>
-	{# echo $this->FForm->end(array(
-		'returnTo' => '/',
-		'saveAndWork' => false,
-		'discard' => __d('access', 'Forget about it', true),
-		'saveAndDone' => __d('access', 'Try to recover my credentials', true)
-	)); #}
+{% block content %}
+    <header>
+        <h1>Recupera tus credenciales olvidadas</h1>
+    </header>
+    <div class="body">
+        <p>Por favor, introduce tu nombre de usuario o correo para que podamos generar una nueva contraseña para ti.</p>
+        <p>Te enviaremos un email con un enlace para crear una nueva contraseña cuando lo necesites. Si finalmente
+            decides
+            que no necesitas o que no deseas recuperar la contraseña no tienes más que ignorar el mensaje.</p>
+        <p>Como último paso, te enviaremos una contraseña nueva. Por favor, accede cuanto antes para actulizarla.</p>
+    </div>
+
+    <form action="/access/users/forgot" id="UserForgotForm" method="post" accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="POST"><input type="hidden"
+                                                                                           name="data[_Token][key]"
+                                                                                           value="6c99f5814249ba826353372cf48293d7d24bc217"
+                                                                                           id="Token1834765045"></div>
+        <fieldset>
+            <legend>Datos de identificación</legend>
+            <label>Usuario/a
+                <input name="data[User][recovery_username]" type="text" id="UserRecoveryUsername">
+            </label>
+            <label>Correo electrónico
+                <input name="data[User][recovery_email]" type="email" id="UserRecoveryEmail">
+            </label>
+
+        </fieldset>
+        <input type="hidden" name="data[_App][referer]" id="_AppReferer">
+
+        <a href="/" class="button secondary top-left">Olvídalo</a>
+        <input name="done" value="Intenta recuperar mis credenciales"
+               class="button primary float-right" type="submit">
+
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="cdbb6261b501e01f951c31ca6dff83216128b638%3A_App.referer"
+                                          id="TokenFields1751588037"></div>
+    </form>
+
+{% endblock %}

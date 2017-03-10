@@ -1,6 +1,5 @@
-{% extends 'layouts/main.twig' %}
-{% block header %}
-{% endblock %}
+{% extends 'layouts/access.twig' %}
+
 {% block content %}
     <header>
         <h1>Acceso a {{ Site.title }}</h1>
@@ -89,7 +88,3 @@
     </div>
 {% endblock %}
 
-{% block sidebar %}
-    {% include 'plugins/access/widgets/forgot.twig' %}
-    {% include 'plugins/access/widgets/registration.twig' %}
-{% endblock %}

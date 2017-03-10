@@ -20,9 +20,18 @@
             <h1>{{ article.title }}</h1>
         </div>
     </div>
-
 </div>
 {% endmacro page %}
+
+{% macro simple(title, image) %}
+    <div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
+        <div class="bg">
+            <div class="mh-text-block">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    </div>
+{% endmacro simple %}
 
 {% macro site(title, description, image) %}
 <div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>

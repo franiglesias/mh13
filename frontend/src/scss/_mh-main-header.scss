@@ -1,7 +1,7 @@
 // Main header for Home Page
 // .bg div allows for a transparent div to be used to overlay background image and apply transparent color effect
 
-$main-header-height: rem-calc(350px);
+$main-header-height: 20rem;
 $overlay-header-color: $black;
 .mh-main-header
 {
@@ -35,7 +35,7 @@ $overlay-header-color: $black;
 
             flex-wrap: wrap;
             justify-content: center;
-            align-content: flex-end;
+            align-content: center;
 
             .text-center
             {

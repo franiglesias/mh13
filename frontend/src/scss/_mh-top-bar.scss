@@ -12,7 +12,15 @@
         i
         {
             color: $secondary-color;
+
+          &:before {
+            font-size: 2rem;
+            overflow: hidden;
+            max-height: 1rem;
+            line-height: 1rem;
+          }
         }
+
     }
 
     li.divider

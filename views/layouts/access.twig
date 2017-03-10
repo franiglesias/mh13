@@ -1,0 +1,39 @@
+{% import 'macros/headers.twig' as headers %}
+<!doctype html>
+<html class="no-js" lang="en">
+{{ include ('elements/page/head.twig') }}
+<body>
+{{ include('elements/page/analytics.twig') }}
+{{ include('elements/mh-global-navigation.twig') }}
+<div id="mh-messages">
+    {# echo $this->Session->flash(); #}
+    {# echo $this->Session->flash('auth'); #}
+    <div id="output"></div>
+</div>
+{% block header %}
+    {{ headers.simple('Acceso y registro') }}
+{% endblock %}
+
+<div class="mh-page">
+    <div class="row">
+        <div class="small-12 medium-8 columns">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+            {% block sidebar %}
+                {% include 'plugins/access/widgets/forgot.twig' %}
+                {% include 'plugins/access/widgets/registration.twig' %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+{{ include ('elements/page/foot.twig') }}
+{% block page_scripts %}
+{% endblock %}
+</body>
+</html>

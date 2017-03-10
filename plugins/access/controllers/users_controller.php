@@ -392,7 +392,7 @@ class UsersController extends AccessAppController {
 				$this->redirect(array('action' => 'forgot'));
 			}
 		}
-		$this->render('plugins/access/forgot.twig');
+        return $this->render('plugins/access/users/forgot.twig');
 	}
 
 /**
