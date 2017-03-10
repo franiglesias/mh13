@@ -27,6 +27,7 @@ class CantineController extends CantineAppController
 
     public function home()
     {
+        return $this->render('plugins/cantine/home.twig');
     }
     /**
      * Returns the cantine menu for today.
@@ -81,6 +82,14 @@ class CantineController extends CantineAppController
         $result = $this->CantineMenuDate->find('range', $range);
 
         $this->set(compact('range', 'result'));
+
+        return $this->render(
+            'plugins/cantine/month.twig',
+            [
+                'range' => $range,
+                'month' => $result,
+            ]
+        );
     }
 
     public function attendances($date = null)

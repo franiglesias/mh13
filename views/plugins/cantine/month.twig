@@ -1,0 +1,37 @@
+<header>
+    <h1>Menú desde {{ range.start|date('j/m/Y') }}
+        hasta {{ range.end|date('j/m/Y') }}{# echo $this->Page->title($title); #}</h1>
+</header>
+{# echo $this->Cantine->table($result, $range); #}
+
+{% set counter = 0 %}
+<table>
+    <thead></thead>
+    <tbody>
+    {% for week in month %}
+        <tr>
+            {% for day in week.CantineWeekMenu.CantineDayMenu %}
+                {% set counter = counter + 1 %}
+                <td {% if date() == date(range.start) %}class="cantine-today"{% endif %}>
+                    <p>{{ range.start|date_modify("+"~counter~" days")|date("j/n/y") }}</p>
+                    {{ day.menu|nl2br }}
+                </td>
+            {% endfor %}
+            <td>
+                <dl class="mh-nutrition-facts">
+                    <dt>Calorías:</dt>
+                    <dd>{{ week.CantineWeekMenu.calories }}</dd>
+                    <dt>Hidratos de carbono:</dt>
+                    <dd>{{ week.CantineWeekMenu.glucides }}</dd>
+                    <dt>Grasas:</dt>
+                    <dd>{{ week.CantineWeekMenu.lipids }}</dd>
+                    <dt>Proteínas:</dt>
+                    <dd>{{ week.CantineWeekMenu.proteines }}</dd>
+                </dl>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<pre>{{ dump(month) }}</pre>

@@ -56,6 +56,7 @@ gulp.task('watch', function () {
         'src/style/index.md', 'src/style/template.hbs'
     ], ['styleguide']);
     gulp.watch(htmlSource, ['html']);
+    gulp.watch(imgSource, ['copy-images']);
 });
 
 // SASS compile to CSS
