@@ -1,39 +1,37 @@
-.top-bar
-{
-    z-index: 1000;
-    ul li a
-    {
-        font-family: $interface-font;
-        font-size: 80%;
-        font-weight: 300;
+$icon-size: 2rem;
 
-        color: $black;
+.top-bar {
+  z-index: 1000;
+  ul li a {
+    font-family: $interface-font;
+    font-size: 80%;
+    font-weight: 300;
 
-        i
-        {
-            color: $secondary-color;
+    color: $black;
 
-          &:before {
-            font-size: 2rem;
-            overflow: hidden;
-            max-height: 1rem;
-            line-height: 1rem;
-          }
-        }
+    i {
+      color: $secondary-color;
+      display: inline-block;
+      float: left;
+      width: $icon-size;
 
+      &:before {
+        font-size: $icon-size;
+        max-height: 1rem;
+        line-height: 1rem;
+      }
     }
 
-    li.divider
-    {
-        height: 1px;
+  }
 
-        border-bottom: 1px solid $medium-gray;
-    }
+  li.divider {
+    height: 1px;
 
+    border-bottom: 1px solid $medium-gray;
+  }
 
-    .top-bar-title
-    {
-        font-family: $interface-font;
-        font-size: 80%;
-    }
+  .top-bar-title {
+    font-family: $interface-font;
+    font-size: 80%;
+  }
 }
