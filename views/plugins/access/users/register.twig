@@ -1,0 +1,49 @@
+{% extends 'layouts/access.twig' %}
+{% block content %}
+    <header>
+        <h1>Vamos a crear una cuenta nueva</h1>
+    </header>
+    <div class="body">
+        <p>Por favor, introduce los siguientes datoa para crear una cuenta de acceso en este sitio web.</p>
+    </div>
+    <form action="/access/users/register" class="frontend" id="UserRegisterForm" method="post" accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="POST"><input type="hidden"
+                                                                                           name="data[_Token][key]"
+                                                                                           value="613821e54ad6cdbc69b76990eb043e23c2ec11ee"
+                                                                                           id="Token1731884058"></div>
+        <fieldset>
+            <legend>Crea tu cuenta</legend>
+
+
+            <label for="UserUsername">Usuario/a<input name="data[User][username]" type="text"
+                                                      id="UserUsername"></label>
+
+            <label for="UserRealname">Nombre real<input name="data[User][realname]" type="text"
+                                                        id="UserRealname"></label>
+
+
+            <label for="UserConfirmPassword">Contraseña<input type="password" name="data[User][confirm_password]"
+                                                              id="UserConfirmPassword"></label>
+
+
+            <label for="UserPassword">Confirmar contraseña<input type="password" name="data[User][password]"
+                                                                 id="UserPassword"></label>
+
+
+            <label for="UserEmail">Correo electrónico<input name="data[User][email]" type="email"
+                                                            id="UserEmail"></label>
+
+
+            <label for="UserConfirmEmail">Confirmar correo<input name="data[User][confirm_email]" type="email"
+                                                                 id="UserConfirmEmail"></label>
+
+        </fieldset>
+        <input type="hidden" name="data[_App][referer]" id="_AppReferer">
+        <input name="done" value="Crea mi cuenta, por favor." class="button primary float-right" type="submit">
+
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="696b29e5f5677e8dcd6e62a1288f7bfd52002e25%3A_App.referer"
+                                          id="TokenFields77797760"></div>
+    </form>
+
+{% endblock %}

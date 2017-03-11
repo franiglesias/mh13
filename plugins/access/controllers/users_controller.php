@@ -297,35 +297,33 @@ class UsersController extends AccessAppController {
      */
 	public function register() {
 		$this->layout = 'access';
-		if (!$this->isRegistrationAllowed()) {
-			$this->redirect('/');
-		}
-		if (!empty($this->data)) {
-			// $this->User->create();
-			try {
-				$ticket = $this->User->register($this->data);
-				$msg = __d('access', 'The account %s has been created.', true);
-				$this->Session->setFlash(sprintf($msg, $this->data['User']['username']), 'flash_success');
-				$this->set(compact('ticket'));
-				$this->set('user', $this->data['User']);
-				$template = Configure::read('Access.registration').'_registration';
-				$result = $this->Notify->send(
+//		if (empty($this->data) || !$this->isRegistrationAllowed()) {
+//			$this->redirect('/');
+//		}
+        if (!empty($this->data)) {
+            // $this->User->create();
+            try {
+                $ticket = $this->User->register($this->data);
+                $msg = __d('access', 'The account %s has been created.', true);
+                $this->Session->setFlash(sprintf($msg, $this->data['User']['username']), 'flash_success');
+                $this->set(compact('ticket'));
+                $this->set('user', $this->data['User']);
+                $template = Configure::read('Access.registration').'_registration';
+                $result = $this->Notify->send(
                     $template,
 					$this->data['User']['email'],
 					__d('access','Thanks for registering.', true)
 					);
-                return $this->render('plugins/access/users/register.twig');
+
+                return $this->render('plugins/access/users/'.$template.'.twig');
 			} catch (Exception $e) {
 				$this->Session->setFlash(__d('access', 'Something went wrong with your account. Please, try again.', true), 'flash_error');
 				$this->_resetPasswordErrors();
 			}
 		}
-	}
+        $this->layout = false;
 
-	private function isRegistrationAllowed()
-	{
-		$registrationMode = Configure::read('Access.registration');
-		return in_array($registrationMode, array('auto', 'managed'));
+        return $this->render('plugins/access/users/register.twig');
 	}
 
     /**
@@ -459,6 +457,13 @@ class UsersController extends AccessAppController {
         //
 		$this->set('dashboards', array_unique($dashboards));
 	}
+
+    private function isRegistrationAllowed()
+    {
+        $registrationMode = Configure::read('Access.registration');
+
+        return in_array($registrationMode, array('auto', 'managed'));
+    }
 
 }
 
