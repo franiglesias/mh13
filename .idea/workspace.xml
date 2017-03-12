@@ -6,19 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/access/views/users/forgot_ticket_sent.ctp" afterPath="$PROJECT_DIR$/views/plugins/access/users/forgot_ticket_sent.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/access/views/users/managed_registration.ctp" afterPath="$PROJECT_DIR$/views/plugins/access/users/managed_registration.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/access/views/users/recover.ctp" afterPath="$PROJECT_DIR$/views/plugins/access/users/recover.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/access/views/users/register.ctp" afterPath="$PROJECT_DIR$/views/plugins/access/users/register.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/access/controllers/users_controller.php" afterPath="$PROJECT_DIR$/plugins/access/controllers/users_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/access/users/auto_registration.twig" afterPath="$PROJECT_DIR$/views/plugins/access/users/auto_registration.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/css/app.css" afterPath="$PROJECT_DIR$/webroot/assets/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/react.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/contents/channels/external.twig" afterPath="$PROJECT_DIR$/views/plugins/contents/channels/external.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,7 +36,48 @@
     <favorites_list name="mh13" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="credits.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pages/credits.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pages/home.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mh-footer.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/elements/mh-footer.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="external.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/plugins/contents/channels/external.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="84" lean-forward="false" selection-start-line="3" selection-start-column="84" selection-end-line="3" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -84,9 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/menus/controllers/menus_controller.php" />
-        <option value="$PROJECT_DIR$/plugins/uploads/controllers/image_collections_controller.php" />
-        <option value="$PROJECT_DIR$/controllers/pages_controller.php" />
         <option value="$PROJECT_DIR$/plugins/contents/controllers/channels_controller.php" />
         <option value="$PROJECT_DIR$/views/plugins/contents/channels/view.twig" />
         <option value="$PROJECT_DIR$/views/layouts/site.ctp" />
@@ -135,6 +162,9 @@
         <option value="$PROJECT_DIR$/views/plugins/access/users/auto_registration.twig" />
         <option value="$PROJECT_DIR$/plugins/access/controllers/users_controller.php" />
         <option value="$PROJECT_DIR$/views/plugins/access/users/register.twig" />
+        <option value="$PROJECT_DIR$/views/pages/credits.twig" />
+        <option value="$PROJECT_DIR$/views/pages/home.twig" />
+        <option value="$PROJECT_DIR$/views/plugins/contents/channels/external.twig" />
       </list>
     </option>
   </component>
@@ -346,7 +376,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="access" />
+              <option name="myItemId" value="contents" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -368,11 +398,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="access" />
+              <option name="myItemId" value="contents" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
+              <option name="myItemId" value="channels" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -744,7 +774,7 @@
       <workItem from="1489134530186" duration="21117000" />
       <workItem from="1489163861533" duration="1050000" />
       <workItem from="1489165468569" duration="61000" />
-      <workItem from="1489245061767" duration="6875000" />
+      <workItem from="1489245061767" duration="8975000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -823,11 +853,25 @@
       <option name="project" value="LOCAL" />
       <updated>1489165357972</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Finishing Access public pages">
+      <created>1489256098822</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1489256098822</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixing credits">
+      <created>1489256439051</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1489256439051</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54837000" />
+    <option name="totallyTimeSpent" value="56937000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -879,7 +923,9 @@
     <MESSAGE value="Several header an top.menu adjustments" />
     <MESSAGE value="Hack to recover previous backend" />
     <MESSAGE value="Starting cantine main pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting cantine main pages" />
+    <MESSAGE value="Finishing Access public pages" />
+    <MESSAGE value="Fixing credits" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing credits" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -889,34 +935,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/layouts/main.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="79" lean-forward="false" selection-start-line="31" selection-start-column="79" selection-end-line="31" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/cantine/controllers/cantine_week_menus_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/plugins/cantine/month.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/cantine.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cantine/controllers/cantine_controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1288,7 +1306,7 @@
           <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding>
             <element signature="e#405#426#0#HTML" expanded="true" />
-            <element signature="e#2322#2343#0#HTML" expanded="true" />
+            <element signature="e#2321#2342#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1297,6 +1315,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="321" column="9" lean-forward="true" selection-start-line="321" selection-start-column="9" selection-end-line="321" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/credits.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/home.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/elements/mh-footer.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/plugins/contents/channels/external.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="84" lean-forward="false" selection-start-line="3" selection-start-column="84" selection-end-line="3" selection-end-column="84" />
           <folding />
         </state>
       </provider>

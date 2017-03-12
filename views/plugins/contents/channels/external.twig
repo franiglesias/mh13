@@ -1,15 +1,11 @@
 <div class="small-up-1 medium-up-4 large-up-6 row">
     {% for channel in channels %}
         <div class="column">
-            {% if channel.Channel.icon %}
-                {% set icon = channel.Channel.icon %}
-            {% else %}
-                {% set icon = Site.icon %}
-            {% endif %}
+            {% set icon = channel.Channel.icon ? channel.Channel.icon : Site.icon %}
             <a href="/blog/{{ channel.Channel.slug }}">
                 <div class="media-object button">
                     <div class="media-object-section align-self-center">
-                        <img src="{{icon}}" alt="" width="48">
+                        <img src="{{ icon }}" alt="" width="32">
                     </div>
                     <div class="media-object-section main-section text-left">{{ channel.Channel.title }}</div>
                 </div>
