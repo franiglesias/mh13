@@ -5,9 +5,8 @@
     <option name="CUSTOM_SCOPE_NAME" value="Open Files" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
+    <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="Minor touches to the channels main index">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/contents/channels/external.twig" afterPath="$PROJECT_DIR$/views/plugins/contents/channels/external.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -774,7 +773,7 @@
       <workItem from="1489134530186" duration="21117000" />
       <workItem from="1489163861533" duration="1050000" />
       <workItem from="1489165468569" duration="61000" />
-      <workItem from="1489245061767" duration="8975000" />
+      <workItem from="1489245061767" duration="9028000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -867,11 +866,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489256439051</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Minor touches to the channels main index">
+      <created>1489347691337</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1489347691337</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56937000" />
+    <option name="totallyTimeSpent" value="56990000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -925,7 +931,8 @@
     <MESSAGE value="Starting cantine main pages" />
     <MESSAGE value="Finishing Access public pages" />
     <MESSAGE value="Fixing credits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing credits" />
+    <MESSAGE value="Minor touches to the channels main index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor touches to the channels main index" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
