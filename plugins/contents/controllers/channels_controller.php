@@ -108,17 +108,6 @@ class ChannelsController extends ContentsAppController
         $this->set(compact('licenses', 'themes', 'menus', 'layouts', 'roles', 'sites'));
     }
 
-    private function refreshModel($id)
-    {
-        $this->preserveAppData();
-        $this->Channel->contain(array('OwnedBy', 'Role', 'Site'));
-        if (!($this->data = $this->Channel->read(null, $id))) {
-            $this->message('error');
-            $this->xredirect(); // forget stored referer and redirect
-        }
-        $this->restoreAppData();
-    }
-
     private function editableByUser($id)
     {
         $user = array(
@@ -130,6 +119,17 @@ class ChannelsController extends ContentsAppController
         }
 
         return false;
+    }
+
+    private function refreshModel($id)
+    {
+        $this->preserveAppData();
+        $this->Channel->contain(array('OwnedBy', 'Role', 'Site'));
+        if (!($this->data = $this->Channel->read(null, $id))) {
+            $this->message('error');
+            $this->xredirect(); // forget stored referer and redirect
+        }
+        $this->restoreAppData();
     }
 
     public function toggle($uid)
@@ -277,6 +277,8 @@ class ChannelsController extends ContentsAppController
         }
         $this->layout = 'default';
         $this->set(compact('channels'));
+
+        return $this->render('plugins/contents/channels/menu.twig', ['channels' => $channels]);
     }
 
 // Blocks

@@ -1,0 +1,12 @@
+{% extends 'layouts/main.twig' %}
+{% block content %}
+	<header>
+        <h1>Estos son los canales disponibles en {{ Site.title }}</h1>
+	</header>
+    <div class="row large-up-3 medium-up-2 small-up-1">
+        {% for channel in channels %}
+            <div class="column">{% include 'plugins/contents/channels/widgets/description.twig' with {'channel' : channel.Channel} %}</div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

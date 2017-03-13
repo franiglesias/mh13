@@ -1,0 +1,16 @@
+<aside class="mh-widget">
+    <header>
+        <h1 class="fi-megaphone">Canales en este espacio</h1>
+    </header>
+    <div class="body">
+        {% for channel in channels %}
+            <div class="media-object">
+                <div class="media-object-section main-section">
+                    <a href="/blog/{{ channel.slug }}">{{ channel.title }}</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</aside>

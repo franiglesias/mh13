@@ -210,6 +210,7 @@ class Channel extends ContentsAppModel {
 				'Channel.title',
 				'Channel.slug',
 				'Channel.icon',
+                'CHannel.image',
 				'Channel.description',
 				'Channel.type',
 				'Channel.active',
@@ -254,6 +255,7 @@ class Channel extends ContentsAppModel {
 				'Channel.title',
 				'Channel.slug',
 				'Channel.icon',
+                'Channel.image',
 				'Channel.description',
 				'Channel.type',
 				'Channel.active',
@@ -321,15 +323,32 @@ class Channel extends ContentsAppModel {
  * Retrieve channels based on the abilitiy of the user to edit or use them
  */
 
+    public function _findAdmin($state, $query, $results = array())
+    {
+        if ($state === 'before') {
+            $query['fields'] = array('Channel.id', 'Channel.title', 'Channel.active', 'Channel.external');
+            $query['order'] = array('I18n__title.content' => 'asc');
+            if (!empty($query['user'])) {
+                $query['access'] = self::OWNER;
+                $query = $this->_findUser('before', $query, $results);
+            }
+
+            return $query;
+        }
+
+        return $results;
+    }
+
 /**
  * Generic base method to find channels for a user
  *
- * @param string $state 
+ * @param string $state
  * @param string $query array('user_id' => the_user_id)
  * @param string $query array('access' => access level)
- * @param string $results 
- * @return array list of values Channel.id => Channel.title Localized
- */	
+ * @param string $results
+ *
+*@return array list of values Channel.id => Channel.title Localized
+ */
 	public function _findUser($state, $query, $results = array()) {
 		$this->unbindModel(array('hasMany' => array('Owner')));
 		if ($state === 'before') {
@@ -355,20 +374,6 @@ class Channel extends ContentsAppModel {
 			);
 			return Set::merge($query, $extraQuery);
 		}
-		return $results;
-	}
-
-	public function _findAdmin($state, $query, $results = array())
-	{
-		if ($state === 'before') {
-			$query['fields'] = array('Channel.id', 'Channel.title', 'Channel.active', 'Channel.external');
-			$query['order'] = array('I18n__title.content' => 'asc');
-			if (!empty($query['user'])) {
-				$query['access'] = self::OWNER;
-				$query = $this->_findUser('before', $query, $results);
-			} 
-			return $query;
-		}	
 		return $results;
 	}
 
@@ -507,7 +512,19 @@ class Channel extends ContentsAppModel {
 		}
 		return $this->Behaviors->Ownable->addOwner($this, $User, $permissions);
 	}
-	
+
+    private function arePermissionsValid($permissions)
+    {
+        return in_array(
+            $permissions,
+            array(
+                self::OWNER,
+                self::EDITOR,
+                self::AUTHOR,
+                self::CONTRIBUTOR,
+            )
+        );
+    }
 	
 	public function unbind(User $User)
 	{
@@ -523,16 +540,6 @@ class Channel extends ContentsAppModel {
 			return $this->roles[$access];
 		}
 		return false;
-	}
-	
-	private function arePermissionsValid($permissions)
-	{
-		return in_array($permissions, array(
-			self::OWNER,
-			self::EDITOR,
-			self::AUTHOR,
-			self::CONTRIBUTOR
-		));
 	}
 
 /**

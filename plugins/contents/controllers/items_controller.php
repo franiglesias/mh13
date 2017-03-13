@@ -20,7 +20,25 @@ class ItemsController extends ContentsAppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow(array('all', 'view', 'show', 'last', 'featured', 'feed', 'titles', 'image', 'media', 'catalog', 'tagged', 'channel', 'search', 'dashboard', 'comments', 'readings'));
+        $this->Auth->allow(
+            array(
+                'view',
+                'show',
+                'last',
+                'featured',
+                'feed',
+                'titles',
+                'image',
+                'media',
+                'catalog',
+                'tagged',
+                'channel',
+                'search',
+                'dashboard',
+                'comments',
+                'readings',
+            )
+        );
         $this->Security->validatePost = false;
 
         if (in_array($this->action, array('view'))) {
