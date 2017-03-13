@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/resumes/resume.twig" afterPath="$PROJECT_DIR$/views/plugins/resumes/resume.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1011,7 +1010,7 @@
       <workItem from="1489393723731" duration="396000" />
       <workItem from="1489394137851" duration="12269000" />
       <workItem from="1489427016908" duration="5052000" />
-      <workItem from="1489434568979" duration="4033000" />
+      <workItem from="1489434568979" duration="4186000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -1132,11 +1131,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489436720842</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Resumes section">
+      <created>1489444231795</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1489444231795</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78740000" />
+    <option name="totallyTimeSpent" value="78893000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1149,7 +1155,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="22" width="1613" height="1023" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18412896" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1194,7 +1200,8 @@
     <MESSAGE value="Sites widgets migrated" />
     <MESSAGE value="Starting Resumes section. Some touches to Cantine&#10;" />
     <MESSAGE value="Starting Resumes section." />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting Resumes section." />
+    <MESSAGE value="Resumes section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resumes section" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
