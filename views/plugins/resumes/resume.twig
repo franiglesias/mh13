@@ -38,37 +38,40 @@
                 $lines = $resume[$title];
             }
         #}
-        <div class="row mh-resume-section">
-            <div class="small-4 columns">
-                <h2 class="mh-resume-section-title">{# echo $type['MeritType']['title']; #}</h2>
-            </div>
-            <div class="small-8 columns">
-                {# if (!$lines): #}
-                <div class="row"><p
-                            class="small-12 columns">{# __d('resumes', 'There are no data for this section.'); #}</p>
+        {% for type in types %}
+
+
+            <div class="row mh-resume-section">
+                <div class="small-4 columns">
+                    <h2 class="mh-resume-section-title">{{ type.MeritType.title }}{# echo $type['MeritType']['title']; #}</h2>
                 </div>
-                {# else: #}
-                {# foreach ($lines as $merit): #}
-                <div class="row">
-                    {# if ($dates = $this->Resume->dates($merit)): #}
-                    <div class="small-3 columns">
-                        <h3 class="mh-resumes-dates">{# echo $dates; #}</h3>
-                    </div>
-                    <div class="small-9 columns">
-                        {# echo $this->Resume->merit($merit); #}
+                <div class="small-8 columns">
+                    {# if (!$lines): #}
+                    <div class="row"><p
+                                class="small-12 columns">{# __d('resumes', 'There are no data for this section.'); #}</p>
                     </div>
                     {# else: #}
-                    <div class="small-12 columns">
-                        {# echo $this->Resume->merit($merit); #}
+                    {# foreach ($lines as $merit): #}
+                    <div class="row">
+                        {# if ($dates = $this->Resume->dates($merit)): #}
+                        <div class="small-3 columns">
+                            <h3 class="mh-resumes-dates">{# echo $dates; #}</h3>
+                        </div>
+                        <div class="small-9 columns">
+                            {# echo $this->Resume->merit($merit); #}
+                        </div>
+                        {# else: #}
+                        <div class="small-12 columns">
+                            {# echo $this->Resume->merit($merit); #}
+                        </div>
+                        {# endif; #}
                     </div>
-                    {# endif; #}
+                    {# endforeach #}
+                    {# endif #}
                 </div>
-                {# endforeach #}
-                {# endif #}
             </div>
-        </div>
-        {# endforeach #}
-
+            {# endforeach #}
+        {% endfor %}
     </div>
     <pre>{{ dump(resume) }}</pre>
 {% endblock %}

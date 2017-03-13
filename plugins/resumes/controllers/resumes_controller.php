@@ -190,7 +190,13 @@ class ResumesController extends ResumesAppController {
         $MT = ClassRegistry::init('MeritType');
         $types = $MT->find('all');
         $this->set('types', $types);
+
+        return $types;
+
     }
+
+
+    /* Administrative methods */
 
 /**
  * Manages first step of password recovery. User arrive here and provide username
@@ -225,9 +231,6 @@ class ResumesController extends ResumesAppController {
 		}
 	}
 
-
-    /* Administrative methods */
-
 /**
  * Manages last step of password recovery. User arrive here with a ticket to recover password.
  * We send the generated password by email and notify the user the result of the
@@ -253,7 +256,8 @@ class ResumesController extends ResumesAppController {
 		);
 	}
 
-	public function index() {
+    public function index()
+    {
 		$this->layout = 'backend';
 		if ($merit = $this->SimpleFilters->getFilter('Merit.title')) {
 			$this->paginate['Resume'][0] = 'search';
@@ -263,7 +267,7 @@ class ResumesController extends ResumesAppController {
 		$this->set('resumes', $this->paginate());
 
     }
-	
+
 	public function view($id = null) {
 		$this->layout = 'backend';
 		if (!$id) {
@@ -274,10 +278,15 @@ class ResumesController extends ResumesAppController {
         $resume = $this->Resume->readCV($id);
         $this->set('resume', $resume);
 
-        return $this->render('plugins/resumes/resume.twig', ['resume' => $resume]);
+        return $this->render(
+            'plugins/resumes/resume.twig',
+            [
+                'resume' => $resume,
+                'types' => $this->_setTypesList(),
+            ]
+        );
 
     }
-
 
     /**/
 
