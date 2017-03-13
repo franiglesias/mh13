@@ -1,16 +1,15 @@
-<aside class="mh-widget">
-    <header>
-        <h1 class="fi-megaphone">Canales en este espacio</h1>
-    </header>
-    <div class="body">
-        {% for channel in channels %}
-            <div class="media-object">
-                <div class="media-object-section main-section">
-                    <a href="/blog/{{ channel.slug }}">{{ channel.title }}</a>
-                </div>
+{% import 'macros/blocks.twig' as blocks %}
+
+{% set widget_body %}
+    {% for channel in channels %}
+        <div class="media-object">
+            <div class="media-object-section main-section">
+                <a href="/blog/{{ channel.slug }}">{{ channel.title }}</a>
             </div>
+        </div>
 
-        {% endfor %}
+    {% endfor %}
 
-    </div>
-</aside>
+{% endset %}
+
+{{ blocks.widget('Canales en este espacio', widget_body, 'fi-megaphone') }}

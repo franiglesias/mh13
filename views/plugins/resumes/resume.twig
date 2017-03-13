@@ -1,0 +1,74 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+    <div class="mh-resume">
+        <div class="row">
+            <div class="small-8 columns">
+                <h1 class="mh-resume-title">{{ resume.Resume.firstname }} {{ resume.Resume.lastname }}</h1>
+
+                {% if resume.Resume.introduction %}
+                    <div class="mh-resume-introduction">{{ resume.Resume.introduction|raw|striptags('<br><p>') }}</div>
+                {% endif %}
+
+            </div>
+            <div class="small-4 columns">
+                <div class="card">
+                    {% if resume.Resume.photo %}
+                        <img src="{{ resume.Resume.photo }}" alt="" width="250">
+                    {% endif %}
+                    <div class="card-section">
+                        <ul class="vcard">
+                            <li class="email">Email: {{ resume.Resume.email }}</li>
+                            <li class="phone">Teléfono: {{ resume.Resume.phone }}</li>
+                            <li class="mobile">Móvil: {{ resume.Resume.mobile }}</li>
+                            <li class="street-address">Dirección: {{ resume.Resume.fulladdress }}</li>
+                            <li class="locality">Localidad: {{ resume.Resume.fullcity }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        {# foreach ($types as $key => $type): #}
+        {#
+            $lines = false;
+            $title = $type['MeritType']['alias'];
+            if (isset($resume[$title])) {
+                $lines = $resume[$title];
+            }
+        #}
+        <div class="row mh-resume-section">
+            <div class="small-4 columns">
+                <h2 class="mh-resume-section-title">{# echo $type['MeritType']['title']; #}</h2>
+            </div>
+            <div class="small-8 columns">
+                {# if (!$lines): #}
+                <div class="row"><p
+                            class="small-12 columns">{# __d('resumes', 'There are no data for this section.'); #}</p>
+                </div>
+                {# else: #}
+                {# foreach ($lines as $merit): #}
+                <div class="row">
+                    {# if ($dates = $this->Resume->dates($merit)): #}
+                    <div class="small-3 columns">
+                        <h3 class="mh-resumes-dates">{# echo $dates; #}</h3>
+                    </div>
+                    <div class="small-9 columns">
+                        {# echo $this->Resume->merit($merit); #}
+                    </div>
+                    {# else: #}
+                    <div class="small-12 columns">
+                        {# echo $this->Resume->merit($merit); #}
+                    </div>
+                    {# endif; #}
+                </div>
+                {# endforeach #}
+                {# endif #}
+            </div>
+        </div>
+        {# endforeach #}
+
+    </div>
+    <pre>{{ dump(resume) }}</pre>
+{% endblock %}

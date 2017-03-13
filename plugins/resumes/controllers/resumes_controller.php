@@ -48,21 +48,22 @@ class ResumesController extends ResumesAppController {
 				$this->redirect(array('action' => 'home'));
 			} else {
 				$this->message('validation');
+
 			}
+
 		}
 		
 		if ($legal) {
 			$this->setAction('confirm');
 		}
-		
+
+        return $this->render('plugins/resumes/create.twig');
 	}
 	
 	
 	public function confirm()
 	{
-		$acceptUrl = array('action' => 'create');
-		$cancelUrl = array('action' => 'home');
-		$this->set(compact('acceptUrl', 'cancelUrl'));
+        return $this->render('plugins/resumes/confirm.twig');
 	}
 	
 	public function login()
@@ -153,6 +154,9 @@ class ResumesController extends ResumesAppController {
 	
 	public function home()
 	{
+        $completedProfile = 0;
+        $stats = [];
+
 		$visitor = $this->Session->read('Resume.Auth');
 		if (!empty($visitor['id'])) {
 			$completedProfile = $this->Resume->isComplete($visitor['id']);
@@ -161,7 +165,16 @@ class ResumesController extends ResumesAppController {
 		} else {
 			$this->set(compact('visitor'));
 		}
-		
+
+        return $this->render(
+            'plugins/resumes/home.twig',
+            [
+                'visitor' => $visitor,
+                'completedProfile' => $completedProfile,
+                'stats' => $stats,
+                'connected' => $this->Session->read('Resume.Auth.id'),
+            ]
+        );
 	}
 
 	public function preview()
@@ -171,6 +184,13 @@ class ResumesController extends ResumesAppController {
 		$this->set('resume', $this->Resume->readCV($id));
 	}
 
+    protected function _setTypesList()
+    {
+        App::import('Model', 'Resumes.MeritType');
+        $MT = ClassRegistry::init('MeritType');
+        $types = $MT->find('all');
+        $this->set('types', $types);
+    }
 
 /**
  * Manages first step of password recovery. User arrive here and provide username
@@ -205,14 +225,18 @@ class ResumesController extends ResumesAppController {
 		}
 	}
 
+
+    /* Administrative methods */
+
 /**
  * Manages last step of password recovery. User arrive here with a ticket to recover password.
  * We send the generated password by email and notify the user the result of the
  * operation.
  *
- * @param string $ticket 
- * @return void
- */	
+ * @param string $ticket
+ *
+*@return void
+ */
 	public function recover($ticket = null) {
 		// $this->layout = 'access';
 		if (!$ticket || !($password = $this->Resume->redeemTicket($ticket))) {
@@ -228,9 +252,6 @@ class ResumesController extends ResumesAppController {
 			__d('access','Your new password', true)
 		);
 	}
-	
-
-/* Administrative methods */ 
 
 	public function index() {
 		$this->layout = 'backend';
@@ -240,8 +261,9 @@ class ResumesController extends ResumesAppController {
 			unset($this->paginate['Resume']['conditions']['Merit.title LIKE']);
 		}
 		$this->set('resumes', $this->paginate());
-	}
 
+    }
+	
 	public function view($id = null) {
 		$this->layout = 'backend';
 		if (!$id) {
@@ -249,9 +271,16 @@ class ResumesController extends ResumesAppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->_setTypesList();
-		$this->set('resume', $this->Resume->readCV($id));
-	}
-	
+        $resume = $this->Resume->readCV($id);
+        $this->set('resume', $resume);
+
+        return $this->render('plugins/resumes/resume.twig', ['resume' => $resume]);
+
+    }
+
+
+    /**/
+
 	public function search()
 	{
 		$this->layout = 'backend';
@@ -261,18 +290,6 @@ class ResumesController extends ResumesAppController {
 			$this->set('resumes', $this->paginate('Resume'));
 			$this->render('index');
 		}
-	}
-
-
-/**/
-
-	
-	protected function _setTypesList()
-	{
-		App::import('Model', 'Resumes.MeritType');
-		$MT = ClassRegistry::init('MeritType');
-		$types = $MT->find('all');
-		$this->set('types', $types);
 	}
 	
 }

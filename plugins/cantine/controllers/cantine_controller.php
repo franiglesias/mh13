@@ -10,12 +10,6 @@ class CantineController extends CantineAppController
         'School.Student',
     );
 
-    public $helpers = array(
-        'Cantine.Cantine',
-    );
-
-    public $layout = 'cantine';
-
     public $components = array('Filters.SimpleFilters');
 
     public function beforeFilter()
@@ -89,12 +83,10 @@ class CantineController extends CantineAppController
 
     public function attendances($date = null)
     {
-        $this->layout = 'backend';
         $date = $this->SimpleFilters->getFilter('Attendance.date');
         if (!$date) {
             $date = date('Y-m-d');
         }
-        // $this->set(compact('attendances', 'stats', 'date', 'incidences'));
         $this->set(array(
             'date' => $date,
             'incidences' => $this->Student->CantineIncidence->find('all', array(

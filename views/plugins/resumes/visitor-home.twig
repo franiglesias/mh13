@@ -1,0 +1,32 @@
+<header>
+    <h1>{{ visitor.firstname }}: esta es tu zona personal</h1>
+    <h2>Gestiona aquí tu curróculum</h2>
+</header>
+<div class="body">
+    <h3>Te has conectado con los siguientes datos:</h3>
+    <p>Correo electrónico: {{ visitor.email }}</p>
+    <p>Nombre: {{ visitor.firstname }} {{ visitor.lastname }}</p>
+
+    {% if completedProfile >= 95 %}
+
+    <h3>¡Genial! Tu perfil está completo</h3>
+
+    {% else %}
+
+    <h3>Por favor, completa tus datos personales y de contacto</h3>
+    <p>Has completado un {{ completedProfile|round(2) }} de tu perfil.</p>
+    <div class="row">
+        <div class="medium-8 columns">
+            <div class="progress small-12 round {% if completedProfile > 50 ? 'success' : 'alert' %}">
+                <span class="meter" style="width: {{ completedProfile|round(2) }}%"></span>
+            </div>
+        </div>
+        <div class="medium-4 columns">
+            <a href="/resumes/resumes/modify" class="button tiny float-right"></a>
+        </div>
+    </div>
+    {% endif %}
+
+    <h3>Completa los datos de tu currículum en las siguientes categorías.</h3>
+    {# echo $this->Resume->stats($stats); #}
+</div>
