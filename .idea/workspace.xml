@@ -5,12 +5,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="Open Files" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/plugins/resumes/resume.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resumes/views/resumes/create.ctp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" afterPath="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" />
-    </list>
+    <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +37,8 @@
       <file leaf-file-name="resume.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/plugins/resumes/resume.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            <state relative-caret-position="195">
+              <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -53,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
-              <caret line="249" column="30" lean-forward="true" selection-start-line="249" selection-start-column="30" selection-end-line="249" selection-end-column="30" />
+              <caret line="249" column="30" lean-forward="false" selection-start-line="249" selection-start-column="30" selection-end-line="249" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -1012,7 +1007,7 @@
       <workItem from="1489245061767" duration="9028000" />
       <workItem from="1489393723731" duration="396000" />
       <workItem from="1489394137851" duration="12269000" />
-      <workItem from="1489427016908" duration="4988000" />
+      <workItem from="1489427016908" duration="5052000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -1119,11 +1114,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489403789784</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Starting Resumes section. Some touches to Cantine&#10;">
+      <created>1489434374557</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1489434374557</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74643000" />
+    <option name="totallyTimeSpent" value="74707000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1136,7 +1138,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="22" width="1613" height="1023" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18412896" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1179,7 +1181,8 @@
     <MESSAGE value="Fixing credits" />
     <MESSAGE value="Minor touches to the channels main index" />
     <MESSAGE value="Sites widgets migrated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sites widgets migrated" />
+    <MESSAGE value="Starting Resumes section. Some touches to Cantine&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting Resumes section. Some touches to Cantine&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1511,15 +1514,15 @@
     <entry file="file://$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
-          <caret line="249" column="30" lean-forward="true" selection-start-line="249" selection-start-column="30" selection-end-line="249" selection-end-column="30" />
+          <caret line="249" column="30" lean-forward="false" selection-start-line="249" selection-start-column="30" selection-end-line="249" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/plugins/resumes/resume.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        <state relative-caret-position="195">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding />
         </state>
       </provider>
