@@ -1,0 +1,14 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+
+    {% if visitor.id %}
+
+        {% include 'plugins/resumes/visitor-home.twig' %}
+
+    {% else %}
+
+        {% include 'plugins/resumes/guest-home.twig' %}
+
+    {% endif %}
+
+{% endblock %}
