@@ -6,21 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/plugins/resumes/modify.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resumes/views/elements/resume.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resumes/views/resumes/preview.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resumes/views/resumes/view.ctp" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/resumes/views/resumes/login.ctp" afterPath="$PROJECT_DIR$/views/plugins/resumes/login.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" afterPath="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/resumes.twig" afterPath="$PROJECT_DIR$/views/layouts/resumes.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/resumes/create.twig" afterPath="$PROJECT_DIR$/views/plugins/resumes/create.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/resumes/resume.twig" afterPath="$PROJECT_DIR$/views/plugins/resumes/resume.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/resumes/visitor-home.twig" afterPath="$PROJECT_DIR$/views/plugins/resumes/visitor-home.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/react.min.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,12 +42,12 @@
             <state relative-caret-position="150">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
-                <element signature="e#746#767#0#HTML" expanded="true" />
-                <element signature="e#9476#9498#0#HTML" expanded="true" />
-                <element signature="e#9746#9807#0#HTML" expanded="true" />
-                <element signature="e#10139#10282#0#HTML" expanded="true" />
-                <element signature="e#10974#10997#0#HTML" expanded="true" />
-                <element signature="e#14845#14866#0#HTML" expanded="true" />
+                <element signature="e#717#738#0#HTML" expanded="true" />
+                <element signature="e#9521#9543#0#HTML" expanded="true" />
+                <element signature="e#9779#9840#0#HTML" expanded="true" />
+                <element signature="e#10160#10303#0#HTML" expanded="true" />
+                <element signature="e#10963#10986#0#HTML" expanded="true" />
+                <element signature="e#14614#14635#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/views/layouts/resumes.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+              <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -1187,7 +1173,7 @@
       <workItem from="1489394137851" duration="12269000" />
       <workItem from="1489427016908" duration="5052000" />
       <workItem from="1489434568979" duration="4186000" />
-      <workItem from="1489481484122" duration="9591000" />
+      <workItem from="1489481484122" duration="9620000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -1315,11 +1301,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489444231795</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Advances in Resumes section">
+      <created>1489495008531</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1489495008531</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88484000" />
+    <option name="totallyTimeSpent" value="88513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1378,7 +1371,8 @@
     <MESSAGE value="Starting Resumes section. Some touches to Cantine&#10;" />
     <MESSAGE value="Starting Resumes section." />
     <MESSAGE value="Resumes section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resumes section" />
+    <MESSAGE value="Advances in Resumes section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Advances in Resumes section" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1745,12 +1739,12 @@
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#746#767#0#HTML" expanded="true" />
-            <element signature="e#9476#9498#0#HTML" expanded="true" />
-            <element signature="e#9746#9807#0#HTML" expanded="true" />
-            <element signature="e#10139#10282#0#HTML" expanded="true" />
-            <element signature="e#10974#10997#0#HTML" expanded="true" />
-            <element signature="e#14845#14866#0#HTML" expanded="true" />
+            <element signature="e#717#738#0#HTML" expanded="true" />
+            <element signature="e#9521#9543#0#HTML" expanded="true" />
+            <element signature="e#9779#9840#0#HTML" expanded="true" />
+            <element signature="e#10160#10303#0#HTML" expanded="true" />
+            <element signature="e#10963#10986#0#HTML" expanded="true" />
+            <element signature="e#14614#14635#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1758,7 +1752,7 @@
     <entry file="file://$PROJECT_DIR$/views/layouts/resumes.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
           <folding />
         </state>
       </provider>
