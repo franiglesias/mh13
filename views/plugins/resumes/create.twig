@@ -23,104 +23,52 @@
             <fieldset>
                 <legend>Crea tu cuenta</legend>
                 <input type="hidden" name="data[Resume][id]" id="ResumeId">
-                <div class="row">
-                    <div class="small-12 medium-6 columns" id="divResumeEmail"><label><label for="ResumeEmail">Correo
-                                electrónico</label>
-                            <div class="row collapse">
-                                <div class="small-1 columns"><span class="prefix"><i class="fi-mail"></i></span></div>
-                                <div class="small-11 columns end"><input name="data[Resume][email]" type="email"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         prefix="&lt;i class=&quot;fi-mail&quot;&gt;&lt;/i&gt;"
-                                                                         placeholder="En correo para contacto"
-                                                                         prefixsize="1" postfixsize="1" inputsize="12"
-                                                                         icon="mail" id="ResumeEmail"></div>
-                            </div>
-                        </label></div>
-                    <div class="small-12 medium-6 columns" id="divResumeConfirmEmail"><label><label
-                                    for="ResumeConfirmEmail">Confirmar email</label>
-                            <div class="row collapse">
-                                <div class="small-1 columns"><span class="prefix"><i class="fi-mail"></i></span></div>
-                                <div class="small-11 columns end"><input name="data[Resume][confirm_email]" type="email"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         prefix="&lt;i class=&quot;fi-mail&quot;&gt;&lt;/i&gt;"
-                                                                         placeholder="Por favor, vuelve a escribir tu correo."
-                                                                         prefixsize="1" postfixsize="1" inputsize="12"
-                                                                         icon="mail" id="ResumeConfirmEmail"></div>
-                            </div>
-                        </label></div>
-                </div>
-                <div class="row">
-                    <div class="small-12 medium-6 columns" id="divResumeConfirmPassword"><label><label
-                                    for="ResumeConfirmPassword">Contraseña</label>
-                            <div class="row collapse">
-                                <div class="small-12 columns end"><input type="password"
-                                                                         name="data[Resume][confirm_password]"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         placeholder="Una contraseña" prefixsize="1"
-                                                                         postfixsize="1" inputsize="12"
-                                                                         id="ResumeConfirmPassword"></div>
-                            </div>
-                        </label></div>
-                    <div class="small-12 medium-6 columns" id="divResumePassword"><label><label for="ResumePassword">Confirmar
-                                contraseña</label>
-                            <div class="row collapse">
-                                <div class="small-12 columns end"><input type="password" name="data[Resume][password]"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         placeholder="Por favor, vuelve a escribir tu contraseña"
-                                                                         prefixsize="1" postfixsize="1" inputsize="12"
-                                                                         id="ResumePassword"></div>
-                            </div>
-                        </label></div>
-                </div>
-                <div class="row">
-                    <div class="small-5 columns" id="divResumeFirstname"><label><label
-                                    for="ResumeFirstname">Nombre</label>
-                            <div class="row collapse">
-                                <div class="small-12 columns end"><input name="data[Resume][firstname]" type="text"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12" placeholder="Tu nombre"
-                                                                         prefixsize="1" postfixsize="1" inputsize="12"
-                                                                         id="ResumeFirstname"></div>
-                            </div>
-                        </label></div>
-                    <div class="small-7 columns" id="divResumeLastname"><label><label
-                                    for="ResumeLastname">Apellido</label>
-                            <div class="row collapse">
-                                <div class="small-12 columns end"><input name="data[Resume][lastname]" type="text"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         placeholder="Tu apellido" prefixsize="1"
-                                                                         postfixsize="1" inputsize="12"
-                                                                         id="ResumeLastname"></div>
-                            </div>
-                        </label></div>
-                </div>
-                <div class="row">
-                    <div class="small-6 columns" id="divResumePhone"><label><label for="ResumePhone">Teléfono</label>
-                            <div class="row collapse">
-                                <div class="small-12 columns end"><input name="data[Resume][phone]" type="text"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         placeholder="Tu teléfono de contacto"
-                                                                         prefixsize="1" postfixsize="1" inputsize="12"
-                                                                         id="ResumePhone"></div>
-                            </div>
-                        </label></div>
-                    <div class="small-6 columns" id="divResumeMobile"><label><label for="ResumeMobile">Móvil</label>
-                            <div class="row collapse">
-                                <div class="small-12 columns end"><input name="data[Resume][mobile]" type="text"
-                                                                         wrappostfix="1" labelposition="top"
-                                                                         labelsize="3" grid="12"
-                                                                         placeholder="Teléfono móvil o alternativo"
-                                                                         prefixsize="1" postfixsize="1" inputsize="12"
-                                                                         id="ResumeMobile"></div>
-                            </div>
-                        </label></div>
-                </div>
+
+                <label>Email
+                    <input name="data[Resume][email]" type="email" id="ResumeEmail">
+
+                </label>
+                <label>Confirmar email
+                    <input name="data[Resume][confirm_email]" type="email" id="ResumeConfirmEmail">
+
+                </label>
+
+
+                <label>Contraseña
+
+                    <input type="password" id="ResumeConfirmPassword" name="data[Resume][confirm_password]">
+
+                </label>
+                <label>Confirmar contraseña
+
+                    <input type="password" name="data[Resume][password]" id="ResumePassword">
+
+                </label>
+
+
+                <label>Nombre
+
+                    <input name="data[Resume][firstname]" type="text" id="ResumeFirstname">
+
+                </label>
+                <label>Apellido
+
+                    <input name="data[Resume][lastname]" type="text" id="ResumeLastname">
+
+                </label>
+
+
+                <label>Teléfono
+
+                    <input name="data[Resume][phone]" type="text" id="ResumePhone">
+
+                </label>
+                <label>Móvil
+
+                    <input name="data[Resume][mobile]" type="text" id="ResumeMobile">
+
+                </label>
+
             </fieldset>
             <div class="row"><input type="hidden" name="data[_App][referer]" value="/resumes/resumes/create/1"
                                     id="_AppReferer">

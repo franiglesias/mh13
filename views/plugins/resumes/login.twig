@@ -1,0 +1,55 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+    <header>
+        <h1>Entrada de solicitante de empleo</h1>
+        <h2>¿Te gustaría trabajar con nosotros?</h2>
+    </header>
+    <form action="/resumes/resumes/login" id="ResumeLoginForm" method="post" accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="POST"><input type="hidden"
+                                                                                           name="data[_Token][key]"
+                                                                                           value="fb36597e073bf348385b02f3a19b9b8efd91babb"
+                                                                                           id="Token1978883814"></div>
+        <fieldset>
+            <legend>Currículum Vitae</legend>
+            <div class="row">
+                <div class="medium-6 columns end" id="divResumeEmail"><label><label for="ResumeEmail">Correo
+                            electrónico</label>
+                        <div class="row collapse">
+                            <div class="small-1 columns"><span class="prefix"><i class="fi-mail"></i></span></div>
+                            <div class="small-11 columns end"><input name="data[Resume][email]" type="email"
+                                                                     wrappostfix="1" labelposition="top" labelsize="3"
+                                                                     grid="12"
+                                                                     prefix="&lt;i class=&quot;fi-mail&quot;&gt;&lt;/i&gt;"
+                                                                     prefixsize="1" postfixsize="1" inputsize="12"
+                                                                     icon="mail" id="ResumeEmail"></div>
+                        </div>
+                    </label></div>
+            </div>
+            <div class="row">
+                <div class="medium-6 columns end" id="divResumePassword"><label><label
+                                for="ResumePassword">Contraseña</label>
+                        <div class="row collapse">
+                            <div class="small-1 columns"><span class="prefix"><i class="fi-key"></i></span></div>
+                            <div class="small-11 columns end"><input type="password" name="data[Resume][password]"
+                                                                     wrappostfix="1" labelposition="top" labelsize="3"
+                                                                     grid="12"
+                                                                     prefix="&lt;i class=&quot;fi-key&quot;&gt;&lt;/i&gt;"
+                                                                     prefixsize="1" postfixsize="1" inputsize="12"
+                                                                     icon="key" id="ResumePassword"></div>
+                        </div>
+                    </label></div>
+            </div>
+
+        </fieldset>
+        <div class="row"><input type="hidden" name="data[_App][referer]" id="_AppReferer">
+            <div class="medium-5 columns"><a href="/resumes/resumes/forgot" class="mh-btn-cancel left">¿Olvidaste o
+                    perdiste tu contraseña?</a></div>
+            <div class="medium-7 columns"><input name="done" value="Acceder" class="mh-btn-save right" type="submit">
+            </div>
+        </div>
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="7232b9cac2a2f729000aa12d0c28358bb07407a8%3A_App.referer"
+                                          id="TokenFields340751465"></div>
+    </form>
+
+{% endblock %}

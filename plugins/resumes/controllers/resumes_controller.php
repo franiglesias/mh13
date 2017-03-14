@@ -86,9 +86,12 @@ class ResumesController extends ResumesAppController {
 			} else {
 				$this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'));
 			}
-		}
-		
-	}
+
+        }
+
+        return $this->render('plugins/resumes/login.twig', []);
+
+    }
 	
 	public function logout()
 	{
@@ -115,6 +118,15 @@ class ResumesController extends ResumesAppController {
 			$this->saveReferer();
 		}
 		$this->set('positions', $this->Resume->Position->find('list'));
+
+        return $this->render(
+            'plugins/resumes/modify.twig',
+            [
+                'data' => $this->data,
+                'positions' => $this->Resume->Position->find('list'),
+                'visitor' => $this->Session->read('Resume.Auth'),
+            ]
+        );
 	}
 	
 	public function changepwd()
@@ -173,15 +185,9 @@ class ResumesController extends ResumesAppController {
                 'completedProfile' => $completedProfile,
                 'stats' => $stats,
                 'connected' => $this->Session->read('Resume.Auth.id'),
+                'types' => $this->_setTypesList(),
             ]
         );
-	}
-
-	public function preview()
-	{
-		$id = $this->Session->read('Resume.Auth.id');
-		$this->_setTypesList();
-		$this->set('resume', $this->Resume->readCV($id));
 	}
 
     protected function _setTypesList()
@@ -193,6 +199,24 @@ class ResumesController extends ResumesAppController {
 
         return $types;
 
+    }
+
+    public function preview()
+    {
+        $id = $this->Session->read('Resume.Auth.id');
+        $this->_setTypesList();
+        $resume = $this->Resume->readCV($id);
+        $this->set('resume', $this->Resume->readCV($id));
+        $visitor = $this->Session->read('Resume.Auth');
+
+        return $this->render(
+            'plugins/resumes/resume.twig',
+            [
+                'resume' => $resume,
+                'types' => $this->_setTypesList(),
+                'visitor' => $visitor,
+            ]
+        );
     }
 
 

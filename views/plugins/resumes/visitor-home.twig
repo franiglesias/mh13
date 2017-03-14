@@ -1,6 +1,6 @@
 <header>
     <h1>{{ visitor.firstname }}: esta es tu zona personal</h1>
-    <h2>Gestiona aquí tu curróculum</h2>
+    <h2>Gestiona aquí tu currículum</h2>
 </header>
 <div class="body">
     <h3>Te has conectado con los siguientes datos:</h3>
@@ -17,12 +17,12 @@
     <p>Has completado un {{ completedProfile|round(2) }} de tu perfil.</p>
     <div class="row">
         <div class="medium-8 columns">
-            <div class="progress small-12 round {% if completedProfile > 50 ? 'success' : 'alert' %}">
-                <span class="meter" style="width: {{ completedProfile|round(2) }}%"></span>
+            <div class="progress small-12 round {{ (completedProfile > 50 ? 'success' : 'alert') }}">
+                <span class="progress-meter" style="width: {{ completedProfile|round(2) }}%"></span>
             </div>
         </div>
         <div class="medium-4 columns">
-            <a href="/resumes/resumes/modify" class="button tiny float-right"></a>
+            <a href="/resumes/resumes/modify" class="button tiny float-right">Completa tus datos personales</a>
         </div>
     </div>
     {% endif %}

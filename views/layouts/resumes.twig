@@ -16,45 +16,32 @@
 
 <div class="mh-page">
     <div class="row">
-        {% if connected %}
+        {% if visitor.id %}
         <div class="small-12 medium-4 columns">
-            $menu = array();
-            $menu[] = $this->Html->link(
-            __d('resumes', 'Go to main page', true),
-            array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'),
-            array('class' => 'mh-btn-cancel'));
-            $menu[] = $this->Html->link(
-            __d('resumes', 'Preview your CV', true),
-            array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'preview'),
-            array('class' => 'mh-btn-view'));
-            $menu[] = $this->Html->link(
-            __d('resumes', 'Personal and contact data', true),
-            array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'modify'),
-            array('class' => 'mh-btn-person'));
-            $menu[] = '
-            <hr/>
-            ';
-            $menu[] = $this->Resume->typesMenu();
-            $menu[] = '
-            <hr/>
-            ';
-            $menu[] = $this->Html->link(
-            __d('resumes', 'Change your password', true),
-            array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'changepwd'),
-            array('class' => 'mh-btn-key'));
-            $menu[] = $this->Html->link(
-            __d('resumes', 'Remove your CV', true),
-            array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'remove'),
-            array('class' => 'mh-btn-delete'));
-            $menu[] = '
-            <hr/>
-            ';
-            $menu[] = $this->Html->link(
-            __d('resumes', 'Exit', true),
-            array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'logout'),
-            array('class' => 'mh-btn-cancel'));
-            $menu = implode(chr(10), $menu);
+            <nav>
+                <p><a href="/resumes/resumes/home" class="button secondary expanded fi-home">Ir a la página
+                        principal</a></p>
+                <p><a href="/resumes/resumes/preview" class="button success expanded fi-eye">Ver tu currículum</a></p>
+                <p><a href="/resumes/resumes/modify" class="button success expanded fi-torso">Datos personales y de
+                        contacto</a></p>
 
+
+                <hr/>
+                {% for type in types %}
+                    <p><a href="/resumes/resumes/show/{{ type.MeritType.id }}"
+                          class="button success expanded fi-sheriff-badge">{{ type.MeritType.title }}</a></p>
+                {% endfor %}
+
+                <hr/>
+
+                <p><a href="/resumes/resumes/changepwd" class="button secondary expanded fi-key">Cambia tu
+                        contraseña</a></p>
+                <p><a href="/resumes/resumes/remove" class="button alert expanded fi-alert">Elimina tu currículum</a>
+                </p>
+                <hr>
+                <p><a href="/resumes/resumes/logout" class="button warning expanded fi-power">Salir del área
+                        personal</a></p>
+            </nav>
         </div>
         <div class="small-12 medium-8 columns">
             {% else %}

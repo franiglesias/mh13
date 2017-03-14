@@ -1,0 +1,216 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+
+    <script type="text/javascript" src="/assets/js/jqueryte/jquery-te-1.3.2.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="/assets/js/jqueryte/jquery-te-1.3.2.css" charset="utf-8"/>
+
+    <header>
+        <h1>Modifica tu currículum</h1>
+    </header>
+    <ul class="tabs" data-tabs id="mh-resumes-modify-tabs">
+        <li class="tabs-title is-active"><a href="#tabs-2">Tu carta de presentación</a></li>
+        <li class="tabs-title"><a href="#tabs-1">Tus datos de contacto</a></li>
+    </ul>
+
+
+    <form action="/resumes/resumes/modify/{{ visitor.id }}" id="ResumeModifyForm" method="post"
+          accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="PUT"><input type="hidden"
+                                                                                          name="data[_Token][key]"
+                                                                                          value="fb36597e073bf348385b02f3a19b9b8efd91babb"
+                                                                                          id="Token1339281355">
+        </div>
+        <div class="tabs-content" data-tabs-content="mh-resumes-modify-tabs">
+            <div class="tabs-panel is-active" id="tabs-1">
+                <fieldset>
+                    <legend>Datos de contacto</legend>
+                    <input type="hidden" name="data[Resume][id]" value="5734624d-49e4-4377-a193-8f2eac100002"
+                           id="ResumeId">
+
+                    <div class="row">
+                        <div class="small-5 columns" id="divResumeFirstname"><label><label
+                                        for="ResumeFirstname">Nombre</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][firstname]"
+                                                                             type="text"
+                                                                             value="{{ data.Resume.firstname }}"
+                                                                             id="ResumeFirstname"></div>
+                                </div>
+                            </label></div>
+                        <div class="small-7 columns" id="divResumeLastname"><label><label
+                                        for="ResumeLastname">Apellido</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][lastname]"
+                                                                             type="text"
+                                                                             value="{{ data.Resume.lastname }}"
+                                                                             id="ResumeLastname"></div>
+                                </div>
+                            </label></div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns" id="divResumeAddress"><label><label
+                                        for="ResumeAddress">Dirección</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][address]"
+                                                                             type="text"
+                                                                             value="{{ data.Resume.address }}"
+                                                                             id="ResumeAddress"></div>
+                                </div>
+                            </label></div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns" id="divResumeAddress2"><label><label for="ResumeAddress2">2ª
+                                    línea de dirección</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][address2]"
+                                                                             type="text"
+                                                                             value="{{ data.Resume.address2 }}"
+                                                                             id="ResumeAddress2"></div>
+                                </div>
+                            </label></div>
+                    </div>
+                    <div class="row">
+                        <div class="small-2 columns" id="divResumeCp"><label><label for="ResumeCp">CP</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][cp]" type="text"
+                                                                             value="{{ data.Resume.cp }}"
+                                                                             id="ResumeCp"></div>
+                                </div>
+                            </label></div>
+                        <div class="small-6 columns" id="divResumeCity"><label><label
+                                        for="ResumeCity">Ciudad</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][city]" type="text"
+                                                                             value="{{ data.Resume.city }}"
+                                                                             id="ResumeCity"></div>
+                                </div>
+                            </label></div>
+                        <div class="small-4 columns" id="divResumeProvince"><label><label
+                                        for="ResumeProvince">Provincia</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][province]"
+                                                                             type="text"
+                                                                             value="{{ data.Resume.province }}"
+                                                                             id="ResumeProvince"></div>
+                                </div>
+                            </label></div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns" id="divResumePhone"><label><label
+                                        for="ResumePhone">Teléfono</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][phone]" type="text"
+                                                                             value="{{ data.Resume.phone }}"
+                                                                             id="ResumePhone"></div>
+                                </div>
+                            </label></div>
+                        <div class="small-3 columns end" id="divResumeMobile"><label><label
+                                        for="ResumeMobile">Móvil</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input name="data[Resume][mobile]" type="text"
+                                                                             value="{{ data.Resume.mobile }}"
+                                                                             id="ResumeMobile"></div>
+                                </div>
+                            </label></div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns" id="divResumePhoto" has-tip="1" data-tooltip="1"
+                             aria-haspopup="1" data-options="disable_for_touch:true, show_on:large" title="">
+                            <label><label
+                                        for="ResumePhoto">Fotografía</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input type="hidden"
+                                                                             name="data[Resume][photo]" value=""
+                                                                             id="ResumePhoto">
+                                        <div id="ResumePhoto-uploader" class="uploader"
+                                             mh-upload="/uploads/uploads/upload" mh-multiple="0" mh-mode="inline"
+                                             mh-refresh="/uploads/uploads/single" mh-class="Resume"
+                                             mh-plugin="resumes" mh-field="photo"
+                                             mh-fk="5734624d-49e4-4377-a193-8f2eac100002" mh-target="ResumePhoto"
+                                             mh-extensions="image" mh-limit="314572800">
+                                            <div class="qq-uploader">
+                                                <div class="qq-upload-manage small-3 columns">
+                                                    <div class="qq-upload-drop-area" style="display: none;"><span>Arrastra archivos aquí.</span>
+                                                    </div>
+                                                    <div class="qq-upload-button"
+                                                         style="position: relative; overflow: hidden; direction: ltr;">
+                                                        Haz clic para seleccionar archivos.<input type="file"
+                                                                                                  name="file"
+                                                                                                  style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;">
+                                                    </div>
+                                                    <button id="Clear-ResumePhoto" type="button"
+                                                            mh_target="ResumePhoto"
+                                                            class="mh-uploader-cleaner mh-webkit-reset mh-button mh-button-delete mh-btn-uploader-clear">
+                                                        Borrar
+                                                    </button>
+                                                </div>
+                                                <div class="qq-upload-preview-list" style="display: block;">
+                                                    <div class="panel callout"><p class="text-center">No hay
+                                                            archivos todavía.</p></div>
+                                                </div>
+                                                <div class="qq-upload-progress-info small-9 columns">
+                                                    <ul class="qq-upload-list"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label></div>
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="tabs-panel" id="tabs-2">
+                <fieldset>
+                    <legend>Tu carta de presentación</legend>
+                    <div class="row">
+                        <div class="small-12 medium-6 columns" id="divResumePositionId"><label><label
+                                        for="ResumePositionId">Tipo de puesto que solicitas</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><select name="data[Resume][position_id]"
+                                                                              wrappostfix="1" labelposition="top"
+                                                                              labelsize="3" grid="12" prefixsize="1"
+                                                                              postfixsize="1" inputsize="12"
+                                                                              id="ResumePositionId">
+                                            <option value="1" selected="selected">Profesorado</option>
+                                            <option value="2">Administración y servicios</option>
+                                            <option value="3">Cuidadores</option>
+                                            <option value="4">Titulado no docente</option>
+                                            <option value="5">Otros</option>
+                                        </select></div>
+                                </div>
+                            </label></div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns" id="divResumeIntroduction"><label><label
+                                        for="ResumeIntroduction">Presentación</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end">
+
+                                                <textarea
+                                                        name="data[Resume][introduction]"
+
+                                                        id="ResumeIntroduction"></textarea>
+
+                                    </div>
+                                </div>
+                            </label></div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><input type="hidden" name="data[_App][referer]" value="/cv" id="_AppReferer">
+            <div class="medium-5 columns"><a href="/cv" class="mh-btn-cancel left">Descartar cambios</a></div>
+            <div class="medium-7 columns"><input name="done" value="Guardar y salir" class="mh-btn-save right"
+                                                 type="submit"></div>
+        </div>
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="9d0aa0cef0a2fcedcfe738080731f6c861b07a74%3AResume.id%7CResume.photo%7C_App.referer"
+                                          id="TokenFields1548294006"></div>
+    </form>
+
+    <script>
+        $("#ResumeIntroduction").jqte();
+    </script>
+{% endblock %}
