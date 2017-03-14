@@ -1,0 +1,55 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+<header>
+    <h1>Cambia la contraseña para acceder a tu solicitud de empleo</h1>
+</header>
+
+    <form action="/resumes/resumes/changepwd/5734624d-49e4-4377-a193-8f2eac100002" id="ResumeChangepwdForm"
+          method="post"
+          accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="PUT"><input type="hidden"
+                                                                                          name="data[_Token][key]"
+                                                                                          value="a4a5ac3b9d8d4c0e818191bac04ffb756129b584"
+                                                                                          id="Token22702221"></div>
+        <fieldset>
+            <legend>Introduce la nueva contraseña</legend>
+            <input type="hidden" name="data[Resume][id]" value="5734624d-49e4-4377-a193-8f2eac100002" id="ResumeId">
+            <div class="row">
+                <div class="small-12 columns" id="divResumePassword"><label><label
+                                for="ResumePassword">Contraseña</label>
+                        <div class="row collapse">
+                            <div class="small-1 columns"><span class="prefix"><i class="fi-key"></i></span></div>
+                            <div class="small-11 columns end"><input type="password" name="data[Resume][password]"
+
+                                                                     placeholder="Tu nueva contraseña" prefixsize="1"
+                                                                     id="ResumePassword"></div>
+                        </div>
+                    </label></div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns" id="divResumeConfirmPassword"><label><label for="ResumeConfirmPassword">Confirmar
+                            contraseña</label>
+                        <div class="row collapse">
+                            <div class="small-1 columns"><span class="prefix"><i class="fi-key"></i></span></div>
+                            <div class="small-11 columns end"><input type="password"
+                                                                     name="data[Resume][confirm_password]"
+
+                                                                     placeholder="Vuelve a escribir tu contraseña"
+                                                                     icon="key" id="ResumeConfirmPassword"></div>
+                        </div>
+                    </label></div>
+            </div>
+        </fieldset>
+        <div class="row"><input type="hidden" name="data[_App][referer]" value="/resumes/merits/add/1" id="_AppReferer">
+            <div class="medium-5 columns"><a href="/resumes/resumes/home" class="button secondary float-left">Descartar
+                    cambios</a>
+            </div>
+            <div class="medium-7 columns"><input name="done" value="Guardar y salir" class="button primary float-right"
+                                                 type="submit"></div>
+        </div>
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="5943d5dd11743ff3b11bc3fc5298a4e711e9a036%3AResume.id%7C_App.referer"
+                                          id="TokenFields245552009"></div>
+    </form>
+
+{% endblock %}

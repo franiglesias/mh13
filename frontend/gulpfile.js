@@ -17,12 +17,7 @@ var jsVendorSource = 'src/js/vendor';
 var jsxSource = 'src/js/**/*.jsx';
 var jsSource = ['src/js/**/*.js', '!src/js/foundation/*.js'];
 var htmlSource = 'src/**/*.html';
-var imgSource = ['src/img/**/*.jpg', 'src/img/**/*.png']
-
-var foundationSrc = [
-    'node_modules/foundation-sites/dist/js/foundation.js',
-    'node_modules/foundation-sites/vendor/jquery/dist/jquery.js'
-];
+var imgSource = ['src/img/**/*.jpg', 'src/img/**/*.png'];
 
 
 var foundationSrc = [
@@ -45,6 +40,7 @@ gulp.task('update', [
     'copy-react-dom',
     'copy-foundation',
     'copy-images',
+    'copy-jquery-te',
     'default'
 ]);
 
@@ -98,8 +94,12 @@ gulp.task('copy-foundation', function () {
         .pipe(gulp.dest(jsVendorSource))
 });
 
+gulp.task('copy-jquery-te', function () {
+    gulp.src('src/js/jqueryte/*.*')
+        .pipe(gulp.dest(destination + '/js'))
+});
 
-gulp.task('compile-jsx', () => {
+gulp.task('compile-jsx', function () {
     return gulp.src(jsxSource)
         .pipe(babel({
             presets: ['react']
@@ -135,4 +135,4 @@ gulp.task('styleguide', function () {
 gulp.task('html', function () {
     gulp.src(htmlSource)
         .pipe(gulp.dest(destination))
-})
+});

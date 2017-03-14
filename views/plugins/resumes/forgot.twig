@@ -1,0 +1,42 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+    <header>
+        <h1>Credenciales olvidadas</h1>
+    </header>
+
+    <p>Por favor, indica tu correo electrónico, para que podamos generar una nueva contraseña para ti.</p>
+    <p>Te enviaremos un mensaje con un enlace para regenerar tu contraseña. Si, en el último momento, decides que no
+        quieres renovar la contrasña, ignora el mensaje. El enlace caducará enunos días.</p>
+    <p>Como último paso, enviaremos la contraseña provisional por correo. Por favor, accede a tu perfil y cámbiala lo
+        antes posible.</p>
+
+    <form action="/resumes/resumes/forgot" class="frontend" id="ResumeForgotForm" method="post" accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="POST"><input type="hidden"
+                                                                                           name="data[_Token][key]"
+                                                                                           value="a4a5ac3b9d8d4c0e818191bac04ffb756129b584"
+                                                                                           id="Token225711559"></div>
+        <fieldset>
+            <legend>Datos de identificación</legend>
+            <div class="row">
+                <div class="small-12 columns" id="divResumeRecoveryEmail" has-tip="1" data-tooltip="1" aria-haspopup="1"
+                     data-options="disable_for_touch:true, show_on:large" title=""><label><label
+                                for="ResumeRecoveryEmail">Correo para recuperar la contraseña</label>
+                        <div class="row collapse">
+                            <div class="small-1 columns"><span class="prefix"><i class="fi-mail"></i></span></div>
+                            <div class="small-11 columns end"><input name="data[Resume][recovery_email]" type="email"
+                                                                     id="ResumeRecoveryEmail"></div>
+                        </div>
+                    </label></div>
+            </div>
+        </fieldset>
+        <div class="row"><input type="hidden" name="data[_App][referer]" id="_AppReferer">
+            <div class="medium-5 columns"><a href="/cv" class="button secondary float-left">No, gracias.</a></div>
+            <div class="medium-7 columns"><input name="done" value="Ayúdame a recuperar mi contraseña"
+                                                 class="button primary float-right" type="submit"></div>
+        </div>
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="92ad59e3d8a7136b69cd81912066ec49391fc3c0%3A_App.referer"
+                                          id="TokenFields2058811318"></div>
+    </form>
+
+{% endblock %}

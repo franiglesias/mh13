@@ -1,7 +1,7 @@
 {% extends 'layouts/resumes.twig' %}
 {% block content %}
 
-    <script type="text/javascript" src="/assets/js/jqueryte/jquery-te-1.3.2.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jqueryte/jquery-te.min.js"></script>
 
     <link type="text/css" rel="stylesheet" href="/assets/js/jqueryte/jquery-te-1.3.2.css" charset="utf-8"/>
 
@@ -29,23 +29,21 @@
                            id="ResumeId">
 
                     <div class="row">
-                        <div class="small-5 columns" id="divResumeFirstname"><label><label
-                                        for="ResumeFirstname">Nombre</label>
-                                <div class="row collapse">
-                                    <div class="small-12 columns end"><input name="data[Resume][firstname]"
-                                                                             type="text"
-                                                                             value="{{ data.Resume.firstname }}"
-                                                                             id="ResumeFirstname"></div>
-                                </div>
+                        <div class="small-5 columns" id="divResumeFirstname"><label>Nombre
+
+                                <input name="data[Resume][firstname]"
+                                       type="text"
+                                       value="{{ data.Resume.firstname }}"
+                                       id="ResumeFirstname">
+
                             </label></div>
-                        <div class="small-7 columns" id="divResumeLastname"><label><label
-                                        for="ResumeLastname">Apellido</label>
-                                <div class="row collapse">
-                                    <div class="small-12 columns end"><input name="data[Resume][lastname]"
-                                                                             type="text"
-                                                                             value="{{ data.Resume.lastname }}"
-                                                                             id="ResumeLastname"></div>
-                                </div>
+                        <div class="small-7 columns" id="divResumeLastname"><label>Apellido
+
+                                <input name="data[Resume][lastname]"
+                                       type="text"
+                                       value="{{ data.Resume.lastname }}"
+                                       id="ResumeLastname">
+
                             </label></div>
                     </div>
                     <div class="row">
@@ -201,8 +199,8 @@
             </div>
         </div>
         <div class="row"><input type="hidden" name="data[_App][referer]" value="/cv" id="_AppReferer">
-            <div class="medium-5 columns"><a href="/cv" class="mh-btn-cancel left">Descartar cambios</a></div>
-            <div class="medium-7 columns"><input name="done" value="Guardar y salir" class="mh-btn-save right"
+            <div class="medium-5 columns"><a href="/cv" class="button secondary float-left">Descartar cambios</a></div>
+            <div class="medium-7 columns"><input name="done" value="Guardar y salir" class="button primary float-right"
                                                  type="submit"></div>
         </div>
         <div style="display:none;"><input type="hidden" name="data[_Token][fields]"

@@ -1,0 +1,43 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+    <header>
+        <h1>¿Seguro que quieres eliminar tu currículum?</h1>
+    </header>
+    <h2>Una vez realizado el borrado no es posible recuperar esta información.</h2>
+    <p>Una vez que borres tu currículum de nuestra base de datos será imposible recuperar esta información, aunque puede
+        permanecer un máximo de 24 h. en las copias de seguridad automáticas que se realizan del contenido del
+        servidor.</p>
+    <p>Se eliminarán también tus datos de contacto.</p>
+
+
+    <form action="/resumes/resumes/remove/5734624d-49e4-4377-a193-8f2eac100002" id="ResumeRemoveForm" method="post"
+          accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="PUT"><input type="hidden"
+                                                                                          name="data[_Token][key]"
+                                                                                          value="a4a5ac3b9d8d4c0e818191bac04ffb756129b584"
+                                                                                          id="Token1674900078"></div>
+        <fieldset>
+            <legend>Currículum Vitae</legend>
+            <div class="row">
+                <input type="hidden" name="data[Resume][id]" value="5734624d-49e4-4377-a193-8f2eac100002" id="ResumeId">
+                <div class="switch">
+                    <input class="switch-input" id="ResumeDelete" type="checkbox" name="data[Resume][delete]">
+                    <label class="switch-paddle" for="ResumeDelete">
+                        <span class="show-for-sr">Sí, elimina mi currículum.</span>
+                        <span class="switch-active" aria-hidden="true">Sí</span>
+                        <span class="switch-inactive" aria-hidden="true">No</span>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row"><input type="hidden" name="data[_App][referer]" id="_AppReferer">
+            <div class="medium-5 columns"><a href="/cv" class="button secondary float-left">No. Vuelve atrás.</a></div>
+            <div class="medium-7 columns"><input name="done" value="Quiero eliminar mi currículum"
+                                                 class="button primary float-right" type="submit"></div>
+        </div>
+        <div style="display:none;"><input type="hidden" name="data[_Token][fields]"
+                                          value="39bc62ebc239b4c981a3934e37793e0d1b21d509%3AResume.id%7C_App.referer"
+                                          id="TokenFields1165966367"></div>
+    </form>
+
+{% endblock %}
