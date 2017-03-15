@@ -52,10 +52,16 @@ class EventsController extends CircularsAppController
             }
             // Try to save data, if it fails, retry
             if ($this->Event->save($this->data)) {
-                $this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('circulars', 'Event', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('circulars', 'Event', true)),
+                    'success'
+                );
                 $this->xredirect();
             } else {
-                $this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('circulars', 'Event', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(__('The %s could not be saved. Please, try again.', true), __d('circulars', 'Event', true)),
+                    'warning'
+                );
             }
         }
         if (empty($this->data)) { // 1st pass

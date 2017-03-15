@@ -379,12 +379,26 @@ class ChannelsController extends ContentsAppController
     public function _activate($ids)
     {
         $this->Channel->updateAll(array('Channel.active' => 1), array('Channel.id' => $ids));
-        $this->Session->setFlash(sprintf(__d('contents', 'Selected %s set to %s', true), __d('contents', 'Channels', true), __d('contents', 'Active', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(
+                __d('contents', 'Selected %s set to %s', true),
+                __d('contents', 'Channels', true),
+                __d('contents', 'Active', true)
+            ),
+            'success'
+        );
     }
 
     public function _deactivate($ids)
     {
         $this->Channel->updateAll(array('Channel.active' => 0), array('Channel.id' => $ids));
-        $this->Session->setFlash(sprintf(__d('contents', 'Selected %s set to %s', true), __d('contents', 'Channels', true), __d('contents', 'Inactive', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(
+                __d('contents', 'Selected %s set to %s', true),
+                __d('contents', 'Channels', true),
+                __d('contents', 'Inactive', true)
+            ),
+            'success'
+        );
     }
 }

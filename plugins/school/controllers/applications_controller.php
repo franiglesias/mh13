@@ -36,6 +36,11 @@ class ApplicationsController extends SchoolAppController {
 		$this->set('applications', $this->paginate());
 	}
 
+    protected function _setCommonOptions()
+    {
+        $this->set('levels', $this->Application->Level->find('list'));
+    }
+	
 	function add() {
 		$this->setAction('edit');
 	}
@@ -57,7 +62,7 @@ class ApplicationsController extends SchoolAppController {
 				$this->message('validation');
 			}
 		}
-		
+
 		// First pass or reload
 		if(empty($this->data['Application'])) { // 1st pass
 			if ($id) {
@@ -72,7 +77,7 @@ class ApplicationsController extends SchoolAppController {
 		// Render preparation
 		$this->_setCommonOptions();
 	}
-	
+
 	protected function refreshModel($id)
 	{
 		$this->preserveAppData();
@@ -83,7 +88,7 @@ class ApplicationsController extends SchoolAppController {
 		$this->restoreAppData();
 	}
 
-	function apply($id = null) 
+    function apply($id = null)
 	{
 		$this->layout = 'basic';
 		if (!empty($this->data)) {
@@ -108,7 +113,10 @@ class ApplicationsController extends SchoolAppController {
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Application->read($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('school', 'application', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('school', 'application', true)),
+                        'alert'
+                    );
 					$this->redirect(array(
 						'action' => 'feedback'
 					));
@@ -122,8 +130,8 @@ class ApplicationsController extends SchoolAppController {
 	{
 		$this->layout = 'basic';
 	}
-	
-	public function feedback()
+
+    public function feedback()
 	{
 		$this->layout = 'basic';
 		$this->set('Application', $this->Session->read('Application'));
@@ -135,7 +143,7 @@ class ApplicationsController extends SchoolAppController {
 		$this->layout = 'basic';
 	}
 
-	public function next($id)
+    public function next($id)
 	{
 		$this->Application->id = $id;
 		$State = $this->State->get($this->Application->field('status'));
@@ -162,17 +170,13 @@ class ApplicationsController extends SchoolAppController {
 		$id = $this->data['Application']['identifier'];
 		$private = $this->Application->get($id, true);
 		$public = $this->Application->get($id, false);
-		
-		$this->layout = 'basic';
+
+        $this->layout = 'basic';
 		$this->set('private_applications', $private);
 		$this->set('public_applications', $public);
 		$this->_setCommonOptions();
 		$this->set('id', $id);
 		// discriminar si son de niveles privados o concertados para mostrar distinta vista
-	}
-	
-	protected function _setCommonOptions() {
-		$this->set('levels', $this->Application->Level->find('list'));
 	}
 	
 	

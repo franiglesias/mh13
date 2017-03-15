@@ -1,0 +1,17 @@
+/* A container that automatically adapts to contents width */
+
+.mh-stretch {
+  width: 1px;
+  white-space: nowrap;
+}
+
+/* A container fixed in the top of the screen */
+
+.mh-flash {
+  width: 60%;
+  display: block;
+  position: fixed;
+  left: 50%;
+  margin-left: -30%;
+  z-index: 100000;
+}

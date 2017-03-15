@@ -27,9 +27,9 @@ class UploadsController extends UploadsAppController
         $foreign_key = $this->Upload->field('foreign_key');
         $model = $this->Upload->field('model');
         if (!$this->Upload->delete($id)) {
-            $this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('uploads', 'Upload', true)), 'flash_alert');
+            $this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('uploads', 'Upload', true)), 'alert');
         } else {
-            $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('uploads', 'Upload', true)), 'flash_success');
+            $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('uploads', 'Upload', true)), 'success');
         }
         if ($this->RequestHandler->isAjax()) {
             $this->redirect(array('action' => 'index', $model, $foreign_key));
@@ -40,26 +40,39 @@ class UploadsController extends UploadsAppController
     public function edit($id = null)
     {
         if (!$id && empty($this->data['Upload'])) {
-            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('uploads', 'Upload', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('uploads', 'Upload', true)), 'alert');
             $this->xredirect();
         }
         if (!empty($this->data['Upload'])) {
             if ($this->Upload->save($this->data)) {
-                $this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true), __d('uploads', 'Upload', true), $this->data['Upload']['name']), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('Changes saved to %s \'%s\'.', true),
+                        __d('uploads', 'Upload', true),
+                        $this->data['Upload']['name']
+                    ),
+                    'success'
+                );
                 if ($this->RequestHandler->isAjax()) {
                     $this->redirect(array('action' => 'index', $this->data['Upload']['model'], $this->data['Upload']['foreign_key'], 'page' => $this->params['named']['page']));
                 }
 
                 $this->xredirect();
             } else {
-                $this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('uploads', 'Upload', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('uploads', 'Upload', true)
+                    ),
+                    'warning'
+                );
             }
         }
         if (empty($this->data['Upload'])) {
             $this->data = $this->Upload->read(null, $id);
 
             if (empty($this->data['Upload'])) {
-                $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('uploads', 'Upload', true)), 'flash_error');
+                $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('uploads', 'Upload', true)), 'alert');
                 $this->redirect(array('action' => 'index'));
             }
             $this->saveReferer();
@@ -82,6 +95,19 @@ class UploadsController extends UploadsAppController
         }
     }
 
+    private function filterByModelFK($model, $fk)
+    {
+        if (empty($model) || empty($fk)) {
+            return;
+        }
+        $this->paginate['Upload']['conditions'] = array(
+            'Upload.model' => $model,
+            'Upload.foreign_key' => $fk,
+        );
+        $this->paginate['Upload']['limit'] = Configure::read('Theme.limits.page');
+        $this->paginate['Upload']['order'] = array('Upload.order' => 'asc');
+    }
+
     public function owned($model = false, $fk = false)
     {
         $this->paginate['Upload'][0] = 'checked';
@@ -94,19 +120,6 @@ class UploadsController extends UploadsAppController
         if ($this->RequestHandler->isAjax() || !empty($this->params['requested'])) {
             $this->render('ajax/index', 'ajax');
         }
-    }
-
-    private function filterByModelFK($model, $fk)
-    {
-        if (empty($model) || empty($fk)) {
-            return;
-        }
-        $this->paginate['Upload']['conditions'] = array(
-            'Upload.model' => $model,
-            'Upload.foreign_key' => $fk,
-        );
-        $this->paginate['Upload']['limit'] = Configure::read('Theme.limits.page');
-        $this->paginate['Upload']['order'] = array('Upload.order' => 'asc');
     }
 
     /**
@@ -205,7 +218,7 @@ class UploadsController extends UploadsAppController
             $result = $this->Upload->find('first', array('conditions' => array('id' => $id)));
 
             if (!$result) {
-                $this->Session->setFlash(__('Invalid Upload', true), 'flash_error');
+                $this->Session->setFlash(__('Invalid Upload', true), 'alert');
                 $this->redirect(array('action' => 'index'));
             }
             list($name, $extension) = explode('.', basename($result['Upload']['path']));

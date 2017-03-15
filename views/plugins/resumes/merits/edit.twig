@@ -1,0 +1,98 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+    <header>
+        <h1>Añade {{ meritType.MeritType.title }}</h1>
+    </header>
+    <div class="body">
+    <form action="/resumes/merits/edit/{{ data.Merit.id }}" id="MeritEditForm"
+          enctype="multipart/form-data" method="post" accept-charset="utf-8">
+        <div style="display:none;"><input type="hidden" name="_method" value="PUT"><input type="hidden"
+                                                                                          name="data[_Token][key]"
+                                                                                          value="d866e1b629507616167a34659abc9964e3772f1c"
+                                                                                          id="Token1260422462">
+        </div>
+        <fieldset>
+            <legend></legend>
+            <input type="hidden" name="data[Merit][id]" value="{{ data.Merit.id }}" id="MeritId">
+            <input type="hidden" name="data[Merit][merit_type_id]" value="1" id="MeritMeritTypeId">
+            <input type="hidden" name="data[Merit][resume_id]" value="{{ data.Merit.resume_id }}" id="MeritResumeId">
+
+            <label>Título<input name="data[Merit][title]" type="text" id="MeritTitle"
+                                value="{{ data.Merit.title }}"></label>
+            <label>{{ meritType.MeritType.remarks_label }}<textarea name="data[Merit][remarks]" rows="5"
+                                                                    id="MeritRemarks">{{ data.Merit.remarks }}</textarea></label>
+            {% if meritType.MeritType.ignore_dates <= 1 %}
+                <label>{{ meritType.MeritType.start_date_label }}<input name="data[Merit][start]" type="text"
+                                                                        id="MeritStart" value="{{ data.Merit.start }}"
+                                                                        placeholder="Año de comienzo"></label>
+            {% endif %}
+            {% if meritType.MeritType.ignore_dates < 1 %}
+                <label>{{ meritType.MeritType.end_date_label }}<input name="data[Merit][end]" type="text"
+                                                                      placeholder="Año de finalización" id="MeritEnd"
+                                                                      value="{{ data.Merit.end }}"></label>
+            {% endif %}
+            {% if merit.Type.MeritType.allow_url %}
+            <label>{{ merit.Type.MeritType.url_label }}<input name="data[Merit][url]" type="text"
+                                                              placeholder="Dirección web" id="MeritEnd"
+                                                              value="{{ data.Merit.url }}"></l
+                {% endif %}
+                {% if meritType.MeritType.allow_file %}
+                    <div class="row">
+                        <div class="small-12 columns" id="divMeritFile" has-tip="1" data-tooltip="1" aria-haspopup="1"
+                             data-options="disable_for_touch:true, show_on:large" title=""><label><label
+                                        for="MeritFile">Documento
+                                    acreditativo</label>
+                                <div class="row collapse">
+                                    <div class="small-12 columns end"><input type="hidden" name="data[Merit][file]"
+                                                                             id="MeritFile">
+                                        <div id="MeritFile-uploader" class="uploader"
+                                             mh-upload="/uploads/uploads/upload"
+                                             mh-multiple="0" mh-mode="inline" mh-refresh="/uploads/uploads/single"
+                                             mh-class="Merit" mh-plugin="resumes" mh-field="file"
+                                             mh-fk="{{ data.Merit.id }}" mh-target="MeritFile"
+                                             mh-extensions="file" mh-limit="314572800">
+                                            <div class="qq-uploader">
+                                                <div class="qq-upload-manage small-3 columns">
+                                                    <div class="qq-upload-drop-area" style="display: none;"><span>Arrastra archivos aquí.</span>
+                                                    </div>
+                                                    <div class="qq-upload-button"
+                                                         style="position: relative; overflow: hidden; direction: ltr;">
+                                                        Haz
+                                                        clic para seleccionar archivos.<input type="file" name="file"
+                                                                                              style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;">
+                                                    </div>
+                                                    <button id="Clear-MeritFile" type="button" mh_target="MeritFile"
+                                                            class="mh-uploader-cleaner mh-webkit-reset mh-button mh-button-delete mh-btn-uploader-clear">
+                                                        Borrar
+                                                    </button>
+                                                </div>
+                                                <div class="qq-upload-preview-list" style="display: block;">
+                                                    <div class="panel callout"><p class="text-center">No hay archivos
+                                                            todavía.</p></div>
+                                                </div>
+                                                <div class="qq-upload-progress-info small-9 columns">
+                                                    <ul class="qq-upload-list"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                {% endif %}
+        </fieldset>
+        <div class="row">
+            <input type="hidden" name="data[_App][referer]" value="/resumes/merits/show/{{ data.Merit.merit_type_id }}"
+                   id="_AppReferer">
+            <p><a href="/resumes/merits/show/{{ data.Merit.merit_type_id }}" class="button secondary float-left">Descartar
+                    cambios</a>
+                <input name="done" value="Guardar y salir" class="button primary float-right" type="submit"></p>
+        </div>
+        <div style="display:none;">
+            <input type="hidden" name="data[_Token][fields]"
+                   value="4c6790e8b92fc55541ca6d849bc8715cad1bad2c%3AMerit.file%7CMerit.id%7CMerit.merit_type_id%7CMerit.resume_id%7C_App.referer"
+                   id="TokenFields712375205">
+        </div>
+    </form>
+{% endblock %}

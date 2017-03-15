@@ -1,5 +1,14 @@
 var MHCounter = 0;
 
+var flashMessage = $('.mh-flash');
+Foundation.Motion.animateIn(flashMessage, "hinge-in-from-top");
+setTimeout(function () {
+    var autohide = $('.mh-autohide');
+    Foundation.Motion.animateOut(autohide, "hinge-out-from-top");
+}, 5000);
+
+
+
 // toggleClick allows to bind several functions to a click event so you can trigger every one on every click
 $.fn.toggleClick = function () {
     var functions = arguments,
@@ -8,7 +17,7 @@ $.fn.toggleClick = function () {
         functions[iteration].apply(this, arguments)
         iteration = (iteration + 1) % functions.length
     })
-}
+};
 
 $.fn.scrollToMe = function (speed, callFunc) {
     var that = this;

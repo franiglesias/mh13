@@ -26,11 +26,19 @@ class CantineTicketsController extends CantineAppController {
 		$this->passSchoolOptionsToView();
 	}
 
+    private function passSchoolOptionsToView()
+    {
+        $this->set('sections', ClassRegistry::init('Section')->find('list'));
+        $this->set('levels', ClassRegistry::init('Section')->Level->find('list'));
+        $this->set('cycles', ClassRegistry::init('Section')->Cycle->find('list'));
+    }
+
 /**
  * By means of Duplicable Behavior, duplicates a Model record and reset some values. Then transfer to edit action.
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  */
 	public function duplicate($id) {
 		$newID = $this->CantineTicket->duplicate($id);
@@ -39,13 +47,12 @@ class CantineTicketsController extends CantineAppController {
 		}
 		$this->CantineTicket->id = $newID;
 		$this->redirect(array('action' => 'edit', $newID));
-	}
-
-
+    }
+	
 	function add() {
 		$this->setAction('edit');
 	}
-	
+
 	function edit($id = null) {
 		if (!empty($this->data)) {
 			$create = false;
@@ -64,7 +71,9 @@ class CantineTicketsController extends CantineAppController {
 				// New record, force load student data
 				$this->refreshModel($id);
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'cantine regular'), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(__('The %s could not be saved. Please, try again.', true), 'cantine regular'),
+                    'warning');
 			}
 		}
 		if (empty($this->data['CantineTicket'])) { // 1st pass
@@ -77,18 +86,6 @@ class CantineTicketsController extends CantineAppController {
 			$this->saveReferer(); // Store actual referer to use in 2nd pass
 		}
 	}
-
-	protected function refreshModel($id)
-	{
-		$this->preserveAppData();
-		$this->CantineTicket->contain('Student.Section');
-		if (!($this->data = $this->CantineTicket->read(null, $id))) {
-			$this->message('error');
-			$this->xredirect(); // forget stored referer and redirect
-		}
-		$this->restoreAppData();
-	}
-	
 	
 	private function saveDatesProvided()
 	{
@@ -126,17 +123,22 @@ class CantineTicketsController extends CantineAppController {
 		$this->xredirect();
 	}
 
-	private function passSchoolOptionsToView()
-	{
-		$this->set('sections', ClassRegistry::init('Section')->find('list'));
-		$this->set('levels', ClassRegistry::init('Section')->Level->find('list'));
-		$this->set('cycles', ClassRegistry::init('Section')->Cycle->find('list'));
+    protected function refreshModel($id)
+    {
+        $this->preserveAppData();
+        $this->CantineTicket->contain('Student.Section');
+        if (!($this->data = $this->CantineTicket->read(null, $id))) {
+            $this->message('error');
+            $this->xredirect(); // forget stored referer and redirect
+        }
+        $this->restoreAppData();
 	}
 	
-
 	protected function _selectionDelete($ids) {
 		$this->CantineTicket->deleteAll(array('CantineTicket.id' => $ids));
-		$this->Session->setFlash(sprintf(__('Selected %s deleted', true), __d('cantine', 'CantineTicket', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(__('Selected %s deleted', true), __d('cantine', 'CantineTicket', true)),
+            'success');
 	}	
 	
 

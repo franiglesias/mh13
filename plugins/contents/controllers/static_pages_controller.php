@@ -21,11 +21,21 @@ class StaticPagesController extends ContentsAppController
         $this->passLabelsToView();
     }
 
+    protected function passLabelsToView()
+    {
+        // App::import('Model', 'Labels.Label');
+        $this->loadModel('Labels.Label');
+        $this->set(
+            'globalLabels',
+            $this->Label->getGlobal()
+        );
+    }
+
     public function view($slug = null)
     {
         $this->layout = 'static';
         if (!$slug) {
-            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('contents', 'site', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('contents', 'site', true)), 'alert');
             $this->redirect(array('action' => 'index'));
         }
         $this->StaticPage->view($slug);
@@ -95,15 +105,5 @@ class StaticPagesController extends ContentsAppController
             $this->xredirect(); // forget stored referer and redirect
         }
         $this->restoreAppData();
-    }
-
-    protected function passLabelsToView()
-    {
-        // App::import('Model', 'Labels.Label');
-        $this->loadModel('Labels.Label');
-        $this->set(
-            'globalLabels',
-            $this->Label->getGlobal()
-        );
     }
 }

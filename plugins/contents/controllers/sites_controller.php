@@ -20,7 +20,7 @@ class SitesController extends ContentsAppController {
 
 	function view($key = false) {
 		if (!$key) {
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('contents', 'site', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('contents', 'site', true)), 'alert');
 			$this->redirect('/');
 		}
 		$site = $this->Site->getByKey($key);
@@ -64,10 +64,10 @@ class SitesController extends ContentsAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Site->save($this->data)) {
-				$this->Session->setFlash(__('Changes saved to Site', true), 'flash_success');
+                $this->Session->setFlash(__('Changes saved to Site', true), 'success');
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(__('Site couldn\'t be saved', true), 'flash_validation');
+                $this->Session->setFlash(__('Site couldn\'t be saved', true), 'warning');
 			}
 		}
 
@@ -75,7 +75,7 @@ class SitesController extends ContentsAppController {
 			if ($id) {
 				$this->Site->contain('Channel');
 				if (!($this->data = $this->Site->find('first', array('conditions' => array('Site.id' => $id))))) {
-					$this->Session->setFlash(__('Invalid Site', true), 'flash_error');
+                    $this->Session->setFlash(__('Invalid Site', true), 'alert');
 					$this->xredirect(); // forget stored referer and redirect
 				}
 			}

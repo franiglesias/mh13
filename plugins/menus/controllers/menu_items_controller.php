@@ -51,7 +51,7 @@ class MenuItemsController extends MenusAppController {
 			if ($id) {
 				if (!($this->data = $this->MenuItem->read(null, $id))) {
 					$this->message('invalid');
-					// $this->Session->setFlash($invalid_message, 'flash_error');
+                    // $this->Session->setFlash($invalid_message, 'alert');
 					$this->xredirect(); // forget stored referer and redirect
 				}
 			} else {
@@ -84,9 +84,9 @@ class MenuItemsController extends MenusAppController {
 	// 	$this->MenuItem->id = $id;
 	// 	$menu_id = $this->MenuItem->field('menu_id');
 	// 	if (!$this->MenuItem->delete($id)) {
-	// 		$this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('menus', 'Menu Item', true)), 'flash_alert');
+    // 		$this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('menus', 'Menu Item', true)), 'alert');
 	// 	} else {
-	// 		$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('menus', 'Menu Item', true)), 'flash_success');
+    // 		$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('menus', 'Menu Item', true)), 'success');
 	// 	}
 	// 	if ($this->RequestHandler->isAjax()) {
 	// 		$this->redirect(array('action' => 'index', $menu_id));

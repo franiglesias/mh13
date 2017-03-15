@@ -1,6 +1,5 @@
 <?php
 
-App::import('Lib', 'Access.AccessResource');
 
 class ObjectResource implements AccessResource
 {

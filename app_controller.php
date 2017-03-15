@@ -50,7 +50,7 @@ class AppController extends Controller
             'userScope' => array('User.active >' => 0),
             'authorize' => 'controller',
             'autoRedirect' => false,
-            'flashElement' => 'flash_auth',
+            'flashElement' => 'warning',
             'loginAction' => array(
                 'admin' => false,
                 'plugin' => 'access',
@@ -249,7 +249,7 @@ class AppController extends Controller
             $code = 401;
         } else {
             throw new Exception('Problem accessing '.$this->name.'::'.$this->action.' reason: '.$reason);
-            $this->Session->setFlash(__('Access denied', true), 'flash_alert');
+            $this->Session->setFlash(__('Access denied', true), 'alert');
         }
         $this->redirect(null, $code, true);
     }
@@ -292,13 +292,10 @@ class AppController extends Controller
         $this->Component->triggerCallback('beforeRender', $this);
         $this->autoRender = false;
 
-        if (is_null($layout)) {
-            $vars = [];
-        } else {
-            $vars = $layout;
-        }
 
-        return $this->twrender($action, $vars);
+        $vars = array_merge($layout ? $layout : [], ['Paging' => $this->paginate]);
+
+        return $this->twig->render($action, $vars);
     }
 
     public function beforeRender()
@@ -322,6 +319,8 @@ class AppController extends Controller
         if (!empty($this->params['named']['print'])) {
             $this->layout = 'print';
         }
+
+        $this->passPendingFlashMessagesToTheViewAndDeleteThemFromSession();
     }
 
     public function _setErrorLayout()
@@ -332,21 +331,14 @@ class AppController extends Controller
         }
     }
 
-    /**
-     * Generic Method to render template
-     *
-     * @param string $template
-     * @param array  $vars
-     */
-    function twrender($template, $vars = null)
-    {
-
-        $vars = array_merge($vars, ['Paging' => $this->paginate]);
-
-        return $this->twig->render($template, $vars);
-    }
 
     // End redirect Management
+
+    protected function passPendingFlashMessagesToTheViewAndDeleteThemFromSession()
+    {
+        $this->twig->addGlobal('Session', $this->Session->read());
+        $this->Session->delete('Message');
+    }
 
     /**
      * Generic/default delete action for any controller.
@@ -388,27 +380,27 @@ class AppController extends Controller
         switch ($type) {
             case 'success':
                 $message = sprintf(__('Data for %s: <strong>%s</strong> was saved.', true), $model, $identity);
-                $template = 'flash_success';
+                $template = 'success';
                 break;
             case 'validation':
                 $message = sprintf(__('Failed to save %s: <strong>%s</strong>. Please, check fields.', true), $model, $identity);
-                $template = 'flash_validation';
+                $template = 'warning';
                 break;
             case 'invalid':
                 $message = sprintf(__('Can\'t find the %s.', true), $model);
-                $template = 'flash_alert';
+                $template = 'alert';
                 break;
             case 'delete':
                 $message = sprintf(__('%s was deleted.', true), $model);
-                $template = 'flash_success';
+                $template = 'success';
                 break;
             case 'error':
                 $message = sprintf(__('Something went wrong with %s.', true), $model);
-                $template = 'flash_alert';
+                $template = 'alert';
                 break;
             default:
                 $message = sprintf(__('Action was performed with %s: <strong>%s</strong>', true), $model, $identity);
-                $template = 'flash_info';
+                $template = 'primary';
             break;
         }
         $this->Session->setFlash($message, $template);
@@ -476,7 +468,7 @@ class AppController extends Controller
             }
         }
         if (empty($ids)) {
-            $this->Session->setFlash(__d('errors', 'Nothing selected.', true), 'flash_error');
+            $this->Session->setFlash(__d('errors', 'Nothing selected.', true), 'alert');
             $this->redirect($this->referer());
         }
         $referer = $this->referer();
@@ -498,7 +490,7 @@ class AppController extends Controller
         $this->autoRender = false;
         $action = '_' . $this->data['_Selection']['action'];
         if (!method_exists($this, $action)) {
-            $this->Session->setFlash(__d('errors', 'No action performed on selection.', true), 'flash_error');
+            $this->Session->setFlash(__d('errors', 'No action performed on selection.', true), 'alert');
             $this->log(sprintf('Action %s doesn\'t exists on model %s', $action, $this->alias), 'mh-error');
             $this->redirect($this->data['_Selection']['referer']);
         }

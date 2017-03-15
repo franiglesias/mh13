@@ -123,9 +123,15 @@ class CantineRulesController extends CantineAppController {
 		$this->CantineRule->id = $id;
 		$cantine_turn_id = $this->CantineRule->field('cantine_turn_id');
 		if (!$this->CantineRule->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('access', 'Cantine Rule', true)), 'flash_alert');
+            $this->Session->setFlash(
+                sprintf(__('%s was not deleted.', true), __d('access', 'Cantine Rule', true)),
+                'alert'
+            );
 		} else {
-			$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('access', 'Cantine Rule', true)), 'flash_success');
+            $this->Session->setFlash(
+                sprintf(__('%s was deleted.', true), __d('access', 'Cantine Rule', true)),
+                'success'
+            );
 		}
 		if ($this->RequestHandler->isAjax()) {
 			$this->redirect(array('action' => 'index', $cantine_turn_id));

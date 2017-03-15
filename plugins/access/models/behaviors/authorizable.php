@@ -3,7 +3,7 @@
 App::import('Model', 'Access.Permission');
 App::import('Model', 'Access.Role');
 App::import('Model', 'Access.User');
-App::import('Lib', 'Access.AccessResource');
+
 
 class AuthorizableBehavior extends ModelBehavior {
 
@@ -14,29 +14,28 @@ class AuthorizableBehavior extends ModelBehavior {
 		$this->ResourceFactory = new ResourceFactory();
 	}
 	
-	
-	private function getResource($model)
-	{
-		return $this->ResourceFactory->make($model);
-	}
-	
 	public function makePrivate(&$model, $roleIds)
 	{
 		$Token = $this->getResource($model);
 		$Permission = ClassRegistry::init('Permission');
 		$Role = ClassRegistry::init('Role');
-		
-		$Permission->getByPattern($Token->value());
+
+        $Permission->getByPattern($Token->value());
 		if ($Permission->null()) {
 			$Permission->add($Token->value(), 'Access to');
 		}
 		$Permission->flush();
-		
-		foreach ($roleIds as $roleId) {
+
+        foreach ($roleIds as $roleId) {
 			$Role->get($roleId);
 			$Role->allow($Permission);
 		}
 	}
+
+    private function getResource($model)
+    {
+        return $this->ResourceFactory->make($model);
+    }
 	
 	public function makePublic(&$model)
 	{

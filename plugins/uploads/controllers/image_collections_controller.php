@@ -45,10 +45,19 @@ class ImageCollectionsController extends UploadsAppController
             }
             // Try to save data, if it fails, retry
             if ($this->ImageCollection->save($this->data)) {
-                $this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('uploads', 'Image collection', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('uploads', 'Image collection', true)),
+                    'success'
+                );
                 $this->xredirect();
             } else {
-                $this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('uploads', 'Image collection', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s could not be saved. Please, try again.', true),
+                        __d('uploads', 'Image collection', true)
+                    ),
+                    'warning'
+                );
             }
         }
         if (empty($this->data)) { // 1st pass
@@ -56,7 +65,7 @@ class ImageCollectionsController extends UploadsAppController
                 $fields = null;
                 $this->ImageCollection->contain('Image');
                 if (!($this->data = $this->ImageCollection->read($fields, $id))) {
-                    $this->Session->setFlash(__('Invalid Image Collection', true), 'flash_error');
+                    $this->Session->setFlash(__('Invalid Image Collection', true), 'alert');
                     $this->xredirect(); // forget stored referer and redirect
                 }
             }
@@ -67,10 +76,16 @@ class ImageCollectionsController extends UploadsAppController
     public function delete($id = null)
     {
         if (!$this->ImageCollection->delete($id)) {
-            $this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('uploads', 'Image collection', true)), 'flash_alert');
+            $this->Session->setFlash(
+                sprintf(__('%s was not deleted.', true), __d('uploads', 'Image collection', true)),
+                'alert'
+            );
             $this->redirect($this->referer());
         }
-        $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('uploads', 'Image collection', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(__('%s was deleted.', true), __d('uploads', 'Image collection', true)),
+            'success'
+        );
         $this->redirect($this->referer());
     }
 

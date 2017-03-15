@@ -13,7 +13,7 @@ class MaintenanceTypesController extends ItAppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'maintenance type', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'maintenance type', true)), 'alert');
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('maintenanceType', $this->MaintenanceType->read(null, $id));
@@ -30,17 +30,29 @@ class MaintenanceTypesController extends ItAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->MaintenanceType->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('it', 'maintenance type', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('it', 'maintenance type', true)),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('it', 'maintenance type', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s could not be saved. Please, try again.', true),
+                        __d('it', 'maintenance type', true)
+                    ),
+                    'warning'
+                );
 			}
 		}
 		if (empty($this->data)) { // 1st pass
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->MaintenanceType->read($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'maintenance type', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('it', 'maintenance type', true)),
+                        'alert'
+                    );
 					$this->xredirect();
 				}
 			}

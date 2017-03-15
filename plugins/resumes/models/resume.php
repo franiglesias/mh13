@@ -1,4 +1,5 @@
 <?php
+
 class Resume extends ResumesAppModel {
 	var $name = 'Resume';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -81,26 +82,37 @@ class Resume extends ResumesAppModel {
 		$this->_findMethods['subject'] = true;
 	}
 
-	public function beforeValidate()
-	{
-		// Hashes the password (simulates the use of Auth)
-		if (!empty($this->data['Resume']['password'])) {
-			$this->data['Resume']['password'] = Security::hash($this->data['Resume']['password'], 'sha1', true);
-		}
-		return true;
+    public static function fromLogin($data)
+    {
+        $resume = new self();
+
+        return $resume->authorized($data);
 	}
 	
 	public function authorized($data)
 	{
-		$conditions = array(
+        $conditions = [
 			'email' => $data['Resume']['email'],
 			'password' => Security::hash($data['Resume']['password'], 'sha1', true)
-		);
+        ];
 		$resume = $this->find('first', compact('conditions'));
-		if (!empty($resume)) {
-			unset($resume['Resume']['password']);
-		}
-		return $resume;
+        if (!$resume) {
+            throw new OutOfBoundsException(sprintf('No tenemos CV asociados a %s', $data['Resume']['email']));
+        }
+        unset($resume['Resume']['password']);
+        $this->set($resume);
+
+        return $this;
+    }
+
+    public function beforeValidate()
+    {
+        // Hashes the password (simulates the use of Auth)
+        if (!empty($this->data['Resume']['password'])) {
+            $this->data['Resume']['password'] = Security::hash($this->data['Resume']['password'], 'sha1', true);
+        }
+
+        return true;
 	}
 	
 	public function readCV($id = null)
@@ -125,13 +137,23 @@ class Resume extends ResumesAppModel {
 		$cv = $this->read(null);
 		return $cv;
 	}
+
+    protected function _bindMeritType($meritType)
+    {
+        $keys = array(
+            'className' => 'Resumes.Merit',
+            'foreignKey' => 'resume_id',
+            'conditions' => array('merit_type_id' => $meritType['MeritType']['id']),
+        );
+        $this->bindModel(array('hasMany' => array($meritType['MeritType']['alias'] => $keys)));
+    }
 	
 	public function search($terms)
 	{
 		$conditions = array(
 			"MATCH(Merit.title,Merit.remarks) AGAINST('$terms' IN BOOLEAN MODE)"
 		);
-		
+
 		$joins = array(
 			array(
 				'table' => 'merits',
@@ -142,11 +164,11 @@ class Resume extends ResumesAppModel {
 				)
 			)
 		);
-		
+
 		$results = $this->find('all', compact('conditions', 'joins'));
 		return $results;
 	}
-	
+
 	public function _findSearch($state, $query, $results = array())
 	{
 		if ($state === 'before') {
@@ -166,7 +188,7 @@ class Resume extends ResumesAppModel {
 				'Resume.fullname',
 				'Resume.modified'
 			);
-			
+
 			$conditions = array(
 				"MATCH(Merit.title,Merit.remarks) AGAINST('$terms' IN BOOLEAN MODE)"
 			);
@@ -186,11 +208,13 @@ class Resume extends ResumesAppModel {
 			$extraQuery = compact('fields', 'conditions', 'joins');
 			return Set::merge($query, $extraQuery);
 		}
-		
+
 		return $results;
 	}
 
 
+    // Forgot and recover password
+	
 	public function _findSubject($state, $query, $results = array())
 	{
 		if ($state === 'before') {
@@ -199,8 +223,8 @@ class Resume extends ResumesAppModel {
 			} else {
 				$terms = $query['terms'];
 			}
-			
-			$conditions = array(
+
+            $conditions = array(
 				'Merit.title LIKE' => '%'.$terms.'%'
 			);
 
@@ -233,14 +257,9 @@ class Resume extends ResumesAppModel {
 			$extraQuery = compact('conditions', 'joins', 'group');
 			return Set::merge($query, $extraQuery);
 		}
-		
-		return $results;
+
+        return $results;
 	}
-
-
-
-	// Forgot and recover password
-	
 	
 	public function forgot($email=false)
 	{
@@ -262,7 +281,6 @@ class Resume extends ResumesAppModel {
 		return $ticket;
 	}
 	
-	
 	public function recover($id = false)
 	{
 		if (!$this->id && !$id) {
@@ -278,13 +296,14 @@ class Resume extends ResumesAppModel {
 		$this->saveField('password', $hash, array('validate' => false, 'callbacks' => false));
 		return $password;
 	}
-	
-/**
+
+    /**
  * A % of fields completed
  *
- * @param string $id 
- * @return float % of fields completed
- */	
+     * @param string $id
+     *
+*@return float % of fields completed
+     */
 	public function isComplete($id = null)
 	{
 		if (!$this->id && !$id) {
@@ -320,9 +339,9 @@ class Resume extends ResumesAppModel {
 		}
 		if ($id) {
 			$this->id = $id;
-		}
-		
-		
+        }
+
+
 		App::import('Model', 'Resumes.MeritType');
 		$MT = ClassRegistry::init('MeritType');
 		$types = $MT->find('all');
@@ -338,13 +357,14 @@ class Resume extends ResumesAppModel {
 			$stats[$alias] = count($cv[$alias]);
 		}
 		return $stats;
-	}
-
+    }
+	
 /**
  * Resumes that are between 11 and 12 months old to send a notification of expiration
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  * @author Fran Iglesias
  */
 	public function aboutToExpire($id = null)
@@ -359,8 +379,9 @@ class Resume extends ResumesAppModel {
 /**
  * Resumes to expire
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  */
 	public function expired($id = null)
 	{
@@ -381,16 +402,6 @@ class Resume extends ResumesAppModel {
 			'firstname' => $data['Resume']['firstname'],
 			'lastname' => $data['Resume']['lastname']
 		);
-	}
-	
-	protected function _bindMeritType($meritType)
-	{
-		$keys = array(
-			'className' => 'Resumes.Merit',
-			'foreignKey' => 'resume_id',
-			'conditions' => array('merit_type_id' => $meritType['MeritType']['id'])
-		);
-		$this->bindModel(array('hasMany' => array($meritType['MeritType']['alias'] => $keys)));
 	}
 	
 	

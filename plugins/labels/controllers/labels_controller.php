@@ -130,9 +130,9 @@ class LabelsController extends LabelsAppController {
 		$owner_model = $this->Label->field('owner_model');
 		$owner_id = $this->Label->field('owner_id');
 		if (!$this->Label->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('labels', 'Label', true)), 'flash_alert');
+            $this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('labels', 'Label', true)), 'alert');
 		} else {
-			$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('labels', 'Label', true)), 'flash_success');
+            $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('labels', 'Label', true)), 'success');
 		}
 		if ($this->RequestHandler->isAjax()) {
 			$this->redirect(array('action' => 'index', $owner_model, $owner_id));

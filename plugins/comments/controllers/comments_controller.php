@@ -52,16 +52,28 @@ class CommentsController extends CommentsAppController {
 			}
 
 			if ($this->Comment->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('comments', 'comment', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('comments', 'comment', true)),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('comments', 'comment', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s could not be saved. Please, try again.', true),
+                        __d('comments', 'comment', true)
+                    ),
+                    'warning'
+                );
 			}
 		}
 		if (empty($this->data)) {
 			if ($id) {
 				if (!($this->data = $this->Comment->read(null, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('comments', 'comment', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('comments', 'comment', true)),
+                        'alert'
+                    );
 					$this->redirect(array('action' => 'index'));
 				}
 			}
@@ -72,10 +84,13 @@ class CommentsController extends CommentsAppController {
 
 	function delete($id = null) {
 		if (!$this->Comment->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s was not deleted.', true), __d('comments', 'comment', true)), 'flash_alert');
+            $this->Session->setFlash(
+                sprintf(__('%s was not deleted.', true), __d('comments', 'comment', true)),
+                'alert'
+            );
 			$this->redirect($this->referer());
 		}
-		$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('comments', 'comment', true)), 'flash_success');
+        $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('comments', 'comment', true)), 'success');
 		$this->redirect($this->referer());
 	}
 	
@@ -139,9 +154,18 @@ class CommentsController extends CommentsAppController {
 			$this->render('comment');
 		} else {
 			if ($success) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('comments', 'comment', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('comments', 'comment', true)),
+                    'success'
+                );
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('comments', 'comment', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s could not be saved. Please, try again.', true),
+                        __d('comments', 'comment', true)
+                    ),
+                    'warning'
+                );
 			}
 			$this->redirect(unserialize($this->data['Comment']['redirect']));
 		}

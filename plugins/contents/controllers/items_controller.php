@@ -499,7 +499,7 @@ class ItemsController extends ContentsAppController
 
     public function channel()
     {
-        $this->Session->setFlash(sprintf(__('Invalid %s', true), 'item'), 'flash_error');
+        $this->Session->setFlash(sprintf(__('Invalid %s', true), 'item'), 'alert');
         $this->redirect($this->referer());
     }
 
@@ -553,28 +553,49 @@ class ItemsController extends ContentsAppController
     protected function _statusToDraft($ids)
     {
         $this->Item->updateAll(array('Item.status' => 0), array('Item.id' => $ids));
-        $this->Session->setFlash(sprintf(__d('contents', 'Selected %s set to %s', true), __d('contents', 'Items', true), __d('contents', 'draft', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(
+                __d('contents', 'Selected %s set to %s', true),
+                __d('contents', 'Items', true),
+                __d('contents', 'draft', true)
+            ),
+            'success'
+        );
         $this->Item->removeCache($ids);
     }
 
     protected function _statusToExpired($ids)
     {
         $this->Item->updateAll(array('Item.status' => 3), array('Item.id' => $ids));
-        $this->Session->setFlash(sprintf(__d('contents', 'Selected %s set to %s', true), __d('contents', 'Items', true), __d('contents', 'expired', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(
+                __d('contents', 'Selected %s set to %s', true),
+                __d('contents', 'Items', true),
+                __d('contents', 'expired', true)
+            ),
+            'success'
+        );
         $this->Item->removeCache($ids);
     }
 
     protected function _statusToPublish($ids)
     {
         $this->Item->updateAll(array('Item.status' => 2), array('Item.id' => $ids));
-        $this->Session->setFlash(sprintf(__d('contents', 'Selected %s set to %s', true), __d('contents', 'Items', true), __d('contents', 'published', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(
+                __d('contents', 'Selected %s set to %s', true),
+                __d('contents', 'Items', true),
+                __d('contents', 'published', true)
+            ),
+            'success'
+        );
         $this->Item->removeCache($ids);
     }
 
     protected function _selectionDelete($ids)
     {
         $this->Item->deleteAll(array('Item.id' => $ids));
-        $this->Session->setFlash(sprintf(__('Selected %s deleted', true), __d('contents', 'Items', true)), 'flash_success');
+        $this->Session->setFlash(sprintf(__('Selected %s deleted', true), __d('contents', 'Items', true)), 'success');
         $this->Item->removeCache($ids);
     }
 }

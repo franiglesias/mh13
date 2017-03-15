@@ -78,7 +78,10 @@ class LicensesController extends LicensesAppController {
  */
 	protected function _selectionDelete($ids) {
 		$this->License->deleteAll(array('License.id' => $ids));
-		$this->Session->setFlash(sprintf(__('Selected %s deleted', true), __d('licenses', 'Licenses', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(__('Selected %s deleted', true), __d('licenses', 'Licenses', true)),
+            'success'
+        );
 	}
 }
 ?>

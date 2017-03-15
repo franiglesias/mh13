@@ -5,11 +5,8 @@
 <body>
 {{ include('elements/page/analytics.twig') }}
 {{ include('elements/mh-global-navigation.twig') }}
-<div id="mh-messages">
-    {# echo $this->Session->flash(); #}
-    {# echo $this->Session->flash('auth'); #}
-    <div id="output"></div>
-</div>
+{{ include('elements/flash.twig') }}
+
 {% block header %}
     {{ headers.simple('Bolsa de empleo') }}
 {% endblock %}
@@ -28,7 +25,7 @@
 
                 <hr/>
                 {% for type in types %}
-                    <p><a href="/resumes/resumes/show/{{ type.MeritType.id }}"
+                    <p><a href="/resumes/merits/show/{{ type.MeritType.id }}"
                           class="button success expanded fi-sheriff-badge">{{ type.MeritType.title }}</a></p>
                 {% endfor %}
 
@@ -56,8 +53,11 @@
         </div>
     </div>
 
-    {{ include ('elements/page/foot.twig') }}
     {% block page_scripts %}
+
     {% endblock %}
+
+    {{ include ('elements/page/foot.twig') }}
+
 </body>
 </html>

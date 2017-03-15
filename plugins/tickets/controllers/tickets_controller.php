@@ -73,9 +73,9 @@ class TicketsController extends TicketsAppController {
 		$this->Ticket->id = $id;
 		
 		if(!$this->Ticket->delete()) {
-			$this->Session->setFlash(__('Invalid Ticket', true), 'flash_error');
+            $this->Session->setFlash(__('Invalid Ticket', true), 'alert');
 		} else {
-			$this->Session->setFlash(__('Ticket deleted', true), 'flash_success');
+            $this->Session->setFlash(__('Ticket deleted', true), 'success');
 		}
 		
 		$this->redirect(array('action' => 'index'));
@@ -95,9 +95,9 @@ class TicketsController extends TicketsAppController {
 				)
 			);
 		if($this->Ticket->deleteAll($conditions)) {
-			$this->Session->setFlash(__('Data purged', true), 'flash_success');
+            $this->Session->setFlash(__('Data purged', true), 'success');
 		} else {
-			$this->Session->setFlash(__('No changes', true), 'flash_alert');
+            $this->Session->setFlash(__('No changes', true), 'alert');
 		}
 		$this->redirect(array('action' => 'index'));
 	}

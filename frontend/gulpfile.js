@@ -22,6 +22,8 @@ var imgSource = ['src/img/**/*.jpg', 'src/img/**/*.png'];
 
 var foundationSrc = [
     'node_modules/foundation-sites/dist/js/foundation.js',
+    'node_modules/foundation-sites/dist/js/plugins/foundation.util.motion.js',
+    'node_modules/foundation-sites/dist/js/plugins/foundation.util.triggers.js',
     'node_modules/foundation-sites/vendor/jquery/dist/jquery.js'
 ];
 // Tasks

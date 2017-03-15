@@ -52,17 +52,23 @@ class StudentsController extends SchoolAppController {
 				$this->data['Student']['extra2'] = 0;
 			}
 			if ($this->Student->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('school', 'Student', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('school', 'Student', true)),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('school', 'Student', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(__('The %s could not be saved. Please, try again.', true), __d('school', 'Student', true)),
+                    'warning'
+                );
 			}
 		}
 		if (empty($this->data)) { // 1st pass
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Student->read($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('school', 'Student', true)), 'flash_error');
+                    $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('school', 'Student', true)), 'alert');
 					$this->xredirect();
 				}
 			}
@@ -78,7 +84,7 @@ class StudentsController extends SchoolAppController {
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Student->read($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('school', 'Student', true)), 'flash_error');
+                    $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('school', 'Student', true)), 'alert');
 					$this->xredirect();
 				}
 			$this->saveReferer(); // Store actual referer to use in 2nd pass

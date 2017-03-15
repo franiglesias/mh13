@@ -13,8 +13,8 @@ class TechniciansController extends ItAppController {
 
 	function view($id = null) {
 		if (!$id) {
- 
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'technician', true)), 'flash_error');
+
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'technician', true)), 'alert');
 			$this->redirect(array('action' => 'index'));
  
 		}
@@ -32,13 +32,19 @@ class TechniciansController extends ItAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Technician->save($this->data)) {
- 
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('it', 'technician', true)), 'flash_success');
+
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('it', 'technician', true)),
+                    'success'
+                );
 				$this->xredirect();
  
 			} else {
- 
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('it', 'technician', true)), 'flash_validation');
+
+                $this->Session->setFlash(
+                    sprintf(__('The %s could not be saved. Please, try again.', true), __d('it', 'technician', true)),
+                    'warning'
+                );
  
 			}
 		}
@@ -46,8 +52,8 @@ class TechniciansController extends ItAppController {
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Technician->read($fields, $id))) {
-					 
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'technician', true)), 'flash_error');
+
+                    $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('it', 'technician', true)), 'alert');
 					$this->xredirect();
 					 
 				}

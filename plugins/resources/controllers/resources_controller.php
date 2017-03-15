@@ -24,6 +24,16 @@ class ResourcesController extends ResourcesAppController {
 		$this->_setLists();
 	}
 
+    public function _setLists()
+    {
+        $users = $this->Resource->User->find('list', array('fields' => array('id', 'realname')));
+        $users[$this->Auth->user('id')] .= __(' (Me)', true);
+        $batches = $this->Resource->Batch->find('list');
+        $levels = $this->Resource->Level->find('list');
+        $subjects = $this->Resource->Subject->find('list');
+        $this->set(compact('users', 'batches', 'levels', 'subjects'));
+    }
+
 	public function search($new = false) {
 		if (!empty($new)) {
 			$this->Session->delete('Search.Resources');
@@ -33,19 +43,19 @@ class ResourcesController extends ResourcesAppController {
 			$term = $this->Session->read('Search.Resources.term');
 			$subject_id = $this->Session->read('Search.Resources.subject_id');
 			$level_id = $this->Session->read('Search.Resources.level_id');
-			
+
 			if (!$term && !$subject_id && !$level_id) {
 				$this->render('search');
 				return;
 			}
-			
+
 			if ($level_id) {
 				$this->paginate['Resource']['conditions']['Resource.level_id'] = $level_id;
 			}
 			if ($subject_id) {
 				$this->paginate['Resource']['conditions']['Resource.subject_id'] = $subject_id;
 			}
-			
+
 		} else {
 			$term = $this->data['Sindex']['term'];
 			if (!empty($this->data['Resource']['level_id'])) {
@@ -54,7 +64,7 @@ class ResourcesController extends ResourcesAppController {
 			if (!empty($this->data['Resource']['subject_id'])) {
 				$this->paginate['Resource']['conditions']['Resource.subject_id'] = $this->data['Resource']['subject_id'];
 			}
-			
+
 			$this->Session->write('Search.Resources.term', $term);
 			$this->Session->write('Search.Resources.subject_id', $this->data['Resource']['subject_id']);
 			$this->Session->write('Search.Resources.level_id', $this->data['Resource']['level_id']);
@@ -72,18 +82,18 @@ class ResourcesController extends ResourcesAppController {
 					'limit' => 1
 				)
 			);
-			
+
 		} else {
 			// Perform a simple find all if no search term
 			$this->paginate['Resource'][0] = 'index';
 		}
 		$resources = $this->paginate('Resource');
-		
+
 		foreach ($resources as $key => $resource) {
 			$resources[$key]['Version'] = $resource['Version'][0];
 			$resources[$key]['Upload'] = $resources[$key]['Version']['Upload'];
 		}
-		
+
 		$this->set(compact('resources', 'term'));
 		$this->set('user_id', $this->Auth->user('id'));
 		$this->render('index');
@@ -92,8 +102,9 @@ class ResourcesController extends ResourcesAppController {
 /**
  * In this case, view acts as an edit action since you may edit the tags for the resource
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  * @author Fran Iglesias
  */
 	function view($id = null) {
@@ -103,17 +114,26 @@ class ResourcesController extends ResourcesAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Resource->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('resources', 'resource', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('resources', 'resource', true)),
+                    'success');
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('resources', 'resource', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s could not be saved. Please, try again.', true),
+                        __d('resources', 'resource', true)
+                    ),
+                    'warning');
 			}
 		}
 		if (empty($this->data)) { // 1st pass
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Resource->retrieve($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'resource', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('resources', 'resource', true)),
+                        'alert');
 					$this->xredirect();
 				}
 			}
@@ -133,33 +153,43 @@ class ResourcesController extends ResourcesAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Resource->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('resources', 'resource', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('resources', 'resource', true)),
+                    'success');
 				$this->xredirect();
 				unset($this->data['Resource']);
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('resources', 'resource', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s could not be saved. Please, try again.', true),
+                        __d('resources', 'resource', true)
+                    ),
+                    'warning');
 			}
 		}
 		if (empty($this->data['Resource'])) { // 1st pass
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Resource->retrieve($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'resource', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('resources', 'resource', true)),
+                        'alert');
 					$this->xredirect();
 				}
 			}
 			$this->saveReferer(); // Store actual referer to use in 2nd pass
 		}
 		$this->_setLists();
-	}
-
+    }
+	
 /**
  * Allows the uploading of a new version of the file
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  * @author Fran Iglesias
- */	
+ */
 	public function upgrade($id = false)
 	{
 		if (!empty($this->data)) {
@@ -172,13 +202,12 @@ class ResourcesController extends ResourcesAppController {
 			}
 			$this->Resource->contain('Version');
 			if (!$this->data = $this->Resource->read($fields, $id)) {
-				$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'resource', true)), 'flash_error');
+                $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'resource', true)), 'alert');
 				$this->xredirect();
 			}
 			$this->saveReferer(); // Store actual referer to use in 2nd pass
 		}
 	}
-	
 	
 	public function revert($id, $vid)
 	{
@@ -225,16 +254,6 @@ class ResourcesController extends ResourcesAppController {
 			$this->autoRender = false;
 			$this->render('ajax/history', 'ajax');
 		}
-	}
-	
-	public function _setLists()
-	{
-		$users = $this->Resource->User->find('list', array('fields' => array('id', 'realname')));
-		$users[$this->Auth->user('id')] .= __(' (Me)', true);
-		$batches = $this->Resource->Batch->find('list');
-		$levels = $this->Resource->Level->find('list');
-		$subjects = $this->Resource->Subject->find('list');
-		$this->set(compact('users', 'batches', 'levels', 'subjects'));
 	}
 	
 }

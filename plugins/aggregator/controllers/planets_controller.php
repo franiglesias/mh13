@@ -28,17 +28,33 @@ class PlanetsController extends AggregatorAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Planet->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true), __d('aggregator', 'Planet', true), $this->data['Planet']['title']), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('Changes saved to %s \'%s\'.', true),
+                        __d('aggregator', 'Planet', true),
+                        $this->data['Planet']['title']
+                    ),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('aggregator', 'Planet', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('aggregator', 'Planet', true)
+                    ),
+                    'warning'
+                );
 			}
 		}
 
 		if(empty($this->data)) { // 1st pass
 			if ($id) {
 				if (!($this->data = $this->Planet->read(null, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Planet', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('aggregator', 'Planet', true)),
+                        'alert'
+                    );
 					$this->xredirect(); // forget stored referer and redirect
 				}
 			}
@@ -50,11 +66,11 @@ class PlanetsController extends AggregatorAppController {
 
 	function delete($id = null) {
 		if (!$this->Planet->delete($id)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Planet', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Planet', true)), 'alert');
 			$this->redirect($this->referer());
 		}
 
-		$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('aggregator', 'Planet', true)), 'flash_success');
+        $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('aggregator', 'Planet', true)), 'success');
 		$this->redirect($this->referer());
 	}
 

@@ -16,5 +16,31 @@
             "name": "franiglesias",
             "email": "franiglesias@mac.com"
         }
-    ]
+    ],
+  "autoload": {
+    "classmap": [
+      "plugins/",
+      "app_model.php",
+      "app_controller.php",
+      "app_helper.php",
+      "app_error.php",
+      "vendors/cakephp/cake"
+    ],
+    "psr-4": {
+      "Milhojas\\": [
+        "src/Milhojas/"
+      ]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": [
+        "src/tests/"
+      ]
+    }
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+
 }

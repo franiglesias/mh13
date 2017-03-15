@@ -6,7 +6,7 @@
  **/
 App::import('Model', 'Access.Permission');
 App::import('Model', 'Access.User');
-App::import('Lib', 'Access.AccessResource');
+
 
 class AccessComponent extends Object
 {
@@ -30,6 +30,11 @@ class AccessComponent extends Object
     public function user()
     {
         return $this->User;
+    }
+
+    public function isAuthorizedToken($token)
+    {
+        return $this->isAuthorized($this->getResource($token));
     }
 
     public function isAuthorized(AccessResource $Resource)
@@ -85,10 +90,5 @@ class AccessComponent extends Object
     public function getResource($token)
     {
         return $this->ResourceFactory->make($token);
-    }
-
-    public function isAuthorizedToken($token)
-    {
-        return $this->isAuthorized($this->getResource($token));
     }
 }

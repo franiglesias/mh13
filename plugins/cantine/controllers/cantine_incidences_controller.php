@@ -13,33 +13,8 @@ class CantineIncidencesController extends CantineAppController {
 	function add() {
 		$this->setAction('edit');
 	}
-	
-	private function saveDatesProvided()
-	{
-		$dates = explode(',', $this->data['CantineIncidence']['date']);
-		$success = true;
-		foreach ((array)$dates as $date) {
-			$this->CantineIncidence->create();
-			$this->data['CantineIncidence']['date'] = date('Y-m-d', strtotime($date));
-			if(!$this->CantineIncidence->save($this->data)) {
-				$success = false;
-			}
-		}
-		return $success;
-	}
-	
-	private function saveStudentData()
-	{
-		if (empty($this->data['Student'])) {
-			return false;
-		}
-		if (empty($this->data['Student']['id'])) {
-			$this->data['Student']['id'] = $this->data['CantineIncidence']['student_id'];
-		}
-		$this->CantineIncidence->Student->save($this->data);
-	}
 
-	public function edit($id = null) 
+    public function edit($id = null)
 	{
 		// Second pass
 		if (!empty($this->data['CantineIncidence'])) {
@@ -50,7 +25,7 @@ class CantineIncidencesController extends CantineAppController {
 				$create = true;
 			}
 			// Data massaging if it is not doable in create or beforeSave
-			
+
 			// Try to save
 			if ($this->saveDatesProvided()) {
 				$this->saveStudentData();
@@ -64,7 +39,7 @@ class CantineIncidencesController extends CantineAppController {
 				$this->message('validation');
 			}
 		}
-		
+
 		// First pass or reload
 		if(empty($this->data['CantineIncidence'])) { // 1st pass
 			if ($id) {
@@ -78,6 +53,32 @@ class CantineIncidencesController extends CantineAppController {
 		// Render preparation
 		// Create lists for options, etc.
 	}
+
+    private function saveDatesProvided()
+    {
+        $dates = explode(',', $this->data['CantineIncidence']['date']);
+        $success = true;
+        foreach ((array)$dates as $date) {
+            $this->CantineIncidence->create();
+            $this->data['CantineIncidence']['date'] = date('Y-m-d', strtotime($date));
+            if (!$this->CantineIncidence->save($this->data)) {
+                $success = false;
+            }
+        }
+
+        return $success;
+    }
+
+    private function saveStudentData()
+    {
+        if (empty($this->data['Student'])) {
+            return false;
+        }
+        if (empty($this->data['Student']['id'])) {
+            $this->data['Student']['id'] = $this->data['CantineIncidence']['student_id'];
+        }
+        $this->CantineIncidence->Student->save($this->data);
+    }
 
 	protected function refreshModel($id)
 	{
@@ -117,7 +118,7 @@ class CantineIncidencesController extends CantineAppController {
 					}
 					$this->CantineIncidence->Student->save($this->data);
 				}
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), 'cantine incidence'), 'flash_success');
+                $this->Session->setFlash(sprintf(__('The %s has been saved.', true), 'cantine incidence'), 'success');
 				// Redirect if we are editing an existing record
 				if (empty($this->create)) {
 					$this->xredirect();
@@ -128,7 +129,10 @@ class CantineIncidencesController extends CantineAppController {
 				$returnTo = $this->data['App']['returnTo'];
 				unset($this->data['CantineIncidence']);
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'cantine regular'), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(__('The %s could not be saved. Please, try again.', true), 'cantine regular'),
+                    'warning'
+                );
 			}
 		}
 		if (empty($this->data['CantineIncidence'])) { // 1st pass
@@ -136,7 +140,7 @@ class CantineIncidencesController extends CantineAppController {
 				$fields = null;
 				$this->CantineIncidence->contain('Student.Section');
 				if (!($this->data = $this->CantineIncidence->read($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), 'cantine incidence'), 'flash_error');
+                    $this->Session->setFlash(sprintf(__('Invalid %s.', true), 'cantine incidence'), 'alert');
 					$this->xredirect();
 				}
 			} else {

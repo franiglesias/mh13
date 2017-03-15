@@ -32,7 +32,7 @@ class UsersController extends AccessAppController {
 		$this->GApi->response();
 		$user = $this->GApi->user();
 		if (!$user) {
-			$this->Session->setFlash(__d('access', 'Unable to login with Google Apps.',true), 'flash_error');
+            $this->Session->setFlash(__d('access', 'Unable to login with Google Apps.', true), 'alert');
 			$this->redirect('/');
 		}
 		$this->User->getActive($user['User']['username']);
@@ -89,7 +89,7 @@ class UsersController extends AccessAppController {
 				$this->User->get($id);
 				$this->loginUser($this->User, true);
 			} catch (Exception $e) {
-				$this->Session->setFlash($e->getMessage(), 'flash_error');
+                $this->Session->setFlash($e->getMessage(), 'alert');
 				$this->redirect('/');
 			}
 		}
@@ -154,9 +154,9 @@ class UsersController extends AccessAppController {
 			$this->User->disconnect($this->Auth->user('id'));
 			$this->Session->delete('Auth');
 			$this->GApi->logout();
-			$this->Session->setFlash(__d('access', 'User disconnected.',true), 'flash_error');
+            $this->Session->setFlash(__d('access', 'User disconnected.', true), 'alert');
 		} catch (Exception $e) {
-			$this->Session->setFlash(__d('access', 'Invalid or Not Found User.',true), 'flash_error');
+            $this->Session->setFlash(__d('access', 'Invalid or Not Found User.', true), 'alert');
 		}
 		$this->redirect('/');
 	}
@@ -256,14 +256,20 @@ class UsersController extends AccessAppController {
 	public function activate($id) {
 		try {
 			if ($this->User->activate($id)) {
-				$this->Session->setFlash(__d('access', 'Account activated.', true), 'flash_success');
+                $this->Session->setFlash(__d('access', 'Account activated.', true), 'success');
 			} else {
-				$this->Session->setFlash(__d('access', 'No changes. Account activated yet.', true), 'flash_success');
+                $this->Session->setFlash(__d('access', 'No changes. Account activated yet.', true), 'success');
 			}
 		} catch (InvalidArgumentException $e) {
-			$this->Session->setFlash(__d('access', 'Invalid User or User was active. No account was activated.', true),  'flash_error');
+            $this->Session->setFlash(
+                __d('access', 'Invalid User or User was active. No account was activated.', true),
+                'alert'
+            );
 		} catch (Exception $e) {
-            $this->Session->setFlash(__d('access', 'Account activated, but I\'ve been unable to send email.', true), 'flash_alert');
+            $this->Session->setFlash(
+                __d('access', 'Account activated, but I\'ve been unable to send email.', true),
+                'alert'
+            );
 		}
 		$this->redirect($this->referer());
 	}
@@ -277,14 +283,20 @@ class UsersController extends AccessAppController {
 	public function deactivate($id) {
 		try {
 			if ($this->User->deactivate($id)) {
-				$this->Session->setFlash(__d('access', 'Account deactivated.', true), 'flash_success');
+                $this->Session->setFlash(__d('access', 'Account deactivated.', true), 'success');
 			} else {
-				$this->Session->setFlash(__d('access', 'No changes. Account deactivated yet.', true), 'flash_success');
+                $this->Session->setFlash(__d('access', 'No changes. Account deactivated yet.', true), 'success');
 			}
 		} catch (InvalidArgumentException $e) {
-			$this->Session->setFlash(__d('access', 'Invalid User or User was inactive. No account was deactivated.', true),  'flash_error');
+            $this->Session->setFlash(
+                __d('access', 'Invalid User or User was inactive. No account was deactivated.', true),
+                'alert'
+            );
 		} catch (Exception $e) {
-			$this->Session->setFlash(__d('access', 'Account deactivated, but I\'ve been unable to send email.', true), 'flash_alert');
+            $this->Session->setFlash(
+                __d('access', 'Account deactivated, but I\'ve been unable to send email.', true),
+                'alert'
+            );
 		}
 		$this->redirect($this->referer());
 	}
@@ -305,7 +317,7 @@ class UsersController extends AccessAppController {
             try {
                 $ticket = $this->User->register($this->data);
                 $msg = __d('access', 'The account %s has been created.', true);
-                $this->Session->setFlash(sprintf($msg, $this->data['User']['username']), 'flash_success');
+                $this->Session->setFlash(sprintf($msg, $this->data['User']['username']), 'success');
                 $this->set(compact('ticket'));
                 $this->set('user', $this->data['User']);
                 $template = Configure::read('Access.registration').'_registration';
@@ -317,7 +329,10 @@ class UsersController extends AccessAppController {
 
                 return $this->render('plugins/access/users/'.$template.'.twig');
 			} catch (Exception $e) {
-				$this->Session->setFlash(__d('access', 'Something went wrong with your account. Please, try again.', true), 'flash_error');
+                $this->Session->setFlash(
+                    __d('access', 'Something went wrong with your account. Please, try again.', true),
+                    'alert'
+                );
 				$this->_resetPasswordErrors();
 			}
 		}
@@ -359,7 +374,7 @@ class UsersController extends AccessAppController {
 		}
 
 		if (!$ticket || !$this->User->redeemTicket($ticket)) {
-			$this->Session->setFlash(__('Invalid or expired ticket.', true),  'flash_error');
+            $this->Session->setFlash(__('Invalid or expired ticket.', true), 'alert');
 			$this->redirect('/');
 		}
         return $this->render('plugins/access/users/confirm.twig');
@@ -383,10 +398,10 @@ class UsersController extends AccessAppController {
 				);
 				$this->render('forgot_ticket_sent');
 			} catch (OutOfBoundsException $e) {
-				$this->Session->setFlash($e->getMessage(), 'flash_error');
+                $this->Session->setFlash($e->getMessage(), 'alert');
 				$this->redirect(array('action' => 'forgot'));
 			} catch	(Exception $e) {
-				$this->Session->setFlash($e->getMessage(), 'flash_error');
+                $this->Session->setFlash($e->getMessage(), 'alert');
 				$this->redirect(array('action' => 'forgot'));
 			}
 		}
@@ -404,7 +419,7 @@ class UsersController extends AccessAppController {
 	public function recover($ticket = null) {
 		$this->layout = 'access';
 		if (!$ticket || !($password = $this->User->redeemTicket($ticket))) {
-			$this->Session->setFlash(__('Invalid or expired ticket.', true), 'flash_error');
+            $this->Session->setFlash(__('Invalid or expired ticket.', true), 'alert');
 			$this->redirect(array('action' => 'forgot'));
 			return;
 		}
@@ -426,10 +441,23 @@ class UsersController extends AccessAppController {
 	public function profile() {
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true), __d('access', 'User', true), $this->data['User']['username']), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('Changes saved to %s \'%s\'.', true),
+                        __d('access', 'User', true),
+                        $this->data['User']['username']
+                    ),
+                    'success'
+                );
 				$this->redirect(array('action' => 'dashboard'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('access', 'User', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('access', 'User', true)
+                    ),
+                    'warning'
+                );
 				$this->_resetPasswordErrors();
 			}
 		}

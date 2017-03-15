@@ -1,0 +1,46 @@
+{% extends 'layouts/resumes.twig' %}
+{% block content %}
+	<header>
+        <h1>{{ meritType.MeritType.title }}</h1>
+        <h2>{{ meritType.MeritType.help }}</h2>
+	</header>
+    <table>
+        <thead>
+        <tr>
+            {% if meritType.MeritType.use_dates > 0 %}
+                <th>Comienzo</th>
+            {% endif %}
+            {% if meritType.MeritType.use_dates > 1 %}
+                <th>Final</th>
+            {% endif %}
+            <th>Título</th>
+            <th>Observaciones</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for merit in merits %}
+            <tr>
+                {% if meritType.MeritType.use_dates > 0 %}
+                    <td>{{ merit.Merit.start }}</td>
+                {% endif %}
+                {% if meritType.MeritType.use_dates > 1 %}
+                    <td>{{ merit.Merit.end }}</td>
+                {% endif %}
+                <td>{{ merit.Merit.title }}</td>
+                <td>{{ merit.Merit.remarks }}</td>
+                <td class="mh-stretch">
+                    <a href="/resumes/merits/edit/{{ merit.Merit.id }}/{{ merit.Merit.merit_tyoe_id }}"
+                       class="button tiny success fi-pencil">Modificar</a>
+                    <a href="/resumes/merits/delete/{{ merit.Merit.id }}" class="button tiny alert fi-x">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="/resumes/merits/edit/0/{{ type }}"
+          class="button primary float-right">Añade {{ meritType.MeritType.title }}</a></p>
+
+
+{% endblock %}

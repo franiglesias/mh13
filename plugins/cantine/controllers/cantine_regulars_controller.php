@@ -33,18 +33,6 @@ class CantineRegularsController extends CantineAppController {
 		$this->passSchoolOptionsToView();
 	}
 	
-	private function csvRequested()
-	{
-		return ($this->params['url']['ext'] == 'csv');
-	}
-	
-	private function prepareCSV()
-	{
-		$this->set('fileName', 'Invoicing.csv');
-		$this->autoLayout = false;
-		Configure::write('debug', 0);
-	}
-	
 	private function reportRequested()
 	{
 		if (empty($this->params['named']['report'])) {
@@ -54,12 +42,92 @@ class CantineRegularsController extends CantineAppController {
 		$this->set('report', true);
 		return true;
 	}
-	
+
+    private function csvRequested()
+    {
+        return ($this->params['url']['ext'] == 'csv');
+    }
+
+    private function prepareCSV()
+    {
+        $this->set('fileName', 'Invoicing.csv');
+        $this->autoLayout = false;
+        Configure::write('debug', 0);
+    }
+
+    private function passMonthsToView()
+    {
+        $this->set(
+            'months',
+            array(
+                9 => __('september', true),
+                10 => __('october', true),
+                11 => __('november', true),
+                12 => __('december', true),
+                1 => __('january', true),
+                2 => __('february', true),
+                3 => __('march', true),
+                4 => __('april', true),
+                5 => __('may', true),
+                6 => __('june', true),
+            )
+        );
+    }
+
+    private function passSchoolOptionsToView()
+    {
+        $this->passSectionsToView();
+        $this->set('levels', ClassRegistry::init('Section')->Level->find('list'));
+        $this->set('cycles', ClassRegistry::init('Section')->Cycle->find('list'));
+    }
+
+    private function passSectionsToView()
+    {
+        $this->set('sections', ClassRegistry::init('Section')->find('list'));
+    }
+
+    // We set this filter so the application will provide full feedback to the user
+
 	function add() {
 		$this->CantineRegular->create();
 		$this->CantineRegular->save(null, false);
 		$this->setAction('edit', $this->CantineRegular->getID());
 	}
+
+    function edit($id = null)
+    {
+        if (!empty($this->data)) {
+            $create = false;
+            if (!$id) {
+                $this->CantineRegular->create(); // 2nd pass
+                $create = true;
+            }
+            if ($this->saveDatesProvided()) {
+                $this->saveStudentData();
+                $this->message('success');
+                // Redirect if we are editing an existing record
+                if (!$create) {
+                    $this->setFiltersAndRedirect();
+                }
+                // New record, force load student data
+                $this->refreshModel($id);
+            } else {
+                $this->message('validation');
+                $this->packDaysOfWeek();
+            }
+        }
+        if (empty($this->data['CantineRegular'])) { // 1st pass
+            if ($id) {
+                $this->refreshModel($id);
+            } else {
+                // Set the month value by default to the next calendar month for new records
+                $this->data['CantineRegular']['month'] = $this->defaultMonth();
+            }
+            $this->saveReferer(); // Store actual referer to use in 2nd pass
+        }
+        $this->passMonthsToView();
+        $this->passSectionsToView();
+    }
 	
 	private function saveDatesProvided()
 	{
@@ -85,8 +153,7 @@ class CantineRegularsController extends CantineAppController {
 		}
 		$this->CantineRegular->Student->save($this->data);
 	}
-	
-	// We set this filter so the application will provide full feedback to the user
+
 	public function setFiltersAndRedirect()
 	{
 		$this->SimpleFilters->setUrl(array('action' => 'index'));
@@ -98,7 +165,7 @@ class CantineRegularsController extends CantineAppController {
 		$this->xredirect();
 	}
 
-	protected function refreshModel($id)
+    protected function refreshModel($id)
 	{
 		$this->preserveAppData();
 		$this->CantineRegular->contain('Student.Section');
@@ -122,46 +189,13 @@ class CantineRegularsController extends CantineAppController {
 		$month = date('m') + 1;
 		return $month > 12 ? 1 : $month;
 	}
-
-	function edit($id = null) {
-		if (!empty($this->data)) {
-			$create = false;
-			if (!$id) {
-				$this->CantineRegular->create(); // 2nd pass
-				$create = true;
-			}
-			if ($this->saveDatesProvided()) {
-				$this->saveStudentData();
-				$this->message('success');
-				// Redirect if we are editing an existing record
-				if (!$create) {
-					$this->setFiltersAndRedirect();
-				}
-				// New record, force load student data
-				$this->refreshModel($id);
-			} else {
-				$this->message('validation');
-				$this->packDaysOfWeek();
-			}
-		}
-		if (empty($this->data['CantineRegular'])) { // 1st pass
-			if ($id) {
-				$this->refreshModel($id);
-			} else {
-				// Set the month value by default to the next calendar month for new records
-				$this->data['CantineRegular']['month'] = $this->defaultMonth();
-			}
-			$this->saveReferer(); // Store actual referer to use in 2nd pass
-		}
-		$this->passMonthsToView();
-		$this->passSectionsToView();
-	}
 	
 /**
  * By means of Duplicable Behavior, duplicates a Model record and reset some values. Then transfer to edit action.
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  */
 	public function duplicate($id) {
 		$newID = $this->CantineRegular->duplicate($id);
@@ -180,37 +214,11 @@ class CantineRegularsController extends CantineAppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	private function passMonthsToView()
-	{
-		$this->set('months', array(
-			9 => __('september', true),
-			10 => __('october', true),
-			11 => __('november', true),
-			12 => __('december', true),
-			1 => __('january', true),
-			2 => __('february', true),
-			3 => __('march', true),
-			4 => __('april', true),
-			5 => __('may', true),
-			6 => __('june', true),
-		));
-	}
-	
-	private function passSchoolOptionsToView()
-	{
-		$this->passSectionsToView();
-		$this->set('levels', ClassRegistry::init('Section')->Level->find('list'));
-		$this->set('cycles', ClassRegistry::init('Section')->Cycle->find('list'));
-	}
-	
-	private function passSectionsToView()
-	{
-		$this->set('sections', ClassRegistry::init('Section')->find('list'));
-	}
-	
 	protected function _selectionDelete($ids) {
 		$this->CantineRegular->deleteAll(array('CantineRegular.id' => $ids));
-		$this->Session->setFlash(sprintf(__('Selected %s deleted', true), __d('cantine', 'CantineRegular', true)), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(__('Selected %s deleted', true), __d('cantine', 'CantineRegular', true)),
+            'success');
 	}	
 	
 	

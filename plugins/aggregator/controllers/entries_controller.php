@@ -37,7 +37,7 @@ class EntriesController extends AggregatorAppController {
 	function view($id = null) {
 		$this->layout = 'aggregator';
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), 'entry'), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), 'entry'), 'alert');
 			$this->redirect(array('action' => 'index'));
 		}
 		$entry =  $this->Entry->find('first', array(

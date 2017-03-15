@@ -1,11 +1,12 @@
 <?php
 
+
 class ResumesController extends ResumesAppController
 {
 
     var $name = 'Resumes';
 
-    var $requireLogin = array('modify', 'remove', 'preview', 'changepwd');
+    var $requireLogin = ['modify', 'remove', 'preview', 'changepwd'];
 
     var $layout = 'resumes';
 
@@ -13,21 +14,36 @@ class ResumesController extends ResumesAppController
 
     var $components = array('Notify', 'Menus.Panels', 'Filters.SimpleFilters');
 
+    /**
+     * Some common preparations before
+     */
     public function beforeFilter()
     {
         parent::beforeFilter();
         $this->Auth->allow(
-            array('login', 'modify', 'remove', 'create', 'home', 'logout', 'preview', 'changepwd', 'forgot', 'recover')
+            array(
+                'login',
+                'confirm',
+                'modify',
+                'remove',
+                'create',
+                'home',
+                'logout',
+                'preview',
+                'changepwd',
+                'forgot',
+                'recover',
+            )
         );
-        $this->_requireLogin();
+        $this->redirectToLoginWhenNeeded();
     }
 
-    public function _requireLogin()
+    protected function redirectToLoginWhenNeeded()
     {
-        if (!in_array($this->action, $this->requireLogin)) {
+        if ($this->actionDoesNotRequireLogin()) {
             return true;
         }
-        if ($visitor = $this->Session->read('Resume.Auth.id')) {
+        if ($this->thereIsAnAuthenticatedUser()) {
             return true;
         }
         $this->Session->write('Resume.Auth.redirect', $this->action);
@@ -35,34 +51,28 @@ class ResumesController extends ResumesAppController
     }
 
     /**
-     * Prepares some global variables to be available to every resumes template
+     * @return bool
      */
-    public function beforeRender()
+    protected function actionDoesNotRequireLogin()
     {
-        parent::beforeRender();
-        $this->twig->addGlobal('visitor', $this->Session->read('Resume.Auth'));
-        $this->twig->addGlobal('types', $this->_setTypesList());
-//        $this->twig->addGlobal('positions', $this->Resume->Position->find('list'));
+        return !in_array($this->action, $this->requireLogin);
     }
 
-    protected function _setTypesList()
+    /**
+     * @return mixed
+     */
+    protected function thereIsAnAuthenticatedUser()
     {
-        App::import('Model', 'Resumes.MeritType');
-        $MT = ClassRegistry::init('MeritType');
-        $types = $MT->find('all');
-        $this->set('types', $types);
-
-        return $types;
-
+        return $this->Session->exists('Resume.Auth.id');
     }
 
     /**
      * Visitor registers and create a new resume
      *
-     * @return void
+     * @return string
      */
 
-    public function create($legal = false)
+    public function create()
     {
         $this->saveReferer();
         if (!empty($this->data['Resume'])) {
@@ -74,57 +84,51 @@ class ResumesController extends ResumesAppController
                 $this->redirect(array('action' => 'home'));
             } else {
                 $this->message('validation');
-
             }
 
         }
-
-        if ($legal) {
-            $this->setAction('confirm');
-        }
-
         return $this->render('plugins/resumes/create.twig');
     }
 
+    /**
+     * Shows terms and conditions page
+     * @return string
+     */
     public function confirm()
     {
         return $this->render('plugins/resumes/confirm.twig');
     }
 
+    /**
+     * Manages Applicants login
+     * @return string
+     */
     public function login()
     {
-        if (!empty($this->data)) {
-            // Find resume
-            $resume = $this->Resume->authorized($this->data);
-            if (empty($resume)) {
-                // Failed
-                $this->Session->setFlash(
-                    __d('resumes', 'There is no resume registered with that email.', true),
-                    'flash_error'
-                );
-                $this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'));
-            }
-            // Retrieve redirect data, beacause next instruction overwrites it
-            $redirectTo = $this->Session->read('Resume.Auth.Redirect');
-            // Store Resume.Auth data in Session
-            $this->Session->write('Resume.Auth', $resume['Resume']);
-            // Redirect to original action id needed, if not go to resume home page
-            if ($redirectTo) {
-                $this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => $redirectTo));
-            } else {
-                $this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'));
-            }
-
+        if (empty($this->data)) {
+            return $this->render('plugins/resumes/login.twig', []);
         }
-
-        return $this->render('plugins/resumes/login.twig', []);
+        try {
+            $resume = Resume::fromLogin($this->data);
+            $redirectTo = $this->Session->read('Resume.Auth.Redirect');
+            $this->Session->write('Resume.Auth', $resume->data['Resume']);
+            $this->redirect(
+                array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => $redirectTo ? $redirectTo : 'home')
+            );
+        } catch (Exception $exception) {
+            $this->Session->setFlash(
+                __d('resumes', 'There is no resume registered with that email.', true),
+                'alert'
+            );
+            $this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'));
+        }
 
     }
 
     public function logout()
     {
         $this->Session->delete('Resume.Auth');
-        $this->Session->setFlash(__d('resumes', 'Googbye!', true), 'flash_success');
+        $this->Session->setFlash(__d('resumes', 'Googbye!', true), 'success');
         $this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'));
     }
 
@@ -133,14 +137,14 @@ class ResumesController extends ResumesAppController
         if (!empty($this->data)) {
             $this->Resume->create();
             if ($this->Resume->save($this->data)) {
-                $this->Session->setFlash(__d('resumes', 'Changes has been applied.', true), 'flash_success');
+                $this->Session->setFlash(__d('resumes', 'Changes has been applied.', true), 'success');
                 $this->xredirect();
             } else {
-                $this->Session->setFlash(__d('resumes', 'Data could not be saved.', true), 'flash_validation');
+                $this->Session->setFlash(__d('resumes', 'Data could not be saved.', true), 'warning');
             }
         }
         if (empty($this->data)) {
-            $id = $this->Session->read('Resume.Auth.id');
+            $id = $this->getIdFromSession();
             $fields = array('id', 'firstname', 'lastname', 'email', 'introduction', 'phone', 'mobile', 'photo');
             $this->data = $this->Resume->read(null, $id);
             $this->saveReferer();
@@ -151,9 +155,16 @@ class ResumesController extends ResumesAppController
             'plugins/resumes/modify.twig',
             [
                 'data' => $this->data,
-
             ]
         );
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getIdFromSession()
+    {
+        return $this->Session->read('Resume.Auth.id');
     }
 
     public function changepwd()
@@ -161,20 +172,23 @@ class ResumesController extends ResumesAppController
         if (!empty($this->data)) {
             $this->Resume->create();
             if ($this->Resume->save($this->data)) {
-                $this->Session->setFlash(__d('resumes', 'Changes has been applied.', true), 'flash_success');
+                $this->Session->setFlash(__d('resumes', 'Changes has been applied.', true), 'success');
                 $this->xredirect();
             } else {
-                $this->Session->setFlash(__d('resumes', 'Data could not be saved.', true), 'flash_validation');
+                $this->Session->setFlash(__d('resumes', 'Data could not be saved.', true), 'warning');
             }
         }
         if (empty($this->data)) {
-            $id = $this->Session->read('Resume.Auth.id');
+            $id = $this->getIdFromSession();
             $this->data['Resume']['id'] = $id;
             $this->saveReferer();
         }
 
         return $this->render('plugins/resumes/changepwd.twig', []);
     }
+
+
+    /* Administrative methods */
 
     public function remove()
     {
@@ -184,14 +198,14 @@ class ResumesController extends ResumesAppController
                 $this->Session->delete('Resume.Auth');
                 $this->Session->setFlash(
                     __d('resumes', 'Your data has been permanently removed.', true),
-                    'flash_success'
+                    'success'
                 );
             } else {
-                $this->Session->setFlash(__d('resumes', 'You selected not to remove you data.', true), 'flash_success');
+                $this->Session->setFlash(__d('resumes', 'You selected not to remove you data.', true), 'success');
             }
             $this->redirect(array('plugin' => 'resumes', 'controller' => 'resumes', 'action' => 'home'));
         }
-        $this->data['Resume']['id'] = $this->Session->read('Resume.Auth.id');
+        $this->data['Resume']['id'] = $this->getIdFromSession();
 
         return $this->render('plugins/resumes/remove.twig', []);
 
@@ -217,17 +231,16 @@ class ResumesController extends ResumesAppController
                 'visitor' => $visitor,
                 'completedProfile' => $completedProfile,
                 'stats' => $stats,
-                'connected' => $this->Session->read('Resume.Auth.id'),
+                'connected' => $this->getIdFromSession(),
             ]
         );
     }
 
     public function preview()
     {
-        $id = $this->Session->read('Resume.Auth.id');
+        $id = $this->getIdFromSession();
         $resume = $this->Resume->readCV($id);
         $this->set('resume', $this->Resume->readCV($id));
-        $visitor = $this->Session->read('Resume.Auth');
 
         return $this->render(
             'plugins/resumes/resume.twig',
@@ -236,9 +249,6 @@ class ResumesController extends ResumesAppController
             ]
         );
     }
-
-
-    /* Administrative methods */
 
     /**
      * Manages first step of password recovery. User arrive here and provide username
@@ -250,32 +260,34 @@ class ResumesController extends ResumesAppController
      */
     public function forgot()
     {
-        // $this->layout = 'access';
-        if (!empty($this->data)) {
-            try {
-                $ticket = $this->Resume->forgot(
-                    $this->data['Resume']['recovery_email']
-                );
-                $this->set(compact('ticket'));
-                $this->set('resume', $this->Resume->read('*'));
-                $result = $this->Notify->send(
-                    'resumes_forgot',
-                    $this->data['Resume']['recovery_email'],
-                    __d('access', 'Recover your lost password.', true)
-                );
+        if (empty($this->data)) {
+            return $this->render('plugins/resumes/forgot.twig');
+        }
+        try {
+            $ticket = $this->Resume->forgot(
+                $this->data['Resume']['recovery_email']
+            );
+            $this->set(compact('ticket'));
+            $this->set('resume', $this->Resume->read('*'));
+            $this->Notify->send(
+                'resumes_forgot',
+                $this->data['Resume']['recovery_email'],
+                __d('access', 'Recover your lost password.', true)
+            );
 
-                return $this->render('plugins/resumes/forgot_ticket_sent.twig');
-            } catch (InvalidArgumentException $e) {
-                $this->Session->setFlash(__d('resumes', 'Email unknown.', true), 'flash_error');
-                $this->redirect(array('action' => 'forgot'));
-            } catch (Exception $e) {
-                $this->Session->setFlash($e->getMessage(), 'flash_error');
-                $this->redirect(array('action' => 'forgot'));
-            }
+            return $this->render('plugins/resumes/forgot_ticket_sent.twig');
+        } catch (OutOfBoundsException $e) {
+            $this->Session->setFlash(__d('resumes', 'Email unknown.', true), 'alert');
+            $this->redirect(array('action' => 'forgot'));
+        } catch (Exception $e) {
+            $this->Session->setFlash($e->getMessage(), 'alert');
+            $this->redirect(array('action' => 'forgot'));
         }
 
-        return $this->render('plugins/resumes/forgot.twig');
+
     }
+
+    /**/
 
     /**
      * Manages last step of password recovery. User arrive here with a ticket to recover password.
@@ -290,7 +302,7 @@ class ResumesController extends ResumesAppController
     {
         // $this->layout = 'access';
         if (!$ticket || !($password = $this->Resume->redeemTicket($ticket))) {
-            $this->Session->setFlash(__('Invalid or expired ticket.', true), 'flash_error');
+            $this->Session->setFlash(__('Invalid or expired ticket.', true), 'alert');
             $this->redirect(array('action' => 'home'));
         }
         $this->Resume->read('*');
@@ -335,8 +347,6 @@ class ResumesController extends ResumesAppController
         );
 
     }
-
-    /**/
 
     public function search()
     {

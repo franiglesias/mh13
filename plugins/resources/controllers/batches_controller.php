@@ -16,8 +16,8 @@ class BatchesController extends ResourcesAppController {
 
 	function view($id = null) {
 		if (!$id) {
- 
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'batch', true)), 'flash_error');
+
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'batch', true)), 'alert');
 			$this->redirect(array('action' => 'index'));
  
 		}
@@ -43,7 +43,10 @@ class BatchesController extends ResourcesAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Batch->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved.', true), __d('resources', 'batch', true)), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('The %s has been saved.', true), __d('resources', 'batch', true)),
+                    'success'
+                );
 				$url = array(
 					'plugin' => 'resources',
 					'controller' => 'resources',
@@ -54,14 +57,20 @@ class BatchesController extends ResourcesAppController {
 				$this->redirect($url);
 				// $this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __d('resources', 'batch', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(__('The %s could not be saved. Please, try again.', true), __d('resources', 'batch', true)),
+                    'warning'
+                );
 			}
 		}
 		if (empty($this->data)) { // 1st pass
 			if ($id) {
 				$fields = null;
 				if (!($this->data = $this->Batch->read($fields, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('resources', 'batch', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('resources', 'batch', true)),
+                        'alert'
+                    );
 					$this->xredirect();
 				}
 			}

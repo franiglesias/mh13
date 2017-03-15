@@ -1,0 +1,13 @@
+<div class="mh-flash mh-autohide">
+    {% if Session.Message.flash or Session.Message.auth %}
+        {% set messages = [Session.Message.flash, Session.Message.auth] %}
+        {% for msg in messages %}
+            {% if msg %}
+                <div class="callout {{ msg.element }}" data-closable="slide-out-up">
+                    <button class="close-button" data-close>&times;</button>
+                    <p>{{ msg.message }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

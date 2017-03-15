@@ -29,17 +29,29 @@ class OwnershipsController extends AccessAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Ownership->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true) , __d('access', 'Ownership', true), '--'), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(__('Changes saved to %s \'%s\'.', true), __d('access', 'Ownership', true), '--'),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('access', 'Ownership', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('access', 'Ownership', true)
+                    ),
+                    'warning'
+                );
 			}
 		}
 
 		if(empty($this->data)) { // 1st pass
 			if ($id) {
 				if (!($this->data = $this->Ownership->read(null, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('access', 'Ownership', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('access', 'Ownership', true)),
+                        'alert'
+                    );
 					$this->xredirect(); // forget stored referer and redirect
 				}
 				$model = $this->data['Ownership']['owner_model'];

@@ -56,10 +56,23 @@ class FeedsController extends AggregatorAppController {
 			$this->Feed->create();
 			$this->data['Feed']['approved'] = 1;
 			if ($this->Feed->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true), __d('aggregator', 'Feed', true), $this->data['Feed']['url']), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('Changes saved to %s \'%s\'.', true),
+                        __d('aggregator', 'Feed', true),
+                        $this->data['Feed']['url']
+                    ),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('aggregator', 'Feed', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('aggregator', 'Feed', true)
+                    ),
+                    'warning'
+                );
 			}
 		} else {
 			$this->saveReferer();
@@ -79,12 +92,25 @@ class FeedsController extends AggregatorAppController {
 		if (!empty($this->data)) {
 			$this->Feed->create();
 			if ($this->Feed->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true), __d('aggregator', 'Feed', true), $this->data['Feed']['feed']), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('Changes saved to %s \'%s\'.', true),
+                        __d('aggregator', 'Feed', true),
+                        $this->data['Feed']['feed']
+                    ),
+                    'success'
+                );
 				$this->set('returnTo',  $this->data['App']['returnTo']);
 				
 				$this->render('thanks');
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('aggregator', 'Feed', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('aggregator', 'Feed', true)
+                    ),
+                    'warning'
+                );
 			}
 		} else {
 			$this->saveReferer();
@@ -108,17 +134,33 @@ class FeedsController extends AggregatorAppController {
 			}
 			// Try to save data, if it fails, retry
 			if ($this->Feed->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Changes saved to %s \'%s\'.', true), __d('aggregator', 'Feed', true), $this->data['Feed']['title']), 'flash_success');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('Changes saved to %s \'%s\'.', true),
+                        __d('aggregator', 'Feed', true),
+                        $this->data['Feed']['title']
+                    ),
+                    'success'
+                );
 				$this->xredirect();
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s data could not be saved. Please, try again.', true), __d('aggregator', 'Feed', true)), 'flash_validation');
+                $this->Session->setFlash(
+                    sprintf(
+                        __('The %s data could not be saved. Please, try again.', true),
+                        __d('aggregator', 'Feed', true)
+                    ),
+                    'warning'
+                );
 			}
 		}
 
 		if(empty($this->data)) { // 1st pass
 			if ($id) {
 				if (!($this->data = $this->Feed->read(null, $id))) {
-					$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)), 'flash_error');
+                    $this->Session->setFlash(
+                        sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)),
+                        'alert'
+                    );
 					$this->xredirect(); // forget stored referer and redirect
 				}
 			}
@@ -138,11 +180,11 @@ class FeedsController extends AggregatorAppController {
  */
 	function delete($id = null) {
 		if (!$this->Feed->delete($id, true)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)), 'alert');
 			$this->redirect($this->referer());
 		}
-		
-		$this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('aggregator', 'Feed', true)), 'flash_success');
+
+        $this->Session->setFlash(sprintf(__('%s was deleted.', true), __d('aggregator', 'Feed', true)), 'success');
 		$this->redirect($this->referer());
 	}
 
@@ -154,10 +196,13 @@ class FeedsController extends AggregatorAppController {
  */	
 	public function approve($id = null) {
 		if (!$this->Feed->approve($id)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)), 'flash_error');
+            $this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)), 'alert');
 			$this->redirect($this->referer());
 		}
-		$this->Session->setFlash(sprintf(__d('aggregator', 'Feed %s was approved.', true), $this->Feed->field('title')), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(__d('aggregator', 'Feed %s was approved.', true), $this->Feed->field('title')),
+            'success'
+        );
 		$this->redirect($this->referer());
 	}
 
@@ -172,7 +217,10 @@ class FeedsController extends AggregatorAppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s.', true), __d('aggregator', 'Feed', true)));
 			$this->redirect($this->referer());
 		}
-		$this->Session->setFlash(sprintf(__d('aggregator', 'Feed %s was refreshed.', true), $this->Feed->field('title')), 'flash_success');
+        $this->Session->setFlash(
+            sprintf(__d('aggregator', 'Feed %s was refreshed.', true), $this->Feed->field('title')),
+            'success'
+        );
 		$this->redirect($this->referer());
 	}
 	
