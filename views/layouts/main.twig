@@ -5,11 +5,7 @@
   <body>
 	{{ include('elements/page/analytics.twig') }}
 	{{ include('elements/mh-global-navigation.twig') }}
-	<div id="mh-messages">
-		{# echo $this->Session->flash(); #}
-		{# echo $this->Session->flash('auth'); #}
-		<div id="output"></div>
-	</div>
+    {{ include('elements/flash.twig') }}
 	{% block header %}
 		{{ modules.module('mh-main-header', '/uploads/image_collections/collection/home') }}
 		{% include 'elements/mh-direct-links.twig' %}
