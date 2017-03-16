@@ -15,7 +15,7 @@ var destination = '../webroot/assets';
 var sassSource = 'src/scss/**/*.scss';
 var jsVendorSource = 'src/js/vendor';
 var jsxSource = 'src/js/**/*.jsx';
-var jsSource = ['src/js/**/*.js', '!src/js/foundation/*.js'];
+var jsSource = ['src/js/**/*.js', '!src/js/foundation/*.js', "!src/js/jqueryte/**.*"];
 var htmlSource = 'src/**/*.html';
 var imgSource = ['src/img/**/*.jpg', 'src/img/**/*.png'];
 
