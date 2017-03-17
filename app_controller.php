@@ -97,7 +97,6 @@ class AppController extends Controller
 
         // 'Gdata.Analytics',
         );
-
     /**
      * Used to pass data to the Javascript layer.
      *
@@ -291,10 +290,7 @@ class AppController extends Controller
         $this->beforeRender();
         $this->Component->triggerCallback('beforeRender', $this);
         $this->autoRender = false;
-
-
         $vars = array_merge($layout ? $layout : [], ['Paging' => $this->paginate]);
-
         return $this->twig->render($action, $vars);
     }
 

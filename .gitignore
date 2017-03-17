@@ -16,3 +16,5 @@ tmp/
 /vendors/cakephp/
 
 /frontend/node_modules/
+/webroot/assets/
+/webroot/assets/css/

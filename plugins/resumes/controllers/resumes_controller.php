@@ -63,7 +63,7 @@ class ResumesController extends ResumesAppController
      */
     protected function thereIsAnAuthenticatedUser()
     {
-        return $this->Session->exists('Resume.Auth.id');
+        return $this->Session->read('Resume.Auth.id');
     }
 
     /**

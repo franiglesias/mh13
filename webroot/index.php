@@ -52,8 +52,6 @@
  */
     if (!defined('CAKE_CORE_INCLUDE_PATH')) {
         define('CAKE_CORE_INCLUDE_PATH', ROOT.DS.APP_DIR.'/vendors/cakephp');
-        //define('CAKE_CORE_INCLUDE_PATH', dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'libs' . DS . 'cake13');
-        // define('CAKE_CORE_INCLUDE_PATH', '/Library/WebServer/lib/Cake13');
     }
 
 /*

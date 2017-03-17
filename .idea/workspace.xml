@@ -6,18 +6,438 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/ajax-button-update.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/ajax-button-update.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/ajax-button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/ajax-button.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/autocomplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/autocomplete.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/body.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/body.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/end.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/js/app.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/app.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/foundation-icons.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/foundation-icons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/foundation-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/foundation-icons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/foundation-icons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-address-book.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-alert.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-align-center.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-align-justify.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-align-left.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-align-right.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-anchor.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-annotate.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-archive.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrow-down.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrow-left.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrow-right.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrow-up.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrows-compress.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrows-expand.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrows-in.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-arrows-out.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-asl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-asterisk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-at-sign.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-background-color.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-battery-empty.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-battery-full.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-battery-half.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-bitcoin-circle.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-bitcoin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-blind.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-bluetooth.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-bold.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-book-bookmark.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-book.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-bookmark.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-braille.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-burst-new.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-burst-sale.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-burst.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-calendar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-camera.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-check.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-checkbox.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-clipboard-notes.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-clipboard-pencil.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-clipboard.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-clock.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-closed-caption.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-cloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-comment-minus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-comment-quotes.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-comment-video.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-comment.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-comments.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-compass.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-contrast.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-credit-card.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-crop.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-crown.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-css3.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-database.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-die-five.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-die-four.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-die-one.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-die-six.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-die-three.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-die-two.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-dislike.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-dollar-bill.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-dollar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-download.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-eject.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-elevator.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-euro.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-eye.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-fast-forward.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-female-symbol.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-female.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-filter.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-first-aid.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-flag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-folder-add.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-folder-lock.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-folder.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-foot.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-foundation.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-graph-bar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-graph-horizontal.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-graph-pie.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-graph-trend.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-guide-dog.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-hearing-aid.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-heart.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-home.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-html5.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-indent-less.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-indent-more.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-info.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-italic.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-key.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-laptop.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-layout.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-lightbulb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-like.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-link.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-list-bullet.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-list-number.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-list-thumbnails.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-list.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-lock.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-loop.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-magnifying-glass.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-mail.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-male-female.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-male-symbol.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-male.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-map.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-marker.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-megaphone.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-microphone.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-minus-circle.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-minus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-mobile-signal.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-mobile.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-monitor.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-mountains.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-music.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-next.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-no-dogs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-no-smoking.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-add.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-copy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-csv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-delete.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-doc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-edit.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-export-csv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-export-doc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-export-pdf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-export.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-filled.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-multiple.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-pdf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-remove.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page-search.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-page.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-paint-bucket.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-paperclip.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-pause.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-paw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-paypal.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-pencil.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-photo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-play-circle.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-play-video.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-play.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-plus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-pound.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-power.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-previous.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-price-tag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-pricetag-multiple.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-print.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-prohibited.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-projection-screen.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-puzzle.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-quote.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-record.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-refresh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-results-demographics.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-results.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-rewind-ten.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-rewind.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-rss.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-safety-cone.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-save.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-share.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-sheriff-badge.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-shield.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-shopping-bag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-shopping-cart.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-shuffle.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-skull.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-500px.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-adobe.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-amazon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-android.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-apple.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-behance.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-bing.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-blogger.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-delicious.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-designer-news.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-deviant-art.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-digg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-dribbble.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-drive.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-dropbox.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-evernote.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-facebook.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-flickr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-forrst.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-foursquare.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-game-center.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-github.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-google-plus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-hacker-news.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-hi5.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-instagram.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-joomla.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-lastfm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-linkedin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-medium.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-myspace.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-orkut.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-path.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-picasa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-pinterest.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-rdio.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-reddit.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-skillshare.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-skype.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-smashing-mag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-snapchat.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-spotify.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-squidoo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-stack-overflow.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-steam.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-stumbleupon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-treehouse.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-tumblr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-twitter.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-vimeo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-windows.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-xbox.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-yahoo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-yelp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-youtube.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-zerply.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-social-zurb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-sound.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-star.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-stop.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-strikethrough.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-subscript.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-superscript.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-tablet-landscape.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-tablet-portrait.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-target-two.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-target.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-telephone-accessible.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-telephone.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-text-color.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-thumbnails.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-ticket.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torso-business.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torso-female.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torso.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torsos-all-female.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torsos-all.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torsos-female-male.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torsos-male-female.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-torsos.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-trash.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-trees.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-trophy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-underline.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-universal-access.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-unlink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-unlock.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-upload-cloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-upload.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-usb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-video.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-volume-none.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-volume-strike.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-volume.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-web.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-wheelchair.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-widget.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-wrench.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-x-circle.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-x.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-yen.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-zoom-in.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/css/svgs/fi-zoom-out.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/html/table.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/cantine/paponata.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/cantine/piramide.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/colegio_miralba.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/icon_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/club_deportivo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/estudiar_en_miralba.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/fasfi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/hijas_de_jesus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/piramide.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/plataforma_familias.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/links/todo_contenido.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/main_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/membrete_a5_glg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/membrete_a5_spa.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/miralba_icon_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/img/miralba_main_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/style.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/assets/styleguide.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/flowplayer/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/flowplayer/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/flowplayer/example/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/flowplayer/example/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/flowplayer/flowplayer.controls.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/flowplayer/flowplayer.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/foundation.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/demo/demo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/demo/demo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/jquery-te-1.4.0.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/jquery-te-1.4.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/jquery-te.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/license/AUTHOR.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/license/MIT-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-te/uncompressed/jquery-te-1.4.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/modernizr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/modernizr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/old-app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/jquery.tinymce.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/langs/es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/langs/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/license.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/advlist/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/anchor/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/autolink/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/autoresize/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/autosave/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/bbcode/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/charmap/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/code/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/contextmenu/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/directionality/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-cool.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-cry.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-frown.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-innocent.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-kiss.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-laughing.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-sealed.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-smile.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-surprised.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-undecided.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-wink.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/img/smiley-yell.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/emoticons/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/example/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/example_dependency/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/fullpage/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/fullscreen/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/hr/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/image/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/importcss/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/insertdatetime/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/layer/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/legacyoutput/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/link/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/lists/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/media/moxieplayer.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/media/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/nonbreaking/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/noneditable/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/pagebreak/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/paste/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/preview/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/print/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/save/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/searchreplace/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/spellchecker/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/tabfocus/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/table/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/template/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/textcolor/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/visualblocks/css/visualblocks.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/visualblocks/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/visualchars/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/plugins/wordcount/plugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/content.inline.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/content.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce-small.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce-small.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce-small.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce-small.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/fonts/tinymce.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/img/anchor.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/img/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/img/object.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/img/trans.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/img/wline.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/skin.ie7.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/skins/lightgray/skin.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/themes/modern/theme.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/tinymce/tinymce.min.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mh13.iml" afterPath="$PROJECT_DIR$/.idea/mh13.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/gulpfile.js" afterPath="$PROJECT_DIR$/frontend/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_controller.php" afterPath="$PROJECT_DIR$/app_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/js/vendor/foundation.util.motion.js" afterPath="$PROJECT_DIR$/frontend/src/js/vendor/foundation.util.motion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/js/vendor/foundation.util.triggers.js" afterPath="$PROJECT_DIR$/frontend/src/js/vendor/foundation.util.triggers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" afterPath="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/elements/page/foot.twig" afterPath="$PROJECT_DIR$/views/elements/page/foot.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/resumes/modify.twig" afterPath="$PROJECT_DIR$/views/plugins/resumes/modify.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/index.php" afterPath="$PROJECT_DIR$/webroot/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +466,50 @@
     <favorites_list name="mh13" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="modify.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/plugins/resumes/modify.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="60" lean-forward="false" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#41#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foot.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/elements/page/foot.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,6 +542,7 @@
       <find>flash_validation</find>
       <find>flash_</find>
       <find>readCV</find>
+      <find>render</find>
     </findStrings>
     <replaceStrings>
       <replace>$this-&gt;render</replace>
@@ -114,11 +578,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/plugins/contents/sites/widgets/channels.twig" />
-        <option value="$PROJECT_DIR$/views/layouts/error.ctp" />
-        <option value="$PROJECT_DIR$/plugins/cantine/controllers/cantine_controller.php" />
-        <option value="$PROJECT_DIR$/views/plugins/resumes/guest-home.twig.html" />
-        <option value="$PROJECT_DIR$/views/plugins/resumes/home.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/resume.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/create.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/login.twig" />
@@ -142,14 +601,12 @@
         <option value="$PROJECT_DIR$/plugins/resumes/resumes_app_model.php" />
         <option value="$PROJECT_DIR$/src/Milhojas/Resumes/Domain/Resume.php" />
         <option value="$PROJECT_DIR$/src/Milhojas/Resumes/Domain/ResumeRepository.php" />
-        <option value="$PROJECT_DIR$/webroot/index.php" />
         <option value="$PROJECT_DIR$/spec/Milhojas/Resumes/Domain/ResumeRepositorySpec.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/plugins/access/libs/resource_factory.php" />
         <option value="$PROJECT_DIR$/plugins/access/models/behaviors/authorizable.php" />
         <option value="$PROJECT_DIR$/plugins/access/controllers/components/access.php" />
         <option value="$PROJECT_DIR$/plugins/access/libs/access_resource.php" />
-        <option value="$PROJECT_DIR$/views/plugins/resumes/modify.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/guest-home.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/confirm.twig" />
         <option value="$PROJECT_DIR$/plugins/resumes/models/resume.php" />
@@ -158,13 +615,20 @@
         <option value="$PROJECT_DIR$/webroot/assets/js/app.js" />
         <option value="$PROJECT_DIR$/views/layouts/resumes.twig" />
         <option value="$PROJECT_DIR$/frontend/src/js/autohide.js" />
-        <option value="$PROJECT_DIR$/views/elements/page/foot.twig" />
-        <option value="$PROJECT_DIR$/app_controller.php" />
-        <option value="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" />
         <option value="$PROJECT_DIR$/views/layouts/main.twig" />
         <option value="$PROJECT_DIR$/views/layouts/cantine.twig" />
         <option value="$PROJECT_DIR$/views/layouts/access.twig" />
         <option value="$PROJECT_DIR$/frontend/gulpfile.js" />
+        <option value="$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php" />
+        <option value="$PROJECT_DIR$/vendors/cakephp/cake/libs/controller/pages_controller.php" />
+        <option value="$PROJECT_DIR$/webroot/index.php" />
+        <option value="$PROJECT_DIR$/app_controller.php" />
+        <option value="$PROJECT_DIR$/views/plugins/resumes/modify.twig" />
+        <option value="$PROJECT_DIR$/webroot/assets/js/jquery-te-1.3.2.css" />
+        <option value="$PROJECT_DIR$/frontend/src/js/app.js" />
+        <option value="$PROJECT_DIR$/webroot/assets/js/app.min.js" />
+        <option value="$PROJECT_DIR$/views/elements/page/foot.twig" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -274,10 +738,13 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/stack/builder" />
+      <path value="$PROJECT_DIR$/vendor/mouf/symfony-middleware" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
+    <option name="x" value="-1" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1023" />
@@ -361,6 +828,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -397,59 +865,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webroot" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mh13" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mh13" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webroot" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mh13" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mh13" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webroot" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,6 +880,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resumes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,7 +959,75 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
+              <option name="myItemId" value="vendors" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resumes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resumes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -552,8 +1044,18 @@
               <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -567,21 +1069,12 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -594,7 +1087,7 @@
     <property name="js.buildTools.gulp.gulp_package_dir" value="/usr/local/lib/node_modules/gulp" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/vendors/cakephp/cake/libs/configure.php" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/webroot/assets/js/jquery-te.min.js&#10;/Library/WebServer/Documents/mh13/vendors/cakephp/cake/libs/configure.php&#10;/Library/WebServer/Documents/mh13/webroot/assets/js/jquery-te-1.3.2.css" />
     <property name="SearchEverywhereHistoryKey" value="live tem&#9;ACTION&#9;InsertLiveTemplate" />
   </component>
   <component name="RecentsManager">
@@ -613,7 +1106,7 @@
       <recent name="$PROJECT_DIR$/views/plugins/layouts" />
     </key>
   </component>
-  <component name="RunManager" selected="Gulp.js.Gulp watch">
+  <component name="RunManager" selected="Gulp.js.Update resources">
     <configuration default="false" name="resumes.twig" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://mh13.miralba.org/views/plugins/resumes/resumes.twig">
       <method />
     </configuration>
@@ -739,6 +1232,7 @@
       <workItem from="1489504992685" duration="3083000" />
       <workItem from="1489562438025" duration="18071000" />
       <workItem from="1489590606331" duration="12597000" />
+      <workItem from="1489752673038" duration="2459000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -937,7 +1431,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126060000" />
+    <option name="totallyTimeSpent" value="128519000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -949,7 +1443,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="23" width="1680" height="1023" extended-state="6" />
+    <frame x="-1" y="23" width="1680" height="1023" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -957,9 +1451,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2389937" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2389937" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -971,6 +1464,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1011,93 +1505,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/views/resumes/recover.ctp" />
-    <entry file="file://$PROJECT_DIR$/views/plugins/resumes/recover.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="90" lean-forward="false" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/libs/resume_observer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/resumes_app_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/scss/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="60" column="17" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/plugins/resumes/merits/edit.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/plugins/resumes/merits/show.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendors/cakephp/cake/libs/configure.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6062">
-          <caret line="455" column="0" lean-forward="false" selection-start-line="455" selection-start-column="0" selection-end-line="455" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/controllers/merits_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/models/merit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Milhojas/Resumes/Domain/Resume.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/resumes_app_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1620">
@@ -1106,22 +1513,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Milhojas/Resumes/Domain/ResumeRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="83" lean-forward="false" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/Milhojas/Resumes/Domain/ResumeRepositorySpec.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Milhojas/Resumes/Domain/ResumeRepository.php" />
+    <entry file="file://$PROJECT_DIR$/spec/Milhojas/Resumes/Domain/ResumeRepositorySpec.php" />
     <entry file="file://$PROJECT_DIR$/app_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1134,7 +1527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="1912" column="14" lean-forward="true" selection-start-line="1912" selection-start-column="14" selection-end-line="1912" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,7 +1542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,7 +1549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +1556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +1563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,15 +1570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/plugins/resumes/modify.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="183" column="24" lean-forward="false" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,7 +1577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,7 +1584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,7 +1591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="69" lean-forward="false" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,7 +1598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,7 +1605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="117" lean-forward="false" selection-start-line="17" selection-start-column="117" selection-end-line="17" selection-end-column="117" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1238,31 +1612,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/assets/js/end.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/assets/js/end.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/scss/_mh-utils.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1270,17 +1627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
-          <folding>
-            <element signature="e#373#380#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="141" column="41" lean-forward="false" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,26 +1634,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/elements/page/foot.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/assets/js/body.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/assets/js/body.js" />
     <entry file="file://$PROJECT_DIR$/views/elements/mh-footer.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1320,9 +1650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1338,31 +1665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="190" column="32" lean-forward="true" selection-start-line="190" selection-start-column="32" selection-end-line="190" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1386,7 +1688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1394,7 +1695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1402,7 +1702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1410,6 +1709,159 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="83" lean-forward="false" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/resumes/controllers/resumes_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="42" column="2" lean-forward="true" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/pages_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendors/cakephp/cake/libs/controller/pages_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="32" column="3" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/assets/js/jquery-te.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/plugins/resumes/modify.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="60" lean-forward="false" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/js-old/start.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="35" column="10" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/js-old/end.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/js-old/body.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6997">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/assets/js/app.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/elements/page/foot.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/assets/js/jquery-te-1.3.2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/js/old-app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-435">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
