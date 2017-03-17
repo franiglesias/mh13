@@ -41,6 +41,7 @@ gulp.task('update', [
     'copy-react',
     'copy-react-dom',
     'copy-foundation',
+    'copy-foundation-icons',
     'copy-images',
     'copy-jquery-te',
     'default'
@@ -76,6 +77,14 @@ gulp.task('copy-images', function () {
         .pipe(newer(destination + '/img'))
         .pipe(gulp.dest(destination + '/img'))
 });
+
+
+gulp.task('copy-foundation-icons', function () {
+    gulp.src(['src/foundation-icons/**/*'])
+        .pipe(newer(destination + '/css'))
+        .pipe(gulp.dest(destination + '/css'))
+});
+
 
 // Javascript
 

@@ -2,6 +2,8 @@
 class Upload extends UploadsAppModel {
 
 	var $name = 'Upload';
+    var $table = 'uploads';
+
 	
 	var $_findMethods = array (
 	    'all' => true,
@@ -31,14 +33,61 @@ class Upload extends UploadsAppModel {
 	function beforeDelete($cascade = true) {
 		return $this->deleteRelatedFiles();
 	}
-	
+
+    public function deleteRelatedFiles($id = null)
+    {
+        $this->setId($id);
+        $paths = $this->relatedFiles();
+        if (empty($paths)) {
+            return true;
+        }
+        foreach ($paths as $path) {
+            if (!empty($path) && file_exists($path)) {
+                unlink($path);
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Retrieves the list of relates files for an image upload or the file.
+     *
+     * We need to use the base path for the image to avoid deleting files with the same name uploaded at other date
+     * given the way we manage the clutter of uploads on a daily basis. Then we use findRecursive to retrieve all
+     * thumb files derived from upload
+     *
+     * @param string $id
+     *
+     * @return array of full paths to files
+     */
+    public function relatedFiles($id = false)
+    {
+        $this->setId($id);
+        $this->read(array('path', 'name', 'type', 'fullpath'));
+        if ($this->isImage()) {
+            return array($this->data['Upload']['fullpath']);
+        }
+        $path = pathinfo($this->data['Upload']['fullpath'], PATHINFO_DIRNAME);
+        $name = pathinfo($this->data['Upload']['fullpath'], PATHINFO_BASENAME);
+        $folder = new Folder($path);
+
+        return $folder->findRecursive('_?'.$name.'$');
+    }
+
+    private function isImage()
+    {
+        return substr($this->data['Upload']['type'], 0, 5) !== 'image';
+    }
+
 /**
  * Same as find all but checks if files exists in file system
  *
- * @param string $state 
- * @param string $query 
- * @param string $results 
- * @return array
+ * @param string $state
+ * @param string $query
+ * @param string $results
+ *
+*@return array
  * @author Fran Iglesias
  */
 	function _findChecked($state, $query, $results = array()) {
@@ -49,28 +98,26 @@ class Upload extends UploadsAppModel {
 			$results[$key]['Upload']['exists'] = file_exists($result['Upload']['fullpath']);
 		}
 		return $results;
-	}
-	
-	public function deleteRelatedFiles($id = null)
-	{
-		$this->setId($id);
-		$paths = $this->relatedFiles();
-		if (empty($paths)) {
-			return true;
-		}
-		foreach ($paths as $path) {
-			if (!empty($path) && file_exists($path)) {
-				unlink($path);
-			}
-		}
-		return true;
-	}
-	
+    }
+
+    /**
+     * Attach the upload to a different model
+     *
+     * @param AppModel $Model to attach
+     *
+     * @return void
+     */
+    // function attachToModel($model, $fk, $id = null) {
+    // 	$this->setId($id);
+    // 	$this->saveField('model', $model);
+    // 	$this->saveField('foreign_key', $fk);
+    // }
 /**
  * Deletes the file associated with a record
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  */
 	function deleteFile($id = null) {
 		return $this->deleteRelatedFiles($id);
@@ -86,17 +133,7 @@ class Upload extends UploadsAppModel {
 		return file_exists($this->field('fullpath'));
 	}
 
-/**
- * Attach the upload to a different model
- *
- * @param AppModel $Model to attach 
- * @return void
- */
-	// function attachToModel($model, $fk, $id = null) {
-	// 	$this->setId($id);
-	// 	$this->saveField('model', $model);
-	// 	$this->saveField('foreign_key', $fk);
-	// }
+
 
 	public function attach(AppModel $Model)
 	{
@@ -121,7 +158,7 @@ class Upload extends UploadsAppModel {
 		}
 		return $this->fromFile($path, null, $data);
 	}
-
+	
 	private function fromFile($path, $id = null, $data = array()) {
 		if (!file_exists($path)) {
 			throw new InvalidArgumentException (sprintf('File not found: %s.', $path), 1);
@@ -141,12 +178,13 @@ class Upload extends UploadsAppModel {
 		}
 		return true;
 	}
-
+	
 /**
  * Reloads upload data to the model record
  *
- * @param string $id 
- * @return void
+ * @param string $id
+ *
+*@return void
  */
 	public function refresh($id)
 	{
@@ -172,35 +210,6 @@ class Upload extends UploadsAppModel {
 			}
 			unlink($path);
 		}
-	}
-	
-/**
- * Retrieves the list of relates files for an image upload or the file.
- *
- * We need to use the base path for the image to avoid deleting files with the same name uploaded at other date 
- * given the way we manage the clutter of uploads on a daily basis. Then we use findRecursive to retrieve all 
- * thumb files derived from upload
- *
- * @param string $id 
- * @return array of full paths to files
- */
-	public function relatedFiles($id = false)
-	{
-		$this->setId($id);
-		$this->read(array('path', 'name', 'type', 'fullpath'));
-		if ($this->isImage()) {
-			return array($this->data['Upload']['fullpath']);
-		}
-		$path = pathinfo($this->data['Upload']['fullpath'], PATHINFO_DIRNAME);
-		$name = pathinfo($this->data['Upload']['fullpath'], PATHINFO_BASENAME);
-		$folder = new Folder($path);
-		return $folder->findRecursive('_?'.$name.'$');
-	}
-	
-	
-	private function isImage()
-	{
-		return substr($this->data['Upload']['type'], 0, 5) !== 'image';
 	}
 	
 	public function getType()

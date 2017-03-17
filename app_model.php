@@ -7,7 +7,7 @@
 
 App::import('Lib', 'LazyModel.LazyModel');
 
-class AppModel extends LazyModel
+class AppModel extends Model
 {
 	var $recursive = -1;
 	var $actsAs = array('Containable');
@@ -87,18 +87,32 @@ class AppModel extends LazyModel
 		$this->saveField($field, $value);
 		return $value;
 	}
-	
-		
+
+    public function setId($id = null)
+    {
+        $exceptionMessage = __('A valid ID is needed to perform this model method.', true);
+        if (!$id && !$this->id) {
+            throw new InvalidArgumentException($exceptionMessage);
+        }
+        if ($id) {
+            $this->id = $id;
+        }
+        if (!$this->exists()) {
+            throw new InvalidArgumentException($exceptionMessage);
+        }
+    }
+			
 /**
  * Custom validation method to compare two fields. Use:
- * 
+ *
  * 'rule' => array('match', 'match_field' [, 'hashType', boolean]);
  *
- * @param string $value 
+ * @param string $value
  * @param string $matchField The field against match the value
  * @param string $hash string (false) or a valid hash type (sha1/sha256/md5)
  * @param string $salt bool (false) add App.Salt to the hash
- * @return void
+ *
+*@return void
  */
 	function match($value, $matchField, $hash = false, $salt = false) {
 		$field = key($value);
@@ -108,9 +122,8 @@ class AppModel extends LazyModel
 			$matchValue = $this->data[$this->alias][$matchField];
 		}
 		return $value[$field] == $matchValue;
-	}
-			
-
+    }
+	
 /**
  * Handles the before/after filter logic for find('count') operations.  Only called by Model::find().
  *
@@ -132,7 +145,7 @@ class AppModel extends LazyModel
 	    }
 	    return parent::_findCount($state, $query, $results);
 	}
-	
+
 /**
  * Get selected locale for model. Wrapper for I18n
  *
@@ -150,8 +163,8 @@ class AppModel extends LazyModel
 			$this->locale = $I18n->l10n->locale;
 		}
 		return $this->locale;
-	}
-
+    }
+	
 /**
  * Deletes cache file given a key. You could use regexp kay, such as:
  *
@@ -160,7 +173,7 @@ class AppModel extends LazyModel
  *    menu*
  *    etc
  *
- * @param string $key 
+ * @param string $key
  */
 	public function _deleteCache($key)
 	{
@@ -176,22 +189,8 @@ class AppModel extends LazyModel
 	}
 	
 	public function init()
-	{
-		
-	}
-	
-	public function setId($id = null)
-	{
-		$exceptionMessage = __('A valid ID is needed to perform this model method.', true);
-		if (!$id && !$this->id) {
-			throw new InvalidArgumentException($exceptionMessage);
-		}
-		if ($id) {
-			$this->id = $id;
-		}
-		if (!$this->exists()) {
-			throw new InvalidArgumentException($exceptionMessage);
-		}
+    {
+
 	}
 	
 	public function load($id = null)

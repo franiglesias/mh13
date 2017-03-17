@@ -18,3 +18,13 @@ tmp/
 /frontend/node_modules/
 /webroot/assets/
 /webroot/assets/css/
+
+webroot/assets/js/vendor/react-dom.js
+
+frontend/src/js/vendor/foundation.util.triggers.js
+
+webroot/assets/js/vendor/jquery.min.js
+
+webroot/assets/js/vendor/react-dom.js
+
+webroot/assets/js/vendor/react-dom.js
