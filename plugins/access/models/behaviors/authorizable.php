@@ -4,6 +4,7 @@ App::import('Model', 'Access.Permission');
 App::import('Model', 'Access.Role');
 App::import('Model', 'Access.User');
 
+require_once(APP.'/plugins/access/libs/resource_factory.php');
 
 class AuthorizableBehavior extends ModelBehavior {
 

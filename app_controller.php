@@ -38,7 +38,7 @@ class AppController extends Controller
         'Security',
         'Session',
         'Ui.Theme',
-        'DebugKit.Toolbar',
+//        'DebugKit.Toolbar',
         'Auth' => array(
             'userModel' => 'Access.User',
             'logoutRedirect' => '/',
@@ -82,7 +82,7 @@ class AppController extends Controller
         'Ui.FHtml',
         'Ui.FForm',
         'Ui.Block',
-        'Ui.Page',
+        //'Ui.Page',
         'Uploads.Upload',
         'Menus.Bar',
         'Menus.Wbar',

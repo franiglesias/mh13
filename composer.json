@@ -26,6 +26,12 @@
       "app_error.php",
       "vendors/cakephp/cake"
     ],
+    "exclude-from-classmap": [
+      "/vendors/cakephp/",
+      "/tests/",
+      "/spec/",
+      "/src/"
+    ],
     "psr-4": {
       "Milhojas\\": [
         "src/Milhojas/"
