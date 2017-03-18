@@ -5,20 +5,17 @@ App::import('Model', 'Contents.Channel');
 
 class Item extends ContentsAppModel
 {
-    public $name = 'Item';
-    //The Associations below have been created with all possible keys, those that are not needed can be removed
-
     const NEIGHBORS_MARGIN = 14;
+    //The Associations below have been created with all possible keys, those that are not needed can be removed
     const AUTHOR = 23;
     const COAUTHOR = 19;
-
     const DRAFT = 0;
     const REVIEW = 1;
     const PUBLISHED = 2;
     const EXPIRED = 3;
     const RETIRED = 4;
     const WAITING = 5;
-
+    public $name = 'Item';
     public $displayField = 'title';
 
     public $belongsTo = array(
@@ -174,6 +171,11 @@ class Item extends ContentsAppModel
         return $query;
     }
 
+    public function afterDelete()
+    {
+        $this->removeCache();
+    }
+
     /**
      * Remove caches related to an Item. The cache file name (key) is built as a slug of the URl taking care of Cake Routes,
      * so we use the Router to compute it.
@@ -205,11 +207,6 @@ class Item extends ContentsAppModel
         }
 
         return $files;
-    }
-
-    public function afterDelete()
-    {
-        $this->removeCache();
     }
 
     /**
@@ -258,6 +255,25 @@ class Item extends ContentsAppModel
         $this->Channel->load($this->field('channel_id'));
 
         return $this->Channel->role($User);
+    }
+
+    public function queryFromParams($params)
+    {
+        return array_intersect_key(array_merge($this->queryKeys, $params), $this->queryKeys);
+    }
+
+    public function _findChannel($state, $query, $results = array())
+    {
+        if ($state === 'before') {
+            $query['channelList'] = array($query['channel']);
+            unset($query['channel']);
+            $query['sticky'] = true;
+            $query['limit'] = Configure::read('Theme.limits.page');
+
+            return $this->_findCatalog('before', $query, $results);
+        }
+
+        return $this->_findCatalog('after', $query, $results);
     }
 
     /**
@@ -332,65 +348,6 @@ class Item extends ContentsAppModel
         return $results;
     }
 
-    public function queryFromParams($params)
-    {
-        return array_intersect_key(array_merge($this->queryKeys, $params), $this->queryKeys);
-    }
-
-    private function baseQuery(&$query)
-    {
-        if (empty($query['mode'])) {
-            $query['mode'] = 'published';
-        }
-
-        $extraQuery = array(
-            'conditions' => $this->conditions[$query['mode']],
-            'contain' => array('MainImage' => array('fields' => 'path', 'limit' => 1)),
-            'fields' => array(
-                'Item.*',
-                'Channel.active',
-                'ChannelTitle.content',
-                'ChannelSlug.content',
-            ),
-        );
-        unset($query['mode']);
-
-        return $extraQuery;
-    }
-
-    private function manageOrder(&$query)
-    {
-        $order = array(
-            'Item.pubDate' => 'desc',
-            'Item.featured' => 'desc',
-            'Item.created' => 'desc',
-        );
-        if (!empty($query['sticky'])) {
-            $order = array_merge(array('Item.stick' => 'desc'), $order);
-            unset($query['sticky']);
-        }
-
-        if (isset($query['order'])) {
-            $query['order'] = array_merge($order, $query['order']);
-        } else {
-            $query['order'] = $order;
-        }
-    }
-
-    private function restrictToFeatured(&$query)
-    {
-        // Only featured or stick items
-        if (!empty($query['featured'])) {
-            $query['conditions'][] = array(
-                'or' => array(
-                    'Item.stick' => true,
-                    'Item.featured' => true,
-                ),
-            );
-            unset($query['featured']);
-        }
-    }
-
     private function manageChannelExclusion(&$query)
     {
         $excludeChannels = array();
@@ -417,6 +374,39 @@ class Item extends ContentsAppModel
         } elseif (!empty($query['channelList'])) {
             $query['conditions']['Item.channel_id'] = $this->Channel->findSlugs($query['channelList']);
             unset($query['channelList']);
+        }
+    }
+
+    private function restrictToFeatured(&$query)
+    {
+        // Only featured or stick items
+        if (!empty($query['featured'])) {
+            $query['conditions'][] = array(
+                'or' => array(
+                    'Item.stick' => true,
+                    'Item.featured' => true,
+                ),
+            );
+            unset($query['featured']);
+        }
+    }
+
+    private function manageOrder(&$query)
+    {
+        $order = array(
+            'Item.pubDate' => 'desc',
+            'Item.featured' => 'desc',
+            'Item.created' => 'desc',
+        );
+        if (!empty($query['sticky'])) {
+            $order = array_merge(array('Item.stick' => 'desc'), $order);
+            unset($query['sticky']);
+        }
+
+        if (isset($query['order'])) {
+            $query['order'] = array_merge($order, $query['order']);
+        } else {
+            $query['order'] = $order;
         }
     }
 
@@ -487,6 +477,27 @@ class Item extends ContentsAppModel
         );
     }
 
+    private function baseQuery(&$query)
+    {
+        if (empty($query['mode'])) {
+            $query['mode'] = 'published';
+        }
+
+        $extraQuery = array(
+            'conditions' => $this->conditions[$query['mode']],
+            'contain' => array('MainImage' => array('fields' => 'path', 'limit' => 1)),
+            'fields' => array(
+                'Item.*',
+                'Channel.active',
+                'ChannelTitle.content',
+                'ChannelSlug.content',
+            ),
+        );
+        unset($query['mode']);
+
+        return $extraQuery;
+    }
+
     private function normalizeChannelData(&$item)
     {
         $item['Channel']['title'] = $item['ChannelTitle']['content'];
@@ -504,13 +515,6 @@ class Item extends ContentsAppModel
         }
     }
 
-    private function changeContentsIfRestricted(&$item)
-    {
-        if (!empty($item['Item']['guest'])) {
-            $item['Item']['content'] = __d('contents', 'The author has marked this item as Private. You will need a password to see it.', true);
-        }
-    }
-
     private function normalizeScoreData(&$item)
     {
         if (isset($item[0]['score'])) {
@@ -519,19 +523,17 @@ class Item extends ContentsAppModel
         }
     }
 
-    public function _findChannel($state, $query, $results = array())
+    private function changeContentsIfRestricted(&$item)
     {
-        if ($state === 'before') {
-            $query['channelList'] = array($query['channel']);
-            unset($query['channel']);
-            $query['sticky'] = true;
-            $query['limit'] = Configure::read('Theme.limits.page');
-
-            return $this->_findCatalog('before', $query, $results);
+        if (!empty($item['Item']['guest'])) {
+            $item['Item']['content'] = __d(
+                'contents',
+                'The author has marked this item as Private. You will need a password to see it.',
+                true
+            );
         }
-
-        return $this->_findCatalog('after', $query, $results);
     }
+
     /**
      * Custom find to retrieve items that should show in the dashboard panel.
      *
@@ -745,7 +747,6 @@ class Item extends ContentsAppModel
 
             return $query;
         }
-        // Results manipulation
         return $results;
     }
 
@@ -784,23 +785,6 @@ class Item extends ContentsAppModel
         }
     }
 
-    /**
-     * Bind User Model on the fly through Ownerships.
-     */
-    private function bindUserModel()
-    {
-        $this->bindModel(array('hasAndBelongsToMany' => array(
-            'User' => array(
-                'className' => 'Access.User',
-                'joinTable' => 'ownerships',
-                'foreignKey' => 'object_id',
-                'associationForeignKey' => 'owner_id',
-                'unique' => true,
-                ),
-            ),
-        ));
-    }
-
     public function setAuthor(User $User, $permissions = self::AUTHOR)
     {
         if (!$this->arePermissionsValid($permissions)) {
@@ -820,17 +804,6 @@ class Item extends ContentsAppModel
             self::COAUTHOR,
         ));
     }
-    /**
-     * Return the list of users associated with this Item.
-     *
-     * @return array
-     */
-    public function authors()
-    {
-        return $this->Behaviors->Ownable->owners($this, 'User', array(
-            'fields' => array('User.id', 'User.realname', 'User.email', 'Owner.access'),
-        ));
-    }
 
     /**
      * Return a list of Users not associated with the Item, so they are "candidates"
@@ -846,6 +819,22 @@ class Item extends ContentsAppModel
         return array_diff_key(
             Set::combine($this->Channel->members(), '/User/id', '/User/realname'),
             Set::combine($this->authors(), '/User/id', '/User/realname')
+        );
+    }
+
+    /**
+     * Return the list of users associated with this Item.
+     *
+     * @return array
+     */
+    public function authors()
+    {
+        return $this->Behaviors->Ownable->owners(
+            $this,
+            'User',
+            array(
+                'fields' => array('User.id', 'User.realname', 'User.email', 'Owner.access'),
+            )
         );
     }
 
@@ -916,20 +905,35 @@ class Item extends ContentsAppModel
         return $this->Behaviors->Labellable->findLabels($this, $options);
     }
 
-    private function getLabels()
+    public function view($slug)
     {
-        return ClassRegistry::init('Labelled')->find('all', array(
-            'fields' => array(
-                'Label.title',
-                'Label.id',
-            ),
-            'conditions' => array(
-                'Labelled.model' => 'Item',
-                'Labelled.foreign_key' => $this->id,
-            ),
-            'joins' => array(
-                $this->joinLabels(),
-            ),
+        try {
+            $this->getBySlug($slug);
+        } catch (Exception $e) {
+            return;
+        }
+        if ($this->isPublishable()) {
+            return $this->retrieve();
+        }
+        $this->id = false;
+    }
+
+    public function getBySlug($slug)
+    {
+        $this->setId(ClassRegistry::init('ItemI18n')->getIdForSlug($slug));
+    }
+
+    public function isPublishable()
+    {
+        $conditions = $this->conditions['published'];
+        $conditions['Item.id'] = $this->id;
+        $this->Behaviors->disable('Translate');
+
+        return $this->find(
+            'count',
+            array(
+                'conditions' => $conditions,
+                'contain' => 'Channel',
         ));
     }
 
@@ -956,22 +960,25 @@ class Item extends ContentsAppModel
         }
     }
 
-    public function view($slug)
+    private function getLabels()
     {
-        try {
-            $this->getBySlug($slug);
-        } catch (Exception $e) {
-            return;
-        }
-        if ($this->isPublishable()) {
-            return $this->retrieve();
-        }
-        $this->id = false;
-    }
-
-    public function getBySlug($slug)
-    {
-        $this->setId(ClassRegistry::init('ItemI18n')->getIdForSlug($slug));
+        return ClassRegistry::init('Labelled')->find(
+            'all',
+            array(
+                'fields' => array(
+                    'Label.title',
+                    'Label.id',
+                ),
+                'conditions' => array(
+                    'Labelled.model' => 'Item',
+                    'Labelled.foreign_key' => $this->id,
+                ),
+                'joins' => array(
+                    $this->joinLabels(),
+                ),
+            )
+        )
+            ;
     }
 
     public function credentials()
@@ -998,18 +1005,6 @@ class Item extends ContentsAppModel
         return $this->Channel->data['Channel']['private'];
     }
 
-    public function isPublishable()
-    {
-        $conditions = $this->conditions['published'];
-        $conditions['Item.id'] = $this->id;
-        $this->Behaviors->disable('Translate');
-
-        return $this->find('count', array(
-            'conditions' => $conditions,
-            'contain' => 'Channel',
-        ));
-    }
-
     public function hasExtras()
     {
         return !empty($this->data['Download']) || !empty($this->data['Multimedia']) || !empty($this->data['Image']);
@@ -1022,15 +1017,25 @@ class Item extends ContentsAppModel
         $options['sticky'] = false;
 
         return $this->find('catalog', $options);
+    }
 
-        // if (!$results) {
-        // 	return false;
-        // }
-        // foreach ($results as $key => &$item) {
-        // 	foreach ($item['User'] as $key => $user) {
-        // 		unset($item['User'][$key]['Ownership']);
-        // 	}
-        // }
-        // return $results;
+    /**
+     * Bind User Model on the fly through Ownerships.
+     */
+    private function bindUserModel()
+    {
+        $this->bindModel(
+            array(
+                'hasAndBelongsToMany' => array(
+                    'User' => array(
+                        'className' => 'Access.User',
+                        'joinTable' => 'ownerships',
+                        'foreignKey' => 'object_id',
+                        'associationForeignKey' => 'owner_id',
+                        'unique' => true,
+                    ),
+                ),
+            )
+        );
     }
 }
