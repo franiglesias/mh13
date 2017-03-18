@@ -1,1 +1,0 @@
-<?php echo $this->Page->block('/resources/file_metadata', array('file' => $resource['Current'])); ?>
