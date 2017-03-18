@@ -5,7 +5,6 @@
  *  Created by  on 2010-05-16.
  **/
 
-App::import('Lib', 'LazyModel.LazyModel');
 
 class AppModel extends Model
 {
