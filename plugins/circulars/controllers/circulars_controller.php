@@ -5,20 +5,20 @@ class CircularsController extends CircularsAppController
 {
     public $name = 'Circulars';
     public $layout = 'backend';
-    public $helpers = ['Circulars.Circular', 'Circulars.Circulars', 'Circulars.Event', 'Ui.Pdf', 'Ui.Multilingual'];
-    public $statusOptions = [];
-    public $components = [
+    public $helpers = array('Circulars.Circular', 'Circulars.Circulars', 'Circulars.Event', 'Ui.Pdf', 'Ui.Multilingual');
+    public $statusOptions = array();
+    public $components = array(
         'Menus.Panels',
-        'Filters.SimpleFilters' => ['ignore' => 'Circular.pubDate-alt'],
-        'State' => [
-            'Circulars.Circular' => [
+        'Filters.SimpleFilters' => array('ignore' => 'Circular.pubDate-alt'),
+        'State' => array(
+            'Circulars.Circular' => array(
                 Circular::DRAFT => 'DraftCircularState',
                 Circular::PUBLISHED => 'PublishedCircularState',
                 Circular::ARCHIVED => 'ArchivedCircularState',
                 Circular::REVOKED => 'RevokedCircularState',
-            ],
-        ],
-    ];
+            ),
+        ),
+    );
 
     // Dependencies
     public $StateFactory;
@@ -27,16 +27,11 @@ class CircularsController extends CircularsAppController
     {
         parent::beforeFilter();
         $this->Auth->allow('*');
-        $this->setJsVar(
-            'translate',
-            Router::url(
-                [
+        $this->setJsVar('translate', Router::url(array(
             'plugin' => 'circulars',
             'controller' => 'circulars',
             'action' => 'translate',
-                ]
-            )
-        );
+        )));
     }
 
     public function index()
@@ -86,7 +81,7 @@ class CircularsController extends CircularsAppController
             $this->set('circular', $this->Circular->data);
         } catch (Exception $e) {
             $this->message('invalid');
-            $this->redirect(['action' => 'index']);
+            $this->redirect(array('action' => 'index'));
         }
     }
 
@@ -101,7 +96,7 @@ class CircularsController extends CircularsAppController
             $this->Circular->deleteFile($id);
         } catch (Exception $e) {
             $this->message('invalid');
-            $this->redirect(['action' => 'index']);
+            $this->redirect(array('action' => 'index'));
         }
     }
 
@@ -128,7 +123,7 @@ class CircularsController extends CircularsAppController
             if (!$id) {
                 $this->Circular->create(); // 2nd pass
             }
-            $saveModels = ['Circular' => true, 'Event' => true];
+            $saveModels = array('Circular' => true, 'Event' => true);
             if (isset($this->data['Event']) && isset($this->data['Circular']['title'])) {
                 $this->data['Event']['title'] = $this->data['Circular']['title'];
             }
@@ -156,7 +151,7 @@ class CircularsController extends CircularsAppController
     protected function refreshModel($id)
     {
         $this->preserveAppData();
-        $contains = ['CircularType', 'CircularBox', 'Event', 'Creator', 'Publisher', 'Archiver', 'Revoker'];
+        $contains = array('CircularType', 'CircularBox', 'Event', 'Creator', 'Publisher', 'Archiver', 'Revoker');
         $this->Circular->contain($contains);
         if (!($this->data = $this->Circular->get(null, $id))) {
             $this->message('invalid');
@@ -186,28 +181,25 @@ class CircularsController extends CircularsAppController
 
     public function duplicate($id)
     {
-        $newID = $this->Circular->duplicate(
-            $id,
-            [
+        $newID = $this->Circular->duplicate($id, array(
             'cascade' => false,
             // 'associations' => array('Event'),
-                'whitelist' => [
+            'whitelist' => array(
                 'circular_type_id',
                 'circular_box_id',
                 'pubDate',
                 'web',
-                ],
+            ),
             'callbacks' => true,
-                'changeFields' => ['title'],
+            'changeFields' => array('title'),
             'changeString' => 'Copy of %s',
-            ]
-        );
+        ));
         if (!$newID) {
             $this->redirect($this->referer());
         }
         $this->Circular->id = $newID;
         $this->Circular->saveField('creator_id', $this->Auth->user('id'));
-        $this->redirect(['action' => 'edit', $newID]);
+        $this->redirect(array('action' => 'edit', $newID));
     }
 
     public function delete($id = null)
