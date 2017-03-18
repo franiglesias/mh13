@@ -6,9 +6,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/ui/views/helpers/x_form.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/aggregator_app_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/aggregator_app_model.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/config/schema/schema.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/controllers/entries_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/controllers/feeds_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/controllers/planets_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/locale/spa/LC_MESSAGES/aggregator.po" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/models/entry.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/models/feed.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/models/planet.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/vendors/shells/aggregator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/about.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/dashboards/feeds.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/entries/feed.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/entries/index.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/entries/last.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/entries/links.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/entries/metadata.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/feeds/feeds_dashboard.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/feeds/links.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/feeds/metadata.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/feeds/suggest.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/planets/all.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/planets/index.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/elements/planets/list.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/entries/feed.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/entries/index.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/entries/planet.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/entries/rss/planet.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/entries/view.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/feeds/add.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/feeds/edit.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/feeds/index.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/feeds/suggest.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/feeds/thanks.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/helpers/aggregator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/planets/edit.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/aggregator/views/planets/index.ctp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/contents/models/item.php" afterPath="$PROJECT_DIR$/plugins/contents/models/item.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -687,7 +723,7 @@
       <workItem from="1489752673038" duration="7439000" />
       <workItem from="1489766131587" duration="392000" />
       <workItem from="1489856516042" duration="1100000" />
-      <workItem from="1489864243662" duration="1447000" />
+      <workItem from="1489864243662" duration="1510000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -899,7 +935,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489864830554</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Code cleaning">
+      <created>1489865737305</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1489865737305</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -935,7 +978,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136438000" />
+    <option name="totallyTimeSpent" value="136501000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1019,7 +1062,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Circulars improvements. Added card support and social Pin. Better social icons visualization." />
     <MESSAGE value="Login page. Fixes in several templates. Removing old code." />
     <MESSAGE value="Migrating the access plugin." />
     <MESSAGE value="Migrating the access plugin 2, access layout" />
@@ -1044,7 +1086,8 @@
     <MESSAGE value="Securely remove Resources plugin / Not used" />
     <MESSAGE value="Securely remove DebugKit plugin / Not used" />
     <MESSAGE value="Fixed catalog feed not showing right url" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed catalog feed not showing right url" />
+    <MESSAGE value="Code cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleaning" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
