@@ -6,56 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/README.mdown" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/build.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/controllers/components/toolbar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/controllers/toolbar_access_controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/debug_kit_app_controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/debug_kit_app_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/locale/debug_kit.pot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/locale/eng/LC_MESSAGES/debug_kit.po" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/locale/spa/LC_MESSAGES/debug_kit.po" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/models/behaviors/timed.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/models/toolbar_access.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/behaviors/timed.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/controllers/components/toolbar.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/models/toolbar_access.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/test_objects.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/vendors/debug_kit_debugger.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/vendors/fire_cake.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/debug.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/helpers/fire_php_toolbar.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/helpers/html_toolbar.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/helpers/toolbar.test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/groups/view_group.group.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/test_app/controllers/debug_kit_test_controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/test_app/vendors/test_panel.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/test_app/views/debug_kit_test/request_action_render.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/debug_kit_debugger.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/fire_cake.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/shells/benchmark.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/shells/whitespace.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/debug.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/debug_toolbar.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/history_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/log_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/request_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/session_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/sql_log_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/timer_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/variables_panel.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/fire_php_toolbar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/html_toolbar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/simple_graph.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/toolbar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/toolbar_access/history_state.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/toolbar_access/sql_explain.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/webroot/css/debug_toolbar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/webroot/img/cake.icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/webroot/js/js_debug_toolbar.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_controller.php" afterPath="$PROJECT_DIR$/app_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/macros/catalog.twig" afterPath="$PROJECT_DIR$/views/macros/catalog.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plugins/contents/items/catalog.twig" afterPath="$PROJECT_DIR$/views/plugins/contents/items/catalog.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,16 +38,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="archived_circular_state.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/circulars/libs/archived_circular_state.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="circular_state.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugins/circulars/libs/circular_state.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -125,11 +68,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_controller.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app_controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="-1185">
               <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/plugins/contents/items/catalog.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="49" lean-forward="true" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/macros/catalog.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="62" lean-forward="false" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -236,8 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/view/plugins/resumes/forgot.twig" />
-        <option value="$PROJECT_DIR$/views/plugins/resumes/forgot.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/forgot_ticket_sent.twig" />
         <option value="$PROJECT_DIR$/views/plugins/resumes/recover.twig" />
         <option value="$PROJECT_DIR$/plugins/resumes/resumes_app_controller.php" />
@@ -287,6 +248,8 @@
         <option value="$PROJECT_DIR$/plugins/circulars/libs/revoked_circular_state.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/controllers/circulars_controller.php" />
         <option value="$PROJECT_DIR$/app_controller.php" />
+        <option value="$PROJECT_DIR$/views/plugins/contents/items/catalog.twig" />
+        <option value="$PROJECT_DIR$/views/macros/catalog.twig" />
       </list>
     </option>
   </component>
@@ -524,6 +487,116 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="macros" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mh13" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -690,7 +763,7 @@
       <workItem from="1489752673038" duration="7439000" />
       <workItem from="1489766131587" duration="392000" />
       <workItem from="1489856516042" duration="1100000" />
-      <workItem from="1489864243662" duration="158000" />
+      <workItem from="1489864243662" duration="554000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -888,7 +961,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489864292115</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Securely remove DebugKit plugin / Not used">
+      <created>1489864426198</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1489864426198</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -924,7 +1004,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135149000" />
+    <option name="totallyTimeSpent" value="135545000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1008,7 +1088,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;" />
     <MESSAGE value="Created sites template&#10;" />
     <MESSAGE value="Circulars improvements. Added card support and social Pin. Better social icons visualization." />
     <MESSAGE value="Login page. Fixes in several templates. Removing old code." />
@@ -1033,7 +1112,8 @@
     <MESSAGE value="Resolved problem with CakePHP classes interfering with project ones. composer classmap should exclude cakephp clasess from classmap to avoid conflict" />
     <MESSAGE value="Added fileuploader" />
     <MESSAGE value="Securely remove Resources plugin / Not used" />
-    <option name="LAST_COMMIT_MESSAGE" value="Securely remove Resources plugin / Not used" />
+    <MESSAGE value="Securely remove DebugKit plugin / Not used" />
+    <option name="LAST_COMMIT_MESSAGE" value="Securely remove DebugKit plugin / Not used" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1043,27 +1123,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/js/autohide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/models/resume.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="135" column="29" lean-forward="false" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/resumes/models/merit_type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layouts/resumes.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1395,10 +1454,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/plugins/contents/sites/view.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app_controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="-1185">
           <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/plugins/contents/items/catalog.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="49" lean-forward="true" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/macros/catalog.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="62" lean-forward="false" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
           <folding />
         </state>
       </provider>
