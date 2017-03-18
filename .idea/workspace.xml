@@ -6,9 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="Resolved problem with CakePHP classes interfering with project ones. composer classmap should exclude cakephp clasess from classmap to avoid conflict">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mh13.iml" afterPath="$PROJECT_DIR$/.idea/mh13.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_controller.php" afterPath="$PROJECT_DIR$/app_controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/foundation.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/jquery.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.js" afterPath="$PROJECT_DIR$/webroot/assets/js/vendor/react-dom.js" />
@@ -562,7 +559,7 @@
       <workItem from="1489590606331" duration="12597000" />
       <workItem from="1489752673038" duration="7439000" />
       <workItem from="1489766131587" duration="392000" />
-      <workItem from="1489856516042" duration="216000" />
+      <workItem from="1489856516042" duration="269000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -746,7 +743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489763575433</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added fileuploader">
+      <created>1489856782324</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1489856782324</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -782,7 +786,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134107000" />
+    <option name="totallyTimeSpent" value="134160000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -889,7 +893,8 @@
     <MESSAGE value="Cleaning js nightmare" />
     <MESSAGE value="Arranged model interference problem arised with class map" />
     <MESSAGE value="Resolved problem with CakePHP classes interfering with project ones. composer classmap should exclude cakephp clasess from classmap to avoid conflict" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolved problem with CakePHP classes interfering with project ones. composer classmap should exclude cakephp clasess from classmap to avoid conflict" />
+    <MESSAGE value="Added fileuploader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added fileuploader" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
