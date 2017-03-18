@@ -1,6 +1,5 @@
 <?php
 
-App::import('Lib', 'Circulars.CircularState');
 
 class CircularsController extends CircularsAppController
 {

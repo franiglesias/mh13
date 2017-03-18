@@ -1,6 +1,5 @@
 <?php
-App::import('Lib', 'fi_states/StateFactory');
-App::import('Lib', 'fi_states/StateException');
+
 App::import('Model', 'Circulars.Circular');
 
 interface CircularState {
