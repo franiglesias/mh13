@@ -149,6 +149,7 @@ class AppController extends Controller
         $loader = new Twig_Loader_Filesystem('../views');
         $this->twig = new Twig_Environment($loader, [
             'debug' => true,
+            'cache' => '/tmp/cache/twig',
         ]);
         $this->twig->addExtension(new Twig_Extension_Debug());
         require_once 'libs/twig/Twig_Extension_Media.php';
