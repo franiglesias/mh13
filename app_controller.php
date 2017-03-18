@@ -38,7 +38,6 @@ class AppController extends Controller
         'Security',
         'Session',
         'Ui.Theme',
-//        'DebugKit.Toolbar',
         'Auth' => array(
             'userModel' => 'Access.User',
             'logoutRedirect' => '/',

@@ -5,30 +5,57 @@
     <option name="CUSTOM_SCOPE_NAME" value="Open Files" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="Resolved problem with CakePHP classes interfering with project ones. composer classmap should exclude cakephp clasess from classmap to avoid conflict">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/config/schema/schema.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/controllers/batches_controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/controllers/resources_controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/locale/spa/LC_MESSAGES/resources.po" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/models/batch.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/models/resource.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/models/resources_upload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/resources_app_controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/resources_app_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/batches/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/batches/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/elements/file_metadata.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/elements/version_history.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/ajax/current.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/ajax/history.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/found.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/search.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/upgrade.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/views/resources/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/resources/webroot/css/resources.css" afterPath="" />
+    <list default="true" id="9e2af4ba-9eb6-4f57-a831-e79fdc1f3191" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/README.mdown" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/build.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/controllers/components/toolbar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/controllers/toolbar_access_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/debug_kit_app_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/debug_kit_app_model.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/locale/debug_kit.pot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/locale/eng/LC_MESSAGES/debug_kit.po" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/locale/spa/LC_MESSAGES/debug_kit.po" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/models/behaviors/timed.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/models/toolbar_access.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/behaviors/timed.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/controllers/components/toolbar.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/models/toolbar_access.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/test_objects.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/vendors/debug_kit_debugger.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/vendors/fire_cake.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/debug.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/helpers/fire_php_toolbar.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/helpers/html_toolbar.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/cases/views/helpers/toolbar.test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/groups/view_group.group.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/test_app/controllers/debug_kit_test_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/test_app/vendors/test_panel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/tests/test_app/views/debug_kit_test/request_action_render.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/debug_kit_debugger.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/fire_cake.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/shells/benchmark.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/vendors/shells/whitespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/debug.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/debug_toolbar.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/history_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/log_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/request_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/session_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/sql_log_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/timer_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/elements/variables_panel.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/fire_php_toolbar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/html_toolbar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/simple_graph.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/helpers/toolbar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/toolbar_access/history_state.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/views/toolbar_access/sql_explain.ctp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/webroot/css/debug_toolbar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/webroot/img/cake.icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/debug_kit/webroot/js/js_debug_toolbar.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_controller.php" afterPath="$PROJECT_DIR$/app_controller.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -88,11 +115,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="circulars_controller.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="circulars_controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugins/circulars/controllers/circulars_controller.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_controller.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -243,13 +280,13 @@
         <option value="$PROJECT_DIR$/plugins/access/models/behaviors/authorizable.php" />
         <option value="$PROJECT_DIR$/controllers/pages_controller.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app_controller.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/libs/archived_circular_state.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/libs/circular_state.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/libs/draft_circular_state.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/libs/published_circular_state.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/libs/revoked_circular_state.php" />
         <option value="$PROJECT_DIR$/plugins/circulars/controllers/circulars_controller.php" />
+        <option value="$PROJECT_DIR$/app_controller.php" />
       </list>
     </option>
   </component>
@@ -653,7 +690,7 @@
       <workItem from="1489752673038" duration="7439000" />
       <workItem from="1489766131587" duration="392000" />
       <workItem from="1489856516042" duration="1100000" />
-      <workItem from="1489864243662" duration="26000" />
+      <workItem from="1489864243662" duration="158000" />
     </task>
     <task id="LOCAL-00001" summary="Arrange the images problem. It's neccesary to update image paths at uploads table and also channels icon and image fields to normalize image and file handling.&#10;">
       <created>1488995623661</created>
@@ -844,7 +881,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489856782324</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Securely remove Resources plugin / Not used">
+      <created>1489864292115</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1489864292115</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -880,7 +924,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135017000" />
+    <option name="totallyTimeSpent" value="135149000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -893,7 +937,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25208333" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
@@ -988,7 +1032,8 @@
     <MESSAGE value="Arranged model interference problem arised with class map" />
     <MESSAGE value="Resolved problem with CakePHP classes interfering with project ones. composer classmap should exclude cakephp clasess from classmap to avoid conflict" />
     <MESSAGE value="Added fileuploader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fileuploader" />
+    <MESSAGE value="Securely remove Resources plugin / Not used" />
+    <option name="LAST_COMMIT_MESSAGE" value="Securely remove Resources plugin / Not used" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1258,14 +1303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="151" column="39" lean-forward="false" selection-start-line="151" selection-start-column="39" selection-end-line="151" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1354,6 +1391,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding />
         </state>
       </provider>
