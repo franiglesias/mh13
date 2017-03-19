@@ -4,77 +4,77 @@ class Resume extends ResumesAppModel {
 	var $name = 'Resume';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasMany = array(
-		'Merit' => array(
+    var $hasMany = [
+        'Merit' => [
 			'className' => 'Merit',
 			'foreignKey' => 'resume_id',
 			'dependent' => true,
 			'exclusive' => true,
-		)
-	);
-	
-	var $belongsTo = array(
-		'Position' => array(
+        ]
+    ];
+
+    var $belongsTo = [
+        'Position' => [
 			'className' => 'Position',
 			'foreignKey' => 'position_id',
-		)
-	);
-	
-	var $virtualFields = array(
+        ]
+    ];
+
+    var $virtualFields = [
 	    'fullname' => 'CONCAT(Resume.firstname, " ", Resume.lastname)',
 		'fullcity' => 'CONCAT(Resume.cp, " - ", Resume.city, " (",Resume.province,")")',
 		'fulladdress' => 'IF(address2,concat(address, "<br />", address2),address)'
-	);
+    ];
 	
 	var $displayField = 'email';
 	
 	// Model Behaviors
 	// photo is an uploadable file
-	
-	var $actsAs = array(
+
+    var $actsAs = [
 		'Tickets.Ticketable',
-		'Uploads.Upable' => array(
-			'photo' => array( 
+        'Uploads.Upable' => [
+            'photo' => [
 				'mode' => 'url',
 				'private' => false,
-				'imagePostprocess' => array(
-					'normalize' => array(
+                'imagePostprocess' => [
+                    'normalize' => [
 						'width' => 128,
 						'height' => 128,
-						)
-					)
-				)
-			)
-	);
+                    ]
+                ]
+            ]
+        ]
+    ];
 
 	// Validation rules for data entry
-	
-	var $validate = array(
-		'password' => array(
-			'rule' => array('match', 'confirm_password', 'sha1', true),
+
+    var $validate = [
+        'password' => [
+            'rule' => ['match', 'confirm_password', 'sha1', true],
 			'message' => 'passwords doesn\'t match',
 			'allowEmpty' => true
-			),
-		'email' => array(
-			array(
+        ],
+        'email' => [
+            [
 				'rule' => 'isUnique',
 				'allowEmpty' => false
-			),
-			array(
+            ],
+            [
 				'rule' => 'email',
 				'allowEmpty' => false,
-				),
-			array(
-				'rule'  => array('match', 'confirm_email'),
+            ],
+            [
+                'rule' => ['match', 'confirm_email'],
 				'message' => 'emails doesn\'t match',
 				'on' => 'create'
-				)
-			),
-		'confirm_password' => array(
+            ]
+        ],
+        'confirm_password' => [
 			'rule' => 'notEmpty',
 			'on' => 'create'
-			)
-		);
+        ]
+    ];
 		
 	public function  __construct($id = false, $table = null, $ds = null) {
 		parent::__construct($id, $table, $ds);
@@ -127,7 +127,7 @@ class Resume extends ResumesAppModel {
 		App::import('Model', 'Resumes.MeritType');
 		$MT = ClassRegistry::init('MeritType');
 		$types = $MT->find('all');
-		$this->unbindModel(array('hasMany' => array('Merit')));
+        $this->unbindModel(['hasMany' => ['Merit']]);
 		
 		foreach ($types as $type) {
 			$this->_bindMeritType($type);
@@ -140,36 +140,36 @@ class Resume extends ResumesAppModel {
 
     protected function _bindMeritType($meritType)
     {
-        $keys = array(
+        $keys = [
             'className' => 'Resumes.Merit',
             'foreignKey' => 'resume_id',
-            'conditions' => array('merit_type_id' => $meritType['MeritType']['id']),
-        );
-        $this->bindModel(array('hasMany' => array($meritType['MeritType']['alias'] => $keys)));
+            'conditions' => ['merit_type_id' => $meritType['MeritType']['id']],
+        ];
+        $this->bindModel(['hasMany' => [$meritType['MeritType']['alias'] => $keys]]);
     }
 	
 	public function search($terms)
 	{
-		$conditions = array(
+        $conditions = [
 			"MATCH(Merit.title,Merit.remarks) AGAINST('$terms' IN BOOLEAN MODE)"
-		);
+        ];
 
-		$joins = array(
-			array(
+        $joins = [
+            [
 				'table' => 'merits',
 				'alias' => 'Merit',
 				'type' => 'left',
-				'conditions' => array(
+                'conditions' => [
 					'Resume.id = Merit.resume_id'
-				)
-			)
-		);
+                ]
+            ]
+        ];
 
 		$results = $this->find('all', compact('conditions', 'joins'));
 		return $results;
 	}
 
-	public function _findSearch($state, $query, $results = array())
+    public function _findSearch($state, $query, $results = [])
 	{
 		if ($state === 'before') {
 			if (!is_array($query)) {
@@ -177,7 +177,7 @@ class Resume extends ResumesAppModel {
 			} else {
 				$terms = $query['terms'];
 			}
-			$fields = array(
+            $fields = [
 				'DISTINCT Resume.id',
 				'Resume.email',
 				'Resume.firstname',
@@ -187,23 +187,23 @@ class Resume extends ResumesAppModel {
 				'Resume.photo',
 				'Resume.fullname',
 				'Resume.modified'
-			);
+            ];
 
-			$conditions = array(
+            $conditions = [
 				"MATCH(Merit.title,Merit.remarks) AGAINST('$terms' IN BOOLEAN MODE)"
-			);
+            ];
 
-			$joins = array(
-				array(
+            $joins = [
+                [
 					'table' => 'merits',
 					'alias' => 'Merit',
 					'type' => 'left',
 					'foreignKey' => FALSE,
-					'conditions' => array(
+                    'conditions' => [
 						'Resume.id = Merit.resume_id'
-					)
-				)
-			);
+                    ]
+                ]
+            ];
 
 			$extraQuery = compact('fields', 'conditions', 'joins');
 			return Set::merge($query, $extraQuery);
@@ -214,8 +214,8 @@ class Resume extends ResumesAppModel {
 
 
     // Forgot and recover password
-	
-	public function _findSubject($state, $query, $results = array())
+
+    public function _findSubject($state, $query, $results = [])
 	{
 		if ($state === 'before') {
 			if (!is_array($query)) {
@@ -224,35 +224,35 @@ class Resume extends ResumesAppModel {
 				$terms = $query['terms'];
 			}
 
-            $conditions = array(
+            $conditions = [
 				'Merit.title LIKE' => '%'.$terms.'%'
-			);
+            ];
 
-			$joins = array(
-				array(
+            $joins = [
+                [
 					'table' => 'merits',
 					'alias' => 'Merit',
 					'type' => 'left',
 					'foreignKey' => FALSE,
-					'conditions' => array(
+                    'conditions' => [
 						'Resume.id = Merit.resume_id'
-					)
-				),
-				array(
+                    ]
+                ],
+                [
 					'table' => 'merit_types',
 					'alias' => 'MeritType',
 					'type' => 'left',
 					'foreingKey' => FALSE,
-					'conditions' => array(
+                    'conditions' => [
 						'Merit.merit_type_id = MeritType.id',
 						'MeritType.alias' => 'Habilitacion'
-					)
-				)
-			);
+                    ]
+                ]
+            ];
 
-			$group = array(
+            $group = [
 				'Resume.id'
-			);
+            ];
 
 			$extraQuery = compact('conditions', 'joins', 'group');
 			return Set::merge($query, $extraQuery);
@@ -293,7 +293,7 @@ class Resume extends ResumesAppModel {
 		$PasswordGenerator = new PasswordGenerator();
 		$password = $PasswordGenerator->readable();
 		$hash = Security::hash($password, 'sha1', true);
-		$this->saveField('password', $hash, array('validate' => false, 'callbacks' => false));
+        $this->saveField('password', $hash, ['validate' => false, 'callbacks' => false]);
 		return $password;
 	}
 
@@ -313,13 +313,13 @@ class Resume extends ResumesAppModel {
 			$this->id = $id;
 		}
 		$fields = array_keys($this->_schema);
-		$except = array(
+        $except = [
 			'id',
 			'address2',
 			'created',
 			'modified',
 			'photo'
-		);
+        ];
 		$fields = array_diff($fields, $except);
 		$isComplete = true;
 		$data = $this->read(null, $id);
@@ -345,8 +345,8 @@ class Resume extends ResumesAppModel {
 		App::import('Model', 'Resumes.MeritType');
 		$MT = ClassRegistry::init('MeritType');
 		$types = $MT->find('all');
-		$this->unbindModel(array('hasMany' => array('Merit')));
-		$stats = array();
+        $this->unbindModel(['hasMany' => ['Merit']]);
+        $stats = [];
 		foreach ($types as $type) {
 			$this->_bindMeritType($type);
 		}
@@ -369,9 +369,9 @@ class Resume extends ResumesAppModel {
  */
 	public function aboutToExpire($id = null)
 	{
-		$conditions = array(
-			"TIMESTAMPDIFF(MONTH,Resume.modified,CURDATE()) BETWEEN ? AND ?" => array(11, 12)
-		);
+        $conditions = [
+            "TIMESTAMPDIFF(MONTH,Resume.modified,CURDATE()) BETWEEN ? AND ?" => [11, 12],
+        ];
 		$aboutToExpire = $this->find('all', compact('conditions'));
 		return $aboutToExpire;
 	}
@@ -385,9 +385,9 @@ class Resume extends ResumesAppModel {
  */
 	public function expired($id = null)
 	{
-		$conditions = array(
+        $conditions = [
 			"TIMESTAMPDIFF(MONTH,Resume.modified,CURDATE()) >=" => 12
-		);
+        ];
 		$expired = $this->find('all', compact('conditions'));
 		return $expired;
 	}
@@ -396,12 +396,12 @@ class Resume extends ResumesAppModel {
 	{
 		$this->setId($id);
 		$data = $this->read(null);
-		$return = array(
+        $return = [
 			'id' => $this->id,
 			'email' => $data['Resume']['email'],
 			'firstname' => $data['Resume']['firstname'],
 			'lastname' => $data['Resume']['lastname']
-		);
+        ];
 	}
 	
 	

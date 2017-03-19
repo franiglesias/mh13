@@ -35,10 +35,10 @@ class ResumesController extends ResumesAppController
                 'recover',
             )
         );
-        $this->redirectToLoginWhenNeeded();
+        $this->redirectToLoginIsUserShouldBeAuthenticated();
     }
 
-    protected function redirectToLoginWhenNeeded()
+    protected function redirectToLoginIsUserShouldBeAuthenticated()
     {
         if ($this->actionDoesNotRequireLogin()) {
             return true;
@@ -106,7 +106,7 @@ class ResumesController extends ResumesAppController
     public function login()
     {
         if (empty($this->data)) {
-            return $this->render('plugins/resumes/login.twig', []);
+            return $this->render('plugins/resumes/login.twig');
         }
         try {
             $resume = Resume::fromLogin($this->data);
