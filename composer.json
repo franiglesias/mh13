@@ -23,8 +23,7 @@
       "app_model.php",
       "app_controller.php",
       "app_helper.php",
-      "app_error.php",
-      "vendors/cakephp/cake"
+      "app_error.php"
     ],
     "exclude-from-classmap": [
       "/vendors/cakephp/",
