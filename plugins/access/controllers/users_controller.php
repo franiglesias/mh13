@@ -29,18 +29,20 @@ class UsersController extends AccessAppController {
 
 	public function gfound()
 	{
-		$this->GApi->response();
-		$user = $this->GApi->user();
-		if (!$user) {
+        try {
+            $this->GApi->response();
+            $user = $this->GApi->user();
+            $this->User->getActive($user['User']['username']);
+            if ($this->User->null()) {
+                $this->storeUserDataInSession($user);
+
+                return $this->setAction('gregister', $user);
+            }
+            $this->loginUser($this->User);
+        } catch {
             $this->Session->setFlash(__d('access', 'Unable to login with Google Apps.', true), 'alert');
-			$this->redirect('/');
-		}
-		$this->User->getActive($user['User']['username']);
-		if ($this->User->null()) {
-			$this->storeUserDataInSession($user);
-            return $this->setAction('gregister', $user);
-		}
-		$this->loginUser($this->User);
+            $this->redirect('/');
+        }
 	}
 	
 	private function storeUserDataInSession($user)
@@ -55,7 +57,6 @@ class UsersController extends AccessAppController {
     {
         $User->connect();
         $this->Auth->login($User->data);
-        // $this->Session->write('Auth.User.Role', $userData['Role']);
         $this->redirect($this->Auth->redirect());
     }
 
@@ -71,7 +72,7 @@ class UsersController extends AccessAppController {
 		$this->layout = 'access';
 		// Check if the access to this action is a valid one
 
-		if (!$this->checkValidGoogleAppsRegistrationAttempt($userData)) {
+        if (!$this->GApi->checkValidGoogleAppsRegistrationAttempt($userData)) {
 			$this->cakeError('notAllowed', array(
 				'url' => $this->here,
 				'redirect' => '/'
@@ -102,13 +103,7 @@ class UsersController extends AccessAppController {
         return $this->render('plugins/access/users/gregister.twig', ['data' => $this->data]);
 	}
 
-	private function checkValidGoogleAppsRegistrationAttempt($userData)
-	{
-		$data = $this->Session->read('GApps.Register.User');
 
-		return $userData['User']['username'] == $data['username'] &&
-				$userData['User']['email'] == $data['email'];
-	}
 
 
 # Login and login utility functions

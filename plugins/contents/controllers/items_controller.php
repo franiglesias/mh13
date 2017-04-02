@@ -112,29 +112,7 @@ class ItemsController extends ContentsAppController
         }
 
         $this->layout = 'default';
-        if ($this->fullFeedRequested()) {
-            $this->Feed->full($this);
-        } elseif ($this->channelFeedRequested()) {
-            $this->Feed->channel($this);
-        } elseif ($this->siteFeedRequested()) {
-            $this->Feed->site($this);
-        }
-        $this->set('items', $this->Item->findFeed($this->paginate['Item']));
-    }
-
-    private function fullFeedRequested()
-    {
-        return empty($this->params['named']['channel']) && empty($this->params['named']['site']);
-    }
-
-    private function channelFeedRequested()
-    {
-        return !empty($this->params['named']['channel']);
-    }
-
-    private function siteFeedRequested()
-    {
-        return !empty($this->params['named']['site']);
+        $this->set($this->getFeed($this->Item, $this->params));
     }
 
     /**

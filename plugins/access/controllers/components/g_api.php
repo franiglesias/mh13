@@ -94,7 +94,7 @@ class GApiComponent extends Object {
 		$user_email = $this->Session->read('GAuthToken.payload.email');
 		$this->Session->delete('GAuthToken');
 		if (empty($user_email)) {
-			return false;
+            throw new OutOfBoundsException('User not found!');
 		}
 		list($user, $domain) = explode('@', $user_email);
 		if (!in_array($domain, Configure::read('GApps.domain'))) {
@@ -113,5 +113,12 @@ class GApiComponent extends Object {
 	{
 		return true;
 	}
+
+    public function checkValidGoogleAppsRegistrationAttempt($userData)
+    {
+        $data = $this->Session->read('GApps.Register.User');
+
+        return $userData['User']['username'] == $data['username'] && $userData['User']['email'] == $data['email'];
+    }
 }
 ?>
