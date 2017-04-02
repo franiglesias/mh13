@@ -6,7 +6,6 @@ App::import('Model', 'Contents.Channel');
 class Item extends ContentsAppModel
 {
     const NEIGHBORS_MARGIN = 14;
-    //The Associations below have been created with all possible keys, those that are not needed can be removed
     const AUTHOR = 23;
     const COAUTHOR = 19;
     const DRAFT = 0;

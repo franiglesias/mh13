@@ -1,14 +1,25 @@
 <?php
+
 // Last version
 
 class ItemsController extends ContentsAppController
 {
     public $name = 'Items';
 
-    public $helpers = array('Uploads.Upload', 'Access.Owner', 'Comments.Comment', 'Contents.Items', 'Contents.Item', 'Contents.Channel', 'Contents.Authors', 'Contents.Author', 'Ui.Images', 'Ui.Image');
+    public $helpers = array(
+        'Uploads.Upload',
+        'Access.Owner',
+        'Comments.Comment',
+        'Contents.Items',
+        'Contents.Item',
+        'Contents.Channel',
+        'Contents.Authors',
+        'Contents.Author',
+        'Ui.Images',
+        'Ui.Image',
+    );
 
     public $components = array('Security', 'Filters.SimpleFilters', 'Notify', 'Contents.Feed');
-    //var $layout = 'backend';
 
     /**
      * Contains the type of role to select the right view.
@@ -118,7 +129,7 @@ class ItemsController extends ContentsAppController
     /**
      * Returns a list of recent entries in the global, site or channel context.
      *
-     * @return array of Items (If requested)
+     * @return string rendered fragment
      *
      * @param named offset integer offset to select items
      * @param named limit integer max number of items to retrieve
@@ -131,22 +142,15 @@ class ItemsController extends ContentsAppController
     public function catalog()
     {
         $this->Item->recursive = 1;
-        $this->paginate['Item'] = $this->Item->queryFromParams($this->params['named']);
-        $this->paginate['Item'][0] = 'catalog';
-        if (!empty($this->params['named']['paginate'])) {
-            $items = $this->paginate('Item');
-        } else {
-            $items = $this->Item->find('catalog', $this->paginate['Item']);
-        }
-        if (!empty($this->params['requested'])) {
-            return $items;
-        }
-        $this->set(compact('items'));
-        $this->autoRender = false;
-        return $this->render('plugins/contents/items/catalog.twig', [
-            'items' => $items,
-            'layout' => $this->params['named']['layout'],
-        ]);
+        $items = $this->Item->find('catalog', $this->Item->queryFromParams($this->params['named']));
+
+        return $this->render(
+            'plugins/contents/items/catalog.twig',
+            [
+                'items' => $items,
+                'layout' => $this->params['named']['layout'],
+            ]
+        );
     }
 
     public function tagged()
@@ -176,6 +180,7 @@ class ItemsController extends ContentsAppController
         }
         $this->Item->retrieve($id);
         $this->set('preview', true);
+
         return $this->setAction('show');
     }
 
@@ -194,6 +199,7 @@ class ItemsController extends ContentsAppController
             $this->message('invalid');
             $this->redirect($this->referer());
         }
+
         return $this->setAction('show');
     }
 
@@ -206,6 +212,7 @@ class ItemsController extends ContentsAppController
             'backToIndex' => $this->backLink(),
             'neighbors' => $this->Item->neighbors(),
         );
+
         return $this->render('plugins/contents/items/view.twig', $data);
     }
 
@@ -228,7 +235,7 @@ class ItemsController extends ContentsAppController
             'controller' => 'channels',
             'action' => 'view',
             $this->Item->data['Channel']['slug'],
-            );
+        );
     }
 
     /**
@@ -286,10 +293,12 @@ class ItemsController extends ContentsAppController
     protected function _prepareLists()
     {
         App::import('Model', 'School.Level');
-        $this->set(array(
-            'licenses' => $this->Item->License->find('list'),
-            'levels' => ClassRegistry::init('Level')->find('list'),
-        ));
+        $this->set(
+            array(
+                'licenses' => $this->Item->License->find('list'),
+                'levels' => ClassRegistry::init('Level')->find('list'),
+            )
+        );
         if ($this->Access->isAuthorizedToken('//contents/administrator')) {
             $this->set('channels', $this->Item->Channel->listActive());
         } else {
@@ -413,10 +422,16 @@ class ItemsController extends ContentsAppController
             $this->xredirect(); // forget stored referer and redirect
         }
         App::import('Model', 'Labels.Labelled');
-        $labels = ClassRegistry::init('Labelled')->find('all', array('conditions' => array(
-            'model' => 'Item',
-            'foreign_key' => $id,
-        )));
+        $labels = ClassRegistry::init('Labelled')->find(
+            'all',
+            array(
+                'conditions' => array(
+                    'model' => 'Item',
+                    'foreign_key' => $id,
+                ),
+            )
+        )
+        ;
         $this->data['Label'] = Set::extract('/Labelled/label_id', $labels);
         $this->restoreAppData();
     }
@@ -425,20 +440,24 @@ class ItemsController extends ContentsAppController
     {
         App::import('Model', 'Labels.Label');
         $this->Item->Channel->setId($this->data['Item']['channel_id']);
-        $this->set(array(
-            'globalLabels' => ClassRegistry::init('Label')->getGlobal(),
-            'channelLabels' => ClassRegistry::init('Label')->getModel($this->Item->Channel),
-        ));
+        $this->set(
+            array(
+                'globalLabels' => ClassRegistry::init('Label')->getGlobal(),
+                'channelLabels' => ClassRegistry::init('Label')->getModel($this->Item->Channel),
+            )
+        );
     }
 
     public function members($id)
     {
         $this->Item->setId($id);
-        $this->set(array(
-            'members' => $this->Item->authors(),
-            'notMembers' => $this->Item->notAuthors(),
-            'id' => $this->Item->getID(),
-        ));
+        $this->set(
+            array(
+                'members' => $this->Item->authors(),
+                'notMembers' => $this->Item->notAuthors(),
+                'id' => $this->Item->getID(),
+            )
+        );
     }
 
     /**
@@ -511,6 +530,7 @@ class ItemsController extends ContentsAppController
         $ids = Set::extract($result, '/Item/id');
         $conditions = array('Comment.object_fk' => $ids, 'Comment.object_model' => 'Item', 'Comment.approved' => 0);
         $comments = array();
+
         // $comments = $this->Item->Comment->find('all', compact('conditions'));
         return $comments;
     }

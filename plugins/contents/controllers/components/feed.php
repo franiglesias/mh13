@@ -59,7 +59,8 @@ class FeedComponent extends Object {
                 'description' => Configure::read('Site.description'),
                 'link' => Router::url('/', true),
             ],
-            'items' => $Item->findFeed(['excludePrivate' => true]);];
+            'items' => $Item->findFeed(['excludePrivate' => true]),
+        ];
 
         return $dto;
 	}
@@ -90,7 +91,8 @@ class FeedComponent extends Object {
                     true
                 ),
             ],
-            'items' => $Item->findFeed(['channelList' => $theChannel['Channel']['id']]);];
+            'items' => $Item->findFeed(['channelList' => $theChannel['Channel']['id']]),
+        ];
 
         return $dto;
 	}
@@ -115,7 +117,8 @@ class FeedComponent extends Object {
                 ),
 
             ],
-            'items' => $Item->findFeed(['siteName' => $site['Site']['key']]);];
+            'items' => $Item->findFeed(['siteName' => $site['Site']['key']]),
+        ];
 
         return $dto;
 	}
