@@ -19,8 +19,7 @@ class ItemsController extends ContentsAppController
         'Ui.Image',
     );
 
-    public $components = array('Security', 'Filters.SimpleFilters', 'Notify', 'Contents.Feed');
-
+    public $components = array('Security', 'Filters.SimpleFilters', 'Notify');
     /**
      * Contains the type of role to select the right view.
      *
@@ -30,6 +29,7 @@ class ItemsController extends ContentsAppController
 
     public function beforeFilter()
     {
+
         parent::beforeFilter();
         $this->Auth->allow(
             array(
@@ -72,6 +72,8 @@ class ItemsController extends ContentsAppController
             'statusToPublish' => __d('contents', 'Change status to Publish', true),
             'selectionDelete' => __d('contents', 'Delete', true),
         );
+
+
     }
 
     protected function authenticate()
@@ -122,8 +124,9 @@ class ItemsController extends ContentsAppController
             $this->redirect($this->referer());
         }
 
-        $this->layout = 'default';
-        $this->set($this->getFeed($this->Item, $this->params));
+        $Feed = new FeedBuilder();
+
+        return $this->render('plugins/contents/items/rss/feed.twig', $Feed->getFeed($this->Item, $this->params));
     }
 
     /**

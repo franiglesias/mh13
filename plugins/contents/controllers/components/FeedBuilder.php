@@ -9,31 +9,8 @@
  * @version $Id$
  * @copyright Fran Iglesias
  **/
-
-class FeedComponent extends Object {
-
-	/**
-	 * Array containing the names of components this component uses. Component names
-	 * should not contain the "Component" portion of the classname.
-	 *
-	 * @var array
-	 * @access public
-	 */
-	var $components = array();
-
-	/**
-	 * Called before the Controller::beforeFilter().
-	 *
-	 * @param object  A reference to the controller
-	 * @return void
-	 * @access public
-	 * @link http://book.cakephp.org/view/65/MVC-Class-Access-Within-Components
-	 */
-	function initialize(&$controller, $settings = array()) {
-		if (!isset($this->__settings[$controller->name])) {
-			$this->__settings[$controller->name] = $settings;
-		}
-	}
+class FeedBuilder
+{
 
     public function getFeed($Item, $params)
     {
@@ -106,7 +83,7 @@ class FeedComponent extends Object {
 	{
 		App::import('Model', 'Contents.Site');
 		$site = ClassRegistry::init('Site')->find('first', array(
-			'conditions' => array('Site.key' => $controller->params['named']['site'])
+            'conditions' => array('Site.key' => $params['named']['site']),
 		));
         $dto = [
             'channel' => [

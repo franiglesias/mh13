@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ channel.title }}</title>
+        <link>{{ channel.link }}</link>
+        <description>{{ channel.description }}</description>
+        <generator>Milhojas Feed Generator</generator>
+        <lastBuildDate>{{ "now"|date('r') }}</lastBuildDate>
+        <atom:link href="{{ channel.link }}" rel="self" type="application/rss+xml"/>
+        {% for item in items %}
+            <item>
+                <title>{{ item.Item.title }}</title>
+                <link>{{ item.Item.slug }}</link>
+                <pubDate>{{ item.Item.pubDate |date("D, d M Y h:i:s O") }}</pubDate>
+                <author>{{ 'author' }}</author>
+                <guid>{{ BaseUrl ~ item.Item.slug }}</guid>
+                <description>{{ item.Item.contents | striptags }}</description>
+            </item>
+        {% endfor %}
+        {{ end }}
+    </channel>
+</rss>
