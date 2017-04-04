@@ -256,6 +256,13 @@ class Item extends ContentsAppModel
         return $this->Channel->role($User);
     }
 
+    public function select($params)
+    {
+        $this->recursive = 1;
+
+        return $this->find('catalog', $this->queryFromParams($params));
+    }
+
     public function queryFromParams($params)
     {
         return array_intersect_key(array_merge($this->queryKeys, $params), $this->queryKeys);
@@ -891,6 +898,7 @@ class Item extends ContentsAppModel
 
     public function labels($channelId = null)
     {
+        $Labellable = new LabellableBehavior();
         $options = array(
             'conditions' => array(
                 $this->conditions['published'],
@@ -901,20 +909,16 @@ class Item extends ContentsAppModel
             ),
         );
 
-        return $this->Behaviors->Labellable->findLabels($this, $options);
+        return $Labellable->findLabels($this, $options);
     }
 
-    public function view($slug)
+    public function getBySlugOrFail($slug)
     {
-        try {
-            $this->getBySlug($slug);
-        } catch (Exception $e) {
-            return;
-        }
+        $this->getBySlug($slug);
         if ($this->isPublishable()) {
             return $this->retrieve();
         }
-        $this->id = false;
+        throw new \InvalidArgumentException(sprintf('Article %s not found', $slug));
     }
 
     public function getBySlug($slug)
@@ -978,6 +982,19 @@ class Item extends ContentsAppModel
             )
         )
             ;
+    }
+
+    public function view($slug)
+    {
+        try {
+            $this->getBySlug($slug);
+        } catch (Exception $e) {
+            return;
+        }
+        if ($this->isPublishable()) {
+            return $this->retrieve();
+        }
+        $this->id = false;
     }
 
     public function credentials()

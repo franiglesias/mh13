@@ -39,7 +39,7 @@ class UsersController extends AccessAppController {
                 return $this->setAction('gregister', $user);
             }
             $this->loginUser($this->User);
-        } catch {
+        } catch (Exception $exception) {
             $this->Session->setFlash(__d('access', 'Unable to login with Google Apps.', true), 'alert');
             $this->redirect('/');
         }

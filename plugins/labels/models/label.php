@@ -30,6 +30,13 @@ class Label extends LabelsAppModel {
 		$results = $this->find('model', array('model' => $Model->alias, 'id' => $Model->getID()));
 		return Set::combine($results, '/Label/id', '/Label/title');
 	}
+
+    public function getByTag($tag)
+    {
+        $this->setId($tag);
+
+        return $this->field('title');
+    }
 	
 	public function _findGlobal($state, $query, $results = array()) 
 	{

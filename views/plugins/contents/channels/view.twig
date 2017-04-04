@@ -2,12 +2,16 @@
 {% block header %}
     {% import 'macros/headers.twig' as headers %}
     {{ headers.channel(channel.title, channel.tagline, channel.icon, channel.image) }}
-    <div class="container mh-channel-menu">{# echo $this->Channel->menu(); #}</div>
+    <div class="container mh-channel-menu"> {#echo $this->Channel->menu();#} </div>
 {% endblock %}
-
 {% block content %}
     {% import 'macros/catalog.twig' as catalog %}
-
+    {% if tag %}
+        <p>Artículos etiquetados con <strong>{{ tag }}</strong></p>
+    {% endif %}
+    {% if level_id %}
+        <p>Artículos dirigidos al curso <strong>{{ level_id }}</strong></p>
+    {% endif %}
     {% for article in articles %}
         {% if not article.MainImage.path %}
             {% set image = article.MainImage[0] %}

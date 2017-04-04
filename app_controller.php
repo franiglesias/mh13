@@ -74,21 +74,16 @@ class AppController extends Controller
         'Ui.Table',
         'Ui.Media',
         'Ui.Widget',
-        // 'Ui.Module',
         'Ui.Article',
         'Ui.Backend',
         'Ui.XHtml',
         'Ui.FHtml',
         'Ui.FForm',
         'Ui.Block',
-        //'Ui.Page',
         'Uploads.Upload',
         'Menus.Bar',
         'Menus.Wbar',
         'Menus.Menu',
-        'Contents.Items',
-        'Contents.Item',
-        'Contents.Channel',
         'Circulars.Circulars',
         'Circulars.Circular',
         'Circulars.Events',
@@ -127,6 +122,21 @@ class AppController extends Controller
 
     public $twig;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $loader = new Twig_Loader_Filesystem('../views');
+        $this->twig = new Twig_Environment(
+            $loader, [
+            'debug' => true,
+            'cache' => false,
+            'auto_reload' => true,
+        ]
+        );
+        $this->twig->addExtension(new Twig_Extension_Debug());
+
+    }
+
     public function beforeFilter()
     {
         parent::beforeFilter();
@@ -145,12 +155,7 @@ class AppController extends Controller
         }
         $this->setJsVar('assets', Router::url('/').'ui'.DS.IMAGES_URL.'assets'.DS);
 
-        $loader = new Twig_Loader_Filesystem('../views');
-        $this->twig = new Twig_Environment($loader, [
-            'debug' => true,
-            'cache' => '/tmp/cache/twig',
-        ]);
-        $this->twig->addExtension(new Twig_Extension_Debug());
+
         require_once 'libs/twig/Twig_Extension_Media.php';
         $this->twig->addExtension(new Twig_Extension_Media());
         $this->twig->addGlobal('Site', Configure::read('Site'));

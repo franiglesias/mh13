@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ChannelsController.
  *
@@ -21,7 +22,26 @@ class ChannelsController extends ContentsAppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow(array('menu', 'icon_menu', 'view', 'last', 'media', 'site', 'tagged', 'tags', 'layouts', 'dashboard', 'readable', 'level', 'toggle', 'external', 'notmembers', 'members'));
+        $this->Auth->allow(
+            array(
+                'menu',
+                'icon_menu',
+                'view',
+                'last',
+                'media',
+                'site',
+                'tagged',
+                'tags',
+                'layouts',
+                'dashboard',
+                'readable',
+                'level',
+                'toggle',
+                'external',
+                'notmembers',
+                'members',
+            )
+        );
         $this->selectionActions = array(
             'activate' => __d('contents', 'Activate Channel', true),
             'deactivate' => __d('contents', 'Deactivate Channel', true),
@@ -155,12 +175,14 @@ class ChannelsController extends ContentsAppController
             $this->redirect('/');
         }
         $this->Channel->load($id);
-        $this->set(array(
-            'members' => $this->Channel->members(),
-            'notMembers' => $this->Channel->notMembers(),
-            'roles' => $this->Channel->roles,
-            'id' => $this->Channel->getID(),
-        ));
+        $this->set(
+            array(
+                'members' => $this->Channel->members(),
+                'notMembers' => $this->Channel->notMembers(),
+                'roles' => $this->Channel->roles,
+                'id' => $this->Channel->getID(),
+            )
+        );
     }
 
     public function notmembers($id = null)
@@ -187,51 +209,46 @@ class ChannelsController extends ContentsAppController
     /**
      * Returns a list of items in a channel.
      *
-     * @param string $slug:           the slug for the channel
-     * @param string $stickyFeatured: if true, sorts the list keeping featured items in first places
+     * @param string $slug           :           the slug for the channel
+     * @param string $stickyFeatured : if true, sorts the list keeping featured items in first places
      *
-     * @return array if requested array with channel info and the items list
+     * @return array|string
      */
     public function view($slug = null, $tag = null, $level_id = null)
     {
-        $this->Channel->getBySlugAndUser($slug, $this->Auth->user('id'));
-        if ($this->Channel->null()) {
+        try {
+            $this->Channel->getBySlugAndUserOrFail($slug, $this->Auth->user('id'));
+            $query = [
+                'channel' => $slug,
+            ];
+
+            if (!empty($tag)) {
+                $query['label'] = $tag;
+                $tag = $this->Channel->Label->getByTag($tag);
+            }
+
+            if (!empty($level_id)) {
+                $query['level'] = $level_id;
+            }
+
+            $this->setThemeAndLayout();
+
+            return $this->render(
+                'plugins/contents/channels/view.twig',
+                [
+                    'channel' => $this->Channel->data['Channel'],
+                    'articles' => $this->Channel->Item->find('channel', $query),
+                    'level_id' => $level_id,
+                    'tag' => $tag,
+                ]
+            );
+
+        } catch (Exception $exception) {
             $this->message('invalid');
             $this->redirect('/');
         }
 
-        $this->paginate['Item'] = array(
-            0 => 'channel',
-            'channel' => $slug,
-        );
-        if (!empty($tag)) {
-            $this->paginate['Item']['label'] = $tag;
-            $this->Channel->Label->setId($tag);
-            $tag = $this->Channel->Label->field('title');
-        }
 
-        if (!empty($level_id)) {
-            $this->paginate['Item']['level'] = $level_id;
-        }
-
-        $data = [
-            'channel' => $this->Channel->data,
-            'items' => $this->paginate('Item'),
-            'level_id' => $level_id,
-            'tag' => $tag,
-        ];
-
-        if (!empty($this->params['requested'])) {
-            return $data;
-        }
-        $this->setThemeAndLayout();
-        $this->autoRender = false;
-        return $this->render(
-            'plugins/contents/channels/view.twig', [
-                'channel' => $data['channel']['Channel'],
-                'articles' => $data['items'],
-            ]
-        );
     }
 
     private function setThemeAndLayout()
@@ -251,7 +268,7 @@ class ChannelsController extends ContentsAppController
      */
     public function tagged($slug = null, $tag = null)
     {
-        $this->setAction('view', $slug, $tag, null);
+        return $this->setAction('view', $slug, $tag, null);
     }
 
     /**
@@ -262,7 +279,8 @@ class ChannelsController extends ContentsAppController
         $this->loadModel('School.Level');
         $levels = $this->Level->find('list');
         $this->set(compact('levels'));
-        $this->setAction('view', $slug, null, $level_id);
+
+        return $this->setAction('view', $slug, null, $level_id);
     }
 
     public function menu($site = false)
@@ -288,21 +306,25 @@ class ChannelsController extends ContentsAppController
      *
      * @param string $slug The slug for the chanel. Could be the id
      *
-     * @return array with list of tags
+     * @return array|string
      */
     public function tags($id)
     {
         $tags = $this->Channel->labels($id);
-        $this->autoRender = false;
-        $max = array_reduce($tags, function ($max, $tag) {
-            return $tag['Label']['weight'] > $max ? $tag['Label']['weight'] : $max;
-        });
+        $max = array_reduce(
+            $tags,
+            function ($max, $tag) {
+                return $tag['Label']['weight'] > $max ? $tag['Label']['weight'] : $max;
+            }
+        );
+
         return $this->render(
-            'plugins/contents/channels/widgets/tags.twig', [
+            'plugins/contents/channels/widgets/tags.twig',
+            [
                 'tags' => $tags,
                 'max' => $max,
+                'channel' => $this->Channel->data['Channel']['slug'],
             ]
-
         );
     }
 
@@ -313,15 +335,18 @@ class ChannelsController extends ContentsAppController
     /**
      * Retrieves the list of External channels (marked as general public interest).
      *
-     * @return array
+     * @return string
      *
      * @author Fran Iglesias
      */
     public function external()
     {
-        return $this->render('plugins/contents/channels/external.twig', [
-            'channels' => $this->Channel->findExternal(),
-        ]);
+        return $this->render(
+            'plugins/contents/channels/external.twig',
+            [
+                'channels' => $this->Channel->findExternal(),
+            ]
+        );
     }
 
     /**

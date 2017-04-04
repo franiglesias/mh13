@@ -10,11 +10,6 @@ class ItemsController extends ContentsAppController
         'Uploads.Upload',
         'Access.Owner',
         'Comments.Comment',
-        'Contents.Items',
-        'Contents.Item',
-        'Contents.Channel',
-        'Contents.Authors',
-        'Contents.Author',
         'Ui.Images',
         'Ui.Image',
     );
@@ -52,20 +47,6 @@ class ItemsController extends ContentsAppController
         );
         $this->Security->validatePost = false;
 
-        if (in_array($this->action, array('view'))) {
-            $this->Item->getBySlug($this->params['pass'][0]);
-            $this->Item->load();
-            if ($this->Item->isInPrivateChannel()) {
-                if (!$this->Access->isAuthorizedToken($this->Item->Channel)) {
-                    $this->Auth->deny($this->action);
-                }
-            } elseif ($this->Item->isRestricted()) {
-                $this->authenticate();
-            } else {
-                $this->cacheAction = array('callbacks' => true, 'duration' => '7 days');
-            }
-        }
-
         $this->selectionActions = array(
             'statusToDraft' => __d('contents', 'Change status to Draft', true),
             'statusToExpired' => __d('contents', 'Change status to Expired', true),
@@ -74,19 +55,6 @@ class ItemsController extends ContentsAppController
         );
 
 
-    }
-
-    protected function authenticate()
-    {
-        $credentials = $this->Item->credentials();
-        $this->Security->loginOptions = array(
-            'type' => 'basic',
-            'realm' => __d('contents', 'You need a password to see this item.', true),
-        );
-        $this->resetHttpAuth($credentials);
-        $this->Security->loginUsers = array($credentials['guest'] => $credentials['guestpwd']);
-        $this->Security->blackHoleCallback = 'notAllowed';
-        $this->Security->requireLogin($this->action);
     }
 
     public function readings($id)
@@ -144,30 +112,13 @@ class ItemsController extends ContentsAppController
      */
     public function catalog()
     {
-        $this->Item->recursive = 1;
-        $items = $this->Item->find('catalog', $this->Item->queryFromParams($this->params['named']));
-
         return $this->render(
             'plugins/contents/items/catalog.twig',
             [
-                'items' => $items,
+                'items' => $this->Item->select($this->params['named']),
                 'layout' => $this->params['named']['layout'],
             ]
         );
-    }
-
-    public function tagged()
-    {
-        $this->layout = 'basic';
-        $this->Item->recursive = 1;
-        $this->paginate['Item'] = $this->Item->queryFromParams($this->params['named']);
-        $this->paginate['Item'][0] = 'catalog';
-        $items = $this->paginate('Item');
-        $this->set('term', $queryParams['tag']);
-        if (!empty($this->params['requested'])) {
-            return $items;
-        }
-        $this->set(compact('items'));
     }
 
     /**
@@ -194,16 +145,36 @@ class ItemsController extends ContentsAppController
      */
     public function view($slug = null)
     {
-        $this->helpers[] = 'Cache';
+        try {
+            $this->helpers[] = 'Cache';
+            $this->Item->getBySlugOrFail($slug);
 
-        $this->Item->view($slug);
+            if ($this->Item->isInPrivateChannel()) {
+                if (!$this->Access->isAuthorizedToken($this->Item->Channel)) {
+                    $this->Auth->deny($this->action);
+                }
+            } elseif ($this->Item->isRestricted()) {
+                $this->authenticate();
+            }
 
-        if ($this->Item->null()) {
+            return $this->setAction('show');
+        } catch (Exception $exception) {
             $this->message('invalid');
             $this->redirect($this->referer());
         }
+    }
 
-        return $this->setAction('show');
+    protected function authenticate()
+    {
+        $credentials = $this->Item->credentials();
+        $this->Security->loginOptions = array(
+            'type' => 'basic',
+            'realm' => __d('contents', 'You need a password to see this item.', true),
+        );
+        $this->resetHttpAuth($credentials);
+        $this->Security->loginUsers = array($credentials['guest'] => $credentials['guestpwd']);
+        $this->Security->blackHoleCallback = 'notAllowed';
+        $this->Security->requireLogin($this->action);
     }
 
     public function show()
@@ -256,9 +227,8 @@ class ItemsController extends ContentsAppController
         }
         $this->paginate['Item'] = $this->Item->buildSearchQuery($term);
 
-        $this->log(sprintf('Search for term: %s', $term), 'search');
         $items = $this->paginate('Item');
-        $this->log(sprintf('---> Found: %s records.', count($items)), 'search');
+
         $this->layout = 'default';
         $this->set(compact('items', 'term'));
     }

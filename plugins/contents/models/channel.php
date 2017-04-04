@@ -150,34 +150,7 @@ class Channel extends ContentsAppModel {
 		$this->set($new);
 	}
 
-/**
- * Returns a base query needed to retrieve comments based on model and id
- *
- * @param string $id The id of the object model
- * @return array the query
- * @test pending
- */
-	// public function commentsQuery($id)
-	// {
-	// 	$query = array(
-	// 		'joins' => array(
-	// 			array(
-	// 				'table' => 'items',
-	// 				'alias' => 'Item',
-	// 				'type' => 'LEFT',
-	// 				'foreignKey' => false,
-	// 				'conditions' => array(
-	// 					'Comment.object_model' => 'Contents.Item',
-	// 					'Comment.object_fk = Item.id'
-	// 				)
-	// 			)
-	// 		),
-	// 		'conditions' => array(
-	// 			'Item.channel_id' => $id
-	// 		)
-	// 	);
-	// 	return $query;
-	// }
+
 	
 /**
  * Return the ids of private channels, both guest/pwd and private for logged users
@@ -270,7 +243,7 @@ class Channel extends ContentsAppModel {
 		return $channels;
 	}
 
-	public function getBySlugAndUser($slug, $user = false)
+    public function getBySlugAndUserOrFail($slug, $user = false)
 	{
 		$channels = $this->find('catalog', array(
 			'slug' => $slug,
@@ -278,7 +251,7 @@ class Channel extends ContentsAppModel {
 			'limit' => 1
 		));
 		if (!$channels) {
-			return false;
+            throw new \InvalidArgumentException(sprintf('Channel %s not found', $slug));
 		}
 		$this->data = array_shift($channels);
 		$this->id = $this->data['Channel']['id'];
@@ -410,8 +383,9 @@ class Channel extends ContentsAppModel {
  *
  * @param string $state 
  * @param string $query 
- * @param string $results 
- * @return void
+ * @param string $results
+ *
+ * @return array
  */
 
 	public function findMember($user)
@@ -432,6 +406,7 @@ class Channel extends ContentsAppModel {
 	public function labels($id = null)
 	{
 		$this->setId($id);
+        $this->read(null, $id);
 		return $this->Item->labels($this->id);
 	}
 
@@ -439,9 +414,9 @@ class Channel extends ContentsAppModel {
  * Return a list of Users not associated with the Channel, so they are "candidates"
  * when we need to add users to it
  *
- * @param string $channel_id 
- * @return void
- * @test
+ * @param string $channel_id
+ *
+ * @return array * @test
  */	
 	public function notMembers() {
 		return Set::combine(
