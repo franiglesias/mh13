@@ -53,8 +53,6 @@ class ItemsController extends ContentsAppController
             'statusToPublish' => __d('contents', 'Change status to Publish', true),
             'selectionDelete' => __d('contents', 'Delete', true),
         );
-
-
     }
 
     public function readings($id)

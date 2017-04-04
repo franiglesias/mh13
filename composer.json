@@ -1,23 +1,25 @@
 {
-    "name": "miralba/mh13",
-    "description": "Legacy app migration",
-    "type": "project",
-    "require": {
-        "symfony/http-foundation": "^3.2",
-      "twig/twig": "^1.31",
-      "silex/silex": "2.1.x-dev"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.5",
-        "phpspec/phpspec": "^3.2"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "franiglesias",
-            "email": "franiglesias@mac.com"
-        }
-    ],
+  "name": "miralba/mh13",
+  "description": "Legacy app migration",
+  "type": "project",
+  "require": {
+    "symfony/http-foundation": "^3.2",
+    "twig/twig": "^1.31",
+    "silex/silex": "2.1.x-dev",
+    "symfony/console": "^3.2",
+    "doctrine/dbal": "^2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.5",
+    "phpspec/phpspec": "^3.2"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "franiglesias",
+      "email": "franiglesias@mac.com"
+    }
+  ],
   "autoload": {
     "classmap": [
       "plugins/",
@@ -33,8 +35,8 @@
       "/src/"
     ],
     "psr-4": {
-      "Milhojas\\": [
-        "src/Milhojas/"
+      "Mh13\\": [
+        "src/Mh13/"
       ]
     }
   },
@@ -48,5 +50,4 @@
   "config": {
     "bin-dir": "bin/"
   }
-
 }
