@@ -1,0 +1,6 @@
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        url: 'driver://user:pwd@server/database?charset=utf8mb4'
