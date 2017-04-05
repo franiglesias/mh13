@@ -290,12 +290,6 @@ class ChannelsController extends ContentsAppController
         } else {
             $channels = $this->Channel->findActive($this->Auth->user('id'));
         }
-        if (!empty($this->params['requested'])) {
-            return $channels;
-        }
-        $this->layout = 'default';
-        $this->set(compact('channels'));
-
         return $this->render('plugins/contents/channels/menu.twig', ['channels' => $channels]);
     }
 

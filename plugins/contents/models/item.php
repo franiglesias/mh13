@@ -1,19 +1,25 @@
 <?php
 
+use Mh13\shared\persistence\CakeStore;
+
+
 App::import('Model', 'Contents.Site');
 App::import('Model', 'Contents.Channel');
 
-class Item extends ContentsAppModel
+class Item extends ContentsAppModel implements CakeStore
 {
     const NEIGHBORS_MARGIN = 14;
+
     const AUTHOR = 23;
     const COAUTHOR = 19;
+
     const DRAFT = 0;
     const REVIEW = 1;
     const PUBLISHED = 2;
     const EXPIRED = 3;
     const RETIRED = 4;
     const WAITING = 5;
+
     public $name = 'Item';
     public $displayField = 'title';
 
@@ -725,22 +731,20 @@ class Item extends ContentsAppModel
 
     public function setAuthor(User $User, $permissions = self::AUTHOR)
     {
-        if (!$this->arePermissionsValid($permissions)) {
-            return false;
-        }
-        if ($this->Behaviors->Ownable->isOwner($this, $User)) {
-            return $this->Behaviors->Ownable->modifyOwnerPermissions($this, $User, $permissions);
-        }
-
-        return $this->Behaviors->Ownable->addOwner($this, $User, $permissions);
+        $this->guardValidPersmissions($permissions);
+        $ownable = new OwnableBehavior();
+        return $ownable->addOwner($this, $User, $permissions);
     }
 
-    private function arePermissionsValid($permissions)
+    private function guardValidPersmissions($permissions)
     {
-        return in_array($permissions, array(
+        if (!in_array($permissions, [
             self::AUTHOR,
             self::COAUTHOR,
-        ));
+        ]
+        )) {
+            throw new InvalidArgumentException('Permissions not valid');
+        }
     }
 
     /**
@@ -767,7 +771,8 @@ class Item extends ContentsAppModel
      */
     public function authors()
     {
-        return $this->Behaviors->Ownable->owners(
+        $ownable = new OwnableBehavior();
+        return $ownable->owners(
             $this,
             'User',
             array(
@@ -888,6 +893,7 @@ class Item extends ContentsAppModel
         $this->Channel->read(null, $this->data['Item']['channel_id']);
         $this->data['Channel'] = $this->Channel->data['Channel'];
         $this->data['Authors'] = $this->authors();
+        debug($this->data);
         $this->data['Label'] = $this->getLabels();
         if (!empty($this->data['MainImage'])) {
             $this->data['MainImage'] = $this->data['MainImage'][0];

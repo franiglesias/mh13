@@ -12,7 +12,8 @@
  * @copyright Fran Iglesias
  **/
 
-App::import('Model', 'Access.Ownership');
+use Mh13\plugins\access\services\OwnerService;
+
 
 if (!defined('ACCESS_READ')) {
 	define('ACCESS_READ', 1);
@@ -38,8 +39,13 @@ if (!defined('ACCESS_NOT_MANAGED')) {
 	define('ACCESS_NOT_MANAGED', 32);
 }
 
-
-class OwnableBehavior extends ModelBehavior {
+class OwnableBehavior extends ModelBehavior implements OwnerService {
+    const ACCESS_READ = 1;
+    const ACCESS_WRITE = 2;
+    const ACCESS_DELETE = 4;
+    const ACCESS_ADMIN = 8;
+    const ACCESS_MEMBER = 16;
+    const ACCESS_NOT_MANAGED = 32;
 
 /**
  * Contains configuration settings for use with individual model objects.
@@ -56,6 +62,7 @@ class OwnableBehavior extends ModelBehavior {
 		'mode' => 'object', // object or owner
 		);
 
+
 /**
  * Allows the mapping of preg-compatible regular expressions to public or
  * private methods in this class, where the array key is a /-delimited regular
@@ -66,7 +73,16 @@ class OwnableBehavior extends ModelBehavior {
  * @access public
  */
 	var $mapMethods = array();
-	
+
+    /**
+     * OwnableBehavior constructor.
+     */
+    public function __construct()
+    {
+        App::import('Model', 'Access.Ownership');
+
+    }
+
 //	var $mapMethods = array('/^_findRange$/' => '_findRange');
 //  $Model->_findMethods['range'] = true;
 // https://github.com/zeroasterisk/cakephp-behavior-rangeable/blob/master/models/behaviors/rangeable.php
@@ -80,7 +96,7 @@ class OwnableBehavior extends ModelBehavior {
  * @return void
  * @access public
  */
-	function setup(&$model, $config = array()) {
+	function setup($model, $config = array()) {
 		if (!is_array($config)) {
 			$config = array('mode' => $config);
 		}
@@ -96,7 +112,7 @@ class OwnableBehavior extends ModelBehavior {
 	}
 
 
-	public function beforeDelete(&$model, $cascade)
+	public function beforeDelete($model, $cascade)
 	{
 		if ($this->settings[$model->alias]['mode'] == 'object') {
 			$conditions = array(
@@ -118,7 +134,7 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $model 
  * @return void
  */
-	public function bindAsObject(&$model) {
+	public function bindAsObject($model) {
 		$bindSettings = array(
 			'OwnedBy' => array(
 				'className' => 'Access.Ownership',
@@ -147,7 +163,7 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $model 
  * @return void
  */	
-	public function bindAsOwner(&$model) {
+	public function bindAsOwner($model) {
 		$bindSettings = array(
 			'Owns' => array(
 				'className' => 'Access.Ownership',
@@ -175,10 +191,15 @@ class OwnableBehavior extends ModelBehavior {
  *
  * @param object $model 
  * @param mixed array o model object
- * @return void
+ * @return string|boolean
  */	
-	public function addOwner(&$model, $owner, $permissions = 15, $id = null) {
-		$model->setId($id);
+	public function addOwner($model, $owner, $permissions = 15, $id = null) {
+
+		if ($this->isOwner($this, $User)) {
+            return $this->modifyOwnerPermissions($this, $User, $permissions);
+        }
+
+        $model->setId($id);
 		
 		$data = array(
 			'Ownership' => array(
@@ -205,9 +226,9 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $model 
  * @param string $owner 
  * @param string $id 
- * @return void
+ * @return bool
  */
-	public function removeOwner(&$model, $owner, $id = null) {
+	public function removeOwner($model, $owner, $id = null) {
 		$model->setId($id);
 		return ClassRegistry::init('Ownership')->deleteAll(array(
 				'owner_model' => $owner->alias,
@@ -225,9 +246,9 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $owner 
  * @param string $newPermissions 
  * @param string $id 
- * @return void
+ * @return string|boolean
  */
-	public function modifyOwnerPermissions(&$model, $owner, $newPermissions, $id = null) {
+	public function modifyOwnerPermissions($model, $owner, $newPermissions, $id = null) {
 		$model->setId($id);
 		$conditions = array(
 				'owner_model' => $owner->alias,
@@ -245,9 +266,9 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $model 
  * @param string $owner 
  * @param string $id 
- * @return void
+ * @return bool
  */
-	public function isOwner(&$model, $owner, $id = null) {
+	public function isOwner($model, $owner, $id = null) {
 		return $this->whatAccess($model, $owner, $id) > 0;
 	}
 	
@@ -257,9 +278,9 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $model 
  * @param string $owner 
  * @param string $id 
- * @return void
+ * @return bool|integer
  */	
-	public function whatAccess(&$model, $owner, $id = null) {
+	public function whatAccess($model, $owner, $id = null) {
 		$model->setId($id);
 
 		$conditions = array(
@@ -276,35 +297,13 @@ class OwnableBehavior extends ModelBehavior {
 		return $result[0]['Ownership']['access'];
 	}
 
-/**
- * Checks if an owner has certain access permissions on an object. (NOT USED)
- *
- * @param string $model 
- * @param string $owner 
- * @param string $permission 
- * @param string $id 
- * @return void
- */
-	public function checkAccess(&$model, $owner, $permission = ACCESS_READ, $id = null) {
-		$model->setId($id);
-
-		$conditions = array(
-				'owner_model' => $owner->alias,
-				'owner_id' => $owner->id,
-				'object_model' => $model->alias,
-				'object_id' => $model->id,
-				'access & '.$permission.' = '.$permission
-			);
-		
-		return ClassRegistry::init('Ownership')->find('count', compact('conditions'));
-	}
 
 /**
  * Retrieves Owner not tied with Object
  *
- * @return void
+ * @return array
  **/
-	public function notOwners(&$model, $ownerModel, $extraQuery = array()) {
+	public function notOwners($model, $ownerModel, $extraQuery = array()) {
 		$query = array(
 			'fields' => array(
 				$ownerModel.'.*',
@@ -337,9 +336,9 @@ class OwnableBehavior extends ModelBehavior {
  * @param string $model 
  * @param string $ownerModel 
  * @param string $extraQuery 
- * @return void
+ * @return array
  */
-	public function owners(&$model, $ownerModel, $extraQuery = array())
+	public function owners($model, $ownerModel, $extraQuery = array())
 	{
 		$query = array(
 			'fields' => array(
