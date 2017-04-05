@@ -1,15 +1,14 @@
 <?php
+
+/**
+ * @property  StaticDescendant
+ */
 class StaticPage extends ContentsAppModel {
 	var $name = 'StaticPage';
 	
 	var $displayField = 'title';
 	
 	var $actsAs = array(
-		'Translate' => array(
-			'title' => 'titleTranslations',
-			'content' => 'contentTranslations',
-			'slug' => 'slugTranslations'
-			),
 		'Tree',
 		'Ui.Sluggable' => array('update' => true),
 		'Access.Ownable' => array('mode' => 'object'),
@@ -28,8 +27,7 @@ class StaticPage extends ContentsAppModel {
 
 	);
 	
-	var $translateModel = 'Contents.StaticI18n';
-	
+
 	var $belongsTo = array(
 		'StaticParent' => array(
 			'className' => 'Contents.StaticPage',
@@ -65,25 +63,6 @@ class StaticPage extends ContentsAppModel {
 		parent::__construct($id, $table, $ds);
 	}
 
-/**
- * Returns a tree with the descendants of the current StaticPage
- *
- * @param string $id 
- * @return void
- */
-	public function descendants()
-	{
-		return $this->StaticDescendant->find('threaded', 
-			array(
-				'fields' => array('id', 'parent_id', 'title', 'slug'),
-				'conditions' => array(
-					'StaticDescendant.lft >' => $this->data['StaticPage']['lft'], 
-					'StaticDescendant.rght <' => $this->data['StaticPage']['rght']
-					)
-				)
-			);
-	}
-	
 	public function findAllParents()
 	{
 
@@ -106,48 +85,37 @@ class StaticPage extends ContentsAppModel {
 		return $this->find('list', array('conditions' => $subQuery));
 	}
 	
-	public function siblings()
-	{
-		return $this->find('all', 
-			array(
-				'fields' => array('id', 'parent_id', 'title', 'slug'),
-				'conditions' => array(
-					'StaticPage.id !=' => $this->id,
-					'StaticPage.parent_id !=' => null,
-					'StaticPage.parent_id' => $this->data['StaticPage']['parent_id']
-					)
-				)
-			);
-	}
-	
-	public function parents()
-	{
-		$result = $this->StaticParent->getpath($this->data['StaticPage']['parent_id'], array('slug', 'title'));
-		if (empty($result)) {
-			return array();
-		}
-		return $result;
-	}
-	
 	public function candidateParents()
 	{
 		return $this->StaticParent->find('list', array('conditions' => array('StaticParent.id !=' => $this->id)));
 	}
+
+    public function view($slug)
+    {
+        try {
+            $this->getBySlug($slug);
+        } catch (Exception $e) {
+            return;
+        }
+
+        return $this->retrieve();
+    }
 	
 	public function getBySlug($slug)
 	{
-		$this->setId(ClassRegistry::init('StaticI18n')->getIdForSlug($slug));
+        $data = $this->findBySlug($slug, array('fields' => 'id'));
+        $this->setId($data['StaticPage']['id']);
 	}
 	
 	public function retrieve($id = null)
 	{
-		
+
 		$this->Behaviors->enable('Translate');
 		$this->setId($id);
 		$this->contain(array(
 			'MainImage',
-			'Image' => array('order' => array('order' => 'ASC', 'name' => 'ASC')), 
-			'Download' => array('order' => array('order' => 'ASC', 'name' => 'ASC')), 
+                           'Image' => array('order' => array('order' => 'ASC', 'name' => 'ASC')),
+                           'Download' => array('order' => array('order' => 'ASC', 'name' => 'ASC')),
 			'Multimedia' => array('order' => array('order' => 'ASC', 'name' => 'ASC'))
 		));
 		$this->data = $this->read(null);
@@ -159,18 +127,55 @@ class StaticPage extends ContentsAppModel {
 		$this->data['Parents'] = $this->parents();
 		$this->data['Descendants'] = $this->descendants();
 		$this->data['Siblings'] = $this->siblings();
-		
+
 	}
-	
-	public function view($slug)
+
+    public function parents()
 	{
-		try {
-			$this->getBySlug($slug);
-		} catch (Exception $e) {
-			return;
+        $result = $this->StaticParent->getpath($this->data['StaticPage']['parent_id'], array('slug', 'title'));
+        if (empty($result)) {
+            return array();
 		}
-		return $this->retrieve();
+
+        return $result;
+    }
+
+    /**
+     * Returns a tree with the descendants of the current StaticPage
+     *
+     * @param string $id
+     *
+     * @return array
+     */
+    public function descendants()
+    {
+        return $this->StaticDescendant->find(
+            'threaded',
+            array(
+                'fields' => array('id', 'parent_id', 'title', 'slug'),
+                'conditions' => array(
+                    'StaticDescendant.lft >' => $this->data['StaticPage']['lft'],
+                    'StaticDescendant.rght <' => $this->data['StaticPage']['rght'],
+                ),
+            )
+        );
+    }
+
+    public function siblings()
+    {
+        return $this->find(
+            'all',
+            array(
+                'fields' => array('id', 'parent_id', 'title', 'slug'),
+                'conditions' => array(
+                    'StaticPage.id !=' => $this->id,
+                    'StaticPage.parent_id !=' => null,
+                    'StaticPage.parent_id' => $this->data['StaticPage']['parent_id'],
+                ),
+            )
+        );
 	}
 	
 }
+
 ?>

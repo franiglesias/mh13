@@ -18,10 +18,6 @@ class Site extends ContentsAppModel {
 	);
 
 	var $actsAs = array(
-		'Translate' => array(
-			'title',
-			'description'
-			),
 		'Ui.Sluggable' => array(
 			'slug' => 'key'
 			)
@@ -84,21 +80,10 @@ class Site extends ContentsAppModel {
 				'Channel.id' => $theChannelsIdsList
 			),
 			'order' => array(
-				'I18n__title.content' => 'asc'
+                'Channel.title' => 'asc',
 			)
 		));
 		return $result;
-	}
-	
-	public function getChannelsIds($key)
-	{
-		// Get the Site by its key
-		$data = $this->find('first', array(
-			'fields' => 'id',
-			'conditions' => array('Site.key' => $key),
-			'contain' => array('Channel.id')
-		));
-		return Set::extract('/Channel/id', $data);
 	}
 	
 	public function getByKey($key)
@@ -108,12 +93,27 @@ class Site extends ContentsAppModel {
 			'fields' => array('Channel.title', 'Channel.id', 'Channel.slug'),
 			'conditions' => array('Channel.id' => $this->getChannelsIds($key)),
 			'order' => array(
-				'I18n__title.content' => 'asc'
+                'Channel.title' => 'asc',
 			)
 		));
 		$this->data['Channel'] = Set::extract('/Channel/.', $channels);
 		return $this->data;
 	}
+
+    public function getChannelsIds($key)
+    {
+        // Get the Site by its key
+        $data = $this->find(
+            'first',
+            array(
+                'fields' => 'id',
+                'conditions' => array('Site.key' => $key),
+                'contain' => array('Channel.id'),
+            )
+        );
+
+        return Set::extract('/Channel/id', $data);
+    }
 
 }
 ?>

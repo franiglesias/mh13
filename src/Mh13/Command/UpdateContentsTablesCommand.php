@@ -15,53 +15,110 @@ use Doctrine\DBAL\Schema\Comparator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
 
 
 class UpdateContentsTablesCommand extends Command
 {
+
+
+    private $connection;
+
     protected function configure()
     {
-        $this// the name of the command (the part after "bin/console")
-        ->setName('mh13:update-contents')// the short description shown while running "php bin/console list"
-        ->setDescription(
-            'Update contents table.'
-        )// the full command description shown when running the command with
-        // the "--help" option
-        ->setHelp('This command updates contents tables to use without Translation')
+        $this->setName('mh13:update-contents')->setDescription('Update contents tables.')->setHelp(
+            'This command updates contents tables to use without Translation'
+        )
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Preparing DBAL connection.');
-        $connection = $this->getConnection();
+        $this->connection = $this->getConnection();
         $output->writeln('Connection is ready');
-        $this->addColumnsToTable(
-            'posts',
+        $this->migrateTable(
+            'channels',
+            'i18n',
+            'Channel',
             [
                 'title' => ['type' => 'string', 'options' => ['notnull' => false]],
+                'description' => ['type' => 'text', 'options' => ['notnull' => false]],
+                'tagline' => ['type' => 'string', 'options' => ['notnull' => false]],
                 'slug' => ['type' => 'string', 'options' => ['notnull' => false]],
-                'contents' => ['type' => 'text', 'options' => ['notnull' => false]],
             ]
         );
-        $this->listColumns('posts');
-
+        $this->migrateTable(
+            'items',
+            'item_i18ns',
+            'Item',
+            [
+                'title' => ['type' => 'string', 'options' => ['notnull' => false]],
+                'content' => ['type' => 'text', 'options' => ['notnull' => false]],
+                'slug' => ['type' => 'string', 'options' => ['notnull' => false]],
+            ]
+        );
+        $this->migrateTable(
+            'static_pages',
+            'static_i18ns',
+            'StaticPage',
+            [
+                'title' => ['type' => 'string', 'options' => ['notnull' => false]],
+                'content' => ['type' => 'text', 'options' => ['notnull' => false]],
+                'slug' => ['type' => 'string', 'options' => ['notnull' => false]],
+            ]
+        );
+        $this->migrateTable(
+            'sites',
+            'i18n',
+            'Site',
+            [
+                'title' => ['type' => 'string', 'options' => ['notnull' => false]],
+                'description' => ['type' => 'text', 'options' => ['notnull' => false]],
+            ]
+        );
     }
 
-    protected function getConnection()
+    private function getConnection()
     {
-        $config = new Configuration();
+        if ($this->connection) {
+            return $this->connection;
+        }
 
-        $connectionParams = [
-            'dbname' => 'mh14',
-            'user' => 'root',
-            'password' => 'Fi36101628',
-            'host' => 'localhost',
-            'driver' => 'pdo_mysql',
-            'encoding' => 'utf8mb4',
-        ];
+        $cfg = Yaml::parse(file_get_contents(dirname(getcwd()).'/config/config.yml'));
+        $doctrine = $cfg['doctrine']['dbal'];
+        $connectionParams = $doctrine['connections'][$doctrine['default_connection']];
 
-        return DriverManager::getConnection($connectionParams, $config);
+        return DriverManager::getConnection($connectionParams, new Configuration());
+    }
+
+    private function migrateTable($table, $source, $model, array $fields)
+    {
+        if ($this->tableExists($table)) {
+            $this->addColumnsToTable(
+                $table,
+                $fields
+            );
+            $this->listColumns($table);
+        } else {
+            $output->writeln('Table posts does not exists');
+        }
+
+        $this->copyTranslatedFieldsBackToTable($table, $source, $model, array_keys($fields));
+    }
+
+    private function tableExists($table)
+    {
+        $sm = $this->getSchemaManager();
+
+        return $sm->tablesExist([$table]);
+    }
+
+    private function getSchemaManager()
+    {
+        $connection = $this->getConnection();
+
+        return $connection->getSchemaManager();
     }
 
     private function addColumnsToTable($table, $columns)
@@ -82,14 +139,7 @@ class UpdateContentsTablesCommand extends Command
         }
     }
 
-    protected function getSchemaManager()
-    {
-        $connection = $this->getConnection();
-
-        return $connection->getSchemaManager();
-    }
-
-    protected function listColumns($table)
+    private function listColumns($table)
     {
         $sm = $this->getSchemaManager();
         $columns = $sm->listTableColumns($table);
@@ -98,4 +148,25 @@ class UpdateContentsTablesCommand extends Command
         }
     }
 
+    private function copyTranslatedFieldsBackToTable($table, $intTable, $model, $fields)
+    {
+        foreach ($fields as $field) {
+            $sql = sprintf(
+                'update %1$s left join %2$s on %2$s.model = \'%4$s\' and %2$s.foreign_key = %1$s.id set %1$s.%3$s = %2$s.content where %2$s.field = \'%3$s\'',
+                $table,
+                $intTable,
+                $field,
+                $model
+            );
+            $deleteSql = sprintf(
+                'delete from %2$s where %2$s.model = \'%4$s\'',
+                $table,
+                $intTable,
+                $field,
+                $model
+            );
+            $this->getConnection()->exec($sql);
+//            $this->getConnection()->exec($deleteSql);
+        }
+    }
 }

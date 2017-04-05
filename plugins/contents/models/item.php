@@ -24,15 +24,8 @@ class Item extends ContentsAppModel
         ),
     );
 
-    public $translateModel = 'Contents.ItemI18n';
-
     public $actsAs = array(
         'Tree',
-        'Translate' => array(
-            'title' => 'titleTranslations',
-            'content' => 'contentTranslations',
-            'slug' => 'slugTranslations',
-            ),
         'Ui.Sluggable' => array('update' => true, 'lenght' => 200),
         'Licenses.Licenseable',
         'Access.Ownable' => array('mode' => 'object'),
@@ -314,8 +307,6 @@ class Item extends ContentsAppModel
 
             $joins = array(
                 $this->joinItemChannel(),
-                $this->joinChannelTitle(),
-                $this->joinChannelSlug(),
             );
 
             if (!empty($query['label'])) {
@@ -345,7 +336,6 @@ class Item extends ContentsAppModel
             return false;
         }
         foreach ($results as &$item) {
-            $this->normalizeChannelData($item);
             $this->removeOwnershipData($item);
             $this->normalizeScoreData($item);
             $this->changeContentsIfRestricted($item);
@@ -378,7 +368,7 @@ class Item extends ContentsAppModel
             $query['conditions']['Item.channel_id'] = ClassRegistry::init('Site')->getChannelsIds($query['siteName']);
             unset($query['siteName']);
         } elseif (!empty($query['channelList'])) {
-            $query['conditions']['Item.channel_id'] = $this->Channel->findSlugs($query['channelList']);
+            $query['conditions']['Item.channel_id'] = $this->Channel->findIdFromSlugs($query['channelList']);
             unset($query['channelList']);
         }
     }
@@ -426,36 +416,6 @@ class Item extends ContentsAppModel
         );
     }
 
-    private function joinChannelTitle()
-    {
-        return array(
-            'table' => 'i18n',
-            'alias' => 'ChannelTitle',
-            'type' => 'left',
-            'conditions' => array(
-                'ChannelTitle.model' => 'Channel',
-                'ChannelTitle.field' => 'title',
-                'ChannelTitle.locale' => $this->_getLocale(),
-                'ChannelTitle.foreign_key = Item.channel_id',
-            ),
-        );
-    }
-
-    private function joinChannelSlug()
-    {
-        return array(
-            'table' => 'i18n',
-            'alias' => 'ChannelSlug',
-            'type' => 'left',
-            'conditions' => array(
-                'ChannelSlug.model' => 'Channel',
-                'ChannelSlug.field' => 'slug',
-                'ChannelSlug.locale' => $this->_getLocale(),
-                'ChannelSlug.foreign_key = Item.channel_id',
-            ),
-        );
-    }
-
     private function joinItemLabelled()
     {
         return array(
@@ -495,20 +455,13 @@ class Item extends ContentsAppModel
             'fields' => array(
                 'Item.*',
                 'Channel.active',
-                'ChannelTitle.content',
-                'ChannelSlug.content',
+                'Channel.title',
+                'Channel.slug',
             ),
         );
         unset($query['mode']);
 
         return $extraQuery;
-    }
-
-    private function normalizeChannelData(&$item)
-    {
-        $item['Channel']['title'] = $item['ChannelTitle']['content'];
-        $item['Channel']['slug'] = $item['ChannelSlug']['content'];
-        unset($item['ChannelTitle'], $item['ChannelSlug']);
     }
 
     public function removeOwnershipData(&$item)
@@ -556,7 +509,7 @@ class Item extends ContentsAppModel
             unset($query['user']);
             $fields = array(
                 'Item.*',
-                'I18nChannel.content',
+                'Channel.title',
                 'Author.access',
                 'Member.access',
             );
@@ -582,17 +535,6 @@ class Item extends ContentsAppModel
                         'Member.object_id = Item.channel_id',
                         'Member.owner_model' => 'User',
                         'Member.owner_id' => $user_id,
-                    ),
-                ),
-                array(
-                    'table' => 'i18n',
-                    'alias' => 'I18nChannel',
-                    'type' => 'LEFT',
-                    'conditions' => array(
-                        'I18nChannel.field' => 'title',
-                        'I18nChannel.foreign_key = Member.object_id',
-                        'I18nChannel.locale' => $this->_getLocale(),
-                        'I18nChannel.model' => 'Channel',
                     ),
                 ),
             );
@@ -636,7 +578,7 @@ class Item extends ContentsAppModel
             unset($query['user']);
             $fields = array(
                 'Item.id', 'Item.pubDate', 'Item.title', 'Item.status', 'Item.home', 'Item.featured', 'Item.stick', 'Item.allow_comments', 'Item.readings', 'Item.channel_id', 'Item.real_status',
-                'I18nChannel.content',
+                'Channel.title',
                 'Author.access',
                 'Member.access',
             );
@@ -664,17 +606,7 @@ class Item extends ContentsAppModel
                         'Member.owner_id' => $user_id,
                     ),
                 ),
-                array(
-                    'table' => 'i18n',
-                    'alias' => 'I18nChannel',
-                    'type' => 'LEFT',
-                    'conditions' => array(
-                        'I18nChannel.field' => 'title',
-                        'I18nChannel.foreign_key = Member.object_id',
-                        'I18nChannel.locale' => $this->_getLocale(),
-                        'I18nChannel.model' => 'Channel',
-                    ),
-                ),
+
             );
             $conditions = array(
                 'or' => array(
@@ -923,7 +855,8 @@ class Item extends ContentsAppModel
 
     public function getBySlug($slug)
     {
-        $this->setId(ClassRegistry::init('ItemI18n')->getIdForSlug($slug));
+        $data = $this->findBySlug($slug, array('fields' => 'id'));
+        $this->setId($data['Item']['id']);
     }
 
     public function isPublishable()
@@ -1053,5 +986,42 @@ class Item extends ContentsAppModel
                 ),
             )
         );
+    }
+
+    private function joinChannelTitle()
+    {
+        return array(
+            'table' => 'i18n',
+            'alias' => 'ChannelTitle',
+            'type' => 'left',
+            'conditions' => array(
+                'ChannelTitle.model' => 'Channel',
+                'ChannelTitle.field' => 'title',
+                'ChannelTitle.locale' => $this->_getLocale(),
+                'ChannelTitle.foreign_key = Item.channel_id',
+            ),
+        );
+    }
+
+    private function joinChannelSlug()
+    {
+        return array(
+            'table' => 'i18n',
+            'alias' => 'ChannelSlug',
+            'type' => 'left',
+            'conditions' => array(
+                'ChannelSlug.model' => 'Channel',
+                'ChannelSlug.field' => 'slug',
+                'ChannelSlug.locale' => $this->_getLocale(),
+                'ChannelSlug.foreign_key = Item.channel_id',
+            ),
+        );
+    }
+
+    private function normalizeChannelData(&$item)
+    {
+        $item['Channel']['title'] = $item['ChannelTitle']['content'];
+        $item['Channel']['slug'] = $item['ChannelSlug']['content'];
+        unset($item['ChannelTitle'], $item['ChannelSlug']);
     }
 }

@@ -48,12 +48,6 @@ class Channel extends ContentsAppModel {
 		'Licenses.Licenseable',
 		'Access.Ownable' => array('mode' => 'object'),
 		'Access.Authorizable',
-		'Translate' => array(
-			'title',
-			'description',
-			'slug',
-			'tagline'
-			),
 		'Ui.Sluggable',
 		'Uploads.Upable' => array(
 			'icon' => array(
@@ -192,7 +186,7 @@ class Channel extends ContentsAppModel {
 			),
 			'user' => $user,
 			'order' => array(
-				'I18n__title.content' => 'asc'
+                'Channel.title' => 'asc',
 			)
 		));
 		return $channels;
@@ -202,7 +196,7 @@ class Channel extends ContentsAppModel {
 	{
 		return $this->find('list', array(
 			'conditions' => array('Channel.active' => 1),
-			'order' => array('I18n__title.content' => 'asc')
+            'order' => array('Channel.title' => 'asc'),
 		));
 	}
 	
@@ -216,7 +210,7 @@ class Channel extends ContentsAppModel {
 				'Channel.icon'
 			),
 			'conditions' => array('Channel.active' => 1, 'Channel.external' => 1),
-			'order' => array('I18n__title.content' => 'asc')
+            'order' => array('Channel.title' => 'asc'),
 		));
 	}
 	
@@ -237,7 +231,7 @@ class Channel extends ContentsAppModel {
 			'site' => $site,
 			'user' => $user,
 			'order' => array(
-				'I18n__title.content' => 'asc'
+                'Channel.title' => 'asc',
 			)
 		));
 		return $channels;
@@ -275,9 +269,9 @@ class Channel extends ContentsAppModel {
 			$conditions['active'] = true;
 			if (isset($query['slug'])) {
 				if (!empty($query['slug'])) {
-					$query['conditions']['I18n__slug.content'] = $query['slug'];
+                    $query['conditions']['Channel.slug'] = $query['slug'];
 				} else {
-					$query['conditions']['I18n__slug.content'] = '';
+                    $query['conditions']['Channel.slug'] = '';
 				}
 			}
 			
@@ -300,7 +294,7 @@ class Channel extends ContentsAppModel {
     {
         if ($state === 'before') {
             $query['fields'] = array('Channel.id', 'Channel.title', 'Channel.active', 'Channel.external');
-            $query['order'] = array('I18n__title.content' => 'asc');
+            $query['order'] = array('Channel.title' => 'asc');
             if (!empty($query['user'])) {
                 $query['access'] = self::OWNER;
                 $query = $this->_findUser('before', $query, $results);
@@ -361,7 +355,7 @@ class Channel extends ContentsAppModel {
 			$channels = $this->find('all', array(
 				'fields' => array('Channel.id', 'Channel.title'),
 				'order' => array(
-					'I18n__title.content' => 'asc'
+                    'Channel.title' => 'asc',
 				)
 			));
 		} else {
@@ -370,7 +364,7 @@ class Channel extends ContentsAppModel {
 				'user' => $user,
 				'access' => self::CONTRIBUTOR,
 				'order' => array(
-					'I18n__title.content' => 'asc'
+                    'Channel.title' => 'asc',
 				)
 			));
 		}
@@ -546,37 +540,20 @@ class Channel extends ContentsAppModel {
 
 	public function getBySlug($slug)
 	{
-		$id = ClassRegistry::init('I18nModel')->find('first', array(
-			'fields' => 'foreign_key',
-			'conditions' => array(
-				'model' => 'Channel',
-				'field' => 'slug',
-				'content' => $slug
-			)
-		));
-		if (!$id) {
+        $data = $this->findBySlug($slug, array('fields' => 'id'));
+        if (!$data) {
 			$this->id = false;
 			$this->data = false;
 			return;
 		}
-		$this->load($id['I18nModel']['foreign_key']);
+        $this->load($data['Channel']['id']);
 	}
 
-	public function findSlugs($slugs)
+    public function findIdFromSlugs($slugs)
 	{
-		$result = ClassRegistry::init('I18nModel')->find('all', array(
-			'fields' => 'foreign_key',
-			'conditions' => array(
-				'model' => 'Channel',
-				'field' => 'slug',
-				'or' => array(
-					'content' => $slugs,
-					'foreign_key' => $slugs
-				)
-				
-			)
-		));
-		return Set::extract('/I18nModel/foreign_key', $result);
+        $result = $this->find('all', array('fields' => ['slug', 'id'], 'conditions' => ['slug' => $slugs]));
+
+        return Set::extract('/Channel/id', $result);
 	}
 	
 	public function getDefaults()
