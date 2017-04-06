@@ -1,5 +1,7 @@
 <?php
 
+use Mh13\plugins\contents\persistence\cakephp\CakeArticleMapper;
+use Mh13\plugins\contents\persistence\cakephp\CakeArticleRepository;
 use Mh13\shared\persistence\CakeStore;
 
 
@@ -867,7 +869,6 @@ class Item extends ContentsAppModel implements CakeStore
     {
         $conditions = $this->conditions['published'];
         $conditions['Item.id'] = $this->id;
-        $this->Behaviors->disable('Translate');
 
         return $this->find(
             'count',
@@ -879,7 +880,6 @@ class Item extends ContentsAppModel implements CakeStore
 
     public function retrieve($id = null)
     {
-        $this->Behaviors->enable('Translate');
         $this->setId($id);
         $this->contain(array(
             'License',
@@ -892,7 +892,6 @@ class Item extends ContentsAppModel implements CakeStore
         $this->Channel->read(null, $this->data['Item']['channel_id']);
         $this->data['Channel'] = $this->Channel->data['Channel'];
         $this->data['Authors'] = $this->authors();
-        debug($this->data);
         $this->data['Label'] = $this->getLabels();
         if (!empty($this->data['MainImage'])) {
             $this->data['MainImage'] = $this->data['MainImage'][0];
@@ -993,40 +992,4 @@ class Item extends ContentsAppModel implements CakeStore
         );
     }
 
-    private function joinChannelTitle()
-    {
-        return array(
-            'table' => 'i18n',
-            'alias' => 'ChannelTitle',
-            'type' => 'left',
-            'conditions' => array(
-                'ChannelTitle.model' => 'Channel',
-                'ChannelTitle.field' => 'title',
-                'ChannelTitle.locale' => $this->_getLocale(),
-                'ChannelTitle.foreign_key = Item.channel_id',
-            ),
-        );
-    }
-
-    private function joinChannelSlug()
-    {
-        return array(
-            'table' => 'i18n',
-            'alias' => 'ChannelSlug',
-            'type' => 'left',
-            'conditions' => array(
-                'ChannelSlug.model' => 'Channel',
-                'ChannelSlug.field' => 'slug',
-                'ChannelSlug.locale' => $this->_getLocale(),
-                'ChannelSlug.foreign_key = Item.channel_id',
-            ),
-        );
-    }
-
-    private function normalizeChannelData(&$item)
-    {
-        $item['Channel']['title'] = $item['ChannelTitle']['content'];
-        $item['Channel']['slug'] = $item['ChannelSlug']['content'];
-        unset($item['ChannelTitle'], $item['ChannelSlug']);
-    }
 }

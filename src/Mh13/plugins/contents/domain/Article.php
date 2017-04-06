@@ -13,8 +13,11 @@ class Article
     /**
      * @var \DateTimeInterface
      */
-    protected $pubDate;
-
+    private $pubDate;
+    /**
+     * @var \DateTimeInterface
+     */
+    private $expiration;
     /**
      * @var ArticleId
      */
@@ -23,46 +26,14 @@ class Article
      * @var ArticleContent
      */
     private $content;
-    /**
-     * @var Author[]
-     */
-    private $authors;
 
     private $channel;
 
-    public function __construct(ArticleId $articleId, ArticleContent $content, Author $author)
+    public function __construct(ArticleId $articleId, ArticleContent $content)
     {
         $this->articleId = $articleId;
         $this->content = $content;
         $this->status = self::DRAFT;
-        $this->addAuthor($author);
-    }
-
-    public function addAuthor(Author $author)
-    {
-        if ($this->isNewAuthor($author)) {
-            $this->authors[] = $author;
-        }
-    }
-
-    public function getAuthors()
-    {
-        return $this->authors;
-    }
-
-    private function isNewAuthor(Author $author)
-    {
-        return empty($this->authors) || !in_array($author, $this->authors);
-    }
-
-    public function removeAuthor(Author $author)
-    {
-        if (count($this->authors) == 1) {
-            return;
-        }
-        $this->authors = array_filter($this->authors, function(Author $test) use ($author) {
-            return $test->isEqual($author) ? false: true;
-        });
     }
 
     public function modify(ArticleContent $content)
@@ -75,10 +46,10 @@ class Article
         return $this->content;
     }
 
-    public function publish()
+    public function publish(\DateTimeInterface $date = null)
     {
         $this->status = self::PUBLISHED;
-        $this->pubDate = new \DateTimeImmutable();
+        $this->pubDate = $date ? $date : new \DateTimeImmutable();
     }
 
     /**
@@ -109,6 +80,24 @@ class Article
     {
         return $this->articleId->getId();
     }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function willExpireAt()
+    {
+        return $this->expiration;
+    }
+
+    /**
+     * @param \DateTimeInterface $expiration
+     */
+    public function setToExpireAt(\DateTimeInterface $expiration)
+    {
+        $this->expiration = $expiration;
+    }
+
+
 
 
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Mh13\plugins\contents\services;
+namespace Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\access\exceptions\OwnershipException;
 use Mh13\plugins\access\services\Owned;
 use Mh13\plugins\access\services\Owner;
 use Mh13\plugins\access\services\OwnerService;
 use Mh13\plugins\access\services\Permissions;
-use Mh13\plugins\contents\domain\Author;
 use Mh13\plugins\contents\domain\Article;
+use Mh13\plugins\contents\domain\Author;
 
 
 /**
@@ -37,15 +37,18 @@ class AuthorService
     }
 
     /**
-     * @param $model
+     * @param Article $article
      *
-     * @return mixed
+     * @return Author[]
      */
-    public function authorsForArticle($article)
+    public function cantidateAuthorsForArticle(Article $article)
     {
-        $authors = $this->ownerService->owners($article, 'User');
+        $all = $this->authorsInChannel($article);
+        $authors = $this->authorsForArticle($article);
 
-        return $this->mapResults($authors);
+        return array_filter($all, function($author) use($authors) {
+            return !in_array($author, $authors);
+        });
     }
 
     /**
@@ -63,37 +66,6 @@ class AuthorService
     }
 
     /**
-     * @param Article $article
-     *
-     * @return Author[]
-     */
-    public function cantidateAuthorsForArticle(Article $article)
-    {
-        $all = $this->authorsInChannel($article);
-        $authors = $this->authorsForArticle($article);
-
-        return array_filter($all, function($author) use($authors) {
-            return !in_array($author, $authors);
-        });
-    }
-
-    /**
-     * @param Author  $author
-     * @param Article $article
-     */
-    public function addAuthorToArticle(Author $author, Article $article)
-    {
-        try {
-            $owned = new Owned('Item', $article->getId());
-            $owner = new Owner('User', $author->getId());
-            $this->ownerService->addOwner($owned, $owner, new Permissions(19));
-            $article->addAuthor($author);
-        } catch (OwnershipException $exception) {
-            throw $exception;
-        }
-    }
-
-    /**
      * @param $authors
      *
      * @return array
@@ -106,6 +78,33 @@ class AuthorService
             },
             $authors
         );
+    }
+
+    /**
+     * @param $model
+     *
+     * @return mixed
+     */
+    public function authorsForArticle($article)
+    {
+        $authors = $this->ownerService->owners($article, 'User');
+
+        return $this->mapResults($authors);
+    }
+
+    /**
+     * @param Author  $author
+     * @param Article $article
+     */
+    public function addAuthorToArticle(Author $author, Article $article)
+    {
+        try {
+            $owned = new Owned('Item', $article->getId());
+            $owner = new Owner('User', $author->getId());
+            $this->ownerService->addOwner($owned, $owner, new Permissions(19));
+        } catch (OwnershipException $exception) {
+            throw $exception;
+        }
     }
 
 

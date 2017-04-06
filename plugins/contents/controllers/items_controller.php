@@ -2,6 +2,10 @@
 
 // Last version
 
+use Mh13\plugins\contents\persistence\cakephp\CakeArticleMapper;
+use Mh13\plugins\contents\persistence\cakephp\CakeArticleRepository;
+
+
 class ItemsController extends ContentsAppController
 {
     public $name = 'Items';

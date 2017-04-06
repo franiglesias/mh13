@@ -2,10 +2,7 @@
 
 namespace Mh13\plugins\contents\domain;
 
-use Ramsey\Uuid\Uuid;
-
-
-class ArticleId
+class BlogId
 {
     /**
      * @var string
@@ -36,5 +33,4 @@ class ArticleId
     {
         return $this->id;
     }
-
 }

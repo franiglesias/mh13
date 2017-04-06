@@ -6,7 +6,7 @@
  * Time: 13:00
  */
 
-namespace Mh13\plugins\contents\persistence\cakephp;
+namespace Mh13\plugins\contents\infrastructure\persistence\cakephp;
 
 
 

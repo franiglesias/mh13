@@ -1,6 +1,6 @@
 <?php
 
-namespace Mh13\plugins\contents\persistence\cakephp;
+namespace Mh13\plugins\contents\infrastructure\persistence\cakephp;
 
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;

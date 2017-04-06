@@ -6,7 +6,7 @@
  * Time: 13:04
  */
 
-namespace Mh13\plugins\contents\persistence\cakephp;
+namespace Mh13\plugins\contents\infrastructure\persistence\cakephp;
 
 
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;

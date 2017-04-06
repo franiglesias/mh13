@@ -5,7 +5,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application();
 
-$app['debug'] = true;
+$app['debug'] = false;
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -43,7 +43,7 @@ $app->get(
 $app->get(
     '/',
     function () use ($app) {
-        return $app['twig']->render('pages/index.twig');
+        return $app['twig']->render('pages/home.twig');
     }
 );
 

@@ -9,14 +9,27 @@
 namespace Mh13\plugins\contents\domain;
 
 
-use Mh13\plugins\contents\domain\Article;
-use Mh13\plugins\contents\domain\ArticleId;
-
-
 interface ArticleRepository
 {
+    /**
+     * @param \Mh13\plugins\contents\domain\Article $article
+     *
+     * @return void
+     */
     public function store(Article $article);
 
+    /**
+     * @param \Mh13\plugins\contents\domain\ArticleId $articleId
+     *
+     * @return Article
+     */
     public function retrieve(ArticleId $articleId);
+
+    /**
+     * @return ArticleId
+     */
+    public function nextIdentity();
+
+
 
 }
