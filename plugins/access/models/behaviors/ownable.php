@@ -39,7 +39,7 @@ if (!defined('ACCESS_NOT_MANAGED')) {
 	define('ACCESS_NOT_MANAGED', 32);
 }
 
-class OwnableBehavior extends ModelBehavior implements OwnerService {
+class OwnableBehavior extends ModelBehavior {
     const ACCESS_READ = 1;
     const ACCESS_WRITE = 2;
     const ACCESS_DELETE = 4;
@@ -196,7 +196,8 @@ class OwnableBehavior extends ModelBehavior implements OwnerService {
 	public function addOwner($model, $owner, $permissions = 15, $id = null) {
 
 		if ($this->isOwner($this, $User)) {
-            return $this->modifyOwnerPermissions($this, $User, $permissions);
+            $this->modifyOwnerPermissions($this, $User, $permissions);
+            return false;
         }
 
         $model->setId($id);
@@ -214,7 +215,7 @@ class OwnableBehavior extends ModelBehavior implements OwnerService {
 		$ownership->create();
 		
 		if (!$ownership->save($data)) {
-			throw new RuntimeException('Unable to save data');
+			throw new RuntimeException('A problem happened trying to save ownership data.');
 		}
 		return $ownership->getLastInsertId();
 	}
@@ -256,7 +257,11 @@ class OwnableBehavior extends ModelBehavior implements OwnerService {
 				'object_model' => $model->alias,
 				'object_id' => $model->id
 			);
-		return ClassRegistry::init('Ownership')->updateAll(array('access' => $newPermissions), $conditions);
+		$result =  ClassRegistry::init('Ownership')->updateAll(array('access' => $newPermissions), $conditions);
+		if (!$result) {
+            throw new RuntimeException('A problem happened trying to save ownership data.');
+        }
+        return $result;
 	}
 
 /**

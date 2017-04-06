@@ -2,8 +2,13 @@
 
 namespace Mh13\plugins\contents\services;
 
+use Mh13\plugins\access\exceptions\OwnershipException;
+use Mh13\plugins\access\services\Owned;
+use Mh13\plugins\access\services\Owner;
 use Mh13\plugins\access\services\OwnerService;
+use Mh13\plugins\access\services\Permissions;
 use Mh13\plugins\contents\domain\Author;
+use Mh13\plugins\contents\domain\Article;
 
 
 /**
@@ -16,7 +21,10 @@ use Mh13\plugins\contents\domain\Author;
 class AuthorService
 {
 
-    private $ownable;
+    /**
+     * @var OwnerService
+     */
+    private $ownerService;
 
     /**
      * AuthorService constructor.
@@ -25,7 +33,7 @@ class AuthorService
      */
     public function __construct(OwnerService $ownable)
     {
-        $this->ownable = $ownable;
+        $this->ownerService = $ownable;
     }
 
     /**
@@ -35,29 +43,33 @@ class AuthorService
      */
     public function authorsForArticle($article)
     {
-        $authors = $this->ownable->owners($article, 'User');
-        return array_map(function($author) {
-            return Author::fromCakeResult($author);
-        }, $authors);
+        $authors = $this->ownerService->owners($article, 'User');
+
+        return $this->mapResults($authors);
     }
 
     /**
-     * @param $channel
+     * @param Article $article
      *
-     * @return array
+     * @return Author[]
+     * @internal param $channel
+     *
      */
-    public function authorsInChannel($channel)
+    public function authorsInChannel(Article $article)
     {
-        $data = $this->ownable->owners($channel, 'User');
+        $authors = $this->ownerService->owners($article->getChannel(), 'User');
 
-        return array_map(function($author) {
-           return Author::fromCakeResult($author);
-        }, $data);
+        return $this->mapResults($authors);
     }
 
-    public function cantidateAuthorsForArticle($article)
+    /**
+     * @param Article $article
+     *
+     * @return Author[]
+     */
+    public function cantidateAuthorsForArticle(Article $article)
     {
-        $all = $this->authorsInChannel($channel);
+        $all = $this->authorsInChannel($article);
         $authors = $this->authorsForArticle($article);
 
         return array_filter($all, function($author) use($authors) {
@@ -65,7 +77,36 @@ class AuthorService
         });
     }
 
+    /**
+     * @param Author  $author
+     * @param Article $article
+     */
+    public function addAuthorToArticle(Author $author, Article $article)
+    {
+        try {
+            $owned = new Owned('Item', $article->getId());
+            $owner = new Owner('User', $author->getId());
+            $this->ownerService->addOwner($owned, $owner, new Permissions(19));
+            $article->addAuthor($author);
+        } catch (OwnershipException $exception) {
+            throw $exception;
+        }
+    }
 
+    /**
+     * @param $authors
+     *
+     * @return array
+     */
+    protected function mapResults($authors)
+    {
+        return array_map(
+            function ($author) {
+                return Author::fromCakeResult($author);
+            },
+            $authors
+        );
+    }
 
 
 }

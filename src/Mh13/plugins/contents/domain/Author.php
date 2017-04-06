@@ -39,7 +39,7 @@ class Author
         return $this->getId() === $other->getId();
     }
 
-    private function getId()
+    public function getId()
     {
         return $this->id;
     }

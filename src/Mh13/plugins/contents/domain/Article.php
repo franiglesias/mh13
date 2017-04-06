@@ -28,6 +28,8 @@ class Article
      */
     private $authors;
 
+    private $channel;
+
     public function __construct(ArticleId $articleId, ArticleContent $content, Author $author)
     {
         $this->articleId = $articleId;
@@ -95,6 +97,18 @@ class Article
         return $this->pubDate;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getChannel()
+    {
+        return $this->channel;
+    }
+
+    public function getId()
+    {
+        return $this->articleId->getId();
+    }
 
 
 }
