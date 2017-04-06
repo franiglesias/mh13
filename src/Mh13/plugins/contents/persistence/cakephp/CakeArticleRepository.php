@@ -1,6 +1,6 @@
 <?php
 
-namespace Mh13\plugins\contents\persistence;
+namespace Mh13\plugins\contents\persistence\cakephp;
 
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleId;
@@ -8,18 +8,18 @@ use Mh13\plugins\contents\domain\ArticleRepository;
 use Mh13\shared\persistence\CakeStore;
 
 
-class ArticlesCakeRepository implements ArticleRepository
+class CakeArticleRepository implements ArticleRepository
 {
     /**
      * @var CakeStore
      */
     private $store;
     /**
-     * @var ArticleMapper
+     * @var CakeArticleMapper
      */
     private $mapper;
 
-    public function __construct(CakeStore $store, ArticleMapper $mapper)
+    public function __construct(CakeStore $store, CakeArticleMapper $mapper)
     {
         $this->store = $store;
 

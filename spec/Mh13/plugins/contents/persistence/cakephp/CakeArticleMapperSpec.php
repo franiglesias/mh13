@@ -1,20 +1,20 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\persistence;
+namespace spec\Mh13\plugins\contents\persistence\cakephp;
 
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;
 use Mh13\plugins\contents\domain\ArticleId;
 use Mh13\plugins\contents\domain\Author;
-use Mh13\plugins\contents\persistence\ArticleMapper;
+use Mh13\plugins\contents\persistence\cakephp\CakeArticleMapper;
 use PhpSpec\ObjectBehavior;
 
 
-class ArticleMapperSpec extends ObjectBehavior
+class CakeArticleMapperSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(ArticleMapper::class);
+        $this->shouldHaveType(CakeArticleMapper::class);
     }
 
     public function it_maps_from_array_to_object()

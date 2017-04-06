@@ -1,6 +1,6 @@
 <?php
 
-namespace Mh13\plugins\contents\persistence;
+namespace Mh13\plugins\contents\persistence\cakephp;
 
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;
@@ -8,7 +8,7 @@ use Mh13\plugins\contents\domain\ArticleId;
 use Mh13\plugins\contents\domain\Author;
 
 
-class ArticleMapper
+class CakeArticleMapper
 {
 
     /**

@@ -31,7 +31,6 @@ class Item extends ContentsAppModel implements CakeStore
     );
 
     public $actsAs = array(
-        'Tree',
         'Ui.Sluggable' => array('update' => true, 'lenght' => 200),
         'Licenses.Licenseable',
         'Access.Ownable' => array('mode' => 'object'),
