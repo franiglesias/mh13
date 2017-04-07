@@ -19,7 +19,10 @@
  *
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-    /**
+use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
+
+
+/**
      * Use the DS to separate the directories in other defines.
      */
     if (!defined('DS')) {
@@ -79,6 +82,56 @@
         trigger_error('CakePHP core could not be found.  Check the value of CAKE_CORE_INCLUDE_PATH in APP/webroot/index.php.  It should point to the directory containing your '.DS.'cake core directory and your '.DS.'vendors root directory.', E_USER_ERROR);
     }
 
+require_once __DIR__.'/../vendor/autoload.php';
+
+$app = new Silex\Application();
+
+$app['debug'] = false;
+
+$app->register(
+    new Silex\Provider\TwigServiceProvider(),
+    [
+        'twig.path' => __DIR__.'/../views',
+        'twig.options' => [
+            'auto_reload' => true,
+            'cache' => false,
+        ],
+    ]
+);
+
+require_once('../config/mh13.php');
+
+$app->extend(
+    'twig',
+    function ($twig, $app) use ($config) {
+        foreach ($config as $key => $value) {
+            $twig->addGlobal($key, $config[$key]);
+        }
+        $twig->addGlobal('title_for_layout', 'Página principal');
+        $twig->addGlobal('BaseUrl', '/');
+
+        return $twig;
+    }
+);
+
+$app->mount("/articles", new ArticleProvider());
+
+$app->get(
+    '/hello/{name}',
+    function ($name) use ($app) {
+        return 'Hello '.$app->escape($name);
+    }
+);
+
+$app->get(
+    '/',
+    function () use ($app) {
+        return $app['twig']->render('pages/home.twig');
+    }
+);
+
+
+$app->run();
 
 if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
         return;

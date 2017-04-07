@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\exceptions;
 
 
-class InvalidArticleContentBody extends \InvalidArgumentException
+class InvalidArticleContentBody extends ContentException
 {
     public static function message($message)
     {
