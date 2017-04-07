@@ -1,12 +1,11 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\persistence\cakephp;
+namespace spec\Mh13\plugins\contents\infrastructure\persistence\cakephp;
 
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;
 use Mh13\plugins\contents\domain\ArticleId;
-use Mh13\plugins\contents\domain\Author;
-use Mh13\plugins\contents\persistence\cakephp\CakeArticleMapper;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
 use PhpSpec\ObjectBehavior;
 
 
@@ -62,9 +61,7 @@ class CakeArticleMapperSpec extends ObjectBehavior
             ],
         ];
         $article = new Article(
-            new ArticleId('588d0d9d-9fb8-46ee-abf9-466bac100002'),
-            new ArticleContent('Vaya animalada', 'Contenido'),
-            new Author('4eba6cea-5fb8-4062-aa2d-4ddcac100002', 'Fran Iglesias', 'frankie@miralba.org', 23)
+            new ArticleId('588d0d9d-9fb8-46ee-abf9-466bac100002'), new ArticleContent('Vaya animalada', 'Contenido')
         );
         $this->toArticle($dataArray)->shouldBeLike($article);
     }

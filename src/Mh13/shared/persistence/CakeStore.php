@@ -5,7 +5,7 @@ namespace Mh13\shared\persistence;
 interface CakeStore
 {
 
-    public function save($argument1);
+    public function save($data);
 
-    public function read($argument1, $argument2);
+    public function read($fields, $id);
 }

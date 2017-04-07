@@ -1,14 +1,10 @@
 <?php
 
-use Mh13\plugins\contents\persistence\cakephp\CakeArticleMapper;
-use Mh13\plugins\contents\persistence\cakephp\CakeArticleRepository;
-use Mh13\shared\persistence\CakeStore;
-
 
 App::import('Model', 'Contents.Site');
 App::import('Model', 'Contents.Channel');
 
-class Item extends ContentsAppModel implements CakeStore
+class Item extends ContentsAppModel
 {
     const NEIGHBORS_MARGIN = 14;
 

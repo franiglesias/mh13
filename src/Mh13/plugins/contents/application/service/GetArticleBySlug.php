@@ -3,6 +3,7 @@
 namespace Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\contents\domain\ArticleRepository;
+use Mh13\plugins\contents\exceptions\ContentException;
 
 
 class GetArticleBySlug
@@ -22,10 +23,15 @@ class GetArticleBySlug
         $this->slugService = $slugService;
     }
 
-    public function execute(ArticleRequest $request)
+    public function execute(GetArticleBySlugRequest $request)
     {
-        $id = $this->slugService->mapToId($request->getSlug());
+        try {
+            $id = $this->slugService->mapToId($request->getSlug());
 
-        return $this->repository->retrieve($id);
+            return $this->repository->retrieve($id);
+
+        } catch (SlugServiceException $exception) {
+            throw ContentException::message($exception->getMessage());
+        }
     }
 }

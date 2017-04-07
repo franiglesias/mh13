@@ -5,7 +5,6 @@ namespace Mh13\plugins\contents\infrastructure\persistence\cakephp;
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;
 use Mh13\plugins\contents\domain\ArticleId;
-use Mh13\plugins\contents\domain\Author;
 
 
 class CakeArticleMapper
@@ -25,10 +24,14 @@ class CakeArticleMapper
      */
     public function toArticle(array $data)
     {
-        $articleId = new ArticleId($data['Item']['id']);
-        $content = new ArticleContent($data['Item']['title'], $data['Item']['content']);
-        $author = Author::fromCakeResult($data['Authors'][0]);
-        $article = new Article($articleId, $content, $author);
+        $item = $data['Item'];
+        $articleId = new ArticleId($item['id']);
+        $content = new ArticleContent($item['title'], $item['content']);
+        $article = new Article($articleId, $content);
+        if ($item['expiration']) {
+            $article->setToExpireAt(new \DateTimeImmutable($item['expiration']));
+        }
+        $article->publish(new \DateTimeImmutable($item['pubDate']));
         return $article;
     }
 }

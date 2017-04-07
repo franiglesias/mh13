@@ -19,15 +19,14 @@
  *
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 
 
 /**
-     * Use the DS to separate the directories in other defines.
-     */
-    if (!defined('DS')) {
-        define('DS', DIRECTORY_SEPARATOR);
-    }
+ * Use the DS to separate the directories in other defines.
+ */
+if (!defined('DS')) {
+    define('DS', DIRECTORY_SEPARATOR);
+}
 /*
  * These defines should only be edited if you have cake installed in
  * a directory layout other than the way it is distributed.
@@ -38,55 +37,92 @@ use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
  * The full path to the directory which holds "app", WITHOUT a trailing DS.
  *
  */
-    if (!defined('ROOT')) {
-        define('ROOT', dirname(dirname(dirname(__FILE__))));
-    }
+if (!defined('ROOT')) {
+    define('ROOT', dirname(dirname(dirname(__FILE__))));
+}
 /*
  * The actual directory name for the "app".
  *
  */
-    if (!defined('APP_DIR')) {
-        //define('APP_DIR', basename(dirname(dirname(__FILE__))));
-        define('APP_DIR', 'mh13');
-    }
+if (!defined('APP_DIR')) {
+    //define('APP_DIR', basename(dirname(dirname(__FILE__))));
+    define('APP_DIR', 'mh13');
+}
 /*
  * The absolute path to the "cake" directory, WITHOUT a trailing DS.
  *
  */
-    if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-        define('CAKE_CORE_INCLUDE_PATH', ROOT.DS.APP_DIR.'/vendors/cakephp');
-    }
+if (!defined('CAKE_CORE_INCLUDE_PATH')) {
+    define('CAKE_CORE_INCLUDE_PATH', ROOT.DS.APP_DIR.'/vendors/cakephp');
+}
 
 /*
  * Editing below this line should NOT be necessary.
  * Change at your own risk.
  *
  */
-    if (!defined('WEBROOT_DIR')) {
-        define('WEBROOT_DIR', basename(dirname(__FILE__)));
-    }
-    if (!defined('WWW_ROOT')) {
-        define('WWW_ROOT', dirname(__FILE__).DS);
-    }
+if (!defined('WEBROOT_DIR')) {
+    define('WEBROOT_DIR', basename(dirname(__FILE__)));
+}
+if (!defined('WWW_ROOT')) {
+    define('WWW_ROOT', dirname(__FILE__).DS);
+}
 
-    if (!defined('CORE_PATH')) {
-        if (function_exists('ini_set') && ini_set('include_path', CAKE_CORE_INCLUDE_PATH.PATH_SEPARATOR.ROOT.DS.APP_DIR.DS.PATH_SEPARATOR.ini_get('include_path'))) {
-            define('APP_PATH', null);
-            define('CORE_PATH', null);
-        } else {
-            define('APP_PATH', ROOT.DS.APP_DIR.DS);
-            define('CORE_PATH', CAKE_CORE_INCLUDE_PATH.DS);
-        }
+if (!defined('CORE_PATH')) {
+    if (function_exists('ini_set') && ini_set(
+            'include_path',
+            CAKE_CORE_INCLUDE_PATH.PATH_SEPARATOR.ROOT.DS.APP_DIR.DS.PATH_SEPARATOR.ini_get(
+                'include_path'
+            )
+        )
+    ) {
+        define('APP_PATH', null);
+        define('CORE_PATH', null);
+    } else {
+        define('APP_PATH', ROOT.DS.APP_DIR.DS);
+        define('CORE_PATH', CAKE_CORE_INCLUDE_PATH.DS);
     }
-    if (!include(CORE_PATH.'cake'.DS.'bootstrap.php')) {
-        trigger_error('CakePHP core could not be found.  Check the value of CAKE_CORE_INCLUDE_PATH in APP/webroot/index.php.  It should point to the directory containing your '.DS.'cake core directory and your '.DS.'vendors root directory.', E_USER_ERROR);
-    }
+}
+if (!include(CORE_PATH.'cake'.DS.'bootstrap.php')) {
+    trigger_error(
+        'CakePHP core could not be found.  Check the value of CAKE_CORE_INCLUDE_PATH in APP/webroot/index.php.  It should point to the directory containing your '.DS.'cake core directory and your '.DS.'vendors root directory.',
+        E_USER_ERROR
+    );
+}
+
+
+error_reporting(E_ALL ^ E_STRICT);
 
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../plugins/contents/models/item.php';
+
+use Mh13\plugins\contents\application\service\GetArticleBySlug;
+use Mh13\plugins\contents\application\service\SlugService;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\ArticleCakeStore;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleRepository;
+use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
+use Mh13\shared\web\twig\Twig_Extension_Media;
+
+
+require_once('../config/mh13.php');
 
 $app = new Silex\Application();
 
 $app['debug'] = false;
+
+/* Service definitions */
+
+
+$app['article.repository'] = function () {
+    return new CakeArticleRepository(new ArticleCakeStore(new \Item()), new CakeArticleMapper());
+};
+
+$app['get-article-by-slug.service'] = function ($app) {
+    return new GetArticleBySlug($app['article.repository'], new SlugService());
+};
+
+/* End of servide definitions */
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -95,11 +131,11 @@ $app->register(
         'twig.options' => [
             'auto_reload' => true,
             'cache' => false,
+            'debug' => true,
         ],
     ]
 );
 
-require_once('../config/mh13.php');
 
 $app->extend(
     'twig',
@@ -109,7 +145,8 @@ $app->extend(
         }
         $twig->addGlobal('title_for_layout', 'Página principal');
         $twig->addGlobal('BaseUrl', '/');
-
+        $twig->addExtension(new Twig_Extension_Debug());
+        $twig->addExtension(new Twig_Extension_Media());
         return $twig;
     }
 );
@@ -132,6 +169,7 @@ $app->get(
 
 
 $app->run();
+
 
 if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
         return;

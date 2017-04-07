@@ -5,6 +5,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\cakephp;
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleId;
 use Mh13\plugins\contents\domain\ArticleRepository;
+use Mh13\plugins\contents\exceptions\ArticleNotFound;
 use Mh13\shared\persistence\CakeStore;
 
 
@@ -27,6 +28,14 @@ class CakeArticleRepository implements ArticleRepository
     }
 
     /**
+     * @return mixed
+     */
+    public function nextIdentity()
+    {
+        return ArticleId::generate();
+    }
+
+    /**
      * @param Article $article
      *
      * @return void
@@ -46,6 +55,9 @@ class CakeArticleRepository implements ArticleRepository
     public function retrieve(ArticleId $articleId)
     {
         $dataArray = $this->store->read(null, $articleId->getId());
+        if (!$dataArray) {
+            throw ArticleNotFound::message(sprintf('Article with id %s not found.', $articleId->getId()));
+        }
         return $this->mapper->toArticle($dataArray);
 
     }

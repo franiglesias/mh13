@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Fran Iglesias <franiglesias@mac.com>
- * Date: 6/4/17
- * Time: 17:18
+ * Date: 7/4/17
+ * Time: 16:08
  */
 
 namespace Mh13\plugins\contents\exceptions;
 
 
-class InvalidArticleContentBody extends ContentException
+class ArticleNotFound extends ContentException
 {
 
 }

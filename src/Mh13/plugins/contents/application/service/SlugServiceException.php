@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: Fran Iglesias <franiglesias@mac.com>
  * Date: 7/4/17
- * Time: 12:00
+ * Time: 15:12
  */
 
-namespace Mh13\plugins\contents\exceptions;
+namespace Mh13\plugins\contents\application\service;
 
 
-class ContentException extends \Exception
+class SlugServiceException extends \Exception
 {
     public static function message($message)
     {
