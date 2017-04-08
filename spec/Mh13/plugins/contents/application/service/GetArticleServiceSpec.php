@@ -2,9 +2,9 @@
 
 namespace spec\Mh13\plugins\contents\application\service;
 
-use Mh13\plugins\contents\application\service\GetArticleBySlug;
-use Mh13\plugins\contents\application\service\GetArticleBySlugRequest;
-use Mh13\plugins\contents\application\service\SlugService;
+use Mh13\plugins\contents\application\service\GetArticleRequest;
+use Mh13\plugins\contents\application\service\GetArticleService;
+use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\application\service\SlugServiceException;
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleId;
@@ -13,24 +13,24 @@ use Mh13\plugins\contents\exceptions\ContentException;
 use PhpSpec\ObjectBehavior;
 
 
-class GetArticleBySlugSpec extends ObjectBehavior
+class GetArticleServiceSpec extends ObjectBehavior
 {
-    public function let(ArticleRepository $repository, SlugService $slugService)
+    public function let(ArticleRepository $repository, SlugConverter $slugService)
     {
         $this->beConstructedWith($repository, $slugService);
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(GetArticleBySlug::class);
+        $this->shouldHaveType(GetArticleService::class);
     }
 
     public function it_returns_an_article(
         Article $article,
         ArticleId $id,
-        GetArticleBySlugRequest $request,
+        GetArticleRequest $request,
         ArticleRepository $repository,
-        SlugService $slugService
+        SlugConverter $slugService
     ) {
         $request->getSlug()->shouldBeCalled()->willReturn('slug');
         $slugService->mapToId('slug')->shouldBeCalled()->willReturn($id);
@@ -41,9 +41,9 @@ class GetArticleBySlugSpec extends ObjectBehavior
     public function it_throws_exception_if_article_is_not_found(
         Article $article,
         ArticleId $id,
-        GetArticleBySlugRequest $request,
+        GetArticleRequest $request,
         ArticleRepository $repository,
-        SlugService $slugService
+        SlugConverter $slugService
     ) {
         $request->getSlug()->shouldBeCalled()->willReturn('slug');
         $slugService->mapToId('slug')->shouldBeCalled()->willReturn($id);
@@ -54,9 +54,9 @@ class GetArticleBySlugSpec extends ObjectBehavior
     public function it_throws_exception_if_slug_is_not_found(
         Article $article,
         ArticleId $id,
-        GetArticleBySlugRequest $request,
+        GetArticleRequest $request,
         ArticleRepository $repository,
-        SlugService $slugService
+        SlugConverter $slugService
     ) {
         $request->getSlug()->shouldBeCalled()->willReturn('slug');
         $slugService->mapToId('slug')->shouldBeCalled()->willThrow(SlugServiceException::class);

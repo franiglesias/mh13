@@ -35,6 +35,7 @@
       "/vendors/cakephp/cake/libs/model/app_model.php",
       "/vendors/cakephp/cake/libs/controller/app_controller.php",
       "/vendors/cakephp/cake/libs/view/helpers/app_helper.php",
+      "vendors/cakephp/cake/libs/controller/pages_controller.php",
       "vendors/cakephp/cake/console/",
       "/tests/",
       "/spec/",

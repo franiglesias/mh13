@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\service\GetArticleBySlugRequest;
+use Mh13\plugins\contents\application\service\GetArticleRequest;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -35,7 +35,7 @@ class ArticleController
     public function view($slug, Application $app)
     {
         try {
-            $request = new GetArticleBySlugRequest($slug);
+            $request = new GetArticleRequest($slug);
             $article = $app['get-article-by-slug.service']->execute($request);
 
             return $app['twig']->render(

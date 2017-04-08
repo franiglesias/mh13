@@ -20,7 +20,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-
+error_reporting(E_ALL ^ E_STRICT);
 /**
  * Use the DS to separate the directories in other defines.
  */
@@ -91,25 +91,26 @@ if (!include(CORE_PATH.'cake'.DS.'bootstrap.php')) {
 }
 
 
-error_reporting(E_ALL ^ E_STRICT);
+
 
 require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../plugins/contents/models/item.php';
 
-use Mh13\plugins\contents\application\service\GetArticleBySlug;
-use Mh13\plugins\contents\application\service\SlugService;
+use Mh13\plugins\contents\application\service\GetArticleService;
+use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\infrastructure\persistence\cakephp\ArticleCakeStore;
 use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
 use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\shared\web\twig\Twig_Extension_Media;
+use Silex\Provider\DoctrineServiceProvider;
 
 
-require_once('../config/mh13.php');
+require_once(__DIR__.'/../config/mh13.php');
 
 $app = new Silex\Application();
 
-$app['debug'] = false;
+$app['debug'] = true;
 
 /* Service definitions */
 
@@ -119,7 +120,7 @@ $app['article.repository'] = function () {
 };
 
 $app['get-article-by-slug.service'] = function ($app) {
-    return new GetArticleBySlug($app['article.repository'], new SlugService());
+    return new GetArticleService($app['article.repository'], new SlugConverter());
 };
 
 /* End of servide definitions */
@@ -136,6 +137,19 @@ $app->register(
     ]
 );
 
+$app->register(
+    new DoctrineServiceProvider(),
+    [
+        'db.options' => [
+            'driver' => 'pdo_mysql',
+            'dbname' => 'mh14',
+            'host' => '127.0.0.1',
+            'user' => 'root',
+            'password' => 'Fi36101628',
+            'charset' => 'utf8mb4',
+        ],
+    ]
+);
 
 $app->extend(
     'twig',
@@ -147,6 +161,7 @@ $app->extend(
         $twig->addGlobal('BaseUrl', '/');
         $twig->addExtension(new Twig_Extension_Debug());
         $twig->addExtension(new Twig_Extension_Media());
+
         return $twig;
     }
 );
@@ -160,6 +175,24 @@ $app->get(
     }
 );
 
+
+$app->get(
+    '/blogs',
+    function () use ($app) {
+        $sql = 'select title from channels';
+        $statement = $app['db']->executeQuery($sql);
+        print_r(get_class($app['db']));
+
+        while ($blog = $statement->fetch()) {
+            print_r($blog['title']);
+        }
+
+        return $response = '';
+
+
+    }
+);
+
 $app->get(
     '/',
     function () use ($app) {
@@ -167,16 +200,15 @@ $app->get(
     }
 );
 
-
 $app->run();
 
 
-if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
-        return;
-    } else {
-        $Dispatcher = new Dispatcher();
-        $Dispatcher->dispatch();
-    }
-    if (Configure::read() > 0) {
-        echo '<!-- '.round(getMicrotime() - $TIME_START, 4).'s -->';
-    }
+/*if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
+    return;
+} else {
+    $Dispatcher = new Dispatcher();
+    $Dispatcher->dispatch();
+}
+if (Configure::read() > 0) {
+    echo '<!-- '.round(getMicrotime() - $TIME_START, 4).'s -->';
+}*/

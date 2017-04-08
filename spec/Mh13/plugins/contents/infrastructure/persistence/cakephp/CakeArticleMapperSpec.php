@@ -63,6 +63,7 @@ class CakeArticleMapperSpec extends ObjectBehavior
         $article = new Article(
             new ArticleId('588d0d9d-9fb8-46ee-abf9-466bac100002'), new ArticleContent('Vaya animalada', 'Contenido')
         );
+        $article->publish(new \DateTimeImmutable('2017-01-28'));
         $this->toArticle($dataArray)->shouldBeLike($article);
     }
 

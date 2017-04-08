@@ -34,14 +34,14 @@ class ArticleContent
     private function assertValidTitle($title)
     {
         if (!$title) {
-            throw InvalidArticleContentTitle::message('"%s" is not a valid title for an article');
+            throw InvalidArticleContentTitle::message(sprintf('"%s" is not a valid title for an article', $title));
         }
     }
 
     private function assertValidBody($body)
     {
         if (!$body) {
-            throw InvalidArticleContentBody::message('"%s" is not a valid body for an article');
+            throw InvalidArticleContentBody::message(sprintf('"%s" is not a valid body for an article', $body));
         }
     }
 

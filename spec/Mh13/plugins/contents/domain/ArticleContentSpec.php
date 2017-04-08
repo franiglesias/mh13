@@ -29,7 +29,7 @@ class ArticleContentSpec extends ObjectBehavior
 
     public function it_must_have_a_body()
     {
-        $this->beConstructedWith('Title', '');
+        $this->beConstructedWith('Title', null);
         $this->shouldThrow(InvalidArticleContentBody::class)->duringInstantiation();
     }
 }

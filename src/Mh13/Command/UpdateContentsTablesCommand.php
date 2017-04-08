@@ -85,7 +85,7 @@ class UpdateContentsTablesCommand extends Command
             return $this->connection;
         }
 
-        $cfg = Yaml::parse(file_get_contents(dirname(getcwd()).'/config/config.yml'));
+        $cfg = Yaml::parse(file_get_contents(getcwd().'/config/config.yml'));
         $doctrine = $cfg['doctrine']['dbal'];
         $connectionParams = $doctrine['connections'][$doctrine['default_connection']];
 

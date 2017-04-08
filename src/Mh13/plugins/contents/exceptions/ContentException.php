@@ -13,6 +13,6 @@ class ContentException extends \Exception
 {
     public static function message($message)
     {
-        return new self($message);
+        return new static($message);
     }
 }

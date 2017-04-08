@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\services;
+namespace spec\Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\access\exceptions\OwnershipException;
 use Mh13\plugins\access\services\Owned;
 use Mh13\plugins\access\services\Owner;
 use Mh13\plugins\access\services\OwnerService;
 use Mh13\plugins\access\services\Permissions;
+use Mh13\plugins\contents\application\service\AuthorService;
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\Author;
-use Mh13\plugins\contents\services\AuthorService;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -122,7 +122,6 @@ class AuthorServiceSpec extends ObjectBehavior
         $ownerService->addOwner(Argument::type(Owned::class), Argument::type(Owner::class), new Permissions(19))
             ->shouldBeCalled()
         ;
-        $article->addAuthor($author)->shouldBeCalled();
         $this->addAuthorToArticle($author, $article);
     }
 }

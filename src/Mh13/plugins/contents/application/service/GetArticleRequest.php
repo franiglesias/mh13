@@ -2,7 +2,7 @@
 
 namespace Mh13\plugins\contents\application\service;
 
-class GetArticleBySlugRequest
+class GetArticleRequest
 {
     /**
      * @var string
