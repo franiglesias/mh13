@@ -36,7 +36,7 @@ class ArticleController
     {
         try {
             $request = new GetArticleRequest($slug);
-            $article = $app['get-article-by-slug.service']->execute($request);
+            $article = $app['get_article.service']->execute($request);
 
             return $app['twig']->render(
                 'plugins/contents/items/view.twig',
@@ -45,7 +45,7 @@ class ArticleController
                 ]
             );
         } catch (\Exception $exception) {
-            return Response::create('Algún problema ha habido con el artículo: '.$exception->getMessage());
+            return Response::create('Ha habido un problema con el artículo: '.$exception->getMessage());
         }
 
         return Response::create('Solicitaste el artículo: '.$slug);

@@ -24,6 +24,7 @@ use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\infrastructure\persistence\cakephp\ArticleCakeStore;
 use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
 use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleRepository;
+use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\shared\web\twig\Twig_Extension_Media;
 use Silex\Provider\DoctrineServiceProvider;
@@ -108,7 +109,6 @@ require_once(dirname(__DIR__).'/config/mh13.php');
 $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 
-
 $app = new Silex\Application();
 
 $app['debug'] = false;
@@ -119,7 +119,7 @@ $app['article.repository'] = function () {
     return new CakeArticleRepository(new ArticleCakeStore(new \Item()), new CakeArticleMapper());
 };
 
-$app['get-article-by-slug.service'] = function ($app) {
+$app['get_article.service'] = function ($app) {
     return new GetArticleService($app['article.repository']);
 };
 
@@ -182,6 +182,9 @@ $app->get(
 
     }
 );
+
+$app->get('/{slug}', ArticleController::class."::view")->convert('slug', 'item.slug.converter:mapToId');
+
 
 $app->get(
     '/',
