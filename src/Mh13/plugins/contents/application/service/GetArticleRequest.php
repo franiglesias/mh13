@@ -7,21 +7,21 @@ class GetArticleRequest
     /**
      * @var string
      */
-    private $slug;
+    private $id;
 
 
     /**
      * GetArticleBySlugRequest constructor.
      *
-     * @param string $slug
+     * @param string $id
      */
-    public function __construct($slug)
+    public function __construct($id)
     {
-        $this->slug = $slug;
+        $this->id = $id;
     }
 
-    public function getSlug()
+    public function getId()
     {
-        return $this->slug;
+        return $this->id;
     }
 }

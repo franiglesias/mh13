@@ -10,7 +10,6 @@
     {% if preview %}
         <aside class="mh-preview-ribbon">Así es como se verá</aside>
     {% endif %}
-    <pre>{{ dump(article) }}</pre>
     {% if date(article.expiration) < date('now') %}
         <div class="alert-box warning radius">
             <p>Este artículo ha caducado, por lo que la información que contiene podría no ser válida actualmente. Se mantiene por razones históricas.</p>

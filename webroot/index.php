@@ -20,6 +20,16 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use Mh13\plugins\contents\application\service\GetArticleService;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\ArticleCakeStore;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
+use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleRepository;
+use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
+use Mh13\shared\web\twig\Twig_Extension_Media;
+use Silex\Provider\DoctrineServiceProvider;
+use Symfony\Component\Yaml\Yaml;
+
+
 error_reporting(E_ALL ^ E_STRICT);
 /**
  * Use the DS to separate the directories in other defines.
@@ -91,37 +101,28 @@ if (!include(CORE_PATH.'cake'.DS.'bootstrap.php')) {
 }
 
 
+require_once(dirname(__DIR__).'/vendor/autoload.php');
+require_once(dirname(__DIR__).'/plugins/contents/models/item.php');
+require_once(dirname(__DIR__).'/config/mh13.php');
+
+$config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 
-require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../plugins/contents/models/item.php';
-
-use Mh13\plugins\contents\application\service\GetArticleService;
-use Mh13\plugins\contents\application\service\SlugConverter;
-use Mh13\plugins\contents\infrastructure\persistence\cakephp\ArticleCakeStore;
-use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
-use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleRepository;
-use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
-use Mh13\shared\web\twig\Twig_Extension_Media;
-use Silex\Provider\DoctrineServiceProvider;
-
-
-require_once(__DIR__.'/../config/mh13.php');
 
 $app = new Silex\Application();
 
-$app['debug'] = true;
+$app['debug'] = false;
 
 /* Service definitions */
-
 
 $app['article.repository'] = function () {
     return new CakeArticleRepository(new ArticleCakeStore(new \Item()), new CakeArticleMapper());
 };
 
 $app['get-article-by-slug.service'] = function ($app) {
-    return new GetArticleService($app['article.repository'], new SlugConverter());
+    return new GetArticleService($app['article.repository']);
 };
+
 
 /* End of servide definitions */
 
@@ -140,14 +141,7 @@ $app->register(
 $app->register(
     new DoctrineServiceProvider(),
     [
-        'db.options' => [
-            'driver' => 'pdo_mysql',
-            'dbname' => 'mh14',
-            'host' => '127.0.0.1',
-            'user' => 'root',
-            'password' => 'Fi36101628',
-            'charset' => 'utf8mb4',
-        ],
+        'db.options' => $config['doctrine']['dbal']['connections']['default'],
     ]
 );
 
@@ -177,17 +171,13 @@ $app->get(
 
 
 $app->get(
-    '/blogs',
-    function () use ($app) {
-        $sql = 'select title from channels';
-        $statement = $app['db']->executeQuery($sql);
-        print_r(get_class($app['db']));
+    '/blogs/{slug}',
+    function ($slug) use ($app) {
+        $sql = 'select id from items where slug = ?';;
+        $statement = $app['db']->executeQuery($sql, [(string)$slug]);
+        $result = $statement->fetch();
 
-        while ($blog = $statement->fetch()) {
-            print_r($blog['title']);
-        }
-
-        return $response = '';
+        return $result['id'];
 
 
     }
