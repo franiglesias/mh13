@@ -13,7 +13,8 @@
 App::import('Helper', 'SinglePresentationModel');
 App::import('Model', 'School.Application');
 
-class ApplicationHelper extends SinglePresentationModelHelper {
+class ApplicationHelper extends AppHelper
+{
 	var $model = 'Application';
 	var $var = 'application';
 	var $helpers = array('Html', 'Form', 'Ui.XHtml');

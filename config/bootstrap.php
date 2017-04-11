@@ -126,30 +126,30 @@ if (!defined('DATE_EXTRA_SHORT')) {
 if (!defined('TIME')) {
 	define('TIME', 'H:i');
 }
-
-App::import('Core', 'ClassRegistry');
-App::import('Lib', 'fi_layout/FiLayout');
-
-# Configure Mailer
-
-App::import('Lib', 'fi_messenger/CakeMailer');
-App::import('Component', 'Email');
-$Mailer = new CakeMailer();
-$Mailer->init(new Controller, new EmailComponent);
-$smtp = array(
-	'port'=> Configure::read('Mail.port'), 
-	'timeout'=>'60',
-	'auth' => true,
-	'host' => Configure::read('Mail.host'),
-	'username'=> Configure::read('Mail.username'),
-	'password'=> Configure::read('Mail.password'),
-);
-$Mailer->smtp($smtp);
-
-if (!defined('CAKE_TEST_EXECUTION')) {
-	include_once('events.php');
-} else {
-	Configure::write('Config.language', 'eng');
-}
+//
+//App::import('Core', 'ClassRegistry');
+//App::import('Lib', 'fi_layout/FiLayout');
+//
+//# Configure Mailer
+//
+//App::import('Lib', 'fi_messenger/CakeMailer');
+//App::import('Component', 'Email');
+//$Mailer = new CakeMailer();
+//$Mailer->init(new Controller, new EmailComponent);
+//$smtp = array(
+//	'port'=> Configure::read('Mail.port'),
+//	'timeout'=>'60',
+//	'auth' => true,
+//	'host' => Configure::read('Mail.host'),
+//	'username'=> Configure::read('Mail.username'),
+//	'password'=> Configure::read('Mail.password'),
+//);
+//$Mailer->smtp($smtp);
+//
+//if (!defined('CAKE_TEST_EXECUTION')) {
+//	include_once('events.php');
+//} else {
+//	Configure::write('Config.language', 'eng');
+//}
 
 ?>

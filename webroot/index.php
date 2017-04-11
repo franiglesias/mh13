@@ -22,9 +22,7 @@
 
 use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\application\service\SlugConverter;
-use Mh13\plugins\contents\infrastructure\persistence\cakephp\ArticleCakeStore;
-use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleMapper;
-use Mh13\plugins\contents\infrastructure\persistence\cakephp\CakeArticleRepository;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
@@ -33,12 +31,13 @@ use Silex\Provider\DoctrineServiceProvider;
 use Symfony\Component\Yaml\Yaml;
 
 
-error_reporting(E_ALL ^ E_STRICT);
+error_reporting(E_ALL ^ E_STRICT ^ E_WARNING);
 
-require_once('cakeindex.php');
 require_once(dirname(__DIR__).'/vendor/autoload.php');
-require_once(dirname(__DIR__).'/plugins/contents/models/item.php');
-require_once(dirname(__DIR__).'/config/mh13.php');
+
+//require_once('cakeindex.php');
+//require_once(dirname(__DIR__).'/plugins/contents/models/item.php');
+//require_once(dirname(__DIR__).'/config/mh13.php');
 
 $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
@@ -48,8 +47,8 @@ $app['debug'] = false;
 
 /* Service definitions */
 
-$app['article.repository'] = function () {
-    return new CakeArticleRepository(new ArticleCakeStore(new \Item()), new CakeArticleMapper());
+$app['article.repository'] = function ($app) {
+    return new DbalArticleRepository($app['db']);
 };
 
 $app['get_article.service'] = function ($app) {
