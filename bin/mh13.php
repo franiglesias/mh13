@@ -4,6 +4,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
+use Mh13\Command\TransferMenusToYamlFileCommand;
 use Mh13\Command\UpdateContentsTablesCommand;
 use Symfony\Component\Console\Application;
 
@@ -11,4 +12,5 @@ use Symfony\Component\Console\Application;
 $application = new Application();
 
 $application->add(new UpdateContentsTablesCommand());
+$application->add(new TransferMenusToYamlFileCommand());
 $application->run();

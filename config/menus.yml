@@ -1,0 +1,388 @@
+bars:
+    main:
+        label: Principal
+        menus:
+            - colegio
+            - curso
+            - familias
+            - alumno
+            - profesorado
+    backend:
+        label: Backend
+        menus:
+            - administrator
+            - contents
+            - school
+            - circulars
+            - cantine
+            - it
+            - cv
+menus:
+    global:
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: Principal, url: /, access: '0', help: null, icon: null, class: null }
+            - { label: 'Club Deportivo', url: /blog/cd_miralba, access: '0', help: null, icon: null, class: null }
+            - { label: Musical, url: 'http://juanitatxo.miralba.org', access: '0', help: null, icon: null, class: null }
+            - { label: 'Hijas de Jesús', url: 'http://www.hijasdejesus.org/es/index.asp', access: '0', help: null, icon: null, class: null }
+            - { label: FASFI, url: 'http://www.fasfi.org/', access: '0', help: null, icon: null, class: null }
+    backend:
+        help: ''
+        icon: ''
+        label: ''
+        url: ''
+        access: '0'
+        items:
+            - { label: 'Mi panel', url: /access/users/dashboard, access: '1', help: '', icon: '', class: null }
+            - { label: Administrador, url: /access/access/index, access: '2', help: '', icon: '', class: mh-admin-administrator }
+            - { label: 'Publicar en la página', url: //contents/menu, access: '2', help: '', icon: '', class: mh-admin-contents }
+            - { label: Circulares, url: /circulars/circulars/panel, access: '2', help: '', icon: '', class: mh-admin-circulars }
+            - { label: Comedor, url: //cantine/menu, access: '2', help: '', icon: '', class: mh-admin-cantine }
+            - { label: Colegio, url: /school/school/index, access: '2', help: '', icon: '', class: '' }
+            - { label: CV, url: /resumes/resumes/panel, access: '2', help: null, icon: null, class: null }
+            - { label: 'Mi cuenta', url: /access/users/profile, access: '1', help: '', icon: '', class: null }
+    site:
+        help: ''
+        icon: ''
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: 'Privado Familias', url: 'https://www.jesuitinas.net/miralba/alumno/login.asp', access: '0', help: '', icon: '', class: '' }
+            - { label: Inicio, url: /, access: '0', help: null, icon: null, class: null }
+            - { label: 'El Curso', url: /static/informacion_practica, access: '0', help: '', icon: '', class: '' }
+            - { label: Impresos, url: /contents/channels/view/impresos, access: '0', help: '', icon: '', class: '' }
+            - { label: 'El colegio', url: /static/bienvenida, access: '0', help: '', icon: '', class: '' }
+            - { label: 'Estudiar en Miralba', url: /contents/static_pages/view/admisiones, access: '0', help: '', icon: '', class: '' }
+            - { label: Profesorado, url: /pages/profesorado, access: '0', help: '', icon: '', class: null }
+            - { label: APA, url: /contents/channels/view/apa, access: '0', help: null, icon: null, class: null }
+            - { label: 'Trabaja con nosotros', url: /cv, access: '0', help: '', icon: '', class: '' }
+    Proyectos:
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: 'Acción Social', url: 'http://miralba.org/contents/channels/view/accion_social', access: '0', help: null, icon: null, class: null }
+            - { label: 'Seminario Linguas Estranxeiras', url: 'http://sites.google.com/a/miralba.org/seminario-ingles/', access: '0', help: null, icon: null, class: null }
+            - { label: Juanitatxo-Musical, url: 'http://juanitatxo.miralba.org', access: '0', help: null, icon: null, class: null }
+            - { label: 'LIbrozapping (hasta 2010)', url: 'http://librozapping.miralba.org/', access: '0', help: null, icon: null, class: null }
+    cd_miralba:
+        help: ''
+        icon: ''
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: Calendarios, url: /contents/channels/tagged/cd_miralba/40, access: '0', help: '', icon: calendar, class: '' }
+            - { label: 'Fútbol Sala', url: /contents/channels/tagged/cd_miralba/42, access: '0', help: '', icon: info, class: null }
+            - { label: Taekwondo, url: /contents/channels/tagged/cd_miralba/43, access: '0', help: '', icon: foot, class: null }
+            - { label: Baloncesto, url: /contents/channels/tagged/cd_miralba/41, access: '0', help: '', icon: star, class: null }
+            - { label: Ajedrez, url: /contents/channels/tagged/cd_miralba/39, access: '0', help: '', icon: crown, class: null }
+            - { label: 'Gimnasia Rítmica', url: /contents/channels/tagged/cd_miralba/44, access: '0', help: '', icon: shuffle, class: null }
+            - { label: Predeporte, url: /contents/channels/tagged/cd_miralba/45, access: '0', help: '', icon: heart, class: null }
+            - { label: Pabellones, url: /contents/channels/tagged/cd_miralba/46, access: '0', help: '', icon: home, class: null }
+            - { label: Padres, url: /contents/channels/tagged/cd_miralba/48, access: '0', help: '', icon: plus, class: null }
+            - { label: Campus, url: /contents/channels/tagged/cd_miralba/150, access: '0', help: '', icon: flag, class: null }
+            - { label: Fotos, url: /contents/channels/tagged/cd_miralba/47, access: '0', help: '', icon: photo, class: null }
+    science:
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: '1º EP', url: /contents/channels/tagged/science/1ºep, access: '0', help: null, icon: null, class: null }
+            - { label: '2º EP', url: /contents/channels/tagged/science/2ºep, access: '0', help: null, icon: null, class: null }
+            - { label: '3º EP', url: /contents/channels/tagged/science/3ºep, access: '0', help: '', icon: '', class: '' }
+            - { label: '4º EP', url: /contents/channels/tagged/science/4ºep, access: '0', help: '', icon: '', class: '' }
+            - { label: '5º EP', url: /contents/channels/tagged/science/5ºep, access: '0', help: null, icon: null, class: null }
+            - { label: '6º EP', url: /contents/channels/tagged/science/6ºep, access: '0', help: '', icon: '', class: '' }
+    comenius:
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: 'Comenius EP', url: /contents/channels/tagged/comenius/comeniusep, access: '0', help: null, icon: null, class: null }
+            - { label: 'Comenius ESO', url: /contents/channels/tagged/comenius/comeniuseso, access: '0', help: '', icon: '', class: null }
+    englishclass:
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: '4th EP', url: /contents/channels/tagged/english_class/4thep, access: '0', help: null, icon: null, class: null }
+            - { label: '1st ESO', url: /contents/channels/tagged/english_class/1steso, access: '0', help: null, icon: null, class: null }
+            - { label: '2nd ESO', url: /contents/channels/tagged/english_class/2ndeso, access: '0', help: null, icon: null, class: null }
+            - { label: '3rd ESO', url: /contents/channels/tagged/english_class/3rdeso, access: '0', help: null, icon: null, class: null }
+            - { label: '4th ESO', url: /contents/channels/tagged/english_class/4theso, access: '0', help: null, icon: null, class: null }
+            - { label: '2nd BAC', url: /contents/channels/tagged/english_class/2ndbach, access: '0', help: null, icon: null, class: null }
+    Recursos:
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: 'Ed. Infantil: Lola Pirindola', url: 'http://www.edicioneslolapirindola.com/cuentos_personalizados/escuelas_infantiles_colegios_index.asp', access: '0', help: null, icon: null, class: null }
+    infantil:
+        help: ''
+        icon: ''
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: '3 años', url: /blog/1o_de_ed_infantil_3_anos, access: '0', help: null, icon: null, class: null }
+            - { label: '4 años', url: /blog/2o_de_ed_infantil_4_anos, access: '0', help: null, icon: null, class: null }
+            - { label: '5 años', url: /blog/3o_de_ed_infantil_5_anos, access: '0', help: null, icon: null, class: null }
+    'Sala profes':
+        help: null
+        icon: null
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: Manuales, url: /contents/channels/tagged/sala_de_profesores/manuales, access: '0', help: null, icon: null, class: null }
+            - { label: Plantillas, url: /contents/channels/tagged/sala_de_profesores/plantillas, access: '0', help: null, icon: null, class: null }
+            - { label: Tutores, url: /contents/channels/tagged/sala_de_profesores/tutores, access: '0', help: null, icon: null, class: null }
+            - { label: Coordinadores, url: /contents/channels/tagged/sala_de_profesores/coordinadores, access: '0', help: null, icon: null, class: null }
+            - { label: Calidad, url: /contents/channels/tagged/sala_de_profesores/calidad, access: '0', help: null, icon: null, class: null }
+    science_levels:
+        help: 'Contenidos de Science por cursos'
+        icon: ''
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: '1º EP', url: /contents/channels/level/science/4, access: '0', help: '', icon: '', class: '' }
+            - { label: '2º EP', url: /contents/channels/level/science/5, access: '0', help: '', icon: '', class: '' }
+            - { label: '3º EP', url: /contents/channels/level/science/6, access: '0', help: '', icon: '', class: '' }
+            - { label: '4º EP', url: /contents/channels/level/science/7, access: '0', help: '', icon: '', class: '' }
+            - { label: '5º EP', url: /contents/channels/level/science/8, access: '0', help: '', icon: '', class: '' }
+            - { label: '6º EP', url: /contents/channels/level/science/9, access: '0', help: '', icon: '', class: '' }
+    english_class_levels:
+        help: ''
+        icon: ''
+        label: null
+        url: null
+        access: '0'
+        items:
+            - { label: '1º EP', url: /contents/channels/level/english_class/4, access: '0', help: '', icon: '', class: '' }
+            - { label: '2º EP', url: /contents/channels/level/english_class/5, access: '0', help: '', icon: '', class: '' }
+            - { label: '3º EP', url: /contents/channels/level/english_class/6, access: '0', help: '', icon: '', class: '' }
+            - { label: '4º EP', url: /contents/channels/level/english_class/7, access: '0', help: '', icon: '', class: '' }
+            - { label: '5º EP', url: /contents/channels/level/english_class/8, access: '0', help: '', icon: '', class: '' }
+            - { label: '6º EP', url: /contents/channels/level/english_class/9, access: '0', help: '', icon: '', class: '' }
+            - { label: '1º ESO', url: /contents/channels/level/english_class/10, access: '0', help: '', icon: '', class: '' }
+            - { label: '2º ESO', url: /contents/channels/level/english_class/11, access: '0', help: '', icon: '', class: '' }
+            - { label: '3º ESO', url: /contents/channels/level/english_class/12, access: '0', help: '', icon: '', class: '' }
+            - { label: '4º ESO', url: /contents/channels/level/english_class/13, access: '0', help: '', icon: '', class: '' }
+            - { label: '1º Bac', url: /contents/channels/level/english_class/14, access: '0', help: '', icon: '', class: '' }
+            - { label: '2º Bac', url: /contents/channels/level/english_class/15, access: '0', help: '', icon: '', class: '' }
+    social:
+        help: ''
+        icon: ''
+        label: Social
+        url: ''
+        access: '0'
+        items:
+            - { label: Facebook, url: 'https://es-es.facebook.com/colegiomiralba', access: '0', help: '', icon: social-facebook, class: null }
+            - { label: Twitter, url: 'https://twitter.com/colegiomiralba', access: '0', help: '', icon: social-twitter, class: null }
+            - { label: Youtube, url: 'https://www.youtube.com/channel/UCr-6Ke5sXmd4Znxkpc-woJQ', access: '0', help: '', icon: social-youtube, class: null }
+            - { label: Instagram, url: 'https://www.instagram.com/colegiomiralba', access: '0', help: '', icon: social-instagram, class: null }
+    colegio:
+        help: ''
+        icon: ''
+        label: 'El Colegio'
+        url: /static/bienvenida
+        access: '0'
+        items:
+            - { label: 'Conoce Miralba', url: /static/bienvenida, access: '0', help: '', icon: like, class: null }
+            - { label: 'Programas Educativos', url: /static/educando_a_la_entera_persona, access: '0', help: '', icon: results-demographics, class: '' }
+            - { label: Plurilingüísmo, url: /static/plurilinguismo_y_proyectos_internacionales, access: '0', help: '', icon: comments, class: null }
+            - { label: 'Acción evangelizadora', url: /blog/accion_evangelizadora, access: '0', help: '', icon: plus, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: 'Estudiar en Miralba', url: /contents/static_pages/view/admisiones, access: '0', help: '', icon: book-bookmark, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: 'Trabaja con nosotros', url: /cv, access: '0', help: '', icon: target, class: null }
+    curso:
+        help: ''
+        icon: ''
+        label: 'El curso'
+        url: ''
+        access: '0'
+        items:
+            - { label: 'Calendario Escolar', url: /static/calendario_escolar, access: '0', help: '', icon: calendar, class: null }
+            - { label: 'Horarios de clases', url: /static/horarios_de_clases, access: '0', help: '', icon: clock, class: null }
+            - { label: 'Horarios de atención', url: /static/horarios_de_atencion, access: '0', help: '', icon: clock, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: Uniforme, url: /static/uniforme, access: '0', help: '', icon: torsos-female-male, class: null }
+            - { label: 'Descarga de Impresos', url: /contents/channels/view/impresos, access: '0', help: '', icon: page, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: 'Contacto y localización', url: /static/contacto_y_localizacion, access: '0', help: '', icon: map, class: null }
+    familias:
+        help: ''
+        icon: ''
+        label: Familias
+        url: ''
+        access: '0'
+        items:
+            - { label: Plataforma, url: 'https://www.jesuitinas.net/miralba/alumno/login.asp', access: '0', help: '', icon: web, class: null }
+            - { label: Comedor, url: /cantine/cantine/home, access: '0', help: '', icon: record, class: '' }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: Circulares, url: /circulars/circulars/current, access: '0', help: '', icon: mail, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: APA, url: /blog/apa, access: '0', help: '', icon: results-demographics, class: null }
+            - { label: Orientación, url: /blog/orientacion, access: '0', help: '', icon: heart, class: null }
+    alumno:
+        help: ''
+        icon: ''
+        label: Alumnos
+        url: /contents/channels/menu
+        access: '0'
+        items:
+            - { label: Infantil, url: /site/infantil, access: '0', help: '', icon: heart, class: null }
+            - { label: Primaria, url: /site/primaria, access: '0', help: '', icon: star, class: null }
+            - { label: 'ESO y Bachillerato', url: /site/secundaria, access: '0', help: '', icon: check, class: null }
+    profesorado:
+        help: ''
+        icon: ''
+        label: Profesorado
+        url: ''
+        access: '0'
+        items:
+            - { label: Plataforma, url: 'https://www.jesuitinas.net/miralba/notassql', access: '0', help: '', icon: web, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: 'Sala Virtual', url: /blog/sala_de_profesores, access: '0', help: '', icon: comments, class: null }
+            - { label: Formación, url: /blog/formacion, access: '0', help: '', icon: folder, class: null }
+            - { label: 'Publicar en la página del colegio', url: /contents/items/index, access: '2', help: '', icon: pencil, class: null }
+            - { label: /, url: null, access: '0', help: null, icon: null, class: null }
+            - { label: Correo, url: 'http://correo.miralba.org', access: '0', help: '', icon: mail, class: null }
+            - { label: Drive, url: 'http://docs.miralba.org', access: '0', help: '', icon: database, class: null }
+            - { label: Calendario, url: 'http://calendario.miralba.org', access: '0', help: '', icon: calendar, class: null }
+    administrator:
+        help: ''
+        icon: widget
+        label: Administrador
+        url: //administrator/menu
+        access: '2'
+        items:
+            - { label: 'Barras de menús', url: /menus/bars/index, access: '2', help: '', icon: projection-screen, class: '' }
+            - { label: Menús, url: /menus/menus/index, access: '2', help: '', icon: results, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Licencias, url: /licenses/licenses/index, access: '0', help: '', icon: burst, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Usuarios, url: /access/users/index, access: '2', help: '', icon: torsos-all, class: '' }
+            - { label: Permisos, url: /access/permissions/index, access: '2', help: '', icon: check, class: null }
+            - { label: Roles, url: /access/roles/index, access: '0', help: '', icon: results-demographics, class: '' }
+            - { label: Tickets, url: /tickets/tickets/index, access: '0', help: '', icon: price-tag, class: '' }
+    contents:
+        help: ''
+        icon: pencil
+        label: 'Publicar en la página'
+        url: //contents/menu
+        access: '2'
+        items:
+            - { label: /, url: '', access: '0', help: '', icon: '', class: null }
+            - { label: 'Artículo nuevo', url: /contents/items/add, access: '2', help: '', icon: plus, class: '' }
+            - { label: 'Revisar mis artículos', url: /contents/items/index, access: '2', help: '', icon: page-multiple, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Revisar mis canales', url: /contents/channels/index, access: '2', help: '', icon: database, class: '' }
+            - { label: 'Páginas estáticas', url: /contents/static_pages/index, access: '2', help: '', icon: page-filled, class: '' }
+            - { label: 'Colecciones de imágenes', url: /uploads/image_collections/index, access: '2', help: '', icon: photo, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Etiquetas globales', url: /labels/labels/index, access: '2', help: '', icon: price-tag, class: null }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: null }
+            - { label: 'Revisar Sitios', url: /contents/sites/index, access: '2', help: '', icon: web, class: '' }
+            - { label: 'Archivos subidos', url: /uploads/uploads/index, access: '2', help: '', icon: upload, class: '' }
+            - { label: Comentarios, url: /comments/comments/index, access: '2', help: '', icon: comments, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Sorteos, url: /raffles/prizes/index, access: '2', help: '', icon: die-three, class: null }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: null }
+            - { label: Agregador, url: /aggregator/feeds/index, access: '2', help: '', icon: rss, class: '' }
+            - { label: 'Añadir RSS a agregador', url: /aggregator/feeds/add, access: '2', help: '', icon: plus, class: '' }
+            - { label: 'Planetas del agregador', url: /aggregator/planets/index, access: '2', help: '', icon: web, class: '' }
+    school:
+        help: ''
+        icon: home
+        label: Colegio
+        url: //school/menu
+        access: '2'
+        items:
+            - { label: Etapas, url: /school/stages/index, access: '2', help: '', icon: checkbox, class: '' }
+            - { label: Ciclos, url: /school/cycles/index, access: '2', help: '', icon: graph-trend, class: '' }
+            - { label: Niveles, url: /school/levels/index, access: '2', help: '', icon: results, class: '' }
+            - { label: Secciones, url: /school/sections/index, access: '2', help: '', icon: list, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Estudiantes, url: /school/students/index, access: '2', help: '', icon: torsos-female-male, class: '' }
+            - { label: Admisiones, url: /school/applications/index, access: '2', help: '', icon: plus, class: null }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Asignaturas, url: /school/subjects/index, access: '2', help: '', icon: book, class: '' }
+    circulars:
+        help: ''
+        icon: mail
+        label: 'Circulares y Agenda'
+        url: //circulars/menu
+        access: '2'
+        items:
+            - { label: 'Gestionar Circulares', url: /circulars/circulars/index, access: '2', help: '', icon: mail, class: '' }
+            - { label: 'Redactar circular', url: /circulars/circulars/add, access: '2', help: '', icon: plus, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Gestionar Agenda de Eventos', url: /circulars/events/index, access: '2', help: '', icon: calendar, class: '' }
+            - { label: 'Añadir evento', url: /circulars/events/add, access: '2', help: '', icon: plus, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Tipos de circulares', url: /circulars/circular_types/index, access: '2', help: '', icon: mail, class: '' }
+            - { label: 'Cajas de respuesta', url: /circulars/circular_boxes/index, access: '2', help: '', icon: layout, class: '' }
+    cantine:
+        help: ''
+        icon: record
+        label: Comedor
+        url: //cantine/menu
+        access: '2'
+        items:
+            - { label: Asistentes, url: /cantine/cantine/attendances, access: '2', help: '', icon: torsos-male-female, class: '' }
+            - { label: 'Usuarios con Vales', url: /cantine/cantine_tickets/index, access: '2', help: '', icon: pricetag-multiple, class: fi-people }
+            - { label: 'Incidencias de comedor', url: /cantine/cantine_incidences/index, access: '2', help: '', icon: first-aid, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Usuarios fijos', url: /cantine/cantine_regulars/index, access: '2', help: '', icon: torsos-female-male, class: fi-people }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Menús, url: /cantine/cantine_week_menus/index, access: '2', help: '', icon: layout, class: '' }
+            - { label: 'Cambios en menús', url: /cantine/cantine_date_remarks/index, access: '2', help: '', icon: alert, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: Turnos, url: /cantine/cantine_turns/index, access: '2', help: '', icon: clock, class: '' }
+            - { label: 'Grupos de comedor', url: /cantine/cantine_groups/index, access: '2', help: '', icon: torsos-male-female, class: '' }
+    it:
+        help: ''
+        icon: wrench
+        label: Tecnologías
+        url: //it/menu
+        access: '2'
+        items:
+            - { label: 'Gestión de equipos', url: /it/devices/index, access: '2', help: '', icon: laptop, class: '' }
+            - { label: 'Alta de equipo', url: /it/devices/add, access: '2', help: '', icon: plus, class: '' }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Informe mantenimiento', url: /it/maintenances/report, access: '2', help: '', icon: graph-horizontal, class: null }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: null }
+            - { label: 'Tipos de equipos', url: /it/device_types/index, access: '2', help: '', icon: monitor, class: '' }
+            - { label: 'Tipos de operaciones', url: /it/maintenance_types/index, access: '2', help: '', icon: wrench, class: '' }
+            - { label: 'Gestión de técnicos', url: /it/technicians/index, access: '2', help: '', icon: torso, class: '' }
+    cv:
+        help: ''
+        icon: checkbox
+        label: Empleo
+        url: //resumes/menu
+        access: '2'
+        items:
+            - { label: 'Explorar CV', url: /resumes/resumes/index, access: '2', help: '', icon: eye, class: '' }
+            - { label: 'Búsqueda de CV', url: /resumes/resumes/search, access: '2', help: '', icon: magnifying-glass, class: fi-magnifying-glass }
+            - { label: /, url: '', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Gestionar categorías de méritos', url: /resumes/merit_types/index, access: '2', help: '', icon: bookmark, class: '' }
+            - { label: 'Gestionar puestos', url: /resumes/positions/index, access: '2', help: '', icon: torso, class: '' }
