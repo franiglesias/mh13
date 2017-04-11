@@ -13,9 +13,10 @@ class FiText
 /**
  * Uses Google Translate to translate texts between two languages.
  *
- * @param string $text 
+ * @param string $text
  * @param string $from The two letters language code
- * @param string $to two letter lang code
+ * @param string $to   two letter lang code
+ *
  * @return string
  * @author Frankie
  */
@@ -31,7 +32,8 @@ class FiText
  *
  * @param string $text The text to translate
  * @param string $from The source language
- * @param string $to The target language
+ * @param string $to   The target language
+ *
  * @return string The translated text
  */
 	function translate($text, $from, $to)
@@ -62,6 +64,7 @@ class FiText
  * Performs several text cleaning routines
  *
  * @param string $text HTML text
+ *
  * @return string the clean text
  */
 	public function clean($text) {
@@ -73,15 +76,19 @@ class FiText
 	}
 	
 /**
- * Performs several text cleaning routines in a plain text
+ * Remove attributes specified in $this->removeAttributes array
  *
- * @param string $text 
- * @return string The clean text
+ * @param string $html
+ *
+ * @return string clean text
  */
-	public function cleanPlain($text) {
-		$clean = $text;
-		$clean = $this->cleanPunctuation($clean);
-		return $clean;
+    public function removeAttributes($html)
+    {
+        foreach ($this->removeAttributes as $attr) {
+            $html = preg_replace('/'.$attr.'="[^"]*"/', '', $html);
+        }
+
+        return $html;
 	}
 
 /**
@@ -91,7 +98,8 @@ class FiText
  *
  * protects html entities and url
  *
- * @param string $text 
+ * @param string $text
+ *
  * @return string clean text
  */	
 	public function cleanPunctuation($text) {
@@ -112,10 +120,117 @@ class FiText
 		return trim($clean);
 	}
 
+    /**
+     * Methods to protect entities
+     *
+     * @param string $text
+     *
+     * @return string
+     */
+    protected function _protectEntities($text)
+    {
+        return preg_replace('/&([^;]+);/', '##$1##', $text);
+    }
+
+    /**
+     * Methods to protect URLs
+     *
+     * @param string $text
+     *
+     * @return string
+     */
+    function protectUrl($text)
+    {
+        $this->storedUrl = array();
+        $pattern = "/(((ftp|https?):\/\/)(www\.)?|www\.)([\da-z-_\.]+)([a-z\.]{2,7})(\:\d*)?([\/\w\.\-\=\%_\?\&]*)*(\/?)/";
+        $urls = array();
+        preg_match_all($pattern, $text, $urls);
+        $this->storedUrl = $urls[0];
+        foreach ($this->storedUrl as $key => $url) {
+            if (substr($url, -1) == '.') {
+                $this->storedUrl[$key] = $url = substr($url, 0, -1);
+            }
+            $text = str_replace($url, '@@'.$key.'@@', $text);
+        }
+
+        return $text;
+    }
+
+    public function recoverUrl($text)
+    {
+        if (!$this->storedUrl) {
+            return $text;
+        }
+        foreach ($this->storedUrl as $key => $url) {
+            $search = '@@'.$key.'@@';
+            $text = str_replace($search, $url, $text);
+        }
+        $this->storedUrl = array();
+
+        return $text;
+    }
+
+    protected function _recoverEntities($text)
+    {
+        return preg_replace('/##([^#]+)##/', '&$1;', $text);
+    }
+
+    /**
+     * Removes tags with no content
+     *
+     * @param string $text
+     *
+     * @return string clean text
+     */
+    public function cleanEmptyTags($text)
+    {
+        $text = $this->cleanSpacesBetweenTags($text);
+        $clean = preg_replace('/<(\w+)[^>]*><\/\1>/', '', $text);
+
+        return $clean;
+    }
+
+    /**
+     * Clean spaces (and other spacing characters) before, after and inside tags
+     * Takes no breaking space into consideration
+     *
+     * @param string $text
+     *
+     * @return string clean text
+     */
+    public function cleanSpacesBetweenTags($text)
+    {
+        $text = str_replace('&nbsp;', ' ', $text);
+        $clean = preg_replace('/\s*(<|>)\s*/', '$1', $text);
+        // Some exceptions
+        $clean = preg_replace('/<a[^>]*>[^<]*<\/a>/', ' $0 ', $clean);
+        $clean = preg_replace('/<strong[^>]*>[^<]*<\/strong>/', ' $0 ', $clean);
+        $clean = preg_replace('/<em[^>]*>[^<]*<\/em>/', ' $0 ', $clean);
+        $clean = preg_replace('/<span[^>]*>[^<]*<\/span>/', ' $0 ', $clean);
+
+        return trim($clean);
+    }
+
+    /**
+     * Performs several text cleaning routines in a plain text
+     *
+     * @param string $text
+     *
+     * @return string The clean text
+     */
+    public function cleanPlain($text)
+    {
+        $clean = $text;
+        $clean = $this->cleanPunctuation($clean);
+
+        return $clean;
+    }
+
 /**
  * Basic capitalization fixing (start of text, after periods...)
  *
- * @param string $text 
+ * @param string $text
+ *
  * @return string fixed text
  */
 	public function fixCapitalization($text) {
@@ -124,30 +239,51 @@ class FiText
 			$html = true;
 			$text = $text[1];
 		}
-		$fixed = preg_replace_callback('/^(.)|\.(\n*)\s*(.)/', 
-			array($this, '__capHelper'), 
-			$text);
-			
+        $fixed = preg_replace_callback(
+            '/^(.)|\.(\n*)\s*(.)/',
+            array($this, '__capHelper'),
+            $text);
+
 		if ($html) {
 			$fixed = '<p>'.$fixed.'</p>';
 		}
 		return $fixed;
 	}
 
-
-	public function fixCapitalizationHtml($text)
+    public function fixCapitalizationHtml($text)
 	{
 		$fixed = preg_replace_callback('/<p>([^<]+)<\/p>/',
 			array($this, 'fixCapitalization'),
 			$text);
 		return $fixed;
 	}
+
+    /**
+     * Clean and converts quotes into smart quotes
+     *
+     * @param string $text
+     *
+     * @return string clean text
+     * @author Fran Iglesias
+     */
+    public function cleanQuotes($text, $smart = true)
+    {
+        if ($smart) {
+            $clean = preg_replace('/\"\s*([^"]*?)\s*\"/', '&ldquo;$1&rdquo;', $text);
+        } else {
+            $clean = preg_replace('/\"\s*([^"]*?)\s*\"/', '"$1"', $text);
+        }
+
+        return $clean;
+    }
+	
 /**
  * callback for fixCapitalizacion
  *
- * @param string $matches 
+ * @param string $matches
+ *
  * @return string the replacement
- */	
+ */
 	private function __capHelper($matches) {
 		if (!empty($matches[1])) {
 			$replace = $matches[1];
@@ -160,118 +296,6 @@ class FiText
 			}
 		}
 		return strtoupper($replace);
-	}
-
-/**
- * Clean spaces (and other spacing characters) before, after and inside tags
- * Takes no breaking space into consideration
- *
- * @param string $text 
- * @return string clean text
- */
-	public function cleanSpacesBetweenTags($text) {
-		$text = str_replace('&nbsp;', ' ', $text);
-		$clean = preg_replace('/\s*(<|>)\s*/', '$1', $text);
-		// Some exceptions
-		$clean = preg_replace('/<a[^>]*>[^<]*<\/a>/', ' $0 ', $clean);
-		$clean = preg_replace('/<strong[^>]*>[^<]*<\/strong>/', ' $0 ', $clean);
-		$clean = preg_replace('/<em[^>]*>[^<]*<\/em>/', ' $0 ', $clean);
-		$clean = preg_replace('/<span[^>]*>[^<]*<\/span>/', ' $0 ', $clean);
-		return trim($clean);
-	}
-
-/**
- * Removes tags with no content
- *
- * @param string $text 
- * @return string clean text
- */	
-	public function cleanEmptyTags($text)
-	{
-		$text = $this->cleanSpacesBetweenTags($text);
-		$clean = preg_replace('/<(\w+)[^>]*><\/\1>/', '', $text);
-		return $clean;
-	}
-	
-/**
- * Clean and converts quotes into smart quotes
- *
- * @param string $text 
- * @return string clean text
- * @author Fran Iglesias
- */
-	public function cleanQuotes($text, $smart = true)
-	{
-		if ($smart) {
-			$clean = preg_replace('/\"\s*([^"]*?)\s*\"/', '&ldquo;$1&rdquo;', $text);
-		} else {
-			$clean = preg_replace('/\"\s*([^"]*?)\s*\"/', '"$1"', $text);
-		}
-		return $clean;
-	}
-	
-/**
- * Remove attributes specified in $this->removeAttributes array
- *
- * @param string $html 
- * @return string clean text
- */
-	public function removeAttributes($html)
-	{
-		foreach ($this->removeAttributes as $attr) {
-			$html = preg_replace('/'.$attr.'="[^"]*"/', '', $html);
-		}
-		return $html;
-	}
-
-/**
- * Methods to protect entities
- *
- * @param string $text 
- * @return string
- */
-	protected function _protectEntities($text) {
-		return preg_replace('/&([^;]+);/','##$1##', $text);
-	}
-	
-	protected function _recoverEntities($text)
-	{
-		return preg_replace('/##([^#]+)##/','&$1;', $text);
-	}
-	
-/**
- * Methods to protect URLs
- *
- * @param string $text 
- * @return string
- */
-	function protectUrl($text)
-	{
-		$this->storedUrl = array();
-		$pattern = "/(((ftp|https?):\/\/)(www\.)?|www\.)([\da-z-_\.]+)([a-z\.]{2,7})(\:\d*)?([\/\w\.\-\=\%_\?\&]*)*(\/?)/";
-		$urls = array();
-		preg_match_all($pattern, $text, $urls);
-		$this->storedUrl = $urls[0];
-		foreach ($this->storedUrl as $key => $url) {
-			if (substr($url, -1) == '.') {
-				$this->storedUrl[$key] = $url = substr($url, 0, -1);
-			}
-			$text = str_replace($url, '@@'.$key.'@@', $text);
-		}
-		return $text;
-	}
-	
-	public function recoverUrl($text)
-	{
-		if (!$this->storedUrl) {
-			return $text;
-		}
-		foreach ($this->storedUrl as $key => $url) {
-			$search = '@@'.$key.'@@';
-			$text = str_replace($search, $url, $text);
-		}
-		$this->storedUrl = array();
-		return $text;
 	}
 	
 }

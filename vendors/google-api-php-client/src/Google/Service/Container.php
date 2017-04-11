@@ -251,7 +251,8 @@ class Google_Service_Container_ProjectsClusters_Resource extends Google_Service_
    *
    * @param string $projectId The Google Developers Console project ID or  project
    * number.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Container_ListAggregatedClustersResponse
    */
   public function listProjectsClusters($projectId, $optParams = array())
@@ -278,7 +279,8 @@ class Google_Service_Container_ProjectsOperations_Resource extends Google_Servic
    *
    * @param string $projectId The Google Developers Console project ID or  project
    * number.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Container_ListAggregatedOperationsResponse
    */
   public function listProjectsOperations($projectId, $optParams = array())
@@ -325,12 +327,13 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * Finally, a route named k8s-iproute-10-xx-0-0 is created to track that the
    * cluster's 10.xx.0.0/16 CIDR has been assigned. (clusters.create)
    *
-   * @param string $projectId The Google Developers Console project ID or  project
+   * @param string                      $projectId The Google Developers Console project ID or  project
    * number.
-   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * @param string                      $zoneId    The name of the Google Compute Engine zone in which the
    * cluster resides.
    * @param Google_CreateClusterRequest $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                       $optParams Optional parameters.
+   *
    * @return Google_Service_Container_Operation
    */
   public function create($projectId, $zoneId, Google_Service_Container_CreateClusterRequest $postBody, $optParams = array())
@@ -352,6 +355,7 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * cluster resides.
    * @param string $clusterId The name of the cluster to delete.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Container_Operation
    */
   public function delete($projectId, $zoneId, $clusterId, $optParams = array())
@@ -366,10 +370,11 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    *
    * @param string $projectId The Google Developers Console project ID or  project
    * number.
-   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * @param string $zoneId    The name of the Google Compute Engine zone in which the
    * cluster resides.
    * @param string $clusterId The name of the cluster to retrieve.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Container_Cluster
    */
   public function get($projectId, $zoneId, $clusterId, $optParams = array())
@@ -383,11 +388,12 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * Lists all clusters owned by a project in the specified zone.
    * (clusters.listProjectsZonesClusters)
    *
-   * @param string $projectId The Google Developers Console project ID or  project
-   * number.
-   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * @param string $projectId     The Google Developers Console project ID or  project
+   *                              number.
+   * @param string $zoneId        The name of the Google Compute Engine zone in which the
    * cluster resides.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Container_ListClustersResponse
    */
   public function listProjectsZonesClusters($projectId, $zoneId, $optParams = array())
@@ -411,13 +417,14 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
   /**
    * Gets the specified operation. (operations.get)
    *
-   * @param string $projectId The Google Developers Console project ID or  project
-   * number.
-   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * @param string $projectId     The Google Developers Console project ID or  project
+   *                              number.
+   * @param string $zoneId        The name of the Google Compute Engine zone in which the
    * operation resides. This is always the same zone as the cluster with which the
    * operation is associated.
-   * @param string $operationId The server-assigned name of the operation.
-   * @param array $optParams Optional parameters.
+   * @param string $operationId   The server-assigned name of the operation.
+   * @param array $optParams      Optional parameters.
+   *
    * @return Google_Service_Container_Operation
    */
   public function get($projectId, $zoneId, $operationId, $optParams = array())
@@ -436,6 +443,7 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
    * @param string $zoneId The name of the Google Compute Engine zone to return
    * operations for.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Container_ListOperationsResponse
    */
   public function listProjectsZonesOperations($projectId, $zoneId, $optParams = array())
@@ -451,19 +459,13 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
 
 class Google_Service_Container_Cluster extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $clusterApiVersion;
   public $containerIpv4Cidr;
   public $creationTimestamp;
   public $description;
   public $endpoint;
-  protected $masterAuthType = 'Google_Service_Container_MasterAuth';
-  protected $masterAuthDataType = '';
   public $name;
   public $network;
-  protected $nodeConfigType = 'Google_Service_Container_NodeConfig';
-  protected $nodeConfigDataType = '';
   public $nodeRoutingPrefixSize;
   public $numNodes;
   public $selfLink;
@@ -471,48 +473,62 @@ class Google_Service_Container_Cluster extends Google_Model
   public $status;
   public $statusMessage;
   public $zone;
+    protected $internal_gapi_mappings = array();
+    protected $masterAuthType = 'Google_Service_Container_MasterAuth';
+    protected $masterAuthDataType = '';
+    protected $nodeConfigType = 'Google_Service_Container_NodeConfig';
+    protected $nodeConfigDataType = '';
 
-
-  public function setClusterApiVersion($clusterApiVersion)
-  {
-    $this->clusterApiVersion = $clusterApiVersion;
-  }
   public function getClusterApiVersion()
   {
     return $this->clusterApiVersion;
   }
-  public function setContainerIpv4Cidr($containerIpv4Cidr)
+
+    public function setClusterApiVersion($clusterApiVersion)
   {
-    $this->containerIpv4Cidr = $containerIpv4Cidr;
+      $this->clusterApiVersion = $clusterApiVersion;
   }
+
   public function getContainerIpv4Cidr()
   {
     return $this->containerIpv4Cidr;
   }
-  public function setCreationTimestamp($creationTimestamp)
+
+    public function setContainerIpv4Cidr($containerIpv4Cidr)
   {
-    $this->creationTimestamp = $creationTimestamp;
+      $this->containerIpv4Cidr = $containerIpv4Cidr;
   }
+
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setDescription($description)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->description = $description;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setEndpoint($endpoint)
+
+    public function setDescription($description)
   {
-    $this->endpoint = $endpoint;
+      $this->description = $description;
   }
+
   public function getEndpoint()
   {
     return $this->endpoint;
   }
+
+    public function setEndpoint($endpoint)
+    {
+        $this->endpoint = $endpoint;
+    }
+
   public function setMasterAuth(Google_Service_Container_MasterAuth $masterAuth)
   {
     $this->masterAuth = $masterAuth;
@@ -521,22 +537,27 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     return $this->masterAuth;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNetwork($network)
+
+    public function setName($name)
   {
-    $this->network = $network;
+      $this->name = $name;
   }
+
   public function getNetwork()
   {
     return $this->network;
   }
+
+    public function setNetwork($network)
+    {
+        $this->network = $network;
+    }
+
   public function setNodeConfig(Google_Service_Container_NodeConfig $nodeConfig)
   {
     $this->nodeConfig = $nodeConfig;
@@ -545,62 +566,76 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     return $this->nodeConfig;
   }
-  public function setNodeRoutingPrefixSize($nodeRoutingPrefixSize)
-  {
-    $this->nodeRoutingPrefixSize = $nodeRoutingPrefixSize;
-  }
+
   public function getNodeRoutingPrefixSize()
   {
     return $this->nodeRoutingPrefixSize;
   }
-  public function setNumNodes($numNodes)
+
+    public function setNodeRoutingPrefixSize($nodeRoutingPrefixSize)
   {
-    $this->numNodes = $numNodes;
+      $this->nodeRoutingPrefixSize = $nodeRoutingPrefixSize;
   }
+
   public function getNumNodes()
   {
     return $this->numNodes;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNumNodes($numNodes)
   {
-    $this->selfLink = $selfLink;
+      $this->numNodes = $numNodes;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setServicesIpv4Cidr($servicesIpv4Cidr)
+
+    public function setSelfLink($selfLink)
   {
-    $this->servicesIpv4Cidr = $servicesIpv4Cidr;
+      $this->selfLink = $selfLink;
   }
+
   public function getServicesIpv4Cidr()
   {
     return $this->servicesIpv4Cidr;
   }
-  public function setStatus($status)
+
+    public function setServicesIpv4Cidr($servicesIpv4Cidr)
   {
-    $this->status = $status;
+      $this->servicesIpv4Cidr = $servicesIpv4Cidr;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setStatusMessage($statusMessage)
+
+    public function setStatus($status)
   {
-    $this->statusMessage = $statusMessage;
+      $this->status = $status;
   }
+
   public function getStatusMessage()
   {
     return $this->statusMessage;
   }
-  public function setZone($zone)
+
+    public function setStatusMessage($statusMessage)
   {
-    $this->zone = $zone;
+      $this->statusMessage = $statusMessage;
   }
+
   public function getZone()
   {
     return $this->zone;
   }
+
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
 }
 
 class Google_Service_Container_CreateClusterRequest extends Google_Model
@@ -699,49 +734,51 @@ class Google_Service_Container_ListOperationsResponse extends Google_Collection
 
 class Google_Service_Container_MasterAuth extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $password;
   public $user;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPassword($password)
-  {
-    $this->password = $password;
-  }
   public function getPassword()
   {
     return $this->password;
   }
-  public function setUser($user)
+
+    public function setPassword($password)
   {
-    $this->user = $user;
+      $this->password = $password;
   }
+
   public function getUser()
   {
     return $this->user;
   }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 }
 
 class Google_Service_Container_NodeConfig extends Google_Collection
 {
+    public $machineType;
+    public $sourceImage;
   protected $collection_key = 'serviceAccounts';
   protected $internal_gapi_mappings = array(
   );
-  public $machineType;
   protected $serviceAccountsType = 'Google_Service_Container_ServiceAccount';
   protected $serviceAccountsDataType = 'array';
-  public $sourceImage;
 
-
-  public function setMachineType($machineType)
-  {
-    $this->machineType = $machineType;
-  }
   public function getMachineType()
   {
     return $this->machineType;
   }
+
+    public function setMachineType($machineType)
+    {
+        $this->machineType = $machineType;
+    }
+
   public function setServiceAccounts($serviceAccounts)
   {
     $this->serviceAccounts = $serviceAccounts;
@@ -750,20 +787,20 @@ class Google_Service_Container_NodeConfig extends Google_Collection
   {
     return $this->serviceAccounts;
   }
-  public function setSourceImage($sourceImage)
-  {
-    $this->sourceImage = $sourceImage;
-  }
+
   public function getSourceImage()
   {
     return $this->sourceImage;
   }
+
+    public function setSourceImage($sourceImage)
+    {
+        $this->sourceImage = $sourceImage;
+    }
 }
 
 class Google_Service_Container_Operation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $errorMessage;
   public $name;
   public $operationType;
@@ -772,97 +809,113 @@ class Google_Service_Container_Operation extends Google_Model
   public $target;
   public $targetLink;
   public $zone;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setErrorMessage($errorMessage)
-  {
-    $this->errorMessage = $errorMessage;
-  }
   public function getErrorMessage()
   {
     return $this->errorMessage;
   }
-  public function setName($name)
+
+    public function setErrorMessage($errorMessage)
   {
-    $this->name = $name;
+      $this->errorMessage = $errorMessage;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOperationType($operationType)
+
+    public function setName($name)
   {
-    $this->operationType = $operationType;
+      $this->name = $name;
   }
-  public function getOperationType()
+
+    public function getOperationType()
   {
     return $this->operationType;
   }
-  public function setSelfLink($selfLink)
+
+    public function setOperationType($operationType)
   {
-    $this->selfLink = $selfLink;
+      $this->operationType = $operationType;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStatus($status)
+
+    public function setSelfLink($selfLink)
   {
-    $this->status = $status;
+      $this->selfLink = $selfLink;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
-  public function setTarget($target)
+
+    public function setStatus($status)
   {
-    $this->target = $target;
+      $this->status = $status;
   }
-  public function getTarget()
+
+    public function getTarget()
   {
     return $this->target;
   }
-  public function setTargetLink($targetLink)
+
+    public function setTarget($target)
   {
-    $this->targetLink = $targetLink;
+      $this->target = $target;
   }
-  public function getTargetLink()
+
+    public function getTargetLink()
   {
     return $this->targetLink;
   }
-  public function setZone($zone)
+
+    public function setTargetLink($targetLink)
   {
-    $this->zone = $zone;
+      $this->targetLink = $targetLink;
   }
-  public function getZone()
+
+    public function getZone()
   {
     return $this->zone;
   }
+
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
 }
 
 class Google_Service_Container_ServiceAccount extends Google_Collection
 {
-  protected $collection_key = 'scopes';
-  protected $internal_gapi_mappings = array(
-  );
   public $email;
   public $scopes;
+    protected $collection_key = 'scopes';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmail($email)
-  {
-    $this->email = $email;
-  }
   public function getEmail()
   {
     return $this->email;
   }
-  public function setScopes($scopes)
+
+    public function setEmail($email)
   {
-    $this->scopes = $scopes;
+      $this->email = $email;
   }
-  public function getScopes()
+
+    public function getScopes()
   {
     return $this->scopes;
   }
+
+    public function setScopes($scopes)
+    {
+        $this->scopes = $scopes;
+    }
 }

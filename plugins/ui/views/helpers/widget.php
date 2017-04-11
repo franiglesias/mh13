@@ -17,8 +17,9 @@ class WidgetHelper extends AppHelper
 /**
  * Generates widget code
  *
- * @param string $widget The name of the widget. Must match a widgets/widget.php with class Widget
- * @param array $options Proper options for the widget
+ * @param string $widget  The name of the widget. Must match a widgets/widget.php with class Widget
+ * @param array  $options Proper options for the widget
+ *
  * @return string HTML code
  */
 	public function put($widget, $options = array()) {

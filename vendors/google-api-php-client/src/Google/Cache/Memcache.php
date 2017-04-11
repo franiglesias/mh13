@@ -102,12 +102,61 @@ class Google_Cache_Memcache extends Google_Cache_Abstract
     return $ret['data'];
   }
 
+    /**
+     * Lazy initialiser for memcache connection. Uses pconnect for to take
+     * advantage of the persistence pool where possible.
+     */
+    private function connect()
+    {
+        if ($this->connection) {
+            return;
+        }
+
+        if (class_exists("Memcached")) {
+            $this->mc = new Memcached();
+            $this->mc->addServer($this->host, $this->port);
+            $this->connection = true;
+        } else {
+            $this->connection = memcache_pconnect($this->host, $this->port);
+        }
+
+        if (!$this->connection) {
+            $error = "Couldn't connect to memcache server";
+
+            $this->client->getLogger()->error($error);
+            throw new Google_Cache_Exception($error);
+        }
+    }
+
   /**
    * @inheritDoc
+   *
    * @param string $key
-   * @param string $value
-   * @throws Google_Cache_Exception
    */
+    public function delete($key)
+    {
+        $this->connect();
+        if ($this->mc) {
+            $this->mc->delete($key, 0);
+        } else {
+            memcache_delete($this->connection, $key, 0);
+        }
+
+        $this->client->getLogger()->debug(
+            'Memcache cache delete',
+            array('key' => $key)
+        )
+        ;
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @param string $key
+     * @param string $value
+     *
+     * @throws Google_Cache_Exception
+     */
   public function set($key, $value)
   {
     $this->connect();
@@ -133,50 +182,5 @@ class Google_Cache_Memcache extends Google_Cache_Abstract
         'Memcache cache set',
         array('key' => $key, 'var' => $data)
     );
-  }
-
-  /**
-   * @inheritDoc
-   * @param String $key
-   */
-  public function delete($key)
-  {
-    $this->connect();
-    if ($this->mc) {
-      $this->mc->delete($key, 0);
-    } else {
-      memcache_delete($this->connection, $key, 0);
-    }
-
-    $this->client->getLogger()->debug(
-        'Memcache cache delete',
-        array('key' => $key)
-    );
-  }
-
-  /**
-   * Lazy initialiser for memcache connection. Uses pconnect for to take
-   * advantage of the persistence pool where possible.
-   */
-  private function connect()
-  {
-    if ($this->connection) {
-      return;
-    }
-
-    if (class_exists("Memcached")) {
-      $this->mc = new Memcached();
-      $this->mc->addServer($this->host, $this->port);
-       $this->connection = true;
-    } else {
-      $this->connection = memcache_pconnect($this->host, $this->port);
-    }
-
-    if (! $this->connection) {
-      $error = "Couldn't connect to memcache server";
-
-      $this->client->getLogger()->error($error);
-      throw new Google_Cache_Exception($error);
-    }
   }
 }

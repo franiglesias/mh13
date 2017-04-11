@@ -4,8 +4,9 @@ interface FiObserver{
 	/**
 	 * Run the method registered to proccess the message and get the message Generator
 	 *
-	 * @param string $Generator 
-	 * @param string $message 
+     * @param string $Generator
+     * @param string $message
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */

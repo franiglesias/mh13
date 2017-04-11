@@ -63,7 +63,8 @@ class Site extends ContentsAppModel {
 /**
  * Retrieves channels associated with this Site
  *
- * @param string $id 
+ * @param string $id
+ *
  * @return void
  * @author Fran Iglesias
  */

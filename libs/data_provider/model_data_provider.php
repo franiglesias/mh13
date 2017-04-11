@@ -22,7 +22,22 @@ class ModelDataProvider extends SingleDataProvider implements AttachedDataProvid
 		}
 		return array_key_exists($field, $this->_source[$this->_model]);
 	}
-	
+
+    /**
+     * Checks if the source has the model key in it
+     *
+     * @return boolean
+     * @author Fran Iglesias
+     */
+    public function hasModel()
+    {
+        if (!$this->bound()) {
+            return false;
+        }
+
+        return isset($this->_source[$this->_model]);
+    }
+
 	public function hasKey($key)
 	{
 		if (!$this->bound()) {
@@ -30,32 +45,21 @@ class ModelDataProvider extends SingleDataProvider implements AttachedDataProvid
 		}
 		return array_key_exists($key, $this->_source);
 	}
-	public function value($field)
+
+    public function value($field)
 	{
 		return $this->_source[$this->_model][$field];
 	}
-	
-	public function useModel($model)
+
+    public function useModel($model)
 	{
 		$this->_model = $model;
 		return $this;
 	}
-	public function getModel()
+
+    public function getModel()
 	{
 		return $this->_model;
-	}
-	/**
-	 * Checks if the source has the model key in it
-	 *
-	 * @return boolean
-	 * @author Fran Iglesias
-	 */
-	public function hasModel()
-	{
-		if (!$this->bound()) {
-			return false;
-		}
-		return isset($this->_source[$this->_model]);
 	}
 	
 }

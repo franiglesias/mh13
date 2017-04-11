@@ -69,6 +69,21 @@ class Google_Logger_File extends Google_Logger_Abstract
     $this->file = $file;
   }
 
+    public function __destruct()
+    {
+        $this->close();
+    }
+
+    /**
+     * Closes the log stream resource.
+     */
+    private function close()
+    {
+        if (is_resource($this->file)) {
+            fclose($this->file);
+        }
+    }
+
   /**
    * {@inheritdoc}
    */
@@ -128,29 +143,14 @@ class Google_Logger_File extends Google_Logger_Abstract
   }
 
   /**
-   * Closes the log stream resource.
-   */
-  private function close()
-  {
-    if (is_resource($this->file)) {
-      fclose($this->file);
-    }
-  }
-
-  /**
    * Traps `fopen()` errors.
    *
-   * @param integer $errno The error number
-   * @param string $errstr The error string
+   * @param integer $errno  The error number
+   * @param string  $errstr The error string
    */
   private function trapError($errno, $errstr)
   {
     $this->trappedErrorNumber = $errno;
     $this->trappedErrorString = $errstr;
-  }
-
-  public function __destruct()
-  {
-    $this->close();
   }
 }

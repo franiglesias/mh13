@@ -14,6 +14,7 @@ class FiNumber
  * Finally, removes extra remaining characters if present
  *
  * @param integer $value The value to convert
+ *
  * @return string The number as text
  */
 	public function convert($value=0)
@@ -39,7 +40,8 @@ class FiNumber
 /**
  * splits the value string into 3 figures chunks
  *
- * @param string $value 
+ * @param string $value
+ *
  * @return array of chunks
  */
 	protected function _ungroup($value=0)
@@ -54,7 +56,8 @@ class FiNumber
 /**
  * Convert a 3 figures group
  *
- * @param string $value 
+ * @param string $value
+ *
  * @return void
  */
 	protected function _convertGroup($value, $idx = 0)
@@ -69,7 +72,7 @@ class FiNumber
 		} else {
 			$template = __d('finumbers', ':hundred and :twoDigit', true);
 		}
-		$result = String::insert($template, compact('hundred', 'twoDigit'));
+        $result = CakeString::insert($template, compact('hundred', 'twoDigit'));
 		
 		$conversions = array(
 			1 => __d('finumbers','thousand',true),
@@ -94,7 +97,8 @@ class FiNumber
 /**
  * Convert the hundred figure
  *
- * @param integer $value 
+ * @param integer $value
+ *
  * @return string the converted value
  */
 	protected function _convertHundred($value)
@@ -107,52 +111,10 @@ class FiNumber
 	}
 
 /**
- * Convert the units figure
- *
- * @param integer $value 
- * @return string the converted value
- */
-
-	protected function _convertUnits($value)
-	{
-		if ($value === 0) {
-			return '';
-		}
-		return $this->__unitConversion($value);
-	}
-	
-/**
- * Convert two digits figures
- *
- * @param integer $value 
- * @return string the converted value
- */
-
-	protected function _convertTwoDigits($value=0)
-	{
-		$dec = floor($value/10);
-		$unit = $value % 10;
-				
-		if ($dec == 0) {
-			return $this->_convertUnits($unit);
-		}
-		
-		if ($dec == 1) {
-			return $this->__teenConversion($value);
-		}
-		
-		if ($unit == 0) {
-			return $this->__tyConversion($dec); 
-		}
-		
-		return $this->__tyConversion($dec).__d('finumbers', '-', true).$this->_convertUnits($unit);
-
-	}
-
-/**
  * The following private methods provide translatable conversions
  *
  * @param integer $unit The value to convert
+ *
  * @return string The text
  */
 
@@ -172,6 +134,51 @@ class FiNumber
 		return $conversions[$unit];
 	}
 
+    /**
+     * Convert two digits figures
+     *
+     * @param integer $value
+     *
+     * @return string the converted value
+     */
+
+    protected function _convertTwoDigits($value = 0)
+    {
+        $dec = floor($value / 10);
+        $unit = $value % 10;
+
+        if ($dec == 0) {
+            return $this->_convertUnits($unit);
+        }
+
+        if ($dec == 1) {
+            return $this->__teenConversion($value);
+        }
+
+        if ($unit == 0) {
+            return $this->__tyConversion($dec);
+        }
+
+        return $this->__tyConversion($dec).__d('finumbers', '-', true).$this->_convertUnits($unit);
+
+    }
+
+    /**
+     * Convert the units figure
+     *
+     * @param integer $value
+     *
+     * @return string the converted value
+     */
+
+    protected function _convertUnits($value)
+    {
+        if ($value === 0) {
+            return '';
+        }
+
+        return $this->__unitConversion($value);
+    }
 
 	private function __unitConversion($unit)
 	{

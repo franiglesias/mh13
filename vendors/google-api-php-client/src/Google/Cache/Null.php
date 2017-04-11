@@ -46,7 +46,8 @@ class Google_Cache_Null extends Google_Cache_Abstract
 
   /**
    * @inheritDoc
-   * @param String $key
+   *
+   * @param string $key
    */
   public function delete($key)
   {

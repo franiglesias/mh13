@@ -374,7 +374,7 @@ class Set
         if (!is_array($path)) {
             $path = explode('.', $path);
         }
-        $_list =& $list;
+        $_list = $list;
 
         foreach ($path as $i => $key) {
             if (is_numeric($key) && intval($key) > 0 || $key === '0') {
@@ -386,7 +386,7 @@ class Set
                 if (!isset($_list[$key])) {
                     $_list[$key] = array();
                 }
-                $_list =& $_list[$key];
+                $_list = $_list[$key];
             }
             if (!is_array($_list)) {
                 return array();
@@ -414,7 +414,7 @@ class Set
         if (!is_array($path)) {
             $path = explode('.', $path);
         }
-        $_list =& $list;
+        $_list = $list;
 
         foreach ($path as $i => $key) {
             if (is_numeric($key) && intval($key) > 0 || $key === '0') {
@@ -426,7 +426,7 @@ class Set
                 if (!isset($_list[$key])) {
                     return $list;
                 }
-                $_list =& $_list[$key];
+                $_list = $_list[$key];
             }
         }
 
@@ -463,7 +463,7 @@ class Set
             if (!is_array($data) || !array_key_exists($key, $data)) {
                 return false;
             }
-            $data =& $data[$key];
+            $data = $data[$key];
         }
 
         return true;
@@ -872,10 +872,10 @@ class Set
         }
 
         if (!is_array($path)) {
-            if (!class_exists('String')) {
-                App::import('Core', 'String');
+            if (!class_exists('string')) {
+                App::import('Core', 'string');
             }
-            $path = String::tokenize($path, '.', '{', '}');
+            $path = CakeString::tokenize($path, '.', '{', '}');
         }
         $tmp = array();
 

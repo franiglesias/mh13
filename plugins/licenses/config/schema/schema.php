@@ -2,14 +2,6 @@
 /* licenses schema generated on: 2013-02-22 13:41:01 : 1361536861*/
 class licensesSchema extends CakeSchema {
 	var $name = 'licenses';
-
-	function before($event = array()) {
-		return true;
-	}
-
-	function after($event = array()) {
-	}
-
 	var $i18n = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
 		'locale' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 6, 'key' => 'index', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -28,5 +20,14 @@ class licensesSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
+
+    function before($event = array())
+    {
+        return true;
+    }
+
+    function after($event = array())
+    {
+    }
 }
 ?>

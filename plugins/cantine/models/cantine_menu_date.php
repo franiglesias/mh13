@@ -25,9 +25,10 @@ class CantineMenuDate extends CantineAppModel {
  * $query
  *		'today': a day in the week
  *
- * @param string $state 
- * @param string $query 
- * @param string $results 
+ * @param string $state
+ * @param string $query
+ * @param string $results
+ *
  * @return void
  * @author Fran Iglesias
  */
@@ -42,29 +43,6 @@ class CantineMenuDate extends CantineAppModel {
 		return $this->_findRange($state, $query, $results);
 	}
 
-
-	public function _findThismonth($state, $query, $results = array())
-	{
-		if ($state === 'before') {
-			$today = $this->setToday($query);
-			$query['start'] = strtotime(date('Y-m-01', $today));
-			$query['end'] = strtotime(date('Y-m-t', $today));
-			return $this->_findRange('before', $query);
-		}
-		return $this->_findRange($state, $query, $results);
-	}
-
-
-	public function _findToday($state, $query, $results = array())
-	{
-		if ($state === 'before') {
-			$today = $this->setToday($query);
-			$query['start'] = $query['end'] = $today;
-			return $this->_findRange('before', $query);
-		}
-		return $this->_findRange($state, $query, $results);
-	}
-	
 	private function setToday($query)
 	{
 		if (empty($query['today'])) {
@@ -72,7 +50,6 @@ class CantineMenuDate extends CantineAppModel {
 		}
 		return strtotime($query['today']);
 	}
-
 
 	public function _findRange($state, $query, $results = array())
 	{
@@ -85,7 +62,7 @@ class CantineMenuDate extends CantineAppModel {
 			}
 			$query['start'] = date('Y-m-d', $query['start']);
 			$query['end'] = date('Y-m-d', $query['end']);
-			
+
 			$extraQuery = array(
 				'conditions' => array(
 					"CantineMenuDate.start + INTERVAL 4 DAY >= '{$query['start']}'",
@@ -108,6 +85,31 @@ class CantineMenuDate extends CantineAppModel {
 		}
 		return $results;
 	}
+
+    public function _findThismonth($state, $query, $results = array())
+    {
+        if ($state === 'before') {
+            $today = $this->setToday($query);
+            $query['start'] = strtotime(date('Y-m-01', $today));
+            $query['end'] = strtotime(date('Y-m-t', $today));
+
+            return $this->_findRange('before', $query);
+        }
+
+        return $this->_findRange($state, $query, $results);
+    }
+
+    public function _findToday($state, $query, $results = array())
+    {
+        if ($state === 'before') {
+            $today = $this->setToday($query);
+            $query['start'] = $query['end'] = $today;
+
+            return $this->_findRange('before', $query);
+        }
+
+        return $this->_findRange($state, $query, $results);
+    }
 	
 	
 }

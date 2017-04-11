@@ -186,49 +186,221 @@ class SluggableBehavior extends ModelBehavior {
 			
 		return true;
 	}
-/**
- * Wrapper to call Inflector::slug to avoid some mistakes in Spanish and make some changes in the result, 
- * like truncate the slug to the desired length if any defined
- *
- * @param string $text The text to slug
- * @param string $replacement defaults to _. The replacement character for chars
- * not found by the Inflector::slug method
- * @param string $lenght Truncate to this length, id 0 leave as is
- * @return string The slugged and truncated text
- */	
-	protected function slug($text, $replacement = '_', $lenght = 0) {
-		Inflector::rules('transliteration', array('/gü/' => 'gu', '/GÜ/' => 'GU'));
-		$slug = Inflector::slug($text, $replacement);
-		if (!$lenght) {
-			return $slug;
-		}
-		return substr($slug, 0, $lenght);
-	}
 
 /**
  * Taken from php.net doumentation for strtolower. Alternative to solve a problem
  * with accented capitals in Spanish
  *
  * @param string $string The text to convert
+ *
  * @return string The lowered string
- */	
+ */
 	protected function strtolower($string) {
-	  $convert_to = array( 
-	    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", 
-	    "v", "w", "x", "y", "z", "à", "á", "â", "ã", "ä", "å", "æ", "ç", "è", "é", "ê", "ë", "ì", "í", "î", "ï", 
-	    "ð", "ñ", "ò", "ó", "ô", "õ", "ö", "ø", "ù", "ú", "û", "ü", "ý", "а", "б", "в", "г", "д", "е", "ё", "ж", 
-	    "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", 
-	    "ь", "э", "ю", "я" 
-	  ); 
-	  $convert_from = array( 
-	    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
-	    "V", "W", "X", "Y", "Z", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", 
-	    "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", 
-	    "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ъ", 
-	    "Ь", "Э", "Ю", "Я" 
-	  ); 
-	  return str_replace($convert_from, $convert_to, $string); 
+        $convert_to = array(
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+            "à",
+            "á",
+            "â",
+            "ã",
+            "ä",
+            "å",
+            "æ",
+            "ç",
+            "è",
+            "é",
+            "ê",
+            "ë",
+            "ì",
+            "í",
+            "î",
+            "ï",
+            "ð",
+            "ñ",
+            "ò",
+            "ó",
+            "ô",
+            "õ",
+            "ö",
+            "ø",
+            "ù",
+            "ú",
+            "û",
+            "ü",
+            "ý",
+            "а",
+            "б",
+            "в",
+            "г",
+            "д",
+            "е",
+            "ё",
+            "ж",
+            "з",
+            "и",
+            "й",
+            "к",
+            "л",
+            "м",
+            "н",
+            "о",
+            "п",
+            "р",
+            "с",
+            "т",
+            "у",
+            "ф",
+            "х",
+            "ц",
+            "ч",
+            "ш",
+            "щ",
+            "ъ",
+            "ы",
+            "ь",
+            "э",
+            "ю",
+            "я",
+        );
+        $convert_from = array(
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "À",
+            "Á",
+            "Â",
+            "Ã",
+            "Ä",
+            "Å",
+            "Æ",
+            "Ç",
+            "È",
+            "É",
+            "Ê",
+            "Ë",
+            "Ì",
+            "Í",
+            "Î",
+            "Ï",
+            "Ð",
+            "Ñ",
+            "Ò",
+            "Ó",
+            "Ô",
+            "Õ",
+            "Ö",
+            "Ø",
+            "Ù",
+            "Ú",
+            "Û",
+            "Ü",
+            "Ý",
+            "А",
+            "Б",
+            "В",
+            "Г",
+            "Д",
+            "Е",
+            "Ё",
+            "Ж",
+            "З",
+            "И",
+            "Й",
+            "К",
+            "Л",
+            "М",
+            "Н",
+            "О",
+            "П",
+            "Р",
+            "С",
+            "Т",
+            "У",
+            "Ф",
+            "Х",
+            "Ц",
+            "Ч",
+            "Ш",
+            "Щ",
+            "Ъ",
+            "Ъ",
+            "Ь",
+            "Э",
+            "Ю",
+            "Я",
+        );
+
+        return str_replace($convert_from, $convert_to, $string);
 	}
+
+    /**
+     * Wrapper to call Inflector::slug to avoid some mistakes in Spanish and make some changes in the result,
+     * like truncate the slug to the desired length if any defined
+     *
+     * @param string $text        The text to slug
+     * @param string $replacement defaults to _. The replacement character for chars
+     *                            not found by the Inflector::slug method
+     * @param string $lenght      Truncate to this length, id 0 leave as is
+     *
+     * @return string The slugged and truncated text
+     */
+    protected function slug($text, $replacement = '_', $lenght = 0)
+    {
+        Inflector::rules('transliteration', array('/gü/' => 'gu', '/GÜ/' => 'GU'));
+        $slug = Inflector::slug($text, $replacement);
+        if (!$lenght) {
+            return $slug;
+        }
+
+        return substr($slug, 0, $lenght);
+    }
 
 } // End of SluggableBehavior
 

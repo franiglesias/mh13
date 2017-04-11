@@ -282,11 +282,12 @@ class Google_Service_Dns_Changes_Resource extends Google_Service_Resource
   /**
    * Atomically update the ResourceRecordSet collection. (changes.create)
    *
-   * @param string $project Identifies the project addressed by this request.
-   * @param string $managedZone Identifies the managed zone addressed by this
+   * @param string        $project     Identifies the project addressed by this request.
+   * @param string        $managedZone Identifies the managed zone addressed by this
    * request. Can be the managed zone name or id.
    * @param Google_Change $postBody
-   * @param array $optParams Optional parameters.
+   * @param array         $optParams   Optional parameters.
+   *
    * @return Google_Service_Dns_Change
    */
   public function create($project, $managedZone, Google_Service_Dns_Change $postBody, $optParams = array())
@@ -299,12 +300,13 @@ class Google_Service_Dns_Changes_Resource extends Google_Service_Resource
   /**
    * Fetch the representation of an existing Change. (changes.get)
    *
-   * @param string $project Identifies the project addressed by this request.
+   * @param string $project     Identifies the project addressed by this request.
    * @param string $managedZone Identifies the managed zone addressed by this
    * request. Can be the managed zone name or id.
-   * @param string $changeId The identifier of the requested change, from a
+   * @param string $changeId    The identifier of the requested change, from a
    * previous ResourceRecordSetsChangeResponse.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams   Optional parameters.
+   *
    * @return Google_Service_Dns_Change
    */
   public function get($project, $managedZone, $changeId, $optParams = array())
@@ -317,10 +319,10 @@ class Google_Service_Dns_Changes_Resource extends Google_Service_Resource
   /**
    * Enumerate Changes to a ResourceRecordSet collection. (changes.listChanges)
    *
-   * @param string $project Identifies the project addressed by this request.
+   * @param string $project     Identifies the project addressed by this request.
    * @param string $managedZone Identifies the managed zone addressed by this
    * request. Can be the managed zone name or id.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams   Optional parameters.
    *
    * @opt_param int maxResults Optional. Maximum number of results to be returned.
    * If unspecified, the server will decide how many results to return.
@@ -355,9 +357,10 @@ class Google_Service_Dns_ManagedZones_Resource extends Google_Service_Resource
   /**
    * Create a new ManagedZone. (managedZones.create)
    *
-   * @param string $project Identifies the project addressed by this request.
+   * @param string             $project   Identifies the project addressed by this request.
    * @param Google_ManagedZone $postBody
-   * @param array $optParams Optional parameters.
+   * @param array              $optParams Optional parameters.
+   *
    * @return Google_Service_Dns_ManagedZone
    */
   public function create($project, Google_Service_Dns_ManagedZone $postBody, $optParams = array())
@@ -389,6 +392,7 @@ class Google_Service_Dns_ManagedZones_Resource extends Google_Service_Resource
    * @param string $managedZone Identifies the managed zone addressed by this
    * request. Can be the managed zone name or id.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Dns_ManagedZone
    */
   public function get($project, $managedZone, $optParams = array())
@@ -436,6 +440,7 @@ class Google_Service_Dns_Projects_Resource extends Google_Service_Resource
    *
    * @param string $project Identifies the project addressed by this request.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Dns_Project
    */
   public function get($project, $optParams = array())
@@ -490,6 +495,10 @@ class Google_Service_Dns_ResourceRecordSets_Resource extends Google_Service_Reso
 
 class Google_Service_Dns_Change extends Google_Collection
 {
+    public $id;
+    public $kind;
+    public $startTime;
+    public $status;
   protected $collection_key = 'deletions';
   protected $internal_gapi_mappings = array(
   );
@@ -497,11 +506,6 @@ class Google_Service_Dns_Change extends Google_Collection
   protected $additionsDataType = 'array';
   protected $deletionsType = 'Google_Service_Dns_ResourceRecordSet';
   protected $deletionsDataType = 'array';
-  public $id;
-  public $kind;
-  public $startTime;
-  public $status;
-
 
   public function setAdditions($additions)
   {
@@ -519,50 +523,57 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->deletions;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setStartTime($startTime)
+
+    public function setKind($kind)
   {
-    $this->startTime = $startTime;
+      $this->kind = $kind;
   }
+
   public function getStartTime()
   {
     return $this->startTime;
   }
-  public function setStatus($status)
+
+    public function setStartTime($startTime)
   {
-    $this->status = $status;
+      $this->startTime = $startTime;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Dns_ChangesListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'changes';
   protected $internal_gapi_mappings = array(
   );
   protected $changesType = 'Google_Service_Dns_Change';
   protected $changesDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setChanges($changes)
   {
@@ -572,29 +583,30 @@ class Google_Service_Dns_ChangesListResponse extends Google_Collection
   {
     return $this->changes;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Dns_ManagedZone extends Google_Collection
 {
-  protected $collection_key = 'nameServers';
-  protected $internal_gapi_mappings = array(
-  );
   public $creationTime;
   public $description;
   public $dnsName;
@@ -603,93 +615,110 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   public $name;
   public $nameServerSet;
   public $nameServers;
+    protected $collection_key = 'nameServers';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCreationTime($creationTime)
-  {
-    $this->creationTime = $creationTime;
-  }
   public function getCreationTime()
   {
     return $this->creationTime;
   }
-  public function setDescription($description)
+
+    public function setCreationTime($creationTime)
   {
-    $this->description = $description;
+      $this->creationTime = $creationTime;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setDnsName($dnsName)
+
+    public function setDescription($description)
   {
-    $this->dnsName = $dnsName;
+      $this->description = $description;
   }
+
   public function getDnsName()
   {
     return $this->dnsName;
   }
-  public function setId($id)
+
+    public function setDnsName($dnsName)
   {
-    $this->id = $id;
+      $this->dnsName = $dnsName;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNameServerSet($nameServerSet)
+
+    public function setName($name)
   {
-    $this->nameServerSet = $nameServerSet;
+      $this->name = $name;
   }
+
   public function getNameServerSet()
   {
     return $this->nameServerSet;
   }
-  public function setNameServers($nameServers)
+
+    public function setNameServerSet($nameServerSet)
   {
-    $this->nameServers = $nameServers;
+      $this->nameServerSet = $nameServerSet;
   }
+
   public function getNameServers()
   {
     return $this->nameServers;
   }
+
+    public function setNameServers($nameServers)
+    {
+        $this->nameServers = $nameServers;
+    }
 }
 
 class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'managedZones';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $managedZonesType = 'Google_Service_Dns_ManagedZone';
   protected $managedZonesDataType = 'array';
-  public $nextPageToken;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setManagedZones($managedZones)
   {
     $this->managedZones = $managedZones;
@@ -698,51 +727,57 @@ class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
   {
     return $this->managedZones;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Dns_Project extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $number;
+    protected $internal_gapi_mappings = array();
   protected $quotaType = 'Google_Service_Dns_Quota';
   protected $quotaDataType = '';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNumber($number)
+
+    public function setKind($kind)
   {
-    $this->number = $number;
+      $this->kind = $kind;
   }
+
   public function getNumber()
   {
     return $this->number;
   }
+
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+
   public function setQuota(Google_Service_Dns_Quota $quota)
   {
     $this->quota = $quota;
@@ -755,8 +790,6 @@ class Google_Service_Dns_Project extends Google_Model
 
 class Google_Service_Dns_Quota extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $managedZones;
   public $resourceRecordsPerRrset;
@@ -764,147 +797,169 @@ class Google_Service_Dns_Quota extends Google_Model
   public $rrsetDeletionsPerChange;
   public $rrsetsPerManagedZone;
   public $totalRrdataSizePerChange;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setManagedZones($managedZones)
+
+    public function setKind($kind)
   {
-    $this->managedZones = $managedZones;
+      $this->kind = $kind;
   }
+
   public function getManagedZones()
   {
     return $this->managedZones;
   }
-  public function setResourceRecordsPerRrset($resourceRecordsPerRrset)
+
+    public function setManagedZones($managedZones)
   {
-    $this->resourceRecordsPerRrset = $resourceRecordsPerRrset;
+      $this->managedZones = $managedZones;
   }
+
   public function getResourceRecordsPerRrset()
   {
     return $this->resourceRecordsPerRrset;
   }
-  public function setRrsetAdditionsPerChange($rrsetAdditionsPerChange)
+
+    public function setResourceRecordsPerRrset($resourceRecordsPerRrset)
   {
-    $this->rrsetAdditionsPerChange = $rrsetAdditionsPerChange;
+      $this->resourceRecordsPerRrset = $resourceRecordsPerRrset;
   }
+
   public function getRrsetAdditionsPerChange()
   {
     return $this->rrsetAdditionsPerChange;
   }
-  public function setRrsetDeletionsPerChange($rrsetDeletionsPerChange)
+
+    public function setRrsetAdditionsPerChange($rrsetAdditionsPerChange)
   {
-    $this->rrsetDeletionsPerChange = $rrsetDeletionsPerChange;
+      $this->rrsetAdditionsPerChange = $rrsetAdditionsPerChange;
   }
-  public function getRrsetDeletionsPerChange()
+
+    public function getRrsetDeletionsPerChange()
   {
     return $this->rrsetDeletionsPerChange;
   }
-  public function setRrsetsPerManagedZone($rrsetsPerManagedZone)
+
+    public function setRrsetDeletionsPerChange($rrsetDeletionsPerChange)
   {
-    $this->rrsetsPerManagedZone = $rrsetsPerManagedZone;
+      $this->rrsetDeletionsPerChange = $rrsetDeletionsPerChange;
   }
-  public function getRrsetsPerManagedZone()
+
+    public function getRrsetsPerManagedZone()
   {
     return $this->rrsetsPerManagedZone;
   }
-  public function setTotalRrdataSizePerChange($totalRrdataSizePerChange)
+
+    public function setRrsetsPerManagedZone($rrsetsPerManagedZone)
   {
-    $this->totalRrdataSizePerChange = $totalRrdataSizePerChange;
+      $this->rrsetsPerManagedZone = $rrsetsPerManagedZone;
   }
-  public function getTotalRrdataSizePerChange()
+
+    public function getTotalRrdataSizePerChange()
   {
     return $this->totalRrdataSizePerChange;
   }
+
+    public function setTotalRrdataSizePerChange($totalRrdataSizePerChange)
+    {
+        $this->totalRrdataSizePerChange = $totalRrdataSizePerChange;
+    }
 }
 
 class Google_Service_Dns_ResourceRecordSet extends Google_Collection
 {
-  protected $collection_key = 'rrdatas';
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $name;
   public $rrdatas;
   public $ttl;
   public $type;
+    protected $collection_key = 'rrdatas';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setRrdatas($rrdatas)
+
+    public function setName($name)
   {
-    $this->rrdatas = $rrdatas;
+      $this->name = $name;
   }
-  public function getRrdatas()
+
+    public function getRrdatas()
   {
     return $this->rrdatas;
   }
-  public function setTtl($ttl)
+
+    public function setRrdatas($rrdatas)
   {
-    $this->ttl = $ttl;
+      $this->rrdatas = $rrdatas;
   }
-  public function getTtl()
+
+    public function getTtl()
   {
     return $this->ttl;
   }
-  public function setType($type)
+
+    public function setTtl($ttl)
   {
-    $this->type = $type;
+      $this->ttl = $ttl;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Dns_ResourceRecordSetsListResponse extends Google_Collection
 {
-  protected $collection_key = 'rrsets';
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $nextPageToken;
+    protected $collection_key = 'rrsets';
+    protected $internal_gapi_mappings = array();
   protected $rrsetsType = 'Google_Service_Dns_ResourceRecordSet';
   protected $rrsetsDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setRrsets($rrsets)
   {
     $this->rrsets = $rrsets;

@@ -20,7 +20,8 @@ class ArticleHelper extends AppHelper
  * 
  * Need to be adapted to i18n
  *
- * @param string $text 
+ * @param string $text
+ *
  * @return void
  * @author Fran Iglesias
  */
@@ -58,7 +59,8 @@ class ArticleHelper extends AppHelper
 /**
  * Wrapper for WidgetHelper->put() so we can use a callback in parse method
  *
- * @param string $text 
+ * @param string $text
+ *
  * @return void
  * @author Fran Iglesias
  */
@@ -72,8 +74,9 @@ class ArticleHelper extends AppHelper
  * 
  * The method guess the first paragraph to avoid some unaesthetic excerpts.
  *
- * @param string $text 
+ * @param string $text
  * @param string $options 'size' in words, 'clean' strip some HTML
+ *
  * @return void
  * @author Fran Iglesias
  */
@@ -102,7 +105,8 @@ class ArticleHelper extends AppHelper
 /**
  * Attempts to clean the entry content
  *
- * @param string $text 
+ * @param string $text
+ *
  * @return string Cleaned string
  * @author Fran Iglesias
  */
@@ -126,7 +130,8 @@ public function clean($text)
 /**
  * Strips style params in HTML text
  *
- * @param string $text 
+ * @param string $text
+ *
  * @return void
  * @author Fran Iglesias
  */	
@@ -138,8 +143,9 @@ public function clean($text)
 /**
  * Creates a time tag
  *
- * @param string $time 
- * @param string $format 
+ * @param string $time
+ * @param string $format
+ *
  * @return void
  * @author Fran Iglesias
  */	
@@ -157,7 +163,8 @@ public function clean($text)
 /**
  * Creates a complicated yet pretty markup to format a date as a cute calendar
  *
- * @param string $time 
+ * @param string $time
+ *
  * @return void
  * @author Fran Iglesias
  */

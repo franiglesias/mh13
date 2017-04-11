@@ -36,10 +36,21 @@ abstract class MultipleDataProvider extends AbstractDataProvider implements Mult
 		if (!$this->bound()) {
 			throw new Exception('You only can attach to a bound DataProvider', 1);
 		}
-		$this->_Single =& $Single;
+        $this->_Single = $Single;
 		$this->rewind();
 		return $this;
 	}
+
+    public function rewind()
+    {
+        $this->Iterator->rewind();
+    }
+
+    public function next()
+    {
+        $this->Iterator->next();
+        $this->sync();
+    }
 	
 	protected function sync()
 	{
@@ -52,17 +63,6 @@ abstract class MultipleDataProvider extends AbstractDataProvider implements Mult
 	public function &current()
 	{
 		return $this->Iterator->current();
-	}
-	
-	public function rewind()
-	{
-		$this->Iterator->rewind();
-	}
-	
-	public function next()
-	{
-		$this->Iterator->next();
-		$this->sync();
 	}
 	
 	public function hasNext()

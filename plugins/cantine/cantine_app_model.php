@@ -20,7 +20,8 @@ class CantineAppModel extends AppModel {
 /**
  * Date is a week day
  *
- * @param string $check 
+ * @param string $check
+ *
  * @return void
  */
 	public function isWeekDay($check)

@@ -61,7 +61,8 @@ class TicketsController extends TicketsAppController {
 /**
  * Deletes a certain ticket
  *
- * @param string $id 
+ * @param string $id
+ *
  * @return void
  */
 	public function delete($id = null) {
@@ -102,4 +103,5 @@ class TicketsController extends TicketsAppController {
 		$this->redirect(array('action' => 'index'));
 	}
 }
+
 ?>

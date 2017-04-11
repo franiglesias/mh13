@@ -210,11 +210,27 @@ class FiMime
 		
 		);
 
+    /**
+     * The mime type of the file in $filename
+     *
+     * @param string $filename The path to the file
+     *
+     * @return string the mime type
+     */
+    public function type($filename)
+    {
+        $filename = basename($filename);
+        $extension = substr($filename, strrpos($filename, '.') + 1);
+
+        return $this->ext2Mime($extension);
+    }
+
 /**
  * Mime type from extension
  *
- * @param string $extension 
+ * @param string $extension
  * @param string $mode (type), human, simple
+ *
  * @return string
  */
 	public function ext2Mime($extension, $mode = 'type')
@@ -228,27 +244,15 @@ class FiMime
 		if (isset($this->mimeType[$extension])) {
 			return $this->mimeType[$extension][$mode];
 		}
-		
-		return $generic[$mode];
-	}
 
-/**
- * The mime type of the file in $filename
- *
- * @param string $filename The path to the file
- * @return string the mime type
- */	
-	public function type($filename)
-	{
-		$filename = basename($filename);
-		$extension = substr($filename, strrpos($filename, '.') + 1);
-		return $this->ext2Mime($extension);
+		return $generic[$mode];
 	}
 
 /**
  * A more human readable version of the type
  *
- * @param string $filename 
+ * @param string $filename
+ *
  * @return string the type
  */
 	public function humanType($filename)
@@ -261,7 +265,8 @@ class FiMime
 /**
  * A simplified type, mainly for previews
  *
- * @param string $filename 
+ * @param string $filename
+ *
  * @return string the type
  */
 	public function simpleType($filename)

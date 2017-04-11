@@ -125,20 +125,47 @@ class UiComponent extends Object {
 		}
 		$this->layoutsPath = $path;
 	}
+
+    /**
+     * Returns an array with the name of layouts suitable for a given key.
+     * If a theme name is provided, it will look for layouts in the themed folder and in the views root
+     * If there are two layouts with the same name, it uses the themed one
+     * Name conventions for layouts: name.key.ctp key: can be channel|site|item
+     *
+     *
+     * @param string $theme Theme name (false, use configuration Site.theme). You should provide the theme name if
+     *                      available in the channel data
+     * @param string $key   channel/site/item (defaults to channel)
+     *
+     * @return array
+     */
+    public function layouts($theme = false, $key = 'channel')
+    {
+        $layouts = $this->layoutsList(false, $key);
+        if ($theme) {
+            $themed = $this->layoutsList($theme, $key);
+            if (!empty($themed)) {
+                $layouts = array_merge($layouts, $themed);
+            }
+        }
+
+        return $layouts;
+    }
 	
 /**
  * Retrieve a list of layouts. If a theme is given, it looks for them into the themed folder
  *
  * @param string $theme a theme name or false
- * @param string $key channel|site|item
+ * @param string $key   channel|site|item
+ *
  * @return array or false
  */
 	public function layoutsList($theme, $key)
 	{
 		$pattern = '(.*\.)?'.$key.'\.ctp';
 		$path = $this->layoutsPath;
-		
-		if ($theme) {
+
+        if ($theme) {
 			$path .= 'themed'.DS .$theme . DS;
 		}
 		$path .= 'layouts';
@@ -157,28 +184,6 @@ class UiComponent extends Object {
 			}
 		}
 		return $list;
-	}
-	
-/**
- * Returns an array with the name of layouts suitable for a given key.
- * If a theme name is provided, it will look for layouts in the themed folder and in the views root
- * If there are two layouts with the same name, it uses the themed one
- * Name conventions for layouts: name.key.ctp key: can be channel|site|item
- *
- *
- * @param string $theme Theme name (false, use configuration Site.theme). You should provide the theme name if available in the channel data
- * @param string $key channel/site/item (defaults to channel)
- * @return array
- */	
-	public function layouts($theme = false, $key = 'channel') {
-		$layouts = $this->layoutsList(false, $key);
-		if ($theme) {
-			$themed = $this->layoutsList($theme, $key);
-			if(!empty($themed)) {
-				$layouts = array_merge($layouts, $themed);
-			}
-		}
-		return $layouts;
 	}
 	
 }

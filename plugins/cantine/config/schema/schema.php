@@ -2,14 +2,6 @@
 /* cantine schema generated on: 2013-02-22 13:40:32 : 1361536832*/
 class cantineSchema extends CakeSchema {
 	var $name = 'cantine';
-
-	function before($event = array()) {
-		return true;
-	}
-
-	function after($event = array()) {
-	}
-
 	var $cantine_date_remarks = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'date' => array('type' => 'date', 'null' => true, 'default' => NULL),
@@ -61,5 +53,14 @@ class cantineSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'locale' => array('column' => 'locale', 'unique' => 0), 'model' => array('column' => 'model', 'unique' => 0), 'row_id' => array('column' => 'foreign_key', 'unique' => 0), 'field' => array('column' => 'field', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
+
+    function before($event = array())
+    {
+        return true;
+    }
+
+    function after($event = array())
+    {
+    }
 }
 ?>

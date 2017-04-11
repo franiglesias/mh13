@@ -39,7 +39,8 @@ class Menu extends MenusAppModel {
 /**
  * Suggest a position in the bar for a new menu. Adds 10 to the max order
  *
- * @param string $bar_id 
+ * @param string $bar_id
+ *
  * @return integer
  */
 	public function newPosition($bar_id)
@@ -101,23 +102,6 @@ class Menu extends MenusAppModel {
 		return Set::extract('/Menu/id', $menus);
 	}
 	
-	
-	public function getByTitle($title, $user)
-	{
-		return $this->get($this->field('id', array('title' => $title)), $user);
-	}
-	
-	public function get($id, $user)
-	{
-		$this->setId($id);
-		$this->read(null);
-		$this->data['MenuItem'] = Set::extract(
-			'/MenuItem/.', 
-			$this->MenuItem->findByMenuAndUser($id, $user)
-			);
-		return $this->data;
-	}
-	
 	private function findPublic($barId)
 	{
 		$menus = $this->find('all', array(
@@ -146,8 +130,8 @@ class Menu extends MenusAppModel {
 						'Menu.access' => 2
 						)
 					);
-	}
-
+    }
+	
 	private function joinPermissionsRole()
 	{
 		return array(
@@ -173,7 +157,7 @@ class Menu extends MenusAppModel {
 				)
 			);
 	}
-	
+
 	private function buildConditions($barId)
 	{
 		return array(
@@ -183,8 +167,8 @@ class Menu extends MenusAppModel {
 					'Menu.access' => array(0,1),
 					$this->explicitAccessToMenu()
 					)
-				)
-			
+            )
+
 		);
 	}
 	
@@ -195,8 +179,26 @@ class Menu extends MenusAppModel {
 			'RolesUser.user_id is not null'
 		);
 	}
+
+    public function getByTitle($title, $user)
+    {
+        return $this->get($this->field('id', array('title' => $title)), $user);
+    }
+
+    public function get($id, $user)
+    {
+        $this->setId($id);
+        $this->read(null);
+        $this->data['MenuItem'] = Set::extract(
+            '/MenuItem/.',
+            $this->MenuItem->findByMenuAndUser($id, $user)
+        );
+
+        return $this->data;
+    }
 	
 		
 	
 }
+
 ?>

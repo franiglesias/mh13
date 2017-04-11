@@ -2125,17 +2125,17 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
   /**
    * Returns Analytics data for a view (profile). (ga.get)
    *
-   * @param string $ids Unique table ID for retrieving Analytics data. Table ID is
+   * @param string $ids       Unique table ID for retrieving Analytics data. Table ID is
    * of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
    * @param string $startDate Start date for fetching Analytics data. Requests can
    * specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g.,
    * today, yesterday, or 7daysAgo). The default value is 7daysAgo.
-   * @param string $endDate End date for fetching Analytics data. Request can
+   * @param string $endDate   End date for fetching Analytics data. Request can
    * should specify an end date formatted as YYYY-MM-DD, or as a relative date
    * (e.g., today, yesterday, or 7daysAgo). The default value is yesterday.
-   * @param string $metrics A comma-separated list of Analytics metrics. E.g.,
+   * @param string $metrics   A comma-separated list of Analytics metrics. E.g.,
    * 'ga:sessions,ga:pageviews'. At least one metric must be specified.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int max-results The maximum number of entries to include in this
    * feed.
@@ -2174,18 +2174,18 @@ class Google_Service_Analytics_DataMcf_Resource extends Google_Service_Resource
   /**
    * Returns Analytics Multi-Channel Funnels data for a view (profile). (mcf.get)
    *
-   * @param string $ids Unique table ID for retrieving Analytics data. Table ID is
+   * @param string $ids       Unique table ID for retrieving Analytics data. Table ID is
    * of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
    * @param string $startDate Start date for fetching Analytics data. Requests can
    * specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g.,
    * today, yesterday, or 7daysAgo). The default value is 7daysAgo.
-   * @param string $endDate End date for fetching Analytics data. Requests can
+   * @param string $endDate   End date for fetching Analytics data. Requests can
    * specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g.,
    * today, yesterday, or 7daysAgo). The default value is 7daysAgo.
-   * @param string $metrics A comma-separated list of Multi-Channel Funnels
+   * @param string $metrics   A comma-separated list of Multi-Channel Funnels
    * metrics. E.g., 'mcf:totalConversions,mcf:totalConversionValue'. At least one
    * metric must be specified.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int max-results The maximum number of entries to include in this
    * feed.
@@ -2221,11 +2221,11 @@ class Google_Service_Analytics_DataRealtime_Resource extends Google_Service_Reso
   /**
    * Returns real time data for a view (profile). (realtime.get)
    *
-   * @param string $ids Unique table ID for retrieving real time data. Table ID is
+   * @param string $ids       Unique table ID for retrieving real time data. Table ID is
    * of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
-   * @param string $metrics A comma-separated list of real time metrics. E.g.,
+   * @param string $metrics   A comma-separated list of real time metrics. E.g.,
    * 'rt:activeUsers'. At least one metric must be specified.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int max-results The maximum number of entries to include in this
    * feed.
@@ -2303,8 +2303,8 @@ class Google_Service_Analytics_ManagementAccountUserLinks_Resource extends Googl
    * Removes a user from the given account. (accountUserLinks.delete)
    *
    * @param string $accountId Account ID to delete the user link for.
-   * @param string $linkId Link ID to delete the user link for.
-   * @param array $optParams Optional parameters.
+   * @param string $linkId    Link ID to delete the user link for.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($accountId, $linkId, $optParams = array())
   {
@@ -2316,9 +2316,10 @@ class Google_Service_Analytics_ManagementAccountUserLinks_Resource extends Googl
   /**
    * Adds a new user to the given account. (accountUserLinks.insert)
    *
-   * @param string $accountId Account ID to create the user link for.
+   * @param string                $accountId Account ID to create the user link for.
    * @param Google_EntityUserLink $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                 $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityUserLink
    */
   public function insert($accountId, Google_Service_Analytics_EntityUserLink $postBody, $optParams = array())
@@ -2333,7 +2334,7 @@ class Google_Service_Analytics_ManagementAccountUserLinks_Resource extends Googl
    * (accountUserLinks.listManagementAccountUserLinks)
    *
    * @param string $accountId Account ID to retrieve the user links for.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int max-results The maximum number of account-user links to
    * include in this response.
@@ -2353,10 +2354,11 @@ class Google_Service_Analytics_ManagementAccountUserLinks_Resource extends Googl
    * Updates permissions for an existing user on the given account.
    * (accountUserLinks.update)
    *
-   * @param string $accountId Account ID to update the account-user link for.
-   * @param string $linkId Link ID to update the account-user link for.
+   * @param string                $accountId Account ID to update the account-user link for.
+   * @param string                $linkId    Link ID to update the account-user link for.
    * @param Google_EntityUserLink $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                 $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityUserLink
    */
   public function update($accountId, $linkId, Google_Service_Analytics_EntityUserLink $postBody, $optParams = array())
@@ -2412,10 +2414,10 @@ class Google_Service_Analytics_ManagementCustomDataSources_Resource extends Goog
    * List custom data sources to which the user has access.
    * (customDataSources.listManagementCustomDataSources)
    *
-   * @param string $accountId Account Id for the custom data sources to retrieve.
+   * @param string $accountId     Account Id for the custom data sources to retrieve.
    * @param string $webPropertyId Web property Id for the custom data sources to
    * retrieve.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    *
    * @opt_param int max-results The maximum number of custom data sources to
    * include in this response.
@@ -2445,11 +2447,12 @@ class Google_Service_Analytics_ManagementCustomDimensions_Resource extends Googl
   /**
    * Get a custom dimension to which the user has access. (customDimensions.get)
    *
-   * @param string $accountId Account ID for the custom dimension to retrieve.
-   * @param string $webPropertyId Web property ID for the custom dimension to
+   * @param string $accountId         Account ID for the custom dimension to retrieve.
+   * @param string $webPropertyId     Web property ID for the custom dimension to
    * retrieve.
    * @param string $customDimensionId The ID of the custom dimension to retrieve.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams         Optional parameters.
+   *
    * @return Google_Service_Analytics_CustomDimension
    */
   public function get($accountId, $webPropertyId, $customDimensionId, $optParams = array())
@@ -2467,6 +2470,7 @@ class Google_Service_Analytics_ManagementCustomDimensions_Resource extends Googl
    * create.
    * @param Google_CustomDimension $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_CustomDimension
    */
   public function insert($accountId, $webPropertyId, Google_Service_Analytics_CustomDimension $postBody, $optParams = array())
@@ -2502,13 +2506,13 @@ class Google_Service_Analytics_ManagementCustomDimensions_Resource extends Googl
    * Updates an existing custom dimension. This method supports patch semantics.
    * (customDimensions.patch)
    *
-   * @param string $accountId Account ID for the custom dimension to update.
-   * @param string $webPropertyId Web property ID for the custom dimension to
+   * @param string                 $accountId         Account ID for the custom dimension to update.
+   * @param string                 $webPropertyId     Web property ID for the custom dimension to
    * update.
-   * @param string $customDimensionId Custom dimension ID for the custom dimension
+   * @param string                 $customDimensionId Custom dimension ID for the custom dimension
    * to update.
    * @param Google_CustomDimension $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                  $optParams         Optional parameters.
    *
    * @opt_param bool ignoreCustomDataSourceLinks Force the update and ignore any
    * warnings related to the custom dimension being linked to a custom data source
@@ -2525,13 +2529,13 @@ class Google_Service_Analytics_ManagementCustomDimensions_Resource extends Googl
   /**
    * Updates an existing custom dimension. (customDimensions.update)
    *
-   * @param string $accountId Account ID for the custom dimension to update.
-   * @param string $webPropertyId Web property ID for the custom dimension to
+   * @param string                 $accountId         Account ID for the custom dimension to update.
+   * @param string                 $webPropertyId     Web property ID for the custom dimension to
    * update.
-   * @param string $customDimensionId Custom dimension ID for the custom dimension
+   * @param string                 $customDimensionId Custom dimension ID for the custom dimension
    * to update.
    * @param Google_CustomDimension $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                  $optParams         Optional parameters.
    *
    * @opt_param bool ignoreCustomDataSourceLinks Force the update and ignore any
    * warnings related to the custom dimension being linked to a custom data source
@@ -2564,6 +2568,7 @@ class Google_Service_Analytics_ManagementCustomMetrics_Resource extends Google_S
    * retrieve.
    * @param string $customMetricId The ID of the custom metric to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_CustomMetric
    */
   public function get($accountId, $webPropertyId, $customMetricId, $optParams = array())
@@ -2581,6 +2586,7 @@ class Google_Service_Analytics_ManagementCustomMetrics_Resource extends Google_S
    * create.
    * @param Google_CustomMetric $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_CustomMetric
    */
   public function insert($accountId, $webPropertyId, Google_Service_Analytics_CustomMetric $postBody, $optParams = array())
@@ -2671,15 +2677,15 @@ class Google_Service_Analytics_ManagementDailyUploads_Resource extends Google_Se
   /**
    * Delete uploaded data for the given date. (dailyUploads.delete)
    *
-   * @param string $accountId Account Id associated with daily upload delete.
-   * @param string $webPropertyId Web property Id associated with daily upload
-   * delete.
-   * @param string $customDataSourceId Custom data source Id associated with daily
-   * upload delete.
-   * @param string $date Date for which data is to be deleted. Date should be
+   * @param string $accountId              Account Id associated with daily upload delete.
+   * @param string $webPropertyId          Web property Id associated with daily upload
+   *                                       delete.
+   * @param string $customDataSourceId     Custom data source Id associated with daily
+   *                                       upload delete.
+   * @param string $date                   Date for which data is to be deleted. Date should be
    * formatted as YYYY-MM-DD.
-   * @param string $type Type of data for this delete.
-   * @param array $optParams Optional parameters.
+   * @param string $type                   Type of data for this delete.
+   * @param array  $optParams              Optional parameters.
    */
   public function delete($accountId, $webPropertyId, $customDataSourceId, $date, $type, $optParams = array())
   {
@@ -2774,6 +2780,7 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    * @param string $profileId View (Profile) ID to retrieve the experiment for.
    * @param string $experimentId Experiment ID to retrieve the experiment for.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Experiment
    */
   public function get($accountId, $webPropertyId, $profileId, $experimentId, $optParams = array())
@@ -2791,6 +2798,7 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    * @param string $profileId View (Profile) ID to create the experiment for.
    * @param Google_Experiment $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Experiment
    */
   public function insert($accountId, $webPropertyId, $profileId, Google_Service_Analytics_Experiment $postBody, $optParams = array())
@@ -2833,6 +2841,7 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    * @param string $experimentId Experiment ID of the experiment to update.
    * @param Google_Experiment $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Experiment
    */
   public function patch($accountId, $webPropertyId, $profileId, $experimentId, Google_Service_Analytics_Experiment $postBody, $optParams = array())
@@ -2851,6 +2860,7 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    * @param string $experimentId Experiment ID of the experiment to update.
    * @param Google_Experiment $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Experiment
    */
   public function update($accountId, $webPropertyId, $profileId, $experimentId, Google_Service_Analytics_Experiment $postBody, $optParams = array())
@@ -2875,8 +2885,9 @@ class Google_Service_Analytics_ManagementFilters_Resource extends Google_Service
    * Delete a filter. (filters.delete)
    *
    * @param string $accountId Account ID to delete the filter for.
-   * @param string $filterId ID of the filter to be deleted.
-   * @param array $optParams Optional parameters.
+   * @param string $filterId  ID of the filter to be deleted.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Filter
    */
   public function delete($accountId, $filterId, $optParams = array())
@@ -2890,8 +2901,9 @@ class Google_Service_Analytics_ManagementFilters_Resource extends Google_Service
    * Returns a filters to which the user has access. (filters.get)
    *
    * @param string $accountId Account ID to retrieve filters for.
-   * @param string $filterId Filter ID to retrieve filters for.
-   * @param array $optParams Optional parameters.
+   * @param string $filterId  Filter ID to retrieve filters for.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Filter
    */
   public function get($accountId, $filterId, $optParams = array())
@@ -2907,6 +2919,7 @@ class Google_Service_Analytics_ManagementFilters_Resource extends Google_Service
    * @param string $accountId Account ID to create filter for.
    * @param Google_Filter $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Filter
    */
   public function insert($accountId, Google_Service_Analytics_Filter $postBody, $optParams = array())
@@ -2939,10 +2952,11 @@ class Google_Service_Analytics_ManagementFilters_Resource extends Google_Service
    * Updates an existing filter. This method supports patch semantics.
    * (filters.patch)
    *
-   * @param string $accountId Account ID to which the filter belongs.
-   * @param string $filterId ID of the filter to be updated.
+   * @param string        $accountId Account ID to which the filter belongs.
+   * @param string        $filterId  ID of the filter to be updated.
    * @param Google_Filter $postBody
-   * @param array $optParams Optional parameters.
+   * @param array         $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Filter
    */
   public function patch($accountId, $filterId, Google_Service_Analytics_Filter $postBody, $optParams = array())
@@ -2955,10 +2969,11 @@ class Google_Service_Analytics_ManagementFilters_Resource extends Google_Service
   /**
    * Updates an existing filter. (filters.update)
    *
-   * @param string $accountId Account ID to which the filter belongs.
-   * @param string $filterId ID of the filter to be updated.
+   * @param string        $accountId Account ID to which the filter belongs.
+   * @param string        $filterId  ID of the filter to be updated.
    * @param Google_Filter $postBody
-   * @param array $optParams Optional parameters.
+   * @param array         $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Filter
    */
   public function update($accountId, $filterId, Google_Service_Analytics_Filter $postBody, $optParams = array())
@@ -2982,11 +2997,12 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
   /**
    * Gets a goal to which the user has access. (goals.get)
    *
-   * @param string $accountId Account ID to retrieve the goal for.
+   * @param string $accountId     Account ID to retrieve the goal for.
    * @param string $webPropertyId Web property ID to retrieve the goal for.
-   * @param string $profileId View (Profile) ID to retrieve the goal for.
-   * @param string $goalId Goal ID to retrieve the goal for.
-   * @param array $optParams Optional parameters.
+   * @param string $profileId     View (Profile) ID to retrieve the goal for.
+   * @param string $goalId        Goal ID to retrieve the goal for.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Analytics_Goal
    */
   public function get($accountId, $webPropertyId, $profileId, $goalId, $optParams = array())
@@ -2999,11 +3015,12 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
   /**
    * Create a new goal. (goals.insert)
    *
-   * @param string $accountId Account ID to create the goal for.
-   * @param string $webPropertyId Web property ID to create the goal for.
-   * @param string $profileId View (Profile) ID to create the goal for.
+   * @param string      $accountId     Account ID to create the goal for.
+   * @param string      $webPropertyId Web property ID to create the goal for.
+   * @param string      $profileId     View (Profile) ID to create the goal for.
    * @param Google_Goal $postBody
-   * @param array $optParams Optional parameters.
+   * @param array       $optParams     Optional parameters.
+   *
    * @return Google_Service_Analytics_Goal
    */
   public function insert($accountId, $webPropertyId, $profileId, Google_Service_Analytics_Goal $postBody, $optParams = array())
@@ -3044,12 +3061,13 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
    * Updates an existing view (profile). This method supports patch semantics.
    * (goals.patch)
    *
-   * @param string $accountId Account ID to update the goal.
-   * @param string $webPropertyId Web property ID to update the goal.
-   * @param string $profileId View (Profile) ID to update the goal.
-   * @param string $goalId Index of the goal to be updated.
+   * @param string      $accountId     Account ID to update the goal.
+   * @param string      $webPropertyId Web property ID to update the goal.
+   * @param string      $profileId     View (Profile) ID to update the goal.
+   * @param string      $goalId        Index of the goal to be updated.
    * @param Google_Goal $postBody
-   * @param array $optParams Optional parameters.
+   * @param array       $optParams     Optional parameters.
+   *
    * @return Google_Service_Analytics_Goal
    */
   public function patch($accountId, $webPropertyId, $profileId, $goalId, Google_Service_Analytics_Goal $postBody, $optParams = array())
@@ -3059,15 +3077,16 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
     return $this->call('patch', array($params), "Google_Service_Analytics_Goal");
   }
 
-  /**
+    /**
    * Updates an existing view (profile). (goals.update)
-   *
-   * @param string $accountId Account ID to update the goal.
-   * @param string $webPropertyId Web property ID to update the goal.
-   * @param string $profileId View (Profile) ID to update the goal.
+     *
+     * @param string    $accountId     Account ID to update the goal.
+     * @param string    $webPropertyId Web property ID to update the goal.
+     * @param string    $profileId     View (Profile) ID to update the goal.
    * @param string $goalId Index of the goal to be updated.
    * @param Google_Goal $postBody
    * @param array $optParams Optional parameters.
+     *
    * @return Google_Service_Analytics_Goal
    */
   public function update($accountId, $webPropertyId, $profileId, $goalId, Google_Service_Analytics_Goal $postBody, $optParams = array())
@@ -3088,15 +3107,15 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
 class Google_Service_Analytics_ManagementProfileFilterLinks_Resource extends Google_Service_Resource
 {
 
-  /**
+    /**
    * Delete a profile filter link. (profileFilterLinks.delete)
    *
-   * @param string $accountId Account ID to which the profile filter link belongs.
-   * @param string $webPropertyId Web property Id to which the profile filter link
+     * @param string $accountId     Account ID to which the profile filter link belongs.
+     * @param string $webPropertyId Web property Id to which the profile filter link
    * belongs.
-   * @param string $profileId Profile ID to which the filter link belongs.
-   * @param string $linkId ID of the profile filter link to delete.
-   * @param array $optParams Optional parameters.
+     * @param string $profileId     Profile ID to which the filter link belongs.
+     * @param string $linkId        ID of the profile filter link to delete.
+     * @param array  $optParams     Optional parameters.
    */
   public function delete($accountId, $webPropertyId, $profileId, $linkId, $optParams = array())
   {
@@ -3105,15 +3124,16 @@ class Google_Service_Analytics_ManagementProfileFilterLinks_Resource extends Goo
     return $this->call('delete', array($params));
   }
 
-  /**
-   * Returns a single profile filter link. (profileFilterLinks.get)
+    /**
+     * Returns a single profile filter link. (profileFilterLinks.get)
    *
-   * @param string $accountId Account ID to retrieve profile filter link for.
-   * @param string $webPropertyId Web property Id to retrieve profile filter link
-   * for.
-   * @param string $profileId Profile ID to retrieve filter link for.
-   * @param string $linkId ID of the profile filter link.
-   * @param array $optParams Optional parameters.
+     * @param string $accountId         Account ID to retrieve profile filter link for.
+     * @param string $webPropertyId     Web property Id to retrieve profile filter link
+     *                                  for.
+     * @param string $profileId         Profile ID to retrieve filter link for.
+     * @param string $linkId            ID of the profile filter link.
+     * @param array  $optParams         Optional parameters.
+     *
    * @return Google_Service_Analytics_ProfileFilterLink
    */
   public function get($accountId, $webPropertyId, $profileId, $linkId, $optParams = array())
@@ -3123,15 +3143,16 @@ class Google_Service_Analytics_ManagementProfileFilterLinks_Resource extends Goo
     return $this->call('get', array($params), "Google_Service_Analytics_ProfileFilterLink");
   }
 
-  /**
+    /**
    * Create a new profile filter link. (profileFilterLinks.insert)
-   *
-   * @param string $accountId Account ID to create profile filter link for.
-   * @param string $webPropertyId Web property Id to create profile filter link
+     *
+     * @param string                 $accountId     Account ID to create profile filter link for.
+     * @param string                 $webPropertyId Web property Id to create profile filter link
    * for.
-   * @param string $profileId Profile ID to create filter link for.
+     * @param string                 $profileId     Profile ID to create filter link for.
    * @param Google_ProfileFilterLink $postBody
-   * @param array $optParams Optional parameters.
+     * @param array                  $optParams     Optional parameters.
+     *
    * @return Google_Service_Analytics_ProfileFilterLink
    */
   public function insert($accountId, $webPropertyId, $profileId, Google_Service_Analytics_ProfileFilterLink $postBody, $optParams = array())
@@ -3171,13 +3192,14 @@ class Google_Service_Analytics_ManagementProfileFilterLinks_Resource extends Goo
    * Update an existing profile filter link. This method supports patch semantics.
    * (profileFilterLinks.patch)
    *
-   * @param string $accountId Account ID to which profile filter link belongs.
-   * @param string $webPropertyId Web property Id to which profile filter link
+   * @param string                   $accountId     Account ID to which profile filter link belongs.
+   * @param string                   $webPropertyId Web property Id to which profile filter link
    * belongs
-   * @param string $profileId Profile ID to which filter link belongs
-   * @param string $linkId ID of the profile filter link to be updated.
+   * @param string                   $profileId     Profile ID to which filter link belongs
+   * @param string                   $linkId        ID of the profile filter link to be updated.
    * @param Google_ProfileFilterLink $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                    $optParams     Optional parameters.
+   *
    * @return Google_Service_Analytics_ProfileFilterLink
    */
   public function patch($accountId, $webPropertyId, $profileId, $linkId, Google_Service_Analytics_ProfileFilterLink $postBody, $optParams = array())
@@ -3197,6 +3219,7 @@ class Google_Service_Analytics_ManagementProfileFilterLinks_Resource extends Goo
    * @param string $linkId ID of the profile filter link to be updated.
    * @param Google_ProfileFilterLink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_ProfileFilterLink
    */
   public function update($accountId, $webPropertyId, $profileId, $linkId, Google_Service_Analytics_ProfileFilterLink $postBody, $optParams = array())
@@ -3241,6 +3264,7 @@ class Google_Service_Analytics_ManagementProfileUserLinks_Resource extends Googl
    * @param string $profileId View (Profile) ID to create the user link for.
    * @param Google_EntityUserLink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityUserLink
    */
   public function insert($accountId, $webPropertyId, $profileId, Google_Service_Analytics_EntityUserLink $postBody, $optParams = array())
@@ -3288,6 +3312,7 @@ class Google_Service_Analytics_ManagementProfileUserLinks_Resource extends Googl
    * @param string $linkId Link ID to update the user link for.
    * @param Google_EntityUserLink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityUserLink
    */
   public function update($accountId, $webPropertyId, $profileId, $linkId, Google_Service_Analytics_EntityUserLink $postBody, $optParams = array())
@@ -3331,6 +3356,7 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
    * @param string $webPropertyId Web property ID to retrieve the goal for.
    * @param string $profileId View (Profile) ID to retrieve the goal for.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Profile
    */
   public function get($accountId, $webPropertyId, $profileId, $optParams = array())
@@ -3348,6 +3374,7 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
    * for.
    * @param Google_Profile $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Profile
    */
   public function insert($accountId, $webPropertyId, Google_Service_Analytics_Profile $postBody, $optParams = array())
@@ -3382,9 +3409,9 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
     return $this->call('list', array($params), "Google_Service_Analytics_Profiles");
   }
 
-  /**
+    /**
    * Updates an existing view (profile). This method supports patch semantics.
-   * (profiles.patch)
+     * (profiles.patch)
    *
    * @param string $accountId Account ID to which the view (profile) belongs
    * @param string $webPropertyId Web property ID to which the view (profile)
@@ -3392,6 +3419,7 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
    * @param string $profileId ID of the view (profile) to be updated.
    * @param Google_Profile $postBody
    * @param array $optParams Optional parameters.
+     *
    * @return Google_Service_Analytics_Profile
    */
   public function patch($accountId, $webPropertyId, $profileId, Google_Service_Analytics_Profile $postBody, $optParams = array())
@@ -3410,6 +3438,7 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
    * @param string $profileId ID of the view (profile) to be updated.
    * @param Google_Profile $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Profile
    */
   public function update($accountId, $webPropertyId, $profileId, Google_Service_Analytics_Profile $postBody, $optParams = array())
@@ -3470,6 +3499,7 @@ class Google_Service_Analytics_ManagementUnsampledReports_Resource extends Googl
    * @param string $profileId View (Profile) ID to retrieve unsampled report for.
    * @param string $unsampledReportId ID of the unsampled report to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_UnsampledReport
    */
   public function get($accountId, $webPropertyId, $profileId, $unsampledReportId, $optParams = array())
@@ -3489,6 +3519,7 @@ class Google_Service_Analytics_ManagementUnsampledReports_Resource extends Googl
    * for.
    * @param Google_UnsampledReport $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_UnsampledReport
    */
   public function insert($accountId, $webPropertyId, $profileId, Google_Service_Analytics_UnsampledReport $postBody, $optParams = array())
@@ -3502,13 +3533,13 @@ class Google_Service_Analytics_ManagementUnsampledReports_Resource extends Googl
    * Lists unsampled reports to which the user has access.
    * (unsampledReports.listManagementUnsampledReports)
    *
-   * @param string $accountId Account ID to retrieve unsampled reports for. Must
+   * @param string $accountId     Account ID to retrieve unsampled reports for. Must
    * be a specific account ID, ~all is not supported.
    * @param string $webPropertyId Web property ID to retrieve unsampled reports
    * for. Must be a specific web property ID, ~all is not supported.
-   * @param string $profileId View (Profile) ID to retrieve unsampled reports for.
+   * @param string $profileId     View (Profile) ID to retrieve unsampled reports for.
    * Must be a specific view (profile) ID, ~all is not supported.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    *
    * @opt_param int max-results The maximum number of unsampled reports to include
    * in this response.
@@ -3538,29 +3569,31 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
   /**
    * Delete data associated with a previous upload. (uploads.deleteUploadData)
    *
-   * @param string $accountId Account Id for the uploads to be deleted.
-   * @param string $webPropertyId Web property Id for the uploads to be deleted.
-   * @param string $customDataSourceId Custom data source Id for the uploads to be
+   * @param string                                            $accountId          Account Id for the uploads to be deleted.
+   * @param string                                            $webPropertyId      Web property Id for the uploads to be deleted.
+   * @param string                                            $customDataSourceId Custom data source Id for the uploads to be
    * deleted.
    * @param Google_AnalyticsDataimportDeleteUploadDataRequest $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                                             $optParams          Optional parameters.
    */
   public function deleteUploadData($accountId, $webPropertyId, $customDataSourceId, Google_Service_Analytics_AnalyticsDataimportDeleteUploadDataRequest $postBody, $optParams = array())
   {
     $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId, 'customDataSourceId' => $customDataSourceId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('deleteUploadData', array($params));
+
+      return $this->call('deleteUploadData', array($params));
   }
 
   /**
    * List uploads to which the user has access. (uploads.get)
    *
-   * @param string $accountId Account Id for the upload to retrieve.
-   * @param string $webPropertyId Web property Id for the upload to retrieve.
+   * @param string $accountId          Account Id for the upload to retrieve.
+   * @param string $webPropertyId      Web property Id for the upload to retrieve.
    * @param string $customDataSourceId Custom data source Id for upload to
    * retrieve.
-   * @param string $uploadId Upload Id to retrieve.
-   * @param array $optParams Optional parameters.
+   * @param string $uploadId           Upload Id to retrieve.
+   * @param array  $optParams          Optional parameters.
+   *
    * @return Google_Service_Analytics_Upload
    */
   public function get($accountId, $webPropertyId, $customDataSourceId, $uploadId, $optParams = array())
@@ -3573,11 +3606,11 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
   /**
    * List uploads to which the user has access. (uploads.listManagementUploads)
    *
-   * @param string $accountId Account Id for the uploads to retrieve.
-   * @param string $webPropertyId Web property Id for the uploads to retrieve.
+   * @param string $accountId          Account Id for the uploads to retrieve.
+   * @param string $webPropertyId      Web property Id for the uploads to retrieve.
    * @param string $customDataSourceId Custom data source Id for uploads to
    * retrieve.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams          Optional parameters.
    *
    * @opt_param int max-results The maximum number of uploads to include in this
    * response.
@@ -3606,18 +3639,20 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
   {
     $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId, 'customDataSourceId' => $customDataSourceId);
     $params = array_merge($params, $optParams);
-    return $this->call('migrateDataImport', array($params));
+
+      return $this->call('migrateDataImport', array($params));
   }
 
-  /**
-   * Upload data for a custom data source. (uploads.uploadData)
+    /**
+     * Upload data for a custom data source. (uploads.uploadData)
    *
-   * @param string $accountId Account Id associated with the upload.
-   * @param string $webPropertyId Web property UA-string associated with the
+     * @param string $accountId          Account Id associated with the upload.
+     * @param string $webPropertyId      Web property UA-string associated with the
    * upload.
-   * @param string $customDataSourceId Custom data source Id to which the data
+   * @param string   $customDataSourceId Custom data source Id to which the data
    * being uploaded belongs.
-   * @param array $optParams Optional parameters.
+     * @param array  $optParams          Optional parameters.
+     *
    * @return Google_Service_Analytics_Upload
    */
   public function uploadData($accountId, $webPropertyId, $customDataSourceId, $optParams = array())
@@ -3641,11 +3676,11 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
   /**
    * Deletes a web property-AdWords link. (webPropertyAdWordsLinks.delete)
    *
-   * @param string $accountId ID of the account which the given web property
+   * @param string $accountId                ID of the account which the given web property
    * belongs to.
-   * @param string $webPropertyId Web property ID to delete the AdWords link for.
+   * @param string $webPropertyId            Web property ID to delete the AdWords link for.
    * @param string $webPropertyAdWordsLinkId Web property AdWords link ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams                Optional parameters.
    */
   public function delete($accountId, $webPropertyId, $webPropertyAdWordsLinkId, $optParams = array())
   {
@@ -3664,6 +3699,7 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
    * for.
    * @param string $webPropertyAdWordsLinkId Web property-AdWords link ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityAdWordsLink
    */
   public function get($accountId, $webPropertyId, $webPropertyAdWordsLinkId, $optParams = array())
@@ -3681,6 +3717,7 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
    * @param string $webPropertyId Web property ID to create the link for.
    * @param Google_EntityAdWordsLink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityAdWordsLink
    */
   public function insert($accountId, $webPropertyId, Google_Service_Analytics_EntityAdWordsLink $postBody, $optParams = array())
@@ -3718,13 +3755,14 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
    * Updates an existing webProperty-AdWords link. This method supports patch
    * semantics. (webPropertyAdWordsLinks.patch)
    *
-   * @param string $accountId ID of the account which the given web property
+   * @param string                   $accountId                ID of the account which the given web property
    * belongs to.
-   * @param string $webPropertyId Web property ID to retrieve the AdWords link
+   * @param string                   $webPropertyId            Web property ID to retrieve the AdWords link
    * for.
-   * @param string $webPropertyAdWordsLinkId Web property-AdWords link ID.
+   * @param string                   $webPropertyAdWordsLinkId Web property-AdWords link ID.
    * @param Google_EntityAdWordsLink $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                    $optParams                Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityAdWordsLink
    */
   public function patch($accountId, $webPropertyId, $webPropertyAdWordsLinkId, Google_Service_Analytics_EntityAdWordsLink $postBody, $optParams = array())
@@ -3738,13 +3776,14 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
    * Updates an existing webProperty-AdWords link.
    * (webPropertyAdWordsLinks.update)
    *
-   * @param string $accountId ID of the account which the given web property
+   * @param string                   $accountId                ID of the account which the given web property
    * belongs to.
-   * @param string $webPropertyId Web property ID to retrieve the AdWords link
+   * @param string                   $webPropertyId            Web property ID to retrieve the AdWords link
    * for.
-   * @param string $webPropertyAdWordsLinkId Web property-AdWords link ID.
+   * @param string                   $webPropertyAdWordsLinkId Web property-AdWords link ID.
    * @param Google_EntityAdWordsLink $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                    $optParams                Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityAdWordsLink
    */
   public function update($accountId, $webPropertyId, $webPropertyAdWordsLinkId, Google_Service_Analytics_EntityAdWordsLink $postBody, $optParams = array())
@@ -3765,7 +3804,7 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
 class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_Service_Resource
 {
 
-  /**
+    /**
    * Gets a web property to which the user has access. (webproperties.get)
    *
    * @param string $accountId Account ID to retrieve the web property for.
@@ -3788,6 +3827,7 @@ class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_S
    * @param string $accountId Account ID to create the web property for.
    * @param Google_Webproperty $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Webproperty
    */
   public function insert($accountId, Google_Service_Analytics_Webproperty $postBody, $optParams = array())
@@ -3827,6 +3867,7 @@ class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_S
    * @param string $webPropertyId Web property ID
    * @param Google_Webproperty $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_Webproperty
    */
   public function patch($accountId, $webPropertyId, Google_Service_Analytics_Webproperty $postBody, $optParams = array())
@@ -3928,6 +3969,7 @@ class Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource extends G
    * @param string $linkId Link ID to update the account-user link for.
    * @param Google_EntityUserLink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Analytics_EntityUserLink
    */
   public function update($accountId, $webPropertyId, $linkId, Google_Service_Analytics_EntityUserLink $postBody, $optParams = array())
@@ -4008,19 +4050,17 @@ class Google_Service_Analytics_Provisioning_Resource extends Google_Service_Reso
 
 class Google_Service_Analytics_Account extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $childLinkType = 'Google_Service_Analytics_AccountChildLink';
-  protected $childLinkDataType = '';
   public $created;
   public $id;
   public $kind;
   public $name;
-  protected $permissionsType = 'Google_Service_Analytics_AccountPermissions';
-  protected $permissionsDataType = '';
   public $selfLink;
   public $updated;
-
+    protected $internal_gapi_mappings = array();
+    protected $childLinkType = 'Google_Service_Analytics_AccountChildLink';
+    protected $childLinkDataType = '';
+    protected $permissionsType = 'Google_Service_Analytics_AccountPermissions';
+    protected $permissionsDataType = '';
 
   public function setChildLink(Google_Service_Analytics_AccountChildLink $childLink)
   {
@@ -4030,38 +4070,47 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->childLink;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setId($id)
+
+    public function setCreated($created)
   {
-    $this->id = $id;
+      $this->created = $created;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setPermissions(Google_Service_Analytics_AccountPermissions $permissions)
   {
     $this->permissions = $permissions;
@@ -4070,119 +4119,124 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->permissions;
   }
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setUpdated($updated)
+
+    public function setSelfLink($selfLink)
   {
-    $this->updated = $updated;
+      $this->selfLink = $selfLink;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Analytics_AccountChildLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_AccountPermissions extends Google_Collection
 {
+    public $effective;
   protected $collection_key = 'effective';
   protected $internal_gapi_mappings = array(
   );
-  public $effective;
 
-
-  public function setEffective($effective)
-  {
-    $this->effective = $effective;
-  }
   public function getEffective()
   {
     return $this->effective;
   }
+
+    public function setEffective($effective)
+    {
+        $this->effective = $effective;
+    }
 }
 
 class Google_Service_Analytics_AccountRef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $id;
   public $kind;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setId($id)
+
+    public function setHref($href)
   {
-    $this->id = $id;
+      $this->href = $href;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Analytics_AccountSummaries extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_AccountSummary';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -4190,7 +4244,10 @@ class Google_Service_Analytics_AccountSummaries extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_AccountSummary';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -4200,100 +4257,118 @@ class Google_Service_Analytics_AccountSummaries extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_AccountSummary extends Google_Collection
 {
-  protected $collection_key = 'webProperties';
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $name;
+    protected $collection_key = 'webProperties';
+    protected $internal_gapi_mappings = array();
   protected $webPropertiesType = 'Google_Service_Analytics_WebPropertySummary';
   protected $webPropertiesDataType = 'array';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setWebProperties($webProperties)
   {
     $this->webProperties = $webProperties;
@@ -4306,15 +4381,15 @@ class Google_Service_Analytics_AccountSummary extends Google_Collection
 
 class Google_Service_Analytics_AccountTicket extends Google_Model
 {
+    public $id;
+    public $kind;
+    public $redirectUri;
   protected $internal_gapi_mappings = array(
   );
   protected $accountType = 'Google_Service_Analytics_Account';
   protected $accountDataType = '';
-  public $id;
-  public $kind;
   protected $profileType = 'Google_Service_Analytics_Profile';
   protected $profileDataType = '';
-  public $redirectUri;
   protected $webpropertyType = 'Google_Service_Analytics_Webproperty';
   protected $webpropertyDataType = '';
 
@@ -4327,22 +4402,27 @@ class Google_Service_Analytics_AccountTicket extends Google_Model
   {
     return $this->account;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setProfile(Google_Service_Analytics_Profile $profile)
   {
     $this->profile = $profile;
@@ -4351,14 +4431,17 @@ class Google_Service_Analytics_AccountTicket extends Google_Model
   {
     return $this->profile;
   }
-  public function setRedirectUri($redirectUri)
-  {
-    $this->redirectUri = $redirectUri;
-  }
+
   public function getRedirectUri()
   {
     return $this->redirectUri;
   }
+
+    public function setRedirectUri($redirectUri)
+    {
+        $this->redirectUri = $redirectUri;
+    }
+
   public function setWebproperty(Google_Service_Analytics_Webproperty $webproperty)
   {
     $this->webproperty = $webproperty;
@@ -4371,11 +4454,6 @@ class Google_Service_Analytics_AccountTicket extends Google_Model
 
 class Google_Service_Analytics_Accounts extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Account';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -4383,7 +4461,10 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Account';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -4393,150 +4474,170 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_AdWordsAccount extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $autoTaggingEnabled;
   public $customerId;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAutoTaggingEnabled($autoTaggingEnabled)
-  {
-    $this->autoTaggingEnabled = $autoTaggingEnabled;
-  }
   public function getAutoTaggingEnabled()
   {
     return $this->autoTaggingEnabled;
   }
-  public function setCustomerId($customerId)
+
+    public function setAutoTaggingEnabled($autoTaggingEnabled)
   {
-    $this->customerId = $customerId;
+      $this->autoTaggingEnabled = $autoTaggingEnabled;
   }
+
   public function getCustomerId()
   {
     return $this->customerId;
   }
-  public function setKind($kind)
+
+    public function setCustomerId($customerId)
   {
-    $this->kind = $kind;
+      $this->customerId = $customerId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Analytics_AnalyticsDataimportDeleteUploadDataRequest extends Google_Collection
 {
+    public $customDataImportUids;
   protected $collection_key = 'customDataImportUids';
   protected $internal_gapi_mappings = array(
   );
-  public $customDataImportUids;
 
-
-  public function setCustomDataImportUids($customDataImportUids)
-  {
-    $this->customDataImportUids = $customDataImportUids;
-  }
   public function getCustomDataImportUids()
   {
     return $this->customDataImportUids;
   }
+
+    public function setCustomDataImportUids($customDataImportUids)
+    {
+        $this->customDataImportUids = $customDataImportUids;
+    }
 }
 
 class Google_Service_Analytics_Column extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $attributes;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAttributes($attributes)
-  {
-    $this->attributes = $attributes;
-  }
   public function getAttributes()
   {
     return $this->attributes;
   }
-  public function setId($id)
+
+    public function setAttributes($attributes)
   {
-    $this->id = $id;
+      $this->attributes = $attributes;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Analytics_ColumnAttributes extends Google_Model
@@ -4545,33 +4646,35 @@ class Google_Service_Analytics_ColumnAttributes extends Google_Model
 
 class Google_Service_Analytics_Columns extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $attributeNames;
   public $etag;
-  protected $itemsType = 'Google_Service_Analytics_Column';
-  protected $itemsDataType = 'array';
   public $kind;
   public $totalResults;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Column';
+    protected $itemsDataType = 'array';
 
-
-  public function setAttributeNames($attributeNames)
-  {
-    $this->attributeNames = $attributeNames;
-  }
   public function getAttributeNames()
   {
     return $this->attributeNames;
   }
-  public function setEtag($etag)
+
+    public function setAttributeNames($attributeNames)
   {
-    $this->etag = $etag;
+      $this->attributeNames = $attributeNames;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -4580,56 +4683,60 @@ class Google_Service_Analytics_Columns extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setTotalResults($totalResults)
+
+    public function setKind($kind)
   {
-    $this->totalResults = $totalResults;
+      $this->kind = $kind;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
+
+    public function setTotalResults($totalResults)
+    {
+        $this->totalResults = $totalResults;
+    }
 }
 
 class Google_Service_Analytics_CustomDataSource extends Google_Collection
 {
-  protected $collection_key = 'profilesLinked';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
-  protected $childLinkType = 'Google_Service_Analytics_CustomDataSourceChildLink';
-  protected $childLinkDataType = '';
   public $created;
   public $description;
   public $id;
   public $importBehavior;
   public $kind;
   public $name;
-  protected $parentLinkType = 'Google_Service_Analytics_CustomDataSourceParentLink';
-  protected $parentLinkDataType = '';
   public $profilesLinked;
   public $selfLink;
   public $type;
   public $updated;
   public $uploadType;
   public $webPropertyId;
+    protected $collection_key = 'profilesLinked';
+    protected $internal_gapi_mappings = array();
+    protected $childLinkType = 'Google_Service_Analytics_CustomDataSourceChildLink';
+    protected $childLinkDataType = '';
+    protected $parentLinkType = 'Google_Service_Analytics_CustomDataSourceParentLink';
+    protected $parentLinkDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setChildLink(Google_Service_Analytics_CustomDataSourceChildLink $childLink)
   {
     $this->childLink = $childLink;
@@ -4638,54 +4745,67 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->childLink;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setDescription($description)
+
+    public function setCreated($created)
   {
-    $this->description = $description;
+      $this->created = $created;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setId($id)
+
+    public function setDescription($description)
   {
-    $this->id = $id;
+      $this->description = $description;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setImportBehavior($importBehavior)
+
+    public function setId($id)
   {
-    $this->importBehavior = $importBehavior;
+      $this->id = $id;
   }
+
   public function getImportBehavior()
   {
     return $this->importBehavior;
   }
-  public function setKind($kind)
+
+    public function setImportBehavior($importBehavior)
   {
-    $this->kind = $kind;
+      $this->importBehavior = $importBehavior;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_CustomDataSourceParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -4694,115 +4814,124 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->parentLink;
   }
-  public function setProfilesLinked($profilesLinked)
-  {
-    $this->profilesLinked = $profilesLinked;
-  }
+
   public function getProfilesLinked()
   {
     return $this->profilesLinked;
   }
-  public function setSelfLink($selfLink)
+
+    public function setProfilesLinked($profilesLinked)
   {
-    $this->selfLink = $selfLink;
+      $this->profilesLinked = $profilesLinked;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setType($type)
+
+    public function setSelfLink($selfLink)
   {
-    $this->type = $type;
+      $this->selfLink = $selfLink;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUpdated($updated)
+
+    public function setType($type)
   {
-    $this->updated = $updated;
+      $this->type = $type;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
-  public function setUploadType($uploadType)
+
+    public function setUpdated($updated)
   {
-    $this->uploadType = $uploadType;
+      $this->updated = $updated;
   }
+
   public function getUploadType()
   {
     return $this->uploadType;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setUploadType($uploadType)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->uploadType = $uploadType;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_CustomDataSourceChildLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_CustomDataSourceParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_CustomDataSources extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_CustomDataSource';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -4810,7 +4939,10 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_CustomDataSource';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -4820,68 +4952,80 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_CustomDimension extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $active;
   public $created;
@@ -4889,70 +5033,84 @@ class Google_Service_Analytics_CustomDimension extends Google_Model
   public $index;
   public $kind;
   public $name;
-  protected $parentLinkType = 'Google_Service_Analytics_CustomDimensionParentLink';
-  protected $parentLinkDataType = '';
   public $scope;
   public $selfLink;
   public $updated;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array();
+    protected $parentLinkType = 'Google_Service_Analytics_CustomDimensionParentLink';
+    protected $parentLinkDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setActive($active)
+
+    public function setAccountId($accountId)
   {
-    $this->active = $active;
+      $this->accountId = $accountId;
   }
+
   public function getActive()
   {
     return $this->active;
   }
-  public function setCreated($created)
+
+    public function setActive($active)
   {
-    $this->created = $created;
+      $this->active = $active;
   }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setId($id)
+
+    public function setCreated($created)
   {
-    $this->id = $id;
+      $this->created = $created;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setIndex($index)
+
+    public function setId($id)
   {
-    $this->index = $index;
+      $this->id = $id;
   }
+
   public function getIndex()
   {
     return $this->index;
   }
-  public function setKind($kind)
+
+    public function setIndex($index)
   {
-    $this->kind = $kind;
+      $this->index = $index;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_CustomDimensionParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -4961,73 +5119,77 @@ class Google_Service_Analytics_CustomDimension extends Google_Model
   {
     return $this->parentLink;
   }
-  public function setScope($scope)
-  {
-    $this->scope = $scope;
-  }
+
   public function getScope()
   {
     return $this->scope;
   }
-  public function setSelfLink($selfLink)
+
+    public function setScope($scope)
   {
-    $this->selfLink = $selfLink;
+      $this->scope = $scope;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setUpdated($updated)
+
+    public function setSelfLink($selfLink)
   {
-    $this->updated = $updated;
+      $this->selfLink = $selfLink;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setUpdated($updated)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->updated = $updated;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_CustomDimensionParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_CustomDimensions extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_CustomDimension';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -5035,7 +5197,10 @@ class Google_Service_Analytics_CustomDimensions extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_CustomDimension';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -5045,70 +5210,80 @@ class Google_Service_Analytics_CustomDimensions extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_CustomMetric extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "maxValue" => "max_value",
-        "minValue" => "min_value",
-  );
   public $accountId;
   public $active;
   public $created;
@@ -5118,87 +5293,108 @@ class Google_Service_Analytics_CustomMetric extends Google_Model
   public $maxValue;
   public $minValue;
   public $name;
-  protected $parentLinkType = 'Google_Service_Analytics_CustomMetricParentLink';
-  protected $parentLinkDataType = '';
   public $scope;
   public $selfLink;
   public $type;
   public $updated;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array(
+        "maxValue" => "max_value",
+        "minValue" => "min_value",
+    );
+    protected $parentLinkType = 'Google_Service_Analytics_CustomMetricParentLink';
+    protected $parentLinkDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setActive($active)
+
+    public function setAccountId($accountId)
   {
-    $this->active = $active;
+      $this->accountId = $accountId;
   }
+
   public function getActive()
   {
     return $this->active;
   }
-  public function setCreated($created)
+
+    public function setActive($active)
   {
-    $this->created = $created;
+      $this->active = $active;
   }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setId($id)
+
+    public function setCreated($created)
   {
-    $this->id = $id;
+      $this->created = $created;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setIndex($index)
+
+    public function setId($id)
   {
-    $this->index = $index;
+      $this->id = $id;
   }
+
   public function getIndex()
   {
     return $this->index;
   }
-  public function setKind($kind)
+
+    public function setIndex($index)
   {
-    $this->kind = $kind;
+      $this->index = $index;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMaxValue($maxValue)
+
+    public function setKind($kind)
   {
-    $this->maxValue = $maxValue;
+      $this->kind = $kind;
   }
+
   public function getMaxValue()
   {
     return $this->maxValue;
   }
-  public function setMinValue($minValue)
+
+    public function setMaxValue($maxValue)
   {
-    $this->minValue = $minValue;
+      $this->maxValue = $maxValue;
   }
+
   public function getMinValue()
   {
     return $this->minValue;
   }
-  public function setName($name)
+
+    public function setMinValue($minValue)
   {
-    $this->name = $name;
+      $this->minValue = $minValue;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_CustomMetricParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -5207,81 +5403,87 @@ class Google_Service_Analytics_CustomMetric extends Google_Model
   {
     return $this->parentLink;
   }
-  public function setScope($scope)
-  {
-    $this->scope = $scope;
-  }
+
   public function getScope()
   {
     return $this->scope;
   }
-  public function setSelfLink($selfLink)
+
+    public function setScope($scope)
   {
-    $this->selfLink = $selfLink;
+      $this->scope = $scope;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setType($type)
+
+    public function setSelfLink($selfLink)
   {
-    $this->type = $type;
+      $this->selfLink = $selfLink;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUpdated($updated)
+
+    public function setType($type)
   {
-    $this->updated = $updated;
+      $this->type = $type;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setUpdated($updated)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->updated = $updated;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_CustomMetricParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_CustomMetrics extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_CustomMetric';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -5289,7 +5491,10 @@ class Google_Service_Analytics_CustomMetrics extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_CustomMetric';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -5299,69 +5504,80 @@ class Google_Service_Analytics_CustomMetrics extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_DailyUpload extends Google_Collection
 {
-  protected $collection_key = 'recentChanges';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $appendCount;
   public $createdTime;
@@ -5369,70 +5585,85 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   public $date;
   public $kind;
   public $modifiedTime;
+    public $selfLink;
+    public $webPropertyId;
+    protected $collection_key = 'recentChanges';
+    protected $internal_gapi_mappings = array();
   protected $parentLinkType = 'Google_Service_Analytics_DailyUploadParentLink';
   protected $parentLinkDataType = '';
   protected $recentChangesType = 'Google_Service_Analytics_DailyUploadRecentChanges';
   protected $recentChangesDataType = 'array';
-  public $selfLink;
-  public $webPropertyId;
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setAppendCount($appendCount)
+
+    public function setAccountId($accountId)
   {
-    $this->appendCount = $appendCount;
+      $this->accountId = $accountId;
   }
+
   public function getAppendCount()
   {
     return $this->appendCount;
   }
-  public function setCreatedTime($createdTime)
+
+    public function setAppendCount($appendCount)
   {
-    $this->createdTime = $createdTime;
+      $this->appendCount = $appendCount;
   }
+
   public function getCreatedTime()
   {
     return $this->createdTime;
   }
-  public function setCustomDataSourceId($customDataSourceId)
+
+    public function setCreatedTime($createdTime)
   {
-    $this->customDataSourceId = $customDataSourceId;
+      $this->createdTime = $createdTime;
   }
+
   public function getCustomDataSourceId()
   {
     return $this->customDataSourceId;
   }
-  public function setDate($date)
+
+    public function setCustomDataSourceId($customDataSourceId)
   {
-    $this->date = $date;
+      $this->customDataSourceId = $customDataSourceId;
   }
+
   public function getDate()
   {
     return $this->date;
   }
-  public function setKind($kind)
+
+    public function setDate($date)
   {
-    $this->kind = $kind;
+      $this->date = $date;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setModifiedTime($modifiedTime)
+
+    public function setKind($kind)
   {
-    $this->modifiedTime = $modifiedTime;
+      $this->kind = $kind;
   }
+
   public function getModifiedTime()
   {
     return $this->modifiedTime;
   }
+
+    public function setModifiedTime($modifiedTime)
+    {
+        $this->modifiedTime = $modifiedTime;
+    }
+
   public function setParentLink(Google_Service_Analytics_DailyUploadParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -5449,28 +5680,30 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->recentChanges;
   }
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setSelfLink($selfLink)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->selfLink = $selfLink;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_DailyUploadAppend extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $appendNumber;
   public $customDataSourceId;
@@ -5478,125 +5711,135 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   public $kind;
   public $nextAppendLink;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setAppendNumber($appendNumber)
+
+    public function setAccountId($accountId)
   {
-    $this->appendNumber = $appendNumber;
+      $this->accountId = $accountId;
   }
+
   public function getAppendNumber()
   {
     return $this->appendNumber;
   }
-  public function setCustomDataSourceId($customDataSourceId)
+
+    public function setAppendNumber($appendNumber)
   {
-    $this->customDataSourceId = $customDataSourceId;
+      $this->appendNumber = $appendNumber;
   }
+
   public function getCustomDataSourceId()
   {
     return $this->customDataSourceId;
   }
-  public function setDate($date)
+
+    public function setCustomDataSourceId($customDataSourceId)
   {
-    $this->date = $date;
+      $this->customDataSourceId = $customDataSourceId;
   }
+
   public function getDate()
   {
     return $this->date;
   }
-  public function setKind($kind)
+
+    public function setDate($date)
   {
-    $this->kind = $kind;
+      $this->date = $date;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextAppendLink($nextAppendLink)
+
+    public function setKind($kind)
   {
-    $this->nextAppendLink = $nextAppendLink;
+      $this->kind = $kind;
   }
+
   public function getNextAppendLink()
   {
     return $this->nextAppendLink;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setNextAppendLink($nextAppendLink)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->nextAppendLink = $nextAppendLink;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_DailyUploadParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_DailyUploadRecentChanges extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $change;
   public $time;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChange($change)
-  {
-    $this->change = $change;
-  }
   public function getChange()
   {
     return $this->change;
   }
-  public function setTime($time)
+
+    public function setChange($change)
   {
-    $this->time = $time;
+      $this->change = $change;
   }
+
   public function getTime()
   {
     return $this->time;
   }
+
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
 }
 
 class Google_Service_Analytics_DailyUploads extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_DailyUpload';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -5604,7 +5847,10 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_DailyUpload';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -5614,66 +5860,85 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_EntityAdWordsLink extends Google_Collection
 {
+    public $id;
+    public $kind;
+    public $name;
+    public $profileIds;
+    public $selfLink;
   protected $collection_key = 'profileIds';
   protected $internal_gapi_mappings = array(
   );
@@ -5681,12 +5946,6 @@ class Google_Service_Analytics_EntityAdWordsLink extends Google_Collection
   protected $adWordsAccountsDataType = 'array';
   protected $entityType = 'Google_Service_Analytics_EntityAdWordsLinkEntity';
   protected $entityDataType = '';
-  public $id;
-  public $kind;
-  public $name;
-  public $profileIds;
-  public $selfLink;
-
 
   public function setAdWordsAccounts($adWordsAccounts)
   {
@@ -5704,46 +5963,56 @@ class Google_Service_Analytics_EntityAdWordsLink extends Google_Collection
   {
     return $this->entity;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setProfileIds($profileIds)
+
+    public function setName($name)
   {
-    $this->profileIds = $profileIds;
+      $this->name = $name;
   }
+
   public function getProfileIds()
   {
     return $this->profileIds;
   }
-  public function setSelfLink($selfLink)
+
+    public function setProfileIds($profileIds)
   {
-    $this->selfLink = $selfLink;
+      $this->profileIds = $profileIds;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Analytics_EntityAdWordsLinkEntity extends Google_Model
@@ -5766,18 +6035,16 @@ class Google_Service_Analytics_EntityAdWordsLinkEntity extends Google_Model
 
 class Google_Service_Analytics_EntityAdWordsLinks extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_EntityAdWordsLink';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
   public $previousLink;
   public $startIndex;
   public $totalResults;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_EntityAdWordsLink';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -5787,67 +6054,79 @@ class Google_Service_Analytics_EntityAdWordsLinks extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
+
+    public function setTotalResults($totalResults)
+    {
+        $this->totalResults = $totalResults;
+    }
 }
 
 class Google_Service_Analytics_EntityUserLink extends Google_Model
 {
+    public $id;
+    public $kind;
+    public $selfLink;
   protected $internal_gapi_mappings = array(
   );
   protected $entityType = 'Google_Service_Analytics_EntityUserLinkEntity';
   protected $entityDataType = '';
-  public $id;
-  public $kind;
   protected $permissionsType = 'Google_Service_Analytics_EntityUserLinkPermissions';
   protected $permissionsDataType = '';
-  public $selfLink;
   protected $userRefType = 'Google_Service_Analytics_UserRef';
   protected $userRefDataType = '';
 
@@ -5860,22 +6139,27 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->entity;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPermissions(Google_Service_Analytics_EntityUserLinkPermissions $permissions)
   {
     $this->permissions = $permissions;
@@ -5884,14 +6168,17 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->permissions;
   }
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
+
   public function setUserRef(Google_Service_Analytics_UserRef $userRef)
   {
     $this->userRef = $userRef;
@@ -5942,45 +6229,44 @@ class Google_Service_Analytics_EntityUserLinkEntity extends Google_Model
 
 class Google_Service_Analytics_EntityUserLinkPermissions extends Google_Collection
 {
-  protected $collection_key = 'local';
-  protected $internal_gapi_mappings = array(
-  );
   public $effective;
   public $local;
+    protected $collection_key = 'local';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEffective($effective)
-  {
-    $this->effective = $effective;
-  }
   public function getEffective()
   {
     return $this->effective;
   }
-  public function setLocal($local)
+
+    public function setEffective($effective)
   {
-    $this->local = $local;
+      $this->effective = $effective;
   }
+
   public function getLocal()
   {
     return $this->local;
   }
+
+    public function setLocal($local)
+    {
+        $this->local = $local;
+    }
 }
 
 class Google_Service_Analytics_EntityUserLinks extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_EntityUserLink';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
   public $previousLink;
   public $startIndex;
   public $totalResults;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_EntityUserLink';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -5990,61 +6276,70 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
+
+    public function setTotalResults($totalResults)
+    {
+        $this->totalResults = $totalResults;
+    }
 }
 
 class Google_Service_Analytics_Experiment extends Google_Collection
 {
-  protected $collection_key = 'variations';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $created;
   public $description;
@@ -6058,8 +6353,6 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   public $name;
   public $objectiveMetric;
   public $optimizationType;
-  protected $parentLinkType = 'Google_Service_Analytics_ExperimentParentLink';
-  protected $parentLinkDataType = '';
   public $profileId;
   public $reasonExperimentEnded;
   public $rewriteVariationUrlsAsOriginal;
@@ -6070,117 +6363,146 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   public $status;
   public $trafficCoverage;
   public $updated;
-  protected $variationsType = 'Google_Service_Analytics_ExperimentVariations';
-  protected $variationsDataType = 'array';
   public $webPropertyId;
   public $winnerConfidenceLevel;
   public $winnerFound;
+    protected $collection_key = 'variations';
+    protected $internal_gapi_mappings = array();
+    protected $parentLinkType = 'Google_Service_Analytics_ExperimentParentLink';
+    protected $parentLinkDataType = '';
+    protected $variationsType = 'Google_Service_Analytics_ExperimentVariations';
+    protected $variationsDataType = 'array';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setCreated($created)
+
+    public function setAccountId($accountId)
   {
-    $this->created = $created;
+      $this->accountId = $accountId;
   }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setDescription($description)
+
+    public function setCreated($created)
   {
-    $this->description = $description;
+      $this->created = $created;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setEditableInGaUi($editableInGaUi)
+
+    public function setDescription($description)
   {
-    $this->editableInGaUi = $editableInGaUi;
+      $this->description = $description;
   }
+
   public function getEditableInGaUi()
   {
     return $this->editableInGaUi;
   }
-  public function setEndTime($endTime)
+
+    public function setEditableInGaUi($editableInGaUi)
   {
-    $this->endTime = $endTime;
+      $this->editableInGaUi = $editableInGaUi;
   }
+
   public function getEndTime()
   {
     return $this->endTime;
   }
-  public function setEqualWeighting($equalWeighting)
+
+    public function setEndTime($endTime)
   {
-    $this->equalWeighting = $equalWeighting;
+      $this->endTime = $endTime;
   }
+
   public function getEqualWeighting()
   {
     return $this->equalWeighting;
   }
-  public function setId($id)
+
+    public function setEqualWeighting($equalWeighting)
   {
-    $this->id = $id;
+      $this->equalWeighting = $equalWeighting;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setId($id)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->id = $id;
   }
+
   public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMinimumExperimentLengthInDays($minimumExperimentLengthInDays)
+
+    public function setKind($kind)
   {
-    $this->minimumExperimentLengthInDays = $minimumExperimentLengthInDays;
+      $this->kind = $kind;
   }
+
   public function getMinimumExperimentLengthInDays()
   {
     return $this->minimumExperimentLengthInDays;
   }
-  public function setName($name)
+
+    public function setMinimumExperimentLengthInDays($minimumExperimentLengthInDays)
   {
-    $this->name = $name;
+      $this->minimumExperimentLengthInDays = $minimumExperimentLengthInDays;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setObjectiveMetric($objectiveMetric)
+
+    public function setName($name)
   {
-    $this->objectiveMetric = $objectiveMetric;
+      $this->name = $name;
   }
+
   public function getObjectiveMetric()
   {
     return $this->objectiveMetric;
   }
-  public function setOptimizationType($optimizationType)
+
+    public function setObjectiveMetric($objectiveMetric)
   {
-    $this->optimizationType = $optimizationType;
+      $this->objectiveMetric = $objectiveMetric;
   }
+
   public function getOptimizationType()
   {
     return $this->optimizationType;
   }
+
+    public function setOptimizationType($optimizationType)
+    {
+        $this->optimizationType = $optimizationType;
+    }
+
   public function setParentLink(Google_Service_Analytics_ExperimentParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -6189,86 +6511,107 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->parentLink;
   }
-  public function setProfileId($profileId)
-  {
-    $this->profileId = $profileId;
-  }
+
   public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setReasonExperimentEnded($reasonExperimentEnded)
+
+    public function setProfileId($profileId)
   {
-    $this->reasonExperimentEnded = $reasonExperimentEnded;
+      $this->profileId = $profileId;
   }
+
   public function getReasonExperimentEnded()
   {
     return $this->reasonExperimentEnded;
   }
-  public function setRewriteVariationUrlsAsOriginal($rewriteVariationUrlsAsOriginal)
+
+    public function setReasonExperimentEnded($reasonExperimentEnded)
   {
-    $this->rewriteVariationUrlsAsOriginal = $rewriteVariationUrlsAsOriginal;
+      $this->reasonExperimentEnded = $reasonExperimentEnded;
   }
+
   public function getRewriteVariationUrlsAsOriginal()
   {
     return $this->rewriteVariationUrlsAsOriginal;
   }
-  public function setSelfLink($selfLink)
+
+    public function setRewriteVariationUrlsAsOriginal($rewriteVariationUrlsAsOriginal)
   {
-    $this->selfLink = $selfLink;
+      $this->rewriteVariationUrlsAsOriginal = $rewriteVariationUrlsAsOriginal;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setServingFramework($servingFramework)
+
+    public function setSelfLink($selfLink)
   {
-    $this->servingFramework = $servingFramework;
+      $this->selfLink = $selfLink;
   }
+
   public function getServingFramework()
   {
     return $this->servingFramework;
   }
-  public function setSnippet($snippet)
+
+    public function setServingFramework($servingFramework)
   {
-    $this->snippet = $snippet;
+      $this->servingFramework = $servingFramework;
   }
+
   public function getSnippet()
   {
     return $this->snippet;
   }
-  public function setStartTime($startTime)
+
+    public function setSnippet($snippet)
   {
-    $this->startTime = $startTime;
+      $this->snippet = $snippet;
   }
+
   public function getStartTime()
   {
     return $this->startTime;
   }
-  public function setStatus($status)
+
+    public function setStartTime($startTime)
   {
-    $this->status = $status;
+      $this->startTime = $startTime;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setTrafficCoverage($trafficCoverage)
+
+    public function setStatus($status)
   {
-    $this->trafficCoverage = $trafficCoverage;
+      $this->status = $status;
   }
+
   public function getTrafficCoverage()
   {
     return $this->trafficCoverage;
   }
-  public function setUpdated($updated)
+
+    public function setTrafficCoverage($trafficCoverage)
   {
-    $this->updated = $updated;
+      $this->trafficCoverage = $trafficCoverage;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
   public function setVariations($variations)
   {
     $this->variations = $variations;
@@ -6277,118 +6620,127 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->variations;
   }
-  public function setWebPropertyId($webPropertyId)
-  {
-    $this->webPropertyId = $webPropertyId;
-  }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
-  public function setWinnerConfidenceLevel($winnerConfidenceLevel)
+
+    public function setWebPropertyId($webPropertyId)
   {
-    $this->winnerConfidenceLevel = $winnerConfidenceLevel;
+      $this->webPropertyId = $webPropertyId;
   }
+
   public function getWinnerConfidenceLevel()
   {
     return $this->winnerConfidenceLevel;
   }
-  public function setWinnerFound($winnerFound)
+
+    public function setWinnerConfidenceLevel($winnerConfidenceLevel)
   {
-    $this->winnerFound = $winnerFound;
+      $this->winnerConfidenceLevel = $winnerConfidenceLevel;
   }
+
   public function getWinnerFound()
   {
     return $this->winnerFound;
   }
+
+    public function setWinnerFound($winnerFound)
+    {
+        $this->winnerFound = $winnerFound;
+    }
 }
 
 class Google_Service_Analytics_ExperimentParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_ExperimentVariations extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $status;
   public $url;
   public $weight;
   public $won;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setStatus($status)
+
+    public function setName($name)
   {
-    $this->status = $status;
+      $this->name = $name;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setUrl($url)
+
+    public function setStatus($status)
   {
-    $this->url = $url;
+      $this->status = $status;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setWeight($weight)
+
+    public function setUrl($url)
   {
-    $this->weight = $weight;
+      $this->url = $url;
   }
+
   public function getWeight()
   {
     return $this->weight;
   }
-  public function setWon($won)
+
+    public function setWeight($weight)
   {
-    $this->won = $won;
+      $this->weight = $weight;
   }
+
   public function getWon()
   {
     return $this->won;
   }
+
+    public function setWon($won)
+    {
+        $this->won = $won;
+    }
 }
 
 class Google_Service_Analytics_Experiments extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Experiment';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -6396,7 +6748,10 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Experiment';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -6406,100 +6761,114 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_Filter extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
+    public $created;
+    public $id;
+    public $kind;
+    public $name;
+    public $selfLink;
+    public $type;
+    public $updated;
+    protected $internal_gapi_mappings = array();
   protected $advancedDetailsType = 'Google_Service_Analytics_FilterAdvancedDetails';
   protected $advancedDetailsDataType = '';
-  public $created;
   protected $excludeDetailsType = 'Google_Service_Analytics_FilterExpression';
   protected $excludeDetailsDataType = '';
-  public $id;
   protected $includeDetailsType = 'Google_Service_Analytics_FilterExpression';
   protected $includeDetailsDataType = '';
-  public $kind;
   protected $lowercaseDetailsType = 'Google_Service_Analytics_FilterLowercaseDetails';
   protected $lowercaseDetailsDataType = '';
-  public $name;
   protected $parentLinkType = 'Google_Service_Analytics_FilterParentLink';
   protected $parentLinkDataType = '';
   protected $searchAndReplaceDetailsType = 'Google_Service_Analytics_FilterSearchAndReplaceDetails';
   protected $searchAndReplaceDetailsDataType = '';
-  public $selfLink;
-  public $type;
-  public $updated;
   protected $uppercaseDetailsType = 'Google_Service_Analytics_FilterUppercaseDetails';
   protected $uppercaseDetailsDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setAdvancedDetails(Google_Service_Analytics_FilterAdvancedDetails $advancedDetails)
   {
     $this->advancedDetails = $advancedDetails;
@@ -6508,14 +6877,17 @@ class Google_Service_Analytics_Filter extends Google_Model
   {
     return $this->advancedDetails;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
+
   public function getCreated()
   {
     return $this->created;
   }
+
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
   public function setExcludeDetails(Google_Service_Analytics_FilterExpression $excludeDetails)
   {
     $this->excludeDetails = $excludeDetails;
@@ -6524,14 +6896,17 @@ class Google_Service_Analytics_Filter extends Google_Model
   {
     return $this->excludeDetails;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setIncludeDetails(Google_Service_Analytics_FilterExpression $includeDetails)
   {
     $this->includeDetails = $includeDetails;
@@ -6540,14 +6915,17 @@ class Google_Service_Analytics_Filter extends Google_Model
   {
     return $this->includeDetails;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLowercaseDetails(Google_Service_Analytics_FilterLowercaseDetails $lowercaseDetails)
   {
     $this->lowercaseDetails = $lowercaseDetails;
@@ -6556,14 +6934,17 @@ class Google_Service_Analytics_Filter extends Google_Model
   {
     return $this->lowercaseDetails;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_FilterParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -6580,30 +6961,37 @@ class Google_Service_Analytics_Filter extends Google_Model
   {
     return $this->searchAndReplaceDetails;
   }
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setType($type)
+
+    public function setSelfLink($selfLink)
   {
-    $this->type = $type;
+      $this->selfLink = $selfLink;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUpdated($updated)
+
+    public function setType($type)
   {
-    $this->updated = $updated;
+      $this->type = $type;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
   public function setUppercaseDetails(Google_Service_Analytics_FilterUppercaseDetails $uppercaseDetails)
   {
     $this->uppercaseDetails = $uppercaseDetails;
@@ -6616,8 +7004,6 @@ class Google_Service_Analytics_Filter extends Google_Model
 
 class Google_Service_Analytics_FilterAdvancedDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $caseSensitive;
   public $extractA;
   public $extractB;
@@ -6628,307 +7014,339 @@ class Google_Service_Analytics_FilterAdvancedDetails extends Google_Model
   public $outputConstructor;
   public $outputToField;
   public $overrideOutputField;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCaseSensitive($caseSensitive)
-  {
-    $this->caseSensitive = $caseSensitive;
-  }
   public function getCaseSensitive()
   {
     return $this->caseSensitive;
   }
-  public function setExtractA($extractA)
+
+    public function setCaseSensitive($caseSensitive)
   {
-    $this->extractA = $extractA;
+      $this->caseSensitive = $caseSensitive;
   }
+
   public function getExtractA()
   {
     return $this->extractA;
   }
-  public function setExtractB($extractB)
+
+    public function setExtractA($extractA)
   {
-    $this->extractB = $extractB;
+      $this->extractA = $extractA;
   }
+
   public function getExtractB()
   {
     return $this->extractB;
   }
-  public function setFieldA($fieldA)
+
+    public function setExtractB($extractB)
   {
-    $this->fieldA = $fieldA;
+      $this->extractB = $extractB;
   }
+
   public function getFieldA()
   {
     return $this->fieldA;
   }
-  public function setFieldARequired($fieldARequired)
+
+    public function setFieldA($fieldA)
   {
-    $this->fieldARequired = $fieldARequired;
+      $this->fieldA = $fieldA;
   }
+
   public function getFieldARequired()
   {
     return $this->fieldARequired;
   }
-  public function setFieldB($fieldB)
+
+    public function setFieldARequired($fieldARequired)
   {
-    $this->fieldB = $fieldB;
+      $this->fieldARequired = $fieldARequired;
   }
+
   public function getFieldB()
   {
     return $this->fieldB;
   }
-  public function setFieldBRequired($fieldBRequired)
+
+    public function setFieldB($fieldB)
   {
-    $this->fieldBRequired = $fieldBRequired;
+      $this->fieldB = $fieldB;
   }
+
   public function getFieldBRequired()
   {
     return $this->fieldBRequired;
   }
-  public function setOutputConstructor($outputConstructor)
+
+    public function setFieldBRequired($fieldBRequired)
   {
-    $this->outputConstructor = $outputConstructor;
+      $this->fieldBRequired = $fieldBRequired;
   }
+
   public function getOutputConstructor()
   {
     return $this->outputConstructor;
   }
-  public function setOutputToField($outputToField)
+
+    public function setOutputConstructor($outputConstructor)
   {
-    $this->outputToField = $outputToField;
+      $this->outputConstructor = $outputConstructor;
   }
+
   public function getOutputToField()
   {
     return $this->outputToField;
   }
-  public function setOverrideOutputField($overrideOutputField)
+
+    public function setOutputToField($outputToField)
   {
-    $this->overrideOutputField = $overrideOutputField;
+      $this->outputToField = $outputToField;
   }
+
   public function getOverrideOutputField()
   {
     return $this->overrideOutputField;
   }
+
+    public function setOverrideOutputField($overrideOutputField)
+    {
+        $this->overrideOutputField = $overrideOutputField;
+    }
 }
 
 class Google_Service_Analytics_FilterExpression extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $caseSensitive;
   public $expressionValue;
   public $field;
   public $kind;
   public $matchType;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCaseSensitive($caseSensitive)
-  {
-    $this->caseSensitive = $caseSensitive;
-  }
   public function getCaseSensitive()
   {
     return $this->caseSensitive;
   }
-  public function setExpressionValue($expressionValue)
+
+    public function setCaseSensitive($caseSensitive)
   {
-    $this->expressionValue = $expressionValue;
+      $this->caseSensitive = $caseSensitive;
   }
+
   public function getExpressionValue()
   {
     return $this->expressionValue;
   }
-  public function setField($field)
+
+    public function setExpressionValue($expressionValue)
   {
-    $this->field = $field;
+      $this->expressionValue = $expressionValue;
   }
+
   public function getField()
   {
     return $this->field;
   }
-  public function setKind($kind)
+
+    public function setField($field)
   {
-    $this->kind = $kind;
+      $this->field = $field;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMatchType($matchType)
+
+    public function setKind($kind)
   {
-    $this->matchType = $matchType;
+      $this->kind = $kind;
   }
+
   public function getMatchType()
   {
     return $this->matchType;
   }
+
+    public function setMatchType($matchType)
+    {
+        $this->matchType = $matchType;
+    }
 }
 
 class Google_Service_Analytics_FilterLowercaseDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $field;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setField($field)
-  {
-    $this->field = $field;
-  }
   public function getField()
   {
     return $this->field;
   }
+
+    public function setField($field)
+    {
+        $this->field = $field;
+    }
 }
 
 class Google_Service_Analytics_FilterParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_FilterRef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $href;
   public $id;
   public $kind;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setHref($href)
+
+    public function setAccountId($accountId)
   {
-    $this->href = $href;
+      $this->accountId = $accountId;
   }
+
   public function getHref()
   {
     return $this->href;
   }
-  public function setId($id)
+
+    public function setHref($href)
   {
-    $this->id = $id;
+      $this->href = $href;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Analytics_FilterSearchAndReplaceDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $caseSensitive;
   public $field;
   public $replaceString;
   public $searchString;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCaseSensitive($caseSensitive)
-  {
-    $this->caseSensitive = $caseSensitive;
-  }
   public function getCaseSensitive()
   {
     return $this->caseSensitive;
   }
-  public function setField($field)
+
+    public function setCaseSensitive($caseSensitive)
   {
-    $this->field = $field;
+      $this->caseSensitive = $caseSensitive;
   }
+
   public function getField()
   {
     return $this->field;
   }
-  public function setReplaceString($replaceString)
+
+    public function setField($field)
   {
-    $this->replaceString = $replaceString;
+      $this->field = $field;
   }
+
   public function getReplaceString()
   {
     return $this->replaceString;
   }
-  public function setSearchString($searchString)
+
+    public function setReplaceString($replaceString)
   {
-    $this->searchString = $searchString;
+      $this->replaceString = $replaceString;
   }
+
   public function getSearchString()
   {
     return $this->searchString;
   }
+
+    public function setSearchString($searchString)
+    {
+        $this->searchString = $searchString;
+    }
 }
 
 class Google_Service_Analytics_FilterUppercaseDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $field;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setField($field)
-  {
-    $this->field = $field;
-  }
   public function getField()
   {
     return $this->field;
   }
+
+    public function setField($field)
+    {
+        $this->field = $field;
+    }
 }
 
 class Google_Service_Analytics_Filters extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Filter';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -6936,7 +7354,10 @@ class Google_Service_Analytics_Filters extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Filter';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -6946,90 +7367,102 @@ class Google_Service_Analytics_Filters extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_GaData extends Google_Collection
 {
-  protected $collection_key = 'rows';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $columnHeadersType = 'Google_Service_Analytics_GaDataColumnHeaders';
-  protected $columnHeadersDataType = 'array';
   public $containsSampledData;
-  protected $dataTableType = 'Google_Service_Analytics_GaDataDataTable';
-  protected $dataTableDataType = '';
   public $id;
   public $itemsPerPage;
   public $kind;
   public $nextLink;
   public $previousLink;
-  protected $profileInfoType = 'Google_Service_Analytics_GaDataProfileInfo';
-  protected $profileInfoDataType = '';
-  protected $queryType = 'Google_Service_Analytics_GaDataQuery';
-  protected $queryDataType = '';
   public $rows;
   public $sampleSize;
   public $sampleSpace;
   public $selfLink;
   public $totalResults;
   public $totalsForAllResults;
-
+    protected $collection_key = 'rows';
+    protected $internal_gapi_mappings = array();
+    protected $columnHeadersType = 'Google_Service_Analytics_GaDataColumnHeaders';
+    protected $columnHeadersDataType = 'array';
+    protected $dataTableType = 'Google_Service_Analytics_GaDataDataTable';
+    protected $dataTableDataType = '';
+    protected $profileInfoType = 'Google_Service_Analytics_GaDataProfileInfo';
+    protected $profileInfoDataType = '';
+    protected $queryType = 'Google_Service_Analytics_GaDataQuery';
+    protected $queryDataType = '';
 
   public function setColumnHeaders($columnHeaders)
   {
@@ -7039,14 +7472,17 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  public function setContainsSampledData($containsSampledData)
-  {
-    $this->containsSampledData = $containsSampledData;
-  }
+
   public function getContainsSampledData()
   {
     return $this->containsSampledData;
   }
+
+    public function setContainsSampledData($containsSampledData)
+    {
+        $this->containsSampledData = $containsSampledData;
+    }
+
   public function setDataTable(Google_Service_Analytics_GaDataDataTable $dataTable)
   {
     $this->dataTable = $dataTable;
@@ -7055,46 +7491,57 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->dataTable;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setItemsPerPage($itemsPerPage)
+
+    public function setId($id)
   {
-    $this->itemsPerPage = $itemsPerPage;
+      $this->id = $id;
   }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
+
+    public function setPreviousLink($previousLink)
+    {
+        $this->previousLink = $previousLink;
+    }
+
   public function setProfileInfo(Google_Service_Analytics_GaDataProfileInfo $profileInfo)
   {
     $this->profileInfo = $profileInfo;
@@ -7111,89 +7558,104 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->query;
   }
-  public function setRows($rows)
-  {
-    $this->rows = $rows;
-  }
+
   public function getRows()
   {
     return $this->rows;
   }
-  public function setSampleSize($sampleSize)
+
+    public function setRows($rows)
   {
-    $this->sampleSize = $sampleSize;
+      $this->rows = $rows;
   }
+
   public function getSampleSize()
   {
     return $this->sampleSize;
   }
-  public function setSampleSpace($sampleSpace)
+
+    public function setSampleSize($sampleSize)
   {
-    $this->sampleSpace = $sampleSpace;
+      $this->sampleSize = $sampleSize;
   }
+
   public function getSampleSpace()
   {
     return $this->sampleSpace;
   }
-  public function setSelfLink($selfLink)
+
+    public function setSampleSpace($sampleSpace)
   {
-    $this->selfLink = $selfLink;
+      $this->sampleSpace = $sampleSpace;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTotalResults($totalResults)
+
+    public function setSelfLink($selfLink)
   {
-    $this->totalResults = $totalResults;
+      $this->selfLink = $selfLink;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setTotalsForAllResults($totalsForAllResults)
+
+    public function setTotalResults($totalResults)
   {
-    $this->totalsForAllResults = $totalsForAllResults;
+      $this->totalResults = $totalResults;
   }
+
   public function getTotalsForAllResults()
   {
     return $this->totalsForAllResults;
   }
+
+    public function setTotalsForAllResults($totalsForAllResults)
+    {
+        $this->totalsForAllResults = $totalsForAllResults;
+    }
 }
 
 class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $columnType;
   public $dataType;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setColumnType($columnType)
-  {
-    $this->columnType = $columnType;
-  }
   public function getColumnType()
   {
     return $this->columnType;
   }
-  public function setDataType($dataType)
+
+    public function setColumnType($columnType)
   {
-    $this->dataType = $dataType;
+      $this->columnType = $columnType;
   }
+
   public function getDataType()
   {
     return $this->dataType;
   }
-  public function setName($name)
+
+    public function setDataType($dataType)
   {
-    $this->name = $name;
+      $this->dataType = $dataType;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Analytics_GaDataDataTable extends Google_Collection
@@ -7227,37 +7689,40 @@ class Google_Service_Analytics_GaDataDataTable extends Google_Collection
 
 class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $label;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setLabel($label)
+
+    public function setId($id)
   {
-    $this->label = $label;
+      $this->id = $id;
   }
+
   public function getLabel()
   {
     return $this->label;
   }
-  public function setType($type)
+
+    public function setLabel($label)
   {
-    $this->type = $type;
+      $this->label = $label;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_GaDataDataTableRows extends Google_Collection
@@ -7281,92 +7746,93 @@ class Google_Service_Analytics_GaDataDataTableRows extends Google_Collection
 
 class Google_Service_Analytics_GaDataDataTableRowsC extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $v;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setV($v)
-  {
-    $this->v = $v;
-  }
   public function getV()
   {
     return $this->v;
   }
+
+    public function setV($v)
+    {
+        $this->v = $v;
+    }
 }
 
 class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $internalWebPropertyId;
   public $profileId;
   public $profileName;
   public $tableId;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setAccountId($accountId)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->accountId = $accountId;
   }
+
   public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setProfileId($profileId)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->profileId = $profileId;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
+
   public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setProfileName($profileName)
+
+    public function setProfileId($profileId)
   {
-    $this->profileName = $profileName;
+      $this->profileId = $profileId;
   }
+
   public function getProfileName()
   {
     return $this->profileName;
   }
-  public function setTableId($tableId)
+
+    public function setProfileName($profileName)
   {
-    $this->tableId = $tableId;
+      $this->profileName = $profileName;
   }
+
   public function getTableId()
   {
     return $this->tableId;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setTableId($tableId)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->tableId = $tableId;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_GaDataQuery extends Google_Collection
 {
-  protected $collection_key = 'sort';
-  protected $internal_gapi_mappings = array(
-        "endDate" => "end-date",
-        "maxResults" => "max-results",
-        "startDate" => "start-date",
-        "startIndex" => "start-index",
-  );
   public $dimensions;
   public $endDate;
   public $filters;
@@ -7378,96 +7844,123 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   public $sort;
   public $startDate;
   public $startIndex;
+    protected $collection_key = 'sort';
+    protected $internal_gapi_mappings = array(
+        "endDate" => "end-date",
+        "maxResults" => "max-results",
+        "startDate" => "start-date",
+        "startIndex" => "start-index",
+    );
 
-
-  public function setDimensions($dimensions)
-  {
-    $this->dimensions = $dimensions;
-  }
   public function getDimensions()
   {
     return $this->dimensions;
   }
-  public function setEndDate($endDate)
+
+    public function setDimensions($dimensions)
   {
-    $this->endDate = $endDate;
+      $this->dimensions = $dimensions;
   }
+
   public function getEndDate()
   {
     return $this->endDate;
   }
-  public function setFilters($filters)
+
+    public function setEndDate($endDate)
   {
-    $this->filters = $filters;
+      $this->endDate = $endDate;
   }
+
   public function getFilters()
   {
     return $this->filters;
   }
-  public function setIds($ids)
+
+    public function setFilters($filters)
   {
-    $this->ids = $ids;
+      $this->filters = $filters;
   }
+
   public function getIds()
   {
     return $this->ids;
   }
-  public function setMaxResults($maxResults)
+
+    public function setIds($ids)
   {
-    $this->maxResults = $maxResults;
+      $this->ids = $ids;
   }
+
   public function getMaxResults()
   {
     return $this->maxResults;
   }
-  public function setMetrics($metrics)
+
+    public function setMaxResults($maxResults)
   {
-    $this->metrics = $metrics;
+      $this->maxResults = $maxResults;
   }
+
   public function getMetrics()
   {
     return $this->metrics;
   }
-  public function setSamplingLevel($samplingLevel)
+
+    public function setMetrics($metrics)
   {
-    $this->samplingLevel = $samplingLevel;
+      $this->metrics = $metrics;
   }
+
   public function getSamplingLevel()
   {
     return $this->samplingLevel;
   }
-  public function setSegment($segment)
+
+    public function setSamplingLevel($samplingLevel)
   {
-    $this->segment = $segment;
+      $this->samplingLevel = $samplingLevel;
   }
+
   public function getSegment()
   {
     return $this->segment;
   }
-  public function setSort($sort)
+
+    public function setSegment($segment)
   {
-    $this->sort = $sort;
+      $this->segment = $segment;
   }
+
   public function getSort()
   {
     return $this->sort;
   }
-  public function setStartDate($startDate)
+
+    public function setSort($sort)
   {
-    $this->startDate = $startDate;
+      $this->sort = $sort;
   }
+
   public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setStartIndex($startIndex)
+
+    public function setStartDate($startDate)
   {
-    $this->startIndex = $startIndex;
+      $this->startDate = $startDate;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
+
+    public function setStartIndex($startIndex)
+    {
+        $this->startIndex = $startIndex;
+    }
 }
 
 class Google_Service_Analytics_GaDataTotalsForAllResults extends Google_Model
@@ -7476,57 +7969,61 @@ class Google_Service_Analytics_GaDataTotalsForAllResults extends Google_Model
 
 class Google_Service_Analytics_Goal extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $active;
   public $created;
-  protected $eventDetailsType = 'Google_Service_Analytics_GoalEventDetails';
-  protected $eventDetailsDataType = '';
   public $id;
   public $internalWebPropertyId;
   public $kind;
   public $name;
-  protected $parentLinkType = 'Google_Service_Analytics_GoalParentLink';
-  protected $parentLinkDataType = '';
   public $profileId;
   public $selfLink;
   public $type;
   public $updated;
+    public $value;
+    public $webPropertyId;
+    protected $internal_gapi_mappings = array();
+    protected $eventDetailsType = 'Google_Service_Analytics_GoalEventDetails';
+    protected $eventDetailsDataType = '';
+    protected $parentLinkType = 'Google_Service_Analytics_GoalParentLink';
+    protected $parentLinkDataType = '';
   protected $urlDestinationDetailsType = 'Google_Service_Analytics_GoalUrlDestinationDetails';
   protected $urlDestinationDetailsDataType = '';
-  public $value;
   protected $visitNumPagesDetailsType = 'Google_Service_Analytics_GoalVisitNumPagesDetails';
   protected $visitNumPagesDetailsDataType = '';
   protected $visitTimeOnSiteDetailsType = 'Google_Service_Analytics_GoalVisitTimeOnSiteDetails';
   protected $visitTimeOnSiteDetailsDataType = '';
-  public $webPropertyId;
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setActive($active)
+
+    public function setAccountId($accountId)
   {
-    $this->active = $active;
+      $this->accountId = $accountId;
   }
+
   public function getActive()
   {
     return $this->active;
   }
-  public function setCreated($created)
+
+    public function setActive($active)
   {
-    $this->created = $created;
+      $this->active = $active;
   }
+
   public function getCreated()
   {
     return $this->created;
   }
+
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
   public function setEventDetails(Google_Service_Analytics_GoalEventDetails $eventDetails)
   {
     $this->eventDetails = $eventDetails;
@@ -7535,38 +8032,47 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->eventDetails;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setId($id)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->id = $id;
   }
+
   public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_GoalParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -7575,38 +8081,47 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->parentLink;
   }
-  public function setProfileId($profileId)
-  {
-    $this->profileId = $profileId;
-  }
+
   public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setSelfLink($selfLink)
+
+    public function setProfileId($profileId)
   {
-    $this->selfLink = $selfLink;
+      $this->profileId = $profileId;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setType($type)
+
+    public function setSelfLink($selfLink)
   {
-    $this->type = $type;
+      $this->selfLink = $selfLink;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUpdated($updated)
+
+    public function setType($type)
   {
-    $this->updated = $updated;
+      $this->type = $type;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
   public function setUrlDestinationDetails(Google_Service_Analytics_GoalUrlDestinationDetails $urlDestinationDetails)
   {
     $this->urlDestinationDetails = $urlDestinationDetails;
@@ -7615,14 +8130,17 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->urlDestinationDetails;
   }
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
   public function setVisitNumPagesDetails(Google_Service_Analytics_GoalVisitNumPagesDetails $visitNumPagesDetails)
   {
     $this->visitNumPagesDetails = $visitNumPagesDetails;
@@ -7639,25 +8157,26 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->visitTimeOnSiteDetails;
   }
-  public function setWebPropertyId($webPropertyId)
-  {
-    $this->webPropertyId = $webPropertyId;
-  }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_GoalEventDetails extends Google_Collection
 {
+    public $useEventValue;
   protected $collection_key = 'eventConditions';
   protected $internal_gapi_mappings = array(
   );
   protected $eventConditionsType = 'Google_Service_Analytics_GoalEventDetailsEventConditions';
   protected $eventConditionsDataType = 'array';
-  public $useEventValue;
-
 
   public function setEventConditions($eventConditions)
   {
@@ -7667,132 +8186,146 @@ class Google_Service_Analytics_GoalEventDetails extends Google_Collection
   {
     return $this->eventConditions;
   }
-  public function setUseEventValue($useEventValue)
-  {
-    $this->useEventValue = $useEventValue;
-  }
+
   public function getUseEventValue()
   {
     return $this->useEventValue;
   }
+
+    public function setUseEventValue($useEventValue)
+    {
+        $this->useEventValue = $useEventValue;
+    }
 }
 
 class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $comparisonType;
   public $comparisonValue;
   public $expression;
   public $matchType;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setComparisonType($comparisonType)
-  {
-    $this->comparisonType = $comparisonType;
-  }
   public function getComparisonType()
   {
     return $this->comparisonType;
   }
-  public function setComparisonValue($comparisonValue)
+
+    public function setComparisonType($comparisonType)
   {
-    $this->comparisonValue = $comparisonValue;
+      $this->comparisonType = $comparisonType;
   }
+
   public function getComparisonValue()
   {
     return $this->comparisonValue;
   }
-  public function setExpression($expression)
+
+    public function setComparisonValue($comparisonValue)
   {
-    $this->expression = $expression;
+      $this->comparisonValue = $comparisonValue;
   }
+
   public function getExpression()
   {
     return $this->expression;
   }
-  public function setMatchType($matchType)
+
+    public function setExpression($expression)
   {
-    $this->matchType = $matchType;
+      $this->expression = $expression;
   }
+
   public function getMatchType()
   {
     return $this->matchType;
   }
-  public function setType($type)
+
+    public function setMatchType($matchType)
   {
-    $this->type = $type;
+      $this->matchType = $matchType;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_GoalParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collection
 {
-  protected $collection_key = 'steps';
-  protected $internal_gapi_mappings = array(
-  );
   public $caseSensitive;
   public $firstStepRequired;
   public $matchType;
+    public $url;
+    protected $collection_key = 'steps';
+    protected $internal_gapi_mappings = array();
   protected $stepsType = 'Google_Service_Analytics_GoalUrlDestinationDetailsSteps';
   protected $stepsDataType = 'array';
-  public $url;
 
-
-  public function setCaseSensitive($caseSensitive)
-  {
-    $this->caseSensitive = $caseSensitive;
-  }
   public function getCaseSensitive()
   {
     return $this->caseSensitive;
   }
-  public function setFirstStepRequired($firstStepRequired)
+
+    public function setCaseSensitive($caseSensitive)
   {
-    $this->firstStepRequired = $firstStepRequired;
+      $this->caseSensitive = $caseSensitive;
   }
+
   public function getFirstStepRequired()
   {
     return $this->firstStepRequired;
   }
-  public function setMatchType($matchType)
+
+    public function setFirstStepRequired($firstStepRequired)
   {
-    $this->matchType = $matchType;
+      $this->firstStepRequired = $firstStepRequired;
   }
+
   public function getMatchType()
   {
     return $this->matchType;
   }
+
+    public function setMatchType($matchType)
+    {
+        $this->matchType = $matchType;
+    }
+
   public function setSteps($steps)
   {
     $this->steps = $steps;
@@ -7801,110 +8334,112 @@ class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collecti
   {
     return $this->steps;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Analytics_GoalUrlDestinationDetailsSteps extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $number;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setNumber($number)
+
+    public function setName($name)
   {
-    $this->number = $number;
+      $this->name = $name;
   }
+
   public function getNumber()
   {
     return $this->number;
   }
-  public function setUrl($url)
+
+    public function setNumber($number)
   {
-    $this->url = $url;
+      $this->number = $number;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Analytics_GoalVisitNumPagesDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $comparisonType;
   public $comparisonValue;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setComparisonType($comparisonType)
-  {
-    $this->comparisonType = $comparisonType;
-  }
   public function getComparisonType()
   {
     return $this->comparisonType;
   }
-  public function setComparisonValue($comparisonValue)
+
+    public function setComparisonType($comparisonType)
   {
-    $this->comparisonValue = $comparisonValue;
+      $this->comparisonType = $comparisonType;
   }
+
   public function getComparisonValue()
   {
     return $this->comparisonValue;
   }
+
+    public function setComparisonValue($comparisonValue)
+    {
+        $this->comparisonValue = $comparisonValue;
+    }
 }
 
 class Google_Service_Analytics_GoalVisitTimeOnSiteDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $comparisonType;
   public $comparisonValue;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setComparisonType($comparisonType)
-  {
-    $this->comparisonType = $comparisonType;
-  }
   public function getComparisonType()
   {
     return $this->comparisonType;
   }
-  public function setComparisonValue($comparisonValue)
+
+    public function setComparisonType($comparisonType)
   {
-    $this->comparisonValue = $comparisonValue;
+      $this->comparisonType = $comparisonType;
   }
+
   public function getComparisonValue()
   {
     return $this->comparisonValue;
   }
+
+    public function setComparisonValue($comparisonValue)
+    {
+        $this->comparisonValue = $comparisonValue;
+    }
 }
 
 class Google_Service_Analytics_Goals extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Goal';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -7912,7 +8447,10 @@ class Google_Service_Analytics_Goals extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Goal';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -7922,89 +8460,101 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
+
   public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_McfData extends Google_Collection
 {
-  protected $collection_key = 'rows';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $columnHeadersType = 'Google_Service_Analytics_McfDataColumnHeaders';
-  protected $columnHeadersDataType = 'array';
   public $containsSampledData;
   public $id;
   public $itemsPerPage;
   public $kind;
   public $nextLink;
   public $previousLink;
+    public $sampleSize;
+    public $sampleSpace;
+    public $selfLink;
+    public $totalResults;
+    public $totalsForAllResults;
+    protected $collection_key = 'rows';
+    protected $internal_gapi_mappings = array();
+    protected $columnHeadersType = 'Google_Service_Analytics_McfDataColumnHeaders';
+    protected $columnHeadersDataType = 'array';
   protected $profileInfoType = 'Google_Service_Analytics_McfDataProfileInfo';
   protected $profileInfoDataType = '';
   protected $queryType = 'Google_Service_Analytics_McfDataQuery';
   protected $queryDataType = '';
   protected $rowsType = 'Google_Service_Analytics_McfDataRows';
   protected $rowsDataType = 'array';
-  public $sampleSize;
-  public $sampleSpace;
-  public $selfLink;
-  public $totalResults;
-  public $totalsForAllResults;
-
 
   public function setColumnHeaders($columnHeaders)
   {
@@ -8014,54 +8564,67 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  public function setContainsSampledData($containsSampledData)
-  {
-    $this->containsSampledData = $containsSampledData;
-  }
+
   public function getContainsSampledData()
   {
     return $this->containsSampledData;
   }
-  public function setId($id)
+
+    public function setContainsSampledData($containsSampledData)
   {
-    $this->id = $id;
+      $this->containsSampledData = $containsSampledData;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setItemsPerPage($itemsPerPage)
+
+    public function setId($id)
   {
-    $this->itemsPerPage = $itemsPerPage;
+      $this->id = $id;
   }
+
   public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
+
   public function getPreviousLink()
   {
     return $this->previousLink;
   }
+
+    public function setPreviousLink($previousLink)
+    {
+        $this->previousLink = $previousLink;
+    }
+
   public function setProfileInfo(Google_Service_Analytics_McfDataProfileInfo $profileInfo)
   {
     $this->profileInfo = $profileInfo;
@@ -8086,154 +8649,169 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->rows;
   }
-  public function setSampleSize($sampleSize)
-  {
-    $this->sampleSize = $sampleSize;
-  }
+
   public function getSampleSize()
   {
     return $this->sampleSize;
   }
-  public function setSampleSpace($sampleSpace)
+
+    public function setSampleSize($sampleSize)
   {
-    $this->sampleSpace = $sampleSpace;
+      $this->sampleSize = $sampleSize;
   }
+
   public function getSampleSpace()
   {
     return $this->sampleSpace;
   }
-  public function setSelfLink($selfLink)
+
+    public function setSampleSpace($sampleSpace)
   {
-    $this->selfLink = $selfLink;
+      $this->sampleSpace = $sampleSpace;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTotalResults($totalResults)
+
+    public function setSelfLink($selfLink)
   {
-    $this->totalResults = $totalResults;
+      $this->selfLink = $selfLink;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setTotalsForAllResults($totalsForAllResults)
+
+    public function setTotalResults($totalResults)
   {
-    $this->totalsForAllResults = $totalsForAllResults;
+      $this->totalResults = $totalResults;
   }
+
   public function getTotalsForAllResults()
   {
     return $this->totalsForAllResults;
   }
+
+    public function setTotalsForAllResults($totalsForAllResults)
+    {
+        $this->totalsForAllResults = $totalsForAllResults;
+    }
 }
 
 class Google_Service_Analytics_McfDataColumnHeaders extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $columnType;
   public $dataType;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setColumnType($columnType)
-  {
-    $this->columnType = $columnType;
-  }
   public function getColumnType()
   {
     return $this->columnType;
   }
-  public function setDataType($dataType)
+
+    public function setColumnType($columnType)
   {
-    $this->dataType = $dataType;
+      $this->columnType = $columnType;
   }
+
   public function getDataType()
   {
     return $this->dataType;
   }
-  public function setName($name)
+
+    public function setDataType($dataType)
   {
-    $this->name = $name;
+      $this->dataType = $dataType;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $internalWebPropertyId;
   public $profileId;
   public $profileName;
   public $tableId;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setAccountId($accountId)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->accountId = $accountId;
   }
+
   public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setProfileId($profileId)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->profileId = $profileId;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
+
   public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setProfileName($profileName)
+
+    public function setProfileId($profileId)
   {
-    $this->profileName = $profileName;
+      $this->profileId = $profileId;
   }
+
   public function getProfileName()
   {
     return $this->profileName;
   }
-  public function setTableId($tableId)
+
+    public function setProfileName($profileName)
   {
-    $this->tableId = $tableId;
+      $this->profileName = $profileName;
   }
+
   public function getTableId()
   {
     return $this->tableId;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setTableId($tableId)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->tableId = $tableId;
   }
+
   public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_McfDataQuery extends Google_Collection
 {
-  protected $collection_key = 'sort';
-  protected $internal_gapi_mappings = array(
-        "endDate" => "end-date",
-        "maxResults" => "max-results",
-        "startDate" => "start-date",
-        "startIndex" => "start-index",
-  );
   public $dimensions;
   public $endDate;
   public $filters;
@@ -8245,107 +8823,133 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   public $sort;
   public $startDate;
   public $startIndex;
+    protected $collection_key = 'sort';
+    protected $internal_gapi_mappings = array(
+        "endDate" => "end-date",
+        "maxResults" => "max-results",
+        "startDate" => "start-date",
+        "startIndex" => "start-index",
+    );
 
-
-  public function setDimensions($dimensions)
-  {
-    $this->dimensions = $dimensions;
-  }
   public function getDimensions()
   {
     return $this->dimensions;
   }
-  public function setEndDate($endDate)
+
+    public function setDimensions($dimensions)
   {
-    $this->endDate = $endDate;
+      $this->dimensions = $dimensions;
   }
+
   public function getEndDate()
   {
     return $this->endDate;
   }
-  public function setFilters($filters)
+
+    public function setEndDate($endDate)
   {
-    $this->filters = $filters;
+      $this->endDate = $endDate;
   }
+
   public function getFilters()
   {
     return $this->filters;
   }
-  public function setIds($ids)
+
+    public function setFilters($filters)
   {
-    $this->ids = $ids;
+      $this->filters = $filters;
   }
+
   public function getIds()
   {
     return $this->ids;
   }
-  public function setMaxResults($maxResults)
+
+    public function setIds($ids)
   {
-    $this->maxResults = $maxResults;
+      $this->ids = $ids;
   }
+
   public function getMaxResults()
   {
     return $this->maxResults;
   }
-  public function setMetrics($metrics)
+
+    public function setMaxResults($maxResults)
   {
-    $this->metrics = $metrics;
+      $this->maxResults = $maxResults;
   }
+
   public function getMetrics()
   {
     return $this->metrics;
   }
-  public function setSamplingLevel($samplingLevel)
+
+    public function setMetrics($metrics)
   {
-    $this->samplingLevel = $samplingLevel;
+      $this->metrics = $metrics;
   }
+
   public function getSamplingLevel()
   {
     return $this->samplingLevel;
   }
-  public function setSegment($segment)
+
+    public function setSamplingLevel($samplingLevel)
   {
-    $this->segment = $segment;
+      $this->samplingLevel = $samplingLevel;
   }
+
   public function getSegment()
   {
     return $this->segment;
   }
-  public function setSort($sort)
+
+    public function setSegment($segment)
   {
-    $this->sort = $sort;
+      $this->segment = $segment;
   }
+
   public function getSort()
   {
     return $this->sort;
   }
-  public function setStartDate($startDate)
+
+    public function setSort($sort)
   {
-    $this->startDate = $startDate;
+      $this->sort = $sort;
   }
+
   public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setStartIndex($startIndex)
+
+    public function setStartDate($startDate)
   {
-    $this->startIndex = $startIndex;
+      $this->startDate = $startDate;
   }
+
   public function getStartIndex()
   {
     return $this->startIndex;
   }
+
+    public function setStartIndex($startIndex)
+    {
+        $this->startIndex = $startIndex;
+    }
 }
 
 class Google_Service_Analytics_McfDataRows extends Google_Collection
 {
+    public $primitiveValue;
   protected $collection_key = 'conversionPathValue';
   protected $internal_gapi_mappings = array(
   );
   protected $conversionPathValueType = 'Google_Service_Analytics_McfDataRowsConversionPathValue';
   protected $conversionPathValueDataType = 'array';
-  public $primitiveValue;
-
 
   public function setConversionPathValue($conversionPathValue)
   {
@@ -8355,40 +8959,43 @@ class Google_Service_Analytics_McfDataRows extends Google_Collection
   {
     return $this->conversionPathValue;
   }
-  public function setPrimitiveValue($primitiveValue)
-  {
-    $this->primitiveValue = $primitiveValue;
-  }
+
   public function getPrimitiveValue()
   {
     return $this->primitiveValue;
   }
+
+    public function setPrimitiveValue($primitiveValue)
+    {
+        $this->primitiveValue = $primitiveValue;
+    }
 }
 
 class Google_Service_Analytics_McfDataRowsConversionPathValue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $interactionType;
   public $nodeValue;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setInteractionType($interactionType)
-  {
-    $this->interactionType = $interactionType;
-  }
   public function getInteractionType()
   {
     return $this->interactionType;
   }
-  public function setNodeValue($nodeValue)
+
+    public function setInteractionType($interactionType)
   {
-    $this->nodeValue = $nodeValue;
+      $this->interactionType = $interactionType;
   }
+
   public function getNodeValue()
   {
     return $this->nodeValue;
   }
+
+    public function setNodeValue($nodeValue)
+    {
+        $this->nodeValue = $nodeValue;
+    }
 }
 
 class Google_Service_Analytics_McfDataTotalsForAllResults extends Google_Model
@@ -8397,11 +9004,7 @@ class Google_Service_Analytics_McfDataTotalsForAllResults extends Google_Model
 
 class Google_Service_Analytics_Profile extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
-  protected $childLinkType = 'Google_Service_Analytics_ProfileChildLink';
-  protected $childLinkDataType = '';
   public $created;
   public $currency;
   public $defaultPage;
@@ -8412,10 +9015,6 @@ class Google_Service_Analytics_Profile extends Google_Model
   public $internalWebPropertyId;
   public $kind;
   public $name;
-  protected $parentLinkType = 'Google_Service_Analytics_ProfileParentLink';
-  protected $parentLinkDataType = '';
-  protected $permissionsType = 'Google_Service_Analytics_ProfilePermissions';
-  protected $permissionsDataType = '';
   public $selfLink;
   public $siteSearchCategoryParameters;
   public $siteSearchQueryParameters;
@@ -8426,16 +9025,24 @@ class Google_Service_Analytics_Profile extends Google_Model
   public $updated;
   public $webPropertyId;
   public $websiteUrl;
+    protected $internal_gapi_mappings = array();
+    protected $childLinkType = 'Google_Service_Analytics_ProfileChildLink';
+    protected $childLinkDataType = '';
+    protected $parentLinkType = 'Google_Service_Analytics_ProfileParentLink';
+    protected $parentLinkDataType = '';
+    protected $permissionsType = 'Google_Service_Analytics_ProfilePermissions';
+    protected $permissionsDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setChildLink(Google_Service_Analytics_ProfileChildLink $childLink)
   {
     $this->childLink = $childLink;
@@ -8444,86 +9051,107 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->childLink;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setCurrency($currency)
+
+    public function setCreated($created)
   {
-    $this->currency = $currency;
+      $this->created = $created;
   }
+
   public function getCurrency()
   {
     return $this->currency;
   }
-  public function setDefaultPage($defaultPage)
+
+    public function setCurrency($currency)
   {
-    $this->defaultPage = $defaultPage;
+      $this->currency = $currency;
   }
+
   public function getDefaultPage()
   {
     return $this->defaultPage;
   }
-  public function setECommerceTracking($eCommerceTracking)
+
+    public function setDefaultPage($defaultPage)
   {
-    $this->eCommerceTracking = $eCommerceTracking;
+      $this->defaultPage = $defaultPage;
   }
+
   public function getECommerceTracking()
   {
     return $this->eCommerceTracking;
   }
-  public function setEnhancedECommerceTracking($enhancedECommerceTracking)
+
+    public function setECommerceTracking($eCommerceTracking)
   {
-    $this->enhancedECommerceTracking = $enhancedECommerceTracking;
+      $this->eCommerceTracking = $eCommerceTracking;
   }
+
   public function getEnhancedECommerceTracking()
   {
     return $this->enhancedECommerceTracking;
   }
-  public function setExcludeQueryParameters($excludeQueryParameters)
+
+    public function setEnhancedECommerceTracking($enhancedECommerceTracking)
   {
-    $this->excludeQueryParameters = $excludeQueryParameters;
+      $this->enhancedECommerceTracking = $enhancedECommerceTracking;
   }
+
   public function getExcludeQueryParameters()
   {
     return $this->excludeQueryParameters;
   }
-  public function setId($id)
+
+    public function setExcludeQueryParameters($excludeQueryParameters)
   {
-    $this->id = $id;
+      $this->excludeQueryParameters = $excludeQueryParameters;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setId($id)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->id = $id;
   }
+
   public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_ProfileParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -8540,127 +9168,147 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->permissions;
   }
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setSiteSearchCategoryParameters($siteSearchCategoryParameters)
+
+    public function setSelfLink($selfLink)
   {
-    $this->siteSearchCategoryParameters = $siteSearchCategoryParameters;
+      $this->selfLink = $selfLink;
   }
-  public function getSiteSearchCategoryParameters()
+
+    public function getSiteSearchCategoryParameters()
   {
     return $this->siteSearchCategoryParameters;
   }
-  public function setSiteSearchQueryParameters($siteSearchQueryParameters)
+
+    public function setSiteSearchCategoryParameters($siteSearchCategoryParameters)
   {
-    $this->siteSearchQueryParameters = $siteSearchQueryParameters;
+      $this->siteSearchCategoryParameters = $siteSearchCategoryParameters;
   }
-  public function getSiteSearchQueryParameters()
+
+    public function getSiteSearchQueryParameters()
   {
     return $this->siteSearchQueryParameters;
   }
-  public function setStripSiteSearchCategoryParameters($stripSiteSearchCategoryParameters)
+
+    public function setSiteSearchQueryParameters($siteSearchQueryParameters)
   {
-    $this->stripSiteSearchCategoryParameters = $stripSiteSearchCategoryParameters;
+      $this->siteSearchQueryParameters = $siteSearchQueryParameters;
   }
-  public function getStripSiteSearchCategoryParameters()
+
+    public function getStripSiteSearchCategoryParameters()
   {
     return $this->stripSiteSearchCategoryParameters;
   }
-  public function setStripSiteSearchQueryParameters($stripSiteSearchQueryParameters)
+
+    public function setStripSiteSearchCategoryParameters($stripSiteSearchCategoryParameters)
   {
-    $this->stripSiteSearchQueryParameters = $stripSiteSearchQueryParameters;
+      $this->stripSiteSearchCategoryParameters = $stripSiteSearchCategoryParameters;
   }
-  public function getStripSiteSearchQueryParameters()
+
+    public function getStripSiteSearchQueryParameters()
   {
     return $this->stripSiteSearchQueryParameters;
   }
-  public function setTimezone($timezone)
+
+    public function setStripSiteSearchQueryParameters($stripSiteSearchQueryParameters)
   {
-    $this->timezone = $timezone;
+      $this->stripSiteSearchQueryParameters = $stripSiteSearchQueryParameters;
   }
-  public function getTimezone()
+
+    public function getTimezone()
   {
     return $this->timezone;
   }
-  public function setType($type)
+
+    public function setTimezone($timezone)
   {
-    $this->type = $type;
+      $this->timezone = $timezone;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setUpdated($updated)
+
+    public function setType($type)
   {
-    $this->updated = $updated;
+      $this->type = $type;
   }
-  public function getUpdated()
+
+    public function getUpdated()
   {
     return $this->updated;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setUpdated($updated)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->updated = $updated;
   }
-  public function getWebPropertyId()
+
+    public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
-  public function setWebsiteUrl($websiteUrl)
+
+    public function setWebPropertyId($webPropertyId)
   {
-    $this->websiteUrl = $websiteUrl;
+      $this->webPropertyId = $webPropertyId;
   }
-  public function getWebsiteUrl()
+
+    public function getWebsiteUrl()
   {
     return $this->websiteUrl;
   }
+
+    public function setWebsiteUrl($websiteUrl)
+    {
+        $this->websiteUrl = $websiteUrl;
+    }
 }
 
 class Google_Service_Analytics_ProfileChildLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_ProfileFilterLink extends Google_Model
 {
+    public $id;
+    public $kind;
+    public $rank;
+    public $selfLink;
   protected $internal_gapi_mappings = array(
   );
   protected $filterRefType = 'Google_Service_Analytics_FilterRef';
   protected $filterRefDataType = '';
-  public $id;
-  public $kind;
   protected $profileRefType = 'Google_Service_Analytics_ProfileRef';
   protected $profileRefDataType = '';
-  public $rank;
-  public $selfLink;
-
 
   public function setFilterRef(Google_Service_Analytics_FilterRef $filterRef)
   {
@@ -8670,22 +9318,27 @@ class Google_Service_Analytics_ProfileFilterLink extends Google_Model
   {
     return $this->filterRef;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setProfileRef(Google_Service_Analytics_ProfileRef $profileRef)
   {
     $this->profileRef = $profileRef;
@@ -8694,31 +9347,30 @@ class Google_Service_Analytics_ProfileFilterLink extends Google_Model
   {
     return $this->profileRef;
   }
-  public function setRank($rank)
-  {
-    $this->rank = $rank;
-  }
-  public function getRank()
+
+    public function getRank()
   {
     return $this->rank;
   }
-  public function setSelfLink($selfLink)
+
+    public function setRank($rank)
   {
-    $this->selfLink = $selfLink;
+      $this->rank = $rank;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Analytics_ProfileFilterLinks extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_ProfileFilterLink';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -8726,7 +9378,10 @@ class Google_Service_Analytics_ProfileFilterLinks extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_ProfileFilterLink';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -8736,112 +9391,125 @@ class Google_Service_Analytics_ProfileFilterLinks extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
-  public function getNextLink()
+
+    public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
-  public function getPreviousLink()
+
+    public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
-  public function getStartIndex()
+
+    public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
-  public function getUsername()
+
+    public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_ProfileParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_ProfilePermissions extends Google_Collection
 {
+    public $effective;
   protected $collection_key = 'effective';
   protected $internal_gapi_mappings = array(
   );
-  public $effective;
 
-
-  public function setEffective($effective)
-  {
-    $this->effective = $effective;
-  }
   public function getEffective()
   {
     return $this->effective;
   }
+
+    public function setEffective($effective)
+    {
+        $this->effective = $effective;
+    }
 }
 
 class Google_Service_Analytics_ProfileRef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $href;
   public $id;
@@ -8849,117 +9517,130 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   public $kind;
   public $name;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setHref($href)
+
+    public function setAccountId($accountId)
   {
-    $this->href = $href;
+      $this->accountId = $accountId;
   }
-  public function getHref()
+
+    public function getHref()
   {
     return $this->href;
   }
-  public function setId($id)
+
+    public function setHref($href)
   {
-    $this->id = $id;
+      $this->href = $href;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setId($id)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->id = $id;
   }
-  public function getInternalWebPropertyId()
+
+    public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setName($name)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->name = $name;
   }
-  public function getWebPropertyId()
+
+    public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_ProfileSummary extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $name;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setType($type)
+
+    public function setName($name)
   {
-    $this->type = $type;
+      $this->name = $name;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_Profiles extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Profile';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -8967,7 +9648,10 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Profile';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -8977,82 +9661,95 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
-  public function getNextLink()
+
+    public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
-  public function getPreviousLink()
+
+    public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
-  public function getStartIndex()
+
+    public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
-  public function getUsername()
+
+    public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_RealtimeData extends Google_Collection
 {
+    public $id;
+    public $kind;
+    public $rows;
+    public $selfLink;
+    public $totalResults;
+    public $totalsForAllResults;
   protected $collection_key = 'rows';
   protected $internal_gapi_mappings = array(
   );
   protected $columnHeadersType = 'Google_Service_Analytics_RealtimeDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
-  public $id;
-  public $kind;
   protected $profileInfoType = 'Google_Service_Analytics_RealtimeDataProfileInfo';
   protected $profileInfoDataType = '';
   protected $queryType = 'Google_Service_Analytics_RealtimeDataQuery';
   protected $queryDataType = '';
-  public $rows;
-  public $selfLink;
-  public $totalResults;
-  public $totalsForAllResults;
-
 
   public function setColumnHeaders($columnHeaders)
   {
@@ -9062,22 +9759,27 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setProfileInfo(Google_Service_Analytics_RealtimeDataProfileInfo $profileInfo)
   {
     $this->profileInfo = $profileInfo;
@@ -9094,199 +9796,229 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->query;
   }
-  public function setRows($rows)
-  {
-    $this->rows = $rows;
-  }
-  public function getRows()
+
+    public function getRows()
   {
     return $this->rows;
   }
-  public function setSelfLink($selfLink)
+
+    public function setRows($rows)
   {
-    $this->selfLink = $selfLink;
+      $this->rows = $rows;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTotalResults($totalResults)
+
+    public function setSelfLink($selfLink)
   {
-    $this->totalResults = $totalResults;
+      $this->selfLink = $selfLink;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setTotalsForAllResults($totalsForAllResults)
+
+    public function setTotalResults($totalResults)
   {
-    $this->totalsForAllResults = $totalsForAllResults;
+      $this->totalResults = $totalResults;
   }
-  public function getTotalsForAllResults()
+
+    public function getTotalsForAllResults()
   {
     return $this->totalsForAllResults;
   }
+
+    public function setTotalsForAllResults($totalsForAllResults)
+    {
+        $this->totalsForAllResults = $totalsForAllResults;
+    }
 }
 
 class Google_Service_Analytics_RealtimeDataColumnHeaders extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $columnType;
   public $dataType;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setColumnType($columnType)
-  {
-    $this->columnType = $columnType;
-  }
   public function getColumnType()
   {
     return $this->columnType;
   }
-  public function setDataType($dataType)
+
+    public function setColumnType($columnType)
   {
-    $this->dataType = $dataType;
+      $this->columnType = $columnType;
   }
-  public function getDataType()
+
+    public function getDataType()
   {
     return $this->dataType;
   }
-  public function setName($name)
+
+    public function setDataType($dataType)
   {
-    $this->name = $name;
+      $this->dataType = $dataType;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $internalWebPropertyId;
   public $profileId;
   public $profileName;
   public $tableId;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setAccountId($accountId)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->accountId = $accountId;
   }
-  public function getInternalWebPropertyId()
+
+    public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setProfileId($profileId)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->profileId = $profileId;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
-  public function getProfileId()
+
+    public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setProfileName($profileName)
+
+    public function setProfileId($profileId)
   {
-    $this->profileName = $profileName;
+      $this->profileId = $profileId;
   }
-  public function getProfileName()
+
+    public function getProfileName()
   {
     return $this->profileName;
   }
-  public function setTableId($tableId)
+
+    public function setProfileName($profileName)
   {
-    $this->tableId = $tableId;
+      $this->profileName = $profileName;
   }
-  public function getTableId()
+
+    public function getTableId()
   {
     return $this->tableId;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setTableId($tableId)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->tableId = $tableId;
   }
-  public function getWebPropertyId()
+
+    public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
 {
-  protected $collection_key = 'sort';
-  protected $internal_gapi_mappings = array(
-        "maxResults" => "max-results",
-  );
   public $dimensions;
   public $filters;
   public $ids;
   public $maxResults;
   public $metrics;
   public $sort;
+    protected $collection_key = 'sort';
+    protected $internal_gapi_mappings = array(
+        "maxResults" => "max-results",
+    );
 
-
-  public function setDimensions($dimensions)
-  {
-    $this->dimensions = $dimensions;
-  }
   public function getDimensions()
   {
     return $this->dimensions;
   }
-  public function setFilters($filters)
+
+    public function setDimensions($dimensions)
   {
-    $this->filters = $filters;
+      $this->dimensions = $dimensions;
   }
-  public function getFilters()
+
+    public function getFilters()
   {
     return $this->filters;
   }
-  public function setIds($ids)
+
+    public function setFilters($filters)
   {
-    $this->ids = $ids;
+      $this->filters = $filters;
   }
-  public function getIds()
+
+    public function getIds()
   {
     return $this->ids;
   }
-  public function setMaxResults($maxResults)
+
+    public function setIds($ids)
   {
-    $this->maxResults = $maxResults;
+      $this->ids = $ids;
   }
-  public function getMaxResults()
+
+    public function getMaxResults()
   {
     return $this->maxResults;
   }
-  public function setMetrics($metrics)
+
+    public function setMaxResults($maxResults)
   {
-    $this->metrics = $metrics;
+      $this->maxResults = $maxResults;
   }
-  public function getMetrics()
+
+    public function getMetrics()
   {
     return $this->metrics;
   }
-  public function setSort($sort)
+
+    public function setMetrics($metrics)
   {
-    $this->sort = $sort;
+      $this->metrics = $metrics;
   }
-  public function getSort()
+
+    public function getSort()
   {
     return $this->sort;
   }
+
+    public function setSort($sort)
+    {
+        $this->sort = $sort;
+    }
 }
 
 class Google_Service_Analytics_RealtimeDataTotalsForAllResults extends Google_Model
@@ -9295,8 +10027,6 @@ class Google_Service_Analytics_RealtimeDataTotalsForAllResults extends Google_Mo
 
 class Google_Service_Analytics_Segment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $created;
   public $definition;
   public $id;
@@ -9306,89 +10036,101 @@ class Google_Service_Analytics_Segment extends Google_Model
   public $selfLink;
   public $type;
   public $updated;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
   public function getCreated()
   {
     return $this->created;
   }
-  public function setDefinition($definition)
+
+    public function setCreated($created)
   {
-    $this->definition = $definition;
+      $this->created = $created;
   }
-  public function getDefinition()
+
+    public function getDefinition()
   {
     return $this->definition;
   }
-  public function setId($id)
+
+    public function setDefinition($definition)
   {
-    $this->id = $id;
+      $this->definition = $definition;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setSegmentId($segmentId)
+
+    public function setName($name)
   {
-    $this->segmentId = $segmentId;
+      $this->name = $name;
   }
-  public function getSegmentId()
+
+    public function getSegmentId()
   {
     return $this->segmentId;
   }
-  public function setSelfLink($selfLink)
+
+    public function setSegmentId($segmentId)
   {
-    $this->selfLink = $selfLink;
+      $this->segmentId = $segmentId;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setType($type)
+
+    public function setSelfLink($selfLink)
   {
-    $this->type = $type;
+      $this->selfLink = $selfLink;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setUpdated($updated)
+
+    public function setType($type)
   {
-    $this->updated = $updated;
+      $this->type = $type;
   }
-  public function getUpdated()
+
+    public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Analytics_Segments extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Segment';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -9396,7 +10138,10 @@ class Google_Service_Analytics_Segments extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Segment';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -9406,78 +10151,84 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
-  public function getNextLink()
+
+    public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
-  public function getPreviousLink()
+
+    public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
-  public function getStartIndex()
+
+    public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
-  public function getUsername()
+
+    public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_UnsampledReport extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "endDate" => "end-date",
-        "startDate" => "start-date",
-  );
   public $accountId;
-  protected $cloudStorageDownloadDetailsType = 'Google_Service_Analytics_UnsampledReportCloudStorageDownloadDetails';
-  protected $cloudStorageDownloadDetailsDataType = '';
   public $created;
   public $dimensions;
   public $downloadType;
-  protected $driveDownloadDetailsType = 'Google_Service_Analytics_UnsampledReportDriveDownloadDetails';
-  protected $driveDownloadDetailsDataType = '';
   public $endDate;
   public $filters;
   public $id;
@@ -9491,16 +10242,25 @@ class Google_Service_Analytics_UnsampledReport extends Google_Model
   public $title;
   public $updated;
   public $webPropertyId;
+    protected $internal_gapi_mappings = array(
+        "endDate" => "end-date",
+        "startDate" => "start-date",
+    );
+    protected $cloudStorageDownloadDetailsType = 'Google_Service_Analytics_UnsampledReportCloudStorageDownloadDetails';
+    protected $cloudStorageDownloadDetailsDataType = '';
+    protected $driveDownloadDetailsType = 'Google_Service_Analytics_UnsampledReportDriveDownloadDetails';
+    protected $driveDownloadDetailsDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setCloudStorageDownloadDetails(Google_Service_Analytics_UnsampledReportCloudStorageDownloadDetails $cloudStorageDownloadDetails)
   {
     $this->cloudStorageDownloadDetails = $cloudStorageDownloadDetails;
@@ -9509,30 +10269,37 @@ class Google_Service_Analytics_UnsampledReport extends Google_Model
   {
     return $this->cloudStorageDownloadDetails;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
-  public function getCreated()
+
+    public function getCreated()
   {
     return $this->created;
   }
-  public function setDimensions($dimensions)
+
+    public function setCreated($created)
   {
-    $this->dimensions = $dimensions;
+      $this->created = $created;
   }
-  public function getDimensions()
+
+    public function getDimensions()
   {
     return $this->dimensions;
   }
-  public function setDownloadType($downloadType)
+
+    public function setDimensions($dimensions)
   {
-    $this->downloadType = $downloadType;
+      $this->dimensions = $dimensions;
   }
-  public function getDownloadType()
+
+    public function getDownloadType()
   {
     return $this->downloadType;
   }
+
+    public function setDownloadType($downloadType)
+    {
+        $this->downloadType = $downloadType;
+    }
+
   public function setDriveDownloadDetails(Google_Service_Analytics_UnsampledReportDriveDownloadDetails $driveDownloadDetails)
   {
     $this->driveDownloadDetails = $driveDownloadDetails;
@@ -9541,162 +10308,183 @@ class Google_Service_Analytics_UnsampledReport extends Google_Model
   {
     return $this->driveDownloadDetails;
   }
-  public function setEndDate($endDate)
-  {
-    $this->endDate = $endDate;
-  }
-  public function getEndDate()
+
+    public function getEndDate()
   {
     return $this->endDate;
   }
-  public function setFilters($filters)
+
+    public function setEndDate($endDate)
   {
-    $this->filters = $filters;
+      $this->endDate = $endDate;
   }
-  public function getFilters()
+
+    public function getFilters()
   {
     return $this->filters;
   }
-  public function setId($id)
+
+    public function setFilters($filters)
   {
-    $this->id = $id;
+      $this->filters = $filters;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMetrics($metrics)
+
+    public function setKind($kind)
   {
-    $this->metrics = $metrics;
+      $this->kind = $kind;
   }
-  public function getMetrics()
+
+    public function getMetrics()
   {
     return $this->metrics;
   }
-  public function setProfileId($profileId)
+
+    public function setMetrics($metrics)
   {
-    $this->profileId = $profileId;
+      $this->metrics = $metrics;
   }
-  public function getProfileId()
+
+    public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setSegment($segment)
+
+    public function setProfileId($profileId)
   {
-    $this->segment = $segment;
+      $this->profileId = $profileId;
   }
-  public function getSegment()
+
+    public function getSegment()
   {
     return $this->segment;
   }
-  public function setSelfLink($selfLink)
+
+    public function setSegment($segment)
   {
-    $this->selfLink = $selfLink;
+      $this->segment = $segment;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStartDate($startDate)
+
+    public function setSelfLink($selfLink)
   {
-    $this->startDate = $startDate;
+      $this->selfLink = $selfLink;
   }
-  public function getStartDate()
+
+    public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setStatus($status)
+
+    public function setStartDate($startDate)
   {
-    $this->status = $status;
+      $this->startDate = $startDate;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
-  public function setTitle($title)
+
+    public function setStatus($status)
   {
-    $this->title = $title;
+      $this->status = $status;
   }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
-  public function getUpdated()
+
+    public function getUpdated()
   {
     return $this->updated;
   }
-  public function setWebPropertyId($webPropertyId)
+
+    public function setUpdated($updated)
   {
-    $this->webPropertyId = $webPropertyId;
+      $this->updated = $updated;
   }
-  public function getWebPropertyId()
+
+    public function getWebPropertyId()
   {
     return $this->webPropertyId;
   }
+
+    public function setWebPropertyId($webPropertyId)
+    {
+        $this->webPropertyId = $webPropertyId;
+    }
 }
 
 class Google_Service_Analytics_UnsampledReportCloudStorageDownloadDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $bucketId;
   public $objectId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBucketId($bucketId)
-  {
-    $this->bucketId = $bucketId;
-  }
   public function getBucketId()
   {
     return $this->bucketId;
   }
-  public function setObjectId($objectId)
+
+    public function setBucketId($bucketId)
   {
-    $this->objectId = $objectId;
+      $this->bucketId = $bucketId;
   }
-  public function getObjectId()
+
+    public function getObjectId()
   {
     return $this->objectId;
   }
+
+    public function setObjectId($objectId)
+    {
+        $this->objectId = $objectId;
+    }
 }
 
 class Google_Service_Analytics_UnsampledReportDriveDownloadDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $documentId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDocumentId($documentId)
-  {
-    $this->documentId = $documentId;
-  }
   public function getDocumentId()
   {
     return $this->documentId;
   }
+
+    public function setDocumentId($documentId)
+    {
+        $this->documentId = $documentId;
+    }
 }
 
 class Google_Service_Analytics_UnsampledReports extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_UnsampledReport';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -9704,7 +10492,10 @@ class Google_Service_Analytics_UnsampledReports extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_UnsampledReport';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -9714,141 +10505,162 @@ class Google_Service_Analytics_UnsampledReports extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
-  public function getNextLink()
+
+    public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
-  public function getPreviousLink()
+
+    public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
-  public function getStartIndex()
+
+    public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
-  public function getUsername()
+
+    public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_Upload extends Google_Collection
 {
-  protected $collection_key = 'errors';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $customDataSourceId;
   public $errors;
   public $id;
   public $kind;
   public $status;
+    protected $collection_key = 'errors';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setCustomDataSourceId($customDataSourceId)
+
+    public function setAccountId($accountId)
   {
-    $this->customDataSourceId = $customDataSourceId;
+      $this->accountId = $accountId;
   }
-  public function getCustomDataSourceId()
+
+    public function getCustomDataSourceId()
   {
     return $this->customDataSourceId;
   }
-  public function setErrors($errors)
+
+    public function setCustomDataSourceId($customDataSourceId)
   {
-    $this->errors = $errors;
+      $this->customDataSourceId = $customDataSourceId;
   }
-  public function getErrors()
+
+    public function getErrors()
   {
     return $this->errors;
   }
-  public function setId($id)
+
+    public function setErrors($errors)
   {
-    $this->id = $id;
+      $this->errors = $errors;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setStatus($status)
+
+    public function setKind($kind)
   {
-    $this->status = $status;
+      $this->kind = $kind;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Analytics_Uploads extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Upload';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
   public $previousLink;
   public $startIndex;
   public $totalResults;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Upload';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -9858,208 +10670,240 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
-  public function getNextLink()
+
+    public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
-  public function getPreviousLink()
+
+    public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
-  public function getStartIndex()
+
+    public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
+
+    public function setTotalResults($totalResults)
+    {
+        $this->totalResults = $totalResults;
+    }
 }
 
 class Google_Service_Analytics_UserRef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $email;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmail($email)
-  {
-    $this->email = $email;
-  }
   public function getEmail()
   {
     return $this->email;
   }
-  public function setId($id)
+
+    public function setEmail($email)
   {
-    $this->id = $id;
+      $this->email = $email;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Analytics_WebPropertyRef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $href;
   public $id;
   public $internalWebPropertyId;
   public $kind;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setHref($href)
+
+    public function setAccountId($accountId)
   {
-    $this->href = $href;
+      $this->accountId = $accountId;
   }
-  public function getHref()
+
+    public function getHref()
   {
     return $this->href;
   }
-  public function setId($id)
+
+    public function setHref($href)
   {
-    $this->id = $id;
+      $this->href = $href;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setId($id)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->id = $id;
   }
-  public function getInternalWebPropertyId()
+
+    public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Analytics_WebPropertySummary extends Google_Collection
 {
-  protected $collection_key = 'profiles';
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $internalWebPropertyId;
   public $kind;
   public $level;
   public $name;
+    public $websiteUrl;
+    protected $collection_key = 'profiles';
+    protected $internal_gapi_mappings = array();
   protected $profilesType = 'Google_Service_Analytics_ProfileSummary';
   protected $profilesDataType = 'array';
-  public $websiteUrl;
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setId($id)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->id = $id;
   }
-  public function getInternalWebPropertyId()
+
+    public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setLevel($level)
+
+    public function setKind($kind)
   {
-    $this->level = $level;
+      $this->kind = $kind;
   }
-  public function getLevel()
+
+    public function getLevel()
   {
     return $this->level;
   }
-  public function setName($name)
+
+    public function setLevel($level)
   {
-    $this->name = $name;
+      $this->level = $level;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setProfiles($profiles)
   {
     $this->profiles = $profiles;
@@ -10068,23 +10912,20 @@ class Google_Service_Analytics_WebPropertySummary extends Google_Collection
   {
     return $this->profiles;
   }
-  public function setWebsiteUrl($websiteUrl)
-  {
-    $this->websiteUrl = $websiteUrl;
-  }
-  public function getWebsiteUrl()
+
+    public function getWebsiteUrl()
   {
     return $this->websiteUrl;
   }
+
+    public function setWebsiteUrl($websiteUrl)
+    {
+        $this->websiteUrl = $websiteUrl;
+    }
 }
 
 class Google_Service_Analytics_Webproperties extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Analytics_Webproperty';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextLink;
@@ -10092,7 +10933,10 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   public $startIndex;
   public $totalResults;
   public $username;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Analytics_Webproperty';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -10102,71 +10946,81 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
-  public function getNextLink()
+
+    public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setPreviousLink($previousLink)
+
+    public function setNextLink($nextLink)
   {
-    $this->previousLink = $previousLink;
+      $this->nextLink = $nextLink;
   }
-  public function getPreviousLink()
+
+    public function getPreviousLink()
   {
     return $this->previousLink;
   }
-  public function setStartIndex($startIndex)
+
+    public function setPreviousLink($previousLink)
   {
-    $this->startIndex = $startIndex;
+      $this->previousLink = $previousLink;
   }
-  public function getStartIndex()
+
+    public function getStartIndex()
   {
     return $this->startIndex;
   }
-  public function setTotalResults($totalResults)
+
+    public function setStartIndex($startIndex)
   {
-    $this->totalResults = $totalResults;
+      $this->startIndex = $startIndex;
   }
-  public function getTotalResults()
+
+    public function getTotalResults()
   {
     return $this->totalResults;
   }
-  public function setUsername($username)
+
+    public function setTotalResults($totalResults)
   {
-    $this->username = $username;
+      $this->totalResults = $totalResults;
   }
-  public function getUsername()
+
+    public function getUsername()
   {
     return $this->username;
   }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
 
 class Google_Service_Analytics_Webproperty extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
-  protected $childLinkType = 'Google_Service_Analytics_WebpropertyChildLink';
-  protected $childLinkDataType = '';
   public $created;
   public $defaultProfileId;
   public $id;
@@ -10175,24 +11029,28 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   public $kind;
   public $level;
   public $name;
-  protected $parentLinkType = 'Google_Service_Analytics_WebpropertyParentLink';
-  protected $parentLinkDataType = '';
-  protected $permissionsType = 'Google_Service_Analytics_WebpropertyPermissions';
-  protected $permissionsDataType = '';
   public $profileCount;
   public $selfLink;
   public $updated;
   public $websiteUrl;
+    protected $internal_gapi_mappings = array();
+    protected $childLinkType = 'Google_Service_Analytics_WebpropertyChildLink';
+    protected $childLinkDataType = '';
+    protected $parentLinkType = 'Google_Service_Analytics_WebpropertyParentLink';
+    protected $parentLinkDataType = '';
+    protected $permissionsType = 'Google_Service_Analytics_WebpropertyPermissions';
+    protected $permissionsDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setChildLink(Google_Service_Analytics_WebpropertyChildLink $childLink)
   {
     $this->childLink = $childLink;
@@ -10201,70 +11059,87 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->childLink;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
-  public function getCreated()
+
+    public function getCreated()
   {
     return $this->created;
   }
-  public function setDefaultProfileId($defaultProfileId)
+
+    public function setCreated($created)
   {
-    $this->defaultProfileId = $defaultProfileId;
+      $this->created = $created;
   }
-  public function getDefaultProfileId()
+
+    public function getDefaultProfileId()
   {
     return $this->defaultProfileId;
   }
-  public function setId($id)
+
+    public function setDefaultProfileId($defaultProfileId)
   {
-    $this->id = $id;
+      $this->defaultProfileId = $defaultProfileId;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setIndustryVertical($industryVertical)
+
+    public function setId($id)
   {
-    $this->industryVertical = $industryVertical;
+      $this->id = $id;
   }
-  public function getIndustryVertical()
+
+    public function getIndustryVertical()
   {
     return $this->industryVertical;
   }
-  public function setInternalWebPropertyId($internalWebPropertyId)
+
+    public function setIndustryVertical($industryVertical)
   {
-    $this->internalWebPropertyId = $internalWebPropertyId;
+      $this->industryVertical = $industryVertical;
   }
-  public function getInternalWebPropertyId()
+
+    public function getInternalWebPropertyId()
   {
     return $this->internalWebPropertyId;
   }
-  public function setKind($kind)
+
+    public function setInternalWebPropertyId($internalWebPropertyId)
   {
-    $this->kind = $kind;
+      $this->internalWebPropertyId = $internalWebPropertyId;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setLevel($level)
+
+    public function setKind($kind)
   {
-    $this->level = $level;
+      $this->kind = $kind;
   }
-  public function getLevel()
+
+    public function getLevel()
   {
     return $this->level;
   }
-  public function setName($name)
+
+    public function setLevel($level)
   {
-    $this->name = $name;
+      $this->level = $level;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParentLink(Google_Service_Analytics_WebpropertyParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -10281,106 +11156,116 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->permissions;
   }
-  public function setProfileCount($profileCount)
-  {
-    $this->profileCount = $profileCount;
-  }
-  public function getProfileCount()
+
+    public function getProfileCount()
   {
     return $this->profileCount;
   }
-  public function setSelfLink($selfLink)
+
+    public function setProfileCount($profileCount)
   {
-    $this->selfLink = $selfLink;
+      $this->profileCount = $profileCount;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setUpdated($updated)
+
+    public function setSelfLink($selfLink)
   {
-    $this->updated = $updated;
+      $this->selfLink = $selfLink;
   }
-  public function getUpdated()
+
+    public function getUpdated()
   {
     return $this->updated;
   }
-  public function setWebsiteUrl($websiteUrl)
+
+    public function setUpdated($updated)
   {
-    $this->websiteUrl = $websiteUrl;
+      $this->updated = $updated;
   }
-  public function getWebsiteUrl()
+
+    public function getWebsiteUrl()
   {
     return $this->websiteUrl;
   }
+
+    public function setWebsiteUrl($websiteUrl)
+    {
+        $this->websiteUrl = $websiteUrl;
+    }
 }
 
 class Google_Service_Analytics_WebpropertyChildLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_WebpropertyParentLink extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $href;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHref($href)
-  {
-    $this->href = $href;
-  }
   public function getHref()
   {
     return $this->href;
   }
-  public function setType($type)
+
+    public function setHref($href)
   {
-    $this->type = $type;
+      $this->href = $href;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Analytics_WebpropertyPermissions extends Google_Collection
 {
+    public $effective;
   protected $collection_key = 'effective';
   protected $internal_gapi_mappings = array(
   );
-  public $effective;
 
-
-  public function setEffective($effective)
-  {
-    $this->effective = $effective;
-  }
   public function getEffective()
   {
     return $this->effective;
   }
+
+    public function setEffective($effective)
+    {
+        $this->effective = $effective;
+    }
 }

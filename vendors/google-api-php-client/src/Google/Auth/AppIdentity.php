@@ -22,6 +22,7 @@
  */
 use google\appengine\api\app_identity\AppIdentityService;
 
+
 require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 
 /**
@@ -71,7 +72,8 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
 
   /**
    * Retrieve a new access token and store it in cache
-   * @param mixed $scopes
+   *
+   * @param mixed  $scopes
    * @param string $cacheKey
    */
   private function retrieveToken($scopes, $cacheKey)

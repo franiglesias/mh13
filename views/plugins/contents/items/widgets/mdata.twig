@@ -1,7 +1,7 @@
 {% import 'macros/blocks.twig' as blocks %}
 {% set widget_body %}
     <ul id="mh-metadata">
-        <li><a href="/contents/items/view/{{ item.Item.slug }}" class="fi-link">Enlace</a></li>
+        <li><a href="/{{ slug }}" class="fi-link">Enlace</a></li>
         <li><a href="#" class="fi-calendar">{{ article.pubDate|date('j/m/Y') }}</a></li>
         {% if article.expiration %}
             <li><a href="#" class="fi-alert">Válido hasta: {{ item.Item.expiration|date('j/m') }}</a></li>

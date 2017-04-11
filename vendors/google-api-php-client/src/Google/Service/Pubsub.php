@@ -242,7 +242,7 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
    * (subscriptions.delete)
    *
    * @param string $subscription The subscription to delete.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams    Optional parameters.
    */
   public function delete($subscription, $optParams = array())
   {
@@ -255,7 +255,8 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
    * Gets the configuration details of a subscription. (subscriptions.get)
    *
    * @param string $subscription The name of the subscription to get.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams    Optional parameters.
+   *
    * @return Google_Service_Pubsub_Subscription
    */
   public function get($subscription, $optParams = array())
@@ -380,8 +381,8 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
    * also deleted. Returns NOT_FOUND if the topic does not exist. After a topic is
    * deleted, a new topic may be created with the same name. (topics.delete)
    *
-   * @param string $topic Name of the topic to delete.
-   * @param array $optParams Optional parameters.
+   * @param string $topic     Name of the topic to delete.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($topic, $optParams = array())
   {
@@ -396,8 +397,9 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
    * other attributes are added in the future, they will be returned here.
    * (topics.get)
    *
-   * @param string $topic The name of the topic to get.
-   * @param array $optParams Optional parameters.
+   * @param string $topic     The name of the topic to get.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Pubsub_Topic
    */
   public function get($topic, $optParams = array())
@@ -460,84 +462,89 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
 
 class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
 {
-  protected $collection_key = 'ackId';
-  protected $internal_gapi_mappings = array(
-  );
   public $ackId;
   public $subscription;
+    protected $collection_key = 'ackId';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAckId($ackId)
-  {
-    $this->ackId = $ackId;
-  }
   public function getAckId()
   {
     return $this->ackId;
   }
-  public function setSubscription($subscription)
+
+    public function setAckId($ackId)
   {
-    $this->subscription = $subscription;
+      $this->ackId = $ackId;
   }
+
   public function getSubscription()
   {
     return $this->subscription;
   }
+
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+    }
 }
 
 class Google_Service_Pubsub_Label extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $numValue;
   public $strValue;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setNumValue($numValue)
+
+    public function setKey($key)
   {
-    $this->numValue = $numValue;
+      $this->key = $key;
   }
+
   public function getNumValue()
   {
     return $this->numValue;
   }
-  public function setStrValue($strValue)
+
+    public function setNumValue($numValue)
   {
-    $this->strValue = $strValue;
+      $this->numValue = $numValue;
   }
+
   public function getStrValue()
   {
     return $this->strValue;
   }
+
+    public function setStrValue($strValue)
+    {
+        $this->strValue = $strValue;
+    }
 }
 
 class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'subscription';
   protected $internal_gapi_mappings = array(
   );
-  public $nextPageToken;
   protected $subscriptionType = 'Google_Service_Pubsub_Subscription';
   protected $subscriptionDataType = 'array';
 
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -550,22 +557,23 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 
 class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'topic';
   protected $internal_gapi_mappings = array(
   );
-  public $nextPageToken;
   protected $topicType = 'Google_Service_Pubsub_Topic';
   protected $topicDataType = 'array';
 
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setTopic($topic)
   {
     $this->topic = $topic;
@@ -578,47 +586,49 @@ class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 
 class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $ackDeadlineSeconds;
   public $ackId;
   public $subscription;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAckDeadlineSeconds($ackDeadlineSeconds)
-  {
-    $this->ackDeadlineSeconds = $ackDeadlineSeconds;
-  }
   public function getAckDeadlineSeconds()
   {
     return $this->ackDeadlineSeconds;
   }
-  public function setAckId($ackId)
+
+    public function setAckDeadlineSeconds($ackDeadlineSeconds)
   {
-    $this->ackId = $ackId;
+      $this->ackDeadlineSeconds = $ackDeadlineSeconds;
   }
+
   public function getAckId()
   {
     return $this->ackId;
   }
-  public function setSubscription($subscription)
+
+    public function setAckId($ackId)
   {
-    $this->subscription = $subscription;
+      $this->ackId = $ackId;
   }
+
   public function getSubscription()
   {
     return $this->subscription;
   }
+
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+    }
 }
 
 class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
 {
+    public $subscription;
   protected $internal_gapi_mappings = array(
   );
   protected $pushConfigType = 'Google_Service_Pubsub_PushConfig';
   protected $pushConfigDataType = '';
-  public $subscription;
-
 
   public function setPushConfig(Google_Service_Pubsub_PushConfig $pushConfig)
   {
@@ -628,25 +638,26 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
   {
     return $this->pushConfig;
   }
-  public function setSubscription($subscription)
-  {
-    $this->subscription = $subscription;
-  }
+
   public function getSubscription()
   {
     return $this->subscription;
   }
+
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+    }
 }
 
 class Google_Service_Pubsub_PublishBatchRequest extends Google_Collection
 {
+    public $topic;
   protected $collection_key = 'messages';
   protected $internal_gapi_mappings = array(
   );
   protected $messagesType = 'Google_Service_Pubsub_PubsubMessage';
   protected $messagesDataType = 'array';
-  public $topic;
-
 
   public function setMessages($messages)
   {
@@ -656,42 +667,43 @@ class Google_Service_Pubsub_PublishBatchRequest extends Google_Collection
   {
     return $this->messages;
   }
-  public function setTopic($topic)
-  {
-    $this->topic = $topic;
-  }
+
   public function getTopic()
   {
     return $this->topic;
   }
+
+    public function setTopic($topic)
+    {
+        $this->topic = $topic;
+    }
 }
 
 class Google_Service_Pubsub_PublishBatchResponse extends Google_Collection
 {
+    public $messageIds;
   protected $collection_key = 'messageIds';
   protected $internal_gapi_mappings = array(
   );
-  public $messageIds;
 
-
-  public function setMessageIds($messageIds)
-  {
-    $this->messageIds = $messageIds;
-  }
   public function getMessageIds()
   {
     return $this->messageIds;
   }
+
+    public function setMessageIds($messageIds)
+    {
+        $this->messageIds = $messageIds;
+    }
 }
 
 class Google_Service_Pubsub_PublishRequest extends Google_Model
 {
+    public $topic;
   protected $internal_gapi_mappings = array(
   );
   protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
   protected $messageDataType = '';
-  public $topic;
-
 
   public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
   {
@@ -701,35 +713,37 @@ class Google_Service_Pubsub_PublishRequest extends Google_Model
   {
     return $this->message;
   }
-  public function setTopic($topic)
-  {
-    $this->topic = $topic;
-  }
+
   public function getTopic()
   {
     return $this->topic;
   }
+
+    public function setTopic($topic)
+    {
+        $this->topic = $topic;
+    }
 }
 
 class Google_Service_Pubsub_PubsubEvent extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $deleted;
-  protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
-  protected $messageDataType = '';
   public $subscription;
   public $truncated;
+    protected $internal_gapi_mappings = array();
+    protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
+    protected $messageDataType = '';
 
-
-  public function setDeleted($deleted)
-  {
-    $this->deleted = $deleted;
-  }
   public function getDeleted()
   {
     return $this->deleted;
   }
+
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+    }
+
   public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
   {
     $this->message = $message;
@@ -738,43 +752,48 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
   {
     return $this->message;
   }
-  public function setSubscription($subscription)
-  {
-    $this->subscription = $subscription;
-  }
+
   public function getSubscription()
   {
     return $this->subscription;
   }
-  public function setTruncated($truncated)
+
+    public function setSubscription($subscription)
   {
-    $this->truncated = $truncated;
+      $this->subscription = $subscription;
   }
+
   public function getTruncated()
   {
     return $this->truncated;
   }
+
+    public function setTruncated($truncated)
+    {
+        $this->truncated = $truncated;
+    }
 }
 
 class Google_Service_Pubsub_PubsubMessage extends Google_Collection
 {
+    public $data;
+    public $messageId;
   protected $collection_key = 'label';
   protected $internal_gapi_mappings = array(
   );
-  public $data;
   protected $labelType = 'Google_Service_Pubsub_Label';
   protected $labelDataType = 'array';
-  public $messageId;
 
-
-  public function setData($data)
-  {
-    $this->data = $data;
-  }
   public function getData()
   {
     return $this->data;
   }
+
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
   public function setLabel($label)
   {
     $this->label = $label;
@@ -783,49 +802,54 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Collection
   {
     return $this->label;
   }
-  public function setMessageId($messageId)
-  {
-    $this->messageId = $messageId;
-  }
+
   public function getMessageId()
   {
     return $this->messageId;
   }
+
+    public function setMessageId($messageId)
+    {
+        $this->messageId = $messageId;
+    }
 }
 
 class Google_Service_Pubsub_PullBatchRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $maxEvents;
   public $returnImmediately;
   public $subscription;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setMaxEvents($maxEvents)
-  {
-    $this->maxEvents = $maxEvents;
-  }
   public function getMaxEvents()
   {
     return $this->maxEvents;
   }
-  public function setReturnImmediately($returnImmediately)
+
+    public function setMaxEvents($maxEvents)
   {
-    $this->returnImmediately = $returnImmediately;
+      $this->maxEvents = $maxEvents;
   }
+
   public function getReturnImmediately()
   {
     return $this->returnImmediately;
   }
-  public function setSubscription($subscription)
+
+    public function setReturnImmediately($returnImmediately)
   {
-    $this->subscription = $subscription;
+      $this->returnImmediately = $returnImmediately;
   }
+
   public function getSubscription()
   {
     return $this->subscription;
   }
+
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+    }
 }
 
 class Google_Service_Pubsub_PullBatchResponse extends Google_Collection
@@ -849,47 +873,48 @@ class Google_Service_Pubsub_PullBatchResponse extends Google_Collection
 
 class Google_Service_Pubsub_PullRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $returnImmediately;
   public $subscription;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setReturnImmediately($returnImmediately)
-  {
-    $this->returnImmediately = $returnImmediately;
-  }
   public function getReturnImmediately()
   {
     return $this->returnImmediately;
   }
-  public function setSubscription($subscription)
+
+    public function setReturnImmediately($returnImmediately)
   {
-    $this->subscription = $subscription;
+      $this->returnImmediately = $returnImmediately;
   }
-  public function getSubscription()
+
+    public function getSubscription()
   {
     return $this->subscription;
   }
+
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+    }
 }
 
 class Google_Service_Pubsub_PullResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $ackId;
+    protected $internal_gapi_mappings = array();
   protected $pubsubEventType = 'Google_Service_Pubsub_PubsubEvent';
   protected $pubsubEventDataType = '';
 
-
-  public function setAckId($ackId)
-  {
-    $this->ackId = $ackId;
-  }
   public function getAckId()
   {
     return $this->ackId;
   }
+
+    public function setAckId($ackId)
+    {
+        $this->ackId = $ackId;
+    }
+
   public function setPubsubEvent(Google_Service_Pubsub_PubsubEvent $pubsubEvent)
   {
     $this->pubsubEvent = $pubsubEvent;
@@ -902,48 +927,49 @@ class Google_Service_Pubsub_PullResponse extends Google_Model
 
 class Google_Service_Pubsub_PushConfig extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $pushEndpoint;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPushEndpoint($pushEndpoint)
-  {
-    $this->pushEndpoint = $pushEndpoint;
-  }
   public function getPushEndpoint()
   {
     return $this->pushEndpoint;
   }
+
+    public function setPushEndpoint($pushEndpoint)
+    {
+        $this->pushEndpoint = $pushEndpoint;
+    }
 }
 
 class Google_Service_Pubsub_Subscription extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $ackDeadlineSeconds;
   public $name;
+    public $topic;
+    protected $internal_gapi_mappings = array();
   protected $pushConfigType = 'Google_Service_Pubsub_PushConfig';
   protected $pushConfigDataType = '';
-  public $topic;
 
-
-  public function setAckDeadlineSeconds($ackDeadlineSeconds)
-  {
-    $this->ackDeadlineSeconds = $ackDeadlineSeconds;
-  }
   public function getAckDeadlineSeconds()
   {
     return $this->ackDeadlineSeconds;
   }
-  public function setName($name)
+
+    public function setAckDeadlineSeconds($ackDeadlineSeconds)
   {
-    $this->name = $name;
+      $this->ackDeadlineSeconds = $ackDeadlineSeconds;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setPushConfig(Google_Service_Pubsub_PushConfig $pushConfig)
   {
     $this->pushConfig = $pushConfig;
@@ -952,29 +978,30 @@ class Google_Service_Pubsub_Subscription extends Google_Model
   {
     return $this->pushConfig;
   }
-  public function setTopic($topic)
-  {
-    $this->topic = $topic;
-  }
-  public function getTopic()
+
+    public function getTopic()
   {
     return $this->topic;
   }
+
+    public function setTopic($topic)
+    {
+        $this->topic = $topic;
+    }
 }
 
 class Google_Service_Pubsub_Topic extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }

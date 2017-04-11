@@ -74,6 +74,21 @@ class Google_Cache_Apc extends Google_Cache_Abstract
     return $ret['data'];
   }
 
+    /**
+     * @inheritDoc
+     *
+     * @param string $key
+     */
+    public function delete($key)
+    {
+        $this->client->getLogger()->debug(
+            'APC cache delete',
+            array('key' => $key)
+        )
+        ;
+        apc_delete($key);
+    }
+
   /**
    * @inheritDoc
    */
@@ -94,18 +109,5 @@ class Google_Cache_Apc extends Google_Cache_Abstract
         'APC cache set',
         array('key' => $key, 'var' => $var)
     );
-  }
-
-  /**
-   * @inheritDoc
-   * @param String $key
-   */
-  public function delete($key)
-  {
-    $this->client->getLogger()->debug(
-        'APC cache delete',
-        array('key' => $key)
-    );
-    apc_delete($key);
   }
 }

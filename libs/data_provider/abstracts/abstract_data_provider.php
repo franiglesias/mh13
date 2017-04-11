@@ -26,7 +26,7 @@ abstract class AbstractDataProvider implements DataProvider {
 		if (!is_array($var)) {
 			throw new InvalidArgumentException('Passed var is not an array', 1);
 		}
-		$this->_source =& $var;
+        $this->_source = $var;
 		return $this;
 	}
 	

@@ -14,7 +14,7 @@ class TestPrizesController extends PrizesController {
 
 class PrizesControllerTestCase extends CakeTestCase {
 	function startTest() {
-		$this->Prizes =& new TestPrizesController();
+		$this->Prizes = new TestPrizesController();
 		$this->Prizes->constructClasses();
 	}
 

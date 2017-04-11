@@ -45,7 +45,7 @@ class Google_Auth_AssertionCredentials
    * @param $privateKey
    * @param string $privateKeyPassword
    * @param string $assertionType
-   * @param bool|string $sub The email address of the user for which the
+   * @param bool|CakeString $sub The email address of the user for which the
    *              application is requesting delegated access.
    * @param bool useCache Whether to generate a cache key and allow
    *              automatic caching of the generated token.
@@ -109,7 +109,9 @@ class Google_Auth_AssertionCredentials
 
   /**
    * Creates a signed JWT.
+   *
    * @param array $payload
+   *
    * @return string The signed JWT.
    */
   private function makeSignedJwt($payload)

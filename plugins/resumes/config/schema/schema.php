@@ -2,14 +2,6 @@
 /* resumes schema generated on: 2013-02-22 13:41:23 : 1361536883*/
 class resumesSchema extends CakeSchema {
 	var $name = 'resumes';
-
-	function before($event = array()) {
-		return true;
-	}
-
-	function after($event = array()) {
-	}
-
 	var $merit_types = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'title' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 120, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -48,5 +40,14 @@ class resumesSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
+
+    function before($event = array())
+    {
+        return true;
+    }
+
+    function after($event = array())
+    {
+    }
 }
 ?>

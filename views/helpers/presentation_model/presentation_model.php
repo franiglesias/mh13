@@ -71,7 +71,7 @@ abstract class PresentationModelHelper
 
 	public function setDataProvider(DataProvider &$DataProvider)
 	{
-		$this->DataProvider =& $DataProvider;
+        $this->DataProvider = $DataProvider;
 	}
 
 	
@@ -148,7 +148,7 @@ abstract class PresentationModelHelper
 	public function element($element, $options = array(), $helpers = false)
 	{
 		$element = str_replace('/', DS, $element);
-		$parts = String::tokenize($element, DS);
+        $parts = CakeString::tokenize($element, DS);
 		$nocache = false;
 		if (isset($options['loadHelpers'])) {
 			$helpers = $options['loadHelpers'];

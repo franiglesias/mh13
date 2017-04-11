@@ -296,7 +296,8 @@ class Google_Service_Reseller_Customers_Resource extends Google_Service_Resource
    * (customers.get)
    *
    * @param string $customerId Id of the Customer
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Reseller_Customer
    */
   public function get($customerId, $optParams = array())
@@ -328,9 +329,10 @@ class Google_Service_Reseller_Customers_Resource extends Google_Service_Resource
    * Update a customer resource if one it exists and is owned by the reseller.
    * This method supports patch semantics. (customers.patch)
    *
-   * @param string $customerId Id of the Customer
+   * @param string          $customerId Id of the Customer
    * @param Google_Customer $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams  Optional parameters.
+   *
    * @return Google_Service_Reseller_Customer
    */
   public function patch($customerId, Google_Service_Reseller_Customer $postBody, $optParams = array())
@@ -344,9 +346,10 @@ class Google_Service_Reseller_Customers_Resource extends Google_Service_Resource
    * Update a customer resource if one it exists and is owned by the reseller.
    * (customers.update)
    *
-   * @param string $customerId Id of the Customer
+   * @param string          $customerId Id of the Customer
    * @param Google_Customer $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams  Optional parameters.
+   *
    * @return Google_Service_Reseller_Customer
    */
   public function update($customerId, Google_Service_Reseller_Customer $postBody, $optParams = array())
@@ -376,6 +379,7 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
    * @param string $subscriptionId Id of the subscription, which is unique for a
    * customer
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function activate($customerId, $subscriptionId, $optParams = array())
@@ -393,6 +397,7 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
    * customer
    * @param Google_ChangePlanRequest $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function changePlan($customerId, $subscriptionId, Google_Service_Reseller_ChangePlanRequest $postBody, $optParams = array())
@@ -411,6 +416,7 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
    * customer
    * @param Google_RenewalSettings $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function changeRenewalSettings($customerId, $subscriptionId, Google_Service_Reseller_RenewalSettings $postBody, $optParams = array())
@@ -428,6 +434,7 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
    * customer
    * @param Google_Seats $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function changeSeats($customerId, $subscriptionId, Google_Service_Reseller_Seats $postBody, $optParams = array())
@@ -440,12 +447,12 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
   /**
    * Cancels/Downgrades a subscription. (subscriptions.delete)
    *
-   * @param string $customerId Id of the Customer
+   * @param string $customerId     Id of the Customer
    * @param string $subscriptionId Id of the subscription, which is unique for a
    * customer
-   * @param string $deletionType Whether the subscription is to be fully cancelled
+   * @param string $deletionType   Whether the subscription is to be fully cancelled
    * or downgraded
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams      Optional parameters.
    */
   public function delete($customerId, $subscriptionId, $deletionType, $optParams = array())
   {
@@ -457,10 +464,11 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
   /**
    * Gets a subscription of the customer. (subscriptions.get)
    *
-   * @param string $customerId Id of the Customer
+   * @param string $customerId     Id of the Customer
    * @param string $subscriptionId Id of the subscription, which is unique for a
    * customer
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams      Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function get($customerId, $subscriptionId, $optParams = array())
@@ -515,10 +523,11 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
   /**
    * Starts paid service of a trial subscription (subscriptions.startPaidService)
    *
-   * @param string $customerId Id of the Customer
+   * @param string $customerId     Id of the Customer
    * @param string $subscriptionId Id of the subscription, which is unique for a
    * customer
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams      Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function startPaidService($customerId, $subscriptionId, $optParams = array())
@@ -531,10 +540,11 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
   /**
    * Suspends an active subscription (subscriptions.suspend)
    *
-   * @param string $customerId Id of the Customer
+   * @param string $customerId     Id of the Customer
    * @param string $subscriptionId Id of the subscription, which is unique for a
    * customer
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams      Optional parameters.
+   *
    * @return Google_Service_Reseller_Subscription
    */
   public function suspend($customerId, $subscriptionId, $optParams = array())
@@ -550,8 +560,6 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
 
 class Google_Service_Reseller_Address extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $addressLine1;
   public $addressLine2;
   public $addressLine3;
@@ -562,125 +570,148 @@ class Google_Service_Reseller_Address extends Google_Model
   public $organizationName;
   public $postalCode;
   public $region;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAddressLine1($addressLine1)
-  {
-    $this->addressLine1 = $addressLine1;
-  }
   public function getAddressLine1()
   {
     return $this->addressLine1;
   }
-  public function setAddressLine2($addressLine2)
+
+    public function setAddressLine1($addressLine1)
   {
-    $this->addressLine2 = $addressLine2;
+      $this->addressLine1 = $addressLine1;
   }
+
   public function getAddressLine2()
   {
     return $this->addressLine2;
   }
-  public function setAddressLine3($addressLine3)
+
+    public function setAddressLine2($addressLine2)
   {
-    $this->addressLine3 = $addressLine3;
+      $this->addressLine2 = $addressLine2;
   }
+
   public function getAddressLine3()
   {
     return $this->addressLine3;
   }
-  public function setContactName($contactName)
+
+    public function setAddressLine3($addressLine3)
   {
-    $this->contactName = $contactName;
+      $this->addressLine3 = $addressLine3;
   }
+
   public function getContactName()
   {
     return $this->contactName;
   }
-  public function setCountryCode($countryCode)
+
+    public function setContactName($contactName)
   {
-    $this->countryCode = $countryCode;
+      $this->contactName = $contactName;
   }
+
   public function getCountryCode()
   {
     return $this->countryCode;
   }
-  public function setKind($kind)
+
+    public function setCountryCode($countryCode)
   {
-    $this->kind = $kind;
+      $this->countryCode = $countryCode;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLocality($locality)
+
+    public function setKind($kind)
   {
-    $this->locality = $locality;
+      $this->kind = $kind;
   }
+
   public function getLocality()
   {
     return $this->locality;
   }
-  public function setOrganizationName($organizationName)
+
+    public function setLocality($locality)
   {
-    $this->organizationName = $organizationName;
+      $this->locality = $locality;
   }
+
   public function getOrganizationName()
   {
     return $this->organizationName;
   }
-  public function setPostalCode($postalCode)
+
+    public function setOrganizationName($organizationName)
   {
-    $this->postalCode = $postalCode;
+      $this->organizationName = $organizationName;
   }
+
   public function getPostalCode()
   {
     return $this->postalCode;
   }
-  public function setRegion($region)
+
+    public function setPostalCode($postalCode)
   {
-    $this->region = $region;
+      $this->postalCode = $postalCode;
   }
+
   public function getRegion()
   {
     return $this->region;
   }
+
+    public function setRegion($region)
+    {
+        $this->region = $region;
+    }
 }
 
 class Google_Service_Reseller_ChangePlanRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $planName;
   public $purchaseOrderId;
+    protected $internal_gapi_mappings = array();
   protected $seatsType = 'Google_Service_Reseller_Seats';
   protected $seatsDataType = '';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPlanName($planName)
+
+    public function setKind($kind)
   {
-    $this->planName = $planName;
+      $this->kind = $kind;
   }
+
   public function getPlanName()
   {
     return $this->planName;
   }
-  public function setPurchaseOrderId($purchaseOrderId)
+
+    public function setPlanName($planName)
   {
-    $this->purchaseOrderId = $purchaseOrderId;
+      $this->planName = $planName;
   }
+
   public function getPurchaseOrderId()
   {
     return $this->purchaseOrderId;
   }
+
+    public function setPurchaseOrderId($purchaseOrderId)
+    {
+        $this->purchaseOrderId = $purchaseOrderId;
+    }
+
   public function setSeats(Google_Service_Reseller_Seats $seats)
   {
     $this->seats = $seats;
@@ -693,58 +724,66 @@ class Google_Service_Reseller_ChangePlanRequest extends Google_Model
 
 class Google_Service_Reseller_Customer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $alternateEmail;
   public $customerDomain;
   public $customerId;
   public $kind;
   public $phoneNumber;
+    public $resourceUiUrl;
+    protected $internal_gapi_mappings = array();
   protected $postalAddressType = 'Google_Service_Reseller_Address';
   protected $postalAddressDataType = '';
-  public $resourceUiUrl;
 
-
-  public function setAlternateEmail($alternateEmail)
-  {
-    $this->alternateEmail = $alternateEmail;
-  }
   public function getAlternateEmail()
   {
     return $this->alternateEmail;
   }
-  public function setCustomerDomain($customerDomain)
+
+    public function setAlternateEmail($alternateEmail)
   {
-    $this->customerDomain = $customerDomain;
+      $this->alternateEmail = $alternateEmail;
   }
+
   public function getCustomerDomain()
   {
     return $this->customerDomain;
   }
-  public function setCustomerId($customerId)
+
+    public function setCustomerDomain($customerDomain)
   {
-    $this->customerId = $customerId;
+      $this->customerDomain = $customerDomain;
   }
+
   public function getCustomerId()
   {
     return $this->customerId;
   }
-  public function setKind($kind)
+
+    public function setCustomerId($customerId)
   {
-    $this->kind = $kind;
+      $this->customerId = $customerId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPhoneNumber($phoneNumber)
+
+    public function setKind($kind)
   {
-    $this->phoneNumber = $phoneNumber;
+      $this->kind = $kind;
   }
+
   public function getPhoneNumber()
   {
     return $this->phoneNumber;
   }
+
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
   public function setPostalAddress(Google_Service_Reseller_Address $postalAddress)
   {
     $this->postalAddress = $postalAddress;
@@ -753,143 +792,157 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->postalAddress;
   }
-  public function setResourceUiUrl($resourceUiUrl)
-  {
-    $this->resourceUiUrl = $resourceUiUrl;
-  }
+
   public function getResourceUiUrl()
   {
     return $this->resourceUiUrl;
   }
+
+    public function setResourceUiUrl($resourceUiUrl)
+    {
+        $this->resourceUiUrl = $resourceUiUrl;
+    }
 }
 
 class Google_Service_Reseller_RenewalSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $renewalType;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setRenewalType($renewalType)
+
+    public function setKind($kind)
   {
-    $this->renewalType = $renewalType;
+      $this->kind = $kind;
   }
+
   public function getRenewalType()
   {
     return $this->renewalType;
   }
+
+    public function setRenewalType($renewalType)
+    {
+        $this->renewalType = $renewalType;
+    }
 }
 
 class Google_Service_Reseller_Seats extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $licensedNumberOfSeats;
   public $maximumNumberOfSeats;
   public $numberOfSeats;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLicensedNumberOfSeats($licensedNumberOfSeats)
+
+    public function setKind($kind)
   {
-    $this->licensedNumberOfSeats = $licensedNumberOfSeats;
+      $this->kind = $kind;
   }
+
   public function getLicensedNumberOfSeats()
   {
     return $this->licensedNumberOfSeats;
   }
-  public function setMaximumNumberOfSeats($maximumNumberOfSeats)
+
+    public function setLicensedNumberOfSeats($licensedNumberOfSeats)
   {
-    $this->maximumNumberOfSeats = $maximumNumberOfSeats;
+      $this->licensedNumberOfSeats = $licensedNumberOfSeats;
   }
+
   public function getMaximumNumberOfSeats()
   {
     return $this->maximumNumberOfSeats;
   }
-  public function setNumberOfSeats($numberOfSeats)
+
+    public function setMaximumNumberOfSeats($maximumNumberOfSeats)
   {
-    $this->numberOfSeats = $numberOfSeats;
+      $this->maximumNumberOfSeats = $maximumNumberOfSeats;
   }
+
   public function getNumberOfSeats()
   {
     return $this->numberOfSeats;
   }
+
+    public function setNumberOfSeats($numberOfSeats)
+    {
+        $this->numberOfSeats = $numberOfSeats;
+    }
 }
 
 class Google_Service_Reseller_Subscription extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $billingMethod;
   public $creationTime;
   public $customerId;
   public $kind;
+    public $purchaseOrderId;
+    public $resourceUiUrl;
+    public $skuId;
+    public $status;
+    public $subscriptionId;
+    protected $internal_gapi_mappings = array();
   protected $planType = 'Google_Service_Reseller_SubscriptionPlan';
   protected $planDataType = '';
-  public $purchaseOrderId;
   protected $renewalSettingsType = 'Google_Service_Reseller_RenewalSettings';
   protected $renewalSettingsDataType = '';
-  public $resourceUiUrl;
   protected $seatsType = 'Google_Service_Reseller_Seats';
   protected $seatsDataType = '';
-  public $skuId;
-  public $status;
-  public $subscriptionId;
   protected $transferInfoType = 'Google_Service_Reseller_SubscriptionTransferInfo';
   protected $transferInfoDataType = '';
   protected $trialSettingsType = 'Google_Service_Reseller_SubscriptionTrialSettings';
   protected $trialSettingsDataType = '';
 
-
-  public function setBillingMethod($billingMethod)
-  {
-    $this->billingMethod = $billingMethod;
-  }
   public function getBillingMethod()
   {
     return $this->billingMethod;
   }
-  public function setCreationTime($creationTime)
+
+    public function setBillingMethod($billingMethod)
   {
-    $this->creationTime = $creationTime;
+      $this->billingMethod = $billingMethod;
   }
+
   public function getCreationTime()
   {
     return $this->creationTime;
   }
-  public function setCustomerId($customerId)
+
+    public function setCreationTime($creationTime)
   {
-    $this->customerId = $customerId;
+      $this->creationTime = $creationTime;
   }
+
   public function getCustomerId()
   {
     return $this->customerId;
   }
-  public function setKind($kind)
+
+    public function setCustomerId($customerId)
   {
-    $this->kind = $kind;
+      $this->customerId = $customerId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlan(Google_Service_Reseller_SubscriptionPlan $plan)
   {
     $this->plan = $plan;
@@ -898,14 +951,17 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->plan;
   }
-  public function setPurchaseOrderId($purchaseOrderId)
-  {
-    $this->purchaseOrderId = $purchaseOrderId;
-  }
+
   public function getPurchaseOrderId()
   {
     return $this->purchaseOrderId;
   }
+
+    public function setPurchaseOrderId($purchaseOrderId)
+    {
+        $this->purchaseOrderId = $purchaseOrderId;
+    }
+
   public function setRenewalSettings(Google_Service_Reseller_RenewalSettings $renewalSettings)
   {
     $this->renewalSettings = $renewalSettings;
@@ -914,14 +970,17 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->renewalSettings;
   }
-  public function setResourceUiUrl($resourceUiUrl)
-  {
-    $this->resourceUiUrl = $resourceUiUrl;
-  }
+
   public function getResourceUiUrl()
   {
     return $this->resourceUiUrl;
   }
+
+    public function setResourceUiUrl($resourceUiUrl)
+    {
+        $this->resourceUiUrl = $resourceUiUrl;
+    }
+
   public function setSeats(Google_Service_Reseller_Seats $seats)
   {
     $this->seats = $seats;
@@ -930,30 +989,37 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->seats;
   }
-  public function setSkuId($skuId)
-  {
-    $this->skuId = $skuId;
-  }
-  public function getSkuId()
+
+    public function getSkuId()
   {
     return $this->skuId;
   }
-  public function setStatus($status)
+
+    public function setSkuId($skuId)
   {
-    $this->status = $status;
+      $this->skuId = $skuId;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
-  public function setSubscriptionId($subscriptionId)
+
+    public function setStatus($status)
   {
-    $this->subscriptionId = $subscriptionId;
+      $this->status = $status;
   }
-  public function getSubscriptionId()
+
+    public function getSubscriptionId()
   {
     return $this->subscriptionId;
   }
+
+    public function setSubscriptionId($subscriptionId)
+    {
+        $this->subscriptionId = $subscriptionId;
+    }
+
   public function setTransferInfo(Google_Service_Reseller_SubscriptionTransferInfo $transferInfo)
   {
     $this->transferInfo = $transferInfo;
@@ -974,13 +1040,12 @@ class Google_Service_Reseller_Subscription extends Google_Model
 
 class Google_Service_Reseller_SubscriptionPlan extends Google_Model
 {
+    public $isCommitmentPlan;
+    public $planName;
   protected $internal_gapi_mappings = array(
   );
   protected $commitmentIntervalType = 'Google_Service_Reseller_SubscriptionPlanCommitmentInterval';
   protected $commitmentIntervalDataType = '';
-  public $isCommitmentPlan;
-  public $planName;
-
 
   public function setCommitmentInterval(Google_Service_Reseller_SubscriptionPlanCommitmentInterval $commitmentInterval)
   {
@@ -990,129 +1055,138 @@ class Google_Service_Reseller_SubscriptionPlan extends Google_Model
   {
     return $this->commitmentInterval;
   }
-  public function setIsCommitmentPlan($isCommitmentPlan)
-  {
-    $this->isCommitmentPlan = $isCommitmentPlan;
-  }
-  public function getIsCommitmentPlan()
+
+    public function getIsCommitmentPlan()
   {
     return $this->isCommitmentPlan;
   }
-  public function setPlanName($planName)
+
+    public function setIsCommitmentPlan($isCommitmentPlan)
   {
-    $this->planName = $planName;
+      $this->isCommitmentPlan = $isCommitmentPlan;
   }
-  public function getPlanName()
+
+    public function getPlanName()
   {
     return $this->planName;
   }
+
+    public function setPlanName($planName)
+    {
+        $this->planName = $planName;
+    }
 }
 
 class Google_Service_Reseller_SubscriptionPlanCommitmentInterval extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $endTime;
   public $startTime;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEndTime($endTime)
-  {
-    $this->endTime = $endTime;
-  }
   public function getEndTime()
   {
     return $this->endTime;
   }
-  public function setStartTime($startTime)
+
+    public function setEndTime($endTime)
   {
-    $this->startTime = $startTime;
+      $this->endTime = $endTime;
   }
-  public function getStartTime()
+
+    public function getStartTime()
   {
     return $this->startTime;
   }
+
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+    }
 }
 
 class Google_Service_Reseller_SubscriptionTransferInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $minimumTransferableSeats;
   public $transferabilityExpirationTime;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setMinimumTransferableSeats($minimumTransferableSeats)
-  {
-    $this->minimumTransferableSeats = $minimumTransferableSeats;
-  }
   public function getMinimumTransferableSeats()
   {
     return $this->minimumTransferableSeats;
   }
-  public function setTransferabilityExpirationTime($transferabilityExpirationTime)
+
+    public function setMinimumTransferableSeats($minimumTransferableSeats)
   {
-    $this->transferabilityExpirationTime = $transferabilityExpirationTime;
+      $this->minimumTransferableSeats = $minimumTransferableSeats;
   }
-  public function getTransferabilityExpirationTime()
+
+    public function getTransferabilityExpirationTime()
   {
     return $this->transferabilityExpirationTime;
   }
+
+    public function setTransferabilityExpirationTime($transferabilityExpirationTime)
+    {
+        $this->transferabilityExpirationTime = $transferabilityExpirationTime;
+    }
 }
 
 class Google_Service_Reseller_SubscriptionTrialSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $isInTrial;
   public $trialEndTime;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setIsInTrial($isInTrial)
-  {
-    $this->isInTrial = $isInTrial;
-  }
   public function getIsInTrial()
   {
     return $this->isInTrial;
   }
-  public function setTrialEndTime($trialEndTime)
+
+    public function setIsInTrial($isInTrial)
   {
-    $this->trialEndTime = $trialEndTime;
+      $this->isInTrial = $isInTrial;
   }
-  public function getTrialEndTime()
+
+    public function getTrialEndTime()
   {
     return $this->trialEndTime;
   }
+
+    public function setTrialEndTime($trialEndTime)
+    {
+        $this->trialEndTime = $trialEndTime;
+    }
 }
 
 class Google_Service_Reseller_Subscriptions extends Google_Collection
 {
-  protected $collection_key = 'subscriptions';
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $nextPageToken;
+    protected $collection_key = 'subscriptions';
+    protected $internal_gapi_mappings = array();
   protected $subscriptionsType = 'Google_Service_Reseller_Subscription';
   protected $subscriptionsDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setSubscriptions($subscriptions)
   {
     $this->subscriptions = $subscriptions;

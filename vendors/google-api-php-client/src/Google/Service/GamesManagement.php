@@ -352,7 +352,8 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
    * your application. (achievements.reset)
    *
    * @param string $achievementId The ID of the achievement used by this method.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_GamesManagement_AchievementResetResponse
    */
   public function reset($achievementId, $optParams = array())
@@ -397,7 +398,7 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
    * achievements can be reset. (achievements.resetForAllPlayers)
    *
    * @param string $achievementId The ID of the achievement used by this method.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function resetForAllPlayers($achievementId, $optParams = array())
   {
@@ -440,7 +441,7 @@ class Google_Service_GamesManagement_Applications_Resource extends Google_Servic
    *
    * @param string $applicationId The application ID from the Google Play
    * developer console.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    *
    * @opt_param string pageToken The token returned by the previous request.
    * @opt_param int maxResults The maximum number of player resources to return in
@@ -473,8 +474,8 @@ class Google_Service_GamesManagement_Events_Resource extends Google_Service_Reso
    * accounts for your application. All quests for this player that use the event
    * will also be reset. (events.reset)
    *
-   * @param string $eventId The ID of the event.
-   * @param array $optParams Optional parameters.
+   * @param string $eventId   The ID of the event.
+   * @param array  $optParams Optional parameters.
    */
   public function reset($eventId, $optParams = array())
   {
@@ -518,8 +519,8 @@ class Google_Service_GamesManagement_Events_Resource extends Google_Service_Reso
    * be reset. All quests that use the event will also be reset.
    * (events.resetForAllPlayers)
    *
-   * @param string $eventId The ID of the event.
-   * @param array $optParams Optional parameters.
+   * @param string $eventId   The ID of the event.
+   * @param array  $optParams Optional parameters.
    */
   public function resetForAllPlayers($eventId, $optParams = array())
   {
@@ -563,9 +564,9 @@ class Google_Service_GamesManagement_Players_Resource extends Google_Service_Res
    *
    * @param string $applicationId The application ID from the Google Play
    * developer console.
-   * @param string $playerId A player ID. A value of me may be used in place of
+   * @param string $playerId      A player ID. A value of me may be used in place of
    * the authenticated player's ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function hide($applicationId, $playerId, $optParams = array())
   {
@@ -581,9 +582,9 @@ class Google_Service_GamesManagement_Players_Resource extends Google_Service_Res
    *
    * @param string $applicationId The application ID from the Google Play
    * developer console.
-   * @param string $playerId A player ID. A value of me may be used in place of
+   * @param string $playerId      A player ID. A value of me may be used in place of
    * the authenticated player's ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function unhide($applicationId, $playerId, $optParams = array())
   {
@@ -609,8 +610,8 @@ class Google_Service_GamesManagement_Quests_Resource extends Google_Service_Reso
    * authenticated player. This method is only accessible to whitelisted tester
    * accounts for your application. (quests.reset)
    *
-   * @param string $questId The ID of the quest.
-   * @param array $optParams Optional parameters.
+   * @param string $questId   The ID of the quest.
+   * @param array  $optParams Optional parameters.
    */
   public function reset($questId, $optParams = array())
   {
@@ -651,8 +652,8 @@ class Google_Service_GamesManagement_Quests_Resource extends Google_Service_Reso
    * This method is only available to user accounts for your developer console.
    * Only draft quests can be reset. (quests.resetForAllPlayers)
    *
-   * @param string $questId The ID of the quest.
-   * @param array $optParams Optional parameters.
+   * @param string $questId   The ID of the quest.
+   * @param array  $optParams Optional parameters.
    */
   public function resetForAllPlayers($questId, $optParams = array())
   {
@@ -734,7 +735,8 @@ class Google_Service_GamesManagement_Scores_Resource extends Google_Service_Reso
    * accounts for your application. (scores.reset)
    *
    * @param string $leaderboardId The ID of the leaderboard.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_GamesManagement_PlayerScoreResetResponse
    */
   public function reset($leaderboardId, $optParams = array())
@@ -779,7 +781,7 @@ class Google_Service_GamesManagement_Scores_Resource extends Google_Service_Reso
    * draft leaderboards can be reset. (scores.resetForAllPlayers)
    *
    * @param string $leaderboardId The ID of the leaderboard.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function resetForAllPlayers($leaderboardId, $optParams = array())
   {
@@ -849,22 +851,23 @@ class Google_Service_GamesManagement_TurnBasedMatches_Resource extends Google_Se
 
 class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'results';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $resultsType = 'Google_Service_GamesManagement_AchievementResetResponse';
   protected $resultsDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setResults($results)
   {
     $this->results = $results;
@@ -877,150 +880,160 @@ class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_
 
 class Google_Service_GamesManagement_AchievementResetMultipleForAllRequest extends Google_Collection
 {
+    public $achievementIds;
+    public $kind;
   protected $collection_key = 'achievement_ids';
   protected $internal_gapi_mappings = array(
         "achievementIds" => "achievement_ids",
   );
-  public $achievementIds;
-  public $kind;
 
-
-  public function setAchievementIds($achievementIds)
-  {
-    $this->achievementIds = $achievementIds;
-  }
   public function getAchievementIds()
   {
     return $this->achievementIds;
   }
-  public function setKind($kind)
+
+    public function setAchievementIds($achievementIds)
   {
-    $this->kind = $kind;
+      $this->achievementIds = $achievementIds;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_GamesManagement_AchievementResetResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currentState;
   public $definitionId;
   public $kind;
   public $updateOccurred;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCurrentState($currentState)
-  {
-    $this->currentState = $currentState;
-  }
   public function getCurrentState()
   {
     return $this->currentState;
   }
-  public function setDefinitionId($definitionId)
+
+    public function setCurrentState($currentState)
   {
-    $this->definitionId = $definitionId;
+      $this->currentState = $currentState;
   }
+
   public function getDefinitionId()
   {
     return $this->definitionId;
   }
-  public function setKind($kind)
+
+    public function setDefinitionId($definitionId)
   {
-    $this->kind = $kind;
+      $this->definitionId = $definitionId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setUpdateOccurred($updateOccurred)
+
+    public function setKind($kind)
   {
-    $this->updateOccurred = $updateOccurred;
+      $this->kind = $kind;
   }
+
   public function getUpdateOccurred()
   {
     return $this->updateOccurred;
   }
+
+    public function setUpdateOccurred($updateOccurred)
+    {
+        $this->updateOccurred = $updateOccurred;
+    }
 }
 
 class Google_Service_GamesManagement_EventsResetMultipleForAllRequest extends Google_Collection
 {
+    public $eventIds;
+    public $kind;
   protected $collection_key = 'event_ids';
   protected $internal_gapi_mappings = array(
         "eventIds" => "event_ids",
   );
-  public $eventIds;
-  public $kind;
 
-
-  public function setEventIds($eventIds)
-  {
-    $this->eventIds = $eventIds;
-  }
   public function getEventIds()
   {
     return $this->eventIds;
   }
-  public function setKind($kind)
+
+    public function setEventIds($eventIds)
   {
-    $this->kind = $kind;
+      $this->eventIds = $eventIds;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_GamesManagement_GamesPlayedResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $autoMatched;
   public $timeMillis;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAutoMatched($autoMatched)
-  {
-    $this->autoMatched = $autoMatched;
-  }
   public function getAutoMatched()
   {
     return $this->autoMatched;
   }
-  public function setTimeMillis($timeMillis)
+
+    public function setAutoMatched($autoMatched)
   {
-    $this->timeMillis = $timeMillis;
+      $this->autoMatched = $autoMatched;
   }
+
   public function getTimeMillis()
   {
     return $this->timeMillis;
   }
+
+    public function setTimeMillis($timeMillis)
+    {
+        $this->timeMillis = $timeMillis;
+    }
 }
 
 class Google_Service_GamesManagement_GamesPlayerExperienceInfoResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currentExperiencePoints;
+    public $lastLevelUpTimestampMillis;
+    protected $internal_gapi_mappings = array();
   protected $currentLevelType = 'Google_Service_GamesManagement_GamesPlayerLevelResource';
   protected $currentLevelDataType = '';
-  public $lastLevelUpTimestampMillis;
   protected $nextLevelType = 'Google_Service_GamesManagement_GamesPlayerLevelResource';
   protected $nextLevelDataType = '';
 
-
-  public function setCurrentExperiencePoints($currentExperiencePoints)
-  {
-    $this->currentExperiencePoints = $currentExperiencePoints;
-  }
   public function getCurrentExperiencePoints()
   {
     return $this->currentExperiencePoints;
   }
+
+    public function setCurrentExperiencePoints($currentExperiencePoints)
+    {
+        $this->currentExperiencePoints = $currentExperiencePoints;
+    }
+
   public function setCurrentLevel(Google_Service_GamesManagement_GamesPlayerLevelResource $currentLevel)
   {
     $this->currentLevel = $currentLevel;
@@ -1029,14 +1042,17 @@ class Google_Service_GamesManagement_GamesPlayerExperienceInfoResource extends G
   {
     return $this->currentLevel;
   }
-  public function setLastLevelUpTimestampMillis($lastLevelUpTimestampMillis)
-  {
-    $this->lastLevelUpTimestampMillis = $lastLevelUpTimestampMillis;
-  }
+
   public function getLastLevelUpTimestampMillis()
   {
     return $this->lastLevelUpTimestampMillis;
   }
+
+    public function setLastLevelUpTimestampMillis($lastLevelUpTimestampMillis)
+    {
+        $this->lastLevelUpTimestampMillis = $lastLevelUpTimestampMillis;
+    }
+
   public function setNextLevel(Google_Service_GamesManagement_GamesPlayerLevelResource $nextLevel)
   {
     $this->nextLevel = $nextLevel;
@@ -1049,65 +1065,70 @@ class Google_Service_GamesManagement_GamesPlayerExperienceInfoResource extends G
 
 class Google_Service_GamesManagement_GamesPlayerLevelResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $level;
   public $maxExperiencePoints;
   public $minExperiencePoints;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLevel($level)
-  {
-    $this->level = $level;
-  }
   public function getLevel()
   {
     return $this->level;
   }
-  public function setMaxExperiencePoints($maxExperiencePoints)
+
+    public function setLevel($level)
   {
-    $this->maxExperiencePoints = $maxExperiencePoints;
+      $this->level = $level;
   }
+
   public function getMaxExperiencePoints()
   {
     return $this->maxExperiencePoints;
   }
-  public function setMinExperiencePoints($minExperiencePoints)
+
+    public function setMaxExperiencePoints($maxExperiencePoints)
   {
-    $this->minExperiencePoints = $minExperiencePoints;
+      $this->maxExperiencePoints = $maxExperiencePoints;
   }
+
   public function getMinExperiencePoints()
   {
     return $this->minExperiencePoints;
   }
+
+    public function setMinExperiencePoints($minExperiencePoints)
+    {
+        $this->minExperiencePoints = $minExperiencePoints;
+    }
 }
 
 class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $hiddenTimeMillis;
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $playerType = 'Google_Service_GamesManagement_Player';
   protected $playerDataType = '';
 
-
-  public function setHiddenTimeMillis($hiddenTimeMillis)
-  {
-    $this->hiddenTimeMillis = $hiddenTimeMillis;
-  }
   public function getHiddenTimeMillis()
   {
     return $this->hiddenTimeMillis;
   }
-  public function setKind($kind)
+
+    public function setHiddenTimeMillis($hiddenTimeMillis)
   {
-    $this->kind = $kind;
+      $this->hiddenTimeMillis = $hiddenTimeMillis;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlayer(Google_Service_GamesManagement_Player $player)
   {
     $this->player = $player;
@@ -1120,14 +1141,13 @@ class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
 
 class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_GamesManagement_HiddenPlayer';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -1137,57 +1157,63 @@ class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_GamesManagement_Player extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $avatarImageUrl;
   public $displayName;
+    public $kind;
+    public $playerId;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $experienceInfoType = 'Google_Service_GamesManagement_GamesPlayerExperienceInfoResource';
   protected $experienceInfoDataType = '';
-  public $kind;
   protected $lastPlayedWithType = 'Google_Service_GamesManagement_GamesPlayedResource';
   protected $lastPlayedWithDataType = '';
   protected $nameType = 'Google_Service_GamesManagement_PlayerName';
   protected $nameDataType = '';
-  public $playerId;
-  public $title;
 
-
-  public function setAvatarImageUrl($avatarImageUrl)
-  {
-    $this->avatarImageUrl = $avatarImageUrl;
-  }
   public function getAvatarImageUrl()
   {
     return $this->avatarImageUrl;
   }
-  public function setDisplayName($displayName)
+
+    public function setAvatarImageUrl($avatarImageUrl)
   {
-    $this->displayName = $displayName;
+      $this->avatarImageUrl = $avatarImageUrl;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
+
+    public function setDisplayName($displayName)
+    {
+        $this->displayName = $displayName;
+    }
+
   public function setExperienceInfo(Google_Service_GamesManagement_GamesPlayerExperienceInfoResource $experienceInfo)
   {
     $this->experienceInfo = $experienceInfo;
@@ -1196,14 +1222,17 @@ class Google_Service_GamesManagement_Player extends Google_Model
   {
     return $this->experienceInfo;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLastPlayedWith(Google_Service_GamesManagement_GamesPlayedResource $lastPlayedWith)
   {
     $this->lastPlayedWith = $lastPlayedWith;
@@ -1220,68 +1249,74 @@ class Google_Service_GamesManagement_Player extends Google_Model
   {
     return $this->name;
   }
-  public function setPlayerId($playerId)
-  {
-    $this->playerId = $playerId;
-  }
+
   public function getPlayerId()
   {
     return $this->playerId;
   }
-  public function setTitle($title)
+
+    public function setPlayerId($playerId)
   {
-    $this->title = $title;
+      $this->playerId = $playerId;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_GamesManagement_PlayerName extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $familyName;
   public $givenName;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFamilyName($familyName)
-  {
-    $this->familyName = $familyName;
-  }
   public function getFamilyName()
   {
     return $this->familyName;
   }
-  public function setGivenName($givenName)
+
+    public function setFamilyName($familyName)
   {
-    $this->givenName = $givenName;
+      $this->familyName = $familyName;
   }
+
   public function getGivenName()
   {
     return $this->givenName;
   }
+
+    public function setGivenName($givenName)
+    {
+        $this->givenName = $givenName;
+    }
 }
 
 class Google_Service_GamesManagement_PlayerScoreResetAllResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'results';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $resultsType = 'Google_Service_GamesManagement_PlayerScoreResetResponse';
   protected $resultsDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setResults($results)
   {
     $this->results = $results;
@@ -1294,92 +1329,99 @@ class Google_Service_GamesManagement_PlayerScoreResetAllResponse extends Google_
 
 class Google_Service_GamesManagement_PlayerScoreResetResponse extends Google_Collection
 {
-  protected $collection_key = 'resetScoreTimeSpans';
-  protected $internal_gapi_mappings = array(
-  );
   public $definitionId;
   public $kind;
   public $resetScoreTimeSpans;
+    protected $collection_key = 'resetScoreTimeSpans';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDefinitionId($definitionId)
-  {
-    $this->definitionId = $definitionId;
-  }
   public function getDefinitionId()
   {
     return $this->definitionId;
   }
-  public function setKind($kind)
+
+    public function setDefinitionId($definitionId)
   {
-    $this->kind = $kind;
+      $this->definitionId = $definitionId;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setResetScoreTimeSpans($resetScoreTimeSpans)
+
+    public function setKind($kind)
   {
-    $this->resetScoreTimeSpans = $resetScoreTimeSpans;
+      $this->kind = $kind;
   }
-  public function getResetScoreTimeSpans()
+
+    public function getResetScoreTimeSpans()
   {
     return $this->resetScoreTimeSpans;
   }
+
+    public function setResetScoreTimeSpans($resetScoreTimeSpans)
+    {
+        $this->resetScoreTimeSpans = $resetScoreTimeSpans;
+    }
 }
 
 class Google_Service_GamesManagement_QuestsResetMultipleForAllRequest extends Google_Collection
 {
+    public $kind;
+    public $questIds;
   protected $collection_key = 'quest_ids';
   protected $internal_gapi_mappings = array(
         "questIds" => "quest_ids",
   );
-  public $kind;
-  public $questIds;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setQuestIds($questIds)
+
+    public function setKind($kind)
   {
-    $this->questIds = $questIds;
+      $this->kind = $kind;
   }
-  public function getQuestIds()
+
+    public function getQuestIds()
   {
     return $this->questIds;
   }
+
+    public function setQuestIds($questIds)
+    {
+        $this->questIds = $questIds;
+    }
 }
 
 class Google_Service_GamesManagement_ScoresResetMultipleForAllRequest extends Google_Collection
 {
+    public $kind;
+    public $leaderboardIds;
   protected $collection_key = 'leaderboard_ids';
   protected $internal_gapi_mappings = array(
         "leaderboardIds" => "leaderboard_ids",
   );
-  public $kind;
-  public $leaderboardIds;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLeaderboardIds($leaderboardIds)
+
+    public function setKind($kind)
   {
-    $this->leaderboardIds = $leaderboardIds;
+      $this->kind = $kind;
   }
-  public function getLeaderboardIds()
+
+    public function getLeaderboardIds()
   {
     return $this->leaderboardIds;
   }
+
+    public function setLeaderboardIds($leaderboardIds)
+    {
+        $this->leaderboardIds = $leaderboardIds;
+    }
 }

@@ -212,7 +212,7 @@ class ChannelsController extends ContentsAppController
      * @param string $slug           :           the slug for the channel
      * @param string $stickyFeatured : if true, sorts the list keeping featured items in first places
      *
-     * @return array|string
+     * @return array|CakeString
      */
     public function view($slug = null, $tag = null, $level_id = null)
     {
@@ -300,7 +300,7 @@ class ChannelsController extends ContentsAppController
      *
      * @param string $slug The slug for the chanel. Could be the id
      *
-     * @return array|string
+     * @return array|CakeString
      */
     public function tags($id)
     {

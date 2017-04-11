@@ -108,8 +108,8 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
   /**
    * Expands a short URL or gets creation time and analytics. (url.get)
    *
-   * @param string $shortUrl The short URL, including the protocol.
-   * @param array $optParams Optional parameters.
+   * @param string $shortUrl  The short URL, including the protocol.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string projection Additional information to return.
    * @return Google_Service_Urlshortener_Url
@@ -158,6 +158,8 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
 
 class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
 {
+    public $longUrlClicks;
+    public $shortUrlClicks;
   protected $collection_key = 'referrers';
   protected $internal_gapi_mappings = array(
   );
@@ -165,13 +167,10 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   protected $browsersDataType = 'array';
   protected $countriesType = 'Google_Service_Urlshortener_StringCount';
   protected $countriesDataType = 'array';
-  public $longUrlClicks;
   protected $platformsType = 'Google_Service_Urlshortener_StringCount';
   protected $platformsDataType = 'array';
   protected $referrersType = 'Google_Service_Urlshortener_StringCount';
   protected $referrersDataType = 'array';
-  public $shortUrlClicks;
-
 
   public function setBrowsers($browsers)
   {
@@ -189,14 +188,17 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->countries;
   }
-  public function setLongUrlClicks($longUrlClicks)
-  {
-    $this->longUrlClicks = $longUrlClicks;
-  }
+
   public function getLongUrlClicks()
   {
     return $this->longUrlClicks;
   }
+
+    public function setLongUrlClicks($longUrlClicks)
+    {
+        $this->longUrlClicks = $longUrlClicks;
+    }
+
   public function setPlatforms($platforms)
   {
     $this->platforms = $platforms;
@@ -213,14 +215,16 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->referrers;
   }
-  public function setShortUrlClicks($shortUrlClicks)
-  {
-    $this->shortUrlClicks = $shortUrlClicks;
-  }
+
   public function getShortUrlClicks()
   {
     return $this->shortUrlClicks;
   }
+
+    public function setShortUrlClicks($shortUrlClicks)
+    {
+        $this->shortUrlClicks = $shortUrlClicks;
+    }
 }
 
 class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
@@ -283,42 +287,41 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
 
 class Google_Service_Urlshortener_StringCount extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $count;
   public $id;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
   public function getCount()
   {
     return $this->count;
   }
-  public function setId($id)
+
+    public function setCount($count)
   {
-    $this->id = $id;
+      $this->count = $count;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 }
 
 class Google_Service_Urlshortener_Url extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $analyticsType = 'Google_Service_Urlshortener_AnalyticsSummary';
-  protected $analyticsDataType = '';
   public $created;
   public $id;
   public $kind;
   public $longUrl;
   public $status;
-
+    protected $internal_gapi_mappings = array();
+    protected $analyticsType = 'Google_Service_Urlshortener_AnalyticsSummary';
+    protected $analyticsDataType = '';
 
   public function setAnalytics(Google_Service_Urlshortener_AnalyticsSummary $analytics)
   {
@@ -328,60 +331,68 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->analytics;
   }
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
+
   public function getCreated()
   {
     return $this->created;
   }
-  public function setId($id)
+
+    public function setCreated($created)
   {
-    $this->id = $id;
+      $this->created = $created;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLongUrl($longUrl)
+
+    public function setKind($kind)
   {
-    $this->longUrl = $longUrl;
+      $this->kind = $kind;
   }
+
   public function getLongUrl()
   {
     return $this->longUrl;
   }
-  public function setStatus($status)
+
+    public function setLongUrl($longUrl)
   {
-    $this->status = $status;
+      $this->longUrl = $longUrl;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Urlshortener_UrlHistory extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $itemsType = 'Google_Service_Urlshortener_Url';
-  protected $itemsDataType = 'array';
   public $itemsPerPage;
   public $kind;
   public $nextPageToken;
   public $totalItems;
-
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Urlshortener_Url';
+    protected $itemsDataType = 'array';
 
   public function setItems($items)
   {
@@ -391,36 +402,44 @@ class Google_Service_Urlshortener_UrlHistory extends Google_Collection
   {
     return $this->items;
   }
-  public function setItemsPerPage($itemsPerPage)
-  {
-    $this->itemsPerPage = $itemsPerPage;
-  }
-  public function getItemsPerPage()
+
+    public function getItemsPerPage()
   {
     return $this->itemsPerPage;
   }
-  public function setKind($kind)
+
+    public function setItemsPerPage($itemsPerPage)
   {
-    $this->kind = $kind;
+      $this->itemsPerPage = $itemsPerPage;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setTotalItems($totalItems)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->totalItems = $totalItems;
+      $this->nextPageToken = $nextPageToken;
   }
-  public function getTotalItems()
+
+    public function getTotalItems()
   {
     return $this->totalItems;
   }
+
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
 }

@@ -84,9 +84,10 @@ class CantineRegular extends CantineAppModel {
 /**
  * Find the records for index admin
  *
- * @param string $state 
- * @param string $query 
- * @param string $results 
+ * @param string $state
+ * @param string $query
+ * @param string $results
+ *
  * @return void
  * @author Fran Iglesias
  */

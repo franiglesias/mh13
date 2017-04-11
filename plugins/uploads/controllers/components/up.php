@@ -76,43 +76,14 @@ class UpComponent extends Object {
 	}
 	
 /**
- * Utility methods
- */	
-
-	public function computeDestination($upload, $settings) {
-		$destination = $this->whereToMove($upload, $settings['move']);
-		// Resolve conflicts
-		if ($settings['conflict'] == 'rename') {
-			$destination = $this->resolveConflict($destination);
-		}
-		return $destination;
-	}
-
-/**
- * Move the file to its destination
- *
- * @param string $source 
- * @param string $destination 
- * @return void
- */
-	public function moveFile($source, $destination) {
-		$File = new File($source);
-		if (!$File->copy($destination, true)) {
-			return false;
-		}
-		// $File->copy($destination, true);
-		$File->delete();
-		return true;
-	}
-
-/**
  * Computes where to Move a file given source path and options, uses source path
  * to get info of the file
- * 
+ *
  * To avoid clutter and risks from excessive number of files, a daily timestamp is added
  *
- * @param string $source 
- * @param string $options 
+ * @param string $source
+ * @param string $options
+ *
  * @return void
  */
 	protected function whereToMove($source, $options) {
@@ -130,11 +101,11 @@ class UpComponent extends Object {
 					list($type, $subtype) = explode('/', $mime);
 					if (isset($this->routes[$type])) {
 						$destinationFolder = $this->routes[$type];
-					} 
+                    }
 					if ($type === 'image') {
 						$this->normalize = true;
 					}
-				} 
+                }
 				$destination =  WWW_ROOT. $destinationFolder . DS;
 				break;
 			default:
@@ -148,7 +119,7 @@ class UpComponent extends Object {
 		}
 		$timestamp = date('Ymd');
 		$destination .= $timestamp;
-		
+
 		// Attempt to create Folder if needed
 		if (!file_exists($destination)) {
 			$Folder = new Folder();
@@ -159,11 +130,12 @@ class UpComponent extends Object {
 		}
 		return $destination. DS . basename($source);
 	}
-	
+
 /**
  * Computes a new name if a $destination points to an existing file
  *
- * @param string $destination 
+ * @param string $destination
+ *
  * @return string A new destination filePath
  */
 	protected function resolveConflict($destination)
@@ -171,55 +143,45 @@ class UpComponent extends Object {
 		if (!file_exists($destination)) {
 			return $destination;
 		}
-		
+
 		// Adds a time-stamp in case of conflicting names to prevent long term conflicts
-		
+
 		$pathinfo = pathinfo($destination);
 		extract($pathinfo);
 		$timestamp = date('Y-m-d-H-i-s');
 		$newName = $dirname . DS . $filename . '-' . $timestamp . '.' . $extension;
-		
+
 		if (file_exists($newName)) {
 			return $this->resolveConflict($newName);
 		}
 		return $newName;
 	}
 
-	
 /**
- * Computes what value should be returned to the field data
+ * Move the file to its destination
  *
- * @param string $path 
- * @param string $options 
+ * @param string $source
+ * @param string $destination
+ *
  * @return void
- */	
-	public function whatToReturn($path, $options)
-	{
-		$options = strtolower($options);
-
-		if (!in_array($options, array('path', 'link', 'id'))) {
-			// error
+ */
+    public function moveFile($source, $destination)
+    {
+        $File = new File($source);
+        if (!$File->copy($destination, true)) {
 			return false;
 		}
+        // $File->copy($destination, true);
+        $File->delete();
 
-		if ($options == 'path') {
-			return $path;
-		}
-
-		if ($options == 'link') {
-			$link =  str_replace(WWW_ROOT, '', $path);
-			// Suppress img dir if the file is in img, due to HtmlHelper->image
-			$link = preg_replace('%^img/%', '', $link);
-			return $link;
-		}
-
-		// Return data of attached upload
+        return true;
 	}
 
-/**
+    /**
  * Normalizes size of uploaded images to avoid fat files
  *
- * @param string $image 
+     * @param string $image
+     *
  * @return void
  */
 	public function normalize($image)
@@ -240,6 +202,53 @@ class UpComponent extends Object {
 		return $Image->transform($image, $settings);
 
 	}
+
+    /**
+     * Computes what value should be returned to the field data
+     *
+     * @param string $path
+     * @param string $options
+     *
+     * @return void
+     */
+    public function whatToReturn($path, $options)
+    {
+        $options = strtolower($options);
+
+        if (!in_array($options, array('path', 'link', 'id'))) {
+            // error
+            return false;
+        }
+
+        if ($options == 'path') {
+            return $path;
+        }
+
+        if ($options == 'link') {
+            $link = str_replace(WWW_ROOT, '', $path);
+            // Suppress img dir if the file is in img, due to HtmlHelper->image
+            $link = preg_replace('%^img/%', '', $link);
+
+            return $link;
+        }
+
+        // Return data of attached upload
+    }
+
+    /**
+     * Utility methods
+     */
+
+    public function computeDestination($upload, $settings)
+    {
+        $destination = $this->whereToMove($upload, $settings['move']);
+        // Resolve conflicts
+        if ($settings['conflict'] == 'rename') {
+            $destination = $this->resolveConflict($destination);
+        }
+
+        return $destination;
+    }
 	
 
 }

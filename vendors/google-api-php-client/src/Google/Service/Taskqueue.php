@@ -263,9 +263,9 @@ class Google_Service_Taskqueue_Taskqueues_Resource extends Google_Service_Resour
   /**
    * Get detailed information about a TaskQueue. (taskqueues.get)
    *
-   * @param string $project The project under which the queue lies.
+   * @param string $project   The project under which the queue lies.
    * @param string $taskqueue The id of the taskqueue to get the properties of.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param bool getStats Whether to get stats. Optional.
    * @return Google_Service_Taskqueue_TaskQueue
@@ -292,10 +292,10 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
   /**
    * Delete a task from a TaskQueue. (tasks.delete)
    *
-   * @param string $project The project under which the queue lies.
+   * @param string $project   The project under which the queue lies.
    * @param string $taskqueue The taskqueue to delete a task from.
-   * @param string $task The id of the task to delete.
-   * @param array $optParams Optional parameters.
+   * @param string $task      The id of the task to delete.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($project, $taskqueue, $task, $optParams = array())
   {
@@ -307,10 +307,11 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
   /**
    * Get a particular task from a TaskQueue. (tasks.get)
    *
-   * @param string $project The project under which the queue lies.
+   * @param string $project   The project under which the queue lies.
    * @param string $taskqueue The taskqueue in which the task belongs.
-   * @param string $task The task to get properties of.
-   * @param array $optParams Optional parameters.
+   * @param string $task      The task to get properties of.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Taskqueue_Task
    */
   public function get($project, $taskqueue, $task, $optParams = array())
@@ -323,10 +324,11 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
   /**
    * Insert a new task in a TaskQueue (tasks.insert)
    *
-   * @param string $project The project under which the queue lies
-   * @param string $taskqueue The taskqueue to insert the task into
+   * @param string      $project   The project under which the queue lies
+   * @param string      $taskqueue The taskqueue to insert the task into
    * @param Google_Task $postBody
-   * @param array $optParams Optional parameters.
+   * @param array       $optParams Optional parameters.
+   *
    * @return Google_Service_Taskqueue_Task
    */
   public function insert($project, $taskqueue, Google_Service_Taskqueue_Task $postBody, $optParams = array())
@@ -339,11 +341,11 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
   /**
    * Lease 1 or more tasks from a TaskQueue. (tasks.lease)
    *
-   * @param string $project The project under which the queue lies.
+   * @param string $project   The project under which the queue lies.
    * @param string $taskqueue The taskqueue to lease a task from.
-   * @param int $numTasks The number of tasks to lease.
-   * @param int $leaseSecs The lease in seconds.
-   * @param array $optParams Optional parameters.
+   * @param int    $numTasks  The number of tasks to lease.
+   * @param int    $leaseSecs The lease in seconds.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param bool groupByTag When true, all returned tasks will have the same
    * tag
@@ -363,9 +365,10 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
   /**
    * List Tasks in a TaskQueue (tasks.listTasks)
    *
-   * @param string $project The project under which the queue lies.
+   * @param string $project   The project under which the queue lies.
    * @param string $taskqueue The id of the taskqueue to list tasks from.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Taskqueue_Tasks2
    */
   public function listTasks($project, $taskqueue, $optParams = array())
@@ -385,6 +388,7 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
    * @param int $newLeaseSeconds The new lease in seconds.
    * @param Google_Task $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Taskqueue_Task
    */
   public function patch($project, $taskqueue, $task, $newLeaseSeconds, Google_Service_Taskqueue_Task $postBody, $optParams = array())
@@ -403,6 +407,7 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
    * @param int $newLeaseSeconds The new lease in seconds.
    * @param Google_Task $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Taskqueue_Task
    */
   public function update($project, $taskqueue, $task, $newLeaseSeconds, Google_Service_Taskqueue_Task $postBody, $optParams = array())
@@ -418,9 +423,6 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
 
 class Google_Service_Taskqueue_Task extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "retryCount" => "retry_count",
-  );
   public $enqueueTimestamp;
   public $id;
   public $kind;
@@ -429,83 +431,99 @@ class Google_Service_Taskqueue_Task extends Google_Model
   public $queueName;
   public $retryCount;
   public $tag;
+    protected $internal_gapi_mappings = array(
+        "retryCount" => "retry_count",
+    );
 
-
-  public function setEnqueueTimestamp($enqueueTimestamp)
-  {
-    $this->enqueueTimestamp = $enqueueTimestamp;
-  }
   public function getEnqueueTimestamp()
   {
     return $this->enqueueTimestamp;
   }
-  public function setId($id)
+
+    public function setEnqueueTimestamp($enqueueTimestamp)
   {
-    $this->id = $id;
+      $this->enqueueTimestamp = $enqueueTimestamp;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLeaseTimestamp($leaseTimestamp)
+
+    public function setKind($kind)
   {
-    $this->leaseTimestamp = $leaseTimestamp;
+      $this->kind = $kind;
   }
+
   public function getLeaseTimestamp()
   {
     return $this->leaseTimestamp;
   }
-  public function setPayloadBase64($payloadBase64)
+
+    public function setLeaseTimestamp($leaseTimestamp)
   {
-    $this->payloadBase64 = $payloadBase64;
+      $this->leaseTimestamp = $leaseTimestamp;
   }
+
   public function getPayloadBase64()
   {
     return $this->payloadBase64;
   }
-  public function setQueueName($queueName)
+
+    public function setPayloadBase64($payloadBase64)
   {
-    $this->queueName = $queueName;
+      $this->payloadBase64 = $payloadBase64;
   }
+
   public function getQueueName()
   {
     return $this->queueName;
   }
-  public function setRetryCount($retryCount)
+
+    public function setQueueName($queueName)
   {
-    $this->retryCount = $retryCount;
+      $this->queueName = $queueName;
   }
+
   public function getRetryCount()
   {
     return $this->retryCount;
   }
-  public function setTag($tag)
+
+    public function setRetryCount($retryCount)
   {
-    $this->tag = $tag;
+      $this->retryCount = $retryCount;
   }
+
   public function getTag()
   {
     return $this->tag;
   }
+
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+    }
 }
 
 class Google_Service_Taskqueue_TaskQueue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $aclType = 'Google_Service_Taskqueue_TaskQueueAcl';
-  protected $aclDataType = '';
   public $id;
   public $kind;
   public $maxLeases;
+    protected $internal_gapi_mappings = array();
+    protected $aclType = 'Google_Service_Taskqueue_TaskQueueAcl';
+    protected $aclDataType = '';
   protected $statsType = 'Google_Service_Taskqueue_TaskQueueStats';
   protected $statsDataType = '';
 
@@ -518,30 +536,37 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   {
     return $this->acl;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMaxLeases($maxLeases)
+
+    public function setKind($kind)
   {
-    $this->maxLeases = $maxLeases;
+      $this->kind = $kind;
   }
+
   public function getMaxLeases()
   {
     return $this->maxLeases;
   }
+
+    public function setMaxLeases($maxLeases)
+    {
+        $this->maxLeases = $maxLeases;
+    }
+
   public function setStats(Google_Service_Taskqueue_TaskQueueStats $stats)
   {
     $this->stats = $stats;
@@ -554,93 +579,100 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
 
 class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
 {
-  protected $collection_key = 'producerEmails';
-  protected $internal_gapi_mappings = array(
-  );
   public $adminEmails;
   public $consumerEmails;
   public $producerEmails;
+    protected $collection_key = 'producerEmails';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAdminEmails($adminEmails)
-  {
-    $this->adminEmails = $adminEmails;
-  }
   public function getAdminEmails()
   {
     return $this->adminEmails;
   }
-  public function setConsumerEmails($consumerEmails)
+
+    public function setAdminEmails($adminEmails)
   {
-    $this->consumerEmails = $consumerEmails;
+      $this->adminEmails = $adminEmails;
   }
+
   public function getConsumerEmails()
   {
     return $this->consumerEmails;
   }
-  public function setProducerEmails($producerEmails)
+
+    public function setConsumerEmails($consumerEmails)
   {
-    $this->producerEmails = $producerEmails;
+      $this->consumerEmails = $consumerEmails;
   }
+
   public function getProducerEmails()
   {
     return $this->producerEmails;
   }
+
+    public function setProducerEmails($producerEmails)
+    {
+        $this->producerEmails = $producerEmails;
+    }
 }
 
 class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $leasedLastHour;
   public $leasedLastMinute;
   public $oldestTask;
   public $totalTasks;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLeasedLastHour($leasedLastHour)
-  {
-    $this->leasedLastHour = $leasedLastHour;
-  }
   public function getLeasedLastHour()
   {
     return $this->leasedLastHour;
   }
-  public function setLeasedLastMinute($leasedLastMinute)
+
+    public function setLeasedLastHour($leasedLastHour)
   {
-    $this->leasedLastMinute = $leasedLastMinute;
+      $this->leasedLastHour = $leasedLastHour;
   }
-  public function getLeasedLastMinute()
+
+    public function getLeasedLastMinute()
   {
     return $this->leasedLastMinute;
   }
-  public function setOldestTask($oldestTask)
+
+    public function setLeasedLastMinute($leasedLastMinute)
   {
-    $this->oldestTask = $oldestTask;
+      $this->leasedLastMinute = $leasedLastMinute;
   }
-  public function getOldestTask()
+
+    public function getOldestTask()
   {
     return $this->oldestTask;
   }
-  public function setTotalTasks($totalTasks)
+
+    public function setOldestTask($oldestTask)
   {
-    $this->totalTasks = $totalTasks;
+      $this->oldestTask = $oldestTask;
   }
-  public function getTotalTasks()
+
+    public function getTotalTasks()
   {
     return $this->totalTasks;
   }
+
+    public function setTotalTasks($totalTasks)
+    {
+        $this->totalTasks = $totalTasks;
+    }
 }
 
 class Google_Service_Taskqueue_Tasks extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -650,25 +682,26 @@ class Google_Service_Taskqueue_Tasks extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Taskqueue_Tasks2 extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -678,12 +711,14 @@ class Google_Service_Taskqueue_Tasks2 extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }

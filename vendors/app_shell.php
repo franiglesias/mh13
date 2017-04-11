@@ -9,7 +9,8 @@ class AppShell extends Shell
 /**
  * Waits for confirmation to proceed. Abort Shell with any answer different from yes
  *
- * @param string $message 
+ * @param string $message
+ *
  * @return void
  */
 	public function confirm($message) {
@@ -34,33 +35,15 @@ class AppShell extends Shell
 		return $L10n->lang;
 	}
 
-
-/**
- * Extracts a parameter given a name. If parameter doesn't exists then prompt the user to provide one. 
- *
- * @param string $name The name of the parameter
- * @param string $message The message to prompt the user if needed
- * @param string $default Default value for parameter, if false then use the same name as the parameter
- * @return string The value
- */
-	protected function inParam($param, $message, $default = false) {
-		if (isset($this->params[$param])) {
-			return $this->params[$param];
-		}
-		if (!$default) {
-			$default = $param;
-		}
-		return $this->in($message, null, $default);
-	}
-
 /**
  * Wrapper for in, repeat the prompt until user give a response
  *
- * @param string $message 
- * @param string $options 
- * @param string $default 
+ * @param string $message
+ * @param string $options
+ * @param string $default
+ *
  * @return void
- */	
+ */
 	public function required($message, $options = null, $default = false) {
 		if (strpos('(req)', $message) === FALSE) {
 			$message .= ' (req)';
@@ -76,10 +59,11 @@ class AppShell extends Shell
 /**
  * @todo there is a bug if q and no data entered
  *
- * @param string $message 
- * @param string $default 
+ * @param string $message
+ * @param string $default
+ *
  * @return void
- */	
+ */
 	public function multi($message, $default)
 	{
 		$responses = array();
@@ -97,6 +81,27 @@ class AppShell extends Shell
 		} while ($finish == false);
 		return $responses;
 	}
+
+    /**
+     * Extracts a parameter given a name. If parameter doesn't exists then prompt the user to provide one.
+     *
+     * @param string $name    The name of the parameter
+     * @param string $message The message to prompt the user if needed
+     * @param string $default Default value for parameter, if false then use the same name as the parameter
+     *
+     * @return string The value
+     */
+    protected function inParam($param, $message, $default = false)
+    {
+        if (isset($this->params[$param])) {
+            return $this->params[$param];
+        }
+        if (!$default) {
+            $default = $param;
+        }
+
+        return $this->in($message, null, $default);
+    }
 
 
 

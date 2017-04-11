@@ -270,12 +270,12 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * Retrieves a list of activities for a specific customer and application.
    * (activities.listActivities)
    *
-   * @param string $userKey Represents the profile id or the user email for which
+   * @param string $userKey         Represents the profile id or the user email for which
    * the data should be filtered. When 'all' is specified as the userKey, it
    * returns usageReports for all users.
    * @param string $applicationName Application name for which the events are to
    * be retrieved.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams       Optional parameters.
    *
    * @opt_param string startTime Return events which occured at or after this
    * time.
@@ -303,13 +303,13 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
   /**
    * Push changes to activities (activities.watch)
    *
-   * @param string $userKey Represents the profile id or the user email for which
+   * @param string         $userKey         Represents the profile id or the user email for which
    * the data should be filtered. When 'all' is specified as the userKey, it
    * returns usageReports for all users.
-   * @param string $applicationName Application name for which the events are to
+   * @param string         $applicationName Application name for which the events are to
    * be retrieved.
    * @param Google_Channel $postBody
-   * @param array $optParams Optional parameters.
+   * @param array          $optParams       Optional parameters.
    *
    * @opt_param string startTime Return events which occured at or after this
    * time.
@@ -375,9 +375,9 @@ class Google_Service_Reports_CustomerUsageReports_Resource extends Google_Servic
    * Retrieves a report which is a collection of properties / statistics for a
    * specific customer. (customerUsageReports.get)
    *
-   * @param string $date Represents the date in yyyy-mm-dd format for which the
+   * @param string $date      Represents the date in yyyy-mm-dd format for which the
    * data is to be fetched.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string pageToken Token to specify next page.
    * @opt_param string customerId Represents the customer for which the data is to
@@ -409,11 +409,11 @@ class Google_Service_Reports_UserUsageReport_Resource extends Google_Service_Res
    * Retrieves a report which is a collection of properties / statistics for a set
    * of users. (userUsageReport.get)
    *
-   * @param string $userKey Represents the profile id or the user email for which
+   * @param string $userKey   Represents the profile id or the user email for which
    * the data should be filtered.
-   * @param string $date Represents the date in yyyy-mm-dd format for which the
+   * @param string $date      Represents the date in yyyy-mm-dd format for which the
    * data is to be fetched.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string parameters Represents the application name, parameter name
    * pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
@@ -439,24 +439,25 @@ class Google_Service_Reports_UserUsageReport_Resource extends Google_Service_Res
 
 class Google_Service_Reports_Activities extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_Reports_Activity';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -465,40 +466,43 @@ class Google_Service_Reports_Activities extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Reports_Activity extends Google_Collection
 {
+    public $etag;
+    public $ipAddress;
+    public $kind;
+    public $ownerDomain;
   protected $collection_key = 'events';
   protected $internal_gapi_mappings = array(
   );
   protected $actorType = 'Google_Service_Reports_ActivityActor';
   protected $actorDataType = '';
-  public $etag;
   protected $eventsType = 'Google_Service_Reports_ActivityEvents';
   protected $eventsDataType = 'array';
   protected $idType = 'Google_Service_Reports_ActivityId';
   protected $idDataType = '';
-  public $ipAddress;
-  public $kind;
-  public $ownerDomain;
-
 
   public function setActor(Google_Service_Reports_ActivityActor $actor)
   {
@@ -508,14 +512,17 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->actor;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setEvents($events)
   {
     $this->events = $events;
@@ -532,95 +539,107 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->id;
   }
-  public function setIpAddress($ipAddress)
-  {
-    $this->ipAddress = $ipAddress;
-  }
+
   public function getIpAddress()
   {
     return $this->ipAddress;
   }
-  public function setKind($kind)
+
+    public function setIpAddress($ipAddress)
   {
-    $this->kind = $kind;
+      $this->ipAddress = $ipAddress;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setOwnerDomain($ownerDomain)
+
+    public function setKind($kind)
   {
-    $this->ownerDomain = $ownerDomain;
+      $this->kind = $kind;
   }
+
   public function getOwnerDomain()
   {
     return $this->ownerDomain;
   }
+
+    public function setOwnerDomain($ownerDomain)
+    {
+        $this->ownerDomain = $ownerDomain;
+    }
 }
 
 class Google_Service_Reports_ActivityActor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $callerType;
   public $email;
   public $key;
   public $profileId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCallerType($callerType)
-  {
-    $this->callerType = $callerType;
-  }
   public function getCallerType()
   {
     return $this->callerType;
   }
-  public function setEmail($email)
+
+    public function setCallerType($callerType)
   {
-    $this->email = $email;
+      $this->callerType = $callerType;
   }
+
   public function getEmail()
   {
     return $this->email;
   }
-  public function setKey($key)
+
+    public function setEmail($email)
   {
-    $this->key = $key;
+      $this->email = $email;
   }
+
   public function getKey()
   {
     return $this->key;
   }
-  public function setProfileId($profileId)
+
+    public function setKey($key)
   {
-    $this->profileId = $profileId;
+      $this->key = $key;
   }
+
   public function getProfileId()
   {
     return $this->profileId;
   }
+
+    public function setProfileId($profileId)
+    {
+        $this->profileId = $profileId;
+    }
 }
 
 class Google_Service_Reports_ActivityEvents extends Google_Collection
 {
+    public $name;
+    public $type;
   protected $collection_key = 'parameters';
   protected $internal_gapi_mappings = array(
   );
-  public $name;
   protected $parametersType = 'Google_Service_Reports_ActivityEventsParameters';
   protected $parametersDataType = 'array';
-  public $type;
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParameters($parameters)
   {
     $this->parameters = $parameters;
@@ -629,127 +648,141 @@ class Google_Service_Reports_ActivityEvents extends Google_Collection
   {
     return $this->parameters;
   }
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Reports_ActivityEventsParameters extends Google_Collection
 {
-  protected $collection_key = 'multiValue';
-  protected $internal_gapi_mappings = array(
-  );
   public $boolValue;
   public $intValue;
   public $multiIntValue;
   public $multiValue;
   public $name;
   public $value;
+    protected $collection_key = 'multiValue';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBoolValue($boolValue)
-  {
-    $this->boolValue = $boolValue;
-  }
   public function getBoolValue()
   {
     return $this->boolValue;
   }
-  public function setIntValue($intValue)
+
+    public function setBoolValue($boolValue)
   {
-    $this->intValue = $intValue;
+      $this->boolValue = $boolValue;
   }
+
   public function getIntValue()
   {
     return $this->intValue;
   }
-  public function setMultiIntValue($multiIntValue)
+
+    public function setIntValue($intValue)
   {
-    $this->multiIntValue = $multiIntValue;
+      $this->intValue = $intValue;
   }
+
   public function getMultiIntValue()
   {
     return $this->multiIntValue;
   }
-  public function setMultiValue($multiValue)
+
+    public function setMultiIntValue($multiIntValue)
   {
-    $this->multiValue = $multiValue;
+      $this->multiIntValue = $multiIntValue;
   }
+
   public function getMultiValue()
   {
     return $this->multiValue;
   }
-  public function setName($name)
+
+    public function setMultiValue($multiValue)
   {
-    $this->name = $name;
+      $this->multiValue = $multiValue;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setValue($value)
+
+    public function setName($name)
   {
-    $this->value = $value;
+      $this->name = $name;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Reports_ActivityId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $applicationName;
   public $customerId;
   public $time;
   public $uniqueQualifier;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setApplicationName($applicationName)
-  {
-    $this->applicationName = $applicationName;
-  }
   public function getApplicationName()
   {
     return $this->applicationName;
   }
-  public function setCustomerId($customerId)
+
+    public function setApplicationName($applicationName)
   {
-    $this->customerId = $customerId;
+      $this->applicationName = $applicationName;
   }
+
   public function getCustomerId()
   {
     return $this->customerId;
   }
-  public function setTime($time)
+
+    public function setCustomerId($customerId)
   {
-    $this->time = $time;
+      $this->customerId = $customerId;
   }
+
   public function getTime()
   {
     return $this->time;
   }
-  public function setUniqueQualifier($uniqueQualifier)
+
+    public function setTime($time)
   {
-    $this->uniqueQualifier = $uniqueQualifier;
+      $this->time = $time;
   }
+
   public function getUniqueQualifier()
   {
     return $this->uniqueQualifier;
   }
+
+    public function setUniqueQualifier($uniqueQualifier)
+    {
+        $this->uniqueQualifier = $uniqueQualifier;
+    }
 }
 
 class Google_Service_Reports_Channel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $address;
   public $expiration;
   public $id;
@@ -760,88 +793,107 @@ class Google_Service_Reports_Channel extends Google_Model
   public $resourceUri;
   public $token;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAddress($address)
-  {
-    $this->address = $address;
-  }
   public function getAddress()
   {
     return $this->address;
   }
-  public function setExpiration($expiration)
+
+    public function setAddress($address)
   {
-    $this->expiration = $expiration;
+      $this->address = $address;
   }
+
   public function getExpiration()
   {
     return $this->expiration;
   }
-  public function setId($id)
+
+    public function setExpiration($expiration)
   {
-    $this->id = $id;
+      $this->expiration = $expiration;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setParams($params)
+
+    public function setKind($kind)
   {
-    $this->params = $params;
+      $this->kind = $kind;
   }
+
   public function getParams()
   {
     return $this->params;
   }
-  public function setPayload($payload)
+
+    public function setParams($params)
   {
-    $this->payload = $payload;
+      $this->params = $params;
   }
+
   public function getPayload()
   {
     return $this->payload;
   }
-  public function setResourceId($resourceId)
+
+    public function setPayload($payload)
   {
-    $this->resourceId = $resourceId;
+      $this->payload = $payload;
   }
+
   public function getResourceId()
   {
     return $this->resourceId;
   }
-  public function setResourceUri($resourceUri)
+
+    public function setResourceId($resourceId)
   {
-    $this->resourceUri = $resourceUri;
+      $this->resourceId = $resourceId;
   }
+
   public function getResourceUri()
   {
     return $this->resourceUri;
   }
-  public function setToken($token)
+
+    public function setResourceUri($resourceUri)
   {
-    $this->token = $token;
+      $this->resourceUri = $resourceUri;
   }
+
   public function getToken()
   {
     return $this->token;
   }
-  public function setType($type)
+
+    public function setToken($token)
   {
-    $this->type = $type;
+      $this->token = $token;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Reports_ChannelParams extends Google_Model
@@ -850,26 +902,27 @@ class Google_Service_Reports_ChannelParams extends Google_Model
 
 class Google_Service_Reports_UsageReport extends Google_Collection
 {
+    public $date;
+    public $etag;
+    public $kind;
   protected $collection_key = 'parameters';
   protected $internal_gapi_mappings = array(
   );
-  public $date;
   protected $entityType = 'Google_Service_Reports_UsageReportEntity';
   protected $entityDataType = '';
-  public $etag;
-  public $kind;
   protected $parametersType = 'Google_Service_Reports_UsageReportParameters';
   protected $parametersDataType = 'array';
 
-
-  public function setDate($date)
-  {
-    $this->date = $date;
-  }
   public function getDate()
   {
     return $this->date;
   }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
   public function setEntity(Google_Service_Reports_UsageReportEntity $entity)
   {
     $this->entity = $entity;
@@ -878,22 +931,27 @@ class Google_Service_Reports_UsageReport extends Google_Collection
   {
     return $this->entity;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setKind($kind)
+
+    public function setEtag($etag)
   {
-    $this->kind = $kind;
+      $this->etag = $etag;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setParameters($parameters)
   {
     $this->parameters = $parameters;
@@ -906,109 +964,123 @@ class Google_Service_Reports_UsageReport extends Google_Collection
 
 class Google_Service_Reports_UsageReportEntity extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $customerId;
   public $profileId;
   public $type;
   public $userEmail;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCustomerId($customerId)
-  {
-    $this->customerId = $customerId;
-  }
   public function getCustomerId()
   {
     return $this->customerId;
   }
-  public function setProfileId($profileId)
+
+    public function setCustomerId($customerId)
   {
-    $this->profileId = $profileId;
+      $this->customerId = $customerId;
   }
+
   public function getProfileId()
   {
     return $this->profileId;
   }
-  public function setType($type)
+
+    public function setProfileId($profileId)
   {
-    $this->type = $type;
+      $this->profileId = $profileId;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setUserEmail($userEmail)
+
+    public function setType($type)
   {
-    $this->userEmail = $userEmail;
+      $this->type = $type;
   }
-  public function getUserEmail()
+
+    public function getUserEmail()
   {
     return $this->userEmail;
   }
+
+    public function setUserEmail($userEmail)
+    {
+        $this->userEmail = $userEmail;
+    }
 }
 
 class Google_Service_Reports_UsageReportParameters extends Google_Collection
 {
-  protected $collection_key = 'msgValue';
-  protected $internal_gapi_mappings = array(
-  );
   public $boolValue;
   public $datetimeValue;
   public $intValue;
   public $msgValue;
   public $name;
   public $stringValue;
+    protected $collection_key = 'msgValue';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBoolValue($boolValue)
-  {
-    $this->boolValue = $boolValue;
-  }
   public function getBoolValue()
   {
     return $this->boolValue;
   }
-  public function setDatetimeValue($datetimeValue)
+
+    public function setBoolValue($boolValue)
   {
-    $this->datetimeValue = $datetimeValue;
+      $this->boolValue = $boolValue;
   }
-  public function getDatetimeValue()
+
+    public function getDatetimeValue()
   {
     return $this->datetimeValue;
   }
-  public function setIntValue($intValue)
+
+    public function setDatetimeValue($datetimeValue)
   {
-    $this->intValue = $intValue;
+      $this->datetimeValue = $datetimeValue;
   }
-  public function getIntValue()
+
+    public function getIntValue()
   {
     return $this->intValue;
   }
-  public function setMsgValue($msgValue)
+
+    public function setIntValue($intValue)
   {
-    $this->msgValue = $msgValue;
+      $this->intValue = $intValue;
   }
-  public function getMsgValue()
+
+    public function getMsgValue()
   {
     return $this->msgValue;
   }
-  public function setName($name)
+
+    public function setMsgValue($msgValue)
   {
-    $this->name = $name;
+      $this->msgValue = $msgValue;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setStringValue($stringValue)
+
+    public function setName($name)
   {
-    $this->stringValue = $stringValue;
+      $this->name = $name;
   }
-  public function getStringValue()
+
+    public function getStringValue()
   {
     return $this->stringValue;
   }
+
+    public function setStringValue($stringValue)
+    {
+        $this->stringValue = $stringValue;
+    }
 }
 
 class Google_Service_Reports_UsageReportParametersMsgValue extends Google_Model
@@ -1017,42 +1089,46 @@ class Google_Service_Reports_UsageReportParametersMsgValue extends Google_Model
 
 class Google_Service_Reports_UsageReports extends Google_Collection
 {
-  protected $collection_key = 'warnings';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $kind;
   public $nextPageToken;
+    protected $collection_key = 'warnings';
+    protected $internal_gapi_mappings = array();
   protected $usageReportsType = 'Google_Service_Reports_UsageReport';
   protected $usageReportsDataType = 'array';
   protected $warningsType = 'Google_Service_Reports_UsageReportsWarnings';
   protected $warningsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setKind($kind)
+
+    public function setEtag($etag)
   {
-    $this->kind = $kind;
+      $this->etag = $etag;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setUsageReports($usageReports)
   {
     $this->usageReports = $usageReports;
@@ -1073,23 +1149,24 @@ class Google_Service_Reports_UsageReports extends Google_Collection
 
 class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
 {
+    public $code;
+    public $message;
   protected $collection_key = 'data';
   protected $internal_gapi_mappings = array(
   );
-  public $code;
   protected $dataType = 'Google_Service_Reports_UsageReportsWarningsData';
   protected $dataDataType = 'array';
-  public $message;
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
   public function setData($data)
   {
     $this->data = $data;
@@ -1098,38 +1175,41 @@ class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
   {
     return $this->data;
   }
-  public function setMessage($message)
-  {
-    $this->message = $message;
-  }
-  public function getMessage()
+
+    public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Reports_UsageReportsWarningsData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setValue($value)
+
+    public function setKey($key)
   {
-    $this->value = $value;
+      $this->key = $key;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }

@@ -53,18 +53,6 @@ class CommentHelper extends AppHelper {
 		ClassRegistry::getObject('view')->viewVars['test'] = rand(10,20);
 	}
 
-	public function form($objectModel, $objectID, $redirect = '', $mode = COMMENTS_MODERATED) {
-		$View =& ClassRegistry::getObject('view');
-		$ret = $View->element('form', array(
-			'plugin' => 'comments', 
-			'model' => $objectModel, 
-			'fk' =>  $objectID, 
-			'redirect' => serialize($redirect),
-			'mode' => $mode // 2: moderated, 3: free
-			));
-		return $ret;
-	}
-	
 	public function turing($test) {
 		$test = rand(10,999);
 		App::import('Lib', 'FiNumber');
@@ -75,9 +63,32 @@ class CommentHelper extends AppHelper {
 		$_SESSION['Turing'] = $this->test;
 		return $this->Form->input('turing', array('label' => sprintf(__d('comments', 'Write with numbers "%s"', true), $clue)));
 	}
+
+    /**
+     * Use to create a block of comments in a view. The helper manages all details given the $mode parameter
+     *
+     * @param string $model Model Class of the Object being commented
+     * @param string $id    ID of the Object being commented
+     * @param string $mode  Mode of comments COMMENTS_NO, COMMENTS_CLOSED, COMMENTS_MODERATED, COMMENTS_FREE
+     *
+     * @return HTML block
+     */
+    public function render($model, $id, $mode)
+    {
+        if (!$mode) {
+            return false;
+        }
+        $code = array();
+        $code[] = $this->Html->tag('div', $this->display($model, $id, $mode));
+        if ($mode > COMMENTS_CLOSED) {
+            $code[] = $this->Html->tag('div', $this->form($model, $id, '', $mode), array('id' => 'comments-form'));
+        }
+
+        return implode(chr(10), $code);
+    }
 	
 	public function display($model, $fk, $mode) {
-		$View =& ClassRegistry::getObject('view');
+        $View = ClassRegistry::getObject('view');
 		$commentsList = $this->RequestAction(
 			array(
 				'plugin' => 'comments',
@@ -99,24 +110,21 @@ class CommentHelper extends AppHelper {
 		return $ret;		
 	}
 
-/**
- * Use to create a block of comments in a view. The helper manages all details given the $mode parameter
- *
- * @param string $model Model Class of the Object being commented
- * @param string $id ID of the Object being commented
- * @param string $mode Mode of comments COMMENTS_NO, COMMENTS_CLOSED, COMMENTS_MODERATED, COMMENTS_FREE
- * @return HTML block
- */
-	public function render($model, $id, $mode) {
-		if (!$mode) {
-			return false;
-		}
-		$code = array();
-		$code[] = $this->Html->tag('div', $this->display($model, $id, $mode));
-		if ($mode > COMMENTS_CLOSED) {
-			$code[] = $this->Html->tag('div', $this->form($model, $id, '', $mode), array('id' => 'comments-form'));
-		}
-		return implode(chr(10), $code);
+    public function form($objectModel, $objectID, $redirect = '', $mode = COMMENTS_MODERATED)
+    {
+        $View = ClassRegistry::getObject('view');
+        $ret = $View->element(
+            'form',
+            array(
+                'plugin' => 'comments',
+                'model' => $objectModel,
+                'fk' => $objectID,
+                'redirect' => serialize($redirect),
+                'mode' => $mode // 2: moderated, 3: free
+            )
+        );
+
+        return $ret;
 	}
 
 /**

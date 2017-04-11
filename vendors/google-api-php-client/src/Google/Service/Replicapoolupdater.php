@@ -263,11 +263,11 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * Cancels an update. The update must be PAUSED before it can be cancelled. This
    * has no effect if the update is already CANCELLED. (rollingUpdates.cancel)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project       The Google Developers Console project name.
+   * @param string $zone          The name of the zone in which the update's target
    * resides.
    * @param string $rollingUpdate The name of the update.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function cancel($project, $zone, $rollingUpdate, $optParams = array())
   {
@@ -279,11 +279,12 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
   /**
    * Returns information about an update. (rollingUpdates.get)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project       The Google Developers Console project name.
+   * @param string $zone          The name of the zone in which the update's target
    * resides.
    * @param string $rollingUpdate The name of the update.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Replicapoolupdater_RollingUpdate
    */
   public function get($project, $zone, $rollingUpdate, $optParams = array())
@@ -296,11 +297,12 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
   /**
    * Inserts and starts a new update. (rollingUpdates.insert)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string               $project   The Google Developers Console project name.
+   * @param string               $zone      The name of the zone in which the update's target
    * resides.
    * @param Google_RollingUpdate $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                $optParams Optional parameters.
+   *
    * @return Google_Service_Replicapoolupdater_InsertResponse
    */
   public function insert($project, $zone, Google_Service_Replicapoolupdater_RollingUpdate $postBody, $optParams = array())
@@ -314,10 +316,10 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * Lists recent updates for a given managed instance group, in reverse
    * chronological order and paginated format. (rollingUpdates.listRollingUpdates)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project   The Google Developers Console project name.
+   * @param string $zone      The name of the zone in which the update's target
    * resides.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string maxResults Optional. Maximum count of results to be
    * returned. Maximum value is 500 and default value is 500.
@@ -340,11 +342,11 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * Lists the current status for each instance within a given update.
    * (rollingUpdates.listInstanceUpdates)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project       The Google Developers Console project name.
+   * @param string $zone          The name of the zone in which the update's target
    * resides.
    * @param string $rollingUpdate The name of the update.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    *
    * @opt_param string maxResults Optional. Maximum count of results to be
    * returned. Maximum value is 500 and default value is 500.
@@ -366,11 +368,11 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * effect if invoked when the state of the update is PAUSED.
    * (rollingUpdates.pause)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project       The Google Developers Console project name.
+   * @param string $zone          The name of the zone in which the update's target
    * resides.
    * @param string $rollingUpdate The name of the update.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function pause($project, $zone, $rollingUpdate, $optParams = array())
   {
@@ -383,11 +385,11 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * Continues an update in PAUSED state. Has no effect if invoked when the state
    * of the update is ROLLED_OUT. (rollingUpdates.resume)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project       The Google Developers Console project name.
+   * @param string $zone          The name of the zone in which the update's target
    * resides.
    * @param string $rollingUpdate The name of the update.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function resume($project, $zone, $rollingUpdate, $optParams = array())
   {
@@ -401,11 +403,11 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * if invoked when the state of the update is ROLLED_BACK.
    * (rollingUpdates.rollback)
    *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
+   * @param string $project       The Google Developers Console project name.
+   * @param string $zone          The name of the zone in which the update's target
    * resides.
    * @param string $rollingUpdate The name of the update.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    */
   public function rollback($project, $zone, $rollingUpdate, $optParams = array())
   {
@@ -420,58 +422,57 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
 
 class Google_Service_Replicapoolupdater_InsertResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $rollingUpdate;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setRollingUpdate($rollingUpdate)
-  {
-    $this->rollingUpdate = $rollingUpdate;
-  }
   public function getRollingUpdate()
   {
     return $this->rollingUpdate;
   }
+
+    public function setRollingUpdate($rollingUpdate)
+    {
+        $this->rollingUpdate = $rollingUpdate;
+    }
 }
 
 class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $instance;
   public $status;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setInstance($instance)
-  {
-    $this->instance = $instance;
-  }
   public function getInstance()
   {
     return $this->instance;
   }
-  public function setStatus($status)
+
+    public function setInstance($instance)
   {
-    $this->status = $status;
+      $this->instance = $instance;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
+    public $selfLink;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Replicapoolupdater_InstanceUpdate';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-  public $selfLink;
-
 
   public function setItems($items)
   {
@@ -481,99 +482,115 @@ class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collec
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $actionType;
   public $creationTimestamp;
   public $id;
   public $instanceGroupManager;
   public $instanceTemplate;
   public $kind;
-  protected $policyType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicy';
-  protected $policyDataType = '';
   public $progress;
   public $selfLink;
   public $status;
   public $statusMessage;
   public $user;
+    protected $internal_gapi_mappings = array();
+    protected $policyType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicy';
+    protected $policyDataType = '';
 
-
-  public function setActionType($actionType)
-  {
-    $this->actionType = $actionType;
-  }
   public function getActionType()
   {
     return $this->actionType;
   }
-  public function setCreationTimestamp($creationTimestamp)
+
+    public function setActionType($actionType)
   {
-    $this->creationTimestamp = $creationTimestamp;
+      $this->actionType = $actionType;
   }
+
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setId($id)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->id = $id;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInstanceGroupManager($instanceGroupManager)
+
+    public function setId($id)
   {
-    $this->instanceGroupManager = $instanceGroupManager;
+      $this->id = $id;
   }
+
   public function getInstanceGroupManager()
   {
     return $this->instanceGroupManager;
   }
-  public function setInstanceTemplate($instanceTemplate)
+
+    public function setInstanceGroupManager($instanceGroupManager)
   {
-    $this->instanceTemplate = $instanceTemplate;
+      $this->instanceGroupManager = $instanceGroupManager;
   }
+
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
   }
-  public function setKind($kind)
+
+    public function setInstanceTemplate($instanceTemplate)
   {
-    $this->kind = $kind;
+      $this->instanceTemplate = $instanceTemplate;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPolicy(Google_Service_Replicapoolupdater_RollingUpdatePolicy $policy)
   {
     $this->policy = $policy;
@@ -582,59 +599,68 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   {
     return $this->policy;
   }
-  public function setProgress($progress)
-  {
-    $this->progress = $progress;
-  }
+
   public function getProgress()
   {
     return $this->progress;
   }
-  public function setSelfLink($selfLink)
+
+    public function setProgress($progress)
   {
-    $this->selfLink = $selfLink;
+      $this->progress = $progress;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStatus($status)
+
+    public function setSelfLink($selfLink)
   {
-    $this->status = $status;
+      $this->selfLink = $selfLink;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setStatusMessage($statusMessage)
+
+    public function setStatus($status)
   {
-    $this->statusMessage = $statusMessage;
+      $this->status = $status;
   }
+
   public function getStatusMessage()
   {
     return $this->statusMessage;
   }
-  public function setUser($user)
+
+    public function setStatusMessage($statusMessage)
   {
-    $this->user = $user;
+      $this->statusMessage = $statusMessage;
   }
-  public function getUser()
+
+    public function getUser()
   {
     return $this->user;
   }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 }
 
 class Google_Service_Replicapoolupdater_RollingUpdateList extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
+    public $selfLink;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Replicapoolupdater_RollingUpdate';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-  public $selfLink;
-
 
   public function setItems($items)
   {
@@ -644,41 +670,46 @@ class Google_Service_Replicapoolupdater_RollingUpdateList extends Google_Collect
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
 {
+    public $maxNumConcurrentInstances;
+    public $sleepAfterInstanceRestartSec;
   protected $internal_gapi_mappings = array(
   );
   protected $canaryType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary';
   protected $canaryDataType = '';
-  public $maxNumConcurrentInstances;
-  public $sleepAfterInstanceRestartSec;
-
 
   public function setCanary(Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary $canary)
   {
@@ -688,37 +719,40 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   {
     return $this->canary;
   }
-  public function setMaxNumConcurrentInstances($maxNumConcurrentInstances)
-  {
-    $this->maxNumConcurrentInstances = $maxNumConcurrentInstances;
-  }
-  public function getMaxNumConcurrentInstances()
+
+    public function getMaxNumConcurrentInstances()
   {
     return $this->maxNumConcurrentInstances;
   }
-  public function setSleepAfterInstanceRestartSec($sleepAfterInstanceRestartSec)
+
+    public function setMaxNumConcurrentInstances($maxNumConcurrentInstances)
   {
-    $this->sleepAfterInstanceRestartSec = $sleepAfterInstanceRestartSec;
+      $this->maxNumConcurrentInstances = $maxNumConcurrentInstances;
   }
-  public function getSleepAfterInstanceRestartSec()
+
+    public function getSleepAfterInstanceRestartSec()
   {
     return $this->sleepAfterInstanceRestartSec;
   }
+
+    public function setSleepAfterInstanceRestartSec($sleepAfterInstanceRestartSec)
+    {
+        $this->sleepAfterInstanceRestartSec = $sleepAfterInstanceRestartSec;
+    }
 }
 
 class Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $numInstances;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setNumInstances($numInstances)
-  {
-    $this->numInstances = $numInstances;
-  }
   public function getNumInstances()
   {
     return $this->numInstances;
   }
+
+    public function setNumInstances($numInstances)
+    {
+        $this->numInstances = $numInstances;
+    }
 }

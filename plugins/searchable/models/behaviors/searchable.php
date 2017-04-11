@@ -70,70 +70,22 @@ class SearchableBehavior extends ModelBehavior {
 		$this->settings[$model->alias] = $config;
 	}
 
-/**
- * Saves a Sindex record for a Model record
- *
- * @param string $model 
- * @return void
- */	
-	public function setIndex(&$model) {
-		App::import('Model', 'Searchable.Sindex');
-		$Sindex = ClassRegistry::init('Sindex');
-		$Sindex->deleteAll(array('model' => $model->alias, 'fk' => $model->id));
-		$data = $this->computeIndex($model, $model->data);
-		$Sindex->create($data);
-		return $Sindex->save();
-	}
-
-/**
- * Compute the Sindex record given the model and a model data array
- *
- * @param string $model 
- * @param string $data 
- * @return void
- */
-	public function computeIndex(&$model, $data) {
-		$fields = $this->settings[$model->alias]['fields'];
-		$content = false;
-		foreach ($fields as $field) {
-			list($m, $f) = explode('.', $field);
-			$part = Set::extract("/$m/$f", $data);
-			if (is_array($part)) {
-				$part = implode(' ', $part);
-			}
-			$content .= ' '.$part;
-		}
-		// Needed to manage international characters
-		$content = mb_convert_encoding($content, 'ISO-8859-1');
-		$content = mb_convert_encoding($content, 'UTF-8', 'HTML-ENTITIES');
-		$content = strip_tags($content);
-		$content = Sanitize::clean($content, array('encode' => false, 'remove_html' => false, 'odd_spaces' => true));
-		
-		return array(
-			'model' => $model->alias,
-			'fk' => $data[$model->alias]['id'],
-			'content' => trim($content)
-		);
-
-	}
-
-
 	public function searchIndexStatus(&$model) {
 		App::import('Model', 'Searchable.Sindex');
 		$Sindex = ClassRegistry::init('Sindex');
 		$indexes = $Sindex->find('count', array('conditions' => array('Sindex.model' => $model->alias)));
 		$records = $model->find('count');
 	}
-	
 
 /**
  * Custom find method. Searches for a term in the model using a unique query
  *
- * @param string $model 
- * @param string $method 
- * @param string $state 
+ * @param string $model
+ * @param string $method
+ * @param string $state
  * @param string $query key 'term' for the search
- * @param string $results 
+ * @param string $results
+ *
  * @return array with results or false
  */
 	public function _findSearch(&$model, $method, $state, $query, $results = array()) {
@@ -142,8 +94,8 @@ class SearchableBehavior extends ModelBehavior {
 			$settings = array(
 				'className' => 'Sindex',
 				'foreignKey' => 'fk',
-				'conditions' => array('Sindex.model' => $model->alias) 
-			); 
+                'conditions' => array('Sindex.model' => $model->alias),
+            );
 			$model->bindModel(array('hasOne' => array('Sindex' => $settings)));
 			if (!empty($query['fields'])) {
 				$fields = Set::merge($query['fields'], array(
@@ -190,13 +142,14 @@ class SearchableBehavior extends ModelBehavior {
  *
  * $Model->find('index');
  *
- * @param string $model injects the model into the method
+ * @param string $model  injects the model into the method
  * @param string $method injects the method name
- * @param string $state before/after
- * @param array $query The query, use empty
- * @param string $results 
+ * @param string $state  before/after
+ * @param array  $query  The query, use empty
+ * @param string $results
+ *
  * @return array The found records
- */	
+ */
 	public function _findIndex(&$model, $method, $state, $query, $results = array()) {
 		if ($state === 'before') {
 			$fieldsList = $model->Behaviors->Searchable->settings[$model->alias]['fields'];
@@ -215,8 +168,7 @@ class SearchableBehavior extends ModelBehavior {
 		return $results;
 	}
 
-
-/**
+    /**
  * After save callback. Saves the index when the record is stored
  *
  * @param object $model Model using this behavior
@@ -224,12 +176,65 @@ class SearchableBehavior extends ModelBehavior {
  * @access public
  * @return boolean True if the operation succeeded, false otherwise
  */
-	function afterSave(&$model, $created) { 
+    function afterSave(&$model, $created)
+    {
 		$model->recursive = 2;
 		$model->read();
 		$this->setIndex($model);
 		return true;
 	}
+
+    /**
+     * Saves a Sindex record for a Model record
+     *
+     * @param string $model
+     *
+     * @return void
+     */
+    public function setIndex(&$model)
+    {
+        App::import('Model', 'Searchable.Sindex');
+        $Sindex = ClassRegistry::init('Sindex');
+        $Sindex->deleteAll(array('model' => $model->alias, 'fk' => $model->id));
+        $data = $this->computeIndex($model, $model->data);
+        $Sindex->create($data);
+
+        return $Sindex->save();
+    }
+
+    /**
+     * Compute the Sindex record given the model and a model data array
+     *
+     * @param string $model
+     * @param string $data
+     *
+     * @return void
+     */
+    public function computeIndex(&$model, $data)
+    {
+        $fields = $this->settings[$model->alias]['fields'];
+        $content = false;
+        foreach ($fields as $field) {
+            list($m, $f) = explode('.', $field);
+            $part = Set::extract("/$m/$f", $data);
+            if (is_array($part)) {
+                $part = implode(' ', $part);
+            }
+            $content .= ' '.$part;
+        }
+        // Needed to manage international characters
+        $content = mb_convert_encoding($content, 'ISO-8859-1');
+        $content = mb_convert_encoding($content, 'UTF-8', 'HTML-ENTITIES');
+        $content = strip_tags($content);
+        $content = Sanitize::clean($content, array('encode' => false, 'remove_html' => false, 'odd_spaces' => true));
+
+        return array(
+            'model' => $model->alias,
+            'fk' => $data[$model->alias]['id'],
+            'content' => trim($content),
+        );
+
+    }
 
 /**
  * Before delete callback. Remove Sindex records for Model when it's deleted

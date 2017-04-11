@@ -56,7 +56,9 @@ class Google_Utils
    * @link   http://solarphp.com/
    * @link   http://svn.solarphp.com/core/trunk/Solar/Json.php
    * @link   http://framework.zend.com/svn/framework/standard/trunk/library/Zend/Json/Decoder.php
-   * @param  string $str
+   *
+   * @param string $str
+   *
    * @return int The number of bytes in a string.
    */
   public static function getStrLen($str)
@@ -122,7 +124,9 @@ class Google_Utils
 
   /**
    * Convert a string to camelCase
-   * @param  string $value
+   *
+   * @param string $value
+   *
    * @return string
    */
   public static function camelCase($value)

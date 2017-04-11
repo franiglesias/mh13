@@ -6,9 +6,10 @@ class Ticket extends TicketsAppModel {
 	/**
 	 * Inits and save a ticket for the model/action
 	 *
-	 * @param string $model 
-	 * @param string $action 
-	 * @param string $expiration 
+     * @param string $model
+     * @param string $action
+     * @param string $expiration
+     *
 	 * @return id of the newly created ticket
 	 * @author Fran Iglesias
 	 */
@@ -29,29 +30,11 @@ class Ticket extends TicketsAppModel {
 	}
 
 	/**
-	 * Loads a ticket by Id given is a current valid unused ticket
-	 *
-	 * @param string $id 
-	 * @return void
-	 * @author Fran Iglesias
-	 */
-	public function getPending($id = null)
-	{
-		$this->setId($id);
-		$this->data = $this->find('first', array(
-			'conditions' => array(
-				'id' => $this->id, 
-				'used' => 0,
-				'expiration >= CURDATE()' 
-			)
-		));
-	}
-	
-	/**
 	 * Redeems a ticket calling the model action registered
 	 *
-	 * @param string $model 
-	 * @param string $id 
+     * @param string $model
+     * @param string $id
+     *
 	 * @return boolean
 	 * @author Fran Iglesias
 	 */
@@ -69,7 +52,29 @@ class Ticket extends TicketsAppModel {
 		}
 		return false;
 	}
-	
+
+    /**
+     * Loads a ticket by Id given is a current valid unused ticket
+     *
+     * @param string $id
+     *
+     * @return void
+     * @author Fran Iglesias
+     */
+    public function getPending($id = null)
+    {
+        $this->setId($id);
+        $this->data = $this->find(
+            'first',
+            array(
+                'conditions' => array(
+                    'id' => $this->id,
+                    'used' => 0,
+                    'expiration >= CURDATE()',
+                ),
+            )
+        );
+    }
 	
 	/**
 	 * Remove all expired or used tickets

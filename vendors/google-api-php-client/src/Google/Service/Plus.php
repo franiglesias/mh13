@@ -353,7 +353,8 @@ class Google_Service_Plus_Activities_Resource extends Google_Service_Resource
    * Get an activity. (activities.get)
    *
    * @param string $activityId The ID of the activity to get.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Plus_Activity
    */
   public function get($activityId, $optParams = array())
@@ -367,10 +368,10 @@ class Google_Service_Plus_Activities_Resource extends Google_Service_Resource
    * List all of the activities in the specified collection for a particular user.
    * (activities.listActivities)
    *
-   * @param string $userId The ID of the user to get activities for. The special
+   * @param string $userId     The ID of the user to get activities for. The special
    * value "me" can be used to indicate the authenticated user.
    * @param string $collection The collection of activities to list.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
    *
    * @opt_param string pageToken The continuation token, which is used to page
    * through large result sets. To get the next page of results, set this
@@ -390,8 +391,8 @@ class Google_Service_Plus_Activities_Resource extends Google_Service_Resource
   /**
    * Search public activities. (activities.search)
    *
-   * @param string $query Full-text search query string.
-   * @param array $optParams Optional parameters.
+   * @param string $query     Full-text search query string.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string orderBy Specifies how to order search results.
    * @opt_param string pageToken The continuation token, which is used to page
@@ -428,7 +429,8 @@ class Google_Service_Plus_Comments_Resource extends Google_Service_Resource
    * Get a comment. (comments.get)
    *
    * @param string $commentId The ID of the comment to get.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Plus_Comment
    */
   public function get($commentId, $optParams = array())
@@ -442,7 +444,7 @@ class Google_Service_Plus_Comments_Resource extends Google_Service_Resource
    * List all of the comments for an activity. (comments.listComments)
    *
    * @param string $activityId The ID of the activity to get comments for.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
    *
    * @opt_param string pageToken The continuation token, which is used to page
    * through large result sets. To get the next page of results, set this
@@ -476,11 +478,11 @@ class Google_Service_Plus_Moments_Resource extends Google_Service_Resource
    * Record a moment representing a user's action such as making a purchase or
    * commenting on a blog. (moments.insert)
    *
-   * @param string $userId The ID of the user to record actions for. The only
+   * @param string        $userId     The ID of the user to record actions for. The only
    * valid values are "me" and the ID of the authenticated user.
-   * @param string $collection The collection to which to write moments.
+   * @param string        $collection The collection to which to write moments.
    * @param Google_Moment $postBody
-   * @param array $optParams Optional parameters.
+   * @param array         $optParams  Optional parameters.
    *
    * @opt_param bool debug Return the moment as written. Should be used only for
    * debugging.
@@ -496,10 +498,10 @@ class Google_Service_Plus_Moments_Resource extends Google_Service_Resource
   /**
    * List all of the moments for a particular user. (moments.listMoments)
    *
-   * @param string $userId The ID of the user to get moments for. The special
+   * @param string $userId     The ID of the user to get moments for. The special
    * value "me" can be used to indicate the authenticated user.
    * @param string $collection The collection of moments to list.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
    *
    * @opt_param string maxResults The maximum number of moments to include in the
    * response, which is used for paging. For any response, the actual number
@@ -522,8 +524,8 @@ class Google_Service_Plus_Moments_Resource extends Google_Service_Resource
   /**
    * Delete a moment. (moments.remove)
    *
-   * @param string $id The ID of the moment to delete.
-   * @param array $optParams Optional parameters.
+   * @param string $id        The ID of the moment to delete.
+   * @param array  $optParams Optional parameters.
    */
   public function remove($id, $optParams = array())
   {
@@ -549,9 +551,10 @@ class Google_Service_Plus_People_Resource extends Google_Service_Resource
    * https://www.googleapis.com/auth/plus.login, this method is guaranteed to
    * return ageRange and language. (people.get)
    *
-   * @param string $userId The ID of the person to get the profile for. The
+   * @param string $userId    The ID of the person to get the profile for. The
    * special value "me" can be used to indicate the authenticated user.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Plus_Person
    */
   public function get($userId, $optParams = array())
@@ -640,23 +643,24 @@ class Google_Service_Plus_People_Resource extends Google_Service_Resource
 
 class Google_Service_Plus_Acl extends Google_Collection
 {
+    public $description;
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $description;
   protected $itemsType = 'Google_Service_Plus_PlusAclentryResource';
   protected $itemsDataType = 'array';
-  public $kind;
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -665,24 +669,20 @@ class Google_Service_Plus_Acl extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Plus_Activity extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $accessType = 'Google_Service_Plus_Acl';
-  protected $accessDataType = '';
-  protected $actorType = 'Google_Service_Plus_ActivityActor';
-  protected $actorDataType = '';
   public $address;
   public $annotation;
   public $crosspostSource;
@@ -690,21 +690,25 @@ class Google_Service_Plus_Activity extends Google_Model
   public $geocode;
   public $id;
   public $kind;
-  protected $locationType = 'Google_Service_Plus_Place';
-  protected $locationDataType = '';
-  protected $objectType = 'Google_Service_Plus_ActivityObject';
-  protected $objectDataType = '';
   public $placeId;
   public $placeName;
-  protected $providerType = 'Google_Service_Plus_ActivityProvider';
-  protected $providerDataType = '';
   public $published;
   public $radius;
   public $title;
   public $updated;
   public $url;
   public $verb;
-
+    protected $internal_gapi_mappings = array();
+    protected $accessType = 'Google_Service_Plus_Acl';
+    protected $accessDataType = '';
+    protected $actorType = 'Google_Service_Plus_ActivityActor';
+    protected $actorDataType = '';
+    protected $locationType = 'Google_Service_Plus_Place';
+    protected $locationDataType = '';
+    protected $objectType = 'Google_Service_Plus_ActivityObject';
+    protected $objectDataType = '';
+    protected $providerType = 'Google_Service_Plus_ActivityProvider';
+    protected $providerDataType = '';
 
   public function setAccess(Google_Service_Plus_Acl $access)
   {
@@ -722,62 +726,77 @@ class Google_Service_Plus_Activity extends Google_Model
   {
     return $this->actor;
   }
-  public function setAddress($address)
-  {
-    $this->address = $address;
-  }
+
   public function getAddress()
   {
     return $this->address;
   }
-  public function setAnnotation($annotation)
+
+    public function setAddress($address)
   {
-    $this->annotation = $annotation;
+      $this->address = $address;
   }
+
   public function getAnnotation()
   {
     return $this->annotation;
   }
-  public function setCrosspostSource($crosspostSource)
+
+    public function setAnnotation($annotation)
   {
-    $this->crosspostSource = $crosspostSource;
+      $this->annotation = $annotation;
   }
+
   public function getCrosspostSource()
   {
     return $this->crosspostSource;
   }
-  public function setEtag($etag)
+
+    public function setCrosspostSource($crosspostSource)
   {
-    $this->etag = $etag;
+      $this->crosspostSource = $crosspostSource;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setGeocode($geocode)
+
+    public function setEtag($etag)
   {
-    $this->geocode = $geocode;
+      $this->etag = $etag;
   }
+
   public function getGeocode()
   {
     return $this->geocode;
   }
-  public function setId($id)
+
+    public function setGeocode($geocode)
   {
-    $this->id = $id;
+      $this->geocode = $geocode;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLocation(Google_Service_Plus_Place $location)
   {
     $this->location = $location;
@@ -794,22 +813,27 @@ class Google_Service_Plus_Activity extends Google_Model
   {
     return $this->object;
   }
-  public function setPlaceId($placeId)
-  {
-    $this->placeId = $placeId;
-  }
+
   public function getPlaceId()
   {
     return $this->placeId;
   }
-  public function setPlaceName($placeName)
+
+    public function setPlaceId($placeId)
   {
-    $this->placeName = $placeName;
+      $this->placeId = $placeId;
   }
+
   public function getPlaceName()
   {
     return $this->placeName;
   }
+
+    public function setPlaceName($placeName)
+    {
+        $this->placeName = $placeName;
+    }
+
   public function setProvider(Google_Service_Plus_ActivityProvider $provider)
   {
     $this->provider = $provider;
@@ -818,85 +842,99 @@ class Google_Service_Plus_Activity extends Google_Model
   {
     return $this->provider;
   }
-  public function setPublished($published)
-  {
-    $this->published = $published;
-  }
+
   public function getPublished()
   {
     return $this->published;
   }
-  public function setRadius($radius)
+
+    public function setPublished($published)
   {
-    $this->radius = $radius;
+      $this->published = $published;
   }
+
   public function getRadius()
   {
     return $this->radius;
   }
-  public function setTitle($title)
+
+    public function setRadius($radius)
   {
-    $this->title = $title;
+      $this->radius = $radius;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
-  public function setUrl($url)
+
+    public function setUpdated($updated)
   {
-    $this->url = $url;
+      $this->updated = $updated;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setVerb($verb)
+
+    public function setUrl($url)
   {
-    $this->verb = $verb;
+      $this->url = $url;
   }
+
   public function getVerb()
   {
     return $this->verb;
   }
+
+    public function setVerb($verb)
+    {
+        $this->verb = $verb;
+    }
 }
 
 class Google_Service_Plus_ActivityActor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $displayName;
   public $id;
+    public $url;
+    protected $internal_gapi_mappings = array();
   protected $imageType = 'Google_Service_Plus_ActivityActorImage';
   protected $imageDataType = '';
   protected $nameType = 'Google_Service_Plus_ActivityActorName';
   protected $nameDataType = '';
-  public $url;
 
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
   public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setId($id)
+
+    public function setDisplayName($displayName)
   {
-    $this->id = $id;
+      $this->displayName = $displayName;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setImage(Google_Service_Plus_ActivityActorImage $image)
   {
     $this->image = $image;
@@ -913,92 +951,96 @@ class Google_Service_Plus_ActivityActor extends Google_Model
   {
     return $this->name;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
+  }
+
+  public function setUrl($url)
+  {
+    $this->url = $url;
   }
 }
 
 class Google_Service_Plus_ActivityActorImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  public $url;
+    public $url;
+    protected $internal_gapi_mappings = array();
 
+    public function getUrl()
+    {
+        return $this->url;
+    }
 
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
-  public function getUrl()
-  {
-    return $this->url;
-  }
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_ActivityActorName extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $familyName;
   public $givenName;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFamilyName($familyName)
-  {
-    $this->familyName = $familyName;
-  }
   public function getFamilyName()
   {
     return $this->familyName;
   }
-  public function setGivenName($givenName)
+
+    public function setFamilyName($familyName)
   {
-    $this->givenName = $givenName;
+      $this->familyName = $familyName;
   }
+
   public function getGivenName()
   {
     return $this->givenName;
   }
+
+    public function setGivenName($givenName)
+    {
+        $this->givenName = $givenName;
+    }
 }
 
 class Google_Service_Plus_ActivityFeed extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
-  protected $itemsType = 'Google_Service_Plus_Activity';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextLink;
   public $nextPageToken;
   public $selfLink;
   public $title;
   public $updated;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Plus_Activity';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1007,58 +1049,75 @@ class Google_Service_Plus_ActivityFeed extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setNextLink($nextLink)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->nextLink = $nextLink;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTitle($title)
+
+    public function setSelfLink($selfLink)
   {
-    $this->title = $title;
+      $this->selfLink = $selfLink;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Plus_ActivityObject extends Google_Collection
 {
+    public $content;
+    public $id;
+    public $objectType;
+    public $originalContent;
+    public $url;
   protected $collection_key = 'attachments';
   protected $internal_gapi_mappings = array(
   );
@@ -1066,18 +1125,12 @@ class Google_Service_Plus_ActivityObject extends Google_Collection
   protected $actorDataType = '';
   protected $attachmentsType = 'Google_Service_Plus_ActivityObjectAttachments';
   protected $attachmentsDataType = 'array';
-  public $content;
-  public $id;
-  public $objectType;
-  public $originalContent;
   protected $plusonersType = 'Google_Service_Plus_ActivityObjectPlusoners';
   protected $plusonersDataType = '';
   protected $repliesType = 'Google_Service_Plus_ActivityObjectReplies';
   protected $repliesDataType = '';
   protected $resharersType = 'Google_Service_Plus_ActivityObjectResharers';
   protected $resharersDataType = '';
-  public $url;
-
 
   public function setActor(Google_Service_Plus_ActivityObjectActor $actor)
   {
@@ -1095,38 +1148,47 @@ class Google_Service_Plus_ActivityObject extends Google_Collection
   {
     return $this->attachments;
   }
-  public function setContent($content)
-  {
-    $this->content = $content;
-  }
+
   public function getContent()
   {
     return $this->content;
   }
-  public function setId($id)
+
+    public function setContent($content)
   {
-    $this->id = $id;
+      $this->content = $content;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setObjectType($objectType)
+
+    public function setId($id)
   {
-    $this->objectType = $objectType;
+      $this->id = $id;
   }
+
   public function getObjectType()
   {
     return $this->objectType;
   }
-  public function setOriginalContent($originalContent)
+
+    public function setObjectType($objectType)
   {
-    $this->originalContent = $originalContent;
+      $this->objectType = $objectType;
   }
+
   public function getOriginalContent()
   {
     return $this->originalContent;
   }
+
+    public function setOriginalContent($originalContent)
+    {
+        $this->originalContent = $originalContent;
+    }
+
   public function setPlusoners(Google_Service_Plus_ActivityObjectPlusoners $plusoners)
   {
     $this->plusoners = $plusoners;
@@ -1151,43 +1213,47 @@ class Google_Service_Plus_ActivityObject extends Google_Collection
   {
     return $this->resharers;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectActor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $displayName;
   public $id;
+    public $url;
+    protected $internal_gapi_mappings = array();
   protected $imageType = 'Google_Service_Plus_ActivityObjectActorImage';
   protected $imageDataType = '';
-  public $url;
 
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
   public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setId($id)
+
+    public function setDisplayName($displayName)
   {
-    $this->id = $id;
+      $this->displayName = $displayName;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setImage(Google_Service_Plus_ActivityObjectActorImage $image)
   {
     $this->image = $image;
@@ -1196,69 +1262,72 @@ class Google_Service_Plus_ActivityObjectActor extends Google_Model
   {
     return $this->image;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
+  }
+
+  public function setUrl($url)
+  {
+    $this->url = $url;
   }
 }
 
 class Google_Service_Plus_ActivityObjectActorImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  public $url;
+    public $url;
+    protected $internal_gapi_mappings = array();
 
+    public function getUrl()
+    {
+        return $this->url;
+    }
 
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
-  public function getUrl()
-  {
-    return $this->url;
-  }
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectAttachments extends Google_Collection
 {
-  protected $collection_key = 'thumbnails';
-  protected $internal_gapi_mappings = array(
-  );
   public $content;
   public $displayName;
+    public $id;
+    public $objectType;
+    public $url;
+    protected $collection_key = 'thumbnails';
+    protected $internal_gapi_mappings = array();
   protected $embedType = 'Google_Service_Plus_ActivityObjectAttachmentsEmbed';
   protected $embedDataType = '';
   protected $fullImageType = 'Google_Service_Plus_ActivityObjectAttachmentsFullImage';
   protected $fullImageDataType = '';
-  public $id;
   protected $imageType = 'Google_Service_Plus_ActivityObjectAttachmentsImage';
   protected $imageDataType = '';
-  public $objectType;
   protected $thumbnailsType = 'Google_Service_Plus_ActivityObjectAttachmentsThumbnails';
   protected $thumbnailsDataType = 'array';
-  public $url;
 
-
-  public function setContent($content)
-  {
-    $this->content = $content;
-  }
   public function getContent()
   {
     return $this->content;
   }
-  public function setDisplayName($displayName)
+
+    public function setContent($content)
   {
-    $this->displayName = $displayName;
+      $this->content = $content;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
+
+    public function setDisplayName($displayName)
+    {
+        $this->displayName = $displayName;
+    }
+
   public function setEmbed(Google_Service_Plus_ActivityObjectAttachmentsEmbed $embed)
   {
     $this->embed = $embed;
@@ -1275,14 +1344,17 @@ class Google_Service_Plus_ActivityObjectAttachments extends Google_Collection
   {
     return $this->fullImage;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setImage(Google_Service_Plus_ActivityObjectAttachmentsImage $image)
   {
     $this->image = $image;
@@ -1291,14 +1363,17 @@ class Google_Service_Plus_ActivityObjectAttachments extends Google_Collection
   {
     return $this->image;
   }
-  public function setObjectType($objectType)
-  {
-    $this->objectType = $objectType;
-  }
+
   public function getObjectType()
   {
     return $this->objectType;
   }
+
+    public function setObjectType($objectType)
+    {
+        $this->objectType = $objectType;
+    }
+
   public function setThumbnails($thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -1307,148 +1382,161 @@ class Google_Service_Plus_ActivityObjectAttachments extends Google_Collection
   {
     return $this->thumbnails;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectAttachmentsEmbed extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $type;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectAttachmentsFullImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $height;
   public $type;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setType($type)
+
+    public function setHeight($height)
   {
-    $this->type = $type;
+      $this->height = $height;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
+
   public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectAttachmentsImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $height;
   public $type;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setType($type)
+
+    public function setHeight($height)
   {
-    $this->type = $type;
+      $this->height = $height;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
+
   public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectAttachmentsThumbnails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $description;
+    public $url;
+    protected $internal_gapi_mappings = array();
   protected $imageType = 'Google_Service_Plus_ActivityObjectAttachmentsThumbnailsImage';
   protected $imageDataType = '';
-  public $url;
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
   public function setImage(Google_Service_Plus_ActivityObjectAttachmentsThumbnailsImage $image)
   {
     $this->image = $image;
@@ -1457,176 +1545,184 @@ class Google_Service_Plus_ActivityObjectAttachmentsThumbnails extends Google_Mod
   {
     return $this->image;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectAttachmentsThumbnailsImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $height;
   public $type;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setType($type)
+
+    public function setHeight($height)
   {
-    $this->type = $type;
+      $this->height = $height;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
+
   public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectPlusoners extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $selfLink;
   public $totalItems;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTotalItems($totalItems)
+
+    public function setSelfLink($selfLink)
   {
-    $this->totalItems = $totalItems;
+      $this->selfLink = $selfLink;
   }
+
   public function getTotalItems()
   {
     return $this->totalItems;
   }
+
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectReplies extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $selfLink;
   public $totalItems;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTotalItems($totalItems)
+
+    public function setSelfLink($selfLink)
   {
-    $this->totalItems = $totalItems;
+      $this->selfLink = $selfLink;
   }
+
   public function getTotalItems()
   {
     return $this->totalItems;
   }
+
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
 }
 
 class Google_Service_Plus_ActivityObjectResharers extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $selfLink;
   public $totalItems;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTotalItems($totalItems)
+
+    public function setSelfLink($selfLink)
   {
-    $this->totalItems = $totalItems;
+      $this->selfLink = $selfLink;
   }
+
   public function getTotalItems()
   {
     return $this->totalItems;
   }
+
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
 }
 
 class Google_Service_Plus_ActivityProvider extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $title;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_Plus_Comment extends Google_Collection
 {
+    public $etag;
+    public $id;
+    public $kind;
+    public $published;
+    public $selfLink;
+    public $updated;
+    public $verb;
   protected $collection_key = 'inReplyTo';
   protected $internal_gapi_mappings = array(
   );
   protected $actorType = 'Google_Service_Plus_CommentActor';
   protected $actorDataType = '';
-  public $etag;
-  public $id;
   protected $inReplyToType = 'Google_Service_Plus_CommentInReplyTo';
   protected $inReplyToDataType = 'array';
-  public $kind;
   protected $objectType = 'Google_Service_Plus_CommentObject';
   protected $objectDataType = '';
   protected $plusonersType = 'Google_Service_Plus_CommentPlusoners';
   protected $plusonersDataType = '';
-  public $published;
-  public $selfLink;
-  public $updated;
-  public $verb;
-
 
   public function setActor(Google_Service_Plus_CommentActor $actor)
   {
@@ -1636,22 +1732,27 @@ class Google_Service_Plus_Comment extends Google_Collection
   {
     return $this->actor;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setInReplyTo($inReplyTo)
   {
     $this->inReplyTo = $inReplyTo;
@@ -1660,14 +1761,17 @@ class Google_Service_Plus_Comment extends Google_Collection
   {
     return $this->inReplyTo;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setObject(Google_Service_Plus_CommentObject $object)
   {
     $this->object = $object;
@@ -1684,67 +1788,77 @@ class Google_Service_Plus_Comment extends Google_Collection
   {
     return $this->plusoners;
   }
-  public function setPublished($published)
-  {
-    $this->published = $published;
-  }
+
   public function getPublished()
   {
     return $this->published;
   }
-  public function setSelfLink($selfLink)
+
+    public function setPublished($published)
   {
-    $this->selfLink = $selfLink;
+      $this->published = $published;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setUpdated($updated)
+
+    public function setSelfLink($selfLink)
   {
-    $this->updated = $updated;
+      $this->selfLink = $selfLink;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
-  public function setVerb($verb)
+
+    public function setUpdated($updated)
   {
-    $this->verb = $verb;
+      $this->updated = $updated;
   }
+
   public function getVerb()
   {
     return $this->verb;
   }
+
+    public function setVerb($verb)
+    {
+        $this->verb = $verb;
+    }
 }
 
 class Google_Service_Plus_CommentActor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $displayName;
   public $id;
+    public $url;
+    protected $internal_gapi_mappings = array();
   protected $imageType = 'Google_Service_Plus_CommentActorImage';
   protected $imageDataType = '';
-  public $url;
 
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
   public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setId($id)
+
+    public function setDisplayName($displayName)
   {
-    $this->id = $id;
+      $this->displayName = $displayName;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setImage(Google_Service_Plus_CommentActorImage $image)
   {
     $this->image = $image;
@@ -1753,65 +1867,68 @@ class Google_Service_Plus_CommentActor extends Google_Model
   {
     return $this->image;
   }
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
+
   public function getUrl()
   {
     return $this->url;
+  }
+
+  public function setUrl($url)
+  {
+    $this->url = $url;
   }
 }
 
 class Google_Service_Plus_CommentActorImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  public $url;
+    public $url;
+    protected $internal_gapi_mappings = array();
 
+    public function getUrl()
+    {
+        return $this->url;
+    }
 
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
-  public function getUrl()
-  {
-    return $this->url;
-  }
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_CommentFeed extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
-  protected $itemsType = 'Google_Service_Plus_Comment';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextLink;
   public $nextPageToken;
   public $title;
   public $updated;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Plus_Comment';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1820,158 +1937,151 @@ class Google_Service_Plus_CommentFeed extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setNextLink($nextLink)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->nextLink = $nextLink;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setTitle($title)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->title = $title;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Plus_CommentInReplyTo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setUrl($url)
+
+    public function setId($id)
   {
-    $this->url = $url;
+      $this->id = $id;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_CommentObject extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $content;
   public $objectType;
   public $originalContent;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setContent($content)
-  {
-    $this->content = $content;
-  }
   public function getContent()
   {
     return $this->content;
   }
-  public function setObjectType($objectType)
+
+    public function setContent($content)
   {
-    $this->objectType = $objectType;
+      $this->content = $content;
   }
+
   public function getObjectType()
   {
     return $this->objectType;
   }
-  public function setOriginalContent($originalContent)
+
+    public function setObjectType($objectType)
   {
-    $this->originalContent = $originalContent;
+      $this->objectType = $objectType;
   }
+
   public function getOriginalContent()
   {
     return $this->originalContent;
   }
+
+    public function setOriginalContent($originalContent)
+    {
+        $this->originalContent = $originalContent;
+    }
 }
 
 class Google_Service_Plus_CommentPlusoners extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $totalItems;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setTotalItems($totalItems)
-  {
-    $this->totalItems = $totalItems;
-  }
   public function getTotalItems()
   {
     return $this->totalItems;
   }
+
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
 }
 
 class Google_Service_Plus_ItemScope extends Google_Collection
 {
-  protected $collection_key = 'performers';
-  protected $internal_gapi_mappings = array(
-        "associatedMedia" => "associated_media",
-  );
-  protected $aboutType = 'Google_Service_Plus_ItemScope';
-  protected $aboutDataType = '';
   public $additionalName;
-  protected $addressType = 'Google_Service_Plus_ItemScope';
-  protected $addressDataType = '';
   public $addressCountry;
   public $addressLocality;
   public $addressRegion;
-  protected $associatedMediaType = 'Google_Service_Plus_ItemScope';
-  protected $associatedMediaDataType = 'array';
   public $attendeeCount;
-  protected $attendeesType = 'Google_Service_Plus_ItemScope';
-  protected $attendeesDataType = 'array';
-  protected $audioType = 'Google_Service_Plus_ItemScope';
-  protected $audioDataType = '';
-  protected $authorType = 'Google_Service_Plus_ItemScope';
-  protected $authorDataType = 'array';
   public $bestRating;
   public $birthDate;
-  protected $byArtistType = 'Google_Service_Plus_ItemScope';
-  protected $byArtistDataType = '';
   public $caption;
   public $contentSize;
   public $contentUrl;
-  protected $contributorType = 'Google_Service_Plus_ItemScope';
-  protected $contributorDataType = 'array';
   public $dateCreated;
   public $dateModified;
   public $datePublished;
@@ -1981,42 +2091,61 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   public $endDate;
   public $familyName;
   public $gender;
-  protected $geoType = 'Google_Service_Plus_ItemScope';
-  protected $geoDataType = '';
   public $givenName;
   public $height;
   public $id;
   public $image;
-  protected $inAlbumType = 'Google_Service_Plus_ItemScope';
-  protected $inAlbumDataType = '';
   public $kind;
   public $latitude;
-  protected $locationType = 'Google_Service_Plus_ItemScope';
-  protected $locationDataType = '';
   public $longitude;
   public $name;
-  protected $partOfTVSeriesType = 'Google_Service_Plus_ItemScope';
-  protected $partOfTVSeriesDataType = '';
-  protected $performersType = 'Google_Service_Plus_ItemScope';
-  protected $performersDataType = 'array';
   public $playerType;
   public $postOfficeBoxNumber;
   public $postalCode;
   public $ratingValue;
-  protected $reviewRatingType = 'Google_Service_Plus_ItemScope';
-  protected $reviewRatingDataType = '';
   public $startDate;
   public $streetAddress;
   public $text;
-  protected $thumbnailType = 'Google_Service_Plus_ItemScope';
-  protected $thumbnailDataType = '';
   public $thumbnailUrl;
   public $tickerSymbol;
   public $type;
   public $url;
   public $width;
   public $worstRating;
-
+    protected $collection_key = 'performers';
+    protected $internal_gapi_mappings = array(
+        "associatedMedia" => "associated_media",
+    );
+    protected $aboutType = 'Google_Service_Plus_ItemScope';
+    protected $aboutDataType = '';
+    protected $addressType = 'Google_Service_Plus_ItemScope';
+    protected $addressDataType = '';
+    protected $associatedMediaType = 'Google_Service_Plus_ItemScope';
+    protected $associatedMediaDataType = 'array';
+    protected $attendeesType = 'Google_Service_Plus_ItemScope';
+    protected $attendeesDataType = 'array';
+    protected $audioType = 'Google_Service_Plus_ItemScope';
+    protected $audioDataType = '';
+    protected $authorType = 'Google_Service_Plus_ItemScope';
+    protected $authorDataType = 'array';
+    protected $byArtistType = 'Google_Service_Plus_ItemScope';
+    protected $byArtistDataType = '';
+    protected $contributorType = 'Google_Service_Plus_ItemScope';
+    protected $contributorDataType = 'array';
+    protected $geoType = 'Google_Service_Plus_ItemScope';
+    protected $geoDataType = '';
+    protected $inAlbumType = 'Google_Service_Plus_ItemScope';
+    protected $inAlbumDataType = '';
+    protected $locationType = 'Google_Service_Plus_ItemScope';
+    protected $locationDataType = '';
+    protected $partOfTVSeriesType = 'Google_Service_Plus_ItemScope';
+    protected $partOfTVSeriesDataType = '';
+    protected $performersType = 'Google_Service_Plus_ItemScope';
+    protected $performersDataType = 'array';
+    protected $reviewRatingType = 'Google_Service_Plus_ItemScope';
+    protected $reviewRatingDataType = '';
+    protected $thumbnailType = 'Google_Service_Plus_ItemScope';
+    protected $thumbnailDataType = '';
 
   public function setAbout(Google_Service_Plus_ItemScope $about)
   {
@@ -2026,14 +2155,17 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->about;
   }
-  public function setAdditionalName($additionalName)
-  {
-    $this->additionalName = $additionalName;
-  }
+
   public function getAdditionalName()
   {
     return $this->additionalName;
   }
+
+    public function setAdditionalName($additionalName)
+    {
+        $this->additionalName = $additionalName;
+    }
+
   public function setAddress(Google_Service_Plus_ItemScope $address)
   {
     $this->address = $address;
@@ -2042,30 +2174,37 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->address;
   }
-  public function setAddressCountry($addressCountry)
-  {
-    $this->addressCountry = $addressCountry;
-  }
+
   public function getAddressCountry()
   {
     return $this->addressCountry;
   }
-  public function setAddressLocality($addressLocality)
+
+    public function setAddressCountry($addressCountry)
   {
-    $this->addressLocality = $addressLocality;
+      $this->addressCountry = $addressCountry;
   }
+
   public function getAddressLocality()
   {
     return $this->addressLocality;
   }
-  public function setAddressRegion($addressRegion)
+
+    public function setAddressLocality($addressLocality)
   {
-    $this->addressRegion = $addressRegion;
+      $this->addressLocality = $addressLocality;
   }
+
   public function getAddressRegion()
   {
     return $this->addressRegion;
   }
+
+    public function setAddressRegion($addressRegion)
+    {
+        $this->addressRegion = $addressRegion;
+    }
+
   public function setAssociatedMedia($associatedMedia)
   {
     $this->associatedMedia = $associatedMedia;
@@ -2074,14 +2213,17 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->associatedMedia;
   }
-  public function setAttendeeCount($attendeeCount)
-  {
-    $this->attendeeCount = $attendeeCount;
-  }
+
   public function getAttendeeCount()
   {
     return $this->attendeeCount;
   }
+
+    public function setAttendeeCount($attendeeCount)
+    {
+        $this->attendeeCount = $attendeeCount;
+    }
+
   public function setAttendees($attendees)
   {
     $this->attendees = $attendees;
@@ -2106,22 +2248,27 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->author;
   }
-  public function setBestRating($bestRating)
-  {
-    $this->bestRating = $bestRating;
-  }
+
   public function getBestRating()
   {
     return $this->bestRating;
   }
-  public function setBirthDate($birthDate)
+
+    public function setBestRating($bestRating)
   {
-    $this->birthDate = $birthDate;
+      $this->bestRating = $bestRating;
   }
+
   public function getBirthDate()
   {
     return $this->birthDate;
   }
+
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+    }
+
   public function setByArtist(Google_Service_Plus_ItemScope $byArtist)
   {
     $this->byArtist = $byArtist;
@@ -2130,30 +2277,37 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->byArtist;
   }
-  public function setCaption($caption)
-  {
-    $this->caption = $caption;
-  }
+
   public function getCaption()
   {
     return $this->caption;
   }
-  public function setContentSize($contentSize)
+
+    public function setCaption($caption)
   {
-    $this->contentSize = $contentSize;
+      $this->caption = $caption;
   }
+
   public function getContentSize()
   {
     return $this->contentSize;
   }
-  public function setContentUrl($contentUrl)
+
+    public function setContentSize($contentSize)
   {
-    $this->contentUrl = $contentUrl;
+      $this->contentSize = $contentSize;
   }
+
   public function getContentUrl()
   {
     return $this->contentUrl;
   }
+
+    public function setContentUrl($contentUrl)
+    {
+        $this->contentUrl = $contentUrl;
+    }
+
   public function setContributor($contributor)
   {
     $this->contributor = $contributor;
@@ -2162,78 +2316,97 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->contributor;
   }
-  public function setDateCreated($dateCreated)
-  {
-    $this->dateCreated = $dateCreated;
-  }
+
   public function getDateCreated()
   {
     return $this->dateCreated;
   }
-  public function setDateModified($dateModified)
+
+    public function setDateCreated($dateCreated)
   {
-    $this->dateModified = $dateModified;
+      $this->dateCreated = $dateCreated;
   }
+
   public function getDateModified()
   {
     return $this->dateModified;
   }
-  public function setDatePublished($datePublished)
+
+    public function setDateModified($dateModified)
   {
-    $this->datePublished = $datePublished;
+      $this->dateModified = $dateModified;
   }
+
   public function getDatePublished()
   {
     return $this->datePublished;
   }
-  public function setDescription($description)
+
+    public function setDatePublished($datePublished)
   {
-    $this->description = $description;
+      $this->datePublished = $datePublished;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setDuration($duration)
+
+    public function setDescription($description)
   {
-    $this->duration = $duration;
+      $this->description = $description;
   }
+
   public function getDuration()
   {
     return $this->duration;
   }
-  public function setEmbedUrl($embedUrl)
+
+    public function setDuration($duration)
   {
-    $this->embedUrl = $embedUrl;
+      $this->duration = $duration;
   }
+
   public function getEmbedUrl()
   {
     return $this->embedUrl;
   }
-  public function setEndDate($endDate)
+
+    public function setEmbedUrl($embedUrl)
   {
-    $this->endDate = $endDate;
+      $this->embedUrl = $embedUrl;
   }
+
   public function getEndDate()
   {
     return $this->endDate;
   }
-  public function setFamilyName($familyName)
+
+    public function setEndDate($endDate)
   {
-    $this->familyName = $familyName;
+      $this->endDate = $endDate;
   }
+
   public function getFamilyName()
   {
     return $this->familyName;
   }
-  public function setGender($gender)
+
+    public function setFamilyName($familyName)
   {
-    $this->gender = $gender;
+      $this->familyName = $familyName;
   }
+
   public function getGender()
   {
     return $this->gender;
   }
+
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
   public function setGeo(Google_Service_Plus_ItemScope $geo)
   {
     $this->geo = $geo;
@@ -2242,38 +2415,47 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->geo;
   }
-  public function setGivenName($givenName)
-  {
-    $this->givenName = $givenName;
-  }
+
   public function getGivenName()
   {
     return $this->givenName;
   }
-  public function setHeight($height)
+
+    public function setGivenName($givenName)
   {
-    $this->height = $height;
+      $this->givenName = $givenName;
   }
+
   public function getHeight()
   {
     return $this->height;
   }
-  public function setId($id)
+
+    public function setHeight($height)
   {
-    $this->id = $id;
+      $this->height = $height;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setImage($image)
+
+    public function setId($id)
   {
-    $this->image = $image;
+      $this->id = $id;
   }
+
   public function getImage()
   {
     return $this->image;
   }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
   public function setInAlbum(Google_Service_Plus_ItemScope $inAlbum)
   {
     $this->inAlbum = $inAlbum;
@@ -2282,22 +2464,27 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->inAlbum;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLatitude($latitude)
+
+    public function setKind($kind)
   {
-    $this->latitude = $latitude;
+      $this->kind = $kind;
   }
+
   public function getLatitude()
   {
     return $this->latitude;
   }
+
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
   public function setLocation(Google_Service_Plus_ItemScope $location)
   {
     $this->location = $location;
@@ -2306,22 +2493,27 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->location;
   }
-  public function setLongitude($longitude)
-  {
-    $this->longitude = $longitude;
-  }
+
   public function getLongitude()
   {
     return $this->longitude;
   }
-  public function setName($name)
+
+    public function setLongitude($longitude)
   {
-    $this->name = $name;
+      $this->longitude = $longitude;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setPartOfTVSeries(Google_Service_Plus_ItemScope $partOfTVSeries)
   {
     $this->partOfTVSeries = $partOfTVSeries;
@@ -2338,38 +2530,47 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->performers;
   }
-  public function setPlayerType($playerType)
-  {
-    $this->playerType = $playerType;
-  }
+
   public function getPlayerType()
   {
     return $this->playerType;
   }
-  public function setPostOfficeBoxNumber($postOfficeBoxNumber)
+
+    public function setPlayerType($playerType)
   {
-    $this->postOfficeBoxNumber = $postOfficeBoxNumber;
+      $this->playerType = $playerType;
   }
+
   public function getPostOfficeBoxNumber()
   {
     return $this->postOfficeBoxNumber;
   }
-  public function setPostalCode($postalCode)
+
+    public function setPostOfficeBoxNumber($postOfficeBoxNumber)
   {
-    $this->postalCode = $postalCode;
+      $this->postOfficeBoxNumber = $postOfficeBoxNumber;
   }
+
   public function getPostalCode()
   {
     return $this->postalCode;
   }
-  public function setRatingValue($ratingValue)
+
+    public function setPostalCode($postalCode)
   {
-    $this->ratingValue = $ratingValue;
+      $this->postalCode = $postalCode;
   }
+
   public function getRatingValue()
   {
     return $this->ratingValue;
   }
+
+    public function setRatingValue($ratingValue)
+    {
+        $this->ratingValue = $ratingValue;
+    }
+
   public function setReviewRating(Google_Service_Plus_ItemScope $reviewRating)
   {
     $this->reviewRating = $reviewRating;
@@ -2378,30 +2579,37 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->reviewRating;
   }
-  public function setStartDate($startDate)
-  {
-    $this->startDate = $startDate;
-  }
+
   public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setStreetAddress($streetAddress)
+
+    public function setStartDate($startDate)
   {
-    $this->streetAddress = $streetAddress;
+      $this->startDate = $startDate;
   }
+
   public function getStreetAddress()
   {
     return $this->streetAddress;
   }
-  public function setText($text)
+
+    public function setStreetAddress($streetAddress)
   {
-    $this->text = $text;
+      $this->streetAddress = $streetAddress;
   }
+
   public function getText()
   {
     return $this->text;
   }
+
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
   public function setThumbnail(Google_Service_Plus_ItemScope $thumbnail)
   {
     $this->thumbnail = $thumbnail;
@@ -2410,88 +2618,102 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   {
     return $this->thumbnail;
   }
-  public function setThumbnailUrl($thumbnailUrl)
-  {
-    $this->thumbnailUrl = $thumbnailUrl;
-  }
+
   public function getThumbnailUrl()
   {
     return $this->thumbnailUrl;
   }
-  public function setTickerSymbol($tickerSymbol)
+
+    public function setThumbnailUrl($thumbnailUrl)
   {
-    $this->tickerSymbol = $tickerSymbol;
+      $this->thumbnailUrl = $thumbnailUrl;
   }
+
   public function getTickerSymbol()
   {
     return $this->tickerSymbol;
   }
-  public function setType($type)
+
+    public function setTickerSymbol($tickerSymbol)
   {
-    $this->type = $type;
+      $this->tickerSymbol = $tickerSymbol;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
+
   public function getWidth()
   {
     return $this->width;
   }
-  public function setWorstRating($worstRating)
+
+    public function setWidth($width)
   {
-    $this->worstRating = $worstRating;
+      $this->width = $width;
   }
+
   public function getWorstRating()
   {
     return $this->worstRating;
   }
+
+    public function setWorstRating($worstRating)
+    {
+        $this->worstRating = $worstRating;
+    }
 }
 
 class Google_Service_Plus_Moment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
+    public $startDate;
+    public $type;
+    protected $internal_gapi_mappings = array();
   protected $objectType = 'Google_Service_Plus_ItemScope';
   protected $objectDataType = '';
   protected $resultType = 'Google_Service_Plus_ItemScope';
   protected $resultDataType = '';
-  public $startDate;
   protected $targetType = 'Google_Service_Plus_ItemScope';
   protected $targetDataType = '';
-  public $type;
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setObject(Google_Service_Plus_ItemScope $object)
   {
     $this->object = $object;
@@ -2508,14 +2730,17 @@ class Google_Service_Plus_Moment extends Google_Model
   {
     return $this->result;
   }
-  public function setStartDate($startDate)
-  {
-    $this->startDate = $startDate;
-  }
+
   public function getStartDate()
   {
     return $this->startDate;
   }
+
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+    }
+
   public function setTarget(Google_Service_Plus_ItemScope $target)
   {
     $this->target = $target;
@@ -2524,40 +2749,42 @@ class Google_Service_Plus_Moment extends Google_Model
   {
     return $this->target;
   }
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Plus_MomentsFeed extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
-  protected $itemsType = 'Google_Service_Plus_Moment';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextLink;
   public $nextPageToken;
   public $selfLink;
   public $title;
   public $updated;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Plus_Moment';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2566,79 +2793,91 @@ class Google_Service_Plus_MomentsFeed extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextLink($nextLink)
+
+    public function setKind($kind)
   {
-    $this->nextLink = $nextLink;
+      $this->kind = $kind;
   }
+
   public function getNextLink()
   {
     return $this->nextLink;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setNextLink($nextLink)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->nextLink = $nextLink;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTitle($title)
+
+    public function setSelfLink($selfLink)
   {
-    $this->title = $title;
+      $this->selfLink = $selfLink;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Plus_PeopleFeed extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
-  protected $itemsType = 'Google_Service_Plus_Person';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
   public $selfLink;
   public $title;
   public $totalItems;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Plus_Person';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2647,101 +2886,111 @@ class Google_Service_Plus_PeopleFeed extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTitle($title)
+
+    public function setSelfLink($selfLink)
   {
-    $this->title = $title;
+      $this->selfLink = $selfLink;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setTotalItems($totalItems)
+
+    public function setTitle($title)
   {
-    $this->totalItems = $totalItems;
+      $this->title = $title;
   }
-  public function getTotalItems()
+
+    public function getTotalItems()
   {
     return $this->totalItems;
   }
+
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
 }
 
 class Google_Service_Plus_Person extends Google_Collection
 {
-  protected $collection_key = 'urls';
-  protected $internal_gapi_mappings = array(
-  );
   public $aboutMe;
-  protected $ageRangeType = 'Google_Service_Plus_PersonAgeRange';
-  protected $ageRangeDataType = '';
   public $birthday;
   public $braggingRights;
   public $circledByCount;
-  protected $coverType = 'Google_Service_Plus_PersonCover';
-  protected $coverDataType = '';
   public $currentLocation;
   public $displayName;
   public $domain;
-  protected $emailsType = 'Google_Service_Plus_PersonEmails';
-  protected $emailsDataType = 'array';
   public $etag;
   public $gender;
   public $id;
-  protected $imageType = 'Google_Service_Plus_PersonImage';
-  protected $imageDataType = '';
   public $isPlusUser;
   public $kind;
   public $language;
-  protected $nameType = 'Google_Service_Plus_PersonName';
-  protected $nameDataType = '';
   public $nickname;
   public $objectType;
   public $occupation;
-  protected $organizationsType = 'Google_Service_Plus_PersonOrganizations';
-  protected $organizationsDataType = 'array';
-  protected $placesLivedType = 'Google_Service_Plus_PersonPlacesLived';
-  protected $placesLivedDataType = 'array';
   public $plusOneCount;
   public $relationshipStatus;
   public $skills;
   public $tagline;
   public $url;
+    public $verified;
+    protected $collection_key = 'urls';
+    protected $internal_gapi_mappings = array();
+    protected $ageRangeType = 'Google_Service_Plus_PersonAgeRange';
+    protected $ageRangeDataType = '';
+    protected $coverType = 'Google_Service_Plus_PersonCover';
+    protected $coverDataType = '';
+    protected $emailsType = 'Google_Service_Plus_PersonEmails';
+    protected $emailsDataType = 'array';
+    protected $imageType = 'Google_Service_Plus_PersonImage';
+    protected $imageDataType = '';
+    protected $nameType = 'Google_Service_Plus_PersonName';
+    protected $nameDataType = '';
+    protected $organizationsType = 'Google_Service_Plus_PersonOrganizations';
+    protected $organizationsDataType = 'array';
+    protected $placesLivedType = 'Google_Service_Plus_PersonPlacesLived';
+    protected $placesLivedDataType = 'array';
   protected $urlsType = 'Google_Service_Plus_PersonUrls';
   protected $urlsDataType = 'array';
-  public $verified;
 
-
-  public function setAboutMe($aboutMe)
-  {
-    $this->aboutMe = $aboutMe;
-  }
   public function getAboutMe()
   {
     return $this->aboutMe;
   }
+
+    public function setAboutMe($aboutMe)
+    {
+        $this->aboutMe = $aboutMe;
+    }
+
   public function setAgeRange(Google_Service_Plus_PersonAgeRange $ageRange)
   {
     $this->ageRange = $ageRange;
@@ -2750,30 +2999,37 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->ageRange;
   }
-  public function setBirthday($birthday)
-  {
-    $this->birthday = $birthday;
-  }
-  public function getBirthday()
+
+    public function getBirthday()
   {
     return $this->birthday;
   }
-  public function setBraggingRights($braggingRights)
+
+    public function setBirthday($birthday)
   {
-    $this->braggingRights = $braggingRights;
+      $this->birthday = $birthday;
   }
-  public function getBraggingRights()
+
+    public function getBraggingRights()
   {
     return $this->braggingRights;
   }
-  public function setCircledByCount($circledByCount)
+
+    public function setBraggingRights($braggingRights)
   {
-    $this->circledByCount = $circledByCount;
+      $this->braggingRights = $braggingRights;
   }
-  public function getCircledByCount()
+
+    public function getCircledByCount()
   {
     return $this->circledByCount;
   }
+
+    public function setCircledByCount($circledByCount)
+    {
+        $this->circledByCount = $circledByCount;
+    }
+
   public function setCover(Google_Service_Plus_PersonCover $cover)
   {
     $this->cover = $cover;
@@ -2782,30 +3038,37 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->cover;
   }
-  public function setCurrentLocation($currentLocation)
-  {
-    $this->currentLocation = $currentLocation;
-  }
-  public function getCurrentLocation()
+
+    public function getCurrentLocation()
   {
     return $this->currentLocation;
   }
-  public function setDisplayName($displayName)
+
+    public function setCurrentLocation($currentLocation)
   {
-    $this->displayName = $displayName;
+      $this->currentLocation = $currentLocation;
   }
-  public function getDisplayName()
+
+    public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setDomain($domain)
+
+    public function setDisplayName($displayName)
   {
-    $this->domain = $domain;
+      $this->displayName = $displayName;
   }
-  public function getDomain()
+
+    public function getDomain()
   {
     return $this->domain;
   }
+
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+    }
+
   public function setEmails($emails)
   {
     $this->emails = $emails;
@@ -2814,30 +3077,37 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->emails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
-  public function getEtag()
+
+    public function getEtag()
   {
     return $this->etag;
   }
-  public function setGender($gender)
+
+    public function setEtag($etag)
   {
-    $this->gender = $gender;
+      $this->etag = $etag;
   }
-  public function getGender()
+
+    public function getGender()
   {
     return $this->gender;
   }
-  public function setId($id)
+
+    public function setGender($gender)
   {
-    $this->id = $id;
+      $this->gender = $gender;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setImage(Google_Service_Plus_PersonImage $image)
   {
     $this->image = $image;
@@ -2846,30 +3116,37 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->image;
   }
-  public function setIsPlusUser($isPlusUser)
-  {
-    $this->isPlusUser = $isPlusUser;
-  }
-  public function getIsPlusUser()
+
+    public function getIsPlusUser()
   {
     return $this->isPlusUser;
   }
-  public function setKind($kind)
+
+    public function setIsPlusUser($isPlusUser)
   {
-    $this->kind = $kind;
+      $this->isPlusUser = $isPlusUser;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setLanguage($language)
+
+    public function setKind($kind)
   {
-    $this->language = $language;
+      $this->kind = $kind;
   }
-  public function getLanguage()
+
+    public function getLanguage()
   {
     return $this->language;
   }
+
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
   public function setName(Google_Service_Plus_PersonName $name)
   {
     $this->name = $name;
@@ -2878,30 +3155,37 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->name;
   }
-  public function setNickname($nickname)
-  {
-    $this->nickname = $nickname;
-  }
-  public function getNickname()
+
+    public function getNickname()
   {
     return $this->nickname;
   }
-  public function setObjectType($objectType)
+
+    public function setNickname($nickname)
   {
-    $this->objectType = $objectType;
+      $this->nickname = $nickname;
   }
-  public function getObjectType()
+
+    public function getObjectType()
   {
     return $this->objectType;
   }
-  public function setOccupation($occupation)
+
+    public function setObjectType($objectType)
   {
-    $this->occupation = $occupation;
+      $this->objectType = $objectType;
   }
-  public function getOccupation()
+
+    public function getOccupation()
   {
     return $this->occupation;
   }
+
+    public function setOccupation($occupation)
+    {
+        $this->occupation = $occupation;
+    }
+
   public function setOrganizations($organizations)
   {
     $this->organizations = $organizations;
@@ -2918,46 +3202,57 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->placesLived;
   }
-  public function setPlusOneCount($plusOneCount)
-  {
-    $this->plusOneCount = $plusOneCount;
-  }
-  public function getPlusOneCount()
+
+    public function getPlusOneCount()
   {
     return $this->plusOneCount;
   }
-  public function setRelationshipStatus($relationshipStatus)
+
+    public function setPlusOneCount($plusOneCount)
   {
-    $this->relationshipStatus = $relationshipStatus;
+      $this->plusOneCount = $plusOneCount;
   }
-  public function getRelationshipStatus()
+
+    public function getRelationshipStatus()
   {
     return $this->relationshipStatus;
   }
-  public function setSkills($skills)
+
+    public function setRelationshipStatus($relationshipStatus)
   {
-    $this->skills = $skills;
+      $this->relationshipStatus = $relationshipStatus;
   }
-  public function getSkills()
+
+    public function getSkills()
   {
     return $this->skills;
   }
-  public function setTagline($tagline)
+
+    public function setSkills($skills)
   {
-    $this->tagline = $tagline;
+      $this->skills = $skills;
   }
-  public function getTagline()
+
+    public function getTagline()
   {
     return $this->tagline;
   }
-  public function setUrl($url)
+
+    public function setTagline($tagline)
   {
-    $this->url = $url;
+      $this->tagline = $tagline;
   }
-  public function getUrl()
+
+    public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
   public function setUrls($urls)
   {
     $this->urls = $urls;
@@ -2966,52 +3261,54 @@ class Google_Service_Plus_Person extends Google_Collection
   {
     return $this->urls;
   }
-  public function setVerified($verified)
-  {
-    $this->verified = $verified;
-  }
-  public function getVerified()
+
+    public function getVerified()
   {
     return $this->verified;
   }
+
+    public function setVerified($verified)
+    {
+        $this->verified = $verified;
+    }
 }
 
 class Google_Service_Plus_PersonAgeRange extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $max;
   public $min;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setMax($max)
-  {
-    $this->max = $max;
-  }
   public function getMax()
   {
     return $this->max;
   }
-  public function setMin($min)
+
+    public function setMax($max)
   {
-    $this->min = $min;
+      $this->max = $max;
   }
-  public function getMin()
+
+    public function getMin()
   {
     return $this->min;
   }
+
+    public function setMin($min)
+    {
+        $this->min = $min;
+    }
 }
 
 class Google_Service_Plus_PersonCover extends Google_Model
 {
+    public $layout;
   protected $internal_gapi_mappings = array(
   );
   protected $coverInfoType = 'Google_Service_Plus_PersonCoverCoverInfo';
   protected $coverInfoDataType = '';
   protected $coverPhotoType = 'Google_Service_Plus_PersonCoverCoverPhoto';
   protected $coverPhotoDataType = '';
-  public $layout;
-
 
   public function setCoverInfo(Google_Service_Plus_PersonCoverCoverInfo $coverInfo)
   {
@@ -3029,195 +3326,210 @@ class Google_Service_Plus_PersonCover extends Google_Model
   {
     return $this->coverPhoto;
   }
-  public function setLayout($layout)
-  {
-    $this->layout = $layout;
-  }
-  public function getLayout()
+
+    public function getLayout()
   {
     return $this->layout;
   }
+
+    public function setLayout($layout)
+    {
+        $this->layout = $layout;
+    }
 }
 
 class Google_Service_Plus_PersonCoverCoverInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $leftImageOffset;
   public $topImageOffset;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLeftImageOffset($leftImageOffset)
-  {
-    $this->leftImageOffset = $leftImageOffset;
-  }
   public function getLeftImageOffset()
   {
     return $this->leftImageOffset;
   }
-  public function setTopImageOffset($topImageOffset)
+
+    public function setLeftImageOffset($leftImageOffset)
   {
-    $this->topImageOffset = $topImageOffset;
+      $this->leftImageOffset = $leftImageOffset;
   }
-  public function getTopImageOffset()
+
+    public function getTopImageOffset()
   {
     return $this->topImageOffset;
   }
+
+    public function setTopImageOffset($topImageOffset)
+    {
+        $this->topImageOffset = $topImageOffset;
+    }
 }
 
 class Google_Service_Plus_PersonCoverCoverPhoto extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $height;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setUrl($url)
+
+    public function setHeight($height)
   {
-    $this->url = $url;
+      $this->height = $height;
   }
-  public function getUrl()
+
+    public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
-  public function getWidth()
+
+    public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_Plus_PersonEmails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $type;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
   public function getType()
   {
     return $this->type;
   }
-  public function setValue($value)
+
+    public function setType($type)
   {
-    $this->value = $value;
+      $this->type = $type;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Plus_PersonImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $isDefault;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setIsDefault($isDefault)
-  {
-    $this->isDefault = $isDefault;
-  }
   public function getIsDefault()
   {
     return $this->isDefault;
   }
-  public function setUrl($url)
+
+    public function setIsDefault($isDefault)
   {
-    $this->url = $url;
+      $this->isDefault = $isDefault;
   }
-  public function getUrl()
+
+    public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Plus_PersonName extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $familyName;
   public $formatted;
   public $givenName;
   public $honorificPrefix;
   public $honorificSuffix;
   public $middleName;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFamilyName($familyName)
-  {
-    $this->familyName = $familyName;
-  }
   public function getFamilyName()
   {
     return $this->familyName;
   }
-  public function setFormatted($formatted)
+
+    public function setFamilyName($familyName)
   {
-    $this->formatted = $formatted;
+      $this->familyName = $familyName;
   }
-  public function getFormatted()
+
+    public function getFormatted()
   {
     return $this->formatted;
   }
-  public function setGivenName($givenName)
+
+    public function setFormatted($formatted)
   {
-    $this->givenName = $givenName;
+      $this->formatted = $formatted;
   }
-  public function getGivenName()
+
+    public function getGivenName()
   {
     return $this->givenName;
   }
-  public function setHonorificPrefix($honorificPrefix)
+
+    public function setGivenName($givenName)
   {
-    $this->honorificPrefix = $honorificPrefix;
+      $this->givenName = $givenName;
   }
-  public function getHonorificPrefix()
+
+    public function getHonorificPrefix()
   {
     return $this->honorificPrefix;
   }
-  public function setHonorificSuffix($honorificSuffix)
+
+    public function setHonorificPrefix($honorificPrefix)
   {
-    $this->honorificSuffix = $honorificSuffix;
+      $this->honorificPrefix = $honorificPrefix;
   }
-  public function getHonorificSuffix()
+
+    public function getHonorificSuffix()
   {
     return $this->honorificSuffix;
   }
-  public function setMiddleName($middleName)
+
+    public function setHonorificSuffix($honorificSuffix)
   {
-    $this->middleName = $middleName;
+      $this->honorificSuffix = $honorificSuffix;
   }
-  public function getMiddleName()
+
+    public function getMiddleName()
   {
     return $this->middleName;
   }
+
+    public function setMiddleName($middleName)
+    {
+        $this->middleName = $middleName;
+    }
 }
 
 class Google_Service_Plus_PersonOrganizations extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $department;
   public $description;
   public $endDate;
@@ -3227,152 +3539,172 @@ class Google_Service_Plus_PersonOrganizations extends Google_Model
   public $startDate;
   public $title;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDepartment($department)
-  {
-    $this->department = $department;
-  }
   public function getDepartment()
   {
     return $this->department;
   }
-  public function setDescription($description)
+
+    public function setDepartment($department)
   {
-    $this->description = $description;
+      $this->department = $department;
   }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setEndDate($endDate)
+
+    public function setDescription($description)
   {
-    $this->endDate = $endDate;
+      $this->description = $description;
   }
-  public function getEndDate()
+
+    public function getEndDate()
   {
     return $this->endDate;
   }
-  public function setLocation($location)
+
+    public function setEndDate($endDate)
   {
-    $this->location = $location;
+      $this->endDate = $endDate;
   }
-  public function getLocation()
+
+    public function getLocation()
   {
     return $this->location;
   }
-  public function setName($name)
+
+    public function setLocation($location)
   {
-    $this->name = $name;
+      $this->location = $location;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setPrimary($primary)
+
+    public function setName($name)
   {
-    $this->primary = $primary;
+      $this->name = $name;
   }
-  public function getPrimary()
+
+    public function getPrimary()
   {
     return $this->primary;
   }
-  public function setStartDate($startDate)
+
+    public function setPrimary($primary)
   {
-    $this->startDate = $startDate;
+      $this->primary = $primary;
   }
-  public function getStartDate()
+
+    public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setTitle($title)
+
+    public function setStartDate($startDate)
   {
-    $this->title = $title;
+      $this->startDate = $startDate;
   }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
-  public function setType($type)
+
+    public function setTitle($title)
   {
-    $this->type = $type;
+      $this->title = $title;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Plus_PersonPlacesLived extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $primary;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPrimary($primary)
-  {
-    $this->primary = $primary;
-  }
   public function getPrimary()
   {
     return $this->primary;
   }
-  public function setValue($value)
+
+    public function setPrimary($primary)
   {
-    $this->value = $value;
+      $this->primary = $primary;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Plus_PersonUrls extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $label;
   public $type;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLabel($label)
-  {
-    $this->label = $label;
-  }
   public function getLabel()
   {
     return $this->label;
   }
-  public function setType($type)
+
+    public function setLabel($label)
   {
-    $this->type = $type;
+      $this->label = $label;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setValue($value)
+
+    public function setType($type)
   {
-    $this->value = $value;
+      $this->type = $type;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Plus_Place extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $addressType = 'Google_Service_Plus_PlaceAddress';
-  protected $addressDataType = '';
   public $displayName;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $addressType = 'Google_Service_Plus_PlaceAddress';
+    protected $addressDataType = '';
   protected $positionType = 'Google_Service_Plus_PlacePosition';
   protected $positionDataType = '';
 
@@ -3385,30 +3717,37 @@ class Google_Service_Plus_Place extends Google_Model
   {
     return $this->address;
   }
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
-  public function getDisplayName()
+
+    public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setId($id)
+
+    public function setDisplayName($displayName)
   {
-    $this->id = $id;
+      $this->displayName = $displayName;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPosition(Google_Service_Plus_PlacePosition $position)
   {
     $this->position = $position;
@@ -3421,78 +3760,81 @@ class Google_Service_Plus_Place extends Google_Model
 
 class Google_Service_Plus_PlaceAddress extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $formatted;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFormatted($formatted)
-  {
-    $this->formatted = $formatted;
-  }
   public function getFormatted()
   {
     return $this->formatted;
   }
+
+    public function setFormatted($formatted)
+    {
+        $this->formatted = $formatted;
+    }
 }
 
 class Google_Service_Plus_PlacePosition extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $latitude;
   public $longitude;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLatitude($latitude)
-  {
-    $this->latitude = $latitude;
-  }
   public function getLatitude()
   {
     return $this->latitude;
   }
-  public function setLongitude($longitude)
+
+    public function setLatitude($latitude)
   {
-    $this->longitude = $longitude;
+      $this->latitude = $latitude;
   }
-  public function getLongitude()
+
+    public function getLongitude()
   {
     return $this->longitude;
   }
+
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
 }
 
 class Google_Service_Plus_PlusAclentryResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $displayName;
   public $id;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
   public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setId($id)
+
+    public function setDisplayName($displayName)
   {
-    $this->id = $id;
+      $this->displayName = $displayName;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setType($type)
+
+    public function setId($id)
   {
-    $this->type = $type;
+      $this->id = $id;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }

@@ -2,14 +2,6 @@
 /* comments schema generated on: 2013-02-22 13:40:39 : 1361536839*/
 class commentsSchema extends CakeSchema {
 	var $name = 'comments';
-
-	function before($event = array()) {
-		return true;
-	}
-
-	function after($event = array()) {
-	}
-
 	var $comments = array(
 		'id' => array('type' => 'string', 'null' => false, 'length' => 36, 'key' => 'primary', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'comment' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -38,5 +30,14 @@ class commentsSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'locale' => array('column' => 'locale', 'unique' => 0), 'model' => array('column' => 'model', 'unique' => 0), 'row_id' => array('column' => 'foreign_key', 'unique' => 0), 'field' => array('column' => 'field', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
+
+    function before($event = array())
+    {
+        return true;
+    }
+
+    function after($event = array())
+    {
+    }
 }
 ?>

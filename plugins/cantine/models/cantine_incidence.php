@@ -72,7 +72,8 @@ class CantineIncidence extends CantineAppModel {
 /**
  * The incidence is unique for student_id and date
  *
- * @param string $check 
+ * @param string $check
+ *
  * @return void
  */
 	public function uniqueIncidence($check)
@@ -82,4 +83,5 @@ class CantineIncidence extends CantineAppModel {
 
 	
 }
+
 ?>

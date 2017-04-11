@@ -314,10 +314,11 @@ class Google_Service_Autoscaler_Autoscalers_Resource extends Google_Service_Reso
   /**
    * Deletes the specified Autoscaler resource. (autoscalers.delete)
    *
-   * @param string $project Project ID of Autoscaler resource.
-   * @param string $zone Zone name of Autoscaler resource.
+   * @param string $project    Project ID of Autoscaler resource.
+   * @param string $zone       Zone name of Autoscaler resource.
    * @param string $autoscaler Name of the Autoscaler resource.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Autoscaler_Operation
    */
   public function delete($project, $zone, $autoscaler, $optParams = array())
@@ -330,10 +331,11 @@ class Google_Service_Autoscaler_Autoscalers_Resource extends Google_Service_Reso
   /**
    * Gets the specified Autoscaler resource. (autoscalers.get)
    *
-   * @param string $project Project ID of Autoscaler resource.
-   * @param string $zone Zone name of Autoscaler resource.
+   * @param string $project    Project ID of Autoscaler resource.
+   * @param string $zone       Zone name of Autoscaler resource.
    * @param string $autoscaler Name of the Autoscaler resource.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Autoscaler_Autoscaler
    */
   public function get($project, $zone, $autoscaler, $optParams = array())
@@ -346,10 +348,11 @@ class Google_Service_Autoscaler_Autoscalers_Resource extends Google_Service_Reso
   /**
    * Adds new Autoscaler resource. (autoscalers.insert)
    *
-   * @param string $project Project ID of Autoscaler resource.
-   * @param string $zone Zone name of Autoscaler resource.
+   * @param string            $project   Project ID of Autoscaler resource.
+   * @param string            $zone      Zone name of Autoscaler resource.
    * @param Google_Autoscaler $postBody
-   * @param array $optParams Optional parameters.
+   * @param array             $optParams Optional parameters.
+   *
    * @return Google_Service_Autoscaler_Operation
    */
   public function insert($project, $zone, Google_Service_Autoscaler_Autoscaler $postBody, $optParams = array())
@@ -387,6 +390,7 @@ class Google_Service_Autoscaler_Autoscalers_Resource extends Google_Service_Reso
    * @param string $autoscaler Name of the Autoscaler resource.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Autoscaler_Operation
    */
   public function patch($project, $zone, $autoscaler, Google_Service_Autoscaler_Autoscaler $postBody, $optParams = array())
@@ -404,6 +408,7 @@ class Google_Service_Autoscaler_Autoscalers_Resource extends Google_Service_Reso
    * @param string $autoscaler Name of the Autoscaler resource.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Autoscaler_Operation
    */
   public function update($project, $zone, $autoscaler, Google_Service_Autoscaler_Autoscaler $postBody, $optParams = array())
@@ -432,7 +437,7 @@ class Google_Service_Autoscaler_ZoneOperations_Resource extends Google_Service_R
    * @param string $project
    * @param string $zone
    * @param string $operation
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($project, $zone, $operation, $optParams = array())
   {
@@ -448,7 +453,8 @@ class Google_Service_Autoscaler_ZoneOperations_Resource extends Google_Service_R
    * @param string $project
    * @param string $zone
    * @param string $operation
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Autoscaler_Operation
    */
   public function get($project, $zone, $operation, $optParams = array())
@@ -464,7 +470,7 @@ class Google_Service_Autoscaler_ZoneOperations_Resource extends Google_Service_R
    *
    * @param string $project
    * @param string $zone
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string filter
    * @opt_param string pageToken
@@ -514,10 +520,6 @@ class Google_Service_Autoscaler_Zones_Resource extends Google_Service_Resource
 
 class Google_Service_Autoscaler_Autoscaler extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $autoscalingPolicyType = 'Google_Service_Autoscaler_AutoscalingPolicy';
-  protected $autoscalingPolicyDataType = '';
   public $creationTimestamp;
   public $description;
   public $id;
@@ -525,7 +527,9 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   public $name;
   public $selfLink;
   public $target;
-
+    protected $internal_gapi_mappings = array();
+    protected $autoscalingPolicyType = 'Google_Service_Autoscaler_AutoscalingPolicy';
+    protected $autoscalingPolicyDataType = '';
 
   public function setAutoscalingPolicy(Google_Service_Autoscaler_AutoscalingPolicy $autoscalingPolicy)
   {
@@ -535,74 +539,87 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->autoscalingPolicy;
   }
-  public function setCreationTimestamp($creationTimestamp)
-  {
-    $this->creationTimestamp = $creationTimestamp;
-  }
+
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setDescription($description)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->description = $description;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setId($id)
+
+    public function setDescription($description)
   {
-    $this->id = $id;
+      $this->description = $description;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setSelfLink($selfLink)
+
+    public function setName($name)
   {
-    $this->selfLink = $selfLink;
+      $this->name = $name;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTarget($target)
+
+    public function setSelfLink($selfLink)
   {
-    $this->target = $target;
+      $this->selfLink = $selfLink;
   }
+
   public function getTarget()
   {
     return $this->target;
   }
+
+    public function setTarget($target)
+    {
+        $this->target = $target;
+    }
 }
 
 class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Autoscaler_Autoscaler';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -612,48 +629,53 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
 {
+    public $coolDownPeriodSec;
+    public $maxNumReplicas;
+    public $minNumReplicas;
   protected $collection_key = 'customMetricUtilizations';
   protected $internal_gapi_mappings = array(
   );
-  public $coolDownPeriodSec;
   protected $cpuUtilizationType = 'Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization';
   protected $cpuUtilizationDataType = '';
   protected $customMetricUtilizationsType = 'Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization';
   protected $customMetricUtilizationsDataType = 'array';
   protected $loadBalancingUtilizationType = 'Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization';
   protected $loadBalancingUtilizationDataType = '';
-  public $maxNumReplicas;
-  public $minNumReplicas;
 
-
-  public function setCoolDownPeriodSec($coolDownPeriodSec)
-  {
-    $this->coolDownPeriodSec = $coolDownPeriodSec;
-  }
   public function getCoolDownPeriodSec()
   {
     return $this->coolDownPeriodSec;
   }
+
+    public function setCoolDownPeriodSec($coolDownPeriodSec)
+    {
+        $this->coolDownPeriodSec = $coolDownPeriodSec;
+    }
+
   public function setCpuUtilization(Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization $cpuUtilization)
   {
     $this->cpuUtilization = $cpuUtilization;
@@ -678,156 +700,163 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->loadBalancingUtilization;
   }
-  public function setMaxNumReplicas($maxNumReplicas)
-  {
-    $this->maxNumReplicas = $maxNumReplicas;
-  }
+
   public function getMaxNumReplicas()
   {
     return $this->maxNumReplicas;
   }
-  public function setMinNumReplicas($minNumReplicas)
+
+    public function setMaxNumReplicas($maxNumReplicas)
   {
-    $this->minNumReplicas = $minNumReplicas;
+      $this->maxNumReplicas = $maxNumReplicas;
   }
+
   public function getMinNumReplicas()
   {
     return $this->minNumReplicas;
   }
+
+    public function setMinNumReplicas($minNumReplicas)
+    {
+        $this->minNumReplicas = $minNumReplicas;
+    }
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $utilizationTarget;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setUtilizationTarget($utilizationTarget)
-  {
-    $this->utilizationTarget = $utilizationTarget;
-  }
   public function getUtilizationTarget()
   {
     return $this->utilizationTarget;
   }
+
+    public function setUtilizationTarget($utilizationTarget)
+    {
+        $this->utilizationTarget = $utilizationTarget;
+    }
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $metric;
   public $utilizationTarget;
   public $utilizationTargetType;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setMetric($metric)
-  {
-    $this->metric = $metric;
-  }
   public function getMetric()
   {
     return $this->metric;
   }
-  public function setUtilizationTarget($utilizationTarget)
+
+    public function setMetric($metric)
   {
-    $this->utilizationTarget = $utilizationTarget;
+      $this->metric = $metric;
   }
+
   public function getUtilizationTarget()
   {
     return $this->utilizationTarget;
   }
-  public function setUtilizationTargetType($utilizationTargetType)
+
+    public function setUtilizationTarget($utilizationTarget)
   {
-    $this->utilizationTargetType = $utilizationTargetType;
+      $this->utilizationTarget = $utilizationTarget;
   }
+
   public function getUtilizationTargetType()
   {
     return $this->utilizationTargetType;
   }
+
+    public function setUtilizationTargetType($utilizationTargetType)
+    {
+        $this->utilizationTargetType = $utilizationTargetType;
+    }
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $utilizationTarget;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setUtilizationTarget($utilizationTarget)
-  {
-    $this->utilizationTarget = $utilizationTarget;
-  }
   public function getUtilizationTarget()
   {
     return $this->utilizationTarget;
   }
+
+    public function setUtilizationTarget($utilizationTarget)
+    {
+        $this->utilizationTarget = $utilizationTarget;
+    }
 }
 
 class Google_Service_Autoscaler_DeprecationStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $deleted;
   public $deprecated;
   public $obsolete;
   public $replacement;
   public $state;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDeleted($deleted)
-  {
-    $this->deleted = $deleted;
-  }
   public function getDeleted()
   {
     return $this->deleted;
   }
-  public function setDeprecated($deprecated)
+
+    public function setDeleted($deleted)
   {
-    $this->deprecated = $deprecated;
+      $this->deleted = $deleted;
   }
+
   public function getDeprecated()
   {
     return $this->deprecated;
   }
-  public function setObsolete($obsolete)
+
+    public function setDeprecated($deprecated)
   {
-    $this->obsolete = $obsolete;
+      $this->deprecated = $deprecated;
   }
+
   public function getObsolete()
   {
     return $this->obsolete;
   }
-  public function setReplacement($replacement)
+
+    public function setObsolete($obsolete)
   {
-    $this->replacement = $replacement;
+      $this->obsolete = $obsolete;
   }
+
   public function getReplacement()
   {
     return $this->replacement;
   }
-  public function setState($state)
+
+    public function setReplacement($replacement)
   {
-    $this->state = $state;
+      $this->replacement = $replacement;
   }
+
   public function getState()
   {
     return $this->state;
   }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
 }
 
 class Google_Service_Autoscaler_Operation extends Google_Collection
 {
-  protected $collection_key = 'warnings';
-  protected $internal_gapi_mappings = array(
-  );
   public $clientOperationId;
   public $creationTimestamp;
   public $endTime;
-  protected $errorType = 'Google_Service_Autoscaler_OperationError';
-  protected $errorDataType = '';
   public $httpErrorMessage;
   public $httpErrorStatusCode;
   public $id;
@@ -844,35 +873,44 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   public $targetId;
   public $targetLink;
   public $user;
+    public $zone;
+    protected $collection_key = 'warnings';
+    protected $internal_gapi_mappings = array();
+    protected $errorType = 'Google_Service_Autoscaler_OperationError';
+    protected $errorDataType = '';
   protected $warningsType = 'Google_Service_Autoscaler_OperationWarnings';
   protected $warningsDataType = 'array';
-  public $zone;
 
-
-  public function setClientOperationId($clientOperationId)
-  {
-    $this->clientOperationId = $clientOperationId;
-  }
   public function getClientOperationId()
   {
     return $this->clientOperationId;
   }
-  public function setCreationTimestamp($creationTimestamp)
+
+    public function setClientOperationId($clientOperationId)
   {
-    $this->creationTimestamp = $creationTimestamp;
+      $this->clientOperationId = $clientOperationId;
   }
+
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setEndTime($endTime)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->endTime = $endTime;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getEndTime()
   {
     return $this->endTime;
   }
+
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+    }
+
   public function setError(Google_Service_Autoscaler_OperationError $error)
   {
     $this->error = $error;
@@ -881,134 +919,167 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->error;
   }
-  public function setHttpErrorMessage($httpErrorMessage)
-  {
-    $this->httpErrorMessage = $httpErrorMessage;
-  }
+
   public function getHttpErrorMessage()
   {
     return $this->httpErrorMessage;
   }
-  public function setHttpErrorStatusCode($httpErrorStatusCode)
+
+    public function setHttpErrorMessage($httpErrorMessage)
   {
-    $this->httpErrorStatusCode = $httpErrorStatusCode;
+      $this->httpErrorMessage = $httpErrorMessage;
   }
+
   public function getHttpErrorStatusCode()
   {
     return $this->httpErrorStatusCode;
   }
-  public function setId($id)
+
+    public function setHttpErrorStatusCode($httpErrorStatusCode)
   {
-    $this->id = $id;
+      $this->httpErrorStatusCode = $httpErrorStatusCode;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInsertTime($insertTime)
+
+    public function setId($id)
   {
-    $this->insertTime = $insertTime;
+      $this->id = $id;
   }
+
   public function getInsertTime()
   {
     return $this->insertTime;
   }
-  public function setKind($kind)
+
+    public function setInsertTime($insertTime)
   {
-    $this->kind = $kind;
+      $this->insertTime = $insertTime;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOperationType($operationType)
+
+    public function setName($name)
   {
-    $this->operationType = $operationType;
+      $this->name = $name;
   }
+
   public function getOperationType()
   {
     return $this->operationType;
   }
-  public function setProgress($progress)
+
+    public function setOperationType($operationType)
   {
-    $this->progress = $progress;
+      $this->operationType = $operationType;
   }
+
   public function getProgress()
   {
     return $this->progress;
   }
-  public function setRegion($region)
+
+    public function setProgress($progress)
   {
-    $this->region = $region;
+      $this->progress = $progress;
   }
+
   public function getRegion()
   {
     return $this->region;
   }
-  public function setSelfLink($selfLink)
+
+    public function setRegion($region)
   {
-    $this->selfLink = $selfLink;
+      $this->region = $region;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStartTime($startTime)
+
+    public function setSelfLink($selfLink)
   {
-    $this->startTime = $startTime;
+      $this->selfLink = $selfLink;
   }
+
   public function getStartTime()
   {
     return $this->startTime;
   }
-  public function setStatus($status)
+
+    public function setStartTime($startTime)
   {
-    $this->status = $status;
+      $this->startTime = $startTime;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setStatusMessage($statusMessage)
+
+    public function setStatus($status)
   {
-    $this->statusMessage = $statusMessage;
+      $this->status = $status;
   }
+
   public function getStatusMessage()
   {
     return $this->statusMessage;
   }
-  public function setTargetId($targetId)
+
+    public function setStatusMessage($statusMessage)
   {
-    $this->targetId = $targetId;
+      $this->statusMessage = $statusMessage;
   }
+
   public function getTargetId()
   {
     return $this->targetId;
   }
-  public function setTargetLink($targetLink)
+
+    public function setTargetId($targetId)
   {
-    $this->targetLink = $targetLink;
+      $this->targetId = $targetId;
   }
+
   public function getTargetLink()
   {
     return $this->targetLink;
   }
-  public function setUser($user)
+
+    public function setTargetLink($targetLink)
   {
-    $this->user = $user;
+      $this->targetLink = $targetLink;
   }
+
   public function getUser()
   {
     return $this->user;
   }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -1017,14 +1088,16 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->warnings;
   }
-  public function setZone($zone)
-  {
-    $this->zone = $zone;
-  }
+
   public function getZone()
   {
     return $this->zone;
   }
+
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
 }
 
 class Google_Service_Autoscaler_OperationError extends Google_Collection
@@ -1048,60 +1121,63 @@ class Google_Service_Autoscaler_OperationError extends Google_Collection
 
 class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $code;
   public $location;
   public $message;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
-  public function setLocation($location)
+
+    public function setCode($code)
   {
-    $this->location = $location;
+      $this->code = $code;
   }
+
   public function getLocation()
   {
     return $this->location;
   }
-  public function setMessage($message)
+
+    public function setLocation($location)
   {
-    $this->message = $message;
+      $this->location = $location;
   }
+
   public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Autoscaler_OperationList extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
-  protected $itemsType = 'Google_Service_Autoscaler_Operation';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
   public $selfLink;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Autoscaler_Operation';
+    protected $itemsDataType = 'array';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1110,51 +1186,58 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
 {
+    public $code;
+    public $message;
   protected $collection_key = 'data';
   protected $internal_gapi_mappings = array(
   );
-  public $code;
   protected $dataType = 'Google_Service_Autoscaler_OperationWarningsData';
   protected $dataDataType = 'array';
-  public $message;
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
   public function setData($data)
   {
     $this->data = $data;
@@ -1163,69 +1246,72 @@ class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
   {
     return $this->data;
   }
-  public function setMessage($message)
-  {
-    $this->message = $message;
-  }
-  public function getMessage()
+
+    public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Autoscaler_OperationWarningsData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setValue($value)
+
+    public function setKey($key)
   {
-    $this->value = $value;
+      $this->key = $key;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Autoscaler_Zone extends Google_Collection
 {
-  protected $collection_key = 'maintenanceWindows';
-  protected $internal_gapi_mappings = array(
-  );
   public $creationTimestamp;
-  protected $deprecatedType = 'Google_Service_Autoscaler_DeprecationStatus';
-  protected $deprecatedDataType = '';
   public $description;
   public $id;
   public $kind;
-  protected $maintenanceWindowsType = 'Google_Service_Autoscaler_ZoneMaintenanceWindows';
-  protected $maintenanceWindowsDataType = 'array';
   public $name;
   public $region;
   public $selfLink;
   public $status;
+    protected $collection_key = 'maintenanceWindows';
+    protected $internal_gapi_mappings = array();
+    protected $deprecatedType = 'Google_Service_Autoscaler_DeprecationStatus';
+    protected $deprecatedDataType = '';
+    protected $maintenanceWindowsType = 'Google_Service_Autoscaler_ZoneMaintenanceWindows';
+    protected $maintenanceWindowsDataType = 'array';
 
-
-  public function setCreationTimestamp($creationTimestamp)
-  {
-    $this->creationTimestamp = $creationTimestamp;
-  }
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
+
+    public function setCreationTimestamp($creationTimestamp)
+    {
+        $this->creationTimestamp = $creationTimestamp;
+    }
+
   public function setDeprecated(Google_Service_Autoscaler_DeprecationStatus $deprecated)
   {
     $this->deprecated = $deprecated;
@@ -1234,30 +1320,37 @@ class Google_Service_Autoscaler_Zone extends Google_Collection
   {
     return $this->deprecated;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setId($id)
+
+    public function setDescription($description)
   {
-    $this->id = $id;
+      $this->description = $description;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setMaintenanceWindows($maintenanceWindows)
   {
     $this->maintenanceWindows = $maintenanceWindows;
@@ -1266,61 +1359,69 @@ class Google_Service_Autoscaler_Zone extends Google_Collection
   {
     return $this->maintenanceWindows;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setRegion($region)
+
+    public function setName($name)
   {
-    $this->region = $region;
+      $this->name = $name;
   }
-  public function getRegion()
+
+    public function getRegion()
   {
     return $this->region;
   }
-  public function setSelfLink($selfLink)
+
+    public function setRegion($region)
   {
-    $this->selfLink = $selfLink;
+      $this->region = $region;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStatus($status)
+
+    public function setSelfLink($selfLink)
   {
-    $this->status = $status;
+      $this->selfLink = $selfLink;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Autoscaler_ZoneList extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
-  protected $itemsType = 'Google_Service_Autoscaler_Zone';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
   public $selfLink;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Autoscaler_Zone';
+    protected $itemsDataType = 'array';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1329,72 +1430,83 @@ class Google_Service_Autoscaler_ZoneList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Autoscaler_ZoneMaintenanceWindows extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $beginTime;
   public $description;
   public $endTime;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBeginTime($beginTime)
-  {
-    $this->beginTime = $beginTime;
-  }
   public function getBeginTime()
   {
     return $this->beginTime;
   }
-  public function setDescription($description)
+
+    public function setBeginTime($beginTime)
   {
-    $this->description = $description;
+      $this->beginTime = $beginTime;
   }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setEndTime($endTime)
+
+    public function setDescription($description)
   {
-    $this->endTime = $endTime;
+      $this->description = $description;
   }
-  public function getEndTime()
+
+    public function getEndTime()
   {
     return $this->endTime;
   }
-  public function setName($name)
+
+    public function setEndTime($endTime)
   {
-    $this->name = $name;
+      $this->endTime = $endTime;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }

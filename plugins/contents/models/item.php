@@ -176,6 +176,7 @@ class Item extends ContentsAppModel
      * so we use the Router to compute it.
      *
      * @param string $id mixed null remove elements cache, id is an id or an array of them
+     *
      * @test
      */
     public function removeCache($id = null)

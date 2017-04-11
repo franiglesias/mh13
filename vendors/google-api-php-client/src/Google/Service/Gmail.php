@@ -643,9 +643,10 @@ class Google_Service_Gmail_Users_Resource extends Google_Service_Resource
   /**
    * Gets the current user's Gmail profile. (users.getProfile)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Profile
    */
   public function getProfile($userId, $optParams = array())
@@ -670,10 +671,11 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
   /**
    * Creates a new draft with the DRAFT label. (drafts.create)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string       $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
    * @param Google_Draft $postBody
-   * @param array $optParams Optional parameters.
+   * @param array        $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Draft
    */
   public function create($userId, Google_Service_Gmail_Draft $postBody, $optParams = array())
@@ -687,10 +689,10 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
    * Immediately and permanently deletes the specified draft. Does not simply
    * trash it. (drafts.delete)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
-   * @param string $id The ID of the draft to delete.
-   * @param array $optParams Optional parameters.
+   * @param string $id        The ID of the draft to delete.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($userId, $id, $optParams = array())
   {
@@ -702,10 +704,10 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
   /**
    * Gets the specified draft. (drafts.get)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
-   * @param string $id The ID of the draft to retrieve.
-   * @param array $optParams Optional parameters.
+   * @param string $id        The ID of the draft to retrieve.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string format The format to return the draft in.
    * @return Google_Service_Gmail_Draft
@@ -720,9 +722,9 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
   /**
    * Lists the drafts in the user's mailbox. (drafts.listUsersDrafts)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string pageToken Page token to retrieve a specific page of results
    * in the list.
@@ -740,10 +742,11 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
    * Sends the specified, existing draft to the recipients in the To, Cc, and Bcc
    * headers. (drafts.send)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string       $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
    * @param Google_Draft $postBody
-   * @param array $optParams Optional parameters.
+   * @param array        $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Message
    */
   public function send($userId, Google_Service_Gmail_Draft $postBody, $optParams = array())
@@ -761,6 +764,7 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
    * @param string $id The ID of the draft to update.
    * @param Google_Draft $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Draft
    */
   public function update($userId, $id, Google_Service_Gmail_Draft $postBody, $optParams = array())
@@ -831,6 +835,7 @@ class Google_Service_Gmail_UsersLabels_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param Google_Label $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Label
    */
   public function create($userId, Google_Service_Gmail_Label $postBody, $optParams = array())
@@ -863,6 +868,7 @@ class Google_Service_Gmail_UsersLabels_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param string $id The ID of the label to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Label
    */
   public function get($userId, $id, $optParams = array())
@@ -878,6 +884,7 @@ class Google_Service_Gmail_UsersLabels_Resource extends Google_Service_Resource
    * @param string $userId The user's email address. The special value me can be
    * used to indicate the authenticated user.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_ListLabelsResponse
    */
   public function listUsersLabels($userId, $optParams = array())
@@ -896,6 +903,7 @@ class Google_Service_Gmail_UsersLabels_Resource extends Google_Service_Resource
    * @param string $id The ID of the label to update.
    * @param Google_Label $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Label
    */
   public function patch($userId, $id, Google_Service_Gmail_Label $postBody, $optParams = array())
@@ -913,6 +921,7 @@ class Google_Service_Gmail_UsersLabels_Resource extends Google_Service_Resource
    * @param string $id The ID of the label to update.
    * @param Google_Label $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Label
    */
   public function update($userId, $id, Google_Service_Gmail_Label $postBody, $optParams = array())
@@ -1045,6 +1054,7 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * @param string $id The ID of the message to modify.
    * @param Google_ModifyMessageRequest $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Message
    */
   public function modify($userId, $id, Google_Service_Gmail_ModifyMessageRequest $postBody, $optParams = array())
@@ -1062,6 +1072,7 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * used to indicate the authenticated user.
    * @param Google_Message $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Message
    */
   public function send($userId, Google_Service_Gmail_Message $postBody, $optParams = array())
@@ -1074,10 +1085,11 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
   /**
    * Moves the specified message to the trash. (messages.trash)
    *
-   * @param string $userId The user's email address. The special value me can be
-   * used to indicate the authenticated user.
-   * @param string $id The ID of the message to Trash.
-   * @param array $optParams Optional parameters.
+   * @param string $userId     The user's email address. The special value me can be
+   *                           used to indicate the authenticated user.
+   * @param string $id         The ID of the message to Trash.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Gmail_Message
    */
   public function trash($userId, $id, $optParams = array())
@@ -1090,10 +1102,11 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
   /**
    * Removes the specified message from the trash. (messages.untrash)
    *
-   * @param string $userId The user's email address. The special value me can be
-   * used to indicate the authenticated user.
-   * @param string $id The ID of the message to remove from Trash.
-   * @param array $optParams Optional parameters.
+   * @param string $userId     The user's email address. The special value me can be
+   *                           used to indicate the authenticated user.
+   * @param string $id         The ID of the message to remove from Trash.
+   * @param array $optParams   Optional parameters.
+   *
    * @return Google_Service_Gmail_Message
    */
   public function untrash($userId, $id, $optParams = array())
@@ -1118,11 +1131,12 @@ class Google_Service_Gmail_UsersMessagesAttachments_Resource extends Google_Serv
   /**
    * Gets the specified message attachment. (attachments.get)
    *
-   * @param string $userId The user's email address. The special value me can be
+   * @param string $userId    The user's email address. The special value me can be
    * used to indicate the authenticated user.
    * @param string $messageId The ID of the message containing the attachment.
-   * @param string $id The ID of the attachment.
-   * @param array $optParams Optional parameters.
+   * @param string $id        The ID of the attachment.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_MessagePartBody
    */
   public function get($userId, $messageId, $id, $optParams = array())
@@ -1159,8 +1173,8 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
 
-  /**
-   * Gets the specified thread. (threads.get)
+    /**
+     * Gets the specified thread. (threads.get)
    *
    * @param string $userId The user's email address. The special value me can be
    * used to indicate the authenticated user.
@@ -1214,6 +1228,7 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
    * @param string $id The ID of the thread to modify.
    * @param Google_ModifyThreadRequest $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Thread
    */
   public function modify($userId, $id, Google_Service_Gmail_ModifyThreadRequest $postBody, $optParams = array())
@@ -1230,6 +1245,7 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param string $id The ID of the thread to Trash.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Thread
    */
   public function trash($userId, $id, $optParams = array())
@@ -1246,6 +1262,7 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param string $id The ID of the thread to remove from Trash.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Gmail_Thread
    */
   public function untrash($userId, $id, $optParams = array())
@@ -1261,21 +1278,21 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
 
 class Google_Service_Gmail_Draft extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
+    protected $internal_gapi_mappings = array();
   protected $messageType = 'Google_Service_Gmail_Message';
   protected $messageDataType = '';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setMessage(Google_Service_Gmail_Message $message)
   {
     $this->message = $message;
@@ -1288,22 +1305,23 @@ class Google_Service_Gmail_Draft extends Google_Model
 
 class Google_Service_Gmail_History extends Google_Collection
 {
+    public $id;
   protected $collection_key = 'messages';
   protected $internal_gapi_mappings = array(
   );
-  public $id;
   protected $messagesType = 'Google_Service_Gmail_Message';
   protected $messagesDataType = 'array';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setMessages($messages)
   {
     $this->messages = $messages;
@@ -1316,8 +1334,6 @@ class Google_Service_Gmail_History extends Google_Collection
 
 class Google_Service_Gmail_Label extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $labelListVisibility;
   public $messageListVisibility;
@@ -1327,92 +1343,108 @@ class Google_Service_Gmail_Label extends Google_Model
   public $threadsTotal;
   public $threadsUnread;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setLabelListVisibility($labelListVisibility)
+
+    public function setId($id)
   {
-    $this->labelListVisibility = $labelListVisibility;
+      $this->id = $id;
   }
+
   public function getLabelListVisibility()
   {
     return $this->labelListVisibility;
   }
-  public function setMessageListVisibility($messageListVisibility)
+
+    public function setLabelListVisibility($labelListVisibility)
   {
-    $this->messageListVisibility = $messageListVisibility;
+      $this->labelListVisibility = $labelListVisibility;
   }
+
   public function getMessageListVisibility()
   {
     return $this->messageListVisibility;
   }
-  public function setMessagesTotal($messagesTotal)
+
+    public function setMessageListVisibility($messageListVisibility)
   {
-    $this->messagesTotal = $messagesTotal;
+      $this->messageListVisibility = $messageListVisibility;
   }
+
   public function getMessagesTotal()
   {
     return $this->messagesTotal;
   }
-  public function setMessagesUnread($messagesUnread)
+
+    public function setMessagesTotal($messagesTotal)
   {
-    $this->messagesUnread = $messagesUnread;
+      $this->messagesTotal = $messagesTotal;
   }
+
   public function getMessagesUnread()
   {
     return $this->messagesUnread;
   }
-  public function setName($name)
+
+    public function setMessagesUnread($messagesUnread)
   {
-    $this->name = $name;
+      $this->messagesUnread = $messagesUnread;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setThreadsTotal($threadsTotal)
+
+    public function setName($name)
   {
-    $this->threadsTotal = $threadsTotal;
+      $this->name = $name;
   }
+
   public function getThreadsTotal()
   {
     return $this->threadsTotal;
   }
-  public function setThreadsUnread($threadsUnread)
+
+    public function setThreadsTotal($threadsTotal)
   {
-    $this->threadsUnread = $threadsUnread;
+      $this->threadsTotal = $threadsTotal;
   }
+
   public function getThreadsUnread()
   {
     return $this->threadsUnread;
   }
-  public function setType($type)
+
+    public function setThreadsUnread($threadsUnread)
   {
-    $this->type = $type;
+      $this->threadsUnread = $threadsUnread;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
 {
+    public $nextPageToken;
+    public $resultSizeEstimate;
   protected $collection_key = 'drafts';
   protected $internal_gapi_mappings = array(
   );
   protected $draftsType = 'Google_Service_Gmail_Draft';
   protected $draftsDataType = 'array';
-  public $nextPageToken;
-  public $resultSizeEstimate;
-
 
   public function setDrafts($drafts)
   {
@@ -1422,34 +1454,37 @@ class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
   {
     return $this->drafts;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setResultSizeEstimate($resultSizeEstimate)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->resultSizeEstimate = $resultSizeEstimate;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getResultSizeEstimate()
   {
     return $this->resultSizeEstimate;
   }
+
+    public function setResultSizeEstimate($resultSizeEstimate)
+    {
+        $this->resultSizeEstimate = $resultSizeEstimate;
+    }
 }
 
 class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
 {
+    public $historyId;
+    public $nextPageToken;
   protected $collection_key = 'history';
   protected $internal_gapi_mappings = array(
   );
   protected $historyType = 'Google_Service_Gmail_History';
   protected $historyDataType = 'array';
-  public $historyId;
-  public $nextPageToken;
-
 
   public function setHistory($history)
   {
@@ -1459,22 +1494,26 @@ class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
   {
     return $this->history;
   }
-  public function setHistoryId($historyId)
-  {
-    $this->historyId = $historyId;
-  }
+
   public function getHistoryId()
   {
     return $this->historyId;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setHistoryId($historyId)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->historyId = $historyId;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Gmail_ListLabelsResponse extends Google_Collection
@@ -1498,14 +1537,13 @@ class Google_Service_Gmail_ListLabelsResponse extends Google_Collection
 
 class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
 {
+    public $nextPageToken;
+    public $resultSizeEstimate;
   protected $collection_key = 'messages';
   protected $internal_gapi_mappings = array(
   );
   protected $messagesType = 'Google_Service_Gmail_Message';
   protected $messagesDataType = 'array';
-  public $nextPageToken;
-  public $resultSizeEstimate;
-
 
   public function setMessages($messages)
   {
@@ -1515,51 +1553,57 @@ class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
   {
     return $this->messages;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setResultSizeEstimate($resultSizeEstimate)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->resultSizeEstimate = $resultSizeEstimate;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getResultSizeEstimate()
   {
     return $this->resultSizeEstimate;
   }
+
+    public function setResultSizeEstimate($resultSizeEstimate)
+    {
+        $this->resultSizeEstimate = $resultSizeEstimate;
+    }
 }
 
 class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
 {
-  protected $collection_key = 'threads';
-  protected $internal_gapi_mappings = array(
-  );
   public $nextPageToken;
   public $resultSizeEstimate;
+    protected $collection_key = 'threads';
+    protected $internal_gapi_mappings = array();
   protected $threadsType = 'Google_Service_Gmail_Thread';
   protected $threadsDataType = 'array';
 
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setResultSizeEstimate($resultSizeEstimate)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->resultSizeEstimate = $resultSizeEstimate;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getResultSizeEstimate()
   {
     return $this->resultSizeEstimate;
   }
+
+    public function setResultSizeEstimate($resultSizeEstimate)
+    {
+        $this->resultSizeEstimate = $resultSizeEstimate;
+    }
+
   public function setThreads($threads)
   {
     $this->threads = $threads;
@@ -1572,44 +1616,48 @@ class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
 
 class Google_Service_Gmail_Message extends Google_Collection
 {
-  protected $collection_key = 'labelIds';
-  protected $internal_gapi_mappings = array(
-  );
   public $historyId;
   public $id;
   public $labelIds;
-  protected $payloadType = 'Google_Service_Gmail_MessagePart';
-  protected $payloadDataType = '';
   public $raw;
   public $sizeEstimate;
   public $snippet;
   public $threadId;
+    protected $collection_key = 'labelIds';
+    protected $internal_gapi_mappings = array();
+    protected $payloadType = 'Google_Service_Gmail_MessagePart';
+    protected $payloadDataType = '';
 
-
-  public function setHistoryId($historyId)
-  {
-    $this->historyId = $historyId;
-  }
   public function getHistoryId()
   {
     return $this->historyId;
   }
-  public function setId($id)
+
+    public function setHistoryId($historyId)
   {
-    $this->id = $id;
+      $this->historyId = $historyId;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setLabelIds($labelIds)
+
+    public function setId($id)
   {
-    $this->labelIds = $labelIds;
+      $this->id = $id;
   }
+
   public function getLabelIds()
   {
     return $this->labelIds;
   }
+
+    public function setLabelIds($labelIds)
+    {
+        $this->labelIds = $labelIds;
+    }
+
   public function setPayload(Google_Service_Gmail_MessagePart $payload)
   {
     $this->payload = $payload;
@@ -1618,52 +1666,60 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->payload;
   }
-  public function setRaw($raw)
-  {
-    $this->raw = $raw;
-  }
+
   public function getRaw()
   {
     return $this->raw;
   }
-  public function setSizeEstimate($sizeEstimate)
+
+    public function setRaw($raw)
   {
-    $this->sizeEstimate = $sizeEstimate;
+      $this->raw = $raw;
   }
+
   public function getSizeEstimate()
   {
     return $this->sizeEstimate;
   }
-  public function setSnippet($snippet)
+
+    public function setSizeEstimate($sizeEstimate)
   {
-    $this->snippet = $snippet;
+      $this->sizeEstimate = $sizeEstimate;
   }
+
   public function getSnippet()
   {
     return $this->snippet;
   }
-  public function setThreadId($threadId)
+
+    public function setSnippet($snippet)
   {
-    $this->threadId = $threadId;
+      $this->snippet = $snippet;
   }
+
   public function getThreadId()
   {
     return $this->threadId;
   }
+
+    public function setThreadId($threadId)
+    {
+        $this->threadId = $threadId;
+    }
 }
 
 class Google_Service_Gmail_MessagePart extends Google_Collection
 {
+    public $filename;
+    public $mimeType;
+    public $partId;
   protected $collection_key = 'parts';
   protected $internal_gapi_mappings = array(
   );
   protected $bodyType = 'Google_Service_Gmail_MessagePartBody';
   protected $bodyDataType = '';
-  public $filename;
   protected $headersType = 'Google_Service_Gmail_MessagePartHeader';
   protected $headersDataType = 'array';
-  public $mimeType;
-  public $partId;
   protected $partsType = 'Google_Service_Gmail_MessagePart';
   protected $partsDataType = 'array';
 
@@ -1676,14 +1732,17 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->body;
   }
-  public function setFilename($filename)
-  {
-    $this->filename = $filename;
-  }
+
   public function getFilename()
   {
     return $this->filename;
   }
+
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+    }
+
   public function setHeaders($headers)
   {
     $this->headers = $headers;
@@ -1692,22 +1751,27 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->headers;
   }
-  public function setMimeType($mimeType)
-  {
-    $this->mimeType = $mimeType;
-  }
+
   public function getMimeType()
   {
     return $this->mimeType;
   }
-  public function setPartId($partId)
+
+    public function setMimeType($mimeType)
   {
-    $this->partId = $partId;
+      $this->mimeType = $mimeType;
   }
+
   public function getPartId()
   {
     return $this->partId;
   }
+
+    public function setPartId($partId)
+    {
+        $this->partId = $partId;
+    }
+
   public function setParts($parts)
   {
     $this->parts = $parts;
@@ -1720,191 +1784,204 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
 
 class Google_Service_Gmail_MessagePartBody extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $attachmentId;
   public $data;
   public $size;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAttachmentId($attachmentId)
-  {
-    $this->attachmentId = $attachmentId;
-  }
   public function getAttachmentId()
   {
     return $this->attachmentId;
   }
-  public function setData($data)
+
+    public function setAttachmentId($attachmentId)
   {
-    $this->data = $data;
+      $this->attachmentId = $attachmentId;
   }
+
   public function getData()
   {
     return $this->data;
   }
-  public function setSize($size)
+
+    public function setData($data)
   {
-    $this->size = $size;
+      $this->data = $data;
   }
+
   public function getSize()
   {
     return $this->size;
   }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
 }
 
 class Google_Service_Gmail_MessagePartHeader extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setValue($value)
+
+    public function setName($name)
   {
-    $this->value = $value;
+      $this->name = $name;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Gmail_ModifyMessageRequest extends Google_Collection
 {
-  protected $collection_key = 'removeLabelIds';
-  protected $internal_gapi_mappings = array(
-  );
   public $addLabelIds;
   public $removeLabelIds;
+    protected $collection_key = 'removeLabelIds';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAddLabelIds($addLabelIds)
-  {
-    $this->addLabelIds = $addLabelIds;
-  }
   public function getAddLabelIds()
   {
     return $this->addLabelIds;
   }
-  public function setRemoveLabelIds($removeLabelIds)
+
+    public function setAddLabelIds($addLabelIds)
   {
-    $this->removeLabelIds = $removeLabelIds;
+      $this->addLabelIds = $addLabelIds;
   }
-  public function getRemoveLabelIds()
+
+    public function getRemoveLabelIds()
   {
     return $this->removeLabelIds;
   }
+
+    public function setRemoveLabelIds($removeLabelIds)
+    {
+        $this->removeLabelIds = $removeLabelIds;
+    }
 }
 
 class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
 {
-  protected $collection_key = 'removeLabelIds';
-  protected $internal_gapi_mappings = array(
-  );
   public $addLabelIds;
   public $removeLabelIds;
+    protected $collection_key = 'removeLabelIds';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAddLabelIds($addLabelIds)
-  {
-    $this->addLabelIds = $addLabelIds;
-  }
   public function getAddLabelIds()
   {
     return $this->addLabelIds;
   }
-  public function setRemoveLabelIds($removeLabelIds)
+
+    public function setAddLabelIds($addLabelIds)
   {
-    $this->removeLabelIds = $removeLabelIds;
+      $this->addLabelIds = $addLabelIds;
   }
-  public function getRemoveLabelIds()
+
+    public function getRemoveLabelIds()
   {
     return $this->removeLabelIds;
   }
+
+    public function setRemoveLabelIds($removeLabelIds)
+    {
+        $this->removeLabelIds = $removeLabelIds;
+    }
 }
 
 class Google_Service_Gmail_Profile extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $emailAddress;
   public $historyId;
   public $messagesTotal;
   public $threadsTotal;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmailAddress($emailAddress)
-  {
-    $this->emailAddress = $emailAddress;
-  }
   public function getEmailAddress()
   {
     return $this->emailAddress;
   }
-  public function setHistoryId($historyId)
+
+    public function setEmailAddress($emailAddress)
   {
-    $this->historyId = $historyId;
+      $this->emailAddress = $emailAddress;
   }
-  public function getHistoryId()
+
+    public function getHistoryId()
   {
     return $this->historyId;
   }
-  public function setMessagesTotal($messagesTotal)
+
+    public function setHistoryId($historyId)
   {
-    $this->messagesTotal = $messagesTotal;
+      $this->historyId = $historyId;
   }
-  public function getMessagesTotal()
+
+    public function getMessagesTotal()
   {
     return $this->messagesTotal;
   }
-  public function setThreadsTotal($threadsTotal)
+
+    public function setMessagesTotal($messagesTotal)
   {
-    $this->threadsTotal = $threadsTotal;
+      $this->messagesTotal = $messagesTotal;
   }
-  public function getThreadsTotal()
+
+    public function getThreadsTotal()
   {
     return $this->threadsTotal;
   }
+
+    public function setThreadsTotal($threadsTotal)
+    {
+        $this->threadsTotal = $threadsTotal;
+    }
 }
 
 class Google_Service_Gmail_Thread extends Google_Collection
 {
-  protected $collection_key = 'messages';
-  protected $internal_gapi_mappings = array(
-  );
   public $historyId;
   public $id;
+    public $snippet;
+    protected $collection_key = 'messages';
+    protected $internal_gapi_mappings = array();
   protected $messagesType = 'Google_Service_Gmail_Message';
   protected $messagesDataType = 'array';
-  public $snippet;
 
-
-  public function setHistoryId($historyId)
-  {
-    $this->historyId = $historyId;
-  }
   public function getHistoryId()
   {
     return $this->historyId;
   }
-  public function setId($id)
+
+    public function setHistoryId($historyId)
   {
-    $this->id = $id;
+      $this->historyId = $historyId;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setMessages($messages)
   {
     $this->messages = $messages;
@@ -1913,12 +1990,14 @@ class Google_Service_Gmail_Thread extends Google_Collection
   {
     return $this->messages;
   }
-  public function setSnippet($snippet)
-  {
-    $this->snippet = $snippet;
-  }
-  public function getSnippet()
+
+    public function getSnippet()
   {
     return $this->snippet;
   }
+
+    public function setSnippet($snippet)
+    {
+        $this->snippet = $snippet;
+    }
 }

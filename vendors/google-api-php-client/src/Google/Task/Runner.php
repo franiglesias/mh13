@@ -74,10 +74,11 @@ class Google_Task_Runner
   /**
    * Creates a new task runner with exponential backoff support.
    *
-   * @param Google_Client $client The current API client
-   * @param string $name The name of the current task (used for logging)
-   * @param callable $action The task to run and possibly retry
-   * @param array $arguments The task arguments
+   * @param Google_Client $client    The current API client
+   * @param string        $name      The name of the current task (used for logging)
+   * @param callable      $action    The task to run and possibly retry
+   * @param array         $arguments The task arguments
+   *
    * @throws Google_Task_Exception when misconfigured
    */
   public function __construct(
@@ -150,16 +151,6 @@ class Google_Task_Runner
   }
 
   /**
-   * Checks if a retry can be attempted.
-   *
-   * @return boolean
-   */
-  public function canAttmpt()
-  {
-    return $this->attempts < $this->maxAttempts;
-  }
-
-  /**
    * Runs the task and (if applicable) automatically retries when errors occur.
    *
    * @return mixed
@@ -209,6 +200,16 @@ class Google_Task_Runner
     $this->attempts++;
     return true;
   }
+
+    /**
+     * Checks if a retry can be attempted.
+     *
+     * @return boolean
+     */
+    public function canAttmpt()
+    {
+        return $this->attempts < $this->maxAttempts;
+    }
 
   /**
    * Sleeps in accordance to the backoff configurations.

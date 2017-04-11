@@ -14,8 +14,9 @@ interface FileDispatcherInterface {
 	/**
 	 * Moves a file to its destination
 	 *
-	 * @param DispatchedFileInterface $File 
-	 * @param string $options 
+	 * @param DispatchedFileInterface $File
+     * @param string                  $options
+     *
 	 * @return 
 	 * @author Fran Iglesias
 	 */
@@ -23,8 +24,9 @@ interface FileDispatcherInterface {
 	/**
 	 * Adds a subfolder for a specific base type of file
 	 *
-	 * @param string $type the type (i.e: image)
+     * @param string $type   the type (i.e: image)
 	 * @param string $folder (i.e.: img)
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
@@ -33,6 +35,7 @@ interface FileDispatcherInterface {
 	 * Adds a subfolder
 	 *
 	 * @param string $folder (i.e.: article)
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */

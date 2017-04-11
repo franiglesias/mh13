@@ -18,7 +18,8 @@ interface FiMessenger {
 	/**
 	 * Use a template for the message
 	 *
-	 * @param string $template 
+     * @param string $template
+     *
 	 * @return a reference to itself so you can chain the method to send
 	 * @author Fran Iglesias
 	 */

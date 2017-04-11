@@ -347,10 +347,11 @@ class Google_Service_Fitness_UsersDataSources_Resource extends Google_Service_Re
    * developer project number is obfuscated when read by any other developer
    * reading public data types. (dataSources.create)
    *
-   * @param string $userId Create the data source for the person identified. Use
+   * @param string            $userId    Create the data source for the person identified. Use
    * me to indicate the authenticated user. Only me is supported at this time.
    * @param Google_DataSource $postBody
-   * @param array $optParams Optional parameters.
+   * @param array             $optParams Optional parameters.
+   *
    * @return Google_Service_Fitness_DataSource
    */
   public function create($userId, Google_Service_Fitness_DataSource $postBody, $optParams = array())
@@ -363,11 +364,12 @@ class Google_Service_Fitness_UsersDataSources_Resource extends Google_Service_Re
   /**
    * Returns a data source identified by a data stream ID. (dataSources.get)
    *
-   * @param string $userId Retrieve a data source for the person identified. Use
+   * @param string $userId       Retrieve a data source for the person identified. Use
    * me to indicate the authenticated user. Only me is supported at this time.
    * @param string $dataSourceId The data stream ID of the data source to
    * retrieve.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams    Optional parameters.
+   *
    * @return Google_Service_Fitness_DataSource
    */
   public function get($userId, $dataSourceId, $optParams = array())
@@ -383,9 +385,9 @@ class Google_Service_Fitness_UsersDataSources_Resource extends Google_Service_Re
    * sources that are only visible to other developers or calls using other
    * scopes. (dataSources.listUsersDataSources)
    *
-   * @param string $userId List data sources for the person identified. Use me to
+   * @param string $userId    List data sources for the person identified. Use me to
    * indicate the authenticated user. Only me is supported at this time.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string dataTypeName The names of data types to include in the
    * list. If not specified, all data sources will be returned.
@@ -407,11 +409,12 @@ class Google_Service_Fitness_UsersDataSources_Resource extends Google_Service_Re
    * Data sources are identified by their data stream ID. This method supports
    * patch semantics. (dataSources.patch)
    *
-   * @param string $userId Update the data source for the person identified. Use
+   * @param string            $userId       Update the data source for the person identified. Use
    * me to indicate the authenticated user. Only me is supported at this time.
-   * @param string $dataSourceId The data stream ID of the data source to update.
+   * @param string            $dataSourceId The data stream ID of the data source to update.
    * @param Google_DataSource $postBody
-   * @param array $optParams Optional parameters.
+   * @param array             $optParams    Optional parameters.
+   *
    * @return Google_Service_Fitness_DataSource
    */
   public function patch($userId, $dataSourceId, Google_Service_Fitness_DataSource $postBody, $optParams = array())
@@ -434,6 +437,7 @@ class Google_Service_Fitness_UsersDataSources_Resource extends Google_Service_Re
    * @param string $dataSourceId The data stream ID of the data source to update.
    * @param Google_DataSource $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Fitness_DataSource
    */
   public function update($userId, $dataSourceId, Google_Service_Fitness_DataSource $postBody, $optParams = array())
@@ -630,53 +634,55 @@ class Google_Service_Fitness_UsersSessions_Resource extends Google_Service_Resou
 
 class Google_Service_Fitness_Application extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $detailsUrl;
   public $name;
   public $packageName;
   public $version;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDetailsUrl($detailsUrl)
-  {
-    $this->detailsUrl = $detailsUrl;
-  }
   public function getDetailsUrl()
   {
     return $this->detailsUrl;
   }
-  public function setName($name)
+
+    public function setDetailsUrl($detailsUrl)
   {
-    $this->name = $name;
+      $this->detailsUrl = $detailsUrl;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setPackageName($packageName)
+
+    public function setName($name)
   {
-    $this->packageName = $packageName;
+      $this->name = $name;
   }
+
   public function getPackageName()
   {
     return $this->packageName;
   }
-  public function setVersion($version)
+
+    public function setPackageName($packageName)
   {
-    $this->version = $version;
+      $this->packageName = $packageName;
   }
+
   public function getVersion()
   {
     return $this->version;
   }
+
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
 }
 
 class Google_Service_Fitness_DataPoint extends Google_Collection
 {
-  protected $collection_key = 'value';
-  protected $internal_gapi_mappings = array(
-  );
   public $computationTimeMillis;
   public $dataTypeName;
   public $endTimeNanos;
@@ -684,66 +690,81 @@ class Google_Service_Fitness_DataPoint extends Google_Collection
   public $originDataSourceId;
   public $rawTimestampNanos;
   public $startTimeNanos;
+    protected $collection_key = 'value';
+    protected $internal_gapi_mappings = array();
   protected $valueType = 'Google_Service_Fitness_Value';
   protected $valueDataType = 'array';
 
-
-  public function setComputationTimeMillis($computationTimeMillis)
-  {
-    $this->computationTimeMillis = $computationTimeMillis;
-  }
   public function getComputationTimeMillis()
   {
     return $this->computationTimeMillis;
   }
-  public function setDataTypeName($dataTypeName)
+
+    public function setComputationTimeMillis($computationTimeMillis)
   {
-    $this->dataTypeName = $dataTypeName;
+      $this->computationTimeMillis = $computationTimeMillis;
   }
+
   public function getDataTypeName()
   {
     return $this->dataTypeName;
   }
-  public function setEndTimeNanos($endTimeNanos)
+
+    public function setDataTypeName($dataTypeName)
   {
-    $this->endTimeNanos = $endTimeNanos;
+      $this->dataTypeName = $dataTypeName;
   }
+
   public function getEndTimeNanos()
   {
     return $this->endTimeNanos;
   }
-  public function setModifiedTimeMillis($modifiedTimeMillis)
+
+    public function setEndTimeNanos($endTimeNanos)
   {
-    $this->modifiedTimeMillis = $modifiedTimeMillis;
+      $this->endTimeNanos = $endTimeNanos;
   }
+
   public function getModifiedTimeMillis()
   {
     return $this->modifiedTimeMillis;
   }
-  public function setOriginDataSourceId($originDataSourceId)
+
+    public function setModifiedTimeMillis($modifiedTimeMillis)
   {
-    $this->originDataSourceId = $originDataSourceId;
+      $this->modifiedTimeMillis = $modifiedTimeMillis;
   }
+
   public function getOriginDataSourceId()
   {
     return $this->originDataSourceId;
   }
-  public function setRawTimestampNanos($rawTimestampNanos)
+
+    public function setOriginDataSourceId($originDataSourceId)
   {
-    $this->rawTimestampNanos = $rawTimestampNanos;
+      $this->originDataSourceId = $originDataSourceId;
   }
+
   public function getRawTimestampNanos()
   {
     return $this->rawTimestampNanos;
   }
-  public function setStartTimeNanos($startTimeNanos)
+
+    public function setRawTimestampNanos($rawTimestampNanos)
   {
-    $this->startTimeNanos = $startTimeNanos;
+      $this->rawTimestampNanos = $rawTimestampNanos;
   }
+
   public function getStartTimeNanos()
   {
     return $this->startTimeNanos;
   }
+
+    public function setStartTimeNanos($startTimeNanos)
+    {
+        $this->startTimeNanos = $startTimeNanos;
+    }
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -756,19 +777,18 @@ class Google_Service_Fitness_DataPoint extends Google_Collection
 
 class Google_Service_Fitness_DataSource extends Google_Model
 {
+    public $dataStreamId;
+    public $dataStreamName;
+    public $name;
+    public $type;
   protected $internal_gapi_mappings = array(
   );
   protected $applicationType = 'Google_Service_Fitness_Application';
   protected $applicationDataType = '';
-  public $dataStreamId;
-  public $dataStreamName;
   protected $dataTypeType = 'Google_Service_Fitness_DataType';
   protected $dataTypeDataType = '';
   protected $deviceType = 'Google_Service_Fitness_Device';
   protected $deviceDataType = '';
-  public $name;
-  public $type;
-
 
   public function setApplication(Google_Service_Fitness_Application $application)
   {
@@ -778,22 +798,27 @@ class Google_Service_Fitness_DataSource extends Google_Model
   {
     return $this->application;
   }
-  public function setDataStreamId($dataStreamId)
-  {
-    $this->dataStreamId = $dataStreamId;
-  }
+
   public function getDataStreamId()
   {
     return $this->dataStreamId;
   }
-  public function setDataStreamName($dataStreamName)
+
+    public function setDataStreamId($dataStreamId)
   {
-    $this->dataStreamName = $dataStreamName;
+      $this->dataStreamId = $dataStreamId;
   }
+
   public function getDataStreamName()
   {
     return $this->dataStreamName;
   }
+
+    public function setDataStreamName($dataStreamName)
+    {
+        $this->dataStreamName = $dataStreamName;
+    }
+
   public function setDataType(Google_Service_Fitness_DataType $dataType)
   {
     $this->dataType = $dataType;
@@ -810,33 +835,36 @@ class Google_Service_Fitness_DataSource extends Google_Model
   {
     return $this->device;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setType($type)
+
+    public function setName($name)
   {
-    $this->type = $type;
+      $this->name = $name;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Fitness_DataType extends Google_Collection
 {
+    public $name;
   protected $collection_key = 'field';
   protected $internal_gapi_mappings = array(
   );
   protected $fieldType = 'Google_Service_Fitness_DataTypeField';
   protected $fieldDataType = 'array';
-  public $name;
-
 
   public function setField($field)
   {
@@ -846,87 +874,96 @@ class Google_Service_Fitness_DataType extends Google_Collection
   {
     return $this->field;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Fitness_DataTypeField extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $format;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFormat($format)
-  {
-    $this->format = $format;
-  }
   public function getFormat()
   {
     return $this->format;
   }
-  public function setName($name)
+
+    public function setFormat($format)
   {
-    $this->name = $name;
+      $this->format = $format;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Fitness_Dataset extends Google_Collection
 {
-  protected $collection_key = 'point';
-  protected $internal_gapi_mappings = array(
-  );
   public $dataSourceId;
   public $maxEndTimeNs;
   public $minStartTimeNs;
   public $nextPageToken;
+    protected $collection_key = 'point';
+    protected $internal_gapi_mappings = array();
   protected $pointType = 'Google_Service_Fitness_DataPoint';
   protected $pointDataType = 'array';
 
-
-  public function setDataSourceId($dataSourceId)
-  {
-    $this->dataSourceId = $dataSourceId;
-  }
   public function getDataSourceId()
   {
     return $this->dataSourceId;
   }
-  public function setMaxEndTimeNs($maxEndTimeNs)
+
+    public function setDataSourceId($dataSourceId)
   {
-    $this->maxEndTimeNs = $maxEndTimeNs;
+      $this->dataSourceId = $dataSourceId;
   }
+
   public function getMaxEndTimeNs()
   {
     return $this->maxEndTimeNs;
   }
-  public function setMinStartTimeNs($minStartTimeNs)
+
+    public function setMaxEndTimeNs($maxEndTimeNs)
   {
-    $this->minStartTimeNs = $minStartTimeNs;
+      $this->maxEndTimeNs = $maxEndTimeNs;
   }
+
   public function getMinStartTimeNs()
   {
     return $this->minStartTimeNs;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setMinStartTimeNs($minStartTimeNs)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->minStartTimeNs = $minStartTimeNs;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPoint($point)
   {
     $this->point = $point;
@@ -939,55 +976,62 @@ class Google_Service_Fitness_Dataset extends Google_Collection
 
 class Google_Service_Fitness_Device extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $manufacturer;
   public $model;
   public $type;
   public $uid;
   public $version;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setManufacturer($manufacturer)
-  {
-    $this->manufacturer = $manufacturer;
-  }
   public function getManufacturer()
   {
     return $this->manufacturer;
   }
-  public function setModel($model)
+
+    public function setManufacturer($manufacturer)
   {
-    $this->model = $model;
+      $this->manufacturer = $manufacturer;
   }
+
   public function getModel()
   {
     return $this->model;
   }
-  public function setType($type)
+
+    public function setModel($model)
   {
-    $this->type = $type;
+      $this->model = $model;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUid($uid)
+
+    public function setType($type)
   {
-    $this->uid = $uid;
+      $this->type = $type;
   }
+
   public function getUid()
   {
     return $this->uid;
   }
-  public function setVersion($version)
+
+    public function setUid($uid)
   {
-    $this->version = $version;
+      $this->uid = $uid;
   }
-  public function getVersion()
+
+    public function getVersion()
   {
     return $this->version;
   }
+
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
 }
 
 class Google_Service_Fitness_ListDataSourcesResponse extends Google_Collection
@@ -1011,12 +1055,12 @@ class Google_Service_Fitness_ListDataSourcesResponse extends Google_Collection
 
 class Google_Service_Fitness_ListSessionsResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'session';
   protected $internal_gapi_mappings = array(
   );
   protected $deletedSessionType = 'Google_Service_Fitness_Session';
   protected $deletedSessionDataType = 'array';
-  public $nextPageToken;
   protected $sessionType = 'Google_Service_Fitness_Session';
   protected $sessionDataType = 'array';
 
@@ -1029,14 +1073,17 @@ class Google_Service_Fitness_ListSessionsResponse extends Google_Collection
   {
     return $this->deletedSession;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setSession($session)
   {
     $this->session = $session;
@@ -1049,27 +1096,27 @@ class Google_Service_Fitness_ListSessionsResponse extends Google_Collection
 
 class Google_Service_Fitness_Session extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $activityType;
-  protected $applicationType = 'Google_Service_Fitness_Application';
-  protected $applicationDataType = '';
   public $description;
   public $endTimeMillis;
   public $id;
   public $modifiedTimeMillis;
   public $name;
   public $startTimeMillis;
+    protected $internal_gapi_mappings = array();
+    protected $applicationType = 'Google_Service_Fitness_Application';
+    protected $applicationDataType = '';
 
-
-  public function setActivityType($activityType)
-  {
-    $this->activityType = $activityType;
-  }
   public function getActivityType()
   {
     return $this->activityType;
   }
+
+    public function setActivityType($activityType)
+    {
+        $this->activityType = $activityType;
+    }
+
   public function setApplication(Google_Service_Fitness_Application $application)
   {
     $this->application = $application;
@@ -1078,78 +1125,91 @@ class Google_Service_Fitness_Session extends Google_Model
   {
     return $this->application;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setEndTimeMillis($endTimeMillis)
+
+    public function setDescription($description)
   {
-    $this->endTimeMillis = $endTimeMillis;
+      $this->description = $description;
   }
-  public function getEndTimeMillis()
+
+    public function getEndTimeMillis()
   {
     return $this->endTimeMillis;
   }
-  public function setId($id)
+
+    public function setEndTimeMillis($endTimeMillis)
   {
-    $this->id = $id;
+      $this->endTimeMillis = $endTimeMillis;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setModifiedTimeMillis($modifiedTimeMillis)
+
+    public function setId($id)
   {
-    $this->modifiedTimeMillis = $modifiedTimeMillis;
+      $this->id = $id;
   }
-  public function getModifiedTimeMillis()
+
+    public function getModifiedTimeMillis()
   {
     return $this->modifiedTimeMillis;
   }
-  public function setName($name)
+
+    public function setModifiedTimeMillis($modifiedTimeMillis)
   {
-    $this->name = $name;
+      $this->modifiedTimeMillis = $modifiedTimeMillis;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setStartTimeMillis($startTimeMillis)
+
+    public function setName($name)
   {
-    $this->startTimeMillis = $startTimeMillis;
+      $this->name = $name;
   }
-  public function getStartTimeMillis()
+
+    public function getStartTimeMillis()
   {
     return $this->startTimeMillis;
   }
+
+    public function setStartTimeMillis($startTimeMillis)
+    {
+        $this->startTimeMillis = $startTimeMillis;
+    }
 }
 
 class Google_Service_Fitness_Value extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $fpVal;
   public $intVal;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFpVal($fpVal)
-  {
-    $this->fpVal = $fpVal;
-  }
   public function getFpVal()
   {
     return $this->fpVal;
   }
-  public function setIntVal($intVal)
+
+    public function setFpVal($fpVal)
   {
-    $this->intVal = $intVal;
+      $this->fpVal = $fpVal;
   }
-  public function getIntVal()
+
+    public function getIntVal()
   {
     return $this->intVal;
   }
+
+    public function setIntVal($intVal)
+    {
+        $this->intVal = $intVal;
+    }
 }

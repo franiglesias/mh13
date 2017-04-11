@@ -27,10 +27,10 @@ class Google_IO_Exception extends Google_Exception implements Google_Task_Retrya
   /**
    * Creates a new IO exception with an optional retry map.
    *
-   * @param string $message
-   * @param int $code
+   * @param string         $message
+   * @param int            $code
    * @param Exception|null $previous
-   * @param array|null $retryMap Map of errors with retry counts.
+   * @param array|null     $retryMap Map of errors with retry counts.
    */
   public function __construct(
       $message,

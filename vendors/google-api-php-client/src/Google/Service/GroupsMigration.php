@@ -85,8 +85,9 @@ class Google_Service_GroupsMigration_Archive_Resource extends Google_Service_Res
   /**
    * Inserts a new mail into the archive of the Google group. (archive.insert)
    *
-   * @param string $groupId The group ID
-   * @param array $optParams Optional parameters.
+   * @param string $groupId   The group ID
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_GroupsMigration_Groups
    */
   public function insert($groupId, $optParams = array())
@@ -102,26 +103,27 @@ class Google_Service_GroupsMigration_Archive_Resource extends Google_Service_Res
 
 class Google_Service_GroupsMigration_Groups extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $responseCode;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setResponseCode($responseCode)
+
+    public function setKind($kind)
   {
-    $this->responseCode = $responseCode;
+      $this->kind = $kind;
   }
+
   public function getResponseCode()
   {
     return $this->responseCode;
   }
+
+    public function setResponseCode($responseCode)
+    {
+        $this->responseCode = $responseCode;
+    }
 }

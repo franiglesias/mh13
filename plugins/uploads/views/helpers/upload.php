@@ -75,7 +75,7 @@ class UploadHelper extends AppHelper {
  */
 	function afterRender() {
 		// Pass extensions info to javascript to syncronize it
-		if (!($view =& ClassRegistry::getObject('view'))) {
+        if (!($view = ClassRegistry::getObject('view'))) {
 			return;
 		}
 		$view->viewVars['jsVars']['extensions'] = $this->extensions;
@@ -86,25 +86,54 @@ class UploadHelper extends AppHelper {
 			$this->Html->css('/uploads/css/fileuploader', null, array('inline' => false));
 		}
 	}
-	
+
+    /**
+     * Image upload. Wrapper for uploader.
+     *
+     * Default behavior: single inline image upload.
+     *
+     * Options:
+     *
+     * mode = inline/attach
+     * multiple: false/true
+     *
+     * @param string $field
+     * @param string $options
+     *
+     * @return void
+     */
+
+    public function image($field, $options)
+    {
+        $defaults['extensions'] = 'image';
+        $defaults['enclosure'] = false;
+        $defaults['mode'] = 'inline';
+        $defaults['multiple'] = false;
+        $defaults['image'] = $this->Form->value($field);
+        $options = Set::merge($defaults, $options);
+
+        return $this->uploader($field, $options);
+    }
+
 /**
  * Creates a field with an attached uploader. Result of the uploader is used to update
  * the field content.
  *
- * @param string $field 
- * @param string $options 
+ * @param string $field
+ * @param string $options
+ *
  * @return string HTML
- */	
+ */
 
 	public function uploader($field, $options = array()) {
 		// Merge options with defaults
-		
+
 		$options = array_intersect_key($options, $this->defaults);
 		$options = array_merge($this->defaults, $options);
-		
+
 		// Prepare data to pass to the uploaders script
-		
-		// Field ID
+
+        // Field ID
 		$this->setEntity($field);
 		$id = $this->Form->domID($field);
 
@@ -114,21 +143,21 @@ class UploadHelper extends AppHelper {
 			'controller' => 'uploads',
 			'action' => 'upload'
 		));
-		
-		$multiple = 0;
+
+        $multiple = 0;
 		if ($options['multiple']) {
 			$multiple = 1;
 			$mode = 'attachment';
 		} else {
 			$mode = $options['mode'];
 		}
-		
-		// The URL of the action to refresh the widget
-		
-		if ($mode == 'inline') {
+
+        // The URL of the action to refresh the widget
+
+        if ($mode == 'inline') {
 			$refreshAction = Router::url(array(
-				'plugin' => 'uploads', 
-				'controller' => 'uploads', 
+                                             'plugin' => 'uploads',
+                                             'controller' => 'uploads',
 				'action' => 'single'
 			));
 		} else {
@@ -141,19 +170,19 @@ class UploadHelper extends AppHelper {
 				$this->Form->value('id')
 			), true);
 		}
-		
-		if (!empty($options['enclosure'])) {
+
+        if (!empty($options['enclosure'])) {
 			$params['enclosure'] = 1;
 		}
-		
-		// Extra update on upload complete
-		
-		$completeUrl = false;
+
+        // Extra update on upload complete
+
+        $completeUrl = false;
 		if (!empty($options['url'])) {
 			$completeUrl = Router::url($options['url']);
 		}
-		
-		// Build the uploader element, class uploader
+
+        // Build the uploader element, class uploader
 		$theUploader = $this->Html->tag('div', $this->XHtml->ajaxLoading(), array(
 			'id' 				=> $id.'-uploader',		// The ID for the uploader
 			'class' 			=> 'uploader',			// The class to be selected
@@ -171,50 +200,25 @@ class UploadHelper extends AppHelper {
 			'mh-complete-update'=> $options['update'],	// The selector for extra on complete update
 			'mh-limit'			=> $options['limit'],   // Max Size
 		));
-		
-		// Build the full widget
-		
-		if (empty($options['bare'])) {
+
+        // Build the full widget
+
+        if (empty($options['bare'])) {
 			$out[] = $this->Form->label($field, $options['label']);
 		}
 		$out[] = $this->Form->input($field, array('type' => 'hidden'));
 		$out[] = $theUploader;
-		
-		if (empty($options['bare']) && !empty($options['after'])) {
+
+        if (empty($options['bare']) && !empty($options['after'])) {
 			$out[] = $options['after'];
 		}
-		
-		// Finish and return the code
+
+        // Finish and return the code
 		$code = implode(chr(10), $out);
 		if (empty($options['bare'])) {
 			$code = $this->Html->div('input small-12 columns', $code);
 		}
 		return $code;
-	}
-
-/**
- * Image upload. Wrapper for uploader.
- *
- * Default behavior: single inline image upload.
- *
- * Options:
- *
- * mode = inline/attach
- * multiple: false/true
- *
- * @param string $field 
- * @param string $options 
- * @return void
- */
-	
-	public function image($field, $options) {
-		$defaults['extensions'] = 'image';
-		$defaults['enclosure'] = false;
-		$defaults['mode'] = 'inline';
-		$defaults['multiple'] = false;
-		$defaults['image'] = $this->Form->value($field);
-		$options = Set::merge($defaults, $options);
-		return $this->uploader($field, $options);
 	}
 
 	public function images ($field, $options) {
@@ -252,6 +256,7 @@ class UploadHelper extends AppHelper {
  * Converts a time in seconds into a hh:mm:ss expression
  *
  * @param string $time in seconds
+ *
  * @return string
  */	
 	public function readablePlayTime($time) {

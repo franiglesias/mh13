@@ -32,8 +32,9 @@ class StateFactory
 /**
  * Returns a State Class
  *
- * @param string $key The model key
+ * @param string $key   The model key
  * @param string $value The status value
+ *
  * @return class The class that manages the passed status
  * @author Fran Iglesias
  */
@@ -50,6 +51,7 @@ class StateFactory
  * Returns stored configuration
  *
  * @param string $key limit the results to a specific model
+ *
  * @return array Configuration Data
  * @author Fran Iglesias
  */

@@ -9,7 +9,7 @@ class EventManager implements FiSubject
 	
 	public function __construct(SplObjectStorage $Storage)
 	{
-		$this->observers =& $Storage;
+        $this->observers = $Storage;
 		$this->messages = array();
 	}
 	

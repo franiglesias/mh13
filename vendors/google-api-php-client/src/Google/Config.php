@@ -156,9 +156,10 @@ class Google_Config
    * Set configuration specific to a given class.
    * $config->setClassConfig('Google_Cache_File',
    *   array('directory' => '/tmp/cache'));
-   * @param $class string The class name for the configuration
+   *
+   * @param $class  string The class name for the configuration
    * @param $config string key or an array of configuration values
-   * @param $value string optional - if $config is a key, the value
+   * @param $value  string optional - if $config is a key, the value
    */
   public function setClassConfig($class, $config, $value = null)
   {
@@ -200,15 +201,6 @@ class Google_Config
   public function getLoggerClass()
   {
     return $this->configuration['logger_class'];
-  }
-
-  /**
-   * Return the configured Auth class.
-   * @return string
-   */
-  public function getAuthClass()
-  {
-    return $this->configuration['auth_class'];
   }
 
   /**
@@ -287,6 +279,7 @@ class Google_Config
 
   /**
    * Set the application name, this is included in the User-Agent HTTP header.
+   *
    * @param string $name
    */
   public function setApplicationName($name)
@@ -304,6 +297,7 @@ class Google_Config
 
   /**
    * Set the client ID for the auth class.
+   *
    * @param $clientId string - the API console client ID
    */
   public function setClientId($clientId)
@@ -311,8 +305,32 @@ class Google_Config
     $this->setAuthConfig('client_id', $clientId);
   }
 
+    /**
+     * Set the auth configuration for the current auth class.
+     *
+     * @param $key   - the key to set
+     * @param $value - the parameter value
+     */
+    private function setAuthConfig($key, $value)
+    {
+        if (!isset($this->configuration['classes'][$this->getAuthClass()])) {
+            $this->configuration['classes'][$this->getAuthClass()] = array();
+        }
+        $this->configuration['classes'][$this->getAuthClass()][$key] = $value;
+    }
+
+    /**
+     * Return the configured Auth class.
+     * @return string
+     */
+    public function getAuthClass()
+    {
+        return $this->configuration['auth_class'];
+    }
+
   /**
    * Set the client secret for the auth class.
+   *
    * @param $secret string - the API console client secret
    */
   public function setClientSecret($secret)
@@ -333,6 +351,7 @@ class Google_Config
 
   /**
    * Set the app activities for the auth class.
+   *
    * @param $rva string a space separated list of app activity types
    */
   public function setRequestVisibleActions($rva)
@@ -342,6 +361,7 @@ class Google_Config
 
   /**
    * Set the the access type requested (offline or online.)
+   *
    * @param $access string - the access type
    */
   public function setAccessType($access)
@@ -351,6 +371,7 @@ class Google_Config
 
   /**
    * Set when to show the approval prompt (auto or force)
+   *
    * @param $approval string - the approval request
    */
   public function setApprovalPrompt($approval)
@@ -360,6 +381,7 @@ class Google_Config
 
   /**
    * Set the login hint (email address or sub identifier)
+   *
    * @param $hint string
    */
   public function setLoginHint($hint)
@@ -370,6 +392,7 @@ class Google_Config
   /**
    * Set the developer key for the auth class. Note that this is separate value
    * from the client ID - if it looks like a URL, its a client ID!
+   *
    * @param $key string - the API console developer key
    */
   public function setDeveloperKey($key)
@@ -381,6 +404,7 @@ class Google_Config
    * Set the hd (hosted domain) parameter streamlines the login process for
    * Google Apps hosted accounts. By including the domain of the user, you
    * restrict sign-in to accounts at that domain.
+   *
    * @param $hd string - the domain to use.
    */
   public function setHostedDomain($hd)
@@ -392,6 +416,7 @@ class Google_Config
    * Set the prompt hint. Valid values are none, consent and select_account.
    * If no value is specified and the user has not previously authorized
    * access, then the user is shown a consent screen.
+   *
    * @param $prompt string
    */
   public function setPrompt($prompt)
@@ -403,6 +428,7 @@ class Google_Config
    * openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
    * 2.0. It is used in OpenID 2.0 requests to signify the URL-space for which
    * an authentication request is valid.
+   *
    * @param $realm string - the URL-space to use.
    */
   public function setOpenidRealm($realm)
@@ -430,18 +456,5 @@ class Google_Config
   public function getBasePath()
   {
     return $this->configuration['base_path'];
-  }
-
-  /**
-   * Set the auth configuration for the current auth class.
-   * @param $key - the key to set
-   * @param $value - the parameter value
-   */
-  private function setAuthConfig($key, $value)
-  {
-    if (!isset($this->configuration['classes'][$this->getAuthClass()])) {
-      $this->configuration['classes'][$this->getAuthClass()] = array();
-    }
-    $this->configuration['classes'][$this->getAuthClass()][$key] = $value;
   }
 }

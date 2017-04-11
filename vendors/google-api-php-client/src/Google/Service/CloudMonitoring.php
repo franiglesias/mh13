@@ -223,9 +223,9 @@ class Google_Service_CloudMonitoring_MetricDescriptors_Resource extends Google_S
    * subsequent pages of results by setting the pageToken query parameter to the
    * value of the nextPageToken. (metricDescriptors.listMetricDescriptors)
    *
-   * @param string $project The project id. The value can be the numeric project
+   * @param string $project   The project id. The value can be the numeric project
    * ID or string-based project name.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int count Maximum number of metric descriptors per page. Used for
    * pagination. If not specified, count = 100.
@@ -265,14 +265,14 @@ class Google_Service_CloudMonitoring_Timeseries_Resource extends Google_Service_
    * subsequent pages of results by setting the pageToken query parameter to the
    * value of the nextPageToken. (timeseries.listTimeseries)
    *
-   * @param string $project The project ID to which this time series belongs. The
+   * @param string $project   The project ID to which this time series belongs. The
    * value can be the numeric project ID or string-based project name.
-   * @param string $metric Metric names are protocol-free URLs as listed in the
+   * @param string $metric    Metric names are protocol-free URLs as listed in the
    * Supported Metrics page. For example,
    * compute.googleapis.com/instance/disk/read_ops_count.
-   * @param string $youngest End of the time interval (inclusive), which is
+   * @param string $youngest  End of the time interval (inclusive), which is
    * expressed as an RFC 3339 timestamp.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int count Maximum number of data points per page, which is used
    * for pagination of results.
@@ -333,14 +333,14 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptors_Resource extends Goog
    * subsequent pages of results by setting the pageToken query parameter to the
    * value of the nextPageToken. (timeseriesDescriptors.listTimeseriesDescriptors)
    *
-   * @param string $project The project ID to which this time series belongs. The
+   * @param string $project   The project ID to which this time series belongs. The
    * value can be the numeric project ID or string-based project name.
-   * @param string $metric Metric names are protocol-free URLs as listed in the
+   * @param string $metric    Metric names are protocol-free URLs as listed in the
    * Supported Metrics page. For example,
    * compute.googleapis.com/instance/disk/read_ops_count.
-   * @param string $youngest End of the time interval (inclusive), which is
+   * @param string $youngest  End of the time interval (inclusive), which is
    * expressed as an RFC 3339 timestamp.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param int count Maximum number of time series descriptors per page. Used
    * for pagination. If not specified, count = 100.
@@ -388,40 +388,40 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptors_Resource extends Goog
 
 class Google_Service_CloudMonitoring_ListMetricDescriptorsRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'metrics';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $metricsType = 'Google_Service_CloudMonitoring_MetricDescriptor';
   protected $metricsDataType = 'array';
-  public $nextPageToken;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
@@ -430,70 +430,75 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   {
     return $this->metrics;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends Google_Collection
 {
-  protected $collection_key = 'timeseries';
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $nextPageToken;
   public $oldest;
+    public $youngest;
+    protected $collection_key = 'timeseries';
+    protected $internal_gapi_mappings = array();
   protected $timeseriesType = 'Google_Service_CloudMonitoring_TimeseriesDescriptor';
   protected $timeseriesDataType = 'array';
-  public $youngest;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setOldest($oldest)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->oldest = $oldest;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getOldest()
   {
     return $this->oldest;
   }
+
+    public function setOldest($oldest)
+    {
+        $this->oldest = $oldest;
+    }
+
   public function setTimeseries($timeseries)
   {
     $this->timeseries = $timeseries;
@@ -502,70 +507,75 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     return $this->timeseries;
   }
-  public function setYoungest($youngest)
-  {
-    $this->youngest = $youngest;
-  }
+
   public function getYoungest()
   {
     return $this->youngest;
   }
+
+    public function setYoungest($youngest)
+    {
+        $this->youngest = $youngest;
+    }
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Collection
 {
-  protected $collection_key = 'timeseries';
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $nextPageToken;
   public $oldest;
+    public $youngest;
+    protected $collection_key = 'timeseries';
+    protected $internal_gapi_mappings = array();
   protected $timeseriesType = 'Google_Service_CloudMonitoring_Timeseries';
   protected $timeseriesDataType = 'array';
-  public $youngest;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setOldest($oldest)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->oldest = $oldest;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getOldest()
   {
     return $this->oldest;
   }
+
+    public function setOldest($oldest)
+    {
+        $this->oldest = $oldest;
+    }
+
   public function setTimeseries($timeseries)
   {
     $this->timeseries = $timeseries;
@@ -574,38 +584,41 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     return $this->timeseries;
   }
-  public function setYoungest($youngest)
-  {
-    $this->youngest = $youngest;
-  }
+
   public function getYoungest()
   {
     return $this->youngest;
   }
+
+    public function setYoungest($youngest)
+    {
+        $this->youngest = $youngest;
+    }
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
 {
+    public $description;
+    public $name;
+    public $project;
   protected $collection_key = 'labels';
   protected $internal_gapi_mappings = array(
   );
-  public $description;
   protected $labelsType = 'Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor';
   protected $labelsDataType = 'array';
-  public $name;
-  public $project;
   protected $typeDescriptorType = 'Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor';
   protected $typeDescriptorDataType = '';
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
   public function setLabels($labels)
   {
     $this->labels = $labels;
@@ -614,22 +627,27 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     return $this->labels;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setProject($project)
+
+    public function setName($name)
   {
-    $this->project = $project;
+      $this->name = $name;
   }
+
   public function getProject()
   {
     return $this->project;
   }
+
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
+
   public function setTypeDescriptor(Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor $typeDescriptor)
   {
     $this->typeDescriptor = $typeDescriptor;
@@ -642,78 +660,80 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
 
 class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $description;
   public $key;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
-  public function setKey($key)
+
+    public function setDescription($description)
   {
-    $this->key = $key;
+      $this->description = $description;
   }
+
   public function getKey()
   {
     return $this->key;
   }
+
+    public function setKey($key)
+    {
+        $this->key = $key;
+    }
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $metricType;
   public $valueType;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setMetricType($metricType)
-  {
-    $this->metricType = $metricType;
-  }
   public function getMetricType()
   {
     return $this->metricType;
   }
-  public function setValueType($valueType)
+
+    public function setMetricType($metricType)
   {
-    $this->valueType = $valueType;
+      $this->metricType = $metricType;
   }
+
   public function getValueType()
   {
     return $this->valueType;
   }
+
+    public function setValueType($valueType)
+    {
+        $this->valueType = $valueType;
+    }
 }
 
 class Google_Service_CloudMonitoring_Point extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $boolValue;
-  protected $distributionValueType = 'Google_Service_CloudMonitoring_PointDistribution';
-  protected $distributionValueDataType = '';
   public $doubleValue;
   public $end;
   public $int64Value;
   public $start;
   public $stringValue;
+    protected $internal_gapi_mappings = array();
+    protected $distributionValueType = 'Google_Service_CloudMonitoring_PointDistribution';
+    protected $distributionValueDataType = '';
 
-
-  public function setBoolValue($boolValue)
-  {
-    $this->boolValue = $boolValue;
-  }
   public function getBoolValue()
   {
     return $this->boolValue;
   }
+
+    public function setBoolValue($boolValue)
+    {
+        $this->boolValue = $boolValue;
+    }
+
   public function setDistributionValue(Google_Service_CloudMonitoring_PointDistribution $distributionValue)
   {
     $this->distributionValue = $distributionValue;
@@ -722,46 +742,56 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->distributionValue;
   }
-  public function setDoubleValue($doubleValue)
-  {
-    $this->doubleValue = $doubleValue;
-  }
+
   public function getDoubleValue()
   {
     return $this->doubleValue;
   }
-  public function setEnd($end)
+
+    public function setDoubleValue($doubleValue)
   {
-    $this->end = $end;
+      $this->doubleValue = $doubleValue;
   }
+
   public function getEnd()
   {
     return $this->end;
   }
-  public function setInt64Value($int64Value)
+
+    public function setEnd($end)
   {
-    $this->int64Value = $int64Value;
+      $this->end = $end;
   }
+
   public function getInt64Value()
   {
     return $this->int64Value;
   }
-  public function setStart($start)
+
+    public function setInt64Value($int64Value)
   {
-    $this->start = $start;
+      $this->int64Value = $int64Value;
   }
+
   public function getStart()
   {
     return $this->start;
   }
-  public function setStringValue($stringValue)
+
+    public function setStart($start)
   {
-    $this->stringValue = $stringValue;
+      $this->start = $start;
   }
+
   public function getStringValue()
   {
     return $this->stringValue;
   }
+
+    public function setStringValue($stringValue)
+    {
+        $this->stringValue = $stringValue;
+    }
 }
 
 class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
@@ -805,89 +835,94 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
 
 class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $count;
   public $lowerBound;
   public $upperBound;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
   public function getCount()
   {
     return $this->count;
   }
-  public function setLowerBound($lowerBound)
+
+    public function setCount($count)
   {
-    $this->lowerBound = $lowerBound;
+      $this->count = $count;
   }
+
   public function getLowerBound()
   {
     return $this->lowerBound;
   }
-  public function setUpperBound($upperBound)
+
+    public function setLowerBound($lowerBound)
   {
-    $this->upperBound = $upperBound;
+      $this->lowerBound = $lowerBound;
   }
+
   public function getUpperBound()
   {
     return $this->upperBound;
   }
+
+    public function setUpperBound($upperBound)
+    {
+        $this->upperBound = $upperBound;
+    }
 }
 
 class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $count;
   public $lowerBound;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
   public function getCount()
   {
     return $this->count;
   }
-  public function setLowerBound($lowerBound)
+
+    public function setCount($count)
   {
-    $this->lowerBound = $lowerBound;
+      $this->count = $count;
   }
-  public function getLowerBound()
+
+    public function getLowerBound()
   {
     return $this->lowerBound;
   }
+
+    public function setLowerBound($lowerBound)
+    {
+        $this->lowerBound = $lowerBound;
+    }
 }
 
 class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $count;
   public $upperBound;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
   public function getCount()
   {
     return $this->count;
   }
-  public function setUpperBound($upperBound)
+
+    public function setCount($count)
   {
-    $this->upperBound = $upperBound;
+      $this->count = $count;
   }
-  public function getUpperBound()
+
+    public function getUpperBound()
   {
     return $this->upperBound;
   }
+
+    public function setUpperBound($upperBound)
+    {
+        $this->upperBound = $upperBound;
+    }
 }
 
 class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
@@ -921,63 +956,67 @@ class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $labels;
   public $metric;
   public $project;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLabels($labels)
-  {
-    $this->labels = $labels;
-  }
   public function getLabels()
   {
     return $this->labels;
   }
-  public function setMetric($metric)
+
+    public function setLabels($labels)
   {
-    $this->metric = $metric;
+      $this->labels = $labels;
   }
-  public function getMetric()
+
+    public function getMetric()
   {
     return $this->metric;
   }
-  public function setProject($project)
+
+    public function setMetric($metric)
   {
-    $this->project = $project;
+      $this->metric = $metric;
   }
-  public function getProject()
+
+    public function getProject()
   {
     return $this->project;
   }
+
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setValue($value)
+
+    public function setKey($key)
   {
-    $this->value = $value;
+      $this->key = $key;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabels extends Google_Model

@@ -29,7 +29,7 @@ class FHtmlHelper extends AppHelper {
 	public function __construct($options = array())
 	{
 		parent::__construct($options);
-		$this->View =& ClassRegistry::getObject('View');
+        $this->View = ClassRegistry::getObject('View');
 	}
 	
 	public function permalink(AutoLinkable $SPM, $label = null, $options = array())

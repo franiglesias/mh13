@@ -12,8 +12,6 @@
  * @copyright Fran Iglesias
  **/
 
-use Mh13\plugins\access\services\OwnerService;
-
 
 if (!defined('ACCESS_READ')) {
 	define('ACCESS_READ', 1);
@@ -111,27 +109,12 @@ class OwnableBehavior extends ModelBehavior {
 		}
 	}
 
-
-	public function beforeDelete($model, $cascade)
-	{
-		if ($this->settings[$model->alias]['mode'] == 'object') {
-			$conditions = array(
-				'object_model' => $model->alias,
-				'object_id' => $model->id
-			);
-		} else {
-			$conditions = array(
-				'owner_model' => $model->alias,
-				'owner_id' => $model->id
-			);
-		}
-		return ClassRegistry::init('Ownership')->deleteAll($conditions);
-	}
 /**
  * Binds a model as object, so it could be owned by another objects,
  * (mainly users or groups or similar)
  *
- * @param string $model 
+ * @param string $model
+ *
  * @return void
  */
 	public function bindAsObject($model) {
@@ -154,15 +137,16 @@ class OwnableBehavior extends ModelBehavior {
 			)
 		);
 		ClassRegistry::init('Ownership')->bindModel(array('belongsTo' => $ownerSettings), false);
-	
+
 	}
 
 /**
  * Binds a model as Owner, so it could own another objects
  *
- * @param string $model 
+ * @param string $model
+ *
  * @return void
- */	
+ */
 	public function bindAsOwner($model) {
 		$bindSettings = array(
 			'Owns' => array(
@@ -185,12 +169,29 @@ class OwnableBehavior extends ModelBehavior {
 		ClassRegistry::init('Ownership')->bindModel(array('belongsTo' => $ownerSettings), false);
 	}
 
+    public function beforeDelete($model, $cascade)
+    {
+        if ($this->settings[$model->alias]['mode'] == 'object') {
+            $conditions = array(
+                'object_model' => $model->alias,
+                'object_id' => $model->id,
+            );
+        } else {
+            $conditions = array(
+                'owner_model' => $model->alias,
+                'owner_id' => $model->id,
+            );
+        }
+
+        return ClassRegistry::init('Ownership')->deleteAll($conditions);
+    }
 
 /**
  * Attach current model record to an owner object with certain permissions
  *
  * @param object $model 
  * @param mixed array o model object
+ *
  * @return string|boolean
  */	
 	public function addOwner($model, $owner, $permissions = 15, $id = null) {
@@ -220,33 +221,57 @@ class OwnableBehavior extends ModelBehavior {
 		return $ownership->getLastInsertId();
 	}
 
-
 /**
- * Remove the relation between object and owner
+ * Checks if a given owner is tied with an object
+ * Wrapper for whatAccess
  *
- * @param string $model 
- * @param string $owner 
- * @param string $id 
+ * @param string $model
+ * @param string $owner
+ * @param string $id
+ *
  * @return bool
  */
-	public function removeOwner($model, $owner, $id = null) {
+    public function isOwner($model, $owner, $id = null)
+    {
+        return $this->whatAccess($model, $owner, $id) > 0;
+    }
+
+    /**
+     * Checks if an owner is tied to an object and returns access permissions
+     *
+     * @param string $model
+     * @param string $owner
+     * @param string $id
+     *
+     * @return bool|integer
+     */
+    public function whatAccess($model, $owner, $id = null)
+    {
 		$model->setId($id);
-		return ClassRegistry::init('Ownership')->deleteAll(array(
+
+        $conditions = array(
 				'owner_model' => $owner->alias,
 				'owner_id' => $owner->id,
 				'object_model' => $model->alias,
 				'object_id' => $model->id
-			));
-	}
+        );
+        $fields = array('Ownership.access');
+        $result = ClassRegistry::init('Ownership')->find('all', compact('fields', 'conditions'));
+        if (!$result) {
+            return false;
+        }
 
+        return $result[0]['Ownership']['access'];
+	}
 
 /**
  * Change permissions.
  *
- * @param string $model 
- * @param string $owner 
- * @param string $newPermissions 
- * @param string $id 
+ * @param string $model
+ * @param string $owner
+ * @param string $newPermissions
+ * @param string $id
+ *
  * @return string|boolean
  */
 	public function modifyOwnerPermissions($model, $owner, $newPermissions, $id = null) {
@@ -264,44 +289,29 @@ class OwnableBehavior extends ModelBehavior {
         return $result;
 	}
 
-/**
- * Checks if a given owner is tied with an object
- * Wrapper for whatAccess
+    /**
+     * Remove the relation between object and owner
  *
- * @param string $model 
- * @param string $owner 
- * @param string $id 
+     * @param string $model
+     * @param string $owner
+     * @param string $id
+     *
  * @return bool
  */
-	public function isOwner($model, $owner, $id = null) {
-		return $this->whatAccess($model, $owner, $id) > 0;
-	}
-	
-/**
- * Checks if an owner is tied to an object and returns access permissions
- *
- * @param string $model 
- * @param string $owner 
- * @param string $id 
- * @return bool|integer
- */	
-	public function whatAccess($model, $owner, $id = null) {
+    public function removeOwner($model, $owner, $id = null)
+    {
 		$model->setId($id);
 
-		$conditions = array(
+        return ClassRegistry::init('Ownership')->deleteAll(
+            array(
 				'owner_model' => $owner->alias,
 				'owner_id' => $owner->id,
 				'object_model' => $model->alias,
 				'object_id' => $model->id
-			);
-		$fields = array('Ownership.access');
-		$result = ClassRegistry::init('Ownership')->find('all', compact('fields', 'conditions'));
-		if (!$result) {
-			return false;
-		}
-		return $result[0]['Ownership']['access'];
+            )
+        )
+            ;
 	}
-
 
 /**
  * Retrieves Owner not tied with Object
@@ -338,9 +348,10 @@ class OwnableBehavior extends ModelBehavior {
 /**
  * Retrieves Owners tied with an object
  *
- * @param string $model 
- * @param string $ownerModel 
- * @param string $extraQuery 
+ * @param string $model
+ * @param string $ownerModel
+ * @param string $extraQuery
+ *
  * @return array
  */
 	public function owners($model, $ownerModel, $extraQuery = array())

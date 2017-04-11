@@ -77,8 +77,9 @@ class TableHelper extends AppHelper
 /**
  * Renders a table for $data, using $options if provided
  *
- * @param string $data 
- * @param string $options 
+ * @param string $data
+ * @param string $options
+ *
  * @return void
  */
 
@@ -144,6 +145,249 @@ class TableHelper extends AppHelper
 		}
 		return $code;
 	}
+
+    /**
+     * Extract and format the column names from the data array. Normalize column names
+     * to Model.field, using the data available
+     *
+     * @param string $data
+     *
+     * @return void
+     */
+    function setFields(&$data)
+    {
+        if (empty($data)) {
+            return false;
+        }
+        $row = $data[key($data)];
+        $columns = array();
+        $models = array_keys($row);
+        foreach ($models as $model) {
+            $fields = Set::extract($row, "/$model");
+            // Fields provided without model, add default Model
+            if (!is_array($fields[0])) {
+                $columns[] = sprintf('%s.%s', $this->defaultModel, $model);
+                continue;
+            }
+            $fields = array_keys($fields[0][$model]);
+            foreach ($fields as $field) {
+                $columns[] = sprintf('%s.%s', $model, $field);
+            }
+        }
+        $this->fields = $columns;
+
+        return true;
+    }
+
+    /**
+     * Normalize the data array from [Model][field] to [Model.field], to couple data and fields array providing an
+     * unified way to access data
+     *
+     * @param string $data
+     *
+     * @return void
+     */
+    public function normalize(&$data)
+    {
+        if (empty($data)) {
+            return false;
+        }
+        $normalized = array();
+        foreach ($data as $count => $row) {
+            foreach ($this->fields as $column) {
+                list($model, $field) = explode('.', $column);
+                if (array_key_exists($model, $row)) {
+                    if (array_key_exists($field, $row[$model])) {
+                        $normalized[$count][$column] = $row[$model][$field];
+                    }
+                }
+                if (array_key_exists($field, $row)) {
+                    $normalized[$count][$column] = $row[$field];
+                }
+            }
+        }
+        $this->data = $normalized;
+
+        return true;
+    }
+
+    /**
+     * Prepares the array of column options, removes columns defined with null
+     *
+     * @param string $settings
+     *
+     * @return array
+     */
+    public function setColumns($settings = array())
+    {
+        if (!$settings) {
+            $settings = $this->fields;
+        }
+        $this->Columns = array();
+        foreach ($settings as $column => $options) {
+            if (!is_string($column)) {
+                $column = $options;
+                $options = false;
+            }
+            if (!isset($options['display'])) {
+                $options['display'] = true;
+            }
+            if (strpos($column, '.') === false && $column != 'actions') {
+                $column = sprintf('%s.%s', $this->defaultModel, $column);
+            }
+            if (!isset($options['type'])) {
+                if (isset($options['switch'])) {
+                    $options['type'] = 'switch';
+                } else {
+                    $options['type'] = 'cell';
+                }
+            }
+            $class = ucfirst($options['type']).'Column';
+            $this->Columns[$column] = new $class($this, $column, $options);
+        }
+    }
+
+    /**
+     * Returns an array of HTML tags to build a header. Uses Paginator to create clickable
+     * header to sort the data set
+     * @return string with the HTML for headers
+     */
+    function headers()
+    {
+        // Maintain URL params for pagination
+        if (empty($this->params['pass'])) {
+            $this->params['pass'] = array();
+        }
+        $options = array(
+            'url' => array_merge($this->tableOptions['url'], $this->params['named'], $this->params['pass']),
+            //'model' => $this->defaultModel
+        );
+        if (!empty($this->tableOptions['ajax'])) {
+            $options['update'] = $this->tableOptions['ajax']['mh-update'];
+            $options['indicator'] = $this->tableOptions['ajax']['mh-indicator'];
+            $options['before'] = $this->Js->get($options['indicator'])->effect('fadeIn', array('buffer' => false));
+            $options['complete'] = $this->Js->get($options['indicator'])->effect('fadeOut', array('buffer' => false));
+        }
+
+
+        $this->Paginator->options($options);
+
+        $lines = array();
+        foreach ($this->Columns as $field => $Column) {
+            $lines[] = $headerHTML[] = $Column->header();
+        }
+
+        $row = $this->Html->tag('tr', implode(chr(10), $lines));
+
+        return $this->Html->tag('thead', $row);
+    }
+
+    /**
+     * Build the table body
+     *
+     * @return void
+     */
+    public function body()
+    {
+        $this->altRow = false;
+        $lastBreakValue = null;
+        $body[] = '<tbody>';
+        $breaks = 0;
+        foreach ($this->data as $index => $row) {
+            if (!empty($this->tableOptions['break'])) {
+                $breakValue = $row[$this->tableOptions['break']];
+                if ($breakValue !== $lastBreakValue) {
+                    $lastBreakValue = $breakValue;
+                    if ($breaks) {
+                        $body[] = '</tbody>';
+                        $body[] = '<tbody class="page-break-before">';
+                    }
+                    $breaks++;
+                    $body[] = $this->buildBreakRow($this->tableOptions['break'], $row);
+                    // continue;
+                }
+            }
+            $body[] = $this->buildRow($row);
+        }
+        $body[] = '</tbody>';
+
+        $ret = implode(chr(10), $body);
+
+        if (!empty($this->tableOptions['totals'])) {
+            $ret .= $this->buildTotalsRow();
+        }
+
+        return $ret;
+    }
+
+    /**
+     * Builds a Break Row
+     *
+     * @param string $field
+     * @param string $row
+     *
+     * @return void
+     */
+    public function buildBreakRow($field, &$row)
+    {
+        $content = $this->Columns[$field]->options['label'].': '.$row[$field];
+        $cell = $this->Html->tag('td', $content, array('colspan' => count($this->Columns)));
+
+        return $this->Html->tag('tr', $cell, array('class' => 'breakrow'));
+    }
+
+    /**
+     * Builds a row of data
+     *
+     * @param array $row
+     *
+     * @return html
+     */
+    public function buildRow(&$row)
+    {
+        $lines = array();
+        $class = '';
+        foreach ($this->Columns as $field => $Column) {
+            $lines[] = $Column->cell($row);
+        }
+        if ($this->tableOptions['group']) {
+            $level = 1000;
+            foreach ($this->tableOptions['group'] as $count => $group) {
+                if (is_null($row[$group]) && $count < $level) {
+                    $level = $count;
+                }
+            }
+            if ($level < 1000) {
+                $class = 'mh-table-group-row mh-table-group-row-level-'.$level;
+            }
+
+        }
+        if (empty($class) && $this->altRow) {
+            $class = 'altrow';
+        }
+        $this->altRow = !$this->altRow;
+
+        return $this->Html->tag('tr', implode(chr(10), $lines), array('class' => $class));
+    }
+
+    /**
+     * Builds a Totals Row (only supports sum)
+     *
+     * @return void
+     */
+    public function buildTotalsRow()
+    {
+        $line = '';
+        foreach ($this->Columns as $field => $Column) {
+            if (in_array($field, $this->tableOptions['totals'])) {
+                $line .= $this->Html->tag('td', $Column->sum(), array('class' => 'cell-number'));
+            } else {
+                $line .= $this->Html->tag('td', ' ');
+            }
+        }
+
+        return $this->Html->tag('tr', $line, array('class' => 'totalsrow'));
+    }
 	
 	protected function _buildSelectionForm($code) {
 		$f = $this->Form->create('_Selection', array(
@@ -153,9 +397,9 @@ class TableHelper extends AppHelper
 			)
 		);
 		$selectionLabel = $this->Html->tag('label', __('Action to perform with selection', true), array('for' => '_SelectionAction'));
-		
+
 		$selectionField = $this->Form->select(
-			'_Selection.action', 
+            '_Selection.action',
 			$this->tableOptions['selection']['actions'],
 			null,
 			array(
@@ -177,7 +421,7 @@ class TableHelper extends AppHelper
 		$f .= $this->Form->end();
 		return $f;
 	}
-	
+
 	public function selectionWidget()
 	{
 		$code = $this->Form->create('_Selection', array(
@@ -191,9 +435,10 @@ class TableHelper extends AppHelper
 			'options' => $this->tableOptions['selection']['actions'],
 			'empty' => __('-- Select an action --', true),
 			'class' => 'selection-control'
-		));
-		
-		
+		)
+        );
+
+
 		$code .= $this->Form->submit(__('Execute', true), array(
 			'div' => false,
 			'class' => 'selection-control mh-btn-action-warning',
@@ -202,7 +447,7 @@ class TableHelper extends AppHelper
 		$code = $this->Html->div('mh-admin-widget', $code, array('id' => 'mh-table-selection-action'));
 		return $code;
 	}
-	
+
 	public function selectionForm()
 	{
 		if (empty($this->tableOptions['selection'])) {
@@ -214,16 +459,17 @@ class TableHelper extends AppHelper
 /**
  * Simplify data for the table
  *
- * @param string $data 
- * @param string $options 
+ * @param string $data
+ * @param string $options
+ *
  * @return void
- */	
+ */
 	public function simplify($data, $options = array())
 	{
 		if (!$data) {
 			return false;
 		}
-		
+
 		if (empty($options['columns'])) {
 			$options['columns'] = array();
 		}
@@ -234,53 +480,21 @@ class TableHelper extends AppHelper
 			$this->tableOptions['attr']['class'] = $this->tableOptions['class'];
 			$this->tableOptions['attr']['id'] = $this->tableOptions['id'];
 			unset($options['table']);
-		}
-		
-		// Get default model 
+        }
+
+        // Get default model
 		$this->defaultModel = $this->params['models'][0];
 		if (!empty($this->tableOptions['model'])) {
 			$this->defaultModel = $this->tableOptions['model'];
-		}
-		
-				
+        }
+
+
 		$this->setFields($data);
 		// Set and normalize data for table
 		$this->normalize($data);
 		// Set and normalize visible columns
 		$this->setColumns($options['columns']);
 		return $this->data;
-	}
-/**
- * Returns an array of HTML tags to build a header. Uses Paginator to create clickable
- * header to sort the data set
- * @return String with the HTML for headers
- */
-	function headers () {
-		// Maintain URL params for pagination
-		if (empty($this->params['pass'])) {
-			$this->params['pass'] = array();
-		}
-		$options = array(
-			'url' => array_merge($this->tableOptions['url'], $this->params['named'], $this->params['pass']),
-			//'model' => $this->defaultModel
-		);
-		if (!empty($this->tableOptions['ajax'])) {
-			$options['update'] = $this->tableOptions['ajax']['mh-update'];
-			$options['indicator'] = $this->tableOptions['ajax']['mh-indicator'];
-			$options['before'] = $this->Js->get($options['indicator'])->effect('fadeIn', array('buffer' => false));
-			$options['complete'] = $this->Js->get($options['indicator'])->effect('fadeOut', array('buffer' => false));
-		}
-		
-
-		$this->Paginator->options($options);
-
-		$lines = array();
-		foreach ($this->Columns as $field => $Column) {
-			$lines[] = $headerHTML[] = $Column->header();
-		}
-		
-		$row = $this->Html->tag('tr', implode(chr(10), $lines));
-		return $this->Html->tag('thead', $row);
 	}
 
 /**
@@ -301,9 +515,9 @@ class TableHelper extends AppHelper
  * returns data as a simple array or arrays to use them in a csv file or similar
  *
  * @return void
- */	
+ */
 	public function csvData()
-	{	
+	{
 		$data = array();
 		foreach ($this->data as $index => $row) {
 			foreach ($this->Columns as $field => $Column) {
@@ -312,198 +526,12 @@ class TableHelper extends AppHelper
 		}
 		return $data;
 	}
-/**
- * Build the table body
- *
- * @return void
- */	
-	public function body() {
-		$this->altRow = false;
-		$lastBreakValue = null;
-		$body[] = '<tbody>';
-		$breaks = 0;
-		foreach ($this->data as $index => $row) {
-			if (!empty($this->tableOptions['break'])) {
-				$breakValue = $row[$this->tableOptions['break']];
-				if ($breakValue !== $lastBreakValue) {
-					$lastBreakValue = $breakValue;
-					if ($breaks) {
-						$body[] = '</tbody>';
-						$body[] = '<tbody class="page-break-before">';
-					}
-					$breaks++;
-					$body[] = $this->buildBreakRow($this->tableOptions['break'], $row);
-					// continue;
-				}
-			} 
-			$body[] = $this->buildRow($row);
-		}
-		$body[] = '</tbody>';
-		
-		$ret = implode(chr(10), $body);
-		
-		if (!empty($this->tableOptions['totals'])) {
-			$ret .= $this->buildTotalsRow();
-		}
-		return $ret;
-	}
-	
-/**
- * Builds a row of data
- *
- * @param array $row 
- * @return html
- */
-	public function buildRow(&$row) {
-		$lines = array();
-		$class = '';
-		foreach ($this->Columns as $field => $Column) {
-			$lines[] = $Column->cell($row);
-		}
-		if ($this->tableOptions['group']) {
-			$level = 1000;
-			foreach ($this->tableOptions['group'] as $count => $group) {
-				if (is_null($row[$group]) && $count < $level) {
-					$level = $count;
-				}
-			}
-			if ($level < 1000) {
-				$class = 'mh-table-group-row mh-table-group-row-level-'.$level;
-			}
-
-		}
-		if (empty($class) && $this->altRow) {
-			$class = 'altrow';
-		}
-		$this->altRow = !$this->altRow;
-		return $this->Html->tag('tr', implode(chr(10), $lines), array('class' => $class));
-	}
-
-/**
- * Builds a Break Row
- *
- * @param string $field 
- * @param string $row 
- * @return void
- */
-	public function buildBreakRow($field, &$row) {
-		$content = $this->Columns[$field]->options['label'].': '.$row[$field];
-		$cell = $this->Html->tag('td', $content, array('colspan' => count($this->Columns)));
-		return $this->Html->tag('tr', $cell, array('class' => 'breakrow'));
-	}
-/**
- * Builds a Totals Row (only supports sum)
- *
- * @return void
- */	
-	public function buildTotalsRow()
-	{
-		$line = '';
-		foreach ($this->Columns as $field => $Column) {
-			if (in_array($field, $this->tableOptions['totals'])) {
-				$line .= $this->Html->tag('td', $Column->sum(), array('class' => 'cell-number'));
-			} else {
-				$line .= $this->Html->tag('td', ' ');
-			}
-		}
-		return $this->Html->tag('tr', $line, array('class' => 'totalsrow'));		
-	}
-/**
- * Extract and format the column names from the data array. Normalize column names
- * to Model.field, using the data available
- *
- * @param string $data 
- * @return void
- */
-	function setFields(&$data) {
-		if (empty($data)) {
-			return false;
-		}
-		$row = $data[key($data)];
-		$columns = array();
-		$models = array_keys($row);
-		foreach ($models as $model) {
-			$fields = Set::extract($row, "/$model");
-			// Fields provided without model, add default Model
-			if (!is_array($fields[0])) {
-				$columns[] = sprintf('%s.%s', $this->defaultModel, $model);
-				continue;
-			}
-			$fields = array_keys($fields[0][$model]);
-			foreach ($fields as $field) {
-				$columns[] = sprintf('%s.%s', $model, $field);
-			}
-		}
-		$this->fields = $columns;
-		return true;
-	}
-
-/**
- * Normalize the data array from [Model][field] to [Model.field], to couple data and fields array providing an unified way to access data
- *
- * @param string $data 
- * @return void
- */	
-	public function normalize(&$data) {
-		if (empty($data)) {
-			return false;
-		}
-		$normalized = array();
-		foreach ($data as $count => $row) {
-			foreach ($this->fields as $column) {
-				list($model, $field) = explode('.', $column);
-				if (array_key_exists($model, $row)) {
-					if (array_key_exists($field, $row[$model])) {
-						$normalized[$count][$column] = $row[$model][$field];
-					}
-				}
-				if (array_key_exists($field, $row)) {
-					$normalized[$count][$column] = $row[$field];
-				}
-			}
-		}
-		$this->data = $normalized;
-		return true;
-	}
-
-/**
- * Prepares the array of column options, removes columns defined with null
- *
- * @param string $settings 
- * @return array 
- */	
-	public function setColumns($settings = array()) {
-		if (!$settings) {
-			$settings = $this->fields;
-		}
-		$this->Columns = array();
-		foreach ($settings as $column => $options) {
-			if (!is_string($column)) {
-				$column = $options;
-				$options = false;
-			}
-			if (!isset($options['display'])) {
-				$options['display'] = true;
-			}
-			if (strpos($column, '.') === false && $column != 'actions') {
-				$column = sprintf('%s.%s', $this->defaultModel, $column);
-			}
-			if (!isset($options['type'])) {
-				if (isset($options['switch'])) {
-					$options['type'] = 'switch';
-				} else {
-					$options['type'] = 'cell';
-				}
-			}
-			$class = ucfirst($options['type']).'Column';
-			$this->Columns[$column] = new $class($this, $column, $options);
-		}
-	}
 	
 /**
  * Helper to create the content of a toggle Cell for use in ajax responses
  *
- * @param string $value 
+ * @param string $value
+ *
  * @return void
  */
 	public function toggleCell($value = false) {
@@ -637,7 +665,8 @@ class Column
 /**
  * Note: array data is converted to a comma separated string by default
  *
- * @param string $row 
+ * @param string $row
+ *
  * @return void
  */	
 	public function value($row) {
@@ -1057,6 +1086,17 @@ class ActionsColumn extends Column {
 		}
 		$this->options['actions'] = $actions;
 	}
+
+    protected function _normalizeSwitchAction($action, $options)
+    {
+        $actions = array();
+        foreach ($options['actions'] as $actionName => $actionOptions) {
+            $actions[$actionName] = $this->_normalizeAction($actionName, $actionOptions);
+        }
+        $options['actions'] = $actions;
+
+        return $options;
+    }
 	
 	protected function _normalizeAction($action, $options) {
 		if (is_numeric($action)) {
@@ -1083,23 +1123,14 @@ class ActionsColumn extends Column {
 		$pagination = array_intersect_key($this->Table->params['named'], $extract);
 		if (!empty($pagination)) {
 			$options['url'] = array_merge($options['url'], $pagination);
-		}
-		
+        }
+
 		if (empty($options['icon']) && file_exists(IMAGES.'icons'.DS.$action.'_32.png')) {
 			$options['icon'] = 'icons'.DS.$action.'_32.png';
 		}
 		if (!empty($options['icon'])) {
 			$options['icon'] = $this->Table->Html->image($options['icon']);
 		}
-		return $options;
-	}
-	
-	protected function _normalizeSwitchAction($action, $options) {
-		$actions = array();
-		foreach ($options['actions'] as $actionName => $actionOptions) {
-			$actions[$actionName] = $this->_normalizeAction($actionName, $actionOptions);
-		}
-		$options['actions'] = $actions;
 		return $options;
 	}
 	
@@ -1115,7 +1146,34 @@ class ActionsColumn extends Column {
 		}
 		return implode(' ', $code);
 	}
-	
+
+    /**
+     * Builds the button for a Switch Action
+     * 'default' option allows a "fallback" for values that has no explicit action, i.e.
+     * when you has multiple values but only two alternative options
+     *
+     * @param string $action
+     * @param string $options
+     * @param string $row
+     *
+     * @return void
+     * @author Frankie
+     */
+    protected function _buildSwitchActionButton($action, $options, $row)
+    {
+        $trigger = $row[$options['switchField']];
+        if (!isset($options['switch'][$trigger])) {
+            $trigger = $options['default'];
+        }
+        $actionName = $options['switch'][$trigger];
+        if (!isset($options['actions'][$actionName])) {
+            return false;
+        }
+        $actionOptions = $options['actions'][$actionName];
+
+        return $this->_buildActionButton($actionName, $actionOptions, $row);
+    }
+
 	protected function _buildActionButton($action, $options, $row) {
 		$attr = '';
 		if (!empty($options['attr'])) {
@@ -1124,22 +1182,22 @@ class ActionsColumn extends Column {
 		if (!empty($options['icon'])) {
 			$attr['escape'] = false;
 			//$options['template'] = ':icon';
-		}
-		
+        }
+
 		if (empty($attr['class'])) {
 			$attr['class'] = 'mh-btn-'.$action;
 		}
 		$attr['class'] = 'mh-btn-action '.$attr['class'];
-		
-		$label = trim(String::insert($options['template'], $options));
-		
+
+        $label = trim(CakeString::insert($options['template'], $options));
+
 		if (!empty($options['switch'])) {
 			$newUrl = $options['switch'][$row[$options['switchField']]];
 			$options['url'] = array_merge($options['url'], $newUrl);
 		}
 		$url = $options['url'];
 		$url[] = $row[$options['argField']];
-		
+
 		if (!empty($options['ajax'])) {
 			$attr['mh-indicator'] = $options['ajax']['mh-indicator'];
 			$attr['mh-update'] = $options['ajax']['mh-update'];
@@ -1149,33 +1207,9 @@ class ActionsColumn extends Column {
 			}
 			$attr['class'] .= ' mh-ajax-btn-'.$ajaxClass;
 			$attr['id'] = 'mh-ajax-btn-'.$action.'-'.$row[$options['argField']];
-		}
-		
-		return $this->Table->Html->link($label, $url, $attr, $options['confirm']);
-	}
+        }
 
-/**
- * Builds the button for a Switch Action
- * 'default' option allows a "fallback" for values that has no explicit action, i.e.
- * when you has multiple values but only two alternative options
- *
- * @param string $action 
- * @param string $options 
- * @param string $row 
- * @return void
- * @author Frankie
- */
-	protected function _buildSwitchActionButton($action, $options, $row) {
-		$trigger = $row[$options['switchField']];
-		if (!isset($options['switch'][$trigger])) {
-			$trigger = $options['default'];
-		}
-		$actionName = $options['switch'][$trigger];
-		if (!isset($options['actions'][$actionName])) {
-			return false;
-		}
-		$actionOptions = $options['actions'][$actionName];
-		return $this->_buildActionButton($actionName, $actionOptions, $row);
+		return $this->Table->Html->link($label, $url, $attr, $options['confirm']);
 	}
 
 }

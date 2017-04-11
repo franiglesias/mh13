@@ -87,7 +87,7 @@ class MeritsController extends ResumesAppController {
             [
                 'merit_type_id' => $type,
                 'resume_id' => $this->Session->read('Resume.Auth.id'),
-                'id' => String::uuid(),
+                'id' => CakeString::uuid(),
             ]
         );
     }

@@ -28,6 +28,7 @@ class Comment extends CommentsAppModel {
  * Set approved field to true for current model or model specified by id
  *
  * @param string $id The id of the comment
+ *
  * @return boolean true on success
  */	
 	public function approve($id = false)
@@ -45,9 +46,10 @@ class Comment extends CommentsAppModel {
 /**
  * Get mode for comments
  *
- * @param string $model 
- * @param string $id 
- * @param string $field 
+ * @param string $model
+ * @param string $id
+ * @param string $field
+ *
  * @return void
  */
 	public function mode($model, $id, $field = 'allow_comments')
@@ -71,7 +73,8 @@ class Comment extends CommentsAppModel {
 /**
  * Apply some passive defense rules to validate comments
  *
- * @param string $comment 
+ * @param string $comment
+ *
  * @return void
  */	
 	public function antispam($comment, $turing = false) {

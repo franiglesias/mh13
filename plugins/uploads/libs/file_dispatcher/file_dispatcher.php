@@ -27,11 +27,16 @@ class FileDispatcher implements FileDispatcherInterface
 	}
 	
 	# Public interface implementation
+
+    public function addTypeRoute($type, $folder)
+    {
+        $this->routes[$type] = $folder;
+    }
 	
 	public function dispatch(DispatchedFileInterface $File, $routing = 'route')
 	{
 		$this->routing = $routing;
-		$this->File =& $File;
+        $this->File = $File;
 		$this->configureFileObject();
 		try {
 			$this->createFolder($this->destinationFolder());
@@ -44,34 +49,11 @@ class FileDispatcher implements FileDispatcherInterface
 		}
 	}
 	
-	public function addTypeRoute($type, $folder)
-	{
-		$this->routes[$type] = $folder;
-	}
-	
-	public function addSubRoute($folder)
-	{
-		$this->subRoutes[] = $folder;
-	}
-	
-	public function move()
-	{
-		$this->move = true;
-		return $this;
-	}
-	
-	public function copy()
-	{
-		$this->move = false;
-		return $this;
-	}
-	
-	# Private and utility methods section
-	
 	/**
 	 * Configure File Object
 	 *
-	 * @param string $options 
+     * @param string $options
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
@@ -82,22 +64,6 @@ class FileDispatcher implements FileDispatcherInterface
 		$this->File->setFolder($this->typeRouting().$this->subRouting());
 	}
 	
-	/**
-	 * Computes destination folder
-	 *
-	 * @param string $move 
-	 * @return void
-	 * @author Fran Iglesias
-	 */
-	private function destinationFolder()
-	{
-		file_put_contents(LOGS.'mh-uploads.log', date('Y-m-d H:i > ').'[Dispatcher->destinationFolder] '.$this->baseDestinationFolder().chr(10), FILE_APPEND);
-		
-		return $this->baseDestinationFolder()
-			.$this->typeRouting()
-			.$this->subRouting();
-	}
-	
 	private function baseDestinationFolder()
 	{
 		if (array_key_exists($this->routing, $this->basePaths)) {
@@ -106,25 +72,13 @@ class FileDispatcher implements FileDispatcherInterface
 		return $this->basePaths['route'];
 	}
 	
-	private function createFolder($folder)
-	{
-		if (file_exists($folder)) {
-			return true;
-		}
-		$Folder = new Folder();
-		if (!$Folder->create($folder)) {
-			throw new RunTimeException(sprintf('Dispatcher: Unable to create folder %s', $folder), 1);
-		}
-		return true;
-	}
-	
 	/**
 	 * Computes subroutings
 	 *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
-	
+
 	private function typeRouting()
 	{
 		$type = $this->Mime->simpleType($this->File->getReceivedFile());
@@ -133,6 +87,8 @@ class FileDispatcher implements FileDispatcherInterface
 		}
 		return $this->routes[$type].DS;
 	}
+
+    # Private and utility methods section
 	
 	private function subRouting()
 	{
@@ -141,12 +97,47 @@ class FileDispatcher implements FileDispatcherInterface
 		}
 		return implode(DS, $this->subRoutes).DS;
 	}
+
+    private function createFolder($folder)
+    {
+        if (file_exists($folder)) {
+            return true;
+        }
+        $Folder = new Folder();
+        if (!$Folder->create($folder)) {
+            throw new RunTimeException(sprintf('Dispatcher: Unable to create folder %s', $folder), 1);
+        }
+
+        return true;
+    }
+
+    /**
+     * Computes destination folder
+     *
+     * @param string $move
+     *
+     * @return void
+     * @author Fran Iglesias
+     */
+    private function destinationFolder()
+    {
+        file_put_contents(
+            LOGS.'mh-uploads.log',
+            date('Y-m-d H:i > ').'[Dispatcher->destinationFolder] '.$this->baseDestinationFolder().chr(
+                10
+            ),
+            FILE_APPEND
+        );
+
+        return $this->baseDestinationFolder().$this->typeRouting().$this->subRouting();
+    }
 	
 	/**
 	 * Performs the copy or movement of the physical file
 	 *
-	 * @param string $source 
-	 * @param string $destination 
+     * @param string $source
+     * @param string $destination
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
@@ -168,12 +159,13 @@ class FileDispatcher implements FileDispatcherInterface
 	/**
 	 * Computes an alernative name to resolve conflicts
 	 *
-	 * @param string $destination 
+     * @param string $destination
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
-	
-	private function resolveConflict($destination)
+
+    private function resolveConflict($destination)
 	{
 		if (!file_exists($destination)) {
 			return $destination;
@@ -184,9 +176,28 @@ class FileDispatcher implements FileDispatcherInterface
 			.pathinfo($destination, PATHINFO_FILENAME)
 			.'-'.mt_rand(10, 99)
 			.'.'.pathinfo($destination, PATHINFO_EXTENSION);
-		
-		return $this->resolveConflict($newName);
+
+        return $this->resolveConflict($newName);
 	}
+
+    public function addSubRoute($folder)
+    {
+        $this->subRoutes[] = $folder;
+    }
+
+    public function move()
+    {
+        $this->move = true;
+
+        return $this;
+    }
+
+    public function copy()
+    {
+        $this->move = false;
+
+        return $this;
+    }
 }
 
 

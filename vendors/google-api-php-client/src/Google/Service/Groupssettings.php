@@ -108,7 +108,8 @@ class Google_Service_Groupssettings_Groups_Resource extends Google_Service_Resou
    * Gets one resource by id. (groups.get)
    *
    * @param string $groupUniqueId The resource ID
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Groupssettings_Groups
    */
   public function get($groupUniqueId, $optParams = array())
@@ -122,9 +123,10 @@ class Google_Service_Groupssettings_Groups_Resource extends Google_Service_Resou
    * Updates an existing resource. This method supports patch semantics.
    * (groups.patch)
    *
-   * @param string $groupUniqueId The resource ID
+   * @param string        $groupUniqueId The resource ID
    * @param Google_Groups $postBody
-   * @param array $optParams Optional parameters.
+   * @param array         $optParams     Optional parameters.
+   *
    * @return Google_Service_Groupssettings_Groups
    */
   public function patch($groupUniqueId, Google_Service_Groupssettings_Groups $postBody, $optParams = array())
@@ -137,9 +139,10 @@ class Google_Service_Groupssettings_Groups_Resource extends Google_Service_Resou
   /**
    * Updates an existing resource. (groups.update)
    *
-   * @param string $groupUniqueId The resource ID
+   * @param string        $groupUniqueId The resource ID
    * @param Google_Groups $postBody
-   * @param array $optParams Optional parameters.
+   * @param array         $optParams     Optional parameters.
+   *
    * @return Google_Service_Groupssettings_Groups
    */
   public function update($groupUniqueId, Google_Service_Groupssettings_Groups $postBody, $optParams = array())
@@ -155,8 +158,6 @@ class Google_Service_Groupssettings_Groups_Resource extends Google_Service_Resou
 
 class Google_Service_Groupssettings_Groups extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $allowExternalMembers;
   public $allowGoogleCommunication;
   public $allowWebPosting;
@@ -185,230 +186,285 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public $whoCanPostMessage;
   public $whoCanViewGroup;
   public $whoCanViewMembership;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAllowExternalMembers($allowExternalMembers)
-  {
-    $this->allowExternalMembers = $allowExternalMembers;
-  }
   public function getAllowExternalMembers()
   {
     return $this->allowExternalMembers;
   }
-  public function setAllowGoogleCommunication($allowGoogleCommunication)
+
+    public function setAllowExternalMembers($allowExternalMembers)
   {
-    $this->allowGoogleCommunication = $allowGoogleCommunication;
+      $this->allowExternalMembers = $allowExternalMembers;
   }
+
   public function getAllowGoogleCommunication()
   {
     return $this->allowGoogleCommunication;
   }
-  public function setAllowWebPosting($allowWebPosting)
+
+    public function setAllowGoogleCommunication($allowGoogleCommunication)
   {
-    $this->allowWebPosting = $allowWebPosting;
+      $this->allowGoogleCommunication = $allowGoogleCommunication;
   }
+
   public function getAllowWebPosting()
   {
     return $this->allowWebPosting;
   }
-  public function setArchiveOnly($archiveOnly)
+
+    public function setAllowWebPosting($allowWebPosting)
   {
-    $this->archiveOnly = $archiveOnly;
+      $this->allowWebPosting = $allowWebPosting;
   }
+
   public function getArchiveOnly()
   {
     return $this->archiveOnly;
   }
-  public function setCustomReplyTo($customReplyTo)
+
+    public function setArchiveOnly($archiveOnly)
   {
-    $this->customReplyTo = $customReplyTo;
+      $this->archiveOnly = $archiveOnly;
   }
+
   public function getCustomReplyTo()
   {
     return $this->customReplyTo;
   }
-  public function setDefaultMessageDenyNotificationText($defaultMessageDenyNotificationText)
+
+    public function setCustomReplyTo($customReplyTo)
   {
-    $this->defaultMessageDenyNotificationText = $defaultMessageDenyNotificationText;
+      $this->customReplyTo = $customReplyTo;
   }
+
   public function getDefaultMessageDenyNotificationText()
   {
     return $this->defaultMessageDenyNotificationText;
   }
-  public function setDescription($description)
+
+    public function setDefaultMessageDenyNotificationText($defaultMessageDenyNotificationText)
   {
-    $this->description = $description;
+      $this->defaultMessageDenyNotificationText = $defaultMessageDenyNotificationText;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setEmail($email)
+
+    public function setDescription($description)
   {
-    $this->email = $email;
+      $this->description = $description;
   }
+
   public function getEmail()
   {
     return $this->email;
   }
-  public function setIncludeInGlobalAddressList($includeInGlobalAddressList)
+
+    public function setEmail($email)
   {
-    $this->includeInGlobalAddressList = $includeInGlobalAddressList;
+      $this->email = $email;
   }
+
   public function getIncludeInGlobalAddressList()
   {
     return $this->includeInGlobalAddressList;
   }
-  public function setIsArchived($isArchived)
+
+    public function setIncludeInGlobalAddressList($includeInGlobalAddressList)
   {
-    $this->isArchived = $isArchived;
+      $this->includeInGlobalAddressList = $includeInGlobalAddressList;
   }
+
   public function getIsArchived()
   {
     return $this->isArchived;
   }
-  public function setKind($kind)
+
+    public function setIsArchived($isArchived)
   {
-    $this->kind = $kind;
+      $this->isArchived = $isArchived;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMaxMessageBytes($maxMessageBytes)
+
+    public function setKind($kind)
   {
-    $this->maxMessageBytes = $maxMessageBytes;
+      $this->kind = $kind;
   }
+
   public function getMaxMessageBytes()
   {
     return $this->maxMessageBytes;
   }
-  public function setMembersCanPostAsTheGroup($membersCanPostAsTheGroup)
+
+    public function setMaxMessageBytes($maxMessageBytes)
   {
-    $this->membersCanPostAsTheGroup = $membersCanPostAsTheGroup;
+      $this->maxMessageBytes = $maxMessageBytes;
   }
+
   public function getMembersCanPostAsTheGroup()
   {
     return $this->membersCanPostAsTheGroup;
   }
-  public function setMessageDisplayFont($messageDisplayFont)
+
+    public function setMembersCanPostAsTheGroup($membersCanPostAsTheGroup)
   {
-    $this->messageDisplayFont = $messageDisplayFont;
+      $this->membersCanPostAsTheGroup = $membersCanPostAsTheGroup;
   }
+
   public function getMessageDisplayFont()
   {
     return $this->messageDisplayFont;
   }
-  public function setMessageModerationLevel($messageModerationLevel)
+
+    public function setMessageDisplayFont($messageDisplayFont)
   {
-    $this->messageModerationLevel = $messageModerationLevel;
+      $this->messageDisplayFont = $messageDisplayFont;
   }
+
   public function getMessageModerationLevel()
   {
     return $this->messageModerationLevel;
   }
-  public function setName($name)
+
+    public function setMessageModerationLevel($messageModerationLevel)
   {
-    $this->name = $name;
+      $this->messageModerationLevel = $messageModerationLevel;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setPrimaryLanguage($primaryLanguage)
+
+    public function setName($name)
   {
-    $this->primaryLanguage = $primaryLanguage;
+      $this->name = $name;
   }
+
   public function getPrimaryLanguage()
   {
     return $this->primaryLanguage;
   }
-  public function setReplyTo($replyTo)
+
+    public function setPrimaryLanguage($primaryLanguage)
   {
-    $this->replyTo = $replyTo;
+      $this->primaryLanguage = $primaryLanguage;
   }
+
   public function getReplyTo()
   {
     return $this->replyTo;
   }
-  public function setSendMessageDenyNotification($sendMessageDenyNotification)
+
+    public function setReplyTo($replyTo)
   {
-    $this->sendMessageDenyNotification = $sendMessageDenyNotification;
+      $this->replyTo = $replyTo;
   }
+
   public function getSendMessageDenyNotification()
   {
     return $this->sendMessageDenyNotification;
   }
-  public function setShowInGroupDirectory($showInGroupDirectory)
+
+    public function setSendMessageDenyNotification($sendMessageDenyNotification)
   {
-    $this->showInGroupDirectory = $showInGroupDirectory;
+      $this->sendMessageDenyNotification = $sendMessageDenyNotification;
   }
-  public function getShowInGroupDirectory()
+
+    public function getShowInGroupDirectory()
   {
     return $this->showInGroupDirectory;
   }
-  public function setSpamModerationLevel($spamModerationLevel)
+
+    public function setShowInGroupDirectory($showInGroupDirectory)
   {
-    $this->spamModerationLevel = $spamModerationLevel;
+      $this->showInGroupDirectory = $showInGroupDirectory;
   }
-  public function getSpamModerationLevel()
+
+    public function getSpamModerationLevel()
   {
     return $this->spamModerationLevel;
   }
-  public function setWhoCanContactOwner($whoCanContactOwner)
+
+    public function setSpamModerationLevel($spamModerationLevel)
   {
-    $this->whoCanContactOwner = $whoCanContactOwner;
+      $this->spamModerationLevel = $spamModerationLevel;
   }
-  public function getWhoCanContactOwner()
+
+    public function getWhoCanContactOwner()
   {
     return $this->whoCanContactOwner;
   }
-  public function setWhoCanInvite($whoCanInvite)
+
+    public function setWhoCanContactOwner($whoCanContactOwner)
   {
-    $this->whoCanInvite = $whoCanInvite;
+      $this->whoCanContactOwner = $whoCanContactOwner;
   }
-  public function getWhoCanInvite()
+
+    public function getWhoCanInvite()
   {
     return $this->whoCanInvite;
   }
-  public function setWhoCanJoin($whoCanJoin)
+
+    public function setWhoCanInvite($whoCanInvite)
   {
-    $this->whoCanJoin = $whoCanJoin;
+      $this->whoCanInvite = $whoCanInvite;
   }
-  public function getWhoCanJoin()
+
+    public function getWhoCanJoin()
   {
     return $this->whoCanJoin;
   }
-  public function setWhoCanLeaveGroup($whoCanLeaveGroup)
+
+    public function setWhoCanJoin($whoCanJoin)
   {
-    $this->whoCanLeaveGroup = $whoCanLeaveGroup;
+      $this->whoCanJoin = $whoCanJoin;
   }
-  public function getWhoCanLeaveGroup()
+
+    public function getWhoCanLeaveGroup()
   {
     return $this->whoCanLeaveGroup;
   }
-  public function setWhoCanPostMessage($whoCanPostMessage)
+
+    public function setWhoCanLeaveGroup($whoCanLeaveGroup)
   {
-    $this->whoCanPostMessage = $whoCanPostMessage;
+      $this->whoCanLeaveGroup = $whoCanLeaveGroup;
   }
-  public function getWhoCanPostMessage()
+
+    public function getWhoCanPostMessage()
   {
     return $this->whoCanPostMessage;
   }
-  public function setWhoCanViewGroup($whoCanViewGroup)
+
+    public function setWhoCanPostMessage($whoCanPostMessage)
   {
-    $this->whoCanViewGroup = $whoCanViewGroup;
+      $this->whoCanPostMessage = $whoCanPostMessage;
   }
-  public function getWhoCanViewGroup()
+
+    public function getWhoCanViewGroup()
   {
     return $this->whoCanViewGroup;
   }
-  public function setWhoCanViewMembership($whoCanViewMembership)
+
+    public function setWhoCanViewGroup($whoCanViewGroup)
   {
-    $this->whoCanViewMembership = $whoCanViewMembership;
+      $this->whoCanViewGroup = $whoCanViewGroup;
   }
-  public function getWhoCanViewMembership()
+
+    public function getWhoCanViewMembership()
   {
     return $this->whoCanViewMembership;
   }
+
+    public function setWhoCanViewMembership($whoCanViewMembership)
+    {
+        $this->whoCanViewMembership = $whoCanViewMembership;
+    }
 }

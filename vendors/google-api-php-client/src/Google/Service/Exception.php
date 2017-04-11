@@ -33,12 +33,12 @@ class Google_Service_Exception extends Google_Exception implements Google_Task_R
    * Override default constructor to add the ability to set $errors and a retry
    * map.
    *
-   * @param string $message
-   * @param int $code
+   * @param string         $message
+   * @param int            $code
    * @param Exception|null $previous
    * @param [{string, string}] errors List of errors returned in an HTTP
    * response.  Defaults to [].
-   * @param array|null $retryMap Map of errors with retry counts.
+   * @param array|null     $retryMap Map of errors with retry counts.
    */
   public function __construct(
       $message,
@@ -58,24 +58,6 @@ class Google_Service_Exception extends Google_Exception implements Google_Task_R
     if (is_array($retryMap)) {
       $this->retryMap = $retryMap;
     }
-  }
-
-  /**
-   * An example of the possible errors returned.
-   *
-   * {
-   *   "domain": "global",
-   *   "reason": "authError",
-   *   "message": "Invalid Credentials",
-   *   "locationType": "header",
-   *   "location": "Authorization",
-   * }
-   *
-   * @return [{string, string}] List of errors return in an HTTP response or [].
-   */
-  public function getErrors()
-  {
-    return $this->errors;
   }
 
   /**
@@ -100,4 +82,22 @@ class Google_Service_Exception extends Google_Exception implements Google_Task_R
 
     return 0;
   }
+
+    /**
+     * An example of the possible errors returned.
+     *
+     * {
+     *   "domain": "global",
+     *   "reason": "authError",
+     *   "message": "Invalid Credentials",
+     *   "locationType": "header",
+     *   "location": "Authorization",
+     * }
+     *
+     * @return [{string, string}] List of errors return in an HTTP response or [].
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
 }

@@ -26,8 +26,9 @@ class XHtmlHelper extends AppHelper {
 /**
  * Creates the code for a RSS link
  *
- * @param string $label 
- * @param string $channelSlug 
+ * @param string $label
+ * @param string $channelSlug
+ *
  * @return void
  * @author Fran Iglesias
  */

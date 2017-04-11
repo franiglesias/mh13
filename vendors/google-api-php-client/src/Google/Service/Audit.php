@@ -128,11 +128,11 @@ class Google_Service_Audit_Activities_Resource extends Google_Service_Resource
    * Retrieves a list of activities for a specific customer and application.
    * (activities.listActivities)
    *
-   * @param string $customerId Represents the customer who is the owner of target
+   * @param string $customerId    Represents the customer who is the owner of target
    * object on which action was performed.
    * @param string $applicationId Application ID of the application on which the
    * event was performed.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
    *
    * @opt_param string actorEmail Email address of the user who performed the
    * action.
@@ -163,14 +163,13 @@ class Google_Service_Audit_Activities_Resource extends Google_Service_Resource
 
 class Google_Service_Audit_Activities extends Google_Collection
 {
+    public $kind;
+    public $next;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Audit_Activity';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $next;
-
 
   public function setItems($items)
   {
@@ -180,26 +179,33 @@ class Google_Service_Audit_Activities extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNext($next)
+
+    public function setKind($kind)
   {
-    $this->next = $next;
+      $this->kind = $kind;
   }
+
   public function getNext()
   {
     return $this->next;
   }
+
+    public function setNext($next)
+    {
+        $this->next = $next;
+    }
 }
 
 class Google_Service_Audit_Activity extends Google_Collection
 {
+    public $ipAddress;
+    public $kind;
+    public $ownerDomain;
   protected $collection_key = 'events';
   protected $internal_gapi_mappings = array(
   );
@@ -209,10 +215,6 @@ class Google_Service_Audit_Activity extends Google_Collection
   protected $eventsDataType = 'array';
   protected $idType = 'Google_Service_Audit_ActivityId';
   protected $idDataType = '';
-  public $ipAddress;
-  public $kind;
-  public $ownerDomain;
-
 
   public function setActor(Google_Service_Audit_ActivityActor $actor)
   {
@@ -238,103 +240,116 @@ class Google_Service_Audit_Activity extends Google_Collection
   {
     return $this->id;
   }
-  public function setIpAddress($ipAddress)
-  {
-    $this->ipAddress = $ipAddress;
-  }
+
   public function getIpAddress()
   {
     return $this->ipAddress;
   }
-  public function setKind($kind)
+
+    public function setIpAddress($ipAddress)
   {
-    $this->kind = $kind;
+      $this->ipAddress = $ipAddress;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setOwnerDomain($ownerDomain)
+
+    public function setKind($kind)
   {
-    $this->ownerDomain = $ownerDomain;
+      $this->kind = $kind;
   }
+
   public function getOwnerDomain()
   {
     return $this->ownerDomain;
   }
+
+    public function setOwnerDomain($ownerDomain)
+    {
+        $this->ownerDomain = $ownerDomain;
+    }
 }
 
 class Google_Service_Audit_ActivityActor extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $applicationId;
   public $callerType;
   public $email;
   public $key;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setApplicationId($applicationId)
-  {
-    $this->applicationId = $applicationId;
-  }
   public function getApplicationId()
   {
     return $this->applicationId;
   }
-  public function setCallerType($callerType)
+
+    public function setApplicationId($applicationId)
   {
-    $this->callerType = $callerType;
+      $this->applicationId = $applicationId;
   }
+
   public function getCallerType()
   {
     return $this->callerType;
   }
-  public function setEmail($email)
+
+    public function setCallerType($callerType)
   {
-    $this->email = $email;
+      $this->callerType = $callerType;
   }
+
   public function getEmail()
   {
     return $this->email;
   }
-  public function setKey($key)
+
+    public function setEmail($email)
   {
-    $this->key = $key;
+      $this->email = $email;
   }
+
   public function getKey()
   {
     return $this->key;
   }
+
+    public function setKey($key)
+    {
+        $this->key = $key;
+    }
 }
 
 class Google_Service_Audit_ActivityEvents extends Google_Collection
 {
-  protected $collection_key = 'parameters';
-  protected $internal_gapi_mappings = array(
-  );
   public $eventType;
   public $name;
+    protected $collection_key = 'parameters';
+    protected $internal_gapi_mappings = array();
   protected $parametersType = 'Google_Service_Audit_ActivityEventsParameters';
   protected $parametersDataType = 'array';
 
-
-  public function setEventType($eventType)
-  {
-    $this->eventType = $eventType;
-  }
   public function getEventType()
   {
     return $this->eventType;
   }
-  public function setName($name)
+
+    public function setEventType($eventType)
   {
-    $this->name = $name;
+      $this->eventType = $eventType;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setParameters($parameters)
   {
     $this->parameters = $parameters;
@@ -347,70 +362,76 @@ class Google_Service_Audit_ActivityEvents extends Google_Collection
 
 class Google_Service_Audit_ActivityEventsParameters extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setValue($value)
+
+    public function setName($name)
   {
-    $this->value = $value;
+      $this->name = $name;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Audit_ActivityId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $applicationId;
   public $customerId;
   public $time;
   public $uniqQualifier;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setApplicationId($applicationId)
-  {
-    $this->applicationId = $applicationId;
-  }
   public function getApplicationId()
   {
     return $this->applicationId;
   }
-  public function setCustomerId($customerId)
+
+    public function setApplicationId($applicationId)
   {
-    $this->customerId = $customerId;
+      $this->applicationId = $applicationId;
   }
-  public function getCustomerId()
+
+    public function getCustomerId()
   {
     return $this->customerId;
   }
-  public function setTime($time)
+
+    public function setCustomerId($customerId)
   {
-    $this->time = $time;
+      $this->customerId = $customerId;
   }
-  public function getTime()
+
+    public function getTime()
   {
     return $this->time;
   }
-  public function setUniqQualifier($uniqQualifier)
+
+    public function setTime($time)
   {
-    $this->uniqQualifier = $uniqQualifier;
+      $this->time = $time;
   }
-  public function getUniqQualifier()
+
+    public function getUniqQualifier()
   {
     return $this->uniqQualifier;
   }
+
+    public function setUniqQualifier($uniqQualifier)
+    {
+        $this->uniqQualifier = $uniqQualifier;
+    }
 }

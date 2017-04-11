@@ -10,15 +10,7 @@ abstract class FiFormatter extends FiValueDecorator
 	 * @var mixed
 	 */
 	protected $_format = '';
-	/**
-	 * Must override in subclasses
-	 * Used data in $_format to 
-	 *
-	 * @return void
-	 * @author Fran Iglesias
-	 */
-	abstract function format();
-	
+
 	function __construct(FiValue $Value, $format = null)
 	{
 		$this->_Value = $Value;
@@ -26,7 +18,8 @@ abstract class FiFormatter extends FiValueDecorator
 			$this->_format = $format;
 		}
 	}
-	/**
+
+    /**
 	 * Returns the formatted value
 	 *
 	 * @return mixed
@@ -36,11 +29,21 @@ abstract class FiFormatter extends FiValueDecorator
 	{
 		return $this->format();
 	}
+
+    /**
+     * Must override in subclasses
+     * Used data in $_format to
+     *
+     * @return void
+     * @author Fran Iglesias
+     */
+    abstract function format();
 	
 	/**
 	 * Sets a value in the decorated class, even after a chain of formats
 	 *
-	 * @param string $value 
+     * @param string $value
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */

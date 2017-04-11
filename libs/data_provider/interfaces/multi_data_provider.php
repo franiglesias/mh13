@@ -5,7 +5,8 @@ interface MultiDataProvider {
 	/**
 	 * Attachs a SingleDataProvider to manage elements in the MultiDataProvider
 	 *
-	 * @param string $Single 
+     * @param string $Single
+     *
 	 * @author Fran Iglesias
 	 */
 	public function attach(SingleDataProvider &$Single);

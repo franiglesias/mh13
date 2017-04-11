@@ -309,8 +309,8 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
   /**
    * Deletes the authenticated user's specified task list. (tasklists.delete)
    *
-   * @param string $tasklist Task list identifier.
-   * @param array $optParams Optional parameters.
+   * @param string $tasklist  Task list identifier.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($tasklist, $optParams = array())
   {
@@ -322,8 +322,9 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
   /**
    * Returns the authenticated user's specified task list. (tasklists.get)
    *
-   * @param string $tasklist Task list identifier.
-   * @param array $optParams Optional parameters.
+   * @param string $tasklist  Task list identifier.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Tasks_TaskList
    */
   public function get($tasklist, $optParams = array())
@@ -370,9 +371,10 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
    * Updates the authenticated user's specified task list. This method supports
    * patch semantics. (tasklists.patch)
    *
-   * @param string $tasklist Task list identifier.
+   * @param string          $tasklist  Task list identifier.
    * @param Google_TaskList $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams Optional parameters.
+   *
    * @return Google_Service_Tasks_TaskList
    */
   public function patch($tasklist, Google_Service_Tasks_TaskList $postBody, $optParams = array())
@@ -385,9 +387,10 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
   /**
    * Updates the authenticated user's specified task list. (tasklists.update)
    *
-   * @param string $tasklist Task list identifier.
+   * @param string          $tasklist  Task list identifier.
    * @param Google_TaskList $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams Optional parameters.
+   *
    * @return Google_Service_Tasks_TaskList
    */
   public function update($tasklist, Google_Service_Tasks_TaskList $postBody, $optParams = array())
@@ -444,6 +447,7 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
    * @param string $tasklist Task list identifier.
    * @param string $task Task identifier.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Tasks_Task
    */
   public function get($tasklist, $task, $optParams = array())
@@ -543,6 +547,7 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
    * @param string $task Task identifier.
    * @param Google_Task $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Tasks_Task
    */
   public function patch($tasklist, $task, Google_Service_Tasks_Task $postBody, $optParams = array())
@@ -559,6 +564,7 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
    * @param string $task Task identifier.
    * @param Google_Task $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Tasks_Task
    */
   public function update($tasklist, $task, Google_Service_Tasks_Task $postBody, $optParams = array())
@@ -574,9 +580,6 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
 
 class Google_Service_Tasks_Task extends Google_Collection
 {
-  protected $collection_key = 'links';
-  protected $internal_gapi_mappings = array(
-  );
   public $completed;
   public $deleted;
   public $due;
@@ -584,8 +587,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   public $hidden;
   public $id;
   public $kind;
-  protected $linksType = 'Google_Service_Tasks_TaskLinks';
-  protected $linksDataType = 'array';
   public $notes;
   public $parent;
   public $position;
@@ -593,64 +594,81 @@ class Google_Service_Tasks_Task extends Google_Collection
   public $status;
   public $title;
   public $updated;
+    protected $collection_key = 'links';
+    protected $internal_gapi_mappings = array();
+    protected $linksType = 'Google_Service_Tasks_TaskLinks';
+    protected $linksDataType = 'array';
 
-
-  public function setCompleted($completed)
-  {
-    $this->completed = $completed;
-  }
   public function getCompleted()
   {
     return $this->completed;
   }
-  public function setDeleted($deleted)
+
+    public function setCompleted($completed)
   {
-    $this->deleted = $deleted;
+      $this->completed = $completed;
   }
+
   public function getDeleted()
   {
     return $this->deleted;
   }
-  public function setDue($due)
+
+    public function setDeleted($deleted)
   {
-    $this->due = $due;
+      $this->deleted = $deleted;
   }
+
   public function getDue()
   {
     return $this->due;
   }
-  public function setEtag($etag)
+
+    public function setDue($due)
   {
-    $this->etag = $etag;
+      $this->due = $due;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setHidden($hidden)
+
+    public function setEtag($etag)
   {
-    $this->hidden = $hidden;
+      $this->etag = $etag;
   }
+
   public function getHidden()
   {
     return $this->hidden;
   }
-  public function setId($id)
+
+    public function setHidden($hidden)
   {
-    $this->id = $id;
+      $this->hidden = $hidden;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -659,181 +677,208 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->links;
   }
-  public function setNotes($notes)
-  {
-    $this->notes = $notes;
-  }
+
   public function getNotes()
   {
     return $this->notes;
   }
-  public function setParent($parent)
+
+    public function setNotes($notes)
   {
-    $this->parent = $parent;
+      $this->notes = $notes;
   }
+
   public function getParent()
   {
     return $this->parent;
   }
-  public function setPosition($position)
+
+    public function setParent($parent)
   {
-    $this->position = $position;
+      $this->parent = $parent;
   }
+
   public function getPosition()
   {
     return $this->position;
   }
-  public function setSelfLink($selfLink)
+
+    public function setPosition($position)
   {
-    $this->selfLink = $selfLink;
+      $this->position = $position;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStatus($status)
+
+    public function setSelfLink($selfLink)
   {
-    $this->status = $status;
+      $this->selfLink = $selfLink;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setTitle($title)
+
+    public function setStatus($status)
   {
-    $this->title = $title;
+      $this->status = $status;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Tasks_TaskLinks extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $description;
   public $link;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
-  public function setLink($link)
+
+    public function setDescription($description)
   {
-    $this->link = $link;
+      $this->description = $description;
   }
+
   public function getLink()
   {
     return $this->link;
   }
-  public function setType($type)
+
+    public function setLink($link)
   {
-    $this->type = $type;
+      $this->link = $link;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Tasks_TaskList extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
   public $kind;
   public $selfLink;
   public $title;
   public $updated;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setSelfLink($selfLink)
+
+    public function setKind($kind)
   {
-    $this->selfLink = $selfLink;
+      $this->kind = $kind;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setTitle($title)
+
+    public function setSelfLink($selfLink)
   {
-    $this->title = $title;
+      $this->selfLink = $selfLink;
   }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
-  public function setUpdated($updated)
+
+    public function setTitle($title)
   {
-    $this->updated = $updated;
+      $this->title = $title;
   }
-  public function getUpdated()
+
+    public function getUpdated()
   {
     return $this->updated;
   }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 }
 
 class Google_Service_Tasks_TaskLists extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_Tasks_TaskList';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -842,44 +887,49 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Tasks_Tasks extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_Tasks_Task';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -888,20 +938,24 @@ class Google_Service_Tasks_Tasks extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }

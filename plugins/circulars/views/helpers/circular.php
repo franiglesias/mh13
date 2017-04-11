@@ -80,7 +80,7 @@ class CircularHelper extends MultilingualPresentationModelHelper implements Auto
 	
 	public function translate($field, $options = array()) {
 		list($model, $fieldName, $tl) = explode('.', $field);
-		$View =& ClassRegistry::getObject('view');
+        $View = ClassRegistry::getObject('view');
 		
 		$buttonOptionsKeys = array(
 			'sl' => true
@@ -127,15 +127,16 @@ class CircularHelper extends MultilingualPresentationModelHelper implements Auto
 /**
  * Override to support bilingual
  *
- * @param string $model 
- * @param string $field 
- * @param string $modelID 
+ * @param string $model
+ * @param string $field
+ * @param string $modelID
+ *
  * @return void
  * @author Fran Iglesias
  */
 	
 	function tagIsInvalid($model = null, $field = null, $modelID = null) {
-		$view =& ClassRegistry::getObject('view');
+        $view = ClassRegistry::getObject('view');
 		$errors = $this->validationErrors;
 		$entity = $view->entity();
 		if (!empty($entity)) {

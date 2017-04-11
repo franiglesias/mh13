@@ -13,7 +13,8 @@ class ContentsAppController extends AppController {
  * Receives an ajax request and tries to save data in form. If there are invalid fields, returns them to the autosave.js script.
  * You need to create an json/edit.ctp view
  *
- * @param string $id 
+ * @param string $id
+ *
  * @return json ajax response with message and errors if any
  */
 	public function autosave($id = null) {
@@ -38,7 +39,16 @@ class ContentsAppController extends AppController {
 		$this->render('json/edit', 'ajax');
 	}
 
-
+    /**
+     * Generic callback to trigger a not allowed error
+     *
+     * @return void
+     */
+    public function notAllowed()
+    {
+        $this->cakeError('notAllowed', array('url' => $this->here, 'redirect' => $this->referer()));
+    }
+	
 /**
  * Sets the URL for magic autosave. You should include a call to $this->_useAutoSave() into the edit method so Ajax action could learn form where to retrieve data
  *
@@ -50,13 +60,14 @@ class ContentsAppController extends AppController {
 			'action' => 'autosave')
 			));
 	}
-	
+
 /**
  * Manages changes in required credentials for HTTP Authentication. If logged user or password are different from required,
  * unsets the stored $_SERVER keys to force a logout
  *
  * @param string $user User required for the resource
- * @param string $pwd Password required for the resource
+ * @param string $pwd  Password required for the resource
+ *
  * @return void
  */
 	protected function resetHttpAuth($credentials)
@@ -65,16 +76,6 @@ class ContentsAppController extends AppController {
 			unset($_SERVER['PHP_AUTH_USER']);
 			unset($_SERVER['PHP_AUTH_PW']);
 		}
-	}
-
-/**
- * Generic callback to trigger a not allowed error
- *
- * @return void
- */
-	public function notAllowed()
-	{
-		$this->cakeError('notAllowed', array('url' => $this->here, 'redirect' => $this->referer()));
 	}
 
 

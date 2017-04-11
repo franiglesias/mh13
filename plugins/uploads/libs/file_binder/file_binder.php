@@ -19,14 +19,9 @@ class FileBinder
 	
 	function __construct(FileDispatcher $Dispatcher, $params)
 	{
-		$this->Dispatcher =& $Dispatcher;
+        $this->Dispatcher = $Dispatcher;
 		$this->params = $params;
 		$this->FileBinderStrategy = $this->selectStrategy();
-	}
-	
-	public function getMode()
-	{
-		return $this->mode;
 	}
 	
 	private function selectStrategy()
@@ -39,7 +34,7 @@ class FileBinder
 			$this->mode = 'move';
 			return new MoveFileBinderStrategy($this->params);
 		}
-		
+
 		if ($this->isAttach()) {
 			$this->mode = 'attach';
 			return new AttachFileBinderStrategy($this->params);
@@ -49,32 +44,38 @@ class FileBinder
 			return new InlineFileBinderStrategy($this->params);
 		}
 		throw new RuntimeException('Binder: Incomplete Upload Request. No enough arguments.');
-		
+
 	}
 
-	private function isCopy()
+    private function isCopy()
 	{
 		return $this->isMove() && !empty($this->params['copy']);
 	}
-	private function isMove()
+
+    private function isMove()
 	{
 		return !empty($this->params['upload_id']);
 	}
-	
-	private function isAttach()
+
+    private function isAttach()
 	{
 		return empty($this->params['field']) && $this->mandatoryArgumentsPresent();
-	}
-	
-	private function isInline()
-	{
-		return !empty($this->params['field']) && $this->mandatoryArgumentsPresent();
 	}
 	
 	private function mandatoryArgumentsPresent()
 	{
 		return !empty($this->params['class']) && !empty($this->params['fk']);
 	}
+
+    private function isInline()
+    {
+        return !empty($this->params['field']) && $this->mandatoryArgumentsPresent();
+    }
+
+    public function getMode()
+    {
+        return $this->mode;
+    }
 	
 	public function bind(DispatchedFileInterface $File)
 	{

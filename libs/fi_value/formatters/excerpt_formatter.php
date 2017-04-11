@@ -22,7 +22,8 @@ class ExcerptFormatter extends FiFormatter
 	/**
 	 * Extract first paragraph to work on it
 	 *
-	 * @param string $text 
+     * @param string $text
+     *
 	 * @return string the paragraph
 	 * @author Fran Iglesias
 	 */

@@ -87,9 +87,9 @@ class Google_Service_Admin_Mail_Resource extends Google_Service_Resource
   /**
    * Insert Mail into Google's Gmail backends (mail.insert)
    *
-   * @param string $userKey The email or immutable id of the user
+   * @param string          $userKey   The email or immutable id of the user
    * @param Google_MailItem $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams Optional parameters.
    */
   public function insert($userKey, Google_Service_Admin_MailItem $postBody, $optParams = array())
   {
@@ -104,9 +104,6 @@ class Google_Service_Admin_Mail_Resource extends Google_Service_Resource
 
 class Google_Service_Admin_MailItem extends Google_Collection
 {
-  protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
   public $isDeleted;
   public $isDraft;
   public $isInbox;
@@ -116,78 +113,96 @@ class Google_Service_Admin_MailItem extends Google_Collection
   public $isUnread;
   public $kind;
   public $labels;
+    protected $collection_key = 'labels';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setIsDeleted($isDeleted)
-  {
-    $this->isDeleted = $isDeleted;
-  }
   public function getIsDeleted()
   {
     return $this->isDeleted;
   }
-  public function setIsDraft($isDraft)
+
+    public function setIsDeleted($isDeleted)
   {
-    $this->isDraft = $isDraft;
+      $this->isDeleted = $isDeleted;
   }
+
   public function getIsDraft()
   {
     return $this->isDraft;
   }
-  public function setIsInbox($isInbox)
+
+    public function setIsDraft($isDraft)
   {
-    $this->isInbox = $isInbox;
+      $this->isDraft = $isDraft;
   }
+
   public function getIsInbox()
   {
     return $this->isInbox;
   }
-  public function setIsSent($isSent)
+
+    public function setIsInbox($isInbox)
   {
-    $this->isSent = $isSent;
+      $this->isInbox = $isInbox;
   }
+
   public function getIsSent()
   {
     return $this->isSent;
   }
-  public function setIsStarred($isStarred)
+
+    public function setIsSent($isSent)
   {
-    $this->isStarred = $isStarred;
+      $this->isSent = $isSent;
   }
+
   public function getIsStarred()
   {
     return $this->isStarred;
   }
-  public function setIsTrash($isTrash)
+
+    public function setIsStarred($isStarred)
   {
-    $this->isTrash = $isTrash;
+      $this->isStarred = $isStarred;
   }
+
   public function getIsTrash()
   {
     return $this->isTrash;
   }
-  public function setIsUnread($isUnread)
+
+    public function setIsTrash($isTrash)
   {
-    $this->isUnread = $isUnread;
+      $this->isTrash = $isTrash;
   }
-  public function getIsUnread()
+
+    public function getIsUnread()
   {
     return $this->isUnread;
   }
-  public function setKind($kind)
+
+    public function setIsUnread($isUnread)
   {
-    $this->kind = $kind;
+      $this->isUnread = $isUnread;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setLabels($labels)
+
+    public function setKind($kind)
   {
-    $this->labels = $labels;
+      $this->kind = $kind;
   }
-  public function getLabels()
+
+    public function getLabels()
   {
     return $this->labels;
   }
+
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+    }
 }

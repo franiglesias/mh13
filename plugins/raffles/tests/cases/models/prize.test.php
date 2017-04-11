@@ -9,7 +9,7 @@ class PrizeTestCase extends CakeTestCase {
 	);
 	
 	function startTest() {
-		$this->Prize =& ClassRegistry::init('Prize');
+        $this->Prize = ClassRegistry::init('Prize');
 	}
 
 	function endTest() {

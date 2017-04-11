@@ -186,6 +186,7 @@ class UsersController extends AccessAppController {
  * Edit a User Model providing an id, or creates a new one, if not.
  *
  * @param string $id (if false, creates a new user)
+ *
  * @return void
  */
 
@@ -246,6 +247,7 @@ class UsersController extends AccessAppController {
  * Activates an account. Sends an email to notify user.
  *
  * @param string $id
+ *
  * @return void
  */
 	public function activate($id) {
@@ -273,6 +275,7 @@ class UsersController extends AccessAppController {
  * Deactivates an account. Sends an email to notify user.
  *
  * @param string $id
+ *
  * @return void
  */
 	public function deactivate($id) {
@@ -358,6 +361,7 @@ class UsersController extends AccessAppController {
  * attached to a confirm registration method in the Model that activates the User.
  *
  * @param string $ticket
+ *
  * @return void
  */
 	public function confirm($ticket = null) {
@@ -409,6 +413,7 @@ class UsersController extends AccessAppController {
  * operation.
  *
  * @param string $ticket
+ *
  * @return void
  */
 	public function recover($ticket = null) {

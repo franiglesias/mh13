@@ -11,8 +11,9 @@ class Role extends AccessAppModel {
 	/**
 	 * Creates a new Role with a $name and a $description
 	 *
-	 * @param string $name 
-	 * @param string $description 
+     * @param string $name
+     * @param string $description
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
@@ -44,7 +45,8 @@ class Role extends AccessAppModel {
 	/**
 	 * Loads a Role object with data looking for name/alias of the role
 	 *
-	 * @param string $name 
+     * @param string $name
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
@@ -61,7 +63,8 @@ class Role extends AccessAppModel {
 	/**
 	 * Loads a Role by its Id
 	 *
-	 * @param string $id 
+     * @param string $id
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */

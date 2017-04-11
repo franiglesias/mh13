@@ -73,7 +73,8 @@ class LicensesController extends LicensesAppController {
 /**
  * Selection actions
  *
- * @param string $ids 
+ * @param string $ids
+ *
  * @return void
  */
 	protected function _selectionDelete($ids) {
@@ -84,4 +85,5 @@ class LicensesController extends LicensesAppController {
         );
 	}
 }
+
 ?>

@@ -82,98 +82,6 @@ require_once(dirname(__FILE__).'/getid3.php');
 
 class dirscan {
 	/**
-	* type_brace()  * Might not work on Solaris and other non GNU systems *
-	*
-	* Configures a filetype list for use with glob searches,
-	* will match uppercase or lowercase extensions only, no mixing
-	* @param string $dir directory to use
-	* @param mixed cvs list of extentions or an array
-	* @return string or null if checks fail
-	*/
-	private function type_brace($dir, $search=array()) {
-		$dir = str_replace(array('///', '//'), array('/', '/'), $dir);
-		if (!is_dir($dir)) {
-			return null;
-		}
-		if (!is_array($search)) {
-			$e = explode(',', $search);
-		} elseif (count($search) < 1) {
-			return null;
-		} else {
-			$e = $search;
-		}
-		$ext = array();
-		foreach ($e as $new) {
-			$ext[] = strtolower(trim($new));
-			$ext[] = strtoupper(trim($new));
-		}
-		$b = $dir.'/*.{'.implode(',', $ext).'}';
-		return $b;
-	}
-
-	/**
-	* this function will search 4 levels deep for directories
-	* will return null on failure
-	* @param string $root
-	* @return array return an array of dirs under root
-	* @todo figure out how to block tabo directories with ease
-	*/
-	private function getDirs($root) {
-		switch ($root) { // return null on tabo directories, add as needed -> case {dir to block }:   this is not perfect yet
-			case '/':
-			case '/var':
-			case '/etc':
-			case '/home':
-			case '/usr':
-			case '/root':
-			case '/private/etc':
-			case '/private/var':
-			case '/etc/apache2':
-			case '/home':
-			case '/tmp':
-			case '/var/log':
-				return null;
-				break;
-			default: // scan 4 directories deep
-				if (!is_dir($root)) {
-    				return null;
-				}
-				$dirs = array_merge(glob($root.'/*', GLOB_ONLYDIR), glob($root.'/*/*', GLOB_ONLYDIR), glob($root.'/*/*/*', GLOB_ONLYDIR), glob($root.'/*/*/*/*', GLOB_ONLYDIR), glob($root.'/*/*/*/*/*', GLOB_ONLYDIR), glob($root.'/*/*/*/*/*/*', GLOB_ONLYDIR), glob($root.'/*/*/*/*/*/*/*', GLOB_ONLYDIR));
-				break;
-		}
-		if (count($dirs) < 1) {
-			$dirs = array($root);
-		}
-		return $dirs;
-	}
-
-	/**
-	*  file_check() check the number of file that are found that match the brace search
-	*
-	* @param string $search
-	* @return mixed
-	*/
-	private function file_check($search) {
-		$t = array();
-		$s = glob($search, GLOB_BRACE);
-		foreach ($s as $file) {
-			$t[] = str_replace(array('///', '//'), array('/', '/'), $file);
-		}
-		if (count($t) > 0) {
-			return $t;
-		}
-		return null;
-	}
-
-	function getTime() {
-		return microtime(true);
-		// old method for PHP < 5
-		//$a = explode(' ', microtime());
-		//return (double) $a[0] + $a[1];
-	}
-
-
-	/**
 	*
 	* @param type $dir
 	* @param type $match  search type name extentions, can be an array or csv list
@@ -240,6 +148,117 @@ class dirscan {
 			echo ' failed to get directories '."\n";
 		}
 	}
+
+    function getTime()
+    {
+        return microtime(true);
+        // old method for PHP < 5
+        //$a = explode(' ', microtime());
+        //return (double) $a[0] + $a[1];
+    }
+
+    /**
+     * this function will search 4 levels deep for directories
+     * will return null on failure
+     *
+     * @param string $root
+     *
+     * @return array return an array of dirs under root
+     * @todo figure out how to block tabo directories with ease
+     */
+    private function getDirs($root)
+    {
+        switch ($root) { // return null on tabo directories, add as needed -> case {dir to block }:   this is not perfect yet
+            case '/':
+            case '/var':
+            case '/etc':
+            case '/home':
+            case '/usr':
+            case '/root':
+            case '/private/etc':
+            case '/private/var':
+            case '/etc/apache2':
+            case '/home':
+            case '/tmp':
+            case '/var/log':
+                return null;
+                break;
+            default: // scan 4 directories deep
+                if (!is_dir($root)) {
+                    return null;
+                }
+                $dirs = array_merge(
+                    glob($root.'/*', GLOB_ONLYDIR),
+                    glob($root.'/*/*', GLOB_ONLYDIR),
+                    glob($root.'/*/*/*', GLOB_ONLYDIR),
+                    glob($root.'/*/*/*/*', GLOB_ONLYDIR),
+                    glob($root.'/*/*/*/*/*', GLOB_ONLYDIR),
+                    glob($root.'/*/*/*/*/*/*', GLOB_ONLYDIR),
+                    glob($root.'/*/*/*/*/*/*/*', GLOB_ONLYDIR)
+                );
+                break;
+        }
+        if (count($dirs) < 1) {
+            $dirs = array($root);
+        }
+
+        return $dirs;
+    }
+
+    /**
+     * type_brace()  * Might not work on Solaris and other non GNU systems *
+     *
+     * Configures a filetype list for use with glob searches,
+     * will match uppercase or lowercase extensions only, no mixing
+     *
+     * @param string $dir directory to use
+     * @param        mixed cvs list of extentions or an array
+     *
+     * @return string or null if checks fail
+     */
+    private function type_brace($dir, $search = array())
+    {
+        $dir = str_replace(array('///', '//'), array('/', '/'), $dir);
+        if (!is_dir($dir)) {
+            return null;
+        }
+        if (!is_array($search)) {
+            $e = explode(',', $search);
+        } elseif (count($search) < 1) {
+            return null;
+        } else {
+            $e = $search;
+        }
+        $ext = array();
+        foreach ($e as $new) {
+            $ext[] = strtolower(trim($new));
+            $ext[] = strtoupper(trim($new));
+        }
+        $b = $dir.'/*.{'.implode(',', $ext).'}';
+
+        return $b;
+    }
+
+    /**
+     *  file_check() check the number of file that are found that match the brace search
+     *
+     * @param string $search
+     *
+     * @return mixed
+     */
+    private function file_check($search)
+    {
+        $t = array();
+        $s = glob($search, GLOB_BRACE);
+        foreach ($s as $file) {
+            $t[] = str_replace(array('///', '//'), array('/', '/'), $file);
+        }
+        if (count($t) > 0) {
+            return $t;
+        }
+
+        return null;
+    }
 }
 
 if (PHP_SAPI === 'cli') {

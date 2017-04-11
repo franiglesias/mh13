@@ -65,7 +65,8 @@ class CantineTicket extends CantineAppModel {
 /**
  * The ticket is unique for student_id and date
  *
- * @param string $check 
+ * @param string $check
+ *
  * @return void
  */
 	public function uniqueTicket($check)
@@ -115,4 +116,5 @@ class CantineTicket extends CantineAppModel {
 
 	
 }
+
 ?>

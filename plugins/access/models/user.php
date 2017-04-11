@@ -141,27 +141,10 @@ class User extends AccessAppModel {
 	}
 
 	/**
-	 * Change active status of user to true.
-	 *
-	 * @param string $id (optional) the user id
-	 * @return boolean true on success | false on no change
-	 */
-	public function activate($id = null) {
-		$this->setId($id);
-		if ($this->field('active')) {
-			return false;
-		}
-		if (!$this->saveField('active', 1)) {
-			throw new RuntimeException(__('Unable to save data.', true));
-		}
-		ClassRegistry::getObject('EventManager')->notify($this, 'access.user.activate');
-		return true;
-	}
-	
-	/**
 	 * Change active status of user to false.
 	 *
 	 * @param string $id (optional)
+     *
 	 * @return boolean true on success | false on no change
 	 */
 	public function deactivate($id = null) {
@@ -176,7 +159,7 @@ class User extends AccessAppModel {
 		return true;
 	}
 
-/**
+    /**
  * Confirms a user registration, called from ticketable behavior
  *
  * @return boolean true on success
@@ -188,10 +171,32 @@ class User extends AccessAppModel {
 		return $this->activate($id);
 	}
 
+    /**
+     * Change active status of user to true.
+     *
+     * @param string $id (optional) the user id
+     *
+     * @return boolean true on success | false on no change
+     */
+    public function activate($id = null)
+    {
+        $this->setId($id);
+        if ($this->field('active')) {
+            return false;
+        }
+        if (!$this->saveField('active', 1)) {
+            throw new RuntimeException(__('Unable to save data.', true));
+        }
+        ClassRegistry::getObject('EventManager')->notify($this, 'access.user.activate');
+
+        return true;
+    }
+
 /**
  * Used in login, sets a timestamp for the user to flag it as connected
  *
- * @param string $id 
+ * @param string $id
+ *
  * @return string the date
  */	
 	public function connect($id = null)	{
@@ -230,33 +235,17 @@ class User extends AccessAppModel {
 		return $result != false;
 	}
 	
-	/**
-	 * Creates a new User record with data
-	 *
-	 * @param string $registerData 
-	 * @return void
-	 * @author Fran Iglesias
-	 */
-	public function add($registerData)
-	{
-		$this->create();
-		$this->set($registerData);
-		if (!$this->save()) {
-			throw new Exception(__('Unable to create Account.', true));
-		}
-		// Attach user to default role
-		ClassRegistry::getObject('EventManager')->notify($this, 'access.user.register');
-	}
 /**
  * Creates a new user with some data
  *
- * @param array $registrationData 
+ * @param array  $registrationData
  *	User.username
  *	User.password
  *  User.confirm_password
  *  User.realname
  *  User.email
- * @param string $defaultGroupId 
+ * @param string $defaultGroupId
+ *
  * @return string A ticket
  */
 	public function register($registrationData = array()) {
@@ -267,6 +256,25 @@ class User extends AccessAppModel {
 		$this->add($registrationData);
 		return $this->createTicket('confirm', $this->id);
 	}
+
+    /**
+     * Creates a new User record with data
+     *
+     * @param string $registerData
+     *
+     * @return void
+     * @author Fran Iglesias
+     */
+    public function add($registerData)
+    {
+        $this->create();
+        $this->set($registerData);
+        if (!$this->save()) {
+            throw new Exception(__('Unable to create Account.', true));
+        }
+        // Attach user to default role
+        ClassRegistry::getObject('EventManager')->notify($this, 'access.user.register');
+    }
 	
 /**
  * Custom method to register a new user logged with its GApps account
@@ -300,15 +308,39 @@ class User extends AccessAppModel {
 			$registrationData['User']['email'] == $check['User']['email'];
 	}
 
+    /**
+     * Checks if a user is registered
+     *
+     * @param string $username
+     *
+     * @return boolean
+     * @author Fran Iglesias
+     */
+
+    public function isRegistered($username)
+    {
+        $user = $this->find(
+            'count',
+            array(
+                'conditions' => array(
+                    'username' => $username,
+                ),
+            )
+        );
+
+        return !empty($user);
+    }
+
 /**
  * Locates the user referenced by username and/or email. User must be in active status.
  * If found creates a ticket binded to the recover method, when the ticket is redeemed,
  * a new password is generated and returned to the controller to send via Notify->send
  *
- * @param string $username 
- * @param string $email 
+ * @param string $username
+ * @param string $email
+ *
  * @return void
- */	
+ */
 	public function forgot($username = false, $email = false) {
 		if (!$username && !$email) {
 			throw new InvalidArgumentException(__('Not enough data', true));
@@ -339,12 +371,14 @@ class User extends AccessAppModel {
 		$user = array_shift($user);
 		$this->id = $user['User']['id'];
 	}
+
 /**
  * Generates and returns a new password for the user
  *
- * @param string $id 
+ * @param string $id
+ *
  * @return void
- */	
+ */
 	public function recover($id = false) {
 		$this->setId($id);
 		$password = PasswordGenerator::readable();
@@ -353,7 +387,6 @@ class User extends AccessAppModel {
 		return $password;
 	}
 
-	
 	public function get($id = null)
 	{
 		$this->setId($id);
@@ -365,10 +398,11 @@ class User extends AccessAppModel {
 		return $data;
 	}
 
-	/**
+    /**
 	 * Retrieves a User by username and active state
-	 *
-	 * @param string $userName 
+     *
+     * @param string $userName
+     *
 	 * @return void
 	 * @author Fran Iglesias
 	 */
@@ -380,8 +414,9 @@ class User extends AccessAppModel {
 	
 	/**
 	 * Retrieves a User by User name if is active
-	 *
-	 * @param string $userName 
+     *
+     * @param string $userName
+     *
 	 * @return array
 	 * @author Fran Iglesias
 	 */
@@ -396,24 +431,6 @@ class User extends AccessAppModel {
 		$this->data = $user;
 		$this->id = $user['User']['id'];
 		return $user;
-	}
-	
-	/**
-	 * Checks if a user is registered
-	 *
-	 * @param string $username 
-	 * @return boolean
-	 * @author Fran Iglesias
-	 */
-	
-	public function isRegistered($username)
-	{
-		$user = $this->find('count', array(
-			'conditions' => array(
-				'username' => $username
-			)
-		));
-		return !empty($user);
 	}
 	
 	public function attach(Role $Role)

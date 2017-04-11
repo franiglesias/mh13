@@ -49,14 +49,15 @@ class TicketableBehavior extends ModelBehavior {
 /**
  * Creates a new ticket associated with the model record and returns the ticket Id
  *
- * @param string $model 
- * @param string $action 
- * @param string $id 
+ * @param string $model
+ * @param string $action
+ * @param string $id
+ *
  * @return void
  */
 	function createTicket(&$model, $action, $id = null) {
 		$model->setId($id);
-		$ticket =& ClassRegistry::init('Ticket');
+        $ticket = ClassRegistry::init('Ticket');
 		return $ticket->init($model, $action, $this->settings['expiration']);
 	}
 	
@@ -65,12 +66,13 @@ class TicketableBehavior extends ModelBehavior {
  * date is no exceeded, if model->{$action} doesn't exist return true. 
  * Sets the model->id property to the foreign_key provided
  *
- * @param string $model 
- * @param string $ticketId 
+ * @param string $model
+ * @param string $ticketId
+ *
  * @return boolean
  */	
 	function redeemTicket(&$model, $ticketId) {
-		$ticket =& ClassRegistry::init('Ticket');
+        $ticket = ClassRegistry::init('Ticket');
 		return $ticket->redeem($model, $ticketId);
 	}
 

@@ -134,9 +134,11 @@ class Google_Http_REST
    * Parse/expand request parameters and create a fully qualified
    * request uri.
    * @static
+   *
    * @param string $servicePath
    * @param string $restPath
-   * @param array $params
+   * @param array  $params
+   *
    * @return string $requestUrl
    */
   public static function createRequestUri($servicePath, $restPath, $params)

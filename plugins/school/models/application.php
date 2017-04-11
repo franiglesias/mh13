@@ -1,20 +1,17 @@
 <?php
 class Application extends SchoolAppModel {
-	var $name = 'Application';
-	var $displayField = 'student';
-	
 	const RECEIVED = 0;
 	const OPENED = 1;
 	const INTERVIEWED = 2;
 	const ACCEPTED = 3;
 	const CLOSED = 4;
-	
 	const PENDING = 0;
 	const REJECTED = 1;
 	const NOT_CONFIRMED = 2;
-	// const ACCEPTED = 3
 	const CONFIRMED = 4;
-	
+    var $name = 'Application';
+    // const ACCEPTED = 3
+    var $displayField = 'student';
 	var $virtualFields = array(
 		'student' => "CONCAT_WS(', ',Application.last_name, Application.first_name)"
 	);
@@ -97,7 +94,8 @@ class Application extends SchoolAppModel {
 /**
  * validation. There must be at least one valid idcard to store the application
  *
- * @param string $value 
+ * @param string $value
+ *
  * @return boolean
  */
 	public function atLeastOneId($value) {
@@ -110,7 +108,8 @@ class Application extends SchoolAppModel {
 /**
  * validation. Valid Spanish idcard (NIF/DNI)
  *
- * @param string $value 
+ * @param string $value
+ *
  * @return void
  * @author Fran Iglesias
  */	

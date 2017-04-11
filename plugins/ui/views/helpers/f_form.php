@@ -242,12 +242,144 @@ class FFormHelper extends AppHelper {
 		return $code;
 	}
 
+    /**
+     * Merges pagination data to build complete url to return to the right page
+     *
+     * @param string $url
+     *
+     * @return void
+     */
+    public function mergePagination($url)
+    {
+        $extract = array('page' => true, 'sort' => true, 'direction' => true);
+        $pagination = array_intersect_key($this->params['named'], $extract);
+        $url = array_merge($url, $pagination);
 
+        return $url;
+    }
+
+    /**
+     * Wrapper for FormHelper->end()
+     *
+     * @param array $options
+     *
+     * @return string
+     */
+
+    public function end($options = array())
+    {
+
+        if (is_string($options)) {
+            $options = array('returnTo' => $options);
+        }
+        // $key = '_App.referer.'.$this->params['plugin'].'.'.$this->params['controller'].'.'.$this->params['action'];
+        // $returnTo = $this->Session->read($key);
+        $returnTo = $this->Form->value('_App.referer');
+        if (isset($options['returnTo'])) {
+            $returnTo = $options['returnTo'];
+        }
+
+        $defaults = array(
+            'discard' => __('Discard changes', true),
+            'saveAndWork' => __('Save and Keep Working', true),
+            'saveAndDone' => __('Save and Done', true),
+        );
+        $options = array_merge($defaults, $options);
+        $code = '';
+        $left = '';
+        $right = '';
+        // Discard changes
+        if ($options['discard']) {
+            $left = $this->_endDiscardChanges($options['discard'], $returnTo);
+        }
+        // Save and done
+        if ($options['saveAndDone']) {
+            $right = $this->_endSaveAndDone($options['saveAndDone']);
+        }
+        // Save and keep working
+        if ($options['saveAndWork']) {
+            $right .= $this->_endSaveAndWork($options['saveAndWork']);
+        }
+
+        $code = $this->Form->input('_App.referer', array('type' => 'hidden'));
+
+        $code .= $this->Html->div('medium-5 columns', $left);
+        $code .= $this->Html->div('medium-7 columns', $right);
+        $code = $this->Html->div('row', $code);
+        $code .= $this->Form->end();
+
+        return $code;
+    }
+
+    private function _endDiscardChanges($label, $destination)
+    {
+        $button = $this->Html->link(
+            $label,
+            $destination,
+            array('class' => 'mh-btn-cancel left')
+        );
+
+        return $button;
+    }
+
+    private function _endSaveAndDone($label)
+    {
+        $button = $this->Form->submit(
+            $label,
+            array(
+                'name' => 'done',
+                'value' => true,
+                'class' => 'mh-btn-save right',
+                'div' => false,
+            )
+        );
+
+        return $button;
+    }
+
+    private function _endSaveAndWork($label)
+    {
+        $button = $this->Form->submit(
+            $label,
+            array(
+                'name' => 'save_and_work',
+                'class' => 'mh-btn-save right',
+                'value' => true,
+                'div' => false,
+            )
+        );
+
+        return $button;
+    }
+
+    /**
+     * Creates a field with autocomplete. The "real" field is hidden and receives the value part of the selection.
+     * The helper creates an extra field to support the autocomplete feature, showing the label part of the selection.
+     *
+     * Options:
+     *
+     * 'url' => a CakePHP url array to request the autocomplete data.
+     *     search criteria arrives to the controller as $this->params['url']['term']
+     *     the controller should return a JSON associative array with label and value keys
+     *
+     * @param string $field
+     * @param string $options
+     *
+     * @return HTML
+     */
+    public function autocomplete($field, $options = array())
+    {
+        $options['type'] = 'autocomplete';
+
+        return $this->input($field, $options);
+    }
+	
 /**
  * Wrapper for FormHelper->input
  *
- * @param string $field 
- * @param array $options 
+ * @param string $field
+ * @param array  $options
+ *
  * @return HTML
  */
 
@@ -266,30 +398,31 @@ class FFormHelper extends AppHelper {
 			$options['div'] = array('class' => $options['div']);
 		}
 		$divAttr = $options['div'];
-		
-		
-		// Clean FormHelper options
+
+
+        // Clean FormHelper options
 		$cleanOptions = $this->_cleanFormHelperOptions($options);
-		
+
 		// Generate DOM Id for the input to use in JS
 		$inputSelector = $this->domIdForField($field);
 		$divAttr['id'] = 'div'.$inputSelector;
-		
+
 		if (!empty($options['clearable'])) {
 			$button = $this->Html->link(
-				'', 
-				'javascript:void(0)', 
-				array('class' => 'mh-clearfield postfix button fi-x', 
-					'escape' => false, 
+                '',
+                'javascript:void(0)',
+                array(
+                    'class' => 'mh-clearfield postfix button fi-x',
+                    'escape' => false,
 					'mh-target' => '#'.$inputSelector
 			));
 			$options['postfix'] = $button;
 			$options['wrapPostfix'] = false;
 		}
-		
-	
-		// Show pop-up help
-		
+
+
+        // Show pop-up help
+
 		if (!empty($options['help'])) {
 			$divAttr['title'] = $options['help'];
 			$divAttr['has-tip'] = true;
@@ -297,11 +430,11 @@ class FFormHelper extends AppHelper {
 			$divAttr['aria-haspopup'] = true;
 			$divAttr['data-options'] = "disable_for_touch:true, show_on:large";
 		}
-		
+
 		if (!empty($options['mh-show-on-empty'])) {
 			$cleanOptions['class'] = 'mh-show-by-value';
 		}
-		
+
 		// Generates the input, calling FormHelper, a wrapping method or another Helper method
 		switch ($options['type']) {
 			case 'select':
@@ -352,16 +485,16 @@ class FFormHelper extends AppHelper {
 		$theLabel = $this->prepareLabel($field, $options);
 		$thePrefix = $this->preparePrefix($options);
 		$thePostfix = $this->preparePostfix($options);
-		
+
 		// Options to style as corners (currently doesn´t work)
 		if (!empty($options['corners'])) {
 			$rowClass = 'row collapse '.(!empty($options['prefix']) ? 'prefix' : 'postfix').'-'.$options['corners'];
 		} else {
 			$rowClass = 'row collapse';
 		}
-		
+
 		// AjaxLoading ?
-		
+
 		if (!empty($options['indicator'])) {
 			if ($options['indicator'] !== true) {
 				$busySelector = $options['indicator'];
@@ -370,7 +503,7 @@ class FFormHelper extends AppHelper {
 			}
 			$theInput = $this->XHtml->ajaxLoading($busySelector) . $theInput;
 		}
-		
+
 		// Builds the control
 		if (!empty($options['div'])) {
 			if ($options['labelPosition'] == 'inline') {
@@ -379,11 +512,144 @@ class FFormHelper extends AppHelper {
 			}
 			$code = $this->buildStandar($theInput, $theLabel, $thePrefix, $thePostfix, $options);
 			return $this->Html->div($options['div']['class'], $code, $divAttr);
-			
+
 		}
 		return $theInput;
 	}
-	
+
+    /**
+     * Prepare clean options for Form Helper calls
+     *
+     * @param array $options
+     *
+     * @return array
+     */
+    protected function _cleanFormHelperOptions($options = array())
+    {
+        // $options = array_intersect_key($options, $this->formHelperOptions);
+        $options['div'] = $options['label'] = false;
+
+        return $options;
+    }
+
+    /**
+     * Builds a DOM ID for a given field
+     *
+     * @param string $field
+     *
+     * @return void
+     */
+    public function domIdForField($field)
+    {
+        $this->setEntity($field);
+        $view = ClassRegistry::getObject('view');
+        $parts = $view->entity();
+        $selector = '';
+        foreach ($parts as $part) {
+            // ad-hoc solution for a problem with the field name when starts with _
+            if (substr($part, 0, 1) == '_') {
+                $selector .= '_'.Inflector::Classify($part);
+            } else {
+                $selector .= Inflector::Classify($part);
+            }
+        }
+
+        return $selector;
+    }
+
+    protected function _date($field, $options = array())
+    {
+        if (!empty($options['multi'])) {
+            $class = 'mh-multidate';
+        } elseif (!empty($options['range'])) {
+            $class = 'mh-date-range';
+        } else {
+            $class = 'mh-date';
+        }
+
+        $options['type'] = 'text';
+
+        if (empty($options['class'])) {
+            $options['class'] = $class;
+        } else {
+            $options['class'] .= ' '.$class;
+        }
+
+        if ($value = $this->Form->value($field)) {
+            $options['value'] = date('d-m-Y', strtotime($value));
+        }
+        $options['mh-altfield'] = '#'.$this->domIdForField($field);
+
+        return $this->Form->input($field.'-alt', $options).$this->Form->input($field, array('type' => 'hidden'));
+    }
+
+    public function _time($field, $options = array())
+    {
+        $format24 = true;
+        $selected = null;
+        $options['class'] = 'medium-6';
+        $code = $this->Form->hour($field, $format24, $selected, $options);
+        $code .= $this->Form->minute($field, $selected, $options);
+        $code = $this->Html->div(null, $code);
+
+        return $code;
+    }
+
+// Wrapper methods for specialized fields
+
+    public function _autocomplete($field, $options = array())
+    {
+        $fieldComplete = $field.'-complete';
+        $selector = $this->domIdForField($field);
+        $selectorComplete = $this->domIdForField($fieldComplete);
+        $fieldOptions = array(
+            'mh-url' => Router::url($options['url']),
+            'mh-target' => $selector,
+            'class' => 'mh-autocomplete',
+            'div' => false,
+            'label' => false,
+            'type' => 'text',
+            'value' => !empty($options['valueLabel']) ? $options['valueLabel'] : '',
+        );
+
+        return $this->Form->input(
+                $field,
+                array(
+                    'type' => 'hidden',
+                    'label' => false,
+                    'div' => false,
+                    'value' => $this->Form->value($field),
+                )
+            ).$this->Form->input($fieldComplete, $fieldOptions);
+    }
+
+    protected function _checkbox($field, $options = array())
+    {
+        $options['div']['class'] = 'switch round';
+        $theLabel = $this->Form->label($field, $options['label']);
+        unset($options['label']);
+        $theInput = $this->Form->checkbox($field, $options);
+        $code = $this->Html->div($options['div']['class'], $theInput.$theLabel);
+
+        return $code;
+    }
+
+    /**
+     * Prepare clean options for Upload Helper calls
+     *
+     * @param array $options
+     *
+     * @return array
+     */
+    protected function _cleanUploadHelperOptions($options = array())
+    {
+        $options = array_intersect_key($options, $this->Upload->defaults);
+        unset($options['label'], $options['before'], $options['after']);
+        $options['bare'] = true;
+
+        return $options;
+    }
+
 	private function prepareLabel($field, &$options)
 	{
 		if (empty($options['label'])) {
@@ -401,7 +667,7 @@ class FFormHelper extends AppHelper {
 		}
 		return $this->Html->tag('span', $options['prefix'], array('class' => 'prefix'));
 	}
-	
+
 	private function preparePostfix(&$options)
 	{
 		if (empty($options['postfix'])) {
@@ -413,7 +679,7 @@ class FFormHelper extends AppHelper {
 			return $options['postfix'];
 		}
 	}
-	
+
 	private function buildInline($input, $label, $prefix, $postfix, &$options)
 	{
 		$inputClass = 'small-'.$this->computeInputSize($options).' columns'. ($postfix ? '' : ' end');
@@ -429,7 +695,18 @@ class FFormHelper extends AppHelper {
 			$code = $this->Html->div('small-'.$options['labelSize'].' columns', $label) . $code;
 		}
 		return $this->Html->div('row', $code);
-	}
+    }
+
+    private function computeInputSize(&$options)
+    {
+        $extra = ($options['prefix'] ? $options['prefixSize'] : 0) + ($options['postfix'] ? $options['postfixSize'] : 0) + ($options['labelPosition'] == 'inline' ? $options['labelSize'] : 0);
+
+        if (($options['inputSize'] + $extra) > 12) {
+            return (12 - $extra);
+        }
+
+        return $options['inputSize'];
+    }
 	
 	private function buildStandar($input, $label, $prefix, $postfix, &$options)
 	{
@@ -447,170 +724,24 @@ class FFormHelper extends AppHelper {
 		}
 		return $code;
 	}
-	
-	private function computeInputSize(&$options)
-	{
-		$extra = ($options['prefix'] ? $options['prefixSize'] : 0) 
-		+ ($options['postfix'] ? $options['postfixSize']: 0)
-		+ ($options['labelPosition'] == 'inline' ? $options['labelSize'] : 0);
-		
-		if (($options['inputSize'] + $extra) > 12) {
-			return (12 - $extra);
-		}
-		return $options['inputSize'];
-	}
-
-/**
- * Wrapper for FormHelper->end()
- *
- * @param array $options 
- * @return string
- */
-
-	public function end($options = array()) {
-		
-		if (is_string($options)) {
-			$options = array('returnTo' => $options);
-		}
-		// $key = '_App.referer.'.$this->params['plugin'].'.'.$this->params['controller'].'.'.$this->params['action'];
-		// $returnTo = $this->Session->read($key);
-		$returnTo = $this->Form->value('_App.referer');
-		if (isset($options['returnTo'])) {
-			$returnTo = $options['returnTo'];
-		}
-		
-		$defaults = array(
-			'discard' => __('Discard changes', true),
-			'saveAndWork' => __('Save and Keep Working', true),
-			'saveAndDone' => __('Save and Done', true),
-		);
-		$options = array_merge($defaults, $options);
-		$code = '';
-		$left = '';
-		$right = '';
-		// Discard changes
-		if ($options['discard']) {
-			$left = $this->_endDiscardChanges($options['discard'], $returnTo);
-		}
-		// Save and done
-		if ($options['saveAndDone']) {
-			$right = $this->_endSaveAndDone($options['saveAndDone']);
-		}
-		// Save and keep working
-		if ($options['saveAndWork']) {
-			$right .= $this->_endSaveAndWork($options['saveAndWork']);
-		}
-
-		$code = $this->Form->input('_App.referer', array('type' => 'hidden'));
-		
-		$code .= $this->Html->div('medium-5 columns', $left);
-		$code .= $this->Html->div('medium-7 columns', $right);
-		$code = $this->Html->div('row', $code);
-		$code .= $this->Form->end();
-		return $code;
-	}
-	
-	private function _endDiscardChanges($label, $destination) {
-		$button = $this->Html->link(
-				$label,
-				$destination,
-				array('class' => 'mh-btn-cancel left')
-				);
-		return $button;
-	}
-
-	private function _endSaveAndWork($label) {
-		$button = $this->Form->submit($label, array(
-			'name' => 'save_and_work',
-			'class' => 'mh-btn-save right',
-			'value' => true,
-			'div' =>false
-		));
-		return $button;
-	}
-
-	private function _endSaveAndDone($label) {
-		$button = $this->Form->submit($label, array(
-			'name' => 'done',
-			'value' => true,
-			'class' => 'mh-btn-save right',
-			'div' => false
-		));
-		return $button;
-	}
-
-// Wrapper methods for specialized fields
-
-/**
- * Creates a field with autocomplete. The "real" field is hidden and receives the value part of the selection.
- * The helper creates an extra field to support the autocomplete feature, showing the label part of the selection.
- *
- * Options:
- *
- * 'url' => a CakePHP url array to request the autocomplete data. 
- *     search criteria arrives to the controller as $this->params['url']['term']
- *     the controller should return a JSON associative array with label and value keys
- *
- * @param string $field 
- * @param string $options 
- * @return HTML
- */	
-	public function autocomplete($field, $options = array()) {
-		$options['type'] = 'autocomplete';
-		return $this->input($field, $options);
-	}
-
-	public function _autocomplete($field, $options = array()) {
-		$fieldComplete = $field.'-complete';
-		$selector = $this->domIdForField($field);
-		$selectorComplete = $this->domIdForField($fieldComplete);
-		$fieldOptions = array(
-			'mh-url' => Router::url($options['url']),
-			'mh-target' => $selector,
-			'class' => 'mh-autocomplete',
-			'div' => false,
-			'label' => false,
-			'type' => 'text',
-			'value' => !empty($options['valueLabel']) ? $options['valueLabel'] : ''
-		);
-		
-		return $this->Form->input($field, array('type' => 'hidden', 'label' => false, 'div' => false, 'value' => $this->Form->value($field)))
-		.$this->Form->input($fieldComplete, $fieldOptions);
-	}
-
-/**
- * Creates hidden fields
- *
- * @param array $fields array of fields 
- * @return HTML
- */
-	public function hidden($fields)
-	{
-		if (is_string($fields)) {
-			$fields = array($fields);
-		}
-		foreach ($fields as $field) {
-			$code[] = $this->Form->input($field, array('type' => 'hidden'));
-		}
-		return implode(chr(10), $code);
-	}
 
 /**
  * Simple text input field
  *
- * @param string $field 
- * @param string $options 
+ * @param string $field
+ * @param string $options
+ *
  * @return string
- */	
+ */
 	public function text($field, $options = array()) {
 		$options['type'] = 'text';
 		return $this->input($field, $options);
 	}
-	
+
 	public function password($field, $options = array()) {
 		$options['type'] = 'password';
 		$options['icon'] = 'key';
-		
+
 		return $this->input($field, $options);
 	}
 
@@ -622,53 +753,29 @@ class FFormHelper extends AppHelper {
 		$options['class'] = 'text-right';
 		return $this->input($field, $options);
 	}
-
+	
 /**
  * Date field with datepicker
  *
- * @param string $field 
- * @param string $options 
+ * @param string $field
+ * @param string $options
+ *
  * @return string
- */	
+ */
 
 	public function date($field, $options = array()) {
 		$options['type'] = 'date';
 		$options['icon'] = 'calendar';
 		return $this->input($field, $options);
 	}
-
-	protected function _date($field, $options = array()) {
-		if (!empty($options['multi'])) {
-			$class = 'mh-multidate';
-		} elseif (!empty($options['range'])) {
-			$class = 'mh-date-range';
-		} else {
-			$class = 'mh-date';
-		}
-		
-		$options['type'] = 'text';
-		
-		if (empty($options['class'])) {
-			$options['class'] = $class;
-		} else {
-			$options['class'] .= ' '.$class;
-		}
-		
-		if ($value = $this->Form->value($field)) {
-			$options['value'] = date('d-m-Y', strtotime($value));
-		}
-		$options['mh-altfield'] = '#'.$this->domIdForField($field);
-		return $this->Form->input($field.'-alt', $options)
-				.$this->Form->input($field, array('type' => 'hidden'));
-	}
 	
-
 /**
  * Different upload fields
  *
- * @param string $field 
- * @param string $options 
- * @return String
+ * @param string $field
+ * @param string $options
+ *
+ * @return string
  */
 	public function upload($field, $options = array()) {
 		$options['type'] = 'uploader';
@@ -679,7 +786,7 @@ class FFormHelper extends AppHelper {
 		$options['type'] = 'image';
 		return $this->input($field, $options);
 	}
-
+	
 	public function images($field, $options = array()) {
 		$options['type'] = 'images';
 		return $this->input($field, $options);
@@ -689,34 +796,25 @@ class FFormHelper extends AppHelper {
 		$options['type'] = 'file';
 		return $this->input($field, $options);
 	}
-	
+
 	public function files($field, $options = array()) {
 		$options['type'] = 'file';
 		return $this->input($field, $options);
 	}
-	
+
 	public function multimedia($field, $options = array()) {
 		$options['type'] = 'multimedia';
 		return $this->input($field, $options);
 	}
-
+	
 	public function enclosure($field, $options = array()) {
 		$options['type'] = 'enclosure';
 		return $this->input($field, $options);
 	}
-	
+
 	public function checkbox($field, $options = array()) {
 		$options['type'] = 'checkbox';
 		return $this->input($field, $options);
-	}
-
-	protected function _checkbox($field, $options = array()) {
-		$options['div']['class'] = 'switch round';
-		$theLabel = $this->Form->label($field, $options['label']);
-		unset($options['label']);
-		$theInput = $this->Form->checkbox($field, $options);
-		$code = $this->Html->div($options['div']['class'], $theInput.$theLabel);
-		return $code;
 	}
 
 /**
@@ -726,8 +824,9 @@ class FFormHelper extends AppHelper {
  * empty
  * multiple
  *
- * @param string $field 
- * @param string $options 
+ * @param string $field
+ * @param string $options
+ *
  * @return string
  */
 	public function select($field, $options = array()) {
@@ -739,17 +838,51 @@ class FFormHelper extends AppHelper {
 		}
 		$options['type'] = 'select';
 		return $this->input($field, $options);
-	}
+    }
 
+    public function pseudo($value, $options = array())
+    {
+        if (isset($options['options'])) {
+            $options['value'] = $options['options'][$value];
+            unset($options['options']);
+        } else {
+            $options['value'] = $value;
+        }
+        $options['type'] = 'text';
+        $options['readonly'] = true;
+
+        return $this->input('afield', $options);
+    }
+
+    /**
+     * Creates hidden fields
+     *
+     * @param array $fields array of fields
+     *
+     * @return HTML
+     */
+    public function hidden($fields)
+    {
+        if (is_string($fields)) {
+            $fields = array($fields);
+        }
+        foreach ($fields as $field) {
+            $code[] = $this->Form->input($field, array('type' => 'hidden'));
+        }
+
+        return implode(chr(10), $code);
+    }
+	
 /**
  * Textarea input field
  *
  * rows (5)
  *
- * @param string $field 
- * @param string $options 
+ * @param string $field
+ * @param string $options
+ *
  * @return string
- */	
+ */
 
 	public function textarea($field, $options = array()) {
 		$options['type'] = 'textarea';
@@ -758,7 +891,6 @@ class FFormHelper extends AppHelper {
 		}
 		return $this->input($field, $options);
 	}
-	
 
 	public function translate($field, $options = array()) {
 		list($model, $fieldName, $tl) = explode('.', $field);
@@ -774,16 +906,16 @@ class FFormHelper extends AppHelper {
 		$buttonOptions = array_merge($buttonOptions, array_intersect_key($options, $buttonOptionsKeys));
 		$buttonOptions['sfield'] = Inflector::Classify($model).Inflector::Classify($fieldName).Inflector::Classify($buttonOptions['sl']);
 		$buttonOptions['tfield'] = Inflector::Classify($model).Inflector::Classify($fieldName).Inflector::Classify($buttonOptions['tl']);
-		
+
 		$buttonLabel = sprintf(__d('circulars', '%s', true), __d('circulars', $buttonOptions['sl'], true));
 		$button = $this->Html->link(
-			$buttonLabel, 
-			'javascript:void(0)', 
+            $buttonLabel,
+            'javascript:void(0)',
 			$buttonOptions
 		);
 		$options['postfix'] = $button;
 		$options['wrapPostfix'] = false;
-		
+
 		$options['ajaxLoading'] = true;
 
 		$type = 'text';
@@ -792,38 +924,45 @@ class FFormHelper extends AppHelper {
 		}
 		$options['type'] = $type;
 		return $this->input($field, $options);
-	}
+    }
 
+    public function days($field, $options = array())
+    {
+        if (is_string($options)) {
+            $options['format'] = $options;
+        }
+        $types = array(
+            'labor' => array(
+                1 => __('monday', true),
+                2 => __('tuesday', true),
+                4 => __('wednesday', true),
+                8 => __('thursday', true),
+                16 => __('friday', true),
+            ),
+            'week' => array(
+                1 => __('monday', true),
+                2 => __('tuesday', true),
+                4 => __('wednesday', true),
+                8 => __('thursday', true),
+                16 => __('friday', true),
+                32 => __('saturday', true),
+                64 => __('sunday', true),
+            ),
+        );
 
-/**
- * Creates a checkboxes select field with an associated button to check/uncheck all
- *
- * @param string $field 
- * @param string $options 
- * @return void
- * @author Fran Iglesias
- */
-	public function checkboxes($field, $options) {
-		$options['type'] = 'select';
-		$options['multiple'] = 'checkbox';
-		$selector = $this->domIdForField($field);
-		if (!empty($options['checkall'])) {
-			$all = __('Check All', true);
-			$uncheckAll = __('Uncheck All', true);
-			$button = $this->Form->submit($all, array(
-				'id' => $selector.'-all', 
-				'type' => 'button', 
-				'class' => 'mh-check-all', 
-				'mh-target' => $selector, 
-				'mh-message-check' => $all,
-				'mh-message-uncheck' => $uncheckAll,
-				'value' => $all,
-				'div' => false
-			));
-			$options['after'] = $button;
-		}
-		return $this->input($field, $options);
-	}
+        if (!isset($options['format']) || !in_array($options['format'], array_keys($types))) {
+            $options['format'] = 'week';
+        }
+
+        $options['options'] = $types[$options['format']];
+        if (!isset($options['checkall'])) {
+            $options['checkall'] = true;
+        }
+        $options['multiple'] = 'checkbox';
+        $options['type'] = 'select';
+
+        return $this->binary($field, $options);
+    }
 
 /**
  * Builds a form field to input binary packaged values
@@ -833,8 +972,9 @@ class FFormHelper extends AppHelper {
  *		'bits' => length of the binary number
  *		'sort' => asc/desc order of bits
  *		'options' => array of options/labels - numeric binary packed key => label
+ *
  * @return void
- */	
+ */
 	public function binary($field, $options = array()) {
 		// if (isset($options['multiple'])) {
 		// 	unset($options['multiple']);
@@ -849,7 +989,7 @@ class FFormHelper extends AppHelper {
 		$options = Set::merge($this->defaults, $options);
 		$value = $this->Form->value($field);
 		$aValue = array();
-		for ($i=0; $i < $options['bits']; $i++) { 
+        for ($i = 0; $i < $options['bits']; $i++) {
 			$v = pow(2, $i);
 			if ($fakeOptions) {
 				$options['options'][$v] = "2^$i";
@@ -860,74 +1000,63 @@ class FFormHelper extends AppHelper {
 		}
 		$options['value'] = $aValue;
 		return $this->checkboxes($field, $options);
-	}
+    }
 
-	public function days($field, $options = array()) {
-		if (is_string($options)) {
-			$options['format'] = $options;
-		}
-		$types = array(
-			'labor' => array(
-				1 => __('monday', true),
-				2 => __('tuesday', true),
-				4 => __('wednesday', true),
-				8 => __('thursday', true),
-				16 => __('friday', true),
-				),
-			'week' => array(
-				1 => __('monday', true),
-				2 => __('tuesday', true),
-				4 => __('wednesday', true),
-				8 => __('thursday', true),
-				16 => __('friday', true),
-				32 => __('saturday', true),
-				64 => __('sunday', true)
-				)
-			);
-
-		if (!isset($options['format']) || !in_array($options['format'], array_keys($types))) {
-			$options['format'] = 'week';
-		}
-
-		$options['options'] = $types[$options['format']];
-		if (!isset($options['checkall'])) {
-			$options['checkall'] = true;
-		}
-		$options['multiple'] = 'checkbox';
+    /**
+     * Creates a checkboxes select field with an associated button to check/uncheck all
+     *
+     * @param string $field
+     * @param string $options
+     *
+     * @return void
+     * @author Fran Iglesias
+     */
+    public function checkboxes($field, $options) {
 		$options['type'] = 'select';
-		return $this->binary($field, $options);
-	}
+        $options['multiple'] = 'checkbox';
+        $selector = $this->domIdForField($field);
+        if (!empty($options['checkall'])) {
+            $all = __('Check All', true);
+            $uncheckAll = __('Uncheck All', true);
+            $button = $this->Form->submit(
+                $all,
+                array(
+                    'id' => $selector.'-all',
+                    'type' => 'button',
+                    'class' => 'mh-check-all',
+                    'mh-target' => $selector,
+                    'mh-message-check' => $all,
+                    'mh-message-uncheck' => $uncheckAll,
+                    'value' => $all,
+                    'div' => false,
+                )
+            );
+            $options['after'] = $button;
+        }
 
+        return $this->input($field, $options);
+	}
+	
 	public function time($field, $options = array())
 	{
 		$options['type'] = 'time';
 		return $this->input($field, $options);
 	}
 	
-	public function _time($field, $options = array())
-	{
-		$format24 = true;
-		$selected = null;
-		$options['class'] = 'medium-6';
-		$code = $this->Form->hour($field, $format24, $selected, $options);
-		$code .= $this->Form->minute($field, $selected, $options);
-		$code = $this->Html->div(null, $code);
-		return $code;
-	}
 /**
  * Simple email html5 input field
  *
- * @param string $field 
- * @param array $options 
+ * @param string $field
+ * @param array  $options
+ *
  * @return string
- */	
+ */
 	public function email($field, $options = array()) {
 		$options['type'] = 'email';
 		$options['icon'] = 'mail';
 		return $this->input($field, $options);
 	}
-	
-	
+
 	public function icons($field, $options = array())
 	{
 		$options['type'] = 'select';
@@ -1240,13 +1369,17 @@ class FFormHelper extends AppHelper {
 		);
 		$options['empty'] = __d('ui', '-- Select an icon --', true);
 		return $this->input($field, $options);
-	}
+    }
+
+// Utility methods
+
 /**
  * Puts texts into the form
  *
- * @param strings 
+ * @param strings
+ *
  * @return string
- */	
+ */
 
 	public function help($options = 'small-12 columns', $texts) {
 		$texts = func_get_args();
@@ -1257,10 +1390,11 @@ class FFormHelper extends AppHelper {
 		$code = array();
 		foreach ($texts as $text) {
 			$code[] = $this->Html->tag('p', $text, array('class' => ''));
-		}
-		return $this->Html->div($options, implode(chr(10), $code));	
+        }
+
+        return $this->Html->div($options, implode(chr(10), $code));
 	}
-	
+
 	public function division($text, $options = array())
 	{
 		$options = Set::merge($this->defaults, $options);
@@ -1268,29 +1402,38 @@ class FFormHelper extends AppHelper {
 			return $this->Html->tag('p', $text);
 		}
 		return $this->Html->div('small-12 columns', $this->Html->tag('h4', $text, array('class' => 'division')));
+    }
+
+    /**
+     * Uses $this->rotate to create the two needed buttons with common options
+     *
+     * @param string $options
+     *
+     * @return void
+     * @author Fran Iglesias
+     */
+    public function rotateCombo($options)
+    {
+        $options['type'] = 'ccw';
+        $html = $this->Html->tag('li', $this->rotate($options));
+        $options['type'] = 'cw';
+        $html .= $this->Html->tag('li', $this->rotate($options));
+        $options['type'] = 'full';
+        $html .= $this->Html->tag('li', $this->rotate($options));
+        $html = $this->Html->tag('ul', $html, array('class' => 'mh-rotate-combo round'));
+
+        return $html;
 	}
-	
-	public function pseudo($value, $options = array())
-	{
-		if (isset($options['options'])) {
-			$options['value'] = $options['options'][$value];
-			unset($options['options']);
-		} else {
-			$options['value'] = $value;
-		}
-		$options['type'] = 'text';
-		$options['readonly'] = true;
-		return $this->input('afield', $options);
-	}
-	
+
 /**
  * Creates a button to rotate an image
  *
- * @param array $options 
+ * @param array $options
  *	'size' => a size preset from theme_setup
  *	'file' => the path to the image
  *	'type' => cw/ccw
  *	'update' => the html element to update with the rotated image
+ *
  * @return void
  * @author Fran Iglesias
  */
@@ -1334,99 +1477,19 @@ class FFormHelper extends AppHelper {
 			'mh-file' => $options['file'],
 			'mh-angle' => $options['type'] == 'cw' ? 270 : ($options['type'] == 'ccw' ? 90 : 180),
 			'mh-size' => $options['size'],
-		);
+        );
 
-		// $html = $this->Form->button($label, $buttonOptions); 
+        // $html = $this->Form->button($label, $buttonOptions);
 		// $code = $this->Js->request('/uploads/uploads/rotate',$requestOptions);
 		// $this->Js->get('#'.$buttonOptions['id']);
 		// $this->Js->event('click', $code);
-		
+
 		$html = $this->Html->link(
 			$label,
 			array('plugin' => 'uploads', 'controller' => 'uploads', 'action' => 'rotate'),
 			$buttonOptions
 		);
 		return $html;
-	}
-
-/**
- * Uses $this->rotate to create the two needed buttons with common options
- *
- * @param string $options 
- * @return void
- * @author Fran Iglesias
- */
-	public function rotateCombo($options) {
-		$options['type'] = 'ccw';
-		$html = $this->Html->tag('li', $this->rotate($options));
-		$options['type'] = 'cw';
-		$html .= $this->Html->tag('li', $this->rotate($options));
-		$options['type'] = 'full';
-		$html .= $this->Html->tag('li', $this->rotate($options));
-		$html = $this->Html->tag('ul', $html, array('class' => 'mh-rotate-combo round'));
-		return $html;
-	}
-
-// Utility methods
-
-/**
- * Builds a DOM ID for a given field
- *
- * @param string $field 
- * @return void
- */
-	public function domIdForField($field) {
-		$this->setEntity($field);
-		$view =& ClassRegistry::getObject('view');
-		$parts = $view->entity();
-		$selector = '';
-		foreach ($parts as $part) {
-			// ad-hoc solution for a problem with the field name when starts with _
-			if (substr($part, 0, 1) == '_') {
-				$selector .= '_'.Inflector::Classify($part);
-			} else {
-				$selector .= Inflector::Classify($part);
-			}
-		}
-		return $selector;
-	}
-
-/**
- * Merges pagination data to build complete url to return to the right page
- *
- * @param string $url 
- * @return void
- */	
-	public function mergePagination($url) {
-		$extract = array('page' => true, 'sort' => true, 'direction' => true);
-		$pagination = array_intersect_key($this->params['named'], $extract);
-		$url = array_merge($url, $pagination);
-		return $url;
-	}
-
-/**
- * Prepare clean options for Form Helper calls
- *
- * @param array $options 
- * @return array
- */
-	protected function _cleanFormHelperOptions($options = array()) {
-		// $options = array_intersect_key($options, $this->formHelperOptions);
-		$options['div'] = $options['label'] = false;
-		return $options;
-	}
-
-/**
- * Prepare clean options for Upload Helper calls
- *
- * @param array $options 
- * @return array
- */
-	protected function _cleanUploadHelperOptions($options = array()) {
-		$options = array_intersect_key($options, $this->Upload->defaults);
-		unset($options['label'], $options['before'], $options['after']);
-		$options['bare'] = true;
-		return $options;
 	}
 
 	

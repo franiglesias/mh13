@@ -57,7 +57,8 @@ interface DataProvider {
 	/**
 	 * Returns a DataProvider for the given Key
 	 *
-	 * @param string $key 
+     * @param string $key
+     *
 	 * @return reference to a Data Provider
 	 */
 	public function getKeyDataProvider($key);
@@ -65,7 +66,8 @@ interface DataProvider {
 	/**
 	 * Return full data for the given Key
 	 *
-	 * @param string $key 
+     * @param string $key
+     *
 	 * @return array
 	 */
 	public function getKeyDataSet($key);

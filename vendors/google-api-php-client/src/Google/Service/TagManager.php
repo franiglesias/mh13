@@ -978,7 +978,8 @@ class Google_Service_TagManager_Accounts_Resource extends Google_Service_Resourc
    * Gets a GTM Account. (accounts.get)
    *
    * @param string $accountId The GTM Account ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_Account
    */
   public function get($accountId, $optParams = array())
@@ -1004,9 +1005,9 @@ class Google_Service_TagManager_Accounts_Resource extends Google_Service_Resourc
   /**
    * Updates a GTM Account. (accounts.update)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string         $accountId The GTM Account ID.
    * @param Google_Account $postBody
-   * @param array $optParams Optional parameters.
+   * @param array          $optParams Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the account in storage.
@@ -1034,9 +1035,10 @@ class Google_Service_TagManager_AccountsContainers_Resource extends Google_Servi
   /**
    * Creates a Container. (containers.create)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string           $accountId The GTM Account ID.
    * @param Google_Container $postBody
-   * @param array $optParams Optional parameters.
+   * @param array            $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_Container
    */
   public function create($accountId, Google_Service_TagManager_Container $postBody, $optParams = array())
@@ -1049,9 +1051,9 @@ class Google_Service_TagManager_AccountsContainers_Resource extends Google_Servi
   /**
    * Deletes a Container. (containers.delete)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams   Optional parameters.
    */
   public function delete($accountId, $containerId, $optParams = array())
   {
@@ -1063,9 +1065,10 @@ class Google_Service_TagManager_AccountsContainers_Resource extends Google_Servi
   /**
    * Gets a Container. (containers.get)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_Container
    */
   public function get($accountId, $containerId, $optParams = array())
@@ -1081,6 +1084,7 @@ class Google_Service_TagManager_AccountsContainers_Resource extends Google_Servi
    *
    * @param string $accountId The GTM Account ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_ListContainersResponse
    */
   public function listAccountsContainers($accountId, $optParams = array())
@@ -1128,6 +1132,7 @@ class Google_Service_TagManager_AccountsContainersMacros_Resource extends Google
    * @param string $containerId The GTM Container ID.
    * @param Google_Macro $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_Macro
    */
   public function create($accountId, $containerId, Google_Service_TagManager_Macro $postBody, $optParams = array())
@@ -1159,6 +1164,7 @@ class Google_Service_TagManager_AccountsContainersMacros_Resource extends Google
    * @param string $containerId The GTM Container ID.
    * @param string $macroId The GTM Macro ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_Macro
    */
   public function get($accountId, $containerId, $macroId, $optParams = array())
@@ -1174,6 +1180,7 @@ class Google_Service_TagManager_AccountsContainersMacros_Resource extends Google
    * @param string $accountId The GTM Account ID.
    * @param string $containerId The GTM Container ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_ListMacrosResponse
    */
   public function listAccountsContainersMacros($accountId, $containerId, $optParams = array())
@@ -1186,11 +1193,11 @@ class Google_Service_TagManager_AccountsContainersMacros_Resource extends Google
   /**
    * Updates a GTM Macro. (macros.update)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $macroId The GTM Macro ID.
+   * @param string       $accountId   The GTM Account ID.
+   * @param string       $containerId The GTM Container ID.
+   * @param string       $macroId     The GTM Macro ID.
    * @param Google_Macro $postBody
-   * @param array $optParams Optional parameters.
+   * @param array        $optParams   Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the macro in storage.
@@ -1217,10 +1224,11 @@ class Google_Service_TagManager_AccountsContainersRules_Resource extends Google_
   /**
    * Creates a GTM Rule. (rules.create)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string      $accountId   The GTM Account ID.
+   * @param string      $containerId The GTM Container ID.
    * @param Google_Rule $postBody
-   * @param array $optParams Optional parameters.
+   * @param array       $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_Rule
    */
   public function create($accountId, $containerId, Google_Service_TagManager_Rule $postBody, $optParams = array())
@@ -1233,10 +1241,10 @@ class Google_Service_TagManager_AccountsContainersRules_Resource extends Google_
   /**
    * Deletes a GTM Rule. (rules.delete)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param string $ruleId The GTM Rule ID.
-   * @param array $optParams Optional parameters.
+   * @param string $ruleId      The GTM Rule ID.
+   * @param array  $optParams   Optional parameters.
    */
   public function delete($accountId, $containerId, $ruleId, $optParams = array())
   {
@@ -1248,10 +1256,11 @@ class Google_Service_TagManager_AccountsContainersRules_Resource extends Google_
   /**
    * Gets a GTM Rule. (rules.get)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param string $ruleId The GTM Rule ID.
-   * @param array $optParams Optional parameters.
+   * @param string $ruleId      The GTM Rule ID.
+   * @param array  $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_Rule
    */
   public function get($accountId, $containerId, $ruleId, $optParams = array())
@@ -1264,9 +1273,10 @@ class Google_Service_TagManager_AccountsContainersRules_Resource extends Google_
   /**
    * Lists all GTM Rules of a Container. (rules.listAccountsContainersRules)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_ListRulesResponse
    */
   public function listAccountsContainersRules($accountId, $containerId, $optParams = array())
@@ -1279,11 +1289,11 @@ class Google_Service_TagManager_AccountsContainersRules_Resource extends Google_
   /**
    * Updates a GTM Rule. (rules.update)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $ruleId The GTM Rule ID.
+   * @param string      $accountId   The GTM Account ID.
+   * @param string      $containerId The GTM Container ID.
+   * @param string      $ruleId      The GTM Rule ID.
    * @param Google_Rule $postBody
-   * @param array $optParams Optional parameters.
+   * @param array       $optParams   Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the rule in storage.
@@ -1310,10 +1320,11 @@ class Google_Service_TagManager_AccountsContainersTags_Resource extends Google_S
   /**
    * Creates a GTM Tag. (tags.create)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string     $accountId   The GTM Account ID.
+   * @param string     $containerId The GTM Container ID.
    * @param Google_Tag $postBody
-   * @param array $optParams Optional parameters.
+   * @param array      $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_Tag
    */
   public function create($accountId, $containerId, Google_Service_TagManager_Tag $postBody, $optParams = array())
@@ -1326,10 +1337,10 @@ class Google_Service_TagManager_AccountsContainersTags_Resource extends Google_S
   /**
    * Deletes a GTM Tag. (tags.delete)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param string $tagId The GTM Tag ID.
-   * @param array $optParams Optional parameters.
+   * @param string $tagId       The GTM Tag ID.
+   * @param array  $optParams   Optional parameters.
    */
   public function delete($accountId, $containerId, $tagId, $optParams = array())
   {
@@ -1338,13 +1349,14 @@ class Google_Service_TagManager_AccountsContainersTags_Resource extends Google_S
     return $this->call('delete', array($params));
   }
 
-  /**
-   * Gets a GTM Tag. (tags.get)
+    /**
+     * Gets a GTM Tag. (tags.get)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $tagId The GTM Tag ID.
-   * @param array $optParams Optional parameters.
+     * @param string $accountId   The GTM Account ID.
+   * @param string   $containerId The GTM Container ID.
+     * @param string $tagId       The GTM Tag ID.
+     * @param array  $optParams   Optional parameters.
+     *
    * @return Google_Service_TagManager_Tag
    */
   public function get($accountId, $containerId, $tagId, $optParams = array())
@@ -1357,9 +1369,10 @@ class Google_Service_TagManager_AccountsContainersTags_Resource extends Google_S
   /**
    * Lists all GTM Tags of a Container. (tags.listAccountsContainersTags)
    *
-   * @param string $accountId The GTM Account ID.
+   * @param string $accountId   The GTM Account ID.
    * @param string $containerId The GTM Container ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_ListTagsResponse
    */
   public function listAccountsContainersTags($accountId, $containerId, $optParams = array())
@@ -1369,14 +1382,14 @@ class Google_Service_TagManager_AccountsContainersTags_Resource extends Google_S
     return $this->call('list', array($params), "Google_Service_TagManager_ListTagsResponse");
   }
 
-  /**
-   * Updates a GTM Tag. (tags.update)
+    /**
+     * Updates a GTM Tag. (tags.update)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $tagId The GTM Tag ID.
-   * @param Google_Tag $postBody
-   * @param array $optParams Optional parameters.
+     * @param string     $accountId   The GTM Account ID.
+     * @param string     $containerId The GTM Container ID.
+     * @param string     $tagId       The GTM Tag ID.
+     * @param Google_Tag $postBody
+     * @param array      $optParams   Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the tag in storage.
@@ -1403,10 +1416,11 @@ class Google_Service_TagManager_AccountsContainersTriggers_Resource extends Goog
   /**
    * Creates a GTM Trigger. (triggers.create)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string         $accountId   The GTM Account ID.
+   * @param string         $containerId The GTM Container ID.
    * @param Google_Trigger $postBody
-   * @param array $optParams Optional parameters.
+   * @param array          $optParams   Optional parameters.
+   *
    * @return Google_Service_TagManager_Trigger
    */
   public function create($accountId, $containerId, Google_Service_TagManager_Trigger $postBody, $optParams = array())
@@ -1416,13 +1430,13 @@ class Google_Service_TagManager_AccountsContainersTriggers_Resource extends Goog
     return $this->call('create', array($params), "Google_Service_TagManager_Trigger");
   }
 
-  /**
-   * Deletes a GTM Trigger. (triggers.delete)
-   *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $triggerId The GTM Trigger ID.
-   * @param array $optParams Optional parameters.
+    /**
+     * Deletes a GTM Trigger. (triggers.delete)
+     *
+     * @param string $accountId   The GTM Account ID.
+     * @param string $containerId The GTM Container ID.
+     * @param string $triggerId   The GTM Trigger ID.
+     * @param array  $optParams   Optional parameters.
    */
   public function delete($accountId, $containerId, $triggerId, $optParams = array())
   {
@@ -1431,13 +1445,14 @@ class Google_Service_TagManager_AccountsContainersTriggers_Resource extends Goog
     return $this->call('delete', array($params));
   }
 
-  /**
+    /**
    * Gets a GTM Trigger. (triggers.get)
-   *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $triggerId The GTM Trigger ID.
-   * @param array $optParams Optional parameters.
+     *
+     * @param string $accountId   The GTM Account ID.
+     * @param string $containerId The GTM Container ID.
+     * @param string $triggerId   The GTM Trigger ID.
+     * @param array  $optParams   Optional parameters.
+     *
    * @return Google_Service_TagManager_Trigger
    */
   public function get($accountId, $containerId, $triggerId, $optParams = array())
@@ -1454,6 +1469,7 @@ class Google_Service_TagManager_AccountsContainersTriggers_Resource extends Goog
    * @param string $accountId The GTM Account ID.
    * @param string $containerId The GTM Container ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_ListTriggersResponse
    */
   public function listAccountsContainersTriggers($accountId, $containerId, $optParams = array())
@@ -1463,14 +1479,14 @@ class Google_Service_TagManager_AccountsContainersTriggers_Resource extends Goog
     return $this->call('list', array($params), "Google_Service_TagManager_ListTriggersResponse");
   }
 
-  /**
+    /**
    * Updates a GTM Trigger. (triggers.update)
-   *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $triggerId The GTM Trigger ID.
+     *
+   * @param string         $accountId   The GTM Account ID.
+     * @param string       $containerId The GTM Container ID.
+   * @param string         $triggerId   The GTM Trigger ID.
    * @param Google_Trigger $postBody
-   * @param array $optParams Optional parameters.
+   * @param array          $optParams   Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the trigger in storage.
@@ -1494,13 +1510,14 @@ class Google_Service_TagManager_AccountsContainersTriggers_Resource extends Goog
 class Google_Service_TagManager_AccountsContainersVariables_Resource extends Google_Service_Resource
 {
 
-  /**
+    /**
    * Creates a GTM Variable. (variables.create)
-   *
-   * @param string $accountId The GTM Account ID.
+     *
+     * @param string        $accountId The GTM Account ID.
    * @param string $containerId The GTM Container ID.
    * @param Google_Variable $postBody
    * @param array $optParams Optional parameters.
+     *
    * @return Google_Service_TagManager_Variable
    */
   public function create($accountId, $containerId, Google_Service_TagManager_Variable $postBody, $optParams = array())
@@ -1532,6 +1549,7 @@ class Google_Service_TagManager_AccountsContainersVariables_Resource extends Goo
    * @param string $containerId The GTM Container ID.
    * @param string $variableId The GTM Variable ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_Variable
    */
   public function get($accountId, $containerId, $variableId, $optParams = array())
@@ -1548,6 +1566,7 @@ class Google_Service_TagManager_AccountsContainersVariables_Resource extends Goo
    * @param string $accountId The GTM Account ID.
    * @param string $containerId The GTM Container ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_ListVariablesResponse
    */
   public function listAccountsContainersVariables($accountId, $containerId, $optParams = array())
@@ -1560,11 +1579,11 @@ class Google_Service_TagManager_AccountsContainersVariables_Resource extends Goo
   /**
    * Updates a GTM Variable. (variables.update)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $variableId The GTM Variable ID.
+   * @param string          $accountId   The GTM Account ID.
+   * @param string          $containerId The GTM Container ID.
+   * @param string          $variableId  The GTM Variable ID.
    * @param Google_Variable $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams   Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the variable in storage.
@@ -1595,6 +1614,7 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
    * @param string $containerId The GTM Container ID.
    * @param Google_CreateContainerVersionRequestVersionOptions $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_CreateContainerVersionResponse
    */
   public function create($accountId, $containerId, Google_Service_TagManager_CreateContainerVersionRequestVersionOptions $postBody, $optParams = array())
@@ -1607,10 +1627,10 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
   /**
    * Deletes a Container Version. (versions.delete)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string $accountId          The GTM Account ID.
+   * @param string $containerId        The GTM Container ID.
    * @param string $containerVersionId The GTM Container Version ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams          Optional parameters.
    */
   public function delete($accountId, $containerId, $containerVersionId, $optParams = array())
   {
@@ -1622,11 +1642,12 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
   /**
    * Gets a Container Version. (versions.get)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string $accountId          The GTM Account ID.
+   * @param string $containerId        The GTM Container ID.
    * @param string $containerVersionId The GTM Container Version ID. Specify
    * published to retrieve the currently published version.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams          Optional parameters.
+   *
    * @return Google_Service_TagManager_ContainerVersion
    */
   public function get($accountId, $containerId, $containerVersionId, $optParams = array())
@@ -1657,10 +1678,10 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
   /**
    * Publishes a Container Version. (versions.publish)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string $accountId          The GTM Account ID.
+   * @param string $containerId        The GTM Container ID.
    * @param string $containerVersionId The GTM Container Version ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams          Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the container version in storage.
@@ -1679,10 +1700,11 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
    * have any effect on the version that is being served (i.e. the published
    * version). (versions.restore)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string $accountId          The GTM Account ID.
+   * @param string $containerId        The GTM Container ID.
    * @param string $containerVersionId The GTM Container Version ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams          Optional parameters.
+   *
    * @return Google_Service_TagManager_ContainerVersion
    */
   public function restore($accountId, $containerId, $containerVersionId, $optParams = array())
@@ -1695,10 +1717,11 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
   /**
    * Undeletes a Container Version. (versions.undelete)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
+   * @param string $accountId          The GTM Account ID.
+   * @param string $containerId        The GTM Container ID.
    * @param string $containerVersionId The GTM Container Version ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams          Optional parameters.
+   *
    * @return Google_Service_TagManager_ContainerVersion
    */
   public function undelete($accountId, $containerId, $containerVersionId, $optParams = array())
@@ -1711,11 +1734,11 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
   /**
    * Updates a Container Version. (versions.update)
    *
-   * @param string $accountId The GTM Account ID.
-   * @param string $containerId The GTM Container ID.
-   * @param string $containerVersionId The GTM Container Version ID.
+   * @param string                  $accountId          The GTM Account ID.
+   * @param string                  $containerId        The GTM Container ID.
+   * @param string                  $containerVersionId The GTM Container Version ID.
    * @param Google_ContainerVersion $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                   $optParams          Optional parameters.
    *
    * @opt_param string fingerprint When provided, this fingerprint must match the
    * fingerprint of the container version in storage.
@@ -1775,6 +1798,7 @@ class Google_Service_TagManager_AccountsPermissions_Resource extends Google_Serv
    * @param string $accountId The GTM Account ID.
    * @param string $permissionId The GTM User ID.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_UserAccess
    */
   public function get($accountId, $permissionId, $optParams = array())
@@ -1792,6 +1816,7 @@ class Google_Service_TagManager_AccountsPermissions_Resource extends Google_Serv
    * @param string $accountId The GTM Account ID. @required
    * tagmanager.accounts.permissions.list
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_ListAccountUsersResponse
    */
   public function listAccountsPermissions($accountId, $optParams = array())
@@ -1808,6 +1833,7 @@ class Google_Service_TagManager_AccountsPermissions_Resource extends Google_Serv
    * @param string $permissionId The GTM User ID.
    * @param Google_UserAccess $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_TagManager_UserAccess
    */
   public function update($accountId, $permissionId, Google_Service_TagManager_UserAccess $postBody, $optParams = array())
@@ -1823,75 +1849,79 @@ class Google_Service_TagManager_AccountsPermissions_Resource extends Google_Serv
 
 class Google_Service_TagManager_Account extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $fingerprint;
   public $name;
   public $shareData;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setAccountId($accountId)
   {
-    $this->fingerprint = $fingerprint;
+      $this->accountId = $accountId;
   }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setName($name)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->name = $name;
+      $this->fingerprint = $fingerprint;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setShareData($shareData)
+
+    public function setName($name)
   {
-    $this->shareData = $shareData;
+      $this->name = $name;
   }
+
   public function getShareData()
   {
     return $this->shareData;
   }
+
+    public function setShareData($shareData)
+    {
+        $this->shareData = $shareData;
+    }
 }
 
 class Google_Service_TagManager_AccountAccess extends Google_Collection
 {
+    public $permission;
   protected $collection_key = 'permission';
   protected $internal_gapi_mappings = array(
   );
-  public $permission;
 
-
-  public function setPermission($permission)
-  {
-    $this->permission = $permission;
-  }
   public function getPermission()
   {
     return $this->permission;
   }
+
+    public function setPermission($permission)
+    {
+        $this->permission = $permission;
+    }
 }
 
 class Google_Service_TagManager_Condition extends Google_Collection
 {
+    public $type;
   protected $collection_key = 'parameter';
   protected $internal_gapi_mappings = array(
   );
   protected $parameterType = 'Google_Service_TagManager_Parameter';
   protected $parameterDataType = 'array';
-  public $type;
-
 
   public function setParameter($parameter)
   {
@@ -1901,21 +1931,20 @@ class Google_Service_TagManager_Condition extends Google_Collection
   {
     return $this->parameter;
   }
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_TagManager_Container extends Google_Collection
 {
-  protected $collection_key = 'usageContext';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $containerId;
   public $domainName;
@@ -1927,141 +1956,163 @@ class Google_Service_TagManager_Container extends Google_Collection
   public $timeZoneCountryId;
   public $timeZoneId;
   public $usageContext;
+    protected $collection_key = 'usageContext';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setContainerId($containerId)
+
+    public function setAccountId($accountId)
   {
-    $this->containerId = $containerId;
+      $this->accountId = $accountId;
   }
+
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setDomainName($domainName)
+
+    public function setContainerId($containerId)
   {
-    $this->domainName = $domainName;
+      $this->containerId = $containerId;
   }
+
   public function getDomainName()
   {
     return $this->domainName;
   }
-  public function setEnabledBuiltInVariable($enabledBuiltInVariable)
+
+    public function setDomainName($domainName)
   {
-    $this->enabledBuiltInVariable = $enabledBuiltInVariable;
+      $this->domainName = $domainName;
   }
+
   public function getEnabledBuiltInVariable()
   {
     return $this->enabledBuiltInVariable;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setEnabledBuiltInVariable($enabledBuiltInVariable)
   {
-    $this->fingerprint = $fingerprint;
+      $this->enabledBuiltInVariable = $enabledBuiltInVariable;
   }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setName($name)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->name = $name;
+      $this->fingerprint = $fingerprint;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
+
   public function getNotes()
   {
     return $this->notes;
   }
-  public function setPublicId($publicId)
+
+    public function setNotes($notes)
   {
-    $this->publicId = $publicId;
+      $this->notes = $notes;
   }
+
   public function getPublicId()
   {
     return $this->publicId;
   }
-  public function setTimeZoneCountryId($timeZoneCountryId)
+
+    public function setPublicId($publicId)
   {
-    $this->timeZoneCountryId = $timeZoneCountryId;
+      $this->publicId = $publicId;
   }
+
   public function getTimeZoneCountryId()
   {
     return $this->timeZoneCountryId;
   }
-  public function setTimeZoneId($timeZoneId)
+
+    public function setTimeZoneCountryId($timeZoneCountryId)
   {
-    $this->timeZoneId = $timeZoneId;
+      $this->timeZoneCountryId = $timeZoneCountryId;
   }
+
   public function getTimeZoneId()
   {
     return $this->timeZoneId;
   }
-  public function setUsageContext($usageContext)
+
+    public function setTimeZoneId($timeZoneId)
   {
-    $this->usageContext = $usageContext;
+      $this->timeZoneId = $timeZoneId;
   }
+
   public function getUsageContext()
   {
     return $this->usageContext;
   }
+
+    public function setUsageContext($usageContext)
+    {
+        $this->usageContext = $usageContext;
+    }
 }
 
 class Google_Service_TagManager_ContainerAccess extends Google_Collection
 {
-  protected $collection_key = 'permission';
-  protected $internal_gapi_mappings = array(
-  );
   public $containerId;
   public $permission;
+    protected $collection_key = 'permission';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setContainerId($containerId)
-  {
-    $this->containerId = $containerId;
-  }
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setPermission($permission)
+
+    public function setContainerId($containerId)
   {
-    $this->permission = $permission;
+      $this->containerId = $containerId;
   }
+
   public function getPermission()
   {
     return $this->permission;
   }
+
+    public function setPermission($permission)
+    {
+        $this->permission = $permission;
+    }
 }
 
 class Google_Service_TagManager_ContainerVersion extends Google_Collection
 {
-  protected $collection_key = 'variable';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
-  protected $containerType = 'Google_Service_TagManager_Container';
-  protected $containerDataType = '';
   public $containerId;
   public $containerVersionId;
   public $deleted;
   public $fingerprint;
-  protected $macroType = 'Google_Service_TagManager_Macro';
-  protected $macroDataType = 'array';
   public $name;
   public $notes;
+    protected $collection_key = 'variable';
+    protected $internal_gapi_mappings = array();
+    protected $containerType = 'Google_Service_TagManager_Container';
+    protected $containerDataType = '';
+    protected $macroType = 'Google_Service_TagManager_Macro';
+    protected $macroDataType = 'array';
   protected $ruleType = 'Google_Service_TagManager_Rule';
   protected $ruleDataType = 'array';
   protected $tagType = 'Google_Service_TagManager_Tag';
@@ -2071,15 +2122,16 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   protected $variableType = 'Google_Service_TagManager_Variable';
   protected $variableDataType = 'array';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setContainer(Google_Service_TagManager_Container $container)
   {
     $this->container = $container;
@@ -2088,38 +2140,47 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   {
     return $this->container;
   }
-  public function setContainerId($containerId)
-  {
-    $this->containerId = $containerId;
-  }
+
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setContainerVersionId($containerVersionId)
+
+    public function setContainerId($containerId)
   {
-    $this->containerVersionId = $containerVersionId;
+      $this->containerId = $containerId;
   }
+
   public function getContainerVersionId()
   {
     return $this->containerVersionId;
   }
-  public function setDeleted($deleted)
+
+    public function setContainerVersionId($containerVersionId)
   {
-    $this->deleted = $deleted;
+      $this->containerVersionId = $containerVersionId;
   }
+
   public function getDeleted()
   {
     return $this->deleted;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setDeleted($deleted)
   {
-    $this->fingerprint = $fingerprint;
+      $this->deleted = $deleted;
   }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
+
+    public function setFingerprint($fingerprint)
+    {
+        $this->fingerprint = $fingerprint;
+    }
+
   public function setMacro($macro)
   {
     $this->macro = $macro;
@@ -2128,22 +2189,27 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   {
     return $this->macro;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
+
   public function getNotes()
   {
     return $this->notes;
   }
+
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
   public function setRule($rule)
   {
     $this->rule = $rule;
@@ -2180,8 +2246,6 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
 
 class Google_Service_TagManager_ContainerVersionHeader extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $containerId;
   public $containerVersionId;
@@ -2192,142 +2256,164 @@ class Google_Service_TagManager_ContainerVersionHeader extends Google_Model
   public $numTags;
   public $numTriggers;
   public $numVariables;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setContainerId($containerId)
+
+    public function setAccountId($accountId)
   {
-    $this->containerId = $containerId;
+      $this->accountId = $accountId;
   }
+
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setContainerVersionId($containerVersionId)
+
+    public function setContainerId($containerId)
   {
-    $this->containerVersionId = $containerVersionId;
+      $this->containerId = $containerId;
   }
+
   public function getContainerVersionId()
   {
     return $this->containerVersionId;
   }
-  public function setDeleted($deleted)
+
+    public function setContainerVersionId($containerVersionId)
   {
-    $this->deleted = $deleted;
+      $this->containerVersionId = $containerVersionId;
   }
+
   public function getDeleted()
   {
     return $this->deleted;
   }
-  public function setName($name)
+
+    public function setDeleted($deleted)
   {
-    $this->name = $name;
+      $this->deleted = $deleted;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNumMacros($numMacros)
+
+    public function setName($name)
   {
-    $this->numMacros = $numMacros;
+      $this->name = $name;
   }
+
   public function getNumMacros()
   {
     return $this->numMacros;
   }
-  public function setNumRules($numRules)
+
+    public function setNumMacros($numMacros)
   {
-    $this->numRules = $numRules;
+      $this->numMacros = $numMacros;
   }
+
   public function getNumRules()
   {
     return $this->numRules;
   }
-  public function setNumTags($numTags)
+
+    public function setNumRules($numRules)
   {
-    $this->numTags = $numTags;
+      $this->numRules = $numRules;
   }
+
   public function getNumTags()
   {
     return $this->numTags;
   }
-  public function setNumTriggers($numTriggers)
+
+    public function setNumTags($numTags)
   {
-    $this->numTriggers = $numTriggers;
+      $this->numTags = $numTags;
   }
+
   public function getNumTriggers()
   {
     return $this->numTriggers;
   }
-  public function setNumVariables($numVariables)
+
+    public function setNumTriggers($numTriggers)
   {
-    $this->numVariables = $numVariables;
+      $this->numTriggers = $numTriggers;
   }
+
   public function getNumVariables()
   {
     return $this->numVariables;
   }
+
+    public function setNumVariables($numVariables)
+    {
+        $this->numVariables = $numVariables;
+    }
 }
 
 class Google_Service_TagManager_CreateContainerVersionRequestVersionOptions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $notes;
   public $quickPreview;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
+
   public function getNotes()
   {
     return $this->notes;
   }
-  public function setQuickPreview($quickPreview)
+
+    public function setNotes($notes)
   {
-    $this->quickPreview = $quickPreview;
+      $this->notes = $notes;
   }
+
   public function getQuickPreview()
   {
     return $this->quickPreview;
   }
+
+    public function setQuickPreview($quickPreview)
+    {
+        $this->quickPreview = $quickPreview;
+    }
 }
 
 class Google_Service_TagManager_CreateContainerVersionResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $compilerError;
+    protected $internal_gapi_mappings = array();
   protected $containerVersionType = 'Google_Service_TagManager_ContainerVersion';
   protected $containerVersionDataType = '';
 
-
-  public function setCompilerError($compilerError)
-  {
-    $this->compilerError = $compilerError;
-  }
   public function getCompilerError()
   {
     return $this->compilerError;
   }
+
+    public function setCompilerError($compilerError)
+    {
+        $this->compilerError = $compilerError;
+    }
+
   public function setContainerVersion(Google_Service_TagManager_ContainerVersion $containerVersion)
   {
     $this->containerVersion = $containerVersion;
@@ -2521,9 +2607,6 @@ class Google_Service_TagManager_ListVariablesResponse extends Google_Collection
 
 class Google_Service_TagManager_Macro extends Google_Collection
 {
-  protected $collection_key = 'parameter';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $containerId;
   public $disablingRuleId;
@@ -2532,77 +2615,94 @@ class Google_Service_TagManager_Macro extends Google_Collection
   public $macroId;
   public $name;
   public $notes;
-  protected $parameterType = 'Google_Service_TagManager_Parameter';
-  protected $parameterDataType = 'array';
   public $scheduleEndMs;
   public $scheduleStartMs;
   public $type;
+    protected $collection_key = 'parameter';
+    protected $internal_gapi_mappings = array();
+    protected $parameterType = 'Google_Service_TagManager_Parameter';
+    protected $parameterDataType = 'array';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setContainerId($containerId)
+
+    public function setAccountId($accountId)
   {
-    $this->containerId = $containerId;
+      $this->accountId = $accountId;
   }
+
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setDisablingRuleId($disablingRuleId)
+
+    public function setContainerId($containerId)
   {
-    $this->disablingRuleId = $disablingRuleId;
+      $this->containerId = $containerId;
   }
+
   public function getDisablingRuleId()
   {
     return $this->disablingRuleId;
   }
-  public function setEnablingRuleId($enablingRuleId)
+
+    public function setDisablingRuleId($disablingRuleId)
   {
-    $this->enablingRuleId = $enablingRuleId;
+      $this->disablingRuleId = $disablingRuleId;
   }
+
   public function getEnablingRuleId()
   {
     return $this->enablingRuleId;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setEnablingRuleId($enablingRuleId)
   {
-    $this->fingerprint = $fingerprint;
+      $this->enablingRuleId = $enablingRuleId;
   }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setMacroId($macroId)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->macroId = $macroId;
+      $this->fingerprint = $fingerprint;
   }
+
   public function getMacroId()
   {
     return $this->macroId;
   }
-  public function setName($name)
+
+    public function setMacroId($macroId)
   {
-    $this->name = $name;
+      $this->macroId = $macroId;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
+
   public function getNotes()
   {
     return $this->notes;
   }
+
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
   public function setParameter($parameter)
   {
     $this->parameter = $parameter;
@@ -2611,54 +2711,61 @@ class Google_Service_TagManager_Macro extends Google_Collection
   {
     return $this->parameter;
   }
-  public function setScheduleEndMs($scheduleEndMs)
-  {
-    $this->scheduleEndMs = $scheduleEndMs;
-  }
+
   public function getScheduleEndMs()
   {
     return $this->scheduleEndMs;
   }
-  public function setScheduleStartMs($scheduleStartMs)
+
+    public function setScheduleEndMs($scheduleEndMs)
   {
-    $this->scheduleStartMs = $scheduleStartMs;
+      $this->scheduleEndMs = $scheduleEndMs;
   }
+
   public function getScheduleStartMs()
   {
     return $this->scheduleStartMs;
   }
-  public function setType($type)
+
+    public function setScheduleStartMs($scheduleStartMs)
   {
-    $this->type = $type;
+      $this->scheduleStartMs = $scheduleStartMs;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_TagManager_Parameter extends Google_Collection
 {
+    public $key;
+    public $type;
+    public $value;
   protected $collection_key = 'map';
   protected $internal_gapi_mappings = array(
   );
-  public $key;
   protected $listType = 'Google_Service_TagManager_Parameter';
   protected $listDataType = 'array';
   protected $mapType = 'Google_Service_TagManager_Parameter';
   protected $mapDataType = 'array';
-  public $type;
-  public $value;
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
+
+    public function setKey($key)
+    {
+        $this->key = $key;
+    }
+
   public function setList($list)
   {
     $this->list = $list;
@@ -2675,41 +2782,45 @@ class Google_Service_TagManager_Parameter extends Google_Collection
   {
     return $this->map;
   }
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setValue($value)
+
+    public function setType($type)
   {
-    $this->value = $value;
+      $this->type = $type;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_TagManager_PublishContainerVersionResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $compilerError;
+    protected $internal_gapi_mappings = array();
   protected $containerVersionType = 'Google_Service_TagManager_ContainerVersion';
   protected $containerVersionDataType = '';
 
-
-  public function setCompilerError($compilerError)
-  {
-    $this->compilerError = $compilerError;
-  }
   public function getCompilerError()
   {
     return $this->compilerError;
   }
+
+    public function setCompilerError($compilerError)
+    {
+        $this->compilerError = $compilerError;
+    }
+
   public function setContainerVersion(Google_Service_TagManager_ContainerVersion $containerVersion)
   {
     $this->containerVersion = $containerVersion;
@@ -2722,27 +2833,27 @@ class Google_Service_TagManager_PublishContainerVersionResponse extends Google_M
 
 class Google_Service_TagManager_Rule extends Google_Collection
 {
-  protected $collection_key = 'condition';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
-  protected $conditionType = 'Google_Service_TagManager_Condition';
-  protected $conditionDataType = 'array';
   public $containerId;
   public $fingerprint;
   public $name;
   public $notes;
   public $ruleId;
+    protected $collection_key = 'condition';
+    protected $internal_gapi_mappings = array();
+    protected $conditionType = 'Google_Service_TagManager_Condition';
+    protected $conditionDataType = 'array';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setCondition($condition)
   {
     $this->condition = $condition;
@@ -2751,53 +2862,60 @@ class Google_Service_TagManager_Rule extends Google_Collection
   {
     return $this->condition;
   }
-  public function setContainerId($containerId)
-  {
-    $this->containerId = $containerId;
-  }
+
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setContainerId($containerId)
   {
-    $this->fingerprint = $fingerprint;
+      $this->containerId = $containerId;
   }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setName($name)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->name = $name;
+      $this->fingerprint = $fingerprint;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
+
   public function getNotes()
   {
     return $this->notes;
   }
-  public function setRuleId($ruleId)
+
+    public function setNotes($notes)
   {
-    $this->ruleId = $ruleId;
+      $this->notes = $notes;
   }
+
   public function getRuleId()
   {
     return $this->ruleId;
   }
+
+    public function setRuleId($ruleId)
+    {
+        $this->ruleId = $ruleId;
+    }
 }
 
 class Google_Service_TagManager_Tag extends Google_Collection
 {
-  protected $collection_key = 'parameter';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $blockingRuleId;
   public $blockingTriggerId;
@@ -2808,96 +2926,117 @@ class Google_Service_TagManager_Tag extends Google_Collection
   public $liveOnly;
   public $name;
   public $notes;
-  protected $parameterType = 'Google_Service_TagManager_Parameter';
-  protected $parameterDataType = 'array';
-  protected $priorityType = 'Google_Service_TagManager_Parameter';
-  protected $priorityDataType = '';
   public $scheduleEndMs;
   public $scheduleStartMs;
   public $tagId;
   public $type;
+    protected $collection_key = 'parameter';
+    protected $internal_gapi_mappings = array();
+    protected $parameterType = 'Google_Service_TagManager_Parameter';
+    protected $parameterDataType = 'array';
+    protected $priorityType = 'Google_Service_TagManager_Parameter';
+    protected $priorityDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setBlockingRuleId($blockingRuleId)
+
+    public function setAccountId($accountId)
   {
-    $this->blockingRuleId = $blockingRuleId;
+      $this->accountId = $accountId;
   }
+
   public function getBlockingRuleId()
   {
     return $this->blockingRuleId;
   }
-  public function setBlockingTriggerId($blockingTriggerId)
+
+    public function setBlockingRuleId($blockingRuleId)
   {
-    $this->blockingTriggerId = $blockingTriggerId;
+      $this->blockingRuleId = $blockingRuleId;
   }
+
   public function getBlockingTriggerId()
   {
     return $this->blockingTriggerId;
   }
-  public function setContainerId($containerId)
+
+    public function setBlockingTriggerId($blockingTriggerId)
   {
-    $this->containerId = $containerId;
+      $this->blockingTriggerId = $blockingTriggerId;
   }
+
   public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setContainerId($containerId)
   {
-    $this->fingerprint = $fingerprint;
+      $this->containerId = $containerId;
   }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setFiringRuleId($firingRuleId)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->firingRuleId = $firingRuleId;
+      $this->fingerprint = $fingerprint;
   }
-  public function getFiringRuleId()
+
+    public function getFiringRuleId()
   {
     return $this->firingRuleId;
   }
-  public function setFiringTriggerId($firingTriggerId)
+
+    public function setFiringRuleId($firingRuleId)
   {
-    $this->firingTriggerId = $firingTriggerId;
+      $this->firingRuleId = $firingRuleId;
   }
-  public function getFiringTriggerId()
+
+    public function getFiringTriggerId()
   {
     return $this->firingTriggerId;
   }
-  public function setLiveOnly($liveOnly)
+
+    public function setFiringTriggerId($firingTriggerId)
   {
-    $this->liveOnly = $liveOnly;
+      $this->firingTriggerId = $firingTriggerId;
   }
-  public function getLiveOnly()
+
+    public function getLiveOnly()
   {
     return $this->liveOnly;
   }
-  public function setName($name)
+
+    public function setLiveOnly($liveOnly)
   {
-    $this->name = $name;
+      $this->liveOnly = $liveOnly;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
-  public function getNotes()
+
+    public function getNotes()
   {
     return $this->notes;
   }
+
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
   public function setParameter($parameter)
   {
     $this->parameter = $parameter;
@@ -2914,51 +3053,63 @@ class Google_Service_TagManager_Tag extends Google_Collection
   {
     return $this->priority;
   }
-  public function setScheduleEndMs($scheduleEndMs)
-  {
-    $this->scheduleEndMs = $scheduleEndMs;
-  }
-  public function getScheduleEndMs()
+
+    public function getScheduleEndMs()
   {
     return $this->scheduleEndMs;
   }
-  public function setScheduleStartMs($scheduleStartMs)
+
+    public function setScheduleEndMs($scheduleEndMs)
   {
-    $this->scheduleStartMs = $scheduleStartMs;
+      $this->scheduleEndMs = $scheduleEndMs;
   }
-  public function getScheduleStartMs()
+
+    public function getScheduleStartMs()
   {
     return $this->scheduleStartMs;
   }
-  public function setTagId($tagId)
+
+    public function setScheduleStartMs($scheduleStartMs)
   {
-    $this->tagId = $tagId;
+      $this->scheduleStartMs = $scheduleStartMs;
   }
-  public function getTagId()
+
+    public function getTagId()
   {
     return $this->tagId;
   }
-  public function setType($type)
+
+    public function setTagId($tagId)
   {
-    $this->type = $type;
+      $this->tagId = $tagId;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_TagManager_Trigger extends Google_Collection
 {
+    public $accountId;
+    public $containerId;
+    public $fingerprint;
+    public $name;
+    public $triggerId;
+    public $type;
   protected $collection_key = 'filter';
   protected $internal_gapi_mappings = array(
   );
-  public $accountId;
   protected $autoEventFilterType = 'Google_Service_TagManager_Condition';
   protected $autoEventFilterDataType = 'array';
   protected $checkValidationType = 'Google_Service_TagManager_Parameter';
   protected $checkValidationDataType = '';
-  public $containerId;
   protected $customEventFilterType = 'Google_Service_TagManager_Condition';
   protected $customEventFilterDataType = 'array';
   protected $enableAllVideosType = 'Google_Service_TagManager_Parameter';
@@ -2967,14 +3118,10 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   protected $eventNameDataType = '';
   protected $filterType = 'Google_Service_TagManager_Condition';
   protected $filterDataType = 'array';
-  public $fingerprint;
   protected $intervalType = 'Google_Service_TagManager_Parameter';
   protected $intervalDataType = '';
   protected $limitType = 'Google_Service_TagManager_Parameter';
   protected $limitDataType = '';
-  public $name;
-  public $triggerId;
-  public $type;
   protected $uniqueTriggerIdType = 'Google_Service_TagManager_Parameter';
   protected $uniqueTriggerIdDataType = '';
   protected $videoPercentageListType = 'Google_Service_TagManager_Parameter';
@@ -2984,15 +3131,16 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   protected $waitForTagsTimeoutType = 'Google_Service_TagManager_Parameter';
   protected $waitForTagsTimeoutDataType = '';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setAutoEventFilter($autoEventFilter)
   {
     $this->autoEventFilter = $autoEventFilter;
@@ -3009,14 +3157,17 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   {
     return $this->checkValidation;
   }
-  public function setContainerId($containerId)
-  {
-    $this->containerId = $containerId;
-  }
-  public function getContainerId()
+
+    public function getContainerId()
   {
     return $this->containerId;
   }
+
+    public function setContainerId($containerId)
+    {
+        $this->containerId = $containerId;
+    }
+
   public function setCustomEventFilter($customEventFilter)
   {
     $this->customEventFilter = $customEventFilter;
@@ -3049,14 +3200,17 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   {
     return $this->filter;
   }
-  public function setFingerprint($fingerprint)
-  {
-    $this->fingerprint = $fingerprint;
-  }
-  public function getFingerprint()
+
+    public function getFingerprint()
   {
     return $this->fingerprint;
   }
+
+    public function setFingerprint($fingerprint)
+    {
+        $this->fingerprint = $fingerprint;
+    }
+
   public function setInterval(Google_Service_TagManager_Parameter $interval)
   {
     $this->interval = $interval;
@@ -3073,30 +3227,37 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   {
     return $this->limit;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setTriggerId($triggerId)
+
+    public function setName($name)
   {
-    $this->triggerId = $triggerId;
+      $this->name = $name;
   }
-  public function getTriggerId()
+
+    public function getTriggerId()
   {
     return $this->triggerId;
   }
-  public function setType($type)
+
+    public function setTriggerId($triggerId)
   {
-    $this->type = $type;
+      $this->triggerId = $triggerId;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
   public function setUniqueTriggerId(Google_Service_TagManager_Parameter $uniqueTriggerId)
   {
     $this->uniqueTriggerId = $uniqueTriggerId;
@@ -3133,17 +3294,16 @@ class Google_Service_TagManager_Trigger extends Google_Collection
 
 class Google_Service_TagManager_UserAccess extends Google_Collection
 {
+    public $accountId;
+    public $emailAddress;
+    public $permissionId;
   protected $collection_key = 'containerAccess';
   protected $internal_gapi_mappings = array(
   );
   protected $accountAccessType = 'Google_Service_TagManager_AccountAccess';
   protected $accountAccessDataType = '';
-  public $accountId;
   protected $containerAccessType = 'Google_Service_TagManager_ContainerAccess';
   protected $containerAccessDataType = 'array';
-  public $emailAddress;
-  public $permissionId;
-
 
   public function setAccountAccess(Google_Service_TagManager_AccountAccess $accountAccess)
   {
@@ -3153,14 +3313,17 @@ class Google_Service_TagManager_UserAccess extends Google_Collection
   {
     return $this->accountAccess;
   }
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
-  public function getAccountId()
+
+    public function getAccountId()
   {
     return $this->accountId;
   }
+
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
   public function setContainerAccess($containerAccess)
   {
     $this->containerAccess = $containerAccess;
@@ -3169,29 +3332,30 @@ class Google_Service_TagManager_UserAccess extends Google_Collection
   {
     return $this->containerAccess;
   }
-  public function setEmailAddress($emailAddress)
-  {
-    $this->emailAddress = $emailAddress;
-  }
-  public function getEmailAddress()
+
+    public function getEmailAddress()
   {
     return $this->emailAddress;
   }
-  public function setPermissionId($permissionId)
+
+    public function setEmailAddress($emailAddress)
   {
-    $this->permissionId = $permissionId;
+      $this->emailAddress = $emailAddress;
   }
-  public function getPermissionId()
+
+    public function getPermissionId()
   {
     return $this->permissionId;
   }
+
+    public function setPermissionId($permissionId)
+    {
+        $this->permissionId = $permissionId;
+    }
 }
 
 class Google_Service_TagManager_Variable extends Google_Collection
 {
-  protected $collection_key = 'parameter';
-  protected $internal_gapi_mappings = array(
-  );
   public $accountId;
   public $containerId;
   public $disablingTriggerId;
@@ -3199,70 +3363,85 @@ class Google_Service_TagManager_Variable extends Google_Collection
   public $fingerprint;
   public $name;
   public $notes;
-  protected $parameterType = 'Google_Service_TagManager_Parameter';
-  protected $parameterDataType = 'array';
   public $scheduleEndMs;
   public $scheduleStartMs;
   public $type;
   public $variableId;
+    protected $collection_key = 'parameter';
+    protected $internal_gapi_mappings = array();
+    protected $parameterType = 'Google_Service_TagManager_Parameter';
+    protected $parameterDataType = 'array';
 
-
-  public function setAccountId($accountId)
-  {
-    $this->accountId = $accountId;
-  }
   public function getAccountId()
   {
     return $this->accountId;
   }
-  public function setContainerId($containerId)
+
+    public function setAccountId($accountId)
   {
-    $this->containerId = $containerId;
+      $this->accountId = $accountId;
   }
-  public function getContainerId()
+
+    public function getContainerId()
   {
     return $this->containerId;
   }
-  public function setDisablingTriggerId($disablingTriggerId)
+
+    public function setContainerId($containerId)
   {
-    $this->disablingTriggerId = $disablingTriggerId;
+      $this->containerId = $containerId;
   }
-  public function getDisablingTriggerId()
+
+    public function getDisablingTriggerId()
   {
     return $this->disablingTriggerId;
   }
-  public function setEnablingTriggerId($enablingTriggerId)
+
+    public function setDisablingTriggerId($disablingTriggerId)
   {
-    $this->enablingTriggerId = $enablingTriggerId;
+      $this->disablingTriggerId = $disablingTriggerId;
   }
-  public function getEnablingTriggerId()
+
+    public function getEnablingTriggerId()
   {
     return $this->enablingTriggerId;
   }
-  public function setFingerprint($fingerprint)
+
+    public function setEnablingTriggerId($enablingTriggerId)
   {
-    $this->fingerprint = $fingerprint;
+      $this->enablingTriggerId = $enablingTriggerId;
   }
-  public function getFingerprint()
+
+    public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setName($name)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->name = $name;
+      $this->fingerprint = $fingerprint;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
-  public function getNotes()
+
+    public function getNotes()
   {
     return $this->notes;
   }
+
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
   public function setParameter($parameter)
   {
     $this->parameter = $parameter;
@@ -3271,36 +3450,44 @@ class Google_Service_TagManager_Variable extends Google_Collection
   {
     return $this->parameter;
   }
-  public function setScheduleEndMs($scheduleEndMs)
-  {
-    $this->scheduleEndMs = $scheduleEndMs;
-  }
-  public function getScheduleEndMs()
+
+    public function getScheduleEndMs()
   {
     return $this->scheduleEndMs;
   }
-  public function setScheduleStartMs($scheduleStartMs)
+
+    public function setScheduleEndMs($scheduleEndMs)
   {
-    $this->scheduleStartMs = $scheduleStartMs;
+      $this->scheduleEndMs = $scheduleEndMs;
   }
-  public function getScheduleStartMs()
+
+    public function getScheduleStartMs()
   {
     return $this->scheduleStartMs;
   }
-  public function setType($type)
+
+    public function setScheduleStartMs($scheduleStartMs)
   {
-    $this->type = $type;
+      $this->scheduleStartMs = $scheduleStartMs;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setVariableId($variableId)
+
+    public function setType($type)
   {
-    $this->variableId = $variableId;
+      $this->type = $type;
   }
-  public function getVariableId()
+
+    public function getVariableId()
   {
     return $this->variableId;
   }
+
+    public function setVariableId($variableId)
+    {
+        $this->variableId = $variableId;
+    }
 }

@@ -1099,9 +1099,9 @@ class Google_Service_Games_Achievements_Resource extends Google_Service_Resource
    * Increments the steps of the achievement with the given ID for the currently
    * authenticated player. (achievements.increment)
    *
-   * @param string $achievementId The ID of the achievement used by this method.
-   * @param int $stepsToIncrement The number of steps to increment.
-   * @param array $optParams Optional parameters.
+   * @param string $achievementId    The ID of the achievement used by this method.
+   * @param int    $stepsToIncrement The number of steps to increment.
+   * @param array  $optParams        Optional parameters.
    *
    * @opt_param string requestId A randomly generated numeric ID for each request
    * specified by the caller. This number is used at the server to ensure that the
@@ -1119,9 +1119,9 @@ class Google_Service_Games_Achievements_Resource extends Google_Service_Resource
    * Lists the progress for all your application's achievements for the currently
    * authenticated player. (achievements.listAchievements)
    *
-   * @param string $playerId A player ID. A value of me may be used in place of
+   * @param string $playerId  A player ID. A value of me may be used in place of
    * the authenticated player's ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string state Tells the server to return only achievements with the
@@ -1146,7 +1146,8 @@ class Google_Service_Games_Achievements_Resource extends Google_Service_Resource
    * currently authenticated player. (achievements.reveal)
    *
    * @param string $achievementId The ID of the achievement used by this method.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Games_AchievementRevealResponse
    */
   public function reveal($achievementId, $optParams = array())
@@ -1163,8 +1164,9 @@ class Google_Service_Games_Achievements_Resource extends Google_Service_Resource
    * modified. (achievements.setStepsAtLeast)
    *
    * @param string $achievementId The ID of the achievement used by this method.
-   * @param int $steps The minimum value to set the steps to.
-   * @param array $optParams Optional parameters.
+   * @param int    $steps         The minimum value to set the steps to.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Games_AchievementSetStepsAtLeastResponse
    */
   public function setStepsAtLeast($achievementId, $steps, $optParams = array())
@@ -1179,7 +1181,8 @@ class Google_Service_Games_Achievements_Resource extends Google_Service_Resource
    * (achievements.unlock)
    *
    * @param string $achievementId The ID of the achievement used by this method.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams     Optional parameters.
+   *
    * @return Google_Service_Games_AchievementUnlockResponse
    */
   public function unlock($achievementId, $optParams = array())
@@ -1624,6 +1627,7 @@ class Google_Service_Games_Revisions_Resource extends Google_Service_Resource
    * "IOS" - Client is running the iOS SDK.  - "WEB_APP" - Client is running as a
    * Web App.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Games_RevisionCheckResponse
    */
   public function check($clientRevision, $optParams = array())
@@ -2261,8 +2265,6 @@ class Google_Service_Games_TurnBasedMatches_Resource extends Google_Service_Reso
 
 class Google_Service_Games_AchievementDefinition extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $achievementType;
   public $description;
   public $experiencePoints;
@@ -2276,124 +2278,148 @@ class Google_Service_Games_AchievementDefinition extends Google_Model
   public $revealedIconUrl;
   public $totalSteps;
   public $unlockedIconUrl;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAchievementType($achievementType)
-  {
-    $this->achievementType = $achievementType;
-  }
   public function getAchievementType()
   {
     return $this->achievementType;
   }
-  public function setDescription($description)
+
+    public function setAchievementType($achievementType)
   {
-    $this->description = $description;
+      $this->achievementType = $achievementType;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setExperiencePoints($experiencePoints)
+
+    public function setDescription($description)
   {
-    $this->experiencePoints = $experiencePoints;
+      $this->description = $description;
   }
+
   public function getExperiencePoints()
   {
     return $this->experiencePoints;
   }
-  public function setFormattedTotalSteps($formattedTotalSteps)
+
+    public function setExperiencePoints($experiencePoints)
   {
-    $this->formattedTotalSteps = $formattedTotalSteps;
+      $this->experiencePoints = $experiencePoints;
   }
+
   public function getFormattedTotalSteps()
   {
     return $this->formattedTotalSteps;
   }
-  public function setId($id)
+
+    public function setFormattedTotalSteps($formattedTotalSteps)
   {
-    $this->id = $id;
+      $this->formattedTotalSteps = $formattedTotalSteps;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInitialState($initialState)
+
+    public function setId($id)
   {
-    $this->initialState = $initialState;
+      $this->id = $id;
   }
+
   public function getInitialState()
   {
     return $this->initialState;
   }
-  public function setIsRevealedIconUrlDefault($isRevealedIconUrlDefault)
+
+    public function setInitialState($initialState)
   {
-    $this->isRevealedIconUrlDefault = $isRevealedIconUrlDefault;
+      $this->initialState = $initialState;
   }
+
   public function getIsRevealedIconUrlDefault()
   {
     return $this->isRevealedIconUrlDefault;
   }
-  public function setIsUnlockedIconUrlDefault($isUnlockedIconUrlDefault)
+
+    public function setIsRevealedIconUrlDefault($isRevealedIconUrlDefault)
   {
-    $this->isUnlockedIconUrlDefault = $isUnlockedIconUrlDefault;
+      $this->isRevealedIconUrlDefault = $isRevealedIconUrlDefault;
   }
+
   public function getIsUnlockedIconUrlDefault()
   {
     return $this->isUnlockedIconUrlDefault;
   }
-  public function setKind($kind)
+
+    public function setIsUnlockedIconUrlDefault($isUnlockedIconUrlDefault)
   {
-    $this->kind = $kind;
+      $this->isUnlockedIconUrlDefault = $isUnlockedIconUrlDefault;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setRevealedIconUrl($revealedIconUrl)
+
+    public function setName($name)
   {
-    $this->revealedIconUrl = $revealedIconUrl;
+      $this->name = $name;
   }
+
   public function getRevealedIconUrl()
   {
     return $this->revealedIconUrl;
   }
-  public function setTotalSteps($totalSteps)
+
+    public function setRevealedIconUrl($revealedIconUrl)
   {
-    $this->totalSteps = $totalSteps;
+      $this->revealedIconUrl = $revealedIconUrl;
   }
+
   public function getTotalSteps()
   {
     return $this->totalSteps;
   }
-  public function setUnlockedIconUrl($unlockedIconUrl)
+
+    public function setTotalSteps($totalSteps)
   {
-    $this->unlockedIconUrl = $unlockedIconUrl;
+      $this->totalSteps = $totalSteps;
   }
+
   public function getUnlockedIconUrl()
   {
     return $this->unlockedIconUrl;
   }
+
+    public function setUnlockedIconUrl($unlockedIconUrl)
+    {
+        $this->unlockedIconUrl = $unlockedIconUrl;
+    }
 }
 
 class Google_Service_Games_AchievementDefinitionsListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_AchievementDefinition';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -2403,164 +2429,177 @@ class Google_Service_Games_AchievementDefinitionsListResponse extends Google_Col
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_AchievementIncrementResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currentSteps;
   public $kind;
   public $newlyUnlocked;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCurrentSteps($currentSteps)
-  {
-    $this->currentSteps = $currentSteps;
-  }
   public function getCurrentSteps()
   {
     return $this->currentSteps;
   }
-  public function setKind($kind)
+
+    public function setCurrentSteps($currentSteps)
   {
-    $this->kind = $kind;
+      $this->currentSteps = $currentSteps;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNewlyUnlocked($newlyUnlocked)
+
+    public function setKind($kind)
   {
-    $this->newlyUnlocked = $newlyUnlocked;
+      $this->kind = $kind;
   }
+
   public function getNewlyUnlocked()
   {
     return $this->newlyUnlocked;
   }
+
+    public function setNewlyUnlocked($newlyUnlocked)
+    {
+        $this->newlyUnlocked = $newlyUnlocked;
+    }
 }
 
 class Google_Service_Games_AchievementRevealResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currentState;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCurrentState($currentState)
-  {
-    $this->currentState = $currentState;
-  }
   public function getCurrentState()
   {
     return $this->currentState;
   }
-  public function setKind($kind)
+
+    public function setCurrentState($currentState)
   {
-    $this->kind = $kind;
+      $this->currentState = $currentState;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_AchievementSetStepsAtLeastResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currentSteps;
   public $kind;
   public $newlyUnlocked;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCurrentSteps($currentSteps)
-  {
-    $this->currentSteps = $currentSteps;
-  }
   public function getCurrentSteps()
   {
     return $this->currentSteps;
   }
-  public function setKind($kind)
+
+    public function setCurrentSteps($currentSteps)
   {
-    $this->kind = $kind;
+      $this->currentSteps = $currentSteps;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNewlyUnlocked($newlyUnlocked)
+
+    public function setKind($kind)
   {
-    $this->newlyUnlocked = $newlyUnlocked;
+      $this->kind = $kind;
   }
+
   public function getNewlyUnlocked()
   {
     return $this->newlyUnlocked;
   }
+
+    public function setNewlyUnlocked($newlyUnlocked)
+    {
+        $this->newlyUnlocked = $newlyUnlocked;
+    }
 }
 
 class Google_Service_Games_AchievementUnlockResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $newlyUnlocked;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNewlyUnlocked($newlyUnlocked)
+
+    public function setKind($kind)
   {
-    $this->newlyUnlocked = $newlyUnlocked;
+      $this->kind = $kind;
   }
+
   public function getNewlyUnlocked()
   {
     return $this->newlyUnlocked;
   }
+
+    public function setNewlyUnlocked($newlyUnlocked)
+    {
+        $this->newlyUnlocked = $newlyUnlocked;
+    }
 }
 
 class Google_Service_Games_AchievementUpdateMultipleRequest extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'updates';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $updatesType = 'Google_Service_Games_AchievementUpdateRequest';
   protected $updatesDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setUpdates($updates)
   {
     $this->updates = $updates;
@@ -2573,22 +2612,23 @@ class Google_Service_Games_AchievementUpdateMultipleRequest extends Google_Colle
 
 class Google_Service_Games_AchievementUpdateMultipleResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'updatedAchievements';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $updatedAchievementsType = 'Google_Service_Games_AchievementUpdateResponse';
   protected $updatedAchievementsDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setUpdatedAchievements($updatedAchievements)
   {
     $this->updatedAchievements = $updatedAchievements;
@@ -2601,25 +2641,25 @@ class Google_Service_Games_AchievementUpdateMultipleResponse extends Google_Coll
 
 class Google_Service_Games_AchievementUpdateRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $achievementId;
+    public $kind;
+    public $updateType;
+    protected $internal_gapi_mappings = array();
   protected $incrementPayloadType = 'Google_Service_Games_GamesAchievementIncrement';
   protected $incrementPayloadDataType = '';
-  public $kind;
   protected $setStepsAtLeastPayloadType = 'Google_Service_Games_GamesAchievementSetStepsAtLeast';
   protected $setStepsAtLeastPayloadDataType = '';
-  public $updateType;
 
-
-  public function setAchievementId($achievementId)
-  {
-    $this->achievementId = $achievementId;
-  }
   public function getAchievementId()
   {
     return $this->achievementId;
   }
+
+    public function setAchievementId($achievementId)
+    {
+        $this->achievementId = $achievementId;
+    }
+
   public function setIncrementPayload(Google_Service_Games_GamesAchievementIncrement $incrementPayload)
   {
     $this->incrementPayload = $incrementPayload;
@@ -2628,14 +2668,17 @@ class Google_Service_Games_AchievementUpdateRequest extends Google_Model
   {
     return $this->incrementPayload;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSetStepsAtLeastPayload(Google_Service_Games_GamesAchievementSetStepsAtLeast $setStepsAtLeastPayload)
   {
     $this->setStepsAtLeastPayload = $setStepsAtLeastPayload;
@@ -2644,199 +2687,221 @@ class Google_Service_Games_AchievementUpdateRequest extends Google_Model
   {
     return $this->setStepsAtLeastPayload;
   }
-  public function setUpdateType($updateType)
-  {
-    $this->updateType = $updateType;
-  }
+
   public function getUpdateType()
   {
     return $this->updateType;
   }
+
+    public function setUpdateType($updateType)
+    {
+        $this->updateType = $updateType;
+    }
 }
 
 class Google_Service_Games_AchievementUpdateResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $achievementId;
   public $currentState;
   public $currentSteps;
   public $kind;
   public $newlyUnlocked;
   public $updateOccurred;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAchievementId($achievementId)
-  {
-    $this->achievementId = $achievementId;
-  }
   public function getAchievementId()
   {
     return $this->achievementId;
   }
-  public function setCurrentState($currentState)
+
+    public function setAchievementId($achievementId)
   {
-    $this->currentState = $currentState;
+      $this->achievementId = $achievementId;
   }
+
   public function getCurrentState()
   {
     return $this->currentState;
   }
-  public function setCurrentSteps($currentSteps)
+
+    public function setCurrentState($currentState)
   {
-    $this->currentSteps = $currentSteps;
+      $this->currentState = $currentState;
   }
+
   public function getCurrentSteps()
   {
     return $this->currentSteps;
   }
-  public function setKind($kind)
+
+    public function setCurrentSteps($currentSteps)
   {
-    $this->kind = $kind;
+      $this->currentSteps = $currentSteps;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNewlyUnlocked($newlyUnlocked)
+
+    public function setKind($kind)
   {
-    $this->newlyUnlocked = $newlyUnlocked;
+      $this->kind = $kind;
   }
+
   public function getNewlyUnlocked()
   {
     return $this->newlyUnlocked;
   }
-  public function setUpdateOccurred($updateOccurred)
+
+    public function setNewlyUnlocked($newlyUnlocked)
   {
-    $this->updateOccurred = $updateOccurred;
+      $this->newlyUnlocked = $newlyUnlocked;
   }
+
   public function getUpdateOccurred()
   {
     return $this->updateOccurred;
   }
+
+    public function setUpdateOccurred($updateOccurred)
+    {
+        $this->updateOccurred = $updateOccurred;
+    }
 }
 
 class Google_Service_Games_AggregateStats extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $count;
   public $kind;
   public $max;
   public $min;
   public $sum;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
   public function getCount()
   {
     return $this->count;
   }
-  public function setKind($kind)
+
+    public function setCount($count)
   {
-    $this->kind = $kind;
+      $this->count = $count;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMax($max)
+
+    public function setKind($kind)
   {
-    $this->max = $max;
+      $this->kind = $kind;
   }
+
   public function getMax()
   {
     return $this->max;
   }
-  public function setMin($min)
+
+    public function setMax($max)
   {
-    $this->min = $min;
+      $this->max = $max;
   }
+
   public function getMin()
   {
     return $this->min;
   }
-  public function setSum($sum)
+
+    public function setMin($min)
   {
-    $this->sum = $sum;
+      $this->min = $min;
   }
+
   public function getSum()
   {
     return $this->sum;
   }
+
+    public function setSum($sum)
+    {
+        $this->sum = $sum;
+    }
 }
 
 class Google_Service_Games_AnonymousPlayer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $avatarImageUrl;
   public $displayName;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAvatarImageUrl($avatarImageUrl)
-  {
-    $this->avatarImageUrl = $avatarImageUrl;
-  }
   public function getAvatarImageUrl()
   {
     return $this->avatarImageUrl;
   }
-  public function setDisplayName($displayName)
+
+    public function setAvatarImageUrl($avatarImageUrl)
   {
-    $this->displayName = $displayName;
+      $this->avatarImageUrl = $avatarImageUrl;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setKind($kind)
+
+    public function setDisplayName($displayName)
   {
-    $this->kind = $kind;
+      $this->displayName = $displayName;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_Application extends Google_Collection
 {
-  protected $collection_key = 'instances';
-  protected $internal_gapi_mappings = array(
-        "achievementCount" => "achievement_count",
-        "leaderboardCount" => "leaderboard_count",
-  );
   public $achievementCount;
-  protected $assetsType = 'Google_Service_Games_ImageAsset';
-  protected $assetsDataType = 'array';
   public $author;
-  protected $categoryType = 'Google_Service_Games_ApplicationCategory';
-  protected $categoryDataType = '';
   public $description;
   public $enabledFeatures;
   public $id;
-  protected $instancesType = 'Google_Service_Games_Instance';
-  protected $instancesDataType = 'array';
   public $kind;
   public $lastUpdatedTimestamp;
   public $leaderboardCount;
   public $name;
   public $themeColor;
+    protected $collection_key = 'instances';
+    protected $internal_gapi_mappings = array(
+        "achievementCount" => "achievement_count",
+        "leaderboardCount" => "leaderboard_count",
+    );
+    protected $assetsType = 'Google_Service_Games_ImageAsset';
+    protected $assetsDataType = 'array';
+    protected $categoryType = 'Google_Service_Games_ApplicationCategory';
+    protected $categoryDataType = '';
+    protected $instancesType = 'Google_Service_Games_Instance';
+    protected $instancesDataType = 'array';
 
-
-  public function setAchievementCount($achievementCount)
-  {
-    $this->achievementCount = $achievementCount;
-  }
   public function getAchievementCount()
   {
     return $this->achievementCount;
   }
+
+    public function setAchievementCount($achievementCount)
+    {
+        $this->achievementCount = $achievementCount;
+    }
+
   public function setAssets($assets)
   {
     $this->assets = $assets;
@@ -2845,14 +2910,17 @@ class Google_Service_Games_Application extends Google_Collection
   {
     return $this->assets;
   }
-  public function setAuthor($author)
-  {
-    $this->author = $author;
-  }
+
   public function getAuthor()
   {
     return $this->author;
   }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
   public function setCategory(Google_Service_Games_ApplicationCategory $category)
   {
     $this->category = $category;
@@ -2861,30 +2929,37 @@ class Google_Service_Games_Application extends Google_Collection
   {
     return $this->category;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setEnabledFeatures($enabledFeatures)
+
+    public function setDescription($description)
   {
-    $this->enabledFeatures = $enabledFeatures;
+      $this->description = $description;
   }
+
   public function getEnabledFeatures()
   {
     return $this->enabledFeatures;
   }
-  public function setId($id)
+
+    public function setEnabledFeatures($enabledFeatures)
   {
-    $this->id = $id;
+      $this->enabledFeatures = $enabledFeatures;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setInstances($instances)
   {
     $this->instances = $instances;
@@ -2893,128 +2968,143 @@ class Google_Service_Games_Application extends Google_Collection
   {
     return $this->instances;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLastUpdatedTimestamp($lastUpdatedTimestamp)
+
+    public function setKind($kind)
   {
-    $this->lastUpdatedTimestamp = $lastUpdatedTimestamp;
+      $this->kind = $kind;
   }
+
   public function getLastUpdatedTimestamp()
   {
     return $this->lastUpdatedTimestamp;
   }
-  public function setLeaderboardCount($leaderboardCount)
+
+    public function setLastUpdatedTimestamp($lastUpdatedTimestamp)
   {
-    $this->leaderboardCount = $leaderboardCount;
+      $this->lastUpdatedTimestamp = $lastUpdatedTimestamp;
   }
+
   public function getLeaderboardCount()
   {
     return $this->leaderboardCount;
   }
-  public function setName($name)
+
+    public function setLeaderboardCount($leaderboardCount)
   {
-    $this->name = $name;
+      $this->leaderboardCount = $leaderboardCount;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setThemeColor($themeColor)
+
+    public function setName($name)
   {
-    $this->themeColor = $themeColor;
+      $this->name = $name;
   }
+
   public function getThemeColor()
   {
     return $this->themeColor;
   }
+
+    public function setThemeColor($themeColor)
+    {
+        $this->themeColor = $themeColor;
+    }
 }
 
 class Google_Service_Games_ApplicationCategory extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $primary;
   public $secondary;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPrimary($primary)
+
+    public function setKind($kind)
   {
-    $this->primary = $primary;
+      $this->kind = $kind;
   }
+
   public function getPrimary()
   {
     return $this->primary;
   }
-  public function setSecondary($secondary)
+
+    public function setPrimary($primary)
   {
-    $this->secondary = $secondary;
+      $this->primary = $primary;
   }
+
   public function getSecondary()
   {
     return $this->secondary;
   }
+
+    public function setSecondary($secondary)
+    {
+        $this->secondary = $secondary;
+    }
 }
 
 class Google_Service_Games_Category extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $category;
   public $experiencePoints;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCategory($category)
-  {
-    $this->category = $category;
-  }
   public function getCategory()
   {
     return $this->category;
   }
-  public function setExperiencePoints($experiencePoints)
+
+    public function setCategory($category)
   {
-    $this->experiencePoints = $experiencePoints;
+      $this->category = $category;
   }
+
   public function getExperiencePoints()
   {
     return $this->experiencePoints;
   }
-  public function setKind($kind)
+
+    public function setExperiencePoints($experiencePoints)
   {
-    $this->kind = $kind;
+      $this->experiencePoints = $experiencePoints;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_CategoryListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_Category';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -3024,50 +3114,56 @@ class Google_Service_Games_CategoryListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_EventBatchRecordFailure extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $failureCause;
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $rangeType = 'Google_Service_Games_EventPeriodRange';
   protected $rangeDataType = '';
 
-
-  public function setFailureCause($failureCause)
-  {
-    $this->failureCause = $failureCause;
-  }
   public function getFailureCause()
   {
     return $this->failureCause;
   }
-  public function setKind($kind)
+
+    public function setFailureCause($failureCause)
   {
-    $this->kind = $kind;
+      $this->failureCause = $failureCause;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setRange(Google_Service_Games_EventPeriodRange $range)
   {
     $this->range = $range;
@@ -3080,37 +3176,33 @@ class Google_Service_Games_EventBatchRecordFailure extends Google_Model
 
 class Google_Service_Games_EventChild extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $childId;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChildId($childId)
-  {
-    $this->childId = $childId;
-  }
   public function getChildId()
   {
     return $this->childId;
   }
-  public function setKind($kind)
+
+    public function setChildId($childId)
   {
-    $this->kind = $kind;
+      $this->childId = $childId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_EventDefinition extends Google_Collection
 {
-  protected $collection_key = 'childEvents';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $childEventsType = 'Google_Service_Games_EventChild';
-  protected $childEventsDataType = 'array';
   public $description;
   public $displayName;
   public $id;
@@ -3118,7 +3210,10 @@ class Google_Service_Games_EventDefinition extends Google_Collection
   public $isDefaultImageUrl;
   public $kind;
   public $visibility;
-
+    protected $collection_key = 'childEvents';
+    protected $internal_gapi_mappings = array();
+    protected $childEventsType = 'Google_Service_Games_EventChild';
+    protected $childEventsDataType = 'array';
 
   public function setChildEvents($childEvents)
   {
@@ -3128,74 +3223,87 @@ class Google_Service_Games_EventDefinition extends Google_Collection
   {
     return $this->childEvents;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setDisplayName($displayName)
+
+    public function setDescription($description)
   {
-    $this->displayName = $displayName;
+      $this->description = $description;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
-  public function setId($id)
+
+    public function setDisplayName($displayName)
   {
-    $this->id = $id;
+      $this->displayName = $displayName;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setImageUrl($imageUrl)
+
+    public function setId($id)
   {
-    $this->imageUrl = $imageUrl;
+      $this->id = $id;
   }
+
   public function getImageUrl()
   {
     return $this->imageUrl;
   }
-  public function setIsDefaultImageUrl($isDefaultImageUrl)
+
+    public function setImageUrl($imageUrl)
   {
-    $this->isDefaultImageUrl = $isDefaultImageUrl;
+      $this->imageUrl = $imageUrl;
   }
+
   public function getIsDefaultImageUrl()
   {
     return $this->isDefaultImageUrl;
   }
-  public function setKind($kind)
+
+    public function setIsDefaultImageUrl($isDefaultImageUrl)
   {
-    $this->kind = $kind;
+      $this->isDefaultImageUrl = $isDefaultImageUrl;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setVisibility($visibility)
+
+    public function setKind($kind)
   {
-    $this->visibility = $visibility;
+      $this->kind = $kind;
   }
+
   public function getVisibility()
   {
     return $this->visibility;
   }
+
+    public function setVisibility($visibility)
+    {
+        $this->visibility = $visibility;
+    }
 }
 
 class Google_Service_Games_EventDefinitionListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_EventDefinition';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -3205,79 +3313,87 @@ class Google_Service_Games_EventDefinitionListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_EventPeriodRange extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $periodEndMillis;
   public $periodStartMillis;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPeriodEndMillis($periodEndMillis)
+
+    public function setKind($kind)
   {
-    $this->periodEndMillis = $periodEndMillis;
+      $this->kind = $kind;
   }
+
   public function getPeriodEndMillis()
   {
     return $this->periodEndMillis;
   }
-  public function setPeriodStartMillis($periodStartMillis)
+
+    public function setPeriodEndMillis($periodEndMillis)
   {
-    $this->periodStartMillis = $periodStartMillis;
+      $this->periodEndMillis = $periodEndMillis;
   }
+
   public function getPeriodStartMillis()
   {
     return $this->periodStartMillis;
   }
+
+    public function setPeriodStartMillis($periodStartMillis)
+    {
+        $this->periodStartMillis = $periodStartMillis;
+    }
 }
 
 class Google_Service_Games_EventPeriodUpdate extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'updates';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $timePeriodType = 'Google_Service_Games_EventPeriodRange';
   protected $timePeriodDataType = '';
   protected $updatesType = 'Google_Service_Games_EventUpdateRequest';
   protected $updatesDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setTimePeriod(Google_Service_Games_EventPeriodRange $timePeriod)
   {
     $this->timePeriod = $timePeriod;
@@ -3298,75 +3414,82 @@ class Google_Service_Games_EventPeriodUpdate extends Google_Collection
 
 class Google_Service_Games_EventRecordFailure extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $eventId;
   public $failureCause;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEventId($eventId)
-  {
-    $this->eventId = $eventId;
-  }
   public function getEventId()
   {
     return $this->eventId;
   }
-  public function setFailureCause($failureCause)
+
+    public function setEventId($eventId)
   {
-    $this->failureCause = $failureCause;
+      $this->eventId = $eventId;
   }
+
   public function getFailureCause()
   {
     return $this->failureCause;
   }
-  public function setKind($kind)
+
+    public function setFailureCause($failureCause)
   {
-    $this->kind = $kind;
+      $this->failureCause = $failureCause;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_EventRecordRequest extends Google_Collection
 {
-  protected $collection_key = 'timePeriods';
-  protected $internal_gapi_mappings = array(
-  );
   public $currentTimeMillis;
   public $kind;
   public $requestId;
+    protected $collection_key = 'timePeriods';
+    protected $internal_gapi_mappings = array();
   protected $timePeriodsType = 'Google_Service_Games_EventPeriodUpdate';
   protected $timePeriodsDataType = 'array';
 
-
-  public function setCurrentTimeMillis($currentTimeMillis)
-  {
-    $this->currentTimeMillis = $currentTimeMillis;
-  }
   public function getCurrentTimeMillis()
   {
     return $this->currentTimeMillis;
   }
-  public function setKind($kind)
+
+    public function setCurrentTimeMillis($currentTimeMillis)
   {
-    $this->kind = $kind;
+      $this->currentTimeMillis = $currentTimeMillis;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setRequestId($requestId)
+
+    public function setKind($kind)
   {
-    $this->requestId = $requestId;
+      $this->kind = $kind;
   }
+
   public function getRequestId()
   {
     return $this->requestId;
   }
+
+    public function setRequestId($requestId)
+    {
+        $this->requestId = $requestId;
+    }
+
   public function setTimePeriods($timePeriods)
   {
     $this->timePeriods = $timePeriods;
@@ -3379,41 +3502,45 @@ class Google_Service_Games_EventRecordRequest extends Google_Collection
 
 class Google_Service_Games_EventUpdateRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $definitionId;
   public $kind;
   public $updateCount;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDefinitionId($definitionId)
-  {
-    $this->definitionId = $definitionId;
-  }
   public function getDefinitionId()
   {
     return $this->definitionId;
   }
-  public function setKind($kind)
+
+    public function setDefinitionId($definitionId)
   {
-    $this->kind = $kind;
+      $this->definitionId = $definitionId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setUpdateCount($updateCount)
+
+    public function setKind($kind)
   {
-    $this->updateCount = $updateCount;
+      $this->kind = $kind;
   }
+
   public function getUpdateCount()
   {
     return $this->updateCount;
   }
+
+    public function setUpdateCount($updateCount)
+    {
+        $this->updateCount = $updateCount;
+    }
 }
 
 class Google_Service_Games_EventUpdateResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'playerEvents';
   protected $internal_gapi_mappings = array(
   );
@@ -3421,7 +3548,6 @@ class Google_Service_Games_EventUpdateResponse extends Google_Collection
   protected $batchFailuresDataType = 'array';
   protected $eventFailuresType = 'Google_Service_Games_EventRecordFailure';
   protected $eventFailuresDataType = 'array';
-  public $kind;
   protected $playerEventsType = 'Google_Service_Games_PlayerEvent';
   protected $playerEventsDataType = 'array';
 
@@ -3442,14 +3568,17 @@ class Google_Service_Games_EventUpdateResponse extends Google_Collection
   {
     return $this->eventFailures;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlayerEvents($playerEvents)
   {
     $this->playerEvents = $playerEvents;
@@ -3462,144 +3591,155 @@ class Google_Service_Games_EventUpdateResponse extends Google_Collection
 
 class Google_Service_Games_GamesAchievementIncrement extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $requestId;
   public $steps;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setRequestId($requestId)
+
+    public function setKind($kind)
   {
-    $this->requestId = $requestId;
+      $this->kind = $kind;
   }
+
   public function getRequestId()
   {
     return $this->requestId;
   }
-  public function setSteps($steps)
+
+    public function setRequestId($requestId)
   {
-    $this->steps = $steps;
+      $this->requestId = $requestId;
   }
+
   public function getSteps()
   {
     return $this->steps;
   }
+
+    public function setSteps($steps)
+    {
+        $this->steps = $steps;
+    }
 }
 
 class Google_Service_Games_GamesAchievementSetStepsAtLeast extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $steps;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setSteps($steps)
+
+    public function setKind($kind)
   {
-    $this->steps = $steps;
+      $this->kind = $kind;
   }
+
   public function getSteps()
   {
     return $this->steps;
   }
+
+    public function setSteps($steps)
+    {
+        $this->steps = $steps;
+    }
 }
 
 class Google_Service_Games_ImageAsset extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $height;
   public $kind;
   public $name;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setKind($kind)
+
+    public function setHeight($height)
   {
-    $this->kind = $kind;
+      $this->height = $height;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setUrl($url)
+
+    public function setName($name)
   {
-    $this->url = $url;
+      $this->name = $name;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
+
   public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_Games_Instance extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $acquisitionUri;
-  protected $androidInstanceType = 'Google_Service_Games_InstanceAndroidDetails';
-  protected $androidInstanceDataType = '';
-  protected $iosInstanceType = 'Google_Service_Games_InstanceIosDetails';
-  protected $iosInstanceDataType = '';
   public $kind;
   public $name;
   public $platformType;
   public $realtimePlay;
   public $turnBasedPlay;
+    protected $internal_gapi_mappings = array();
+    protected $androidInstanceType = 'Google_Service_Games_InstanceAndroidDetails';
+    protected $androidInstanceDataType = '';
+    protected $iosInstanceType = 'Google_Service_Games_InstanceIosDetails';
+    protected $iosInstanceDataType = '';
   protected $webInstanceType = 'Google_Service_Games_InstanceWebDetails';
   protected $webInstanceDataType = '';
 
-
-  public function setAcquisitionUri($acquisitionUri)
-  {
-    $this->acquisitionUri = $acquisitionUri;
-  }
   public function getAcquisitionUri()
   {
     return $this->acquisitionUri;
   }
+
+    public function setAcquisitionUri($acquisitionUri)
+    {
+        $this->acquisitionUri = $acquisitionUri;
+    }
+
   public function setAndroidInstance(Google_Service_Games_InstanceAndroidDetails $androidInstance)
   {
     $this->androidInstance = $androidInstance;
@@ -3616,46 +3756,57 @@ class Google_Service_Games_Instance extends Google_Model
   {
     return $this->iosInstance;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setPlatformType($platformType)
+
+    public function setName($name)
   {
-    $this->platformType = $platformType;
+      $this->name = $name;
   }
+
   public function getPlatformType()
   {
     return $this->platformType;
   }
-  public function setRealtimePlay($realtimePlay)
+
+    public function setPlatformType($platformType)
   {
-    $this->realtimePlay = $realtimePlay;
+      $this->platformType = $platformType;
   }
+
   public function getRealtimePlay()
   {
     return $this->realtimePlay;
   }
-  public function setTurnBasedPlay($turnBasedPlay)
+
+    public function setRealtimePlay($realtimePlay)
   {
-    $this->turnBasedPlay = $turnBasedPlay;
+      $this->realtimePlay = $realtimePlay;
   }
+
   public function getTurnBasedPlay()
   {
     return $this->turnBasedPlay;
   }
+
+    public function setTurnBasedPlay($turnBasedPlay)
+    {
+        $this->turnBasedPlay = $turnBasedPlay;
+    }
+
   public function setWebInstance(Google_Service_Games_InstanceWebDetails $webInstance)
   {
     $this->webInstance = $webInstance;
@@ -3668,52 +3819,55 @@ class Google_Service_Games_Instance extends Google_Model
 
 class Google_Service_Games_InstanceAndroidDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $enablePiracyCheck;
   public $kind;
   public $packageName;
   public $preferred;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEnablePiracyCheck($enablePiracyCheck)
-  {
-    $this->enablePiracyCheck = $enablePiracyCheck;
-  }
   public function getEnablePiracyCheck()
   {
     return $this->enablePiracyCheck;
   }
-  public function setKind($kind)
+
+    public function setEnablePiracyCheck($enablePiracyCheck)
   {
-    $this->kind = $kind;
+      $this->enablePiracyCheck = $enablePiracyCheck;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPackageName($packageName)
+
+    public function setKind($kind)
   {
-    $this->packageName = $packageName;
+      $this->kind = $kind;
   }
+
   public function getPackageName()
   {
     return $this->packageName;
   }
-  public function setPreferred($preferred)
+
+    public function setPackageName($packageName)
   {
-    $this->preferred = $preferred;
+      $this->packageName = $packageName;
   }
+
   public function getPreferred()
   {
     return $this->preferred;
   }
+
+    public function setPreferred($preferred)
+    {
+        $this->preferred = $preferred;
+    }
 }
 
 class Google_Service_Games_InstanceIosDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $bundleIdentifier;
   public $itunesAppId;
   public $kind;
@@ -3721,203 +3875,232 @@ class Google_Service_Games_InstanceIosDetails extends Google_Model
   public $preferredForIphone;
   public $supportIpad;
   public $supportIphone;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBundleIdentifier($bundleIdentifier)
-  {
-    $this->bundleIdentifier = $bundleIdentifier;
-  }
   public function getBundleIdentifier()
   {
     return $this->bundleIdentifier;
   }
-  public function setItunesAppId($itunesAppId)
+
+    public function setBundleIdentifier($bundleIdentifier)
   {
-    $this->itunesAppId = $itunesAppId;
+      $this->bundleIdentifier = $bundleIdentifier;
   }
+
   public function getItunesAppId()
   {
     return $this->itunesAppId;
   }
-  public function setKind($kind)
+
+    public function setItunesAppId($itunesAppId)
   {
-    $this->kind = $kind;
+      $this->itunesAppId = $itunesAppId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPreferredForIpad($preferredForIpad)
+
+    public function setKind($kind)
   {
-    $this->preferredForIpad = $preferredForIpad;
+      $this->kind = $kind;
   }
+
   public function getPreferredForIpad()
   {
     return $this->preferredForIpad;
   }
-  public function setPreferredForIphone($preferredForIphone)
+
+    public function setPreferredForIpad($preferredForIpad)
   {
-    $this->preferredForIphone = $preferredForIphone;
+      $this->preferredForIpad = $preferredForIpad;
   }
+
   public function getPreferredForIphone()
   {
     return $this->preferredForIphone;
   }
-  public function setSupportIpad($supportIpad)
+
+    public function setPreferredForIphone($preferredForIphone)
   {
-    $this->supportIpad = $supportIpad;
+      $this->preferredForIphone = $preferredForIphone;
   }
+
   public function getSupportIpad()
   {
     return $this->supportIpad;
   }
-  public function setSupportIphone($supportIphone)
+
+    public function setSupportIpad($supportIpad)
   {
-    $this->supportIphone = $supportIphone;
+      $this->supportIpad = $supportIpad;
   }
+
   public function getSupportIphone()
   {
     return $this->supportIphone;
   }
+
+    public function setSupportIphone($supportIphone)
+    {
+        $this->supportIphone = $supportIphone;
+    }
 }
 
 class Google_Service_Games_InstanceWebDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $launchUrl;
   public $preferred;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLaunchUrl($launchUrl)
+
+    public function setKind($kind)
   {
-    $this->launchUrl = $launchUrl;
+      $this->kind = $kind;
   }
+
   public function getLaunchUrl()
   {
     return $this->launchUrl;
   }
-  public function setPreferred($preferred)
+
+    public function setLaunchUrl($launchUrl)
   {
-    $this->preferred = $preferred;
+      $this->launchUrl = $launchUrl;
   }
+
   public function getPreferred()
   {
     return $this->preferred;
   }
+
+    public function setPreferred($preferred)
+    {
+        $this->preferred = $preferred;
+    }
 }
 
 class Google_Service_Games_Leaderboard extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $iconUrl;
   public $id;
   public $isIconUrlDefault;
   public $kind;
   public $name;
   public $order;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setIconUrl($iconUrl)
-  {
-    $this->iconUrl = $iconUrl;
-  }
   public function getIconUrl()
   {
     return $this->iconUrl;
   }
-  public function setId($id)
+
+    public function setIconUrl($iconUrl)
   {
-    $this->id = $id;
+      $this->iconUrl = $iconUrl;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setIsIconUrlDefault($isIconUrlDefault)
+
+    public function setId($id)
   {
-    $this->isIconUrlDefault = $isIconUrlDefault;
+      $this->id = $id;
   }
+
   public function getIsIconUrlDefault()
   {
     return $this->isIconUrlDefault;
   }
-  public function setKind($kind)
+
+    public function setIsIconUrlDefault($isIconUrlDefault)
   {
-    $this->kind = $kind;
+      $this->isIconUrlDefault = $isIconUrlDefault;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOrder($order)
+
+    public function setName($name)
   {
-    $this->order = $order;
+      $this->name = $name;
   }
+
   public function getOrder()
   {
     return $this->order;
   }
+
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
 }
 
 class Google_Service_Games_LeaderboardEntry extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $formattedScore;
   public $formattedScoreRank;
   public $kind;
-  protected $playerType = 'Google_Service_Games_Player';
-  protected $playerDataType = '';
   public $scoreRank;
   public $scoreTag;
   public $scoreValue;
   public $timeSpan;
   public $writeTimestampMillis;
+    protected $internal_gapi_mappings = array();
+    protected $playerType = 'Google_Service_Games_Player';
+    protected $playerDataType = '';
 
-
-  public function setFormattedScore($formattedScore)
-  {
-    $this->formattedScore = $formattedScore;
-  }
   public function getFormattedScore()
   {
     return $this->formattedScore;
   }
-  public function setFormattedScoreRank($formattedScoreRank)
+
+    public function setFormattedScore($formattedScore)
   {
-    $this->formattedScoreRank = $formattedScoreRank;
+      $this->formattedScore = $formattedScore;
   }
+
   public function getFormattedScoreRank()
   {
     return $this->formattedScoreRank;
   }
-  public function setKind($kind)
+
+    public function setFormattedScoreRank($formattedScoreRank)
   {
-    $this->kind = $kind;
+      $this->formattedScoreRank = $formattedScoreRank;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlayer(Google_Service_Games_Player $player)
   {
     $this->player = $player;
@@ -3926,58 +4109,67 @@ class Google_Service_Games_LeaderboardEntry extends Google_Model
   {
     return $this->player;
   }
-  public function setScoreRank($scoreRank)
-  {
-    $this->scoreRank = $scoreRank;
-  }
+
   public function getScoreRank()
   {
     return $this->scoreRank;
   }
-  public function setScoreTag($scoreTag)
+
+    public function setScoreRank($scoreRank)
   {
-    $this->scoreTag = $scoreTag;
+      $this->scoreRank = $scoreRank;
   }
+
   public function getScoreTag()
   {
     return $this->scoreTag;
   }
-  public function setScoreValue($scoreValue)
+
+    public function setScoreTag($scoreTag)
   {
-    $this->scoreValue = $scoreValue;
+      $this->scoreTag = $scoreTag;
   }
+
   public function getScoreValue()
   {
     return $this->scoreValue;
   }
-  public function setTimeSpan($timeSpan)
+
+    public function setScoreValue($scoreValue)
   {
-    $this->timeSpan = $timeSpan;
+      $this->scoreValue = $scoreValue;
   }
+
   public function getTimeSpan()
   {
     return $this->timeSpan;
   }
-  public function setWriteTimestampMillis($writeTimestampMillis)
+
+    public function setTimeSpan($timeSpan)
   {
-    $this->writeTimestampMillis = $writeTimestampMillis;
+      $this->timeSpan = $timeSpan;
   }
+
   public function getWriteTimestampMillis()
   {
     return $this->writeTimestampMillis;
   }
+
+    public function setWriteTimestampMillis($writeTimestampMillis)
+    {
+        $this->writeTimestampMillis = $writeTimestampMillis;
+    }
 }
 
 class Google_Service_Games_LeaderboardListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_Leaderboard';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -3987,91 +4179,101 @@ class Google_Service_Games_LeaderboardListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_LeaderboardScoreRank extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $formattedNumScores;
   public $formattedRank;
   public $kind;
   public $numScores;
   public $rank;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFormattedNumScores($formattedNumScores)
-  {
-    $this->formattedNumScores = $formattedNumScores;
-  }
   public function getFormattedNumScores()
   {
     return $this->formattedNumScores;
   }
-  public function setFormattedRank($formattedRank)
+
+    public function setFormattedNumScores($formattedNumScores)
   {
-    $this->formattedRank = $formattedRank;
+      $this->formattedNumScores = $formattedNumScores;
   }
+
   public function getFormattedRank()
   {
     return $this->formattedRank;
   }
-  public function setKind($kind)
+
+    public function setFormattedRank($formattedRank)
   {
-    $this->kind = $kind;
+      $this->formattedRank = $formattedRank;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNumScores($numScores)
+
+    public function setKind($kind)
   {
-    $this->numScores = $numScores;
+      $this->kind = $kind;
   }
+
   public function getNumScores()
   {
     return $this->numScores;
   }
-  public function setRank($rank)
+
+    public function setNumScores($numScores)
   {
-    $this->rank = $rank;
+      $this->numScores = $numScores;
   }
+
   public function getRank()
   {
     return $this->rank;
   }
+
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+    }
 }
 
 class Google_Service_Games_LeaderboardScores extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
+    public $numScores;
+    public $prevPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_LeaderboardEntry';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-  public $numScores;
   protected $playerScoreType = 'Google_Service_Games_LeaderboardEntry';
   protected $playerScoreDataType = '';
-  public $prevPageToken;
-
 
   public function setItems($items)
   {
@@ -4081,30 +4283,37 @@ class Google_Service_Games_LeaderboardScores extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setNumScores($numScores)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->numScores = $numScores;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getNumScores()
   {
     return $this->numScores;
   }
+
+    public function setNumScores($numScores)
+    {
+        $this->numScores = $numScores;
+    }
+
   public function setPlayerScore(Google_Service_Games_LeaderboardEntry $playerScore)
   {
     $this->playerScore = $playerScore;
@@ -4113,43 +4322,47 @@ class Google_Service_Games_LeaderboardScores extends Google_Collection
   {
     return $this->playerScore;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
 }
 
 class Google_Service_Games_MetagameConfig extends Google_Collection
 {
-  protected $collection_key = 'playerLevels';
-  protected $internal_gapi_mappings = array(
-  );
   public $currentVersion;
   public $kind;
+    protected $collection_key = 'playerLevels';
+    protected $internal_gapi_mappings = array();
   protected $playerLevelsType = 'Google_Service_Games_PlayerLevel';
   protected $playerLevelsDataType = 'array';
 
-
-  public function setCurrentVersion($currentVersion)
-  {
-    $this->currentVersion = $currentVersion;
-  }
   public function getCurrentVersion()
   {
     return $this->currentVersion;
   }
-  public function setKind($kind)
+
+    public function setCurrentVersion($currentVersion)
   {
-    $this->kind = $kind;
+      $this->currentVersion = $currentVersion;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlayerLevels($playerLevels)
   {
     $this->playerLevels = $playerLevels;
@@ -4162,8 +4375,6 @@ class Google_Service_Games_MetagameConfig extends Google_Collection
 
 class Google_Service_Games_NetworkDiagnostics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $androidNetworkSubtype;
   public $androidNetworkType;
   public $iosNetworkType;
@@ -4171,123 +4382,140 @@ class Google_Service_Games_NetworkDiagnostics extends Google_Model
   public $networkOperatorCode;
   public $networkOperatorName;
   public $registrationLatencyMillis;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAndroidNetworkSubtype($androidNetworkSubtype)
-  {
-    $this->androidNetworkSubtype = $androidNetworkSubtype;
-  }
   public function getAndroidNetworkSubtype()
   {
     return $this->androidNetworkSubtype;
   }
-  public function setAndroidNetworkType($androidNetworkType)
+
+    public function setAndroidNetworkSubtype($androidNetworkSubtype)
   {
-    $this->androidNetworkType = $androidNetworkType;
+      $this->androidNetworkSubtype = $androidNetworkSubtype;
   }
+
   public function getAndroidNetworkType()
   {
     return $this->androidNetworkType;
   }
-  public function setIosNetworkType($iosNetworkType)
+
+    public function setAndroidNetworkType($androidNetworkType)
   {
-    $this->iosNetworkType = $iosNetworkType;
+      $this->androidNetworkType = $androidNetworkType;
   }
+
   public function getIosNetworkType()
   {
     return $this->iosNetworkType;
   }
-  public function setKind($kind)
+
+    public function setIosNetworkType($iosNetworkType)
   {
-    $this->kind = $kind;
+      $this->iosNetworkType = $iosNetworkType;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNetworkOperatorCode($networkOperatorCode)
+
+    public function setKind($kind)
   {
-    $this->networkOperatorCode = $networkOperatorCode;
+      $this->kind = $kind;
   }
+
   public function getNetworkOperatorCode()
   {
     return $this->networkOperatorCode;
   }
-  public function setNetworkOperatorName($networkOperatorName)
+
+    public function setNetworkOperatorCode($networkOperatorCode)
   {
-    $this->networkOperatorName = $networkOperatorName;
+      $this->networkOperatorCode = $networkOperatorCode;
   }
+
   public function getNetworkOperatorName()
   {
     return $this->networkOperatorName;
   }
-  public function setRegistrationLatencyMillis($registrationLatencyMillis)
+
+    public function setNetworkOperatorName($networkOperatorName)
   {
-    $this->registrationLatencyMillis = $registrationLatencyMillis;
+      $this->networkOperatorName = $networkOperatorName;
   }
+
   public function getRegistrationLatencyMillis()
   {
     return $this->registrationLatencyMillis;
   }
+
+    public function setRegistrationLatencyMillis($registrationLatencyMillis)
+    {
+        $this->registrationLatencyMillis = $registrationLatencyMillis;
+    }
 }
 
 class Google_Service_Games_ParticipantResult extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $participantId;
   public $placing;
   public $result;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setParticipantId($participantId)
+
+    public function setKind($kind)
   {
-    $this->participantId = $participantId;
+      $this->kind = $kind;
   }
+
   public function getParticipantId()
   {
     return $this->participantId;
   }
-  public function setPlacing($placing)
+
+    public function setParticipantId($participantId)
   {
-    $this->placing = $placing;
+      $this->participantId = $participantId;
   }
+
   public function getPlacing()
   {
     return $this->placing;
   }
-  public function setResult($result)
+
+    public function setPlacing($placing)
   {
-    $this->result = $result;
+      $this->placing = $placing;
   }
+
   public function getResult()
   {
     return $this->result;
   }
+
+    public function setResult($result)
+    {
+        $this->result = $result;
+    }
 }
 
 class Google_Service_Games_PeerChannelDiagnostics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $bytesReceivedType = 'Google_Service_Games_AggregateStats';
-  protected $bytesReceivedDataType = '';
-  protected $bytesSentType = 'Google_Service_Games_AggregateStats';
-  protected $bytesSentDataType = '';
   public $kind;
   public $numMessagesLost;
   public $numMessagesReceived;
   public $numMessagesSent;
   public $numSendFailures;
+    protected $internal_gapi_mappings = array();
+    protected $bytesReceivedType = 'Google_Service_Games_AggregateStats';
+    protected $bytesReceivedDataType = '';
+    protected $bytesSentType = 'Google_Service_Games_AggregateStats';
+    protected $bytesSentDataType = '';
   protected $roundtripLatencyMillisType = 'Google_Service_Games_AggregateStats';
   protected $roundtripLatencyMillisDataType = '';
 
@@ -4308,46 +4536,57 @@ class Google_Service_Games_PeerChannelDiagnostics extends Google_Model
   {
     return $this->bytesSent;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNumMessagesLost($numMessagesLost)
+
+    public function setKind($kind)
   {
-    $this->numMessagesLost = $numMessagesLost;
+      $this->kind = $kind;
   }
+
   public function getNumMessagesLost()
   {
     return $this->numMessagesLost;
   }
-  public function setNumMessagesReceived($numMessagesReceived)
+
+    public function setNumMessagesLost($numMessagesLost)
   {
-    $this->numMessagesReceived = $numMessagesReceived;
+      $this->numMessagesLost = $numMessagesLost;
   }
+
   public function getNumMessagesReceived()
   {
     return $this->numMessagesReceived;
   }
-  public function setNumMessagesSent($numMessagesSent)
+
+    public function setNumMessagesReceived($numMessagesReceived)
   {
-    $this->numMessagesSent = $numMessagesSent;
+      $this->numMessagesReceived = $numMessagesReceived;
   }
+
   public function getNumMessagesSent()
   {
     return $this->numMessagesSent;
   }
-  public function setNumSendFailures($numSendFailures)
+
+    public function setNumMessagesSent($numMessagesSent)
   {
-    $this->numSendFailures = $numSendFailures;
+      $this->numMessagesSent = $numMessagesSent;
   }
+
   public function getNumSendFailures()
   {
     return $this->numSendFailures;
   }
+
+    public function setNumSendFailures($numSendFailures)
+    {
+        $this->numSendFailures = $numSendFailures;
+    }
+
   public function setRoundtripLatencyMillis(Google_Service_Games_AggregateStats $roundtripLatencyMillis)
   {
     $this->roundtripLatencyMillis = $roundtripLatencyMillis;
@@ -4360,41 +4599,45 @@ class Google_Service_Games_PeerChannelDiagnostics extends Google_Model
 
 class Google_Service_Games_PeerSessionDiagnostics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $connectedTimestampMillis;
   public $kind;
   public $participantId;
+    protected $internal_gapi_mappings = array();
   protected $reliableChannelType = 'Google_Service_Games_PeerChannelDiagnostics';
   protected $reliableChannelDataType = '';
   protected $unreliableChannelType = 'Google_Service_Games_PeerChannelDiagnostics';
   protected $unreliableChannelDataType = '';
 
-
-  public function setConnectedTimestampMillis($connectedTimestampMillis)
-  {
-    $this->connectedTimestampMillis = $connectedTimestampMillis;
-  }
   public function getConnectedTimestampMillis()
   {
     return $this->connectedTimestampMillis;
   }
-  public function setKind($kind)
+
+    public function setConnectedTimestampMillis($connectedTimestampMillis)
   {
-    $this->kind = $kind;
+      $this->connectedTimestampMillis = $connectedTimestampMillis;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setParticipantId($participantId)
+
+    public function setKind($kind)
   {
-    $this->participantId = $participantId;
+      $this->kind = $kind;
   }
+
   public function getParticipantId()
   {
     return $this->participantId;
   }
+
+    public function setParticipantId($participantId)
+    {
+        $this->participantId = $participantId;
+    }
+
   public function setReliableChannel(Google_Service_Games_PeerChannelDiagnostics $reliableChannel)
   {
     $this->reliableChannel = $reliableChannel;
@@ -4415,72 +4658,77 @@ class Google_Service_Games_PeerSessionDiagnostics extends Google_Model
 
 class Google_Service_Games_Played extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $autoMatched;
   public $kind;
   public $timeMillis;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAutoMatched($autoMatched)
-  {
-    $this->autoMatched = $autoMatched;
-  }
   public function getAutoMatched()
   {
     return $this->autoMatched;
   }
-  public function setKind($kind)
+
+    public function setAutoMatched($autoMatched)
   {
-    $this->kind = $kind;
+      $this->autoMatched = $autoMatched;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setTimeMillis($timeMillis)
+
+    public function setKind($kind)
   {
-    $this->timeMillis = $timeMillis;
+      $this->kind = $kind;
   }
+
   public function getTimeMillis()
   {
     return $this->timeMillis;
   }
+
+    public function setTimeMillis($timeMillis)
+    {
+        $this->timeMillis = $timeMillis;
+    }
 }
 
 class Google_Service_Games_Player extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $avatarImageUrl;
   public $displayName;
+    public $kind;
+    public $playerId;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $experienceInfoType = 'Google_Service_Games_PlayerExperienceInfo';
   protected $experienceInfoDataType = '';
-  public $kind;
   protected $lastPlayedWithType = 'Google_Service_Games_Played';
   protected $lastPlayedWithDataType = '';
   protected $nameType = 'Google_Service_Games_PlayerName';
   protected $nameDataType = '';
-  public $playerId;
-  public $title;
 
-
-  public function setAvatarImageUrl($avatarImageUrl)
-  {
-    $this->avatarImageUrl = $avatarImageUrl;
-  }
   public function getAvatarImageUrl()
   {
     return $this->avatarImageUrl;
   }
-  public function setDisplayName($displayName)
+
+    public function setAvatarImageUrl($avatarImageUrl)
   {
-    $this->displayName = $displayName;
+      $this->avatarImageUrl = $avatarImageUrl;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
+
+    public function setDisplayName($displayName)
+    {
+        $this->displayName = $displayName;
+    }
+
   public function setExperienceInfo(Google_Service_Games_PlayerExperienceInfo $experienceInfo)
   {
     $this->experienceInfo = $experienceInfo;
@@ -4489,14 +4737,17 @@ class Google_Service_Games_Player extends Google_Model
   {
     return $this->experienceInfo;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLastPlayedWith(Google_Service_Games_Played $lastPlayedWith)
   {
     $this->lastPlayedWith = $lastPlayedWith;
@@ -4513,28 +4764,30 @@ class Google_Service_Games_Player extends Google_Model
   {
     return $this->name;
   }
-  public function setPlayerId($playerId)
-  {
-    $this->playerId = $playerId;
-  }
+
   public function getPlayerId()
   {
     return $this->playerId;
   }
-  public function setTitle($title)
+
+    public function setPlayerId($playerId)
   {
-    $this->title = $title;
+      $this->playerId = $playerId;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_Games_PlayerAchievement extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $achievementState;
   public $currentSteps;
   public $experiencePoints;
@@ -4542,76 +4795,88 @@ class Google_Service_Games_PlayerAchievement extends Google_Model
   public $id;
   public $kind;
   public $lastUpdatedTimestamp;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAchievementState($achievementState)
-  {
-    $this->achievementState = $achievementState;
-  }
   public function getAchievementState()
   {
     return $this->achievementState;
   }
-  public function setCurrentSteps($currentSteps)
+
+    public function setAchievementState($achievementState)
   {
-    $this->currentSteps = $currentSteps;
+      $this->achievementState = $achievementState;
   }
+
   public function getCurrentSteps()
   {
     return $this->currentSteps;
   }
-  public function setExperiencePoints($experiencePoints)
+
+    public function setCurrentSteps($currentSteps)
   {
-    $this->experiencePoints = $experiencePoints;
+      $this->currentSteps = $currentSteps;
   }
+
   public function getExperiencePoints()
   {
     return $this->experiencePoints;
   }
-  public function setFormattedCurrentStepsString($formattedCurrentStepsString)
+
+    public function setExperiencePoints($experiencePoints)
   {
-    $this->formattedCurrentStepsString = $formattedCurrentStepsString;
+      $this->experiencePoints = $experiencePoints;
   }
+
   public function getFormattedCurrentStepsString()
   {
     return $this->formattedCurrentStepsString;
   }
-  public function setId($id)
+
+    public function setFormattedCurrentStepsString($formattedCurrentStepsString)
   {
-    $this->id = $id;
+      $this->formattedCurrentStepsString = $formattedCurrentStepsString;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLastUpdatedTimestamp($lastUpdatedTimestamp)
+
+    public function setKind($kind)
   {
-    $this->lastUpdatedTimestamp = $lastUpdatedTimestamp;
+      $this->kind = $kind;
   }
+
   public function getLastUpdatedTimestamp()
   {
     return $this->lastUpdatedTimestamp;
   }
+
+    public function setLastUpdatedTimestamp($lastUpdatedTimestamp)
+    {
+        $this->lastUpdatedTimestamp = $lastUpdatedTimestamp;
+    }
 }
 
 class Google_Service_Games_PlayerAchievementListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_PlayerAchievement';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -4621,87 +4886,97 @@ class Google_Service_Games_PlayerAchievementListResponse extends Google_Collecti
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_PlayerEvent extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $definitionId;
   public $formattedNumEvents;
   public $kind;
   public $numEvents;
   public $playerId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDefinitionId($definitionId)
-  {
-    $this->definitionId = $definitionId;
-  }
   public function getDefinitionId()
   {
     return $this->definitionId;
   }
-  public function setFormattedNumEvents($formattedNumEvents)
+
+    public function setDefinitionId($definitionId)
   {
-    $this->formattedNumEvents = $formattedNumEvents;
+      $this->definitionId = $definitionId;
   }
+
   public function getFormattedNumEvents()
   {
     return $this->formattedNumEvents;
   }
-  public function setKind($kind)
+
+    public function setFormattedNumEvents($formattedNumEvents)
   {
-    $this->kind = $kind;
+      $this->formattedNumEvents = $formattedNumEvents;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNumEvents($numEvents)
+
+    public function setKind($kind)
   {
-    $this->numEvents = $numEvents;
+      $this->kind = $kind;
   }
+
   public function getNumEvents()
   {
     return $this->numEvents;
   }
-  public function setPlayerId($playerId)
+
+    public function setNumEvents($numEvents)
   {
-    $this->playerId = $playerId;
+      $this->numEvents = $numEvents;
   }
+
   public function getPlayerId()
   {
     return $this->playerId;
   }
+
+    public function setPlayerId($playerId)
+    {
+        $this->playerId = $playerId;
+    }
 }
 
 class Google_Service_Games_PlayerEventListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_PlayerEvent';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -4711,45 +4986,49 @@ class Google_Service_Games_PlayerEventListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_PlayerExperienceInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currentExperiencePoints;
-  protected $currentLevelType = 'Google_Service_Games_PlayerLevel';
-  protected $currentLevelDataType = '';
   public $kind;
   public $lastLevelUpTimestampMillis;
+    protected $internal_gapi_mappings = array();
+    protected $currentLevelType = 'Google_Service_Games_PlayerLevel';
+    protected $currentLevelDataType = '';
   protected $nextLevelType = 'Google_Service_Games_PlayerLevel';
   protected $nextLevelDataType = '';
 
-
-  public function setCurrentExperiencePoints($currentExperiencePoints)
-  {
-    $this->currentExperiencePoints = $currentExperiencePoints;
-  }
   public function getCurrentExperiencePoints()
   {
     return $this->currentExperiencePoints;
   }
+
+    public function setCurrentExperiencePoints($currentExperiencePoints)
+    {
+        $this->currentExperiencePoints = $currentExperiencePoints;
+    }
+
   public function setCurrentLevel(Google_Service_Games_PlayerLevel $currentLevel)
   {
     $this->currentLevel = $currentLevel;
@@ -4758,22 +5037,27 @@ class Google_Service_Games_PlayerExperienceInfo extends Google_Model
   {
     return $this->currentLevel;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLastLevelUpTimestampMillis($lastLevelUpTimestampMillis)
+
+    public function setKind($kind)
   {
-    $this->lastLevelUpTimestampMillis = $lastLevelUpTimestampMillis;
+      $this->kind = $kind;
   }
+
   public function getLastLevelUpTimestampMillis()
   {
     return $this->lastLevelUpTimestampMillis;
   }
+
+    public function setLastLevelUpTimestampMillis($lastLevelUpTimestampMillis)
+    {
+        $this->lastLevelUpTimestampMillis = $lastLevelUpTimestampMillis;
+    }
+
   public function setNextLevel(Google_Service_Games_PlayerLevel $nextLevel)
   {
     $this->nextLevel = $nextLevel;
@@ -4786,38 +5070,41 @@ class Google_Service_Games_PlayerExperienceInfo extends Google_Model
 
 class Google_Service_Games_PlayerLeaderboardScore extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "leaderboardId" => "leaderboard_id",
-  );
   public $kind;
   public $leaderboardId;
-  protected $publicRankType = 'Google_Service_Games_LeaderboardScoreRank';
-  protected $publicRankDataType = '';
   public $scoreString;
   public $scoreTag;
   public $scoreValue;
-  protected $socialRankType = 'Google_Service_Games_LeaderboardScoreRank';
-  protected $socialRankDataType = '';
   public $timeSpan;
   public $writeTimestamp;
+    protected $internal_gapi_mappings = array(
+        "leaderboardId" => "leaderboard_id",
+    );
+    protected $publicRankType = 'Google_Service_Games_LeaderboardScoreRank';
+    protected $publicRankDataType = '';
+    protected $socialRankType = 'Google_Service_Games_LeaderboardScoreRank';
+    protected $socialRankDataType = '';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLeaderboardId($leaderboardId)
+
+    public function setKind($kind)
   {
-    $this->leaderboardId = $leaderboardId;
+      $this->kind = $kind;
   }
+
   public function getLeaderboardId()
   {
     return $this->leaderboardId;
   }
+
+    public function setLeaderboardId($leaderboardId)
+    {
+        $this->leaderboardId = $leaderboardId;
+    }
+
   public function setPublicRank(Google_Service_Games_LeaderboardScoreRank $publicRank)
   {
     $this->publicRank = $publicRank;
@@ -4826,30 +5113,37 @@ class Google_Service_Games_PlayerLeaderboardScore extends Google_Model
   {
     return $this->publicRank;
   }
-  public function setScoreString($scoreString)
-  {
-    $this->scoreString = $scoreString;
-  }
+
   public function getScoreString()
   {
     return $this->scoreString;
   }
-  public function setScoreTag($scoreTag)
+
+    public function setScoreString($scoreString)
   {
-    $this->scoreTag = $scoreTag;
+      $this->scoreString = $scoreString;
   }
+
   public function getScoreTag()
   {
     return $this->scoreTag;
   }
-  public function setScoreValue($scoreValue)
+
+    public function setScoreTag($scoreTag)
   {
-    $this->scoreValue = $scoreValue;
+      $this->scoreTag = $scoreTag;
   }
+
   public function getScoreValue()
   {
     return $this->scoreValue;
   }
+
+    public function setScoreValue($scoreValue)
+    {
+        $this->scoreValue = $scoreValue;
+    }
+
   public function setSocialRank(Google_Service_Games_LeaderboardScoreRank $socialRank)
   {
     $this->socialRank = $socialRank;
@@ -4858,33 +5152,37 @@ class Google_Service_Games_PlayerLeaderboardScore extends Google_Model
   {
     return $this->socialRank;
   }
-  public function setTimeSpan($timeSpan)
-  {
-    $this->timeSpan = $timeSpan;
-  }
+
   public function getTimeSpan()
   {
     return $this->timeSpan;
   }
-  public function setWriteTimestamp($writeTimestamp)
+
+    public function setTimeSpan($timeSpan)
   {
-    $this->writeTimestamp = $writeTimestamp;
+      $this->timeSpan = $timeSpan;
   }
+
   public function getWriteTimestamp()
   {
     return $this->writeTimestamp;
   }
+
+    public function setWriteTimestamp($writeTimestamp)
+    {
+        $this->writeTimestamp = $writeTimestamp;
+    }
 }
 
 class Google_Service_Games_PlayerLeaderboardScoreListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_PlayerLeaderboardScore';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
   protected $playerType = 'Google_Service_Games_Player';
   protected $playerDataType = '';
 
@@ -4897,22 +5195,27 @@ class Google_Service_Games_PlayerLeaderboardScoreListResponse extends Google_Col
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPlayer(Google_Service_Games_Player $player)
   {
     $this->player = $player;
@@ -4925,58 +5228,62 @@ class Google_Service_Games_PlayerLeaderboardScoreListResponse extends Google_Col
 
 class Google_Service_Games_PlayerLevel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $level;
   public $maxExperiencePoints;
   public $minExperiencePoints;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLevel($level)
+
+    public function setKind($kind)
   {
-    $this->level = $level;
+      $this->kind = $kind;
   }
+
   public function getLevel()
   {
     return $this->level;
   }
-  public function setMaxExperiencePoints($maxExperiencePoints)
+
+    public function setLevel($level)
   {
-    $this->maxExperiencePoints = $maxExperiencePoints;
+      $this->level = $level;
   }
+
   public function getMaxExperiencePoints()
   {
     return $this->maxExperiencePoints;
   }
-  public function setMinExperiencePoints($minExperiencePoints)
+
+    public function setMaxExperiencePoints($maxExperiencePoints)
   {
-    $this->minExperiencePoints = $minExperiencePoints;
+      $this->maxExperiencePoints = $maxExperiencePoints;
   }
+
   public function getMinExperiencePoints()
   {
     return $this->minExperiencePoints;
   }
+
+    public function setMinExperiencePoints($minExperiencePoints)
+    {
+        $this->minExperiencePoints = $minExperiencePoints;
+    }
 }
 
 class Google_Service_Games_PlayerListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_Player';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -4986,121 +5293,134 @@ class Google_Service_Games_PlayerListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_PlayerName extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $familyName;
   public $givenName;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFamilyName($familyName)
-  {
-    $this->familyName = $familyName;
-  }
   public function getFamilyName()
   {
     return $this->familyName;
   }
-  public function setGivenName($givenName)
+
+    public function setFamilyName($familyName)
   {
-    $this->givenName = $givenName;
+      $this->familyName = $familyName;
   }
+
   public function getGivenName()
   {
     return $this->givenName;
   }
+
+    public function setGivenName($givenName)
+    {
+        $this->givenName = $givenName;
+    }
 }
 
 class Google_Service_Games_PlayerScore extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $formattedScore;
   public $kind;
   public $score;
   public $scoreTag;
   public $timeSpan;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFormattedScore($formattedScore)
-  {
-    $this->formattedScore = $formattedScore;
-  }
   public function getFormattedScore()
   {
     return $this->formattedScore;
   }
-  public function setKind($kind)
+
+    public function setFormattedScore($formattedScore)
   {
-    $this->kind = $kind;
+      $this->formattedScore = $formattedScore;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setScore($score)
+
+    public function setKind($kind)
   {
-    $this->score = $score;
+      $this->kind = $kind;
   }
+
   public function getScore()
   {
     return $this->score;
   }
-  public function setScoreTag($scoreTag)
+
+    public function setScore($score)
   {
-    $this->scoreTag = $scoreTag;
+      $this->score = $score;
   }
+
   public function getScoreTag()
   {
     return $this->scoreTag;
   }
-  public function setTimeSpan($timeSpan)
+
+    public function setScoreTag($scoreTag)
   {
-    $this->timeSpan = $timeSpan;
+      $this->scoreTag = $scoreTag;
   }
+
   public function getTimeSpan()
   {
     return $this->timeSpan;
   }
+
+    public function setTimeSpan($timeSpan)
+    {
+        $this->timeSpan = $timeSpan;
+    }
 }
 
 class Google_Service_Games_PlayerScoreListResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'submittedScores';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $submittedScoresType = 'Google_Service_Games_PlayerScoreResponse';
   protected $submittedScoresDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSubmittedScores($submittedScores)
   {
     $this->submittedScores = $submittedScores;
@@ -5113,58 +5433,66 @@ class Google_Service_Games_PlayerScoreListResponse extends Google_Collection
 
 class Google_Service_Games_PlayerScoreResponse extends Google_Collection
 {
-  protected $collection_key = 'unbeatenScores';
-  protected $internal_gapi_mappings = array(
-  );
   public $beatenScoreTimeSpans;
   public $formattedScore;
   public $kind;
   public $leaderboardId;
   public $scoreTag;
+    protected $collection_key = 'unbeatenScores';
+    protected $internal_gapi_mappings = array();
   protected $unbeatenScoresType = 'Google_Service_Games_PlayerScore';
   protected $unbeatenScoresDataType = 'array';
 
-
-  public function setBeatenScoreTimeSpans($beatenScoreTimeSpans)
-  {
-    $this->beatenScoreTimeSpans = $beatenScoreTimeSpans;
-  }
   public function getBeatenScoreTimeSpans()
   {
     return $this->beatenScoreTimeSpans;
   }
-  public function setFormattedScore($formattedScore)
+
+    public function setBeatenScoreTimeSpans($beatenScoreTimeSpans)
   {
-    $this->formattedScore = $formattedScore;
+      $this->beatenScoreTimeSpans = $beatenScoreTimeSpans;
   }
+
   public function getFormattedScore()
   {
     return $this->formattedScore;
   }
-  public function setKind($kind)
+
+    public function setFormattedScore($formattedScore)
   {
-    $this->kind = $kind;
+      $this->formattedScore = $formattedScore;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLeaderboardId($leaderboardId)
+
+    public function setKind($kind)
   {
-    $this->leaderboardId = $leaderboardId;
+      $this->kind = $kind;
   }
+
   public function getLeaderboardId()
   {
     return $this->leaderboardId;
   }
-  public function setScoreTag($scoreTag)
+
+    public function setLeaderboardId($leaderboardId)
   {
-    $this->scoreTag = $scoreTag;
+      $this->leaderboardId = $leaderboardId;
   }
+
   public function getScoreTag()
   {
     return $this->scoreTag;
   }
+
+    public function setScoreTag($scoreTag)
+    {
+        $this->scoreTag = $scoreTag;
+    }
+
   public function setUnbeatenScores($unbeatenScores)
   {
     $this->unbeatenScores = $unbeatenScores;
@@ -5177,22 +5505,23 @@ class Google_Service_Games_PlayerScoreResponse extends Google_Collection
 
 class Google_Service_Games_PlayerScoreSubmissionList extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'scores';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $scoresType = 'Google_Service_Games_ScoreSubmission';
   protected $scoresDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setScores($scores)
   {
     $this->scores = $scores;
@@ -5205,23 +5534,23 @@ class Google_Service_Games_PlayerScoreSubmissionList extends Google_Collection
 
 class Google_Service_Games_PushToken extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $clientRevision;
-  protected $idType = 'Google_Service_Games_PushTokenId';
-  protected $idDataType = '';
   public $kind;
   public $language;
+    protected $internal_gapi_mappings = array();
+    protected $idType = 'Google_Service_Games_PushTokenId';
+    protected $idDataType = '';
 
-
-  public function setClientRevision($clientRevision)
-  {
-    $this->clientRevision = $clientRevision;
-  }
   public function getClientRevision()
   {
     return $this->clientRevision;
   }
+
+    public function setClientRevision($clientRevision)
+    {
+        $this->clientRevision = $clientRevision;
+    }
+
   public function setId(Google_Service_Games_PushTokenId $id)
   {
     $this->id = $id;
@@ -5230,32 +5559,35 @@ class Google_Service_Games_PushToken extends Google_Model
   {
     return $this->id;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLanguage($language)
+
+    public function setKind($kind)
   {
-    $this->language = $language;
+      $this->kind = $kind;
   }
+
   public function getLanguage()
   {
     return $this->language;
   }
+
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
 }
 
 class Google_Service_Games_PushTokenId extends Google_Model
 {
+    public $kind;
   protected $internal_gapi_mappings = array(
   );
   protected $iosType = 'Google_Service_Games_PushTokenIdIos';
   protected $iosDataType = '';
-  public $kind;
-
 
   public function setIos(Google_Service_Games_PushTokenIdIos $ios)
   {
@@ -5265,49 +5597,50 @@ class Google_Service_Games_PushTokenId extends Google_Model
   {
     return $this->ios;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_PushTokenIdIos extends Google_Model
 {
+    public $apnsDeviceToken;
+    public $apnsEnvironment;
   protected $internal_gapi_mappings = array(
         "apnsDeviceToken" => "apns_device_token",
         "apnsEnvironment" => "apns_environment",
   );
-  public $apnsDeviceToken;
-  public $apnsEnvironment;
 
-
-  public function setApnsDeviceToken($apnsDeviceToken)
-  {
-    $this->apnsDeviceToken = $apnsDeviceToken;
-  }
   public function getApnsDeviceToken()
   {
     return $this->apnsDeviceToken;
   }
-  public function setApnsEnvironment($apnsEnvironment)
+
+    public function setApnsDeviceToken($apnsDeviceToken)
   {
-    $this->apnsEnvironment = $apnsEnvironment;
+      $this->apnsDeviceToken = $apnsDeviceToken;
   }
+
   public function getApnsEnvironment()
   {
     return $this->apnsEnvironment;
   }
+
+    public function setApnsEnvironment($apnsEnvironment)
+    {
+        $this->apnsEnvironment = $apnsEnvironment;
+    }
 }
 
 class Google_Service_Games_Quest extends Google_Collection
 {
-  protected $collection_key = 'milestones';
-  protected $internal_gapi_mappings = array(
-  );
   public $acceptedTimestampMillis;
   public $applicationId;
   public $bannerUrl;
@@ -5319,102 +5652,125 @@ class Google_Service_Games_Quest extends Google_Collection
   public $isDefaultIconUrl;
   public $kind;
   public $lastUpdatedTimestampMillis;
-  protected $milestonesType = 'Google_Service_Games_QuestMilestone';
-  protected $milestonesDataType = 'array';
   public $name;
   public $notifyTimestampMillis;
   public $startTimestampMillis;
   public $state;
+    protected $collection_key = 'milestones';
+    protected $internal_gapi_mappings = array();
+    protected $milestonesType = 'Google_Service_Games_QuestMilestone';
+    protected $milestonesDataType = 'array';
 
-
-  public function setAcceptedTimestampMillis($acceptedTimestampMillis)
-  {
-    $this->acceptedTimestampMillis = $acceptedTimestampMillis;
-  }
   public function getAcceptedTimestampMillis()
   {
     return $this->acceptedTimestampMillis;
   }
-  public function setApplicationId($applicationId)
+
+    public function setAcceptedTimestampMillis($acceptedTimestampMillis)
   {
-    $this->applicationId = $applicationId;
+      $this->acceptedTimestampMillis = $acceptedTimestampMillis;
   }
+
   public function getApplicationId()
   {
     return $this->applicationId;
   }
-  public function setBannerUrl($bannerUrl)
+
+    public function setApplicationId($applicationId)
   {
-    $this->bannerUrl = $bannerUrl;
+      $this->applicationId = $applicationId;
   }
+
   public function getBannerUrl()
   {
     return $this->bannerUrl;
   }
-  public function setDescription($description)
+
+    public function setBannerUrl($bannerUrl)
   {
-    $this->description = $description;
+      $this->bannerUrl = $bannerUrl;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setEndTimestampMillis($endTimestampMillis)
+
+    public function setDescription($description)
   {
-    $this->endTimestampMillis = $endTimestampMillis;
+      $this->description = $description;
   }
+
   public function getEndTimestampMillis()
   {
     return $this->endTimestampMillis;
   }
-  public function setIconUrl($iconUrl)
+
+    public function setEndTimestampMillis($endTimestampMillis)
   {
-    $this->iconUrl = $iconUrl;
+      $this->endTimestampMillis = $endTimestampMillis;
   }
+
   public function getIconUrl()
   {
     return $this->iconUrl;
   }
-  public function setId($id)
+
+    public function setIconUrl($iconUrl)
   {
-    $this->id = $id;
+      $this->iconUrl = $iconUrl;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setIsDefaultBannerUrl($isDefaultBannerUrl)
+
+    public function setId($id)
   {
-    $this->isDefaultBannerUrl = $isDefaultBannerUrl;
+      $this->id = $id;
   }
+
   public function getIsDefaultBannerUrl()
   {
     return $this->isDefaultBannerUrl;
   }
-  public function setIsDefaultIconUrl($isDefaultIconUrl)
+
+    public function setIsDefaultBannerUrl($isDefaultBannerUrl)
   {
-    $this->isDefaultIconUrl = $isDefaultIconUrl;
+      $this->isDefaultBannerUrl = $isDefaultBannerUrl;
   }
+
   public function getIsDefaultIconUrl()
   {
     return $this->isDefaultIconUrl;
   }
-  public function setKind($kind)
+
+    public function setIsDefaultIconUrl($isDefaultIconUrl)
   {
-    $this->kind = $kind;
+      $this->isDefaultIconUrl = $isDefaultIconUrl;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLastUpdatedTimestampMillis($lastUpdatedTimestampMillis)
+
+    public function setKind($kind)
   {
-    $this->lastUpdatedTimestampMillis = $lastUpdatedTimestampMillis;
+      $this->kind = $kind;
   }
+
   public function getLastUpdatedTimestampMillis()
   {
     return $this->lastUpdatedTimestampMillis;
   }
+
+    public function setLastUpdatedTimestampMillis($lastUpdatedTimestampMillis)
+    {
+        $this->lastUpdatedTimestampMillis = $lastUpdatedTimestampMillis;
+    }
+
   public function setMilestones($milestones)
   {
     $this->milestones = $milestones;
@@ -5423,88 +5779,98 @@ class Google_Service_Games_Quest extends Google_Collection
   {
     return $this->milestones;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNotifyTimestampMillis($notifyTimestampMillis)
+
+    public function setName($name)
   {
-    $this->notifyTimestampMillis = $notifyTimestampMillis;
+      $this->name = $name;
   }
+
   public function getNotifyTimestampMillis()
   {
     return $this->notifyTimestampMillis;
   }
-  public function setStartTimestampMillis($startTimestampMillis)
+
+    public function setNotifyTimestampMillis($notifyTimestampMillis)
   {
-    $this->startTimestampMillis = $startTimestampMillis;
+      $this->notifyTimestampMillis = $notifyTimestampMillis;
   }
+
   public function getStartTimestampMillis()
   {
     return $this->startTimestampMillis;
   }
-  public function setState($state)
+
+    public function setStartTimestampMillis($startTimestampMillis)
   {
-    $this->state = $state;
+      $this->startTimestampMillis = $startTimestampMillis;
   }
+
   public function getState()
   {
     return $this->state;
   }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
 }
 
 class Google_Service_Games_QuestContribution extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $formattedValue;
   public $kind;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFormattedValue($formattedValue)
-  {
-    $this->formattedValue = $formattedValue;
-  }
   public function getFormattedValue()
   {
     return $this->formattedValue;
   }
-  public function setKind($kind)
+
+    public function setFormattedValue($formattedValue)
   {
-    $this->kind = $kind;
+      $this->formattedValue = $formattedValue;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setValue($value)
+
+    public function setKind($kind)
   {
-    $this->value = $value;
+      $this->kind = $kind;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Games_QuestCriterion extends Google_Model
 {
+    public $eventId;
+    public $kind;
   protected $internal_gapi_mappings = array(
   );
   protected $completionContributionType = 'Google_Service_Games_QuestContribution';
   protected $completionContributionDataType = '';
   protected $currentContributionType = 'Google_Service_Games_QuestContribution';
   protected $currentContributionDataType = '';
-  public $eventId;
   protected $initialPlayerProgressType = 'Google_Service_Games_QuestContribution';
   protected $initialPlayerProgressDataType = '';
-  public $kind;
-
 
   public function setCompletionContribution(Google_Service_Games_QuestContribution $completionContribution)
   {
@@ -5522,14 +5888,17 @@ class Google_Service_Games_QuestCriterion extends Google_Model
   {
     return $this->currentContribution;
   }
-  public function setEventId($eventId)
-  {
-    $this->eventId = $eventId;
-  }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setInitialPlayerProgress(Google_Service_Games_QuestContribution $initialPlayerProgress)
   {
     $this->initialPlayerProgress = $initialPlayerProgress;
@@ -5538,26 +5907,27 @@ class Google_Service_Games_QuestCriterion extends Google_Model
   {
     return $this->initialPlayerProgress;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_QuestListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_Quest';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -5567,45 +5937,49 @@ class Google_Service_Games_QuestListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_QuestMilestone extends Google_Collection
 {
-  protected $collection_key = 'criteria';
-  protected $internal_gapi_mappings = array(
-  );
   public $completionRewardData;
-  protected $criteriaType = 'Google_Service_Games_QuestCriterion';
-  protected $criteriaDataType = 'array';
   public $id;
   public $kind;
   public $state;
+    protected $collection_key = 'criteria';
+    protected $internal_gapi_mappings = array();
+    protected $criteriaType = 'Google_Service_Games_QuestCriterion';
+    protected $criteriaDataType = 'array';
 
-
-  public function setCompletionRewardData($completionRewardData)
-  {
-    $this->completionRewardData = $completionRewardData;
-  }
   public function getCompletionRewardData()
   {
     return $this->completionRewardData;
   }
+
+    public function setCompletionRewardData($completionRewardData)
+    {
+        $this->completionRewardData = $completionRewardData;
+    }
+
   public function setCriteria($criteria)
   {
     $this->criteria = $criteria;
@@ -5614,100 +5988,110 @@ class Google_Service_Games_QuestMilestone extends Google_Collection
   {
     return $this->criteria;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setState($state)
+
+    public function setKind($kind)
   {
-    $this->state = $state;
+      $this->kind = $kind;
   }
+
   public function getState()
   {
     return $this->state;
   }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
 }
 
 class Google_Service_Games_RevisionCheckResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $apiVersion;
   public $kind;
   public $revisionStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setApiVersion($apiVersion)
-  {
-    $this->apiVersion = $apiVersion;
-  }
   public function getApiVersion()
   {
     return $this->apiVersion;
   }
-  public function setKind($kind)
+
+    public function setApiVersion($apiVersion)
   {
-    $this->kind = $kind;
+      $this->apiVersion = $apiVersion;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setRevisionStatus($revisionStatus)
+
+    public function setKind($kind)
   {
-    $this->revisionStatus = $revisionStatus;
+      $this->kind = $kind;
   }
+
   public function getRevisionStatus()
   {
     return $this->revisionStatus;
   }
+
+    public function setRevisionStatus($revisionStatus)
+    {
+        $this->revisionStatus = $revisionStatus;
+    }
 }
 
 class Google_Service_Games_Room extends Google_Collection
 {
+    public $applicationId;
+    public $description;
+    public $inviterId;
+    public $kind;
+    public $roomId;
+    public $roomStatusVersion;
+    public $status;
+    public $variant;
   protected $collection_key = 'participants';
   protected $internal_gapi_mappings = array(
   );
-  public $applicationId;
   protected $autoMatchingCriteriaType = 'Google_Service_Games_RoomAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
   protected $autoMatchingStatusType = 'Google_Service_Games_RoomAutoMatchStatus';
   protected $autoMatchingStatusDataType = '';
   protected $creationDetailsType = 'Google_Service_Games_RoomModification';
   protected $creationDetailsDataType = '';
-  public $description;
-  public $inviterId;
-  public $kind;
   protected $lastUpdateDetailsType = 'Google_Service_Games_RoomModification';
   protected $lastUpdateDetailsDataType = '';
   protected $participantsType = 'Google_Service_Games_RoomParticipant';
   protected $participantsDataType = 'array';
-  public $roomId;
-  public $roomStatusVersion;
-  public $status;
-  public $variant;
 
-
-  public function setApplicationId($applicationId)
-  {
-    $this->applicationId = $applicationId;
-  }
   public function getApplicationId()
   {
     return $this->applicationId;
   }
+
+    public function setApplicationId($applicationId)
+    {
+        $this->applicationId = $applicationId;
+    }
+
   public function setAutoMatchingCriteria(Google_Service_Games_RoomAutoMatchingCriteria $autoMatchingCriteria)
   {
     $this->autoMatchingCriteria = $autoMatchingCriteria;
@@ -5732,30 +6116,37 @@ class Google_Service_Games_Room extends Google_Collection
   {
     return $this->creationDetails;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setInviterId($inviterId)
+
+    public function setDescription($description)
   {
-    $this->inviterId = $inviterId;
+      $this->description = $description;
   }
+
   public function getInviterId()
   {
     return $this->inviterId;
   }
-  public function setKind($kind)
+
+    public function setInviterId($inviterId)
   {
-    $this->kind = $kind;
+      $this->inviterId = $inviterId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLastUpdateDetails(Google_Service_Games_RoomModification $lastUpdateDetails)
   {
     $this->lastUpdateDetails = $lastUpdateDetails;
@@ -5772,153 +6163,167 @@ class Google_Service_Games_Room extends Google_Collection
   {
     return $this->participants;
   }
-  public function setRoomId($roomId)
-  {
-    $this->roomId = $roomId;
-  }
+
   public function getRoomId()
   {
     return $this->roomId;
   }
-  public function setRoomStatusVersion($roomStatusVersion)
+
+    public function setRoomId($roomId)
   {
-    $this->roomStatusVersion = $roomStatusVersion;
+      $this->roomId = $roomId;
   }
+
   public function getRoomStatusVersion()
   {
     return $this->roomStatusVersion;
   }
-  public function setStatus($status)
+
+    public function setRoomStatusVersion($roomStatusVersion)
   {
-    $this->status = $status;
+      $this->roomStatusVersion = $roomStatusVersion;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setVariant($variant)
+
+    public function setStatus($status)
   {
-    $this->variant = $variant;
+      $this->status = $status;
   }
+
   public function getVariant()
   {
     return $this->variant;
   }
+
+    public function setVariant($variant)
+    {
+        $this->variant = $variant;
+    }
 }
 
 class Google_Service_Games_RoomAutoMatchStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $waitEstimateSeconds;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setWaitEstimateSeconds($waitEstimateSeconds)
+
+    public function setKind($kind)
   {
-    $this->waitEstimateSeconds = $waitEstimateSeconds;
+      $this->kind = $kind;
   }
-  public function getWaitEstimateSeconds()
+
+    public function getWaitEstimateSeconds()
   {
     return $this->waitEstimateSeconds;
   }
+
+    public function setWaitEstimateSeconds($waitEstimateSeconds)
+    {
+        $this->waitEstimateSeconds = $waitEstimateSeconds;
+    }
 }
 
 class Google_Service_Games_RoomAutoMatchingCriteria extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $exclusiveBitmask;
   public $kind;
   public $maxAutoMatchingPlayers;
   public $minAutoMatchingPlayers;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setExclusiveBitmask($exclusiveBitmask)
-  {
-    $this->exclusiveBitmask = $exclusiveBitmask;
-  }
   public function getExclusiveBitmask()
   {
     return $this->exclusiveBitmask;
   }
-  public function setKind($kind)
+
+    public function setExclusiveBitmask($exclusiveBitmask)
   {
-    $this->kind = $kind;
+      $this->exclusiveBitmask = $exclusiveBitmask;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMaxAutoMatchingPlayers($maxAutoMatchingPlayers)
+
+    public function setKind($kind)
   {
-    $this->maxAutoMatchingPlayers = $maxAutoMatchingPlayers;
+      $this->kind = $kind;
   }
-  public function getMaxAutoMatchingPlayers()
+
+    public function getMaxAutoMatchingPlayers()
   {
     return $this->maxAutoMatchingPlayers;
   }
-  public function setMinAutoMatchingPlayers($minAutoMatchingPlayers)
+
+    public function setMaxAutoMatchingPlayers($maxAutoMatchingPlayers)
   {
-    $this->minAutoMatchingPlayers = $minAutoMatchingPlayers;
+      $this->maxAutoMatchingPlayers = $maxAutoMatchingPlayers;
   }
-  public function getMinAutoMatchingPlayers()
+
+    public function getMinAutoMatchingPlayers()
   {
     return $this->minAutoMatchingPlayers;
   }
+
+    public function setMinAutoMatchingPlayers($minAutoMatchingPlayers)
+    {
+        $this->minAutoMatchingPlayers = $minAutoMatchingPlayers;
+    }
 }
 
 class Google_Service_Games_RoomClientAddress extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $xmppAddress;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setXmppAddress($xmppAddress)
+
+    public function setKind($kind)
   {
-    $this->xmppAddress = $xmppAddress;
+      $this->kind = $kind;
   }
-  public function getXmppAddress()
+
+    public function getXmppAddress()
   {
     return $this->xmppAddress;
   }
+
+    public function setXmppAddress($xmppAddress)
+    {
+        $this->xmppAddress = $xmppAddress;
+    }
 }
 
 class Google_Service_Games_RoomCreateRequest extends Google_Collection
 {
+    public $capabilities;
+    public $invitedPlayerIds;
+    public $kind;
+    public $requestId;
+    public $variant;
   protected $collection_key = 'invitedPlayerIds';
   protected $internal_gapi_mappings = array(
   );
   protected $autoMatchingCriteriaType = 'Google_Service_Games_RoomAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
-  public $capabilities;
   protected $clientAddressType = 'Google_Service_Games_RoomClientAddress';
   protected $clientAddressDataType = '';
-  public $invitedPlayerIds;
-  public $kind;
   protected $networkDiagnosticsType = 'Google_Service_Games_NetworkDiagnostics';
   protected $networkDiagnosticsDataType = '';
-  public $requestId;
-  public $variant;
-
 
   public function setAutoMatchingCriteria(Google_Service_Games_RoomAutoMatchingCriteria $autoMatchingCriteria)
   {
@@ -5928,14 +6333,17 @@ class Google_Service_Games_RoomCreateRequest extends Google_Collection
   {
     return $this->autoMatchingCriteria;
   }
-  public function setCapabilities($capabilities)
-  {
-    $this->capabilities = $capabilities;
-  }
-  public function getCapabilities()
+
+    public function getCapabilities()
   {
     return $this->capabilities;
   }
+
+    public function setCapabilities($capabilities)
+    {
+        $this->capabilities = $capabilities;
+    }
+
   public function setClientAddress(Google_Service_Games_RoomClientAddress $clientAddress)
   {
     $this->clientAddress = $clientAddress;
@@ -5944,22 +6352,27 @@ class Google_Service_Games_RoomCreateRequest extends Google_Collection
   {
     return $this->clientAddress;
   }
-  public function setInvitedPlayerIds($invitedPlayerIds)
-  {
-    $this->invitedPlayerIds = $invitedPlayerIds;
-  }
-  public function getInvitedPlayerIds()
+
+    public function getInvitedPlayerIds()
   {
     return $this->invitedPlayerIds;
   }
-  public function setKind($kind)
+
+    public function setInvitedPlayerIds($invitedPlayerIds)
   {
-    $this->kind = $kind;
+      $this->invitedPlayerIds = $invitedPlayerIds;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setNetworkDiagnostics(Google_Service_Games_NetworkDiagnostics $networkDiagnostics)
   {
     $this->networkDiagnostics = $networkDiagnostics;
@@ -5968,45 +6381,50 @@ class Google_Service_Games_RoomCreateRequest extends Google_Collection
   {
     return $this->networkDiagnostics;
   }
-  public function setRequestId($requestId)
-  {
-    $this->requestId = $requestId;
-  }
-  public function getRequestId()
+
+    public function getRequestId()
   {
     return $this->requestId;
   }
-  public function setVariant($variant)
+
+    public function setRequestId($requestId)
   {
-    $this->variant = $variant;
+      $this->requestId = $requestId;
   }
-  public function getVariant()
+
+    public function getVariant()
   {
     return $this->variant;
   }
+
+    public function setVariant($variant)
+    {
+        $this->variant = $variant;
+    }
 }
 
 class Google_Service_Games_RoomJoinRequest extends Google_Collection
 {
+    public $capabilities;
+    public $kind;
   protected $collection_key = 'capabilities';
   protected $internal_gapi_mappings = array(
   );
-  public $capabilities;
   protected $clientAddressType = 'Google_Service_Games_RoomClientAddress';
   protected $clientAddressDataType = '';
-  public $kind;
   protected $networkDiagnosticsType = 'Google_Service_Games_NetworkDiagnostics';
   protected $networkDiagnosticsDataType = '';
 
-
-  public function setCapabilities($capabilities)
-  {
-    $this->capabilities = $capabilities;
-  }
   public function getCapabilities()
   {
     return $this->capabilities;
   }
+
+    public function setCapabilities($capabilities)
+    {
+        $this->capabilities = $capabilities;
+    }
+
   public function setClientAddress(Google_Service_Games_RoomClientAddress $clientAddress)
   {
     $this->clientAddress = $clientAddress;
@@ -6015,14 +6433,17 @@ class Google_Service_Games_RoomJoinRequest extends Google_Collection
   {
     return $this->clientAddress;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setNetworkDiagnostics(Google_Service_Games_NetworkDiagnostics $networkDiagnostics)
   {
     $this->networkDiagnostics = $networkDiagnostics;
@@ -6035,68 +6456,78 @@ class Google_Service_Games_RoomJoinRequest extends Google_Collection
 
 class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
 {
-  protected $collection_key = 'peerSession';
-  protected $internal_gapi_mappings = array(
-  );
   public $androidNetworkSubtype;
   public $androidNetworkType;
   public $iosNetworkType;
   public $kind;
   public $networkOperatorCode;
   public $networkOperatorName;
+    public $socketsUsed;
+    protected $collection_key = 'peerSession';
+    protected $internal_gapi_mappings = array();
   protected $peerSessionType = 'Google_Service_Games_PeerSessionDiagnostics';
   protected $peerSessionDataType = 'array';
-  public $socketsUsed;
 
-
-  public function setAndroidNetworkSubtype($androidNetworkSubtype)
-  {
-    $this->androidNetworkSubtype = $androidNetworkSubtype;
-  }
   public function getAndroidNetworkSubtype()
   {
     return $this->androidNetworkSubtype;
   }
-  public function setAndroidNetworkType($androidNetworkType)
+
+    public function setAndroidNetworkSubtype($androidNetworkSubtype)
   {
-    $this->androidNetworkType = $androidNetworkType;
+      $this->androidNetworkSubtype = $androidNetworkSubtype;
   }
-  public function getAndroidNetworkType()
+
+    public function getAndroidNetworkType()
   {
     return $this->androidNetworkType;
   }
-  public function setIosNetworkType($iosNetworkType)
+
+    public function setAndroidNetworkType($androidNetworkType)
   {
-    $this->iosNetworkType = $iosNetworkType;
+      $this->androidNetworkType = $androidNetworkType;
   }
-  public function getIosNetworkType()
+
+    public function getIosNetworkType()
   {
     return $this->iosNetworkType;
   }
-  public function setKind($kind)
+
+    public function setIosNetworkType($iosNetworkType)
   {
-    $this->kind = $kind;
+      $this->iosNetworkType = $iosNetworkType;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNetworkOperatorCode($networkOperatorCode)
+
+    public function setKind($kind)
   {
-    $this->networkOperatorCode = $networkOperatorCode;
+      $this->kind = $kind;
   }
-  public function getNetworkOperatorCode()
+
+    public function getNetworkOperatorCode()
   {
     return $this->networkOperatorCode;
   }
-  public function setNetworkOperatorName($networkOperatorName)
+
+    public function setNetworkOperatorCode($networkOperatorCode)
   {
-    $this->networkOperatorName = $networkOperatorName;
+      $this->networkOperatorCode = $networkOperatorCode;
   }
-  public function getNetworkOperatorName()
+
+    public function getNetworkOperatorName()
   {
     return $this->networkOperatorName;
   }
+
+    public function setNetworkOperatorName($networkOperatorName)
+    {
+        $this->networkOperatorName = $networkOperatorName;
+    }
+
   public function setPeerSession($peerSession)
   {
     $this->peerSession = $peerSession;
@@ -6105,34 +6536,36 @@ class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
   {
     return $this->peerSession;
   }
-  public function setSocketsUsed($socketsUsed)
-  {
-    $this->socketsUsed = $socketsUsed;
-  }
-  public function getSocketsUsed()
+
+    public function getSocketsUsed()
   {
     return $this->socketsUsed;
   }
+
+    public function setSocketsUsed($socketsUsed)
+    {
+        $this->socketsUsed = $socketsUsed;
+    }
 }
 
 class Google_Service_Games_RoomLeaveRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
+    public $reason;
+    protected $internal_gapi_mappings = array();
   protected $leaveDiagnosticsType = 'Google_Service_Games_RoomLeaveDiagnostics';
   protected $leaveDiagnosticsDataType = '';
-  public $reason;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLeaveDiagnostics(Google_Service_Games_RoomLeaveDiagnostics $leaveDiagnostics)
   {
     $this->leaveDiagnostics = $leaveDiagnostics;
@@ -6141,26 +6574,27 @@ class Google_Service_Games_RoomLeaveRequest extends Google_Model
   {
     return $this->leaveDiagnostics;
   }
-  public function setReason($reason)
-  {
-    $this->reason = $reason;
-  }
-  public function getReason()
+
+    public function getReason()
   {
     return $this->reason;
   }
+
+    public function setReason($reason)
+    {
+        $this->reason = $reason;
+    }
 }
 
 class Google_Service_Games_RoomList extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_Room';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -6170,64 +6604,68 @@ class Google_Service_Games_RoomList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_RoomModification extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $modifiedTimestampMillis;
   public $participantId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setModifiedTimestampMillis($modifiedTimestampMillis)
+
+    public function setKind($kind)
   {
-    $this->modifiedTimestampMillis = $modifiedTimestampMillis;
+      $this->kind = $kind;
   }
-  public function getModifiedTimestampMillis()
+
+    public function getModifiedTimestampMillis()
   {
     return $this->modifiedTimestampMillis;
   }
-  public function setParticipantId($participantId)
+
+    public function setModifiedTimestampMillis($modifiedTimestampMillis)
   {
-    $this->participantId = $participantId;
+      $this->modifiedTimestampMillis = $modifiedTimestampMillis;
   }
-  public function getParticipantId()
+
+    public function getParticipantId()
   {
     return $this->participantId;
   }
+
+    public function setParticipantId($participantId)
+    {
+        $this->participantId = $participantId;
+    }
 }
 
 class Google_Service_Games_RoomP2PStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "errorReason" => "error_reason",
-  );
   public $connectionSetupLatencyMillis;
   public $error;
   public $errorReason;
@@ -6235,84 +6673,100 @@ class Google_Service_Games_RoomP2PStatus extends Google_Model
   public $participantId;
   public $status;
   public $unreliableRoundtripLatencyMillis;
+    protected $internal_gapi_mappings = array(
+        "errorReason" => "error_reason",
+    );
 
-
-  public function setConnectionSetupLatencyMillis($connectionSetupLatencyMillis)
-  {
-    $this->connectionSetupLatencyMillis = $connectionSetupLatencyMillis;
-  }
   public function getConnectionSetupLatencyMillis()
   {
     return $this->connectionSetupLatencyMillis;
   }
-  public function setError($error)
+
+    public function setConnectionSetupLatencyMillis($connectionSetupLatencyMillis)
   {
-    $this->error = $error;
+      $this->connectionSetupLatencyMillis = $connectionSetupLatencyMillis;
   }
-  public function getError()
+
+    public function getError()
   {
     return $this->error;
   }
-  public function setErrorReason($errorReason)
+
+    public function setError($error)
   {
-    $this->errorReason = $errorReason;
+      $this->error = $error;
   }
-  public function getErrorReason()
+
+    public function getErrorReason()
   {
     return $this->errorReason;
   }
-  public function setKind($kind)
+
+    public function setErrorReason($errorReason)
   {
-    $this->kind = $kind;
+      $this->errorReason = $errorReason;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setParticipantId($participantId)
+
+    public function setKind($kind)
   {
-    $this->participantId = $participantId;
+      $this->kind = $kind;
   }
-  public function getParticipantId()
+
+    public function getParticipantId()
   {
     return $this->participantId;
   }
-  public function setStatus($status)
+
+    public function setParticipantId($participantId)
   {
-    $this->status = $status;
+      $this->participantId = $participantId;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
-  public function setUnreliableRoundtripLatencyMillis($unreliableRoundtripLatencyMillis)
+
+    public function setStatus($status)
   {
-    $this->unreliableRoundtripLatencyMillis = $unreliableRoundtripLatencyMillis;
+      $this->status = $status;
   }
-  public function getUnreliableRoundtripLatencyMillis()
+
+    public function getUnreliableRoundtripLatencyMillis()
   {
     return $this->unreliableRoundtripLatencyMillis;
   }
+
+    public function setUnreliableRoundtripLatencyMillis($unreliableRoundtripLatencyMillis)
+    {
+        $this->unreliableRoundtripLatencyMillis = $unreliableRoundtripLatencyMillis;
+    }
 }
 
 class Google_Service_Games_RoomP2PStatuses extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'updates';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $updatesType = 'Google_Service_Games_RoomP2PStatus';
   protected $updatesDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setUpdates($updates)
   {
     $this->updates = $updates;
@@ -6325,32 +6779,32 @@ class Google_Service_Games_RoomP2PStatuses extends Google_Collection
 
 class Google_Service_Games_RoomParticipant extends Google_Collection
 {
-  protected $collection_key = 'capabilities';
-  protected $internal_gapi_mappings = array(
-  );
   public $autoMatched;
-  protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
-  protected $autoMatchedPlayerDataType = '';
   public $capabilities;
-  protected $clientAddressType = 'Google_Service_Games_RoomClientAddress';
-  protected $clientAddressDataType = '';
   public $connected;
   public $id;
   public $kind;
   public $leaveReason;
+    public $status;
+    protected $collection_key = 'capabilities';
+    protected $internal_gapi_mappings = array();
+    protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
+    protected $autoMatchedPlayerDataType = '';
+    protected $clientAddressType = 'Google_Service_Games_RoomClientAddress';
+    protected $clientAddressDataType = '';
   protected $playerType = 'Google_Service_Games_Player';
   protected $playerDataType = '';
-  public $status;
 
-
-  public function setAutoMatched($autoMatched)
-  {
-    $this->autoMatched = $autoMatched;
-  }
   public function getAutoMatched()
   {
     return $this->autoMatched;
   }
+
+    public function setAutoMatched($autoMatched)
+    {
+        $this->autoMatched = $autoMatched;
+    }
+
   public function setAutoMatchedPlayer(Google_Service_Games_AnonymousPlayer $autoMatchedPlayer)
   {
     $this->autoMatchedPlayer = $autoMatchedPlayer;
@@ -6359,14 +6813,17 @@ class Google_Service_Games_RoomParticipant extends Google_Collection
   {
     return $this->autoMatchedPlayer;
   }
-  public function setCapabilities($capabilities)
-  {
-    $this->capabilities = $capabilities;
-  }
-  public function getCapabilities()
+
+    public function getCapabilities()
   {
     return $this->capabilities;
   }
+
+    public function setCapabilities($capabilities)
+    {
+        $this->capabilities = $capabilities;
+    }
+
   public function setClientAddress(Google_Service_Games_RoomClientAddress $clientAddress)
   {
     $this->clientAddress = $clientAddress;
@@ -6375,38 +6832,47 @@ class Google_Service_Games_RoomParticipant extends Google_Collection
   {
     return $this->clientAddress;
   }
-  public function setConnected($connected)
-  {
-    $this->connected = $connected;
-  }
-  public function getConnected()
+
+    public function getConnected()
   {
     return $this->connected;
   }
-  public function setId($id)
+
+    public function setConnected($connected)
   {
-    $this->id = $id;
+      $this->connected = $connected;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setLeaveReason($leaveReason)
+
+    public function setKind($kind)
   {
-    $this->leaveReason = $leaveReason;
+      $this->kind = $kind;
   }
-  public function getLeaveReason()
+
+    public function getLeaveReason()
   {
     return $this->leaveReason;
   }
+
+    public function setLeaveReason($leaveReason)
+    {
+        $this->leaveReason = $leaveReason;
+    }
+
   public function setPlayer(Google_Service_Games_Player $player)
   {
     $this->player = $player;
@@ -6415,30 +6881,31 @@ class Google_Service_Games_RoomParticipant extends Google_Collection
   {
     return $this->player;
   }
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Games_RoomStatus extends Google_Collection
 {
+    public $kind;
+    public $roomId;
+    public $status;
+    public $statusVersion;
   protected $collection_key = 'participants';
   protected $internal_gapi_mappings = array(
   );
   protected $autoMatchingStatusType = 'Google_Service_Games_RoomAutoMatchStatus';
   protected $autoMatchingStatusDataType = '';
-  public $kind;
   protected $participantsType = 'Google_Service_Games_RoomParticipant';
   protected $participantsDataType = 'array';
-  public $roomId;
-  public $status;
-  public $statusVersion;
-
 
   public function setAutoMatchingStatus(Google_Service_Games_RoomAutoMatchStatus $autoMatchingStatus)
   {
@@ -6448,14 +6915,17 @@ class Google_Service_Games_RoomStatus extends Google_Collection
   {
     return $this->autoMatchingStatus;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setParticipants($participants)
   {
     $this->participants = $participants;
@@ -6464,91 +6934,100 @@ class Google_Service_Games_RoomStatus extends Google_Collection
   {
     return $this->participants;
   }
-  public function setRoomId($roomId)
-  {
-    $this->roomId = $roomId;
-  }
-  public function getRoomId()
+
+    public function getRoomId()
   {
     return $this->roomId;
   }
-  public function setStatus($status)
+
+    public function setRoomId($roomId)
   {
-    $this->status = $status;
+      $this->roomId = $roomId;
   }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
-  public function setStatusVersion($statusVersion)
+
+    public function setStatus($status)
   {
-    $this->statusVersion = $statusVersion;
+      $this->status = $status;
   }
-  public function getStatusVersion()
+
+    public function getStatusVersion()
   {
     return $this->statusVersion;
   }
+
+    public function setStatusVersion($statusVersion)
+    {
+        $this->statusVersion = $statusVersion;
+    }
 }
 
 class Google_Service_Games_ScoreSubmission extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $leaderboardId;
   public $score;
   public $scoreTag;
   public $signature;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLeaderboardId($leaderboardId)
+
+    public function setKind($kind)
   {
-    $this->leaderboardId = $leaderboardId;
+      $this->kind = $kind;
   }
-  public function getLeaderboardId()
+
+    public function getLeaderboardId()
   {
     return $this->leaderboardId;
   }
-  public function setScore($score)
+
+    public function setLeaderboardId($leaderboardId)
   {
-    $this->score = $score;
+      $this->leaderboardId = $leaderboardId;
   }
-  public function getScore()
+
+    public function getScore()
   {
     return $this->score;
   }
-  public function setScoreTag($scoreTag)
+
+    public function setScore($score)
   {
-    $this->scoreTag = $scoreTag;
+      $this->score = $score;
   }
-  public function getScoreTag()
+
+    public function getScoreTag()
   {
     return $this->scoreTag;
   }
-  public function setSignature($signature)
+
+    public function setScoreTag($scoreTag)
   {
-    $this->signature = $signature;
+      $this->scoreTag = $scoreTag;
   }
-  public function getSignature()
+
+    public function getSignature()
   {
     return $this->signature;
   }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
+    }
 }
 
 class Google_Service_Games_Snapshot extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $coverImageType = 'Google_Service_Games_SnapshotImage';
-  protected $coverImageDataType = '';
   public $description;
   public $driveId;
   public $durationMillis;
@@ -6559,7 +7038,9 @@ class Google_Service_Games_Snapshot extends Google_Model
   public $title;
   public $type;
   public $uniqueName;
-
+    protected $internal_gapi_mappings = array();
+    protected $coverImageType = 'Google_Service_Games_SnapshotImage';
+    protected $coverImageDataType = '';
 
   public function setCoverImage(Google_Service_Games_SnapshotImage $coverImage)
   {
@@ -6569,152 +7050,179 @@ class Google_Service_Games_Snapshot extends Google_Model
   {
     return $this->coverImage;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setDriveId($driveId)
+
+    public function setDescription($description)
   {
-    $this->driveId = $driveId;
+      $this->description = $description;
   }
-  public function getDriveId()
+
+    public function getDriveId()
   {
     return $this->driveId;
   }
-  public function setDurationMillis($durationMillis)
+
+    public function setDriveId($driveId)
   {
-    $this->durationMillis = $durationMillis;
+      $this->driveId = $driveId;
   }
-  public function getDurationMillis()
+
+    public function getDurationMillis()
   {
     return $this->durationMillis;
   }
-  public function setId($id)
+
+    public function setDurationMillis($durationMillis)
   {
-    $this->id = $id;
+      $this->durationMillis = $durationMillis;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setLastModifiedMillis($lastModifiedMillis)
+
+    public function setKind($kind)
   {
-    $this->lastModifiedMillis = $lastModifiedMillis;
+      $this->kind = $kind;
   }
-  public function getLastModifiedMillis()
+
+    public function getLastModifiedMillis()
   {
     return $this->lastModifiedMillis;
   }
-  public function setProgressValue($progressValue)
+
+    public function setLastModifiedMillis($lastModifiedMillis)
   {
-    $this->progressValue = $progressValue;
+      $this->lastModifiedMillis = $lastModifiedMillis;
   }
-  public function getProgressValue()
+
+    public function getProgressValue()
   {
     return $this->progressValue;
   }
-  public function setTitle($title)
+
+    public function setProgressValue($progressValue)
   {
-    $this->title = $title;
+      $this->progressValue = $progressValue;
   }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
-  public function setType($type)
+
+    public function setTitle($title)
   {
-    $this->type = $type;
+      $this->title = $title;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setUniqueName($uniqueName)
+
+    public function setType($type)
   {
-    $this->uniqueName = $uniqueName;
+      $this->type = $type;
   }
-  public function getUniqueName()
+
+    public function getUniqueName()
   {
     return $this->uniqueName;
   }
+
+    public function setUniqueName($uniqueName)
+    {
+        $this->uniqueName = $uniqueName;
+    }
 }
 
 class Google_Service_Games_SnapshotImage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "mimeType" => "mime_type",
-  );
   public $height;
   public $kind;
   public $mimeType;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array(
+        "mimeType" => "mime_type",
+    );
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setKind($kind)
+
+    public function setHeight($height)
   {
-    $this->kind = $kind;
+      $this->height = $height;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMimeType($mimeType)
+
+    public function setKind($kind)
   {
-    $this->mimeType = $mimeType;
+      $this->kind = $kind;
   }
-  public function getMimeType()
+
+    public function getMimeType()
   {
     return $this->mimeType;
   }
-  public function setUrl($url)
+
+    public function setMimeType($mimeType)
   {
-    $this->url = $url;
+      $this->mimeType = $mimeType;
   }
-  public function getUrl()
+
+    public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
-  public function getWidth()
+
+    public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_Games_SnapshotListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_Snapshot';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -6724,110 +7232,120 @@ class Google_Service_Games_SnapshotListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_TurnBasedAutoMatchingCriteria extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $exclusiveBitmask;
   public $kind;
   public $maxAutoMatchingPlayers;
   public $minAutoMatchingPlayers;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setExclusiveBitmask($exclusiveBitmask)
-  {
-    $this->exclusiveBitmask = $exclusiveBitmask;
-  }
   public function getExclusiveBitmask()
   {
     return $this->exclusiveBitmask;
   }
-  public function setKind($kind)
+
+    public function setExclusiveBitmask($exclusiveBitmask)
   {
-    $this->kind = $kind;
+      $this->exclusiveBitmask = $exclusiveBitmask;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMaxAutoMatchingPlayers($maxAutoMatchingPlayers)
+
+    public function setKind($kind)
   {
-    $this->maxAutoMatchingPlayers = $maxAutoMatchingPlayers;
+      $this->kind = $kind;
   }
-  public function getMaxAutoMatchingPlayers()
+
+    public function getMaxAutoMatchingPlayers()
   {
     return $this->maxAutoMatchingPlayers;
   }
-  public function setMinAutoMatchingPlayers($minAutoMatchingPlayers)
+
+    public function setMaxAutoMatchingPlayers($maxAutoMatchingPlayers)
   {
-    $this->minAutoMatchingPlayers = $minAutoMatchingPlayers;
+      $this->maxAutoMatchingPlayers = $maxAutoMatchingPlayers;
   }
-  public function getMinAutoMatchingPlayers()
+
+    public function getMinAutoMatchingPlayers()
   {
     return $this->minAutoMatchingPlayers;
   }
+
+    public function setMinAutoMatchingPlayers($minAutoMatchingPlayers)
+    {
+        $this->minAutoMatchingPlayers = $minAutoMatchingPlayers;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatch extends Google_Collection
 {
+    public $applicationId;
+    public $description;
+    public $inviterId;
+    public $kind;
+    public $matchId;
+    public $matchNumber;
+    public $matchVersion;
+    public $pendingParticipantId;
+    public $rematchId;
+    public $status;
+    public $userMatchStatus;
+    public $variant;
+    public $withParticipantId;
   protected $collection_key = 'results';
   protected $internal_gapi_mappings = array(
   );
-  public $applicationId;
   protected $autoMatchingCriteriaType = 'Google_Service_Games_TurnBasedAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
   protected $creationDetailsType = 'Google_Service_Games_TurnBasedMatchModification';
   protected $creationDetailsDataType = '';
   protected $dataType = 'Google_Service_Games_TurnBasedMatchData';
   protected $dataDataType = '';
-  public $description;
-  public $inviterId;
-  public $kind;
   protected $lastUpdateDetailsType = 'Google_Service_Games_TurnBasedMatchModification';
   protected $lastUpdateDetailsDataType = '';
-  public $matchId;
-  public $matchNumber;
-  public $matchVersion;
   protected $participantsType = 'Google_Service_Games_TurnBasedMatchParticipant';
   protected $participantsDataType = 'array';
-  public $pendingParticipantId;
   protected $previousMatchDataType = 'Google_Service_Games_TurnBasedMatchData';
   protected $previousMatchDataDataType = '';
-  public $rematchId;
   protected $resultsType = 'Google_Service_Games_ParticipantResult';
   protected $resultsDataType = 'array';
-  public $status;
-  public $userMatchStatus;
-  public $variant;
-  public $withParticipantId;
 
-
-  public function setApplicationId($applicationId)
-  {
-    $this->applicationId = $applicationId;
-  }
   public function getApplicationId()
   {
     return $this->applicationId;
   }
+
+    public function setApplicationId($applicationId)
+    {
+        $this->applicationId = $applicationId;
+    }
+
   public function setAutoMatchingCriteria(Google_Service_Games_TurnBasedAutoMatchingCriteria $autoMatchingCriteria)
   {
     $this->autoMatchingCriteria = $autoMatchingCriteria;
@@ -6852,30 +7370,37 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   {
     return $this->data;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setInviterId($inviterId)
+
+    public function setDescription($description)
   {
-    $this->inviterId = $inviterId;
+      $this->description = $description;
   }
-  public function getInviterId()
+
+    public function getInviterId()
   {
     return $this->inviterId;
   }
-  public function setKind($kind)
+
+    public function setInviterId($inviterId)
   {
-    $this->kind = $kind;
+      $this->inviterId = $inviterId;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLastUpdateDetails(Google_Service_Games_TurnBasedMatchModification $lastUpdateDetails)
   {
     $this->lastUpdateDetails = $lastUpdateDetails;
@@ -6884,30 +7409,37 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   {
     return $this->lastUpdateDetails;
   }
-  public function setMatchId($matchId)
-  {
-    $this->matchId = $matchId;
-  }
-  public function getMatchId()
+
+    public function getMatchId()
   {
     return $this->matchId;
   }
-  public function setMatchNumber($matchNumber)
+
+    public function setMatchId($matchId)
   {
-    $this->matchNumber = $matchNumber;
+      $this->matchId = $matchId;
   }
-  public function getMatchNumber()
+
+    public function getMatchNumber()
   {
     return $this->matchNumber;
   }
-  public function setMatchVersion($matchVersion)
+
+    public function setMatchNumber($matchNumber)
   {
-    $this->matchVersion = $matchVersion;
+      $this->matchNumber = $matchNumber;
   }
-  public function getMatchVersion()
+
+    public function getMatchVersion()
   {
     return $this->matchVersion;
   }
+
+    public function setMatchVersion($matchVersion)
+    {
+        $this->matchVersion = $matchVersion;
+    }
+
   public function setParticipants($participants)
   {
     $this->participants = $participants;
@@ -6916,14 +7448,17 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   {
     return $this->participants;
   }
-  public function setPendingParticipantId($pendingParticipantId)
-  {
-    $this->pendingParticipantId = $pendingParticipantId;
-  }
-  public function getPendingParticipantId()
+
+    public function getPendingParticipantId()
   {
     return $this->pendingParticipantId;
   }
+
+    public function setPendingParticipantId($pendingParticipantId)
+    {
+        $this->pendingParticipantId = $pendingParticipantId;
+    }
+
   public function setPreviousMatchData(Google_Service_Games_TurnBasedMatchData $previousMatchData)
   {
     $this->previousMatchData = $previousMatchData;
@@ -6932,14 +7467,17 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   {
     return $this->previousMatchData;
   }
-  public function setRematchId($rematchId)
-  {
-    $this->rematchId = $rematchId;
-  }
-  public function getRematchId()
+
+    public function getRematchId()
   {
     return $this->rematchId;
   }
+
+    public function setRematchId($rematchId)
+    {
+        $this->rematchId = $rematchId;
+    }
+
   public function setResults($results)
   {
     $this->results = $results;
@@ -6948,52 +7486,58 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   {
     return $this->results;
   }
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
-  public function setUserMatchStatus($userMatchStatus)
+
+    public function setStatus($status)
   {
-    $this->userMatchStatus = $userMatchStatus;
+      $this->status = $status;
   }
-  public function getUserMatchStatus()
+
+    public function getUserMatchStatus()
   {
     return $this->userMatchStatus;
   }
-  public function setVariant($variant)
+
+    public function setUserMatchStatus($userMatchStatus)
   {
-    $this->variant = $variant;
+      $this->userMatchStatus = $userMatchStatus;
   }
-  public function getVariant()
+
+    public function getVariant()
   {
     return $this->variant;
   }
-  public function setWithParticipantId($withParticipantId)
+
+    public function setVariant($variant)
   {
-    $this->withParticipantId = $withParticipantId;
+      $this->variant = $variant;
   }
-  public function getWithParticipantId()
+
+    public function getWithParticipantId()
   {
     return $this->withParticipantId;
   }
+
+    public function setWithParticipantId($withParticipantId)
+    {
+        $this->withParticipantId = $withParticipantId;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchCreateRequest extends Google_Collection
 {
-  protected $collection_key = 'invitedPlayerIds';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $autoMatchingCriteriaType = 'Google_Service_Games_TurnBasedAutoMatchingCriteria';
-  protected $autoMatchingCriteriaDataType = '';
   public $invitedPlayerIds;
   public $kind;
   public $requestId;
   public $variant;
-
+    protected $collection_key = 'invitedPlayerIds';
+    protected $internal_gapi_mappings = array();
+    protected $autoMatchingCriteriaType = 'Google_Service_Games_TurnBasedAutoMatchingCriteria';
+    protected $autoMatchingCriteriaDataType = '';
 
   public function setAutoMatchingCriteria(Google_Service_Games_TurnBasedAutoMatchingCriteria $autoMatchingCriteria)
   {
@@ -7003,111 +7547,122 @@ class Google_Service_Games_TurnBasedMatchCreateRequest extends Google_Collection
   {
     return $this->autoMatchingCriteria;
   }
-  public function setInvitedPlayerIds($invitedPlayerIds)
-  {
-    $this->invitedPlayerIds = $invitedPlayerIds;
-  }
-  public function getInvitedPlayerIds()
+
+    public function getInvitedPlayerIds()
   {
     return $this->invitedPlayerIds;
   }
-  public function setKind($kind)
+
+    public function setInvitedPlayerIds($invitedPlayerIds)
   {
-    $this->kind = $kind;
+      $this->invitedPlayerIds = $invitedPlayerIds;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setRequestId($requestId)
+
+    public function setKind($kind)
   {
-    $this->requestId = $requestId;
+      $this->kind = $kind;
   }
-  public function getRequestId()
+
+    public function getRequestId()
   {
     return $this->requestId;
   }
-  public function setVariant($variant)
+
+    public function setRequestId($requestId)
   {
-    $this->variant = $variant;
+      $this->requestId = $requestId;
   }
-  public function getVariant()
+
+    public function getVariant()
   {
     return $this->variant;
   }
+
+    public function setVariant($variant)
+    {
+        $this->variant = $variant;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $data;
   public $dataAvailable;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setData($data)
-  {
-    $this->data = $data;
-  }
   public function getData()
   {
     return $this->data;
   }
-  public function setDataAvailable($dataAvailable)
+
+    public function setData($data)
   {
-    $this->dataAvailable = $dataAvailable;
+      $this->data = $data;
   }
-  public function getDataAvailable()
+
+    public function getDataAvailable()
   {
     return $this->dataAvailable;
   }
-  public function setKind($kind)
+
+    public function setDataAvailable($dataAvailable)
   {
-    $this->kind = $kind;
+      $this->dataAvailable = $dataAvailable;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchDataRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $data;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setData($data)
-  {
-    $this->data = $data;
-  }
   public function getData()
   {
     return $this->data;
   }
-  public function setKind($kind)
+
+    public function setData($data)
   {
-    $this->kind = $kind;
+      $this->data = $data;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchList extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_TurnBasedMatch';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -7117,81 +7672,88 @@ class Google_Service_Games_TurnBasedMatchList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchModification extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $modifiedTimestampMillis;
   public $participantId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setModifiedTimestampMillis($modifiedTimestampMillis)
+
+    public function setKind($kind)
   {
-    $this->modifiedTimestampMillis = $modifiedTimestampMillis;
+      $this->kind = $kind;
   }
-  public function getModifiedTimestampMillis()
+
+    public function getModifiedTimestampMillis()
   {
     return $this->modifiedTimestampMillis;
   }
-  public function setParticipantId($participantId)
+
+    public function setModifiedTimestampMillis($modifiedTimestampMillis)
   {
-    $this->participantId = $participantId;
+      $this->modifiedTimestampMillis = $modifiedTimestampMillis;
   }
-  public function getParticipantId()
+
+    public function getParticipantId()
   {
     return $this->participantId;
   }
+
+    public function setParticipantId($participantId)
+    {
+        $this->participantId = $participantId;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchParticipant extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $autoMatched;
-  protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
-  protected $autoMatchedPlayerDataType = '';
   public $id;
   public $kind;
+    public $status;
+    protected $internal_gapi_mappings = array();
+    protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
+    protected $autoMatchedPlayerDataType = '';
   protected $playerType = 'Google_Service_Games_Player';
   protected $playerDataType = '';
-  public $status;
 
-
-  public function setAutoMatched($autoMatched)
-  {
-    $this->autoMatched = $autoMatched;
-  }
   public function getAutoMatched()
   {
     return $this->autoMatched;
   }
+
+    public function setAutoMatched($autoMatched)
+    {
+        $this->autoMatched = $autoMatched;
+    }
+
   public function setAutoMatchedPlayer(Google_Service_Games_AnonymousPlayer $autoMatchedPlayer)
   {
     $this->autoMatchedPlayer = $autoMatchedPlayer;
@@ -7200,22 +7762,27 @@ class Google_Service_Games_TurnBasedMatchParticipant extends Google_Model
   {
     return $this->autoMatchedPlayer;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlayer(Google_Service_Games_Player $player)
   {
     $this->player = $player;
@@ -7224,35 +7791,37 @@ class Google_Service_Games_TurnBasedMatchParticipant extends Google_Model
   {
     return $this->player;
   }
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-  public function getStatus()
+
+    public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchRematch extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $previousMatchType = 'Google_Service_Games_TurnBasedMatch';
   protected $previousMatchDataType = '';
   protected $rematchType = 'Google_Service_Games_TurnBasedMatch';
   protected $rematchDataType = '';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPreviousMatch(Google_Service_Games_TurnBasedMatch $previousMatch)
   {
     $this->previousMatch = $previousMatch;
@@ -7273,13 +7842,13 @@ class Google_Service_Games_TurnBasedMatchRematch extends Google_Model
 
 class Google_Service_Games_TurnBasedMatchResults extends Google_Collection
 {
+    public $kind;
+    public $matchVersion;
   protected $collection_key = 'results';
   protected $internal_gapi_mappings = array(
   );
   protected $dataType = 'Google_Service_Games_TurnBasedMatchDataRequest';
   protected $dataDataType = '';
-  public $kind;
-  public $matchVersion;
   protected $resultsType = 'Google_Service_Games_ParticipantResult';
   protected $resultsDataType = 'array';
 
@@ -7292,22 +7861,27 @@ class Google_Service_Games_TurnBasedMatchResults extends Google_Collection
   {
     return $this->data;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMatchVersion($matchVersion)
+
+    public function setKind($kind)
   {
-    $this->matchVersion = $matchVersion;
+      $this->kind = $kind;
   }
-  public function getMatchVersion()
+
+    public function getMatchVersion()
   {
     return $this->matchVersion;
   }
+
+    public function setMatchVersion($matchVersion)
+    {
+        $this->matchVersion = $matchVersion;
+    }
+
   public function setResults($results)
   {
     $this->results = $results;
@@ -7320,15 +7894,14 @@ class Google_Service_Games_TurnBasedMatchResults extends Google_Collection
 
 class Google_Service_Games_TurnBasedMatchSync extends Google_Collection
 {
+    public $kind;
+    public $moreAvailable;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Games_TurnBasedMatch';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $moreAvailable;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -7338,42 +7911,48 @@ class Google_Service_Games_TurnBasedMatchSync extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMoreAvailable($moreAvailable)
+
+    public function setKind($kind)
   {
-    $this->moreAvailable = $moreAvailable;
+      $this->kind = $kind;
   }
-  public function getMoreAvailable()
+
+    public function getMoreAvailable()
   {
     return $this->moreAvailable;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setMoreAvailable($moreAvailable)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->moreAvailable = $moreAvailable;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Games_TurnBasedMatchTurn extends Google_Collection
 {
+    public $kind;
+    public $matchVersion;
+    public $pendingParticipantId;
   protected $collection_key = 'results';
   protected $internal_gapi_mappings = array(
   );
   protected $dataType = 'Google_Service_Games_TurnBasedMatchDataRequest';
   protected $dataDataType = '';
-  public $kind;
-  public $matchVersion;
-  public $pendingParticipantId;
   protected $resultsType = 'Google_Service_Games_ParticipantResult';
   protected $resultsDataType = 'array';
 
@@ -7386,30 +7965,37 @@ class Google_Service_Games_TurnBasedMatchTurn extends Google_Collection
   {
     return $this->data;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setMatchVersion($matchVersion)
+
+    public function setKind($kind)
   {
-    $this->matchVersion = $matchVersion;
+      $this->kind = $kind;
   }
-  public function getMatchVersion()
+
+    public function getMatchVersion()
   {
     return $this->matchVersion;
   }
-  public function setPendingParticipantId($pendingParticipantId)
+
+    public function setMatchVersion($matchVersion)
   {
-    $this->pendingParticipantId = $pendingParticipantId;
+      $this->matchVersion = $matchVersion;
   }
-  public function getPendingParticipantId()
+
+    public function getPendingParticipantId()
   {
     return $this->pendingParticipantId;
   }
+
+    public function setPendingParticipantId($pendingParticipantId)
+    {
+        $this->pendingParticipantId = $pendingParticipantId;
+    }
+
   public function setResults($results)
   {
     $this->results = $results;

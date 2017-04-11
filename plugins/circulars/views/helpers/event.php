@@ -57,7 +57,8 @@ class EventHelper extends MultilingualPresentationModelHelper implements AutoLin
 			'endTime' => $this->format('endTime', array('time' => null, 'empty' => false)),
 			'title' => $this->value('title')
 		);
-		return String::insert($this->templates[$mode][$template], $event);
+
+        return CakeString::insert($this->templates[$mode][$template], $event);
 	}
 	
 	public function calendar($field, $timeField = false)

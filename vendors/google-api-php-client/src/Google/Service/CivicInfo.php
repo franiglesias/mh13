@@ -221,8 +221,8 @@ class Google_Service_CivicInfo_Elections_Resource extends Google_Service_Resourc
    * Looks up information relevant to a voter based on the voter's registered
    * address. (elections.voterInfoQuery)
    *
-   * @param string $address The registered address of the voter to look up.
-   * @param array $optParams Optional parameters.
+   * @param string $address   The registered address of the voter to look up.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string electionId The unique ID of the election to look up. A list
    * of election IDs can be obtained at
@@ -280,9 +280,9 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
    * Looks up representative information for a single geographic division.
    * (representatives.representativeInfoByDivision)
    *
-   * @param string $ocdId The Open Civic Data division identifier of the division
+   * @param string $ocdId     The Open Civic Data division identifier of the division
    * to look up.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string levels A list of office levels to filter by. Only offices
    * that serve at least one of these levels will be returned. Divisions that
@@ -309,16 +309,16 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
 
 class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
 {
+    public $id;
+    public $name;
   protected $collection_key = 'sources';
   protected $internal_gapi_mappings = array(
         "localJurisdiction" => "local_jurisdiction",
   );
   protected $electionAdministrationBodyType = 'Google_Service_CivicInfo_AdministrativeBody';
   protected $electionAdministrationBodyDataType = '';
-  public $id;
   protected $localJurisdictionType = 'Google_Service_CivicInfo_AdministrationRegion';
   protected $localJurisdictionDataType = '';
-  public $name;
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
 
@@ -331,14 +331,17 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   {
     return $this->electionAdministrationBody;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setLocalJurisdiction(Google_Service_CivicInfo_AdministrationRegion $localJurisdiction)
   {
     $this->localJurisdiction = $localJurisdiction;
@@ -347,14 +350,17 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   {
     return $this->localJurisdiction;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setSources($sources)
   {
     $this->sources = $sources;
@@ -367,44 +373,47 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
 
 class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
 {
-  protected $collection_key = 'voter_services';
-  protected $internal_gapi_mappings = array(
-        "voterServices" => "voter_services",
-  );
   public $absenteeVotingInfoUrl;
   public $ballotInfoUrl;
-  protected $correspondenceAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
-  protected $correspondenceAddressDataType = '';
   public $electionInfoUrl;
-  protected $electionOfficialsType = 'Google_Service_CivicInfo_ElectionOfficial';
-  protected $electionOfficialsDataType = 'array';
   public $electionRegistrationConfirmationUrl;
   public $electionRegistrationUrl;
   public $electionRulesUrl;
   public $hoursOfOperation;
   public $name;
-  protected $physicalAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
-  protected $physicalAddressDataType = '';
   public $voterServices;
   public $votingLocationFinderUrl;
+    protected $collection_key = 'voter_services';
+    protected $internal_gapi_mappings = array(
+        "voterServices" => "voter_services",
+    );
+    protected $correspondenceAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
+    protected $correspondenceAddressDataType = '';
+    protected $electionOfficialsType = 'Google_Service_CivicInfo_ElectionOfficial';
+    protected $electionOfficialsDataType = 'array';
+    protected $physicalAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
+    protected $physicalAddressDataType = '';
 
-
-  public function setAbsenteeVotingInfoUrl($absenteeVotingInfoUrl)
-  {
-    $this->absenteeVotingInfoUrl = $absenteeVotingInfoUrl;
-  }
   public function getAbsenteeVotingInfoUrl()
   {
     return $this->absenteeVotingInfoUrl;
   }
-  public function setBallotInfoUrl($ballotInfoUrl)
+
+    public function setAbsenteeVotingInfoUrl($absenteeVotingInfoUrl)
   {
-    $this->ballotInfoUrl = $ballotInfoUrl;
+      $this->absenteeVotingInfoUrl = $absenteeVotingInfoUrl;
   }
+
   public function getBallotInfoUrl()
   {
     return $this->ballotInfoUrl;
   }
+
+    public function setBallotInfoUrl($ballotInfoUrl)
+    {
+        $this->ballotInfoUrl = $ballotInfoUrl;
+    }
+
   public function setCorrespondenceAddress(Google_Service_CivicInfo_SimpleAddressType $correspondenceAddress)
   {
     $this->correspondenceAddress = $correspondenceAddress;
@@ -413,14 +422,17 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     return $this->correspondenceAddress;
   }
-  public function setElectionInfoUrl($electionInfoUrl)
-  {
-    $this->electionInfoUrl = $electionInfoUrl;
-  }
+
   public function getElectionInfoUrl()
   {
     return $this->electionInfoUrl;
   }
+
+    public function setElectionInfoUrl($electionInfoUrl)
+    {
+        $this->electionInfoUrl = $electionInfoUrl;
+    }
+
   public function setElectionOfficials($electionOfficials)
   {
     $this->electionOfficials = $electionOfficials;
@@ -429,46 +441,57 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     return $this->electionOfficials;
   }
-  public function setElectionRegistrationConfirmationUrl($electionRegistrationConfirmationUrl)
-  {
-    $this->electionRegistrationConfirmationUrl = $electionRegistrationConfirmationUrl;
-  }
+
   public function getElectionRegistrationConfirmationUrl()
   {
     return $this->electionRegistrationConfirmationUrl;
   }
-  public function setElectionRegistrationUrl($electionRegistrationUrl)
+
+    public function setElectionRegistrationConfirmationUrl($electionRegistrationConfirmationUrl)
   {
-    $this->electionRegistrationUrl = $electionRegistrationUrl;
+      $this->electionRegistrationConfirmationUrl = $electionRegistrationConfirmationUrl;
   }
+
   public function getElectionRegistrationUrl()
   {
     return $this->electionRegistrationUrl;
   }
-  public function setElectionRulesUrl($electionRulesUrl)
+
+    public function setElectionRegistrationUrl($electionRegistrationUrl)
   {
-    $this->electionRulesUrl = $electionRulesUrl;
+      $this->electionRegistrationUrl = $electionRegistrationUrl;
   }
+
   public function getElectionRulesUrl()
   {
     return $this->electionRulesUrl;
   }
-  public function setHoursOfOperation($hoursOfOperation)
+
+    public function setElectionRulesUrl($electionRulesUrl)
   {
-    $this->hoursOfOperation = $hoursOfOperation;
+      $this->electionRulesUrl = $electionRulesUrl;
   }
+
   public function getHoursOfOperation()
   {
     return $this->hoursOfOperation;
   }
-  public function setName($name)
+
+    public function setHoursOfOperation($hoursOfOperation)
   {
-    $this->name = $name;
+      $this->hoursOfOperation = $hoursOfOperation;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setPhysicalAddress(Google_Service_CivicInfo_SimpleAddressType $physicalAddress)
   {
     $this->physicalAddress = $physicalAddress;
@@ -477,48 +500,52 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     return $this->physicalAddress;
   }
-  public function setVoterServices($voterServices)
-  {
-    $this->voterServices = $voterServices;
-  }
+
   public function getVoterServices()
   {
     return $this->voterServices;
   }
-  public function setVotingLocationFinderUrl($votingLocationFinderUrl)
+
+    public function setVoterServices($voterServices)
   {
-    $this->votingLocationFinderUrl = $votingLocationFinderUrl;
+      $this->voterServices = $voterServices;
   }
+
   public function getVotingLocationFinderUrl()
   {
     return $this->votingLocationFinderUrl;
   }
+
+    public function setVotingLocationFinderUrl($votingLocationFinderUrl)
+    {
+        $this->votingLocationFinderUrl = $votingLocationFinderUrl;
+    }
 }
 
 class Google_Service_CivicInfo_Candidate extends Google_Collection
 {
-  protected $collection_key = 'channels';
-  protected $internal_gapi_mappings = array(
-  );
   public $candidateUrl;
-  protected $channelsType = 'Google_Service_CivicInfo_Channel';
-  protected $channelsDataType = 'array';
   public $email;
   public $name;
   public $orderOnBallot;
   public $party;
   public $phone;
   public $photoUrl;
+    protected $collection_key = 'channels';
+    protected $internal_gapi_mappings = array();
+    protected $channelsType = 'Google_Service_CivicInfo_Channel';
+    protected $channelsDataType = 'array';
 
-
-  public function setCandidateUrl($candidateUrl)
-  {
-    $this->candidateUrl = $candidateUrl;
-  }
   public function getCandidateUrl()
   {
     return $this->candidateUrl;
   }
+
+    public function setCandidateUrl($candidateUrl)
+    {
+        $this->candidateUrl = $candidateUrl;
+    }
+
   public function setChannels($channels)
   {
     $this->channels = $channels;
@@ -527,92 +554,98 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     return $this->channels;
   }
-  public function setEmail($email)
-  {
-    $this->email = $email;
-  }
+
   public function getEmail()
   {
     return $this->email;
   }
-  public function setName($name)
+
+    public function setEmail($email)
   {
-    $this->name = $name;
+      $this->email = $email;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOrderOnBallot($orderOnBallot)
+
+    public function setName($name)
   {
-    $this->orderOnBallot = $orderOnBallot;
+      $this->name = $name;
   }
+
   public function getOrderOnBallot()
   {
     return $this->orderOnBallot;
   }
-  public function setParty($party)
+
+    public function setOrderOnBallot($orderOnBallot)
   {
-    $this->party = $party;
+      $this->orderOnBallot = $orderOnBallot;
   }
+
   public function getParty()
   {
     return $this->party;
   }
-  public function setPhone($phone)
+
+    public function setParty($party)
   {
-    $this->phone = $phone;
+      $this->party = $party;
   }
+
   public function getPhone()
   {
     return $this->phone;
   }
-  public function setPhotoUrl($photoUrl)
+
+    public function setPhone($phone)
   {
-    $this->photoUrl = $photoUrl;
+      $this->phone = $phone;
   }
+
   public function getPhotoUrl()
   {
     return $this->photoUrl;
   }
+
+    public function setPhotoUrl($photoUrl)
+    {
+        $this->photoUrl = $photoUrl;
+    }
 }
 
 class Google_Service_CivicInfo_Channel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setType($type)
+
+    public function setId($id)
   {
-    $this->type = $type;
+      $this->id = $id;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_CivicInfo_Contest extends Google_Collection
 {
-  protected $collection_key = 'sources';
-  protected $internal_gapi_mappings = array(
-  );
   public $ballotPlacement;
-  protected $candidatesType = 'Google_Service_CivicInfo_Candidate';
-  protected $candidatesDataType = 'array';
-  protected $districtType = 'Google_Service_CivicInfo_ElectoralDistrict';
-  protected $districtDataType = '';
   public $electorateSpecifications;
   public $id;
   public $level;
@@ -624,20 +657,27 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   public $referendumTitle;
   public $referendumUrl;
   public $roles;
-  protected $sourcesType = 'Google_Service_CivicInfo_Source';
-  protected $sourcesDataType = 'array';
   public $special;
   public $type;
+    protected $collection_key = 'sources';
+    protected $internal_gapi_mappings = array();
+    protected $candidatesType = 'Google_Service_CivicInfo_Candidate';
+    protected $candidatesDataType = 'array';
+    protected $districtType = 'Google_Service_CivicInfo_ElectoralDistrict';
+    protected $districtDataType = '';
+    protected $sourcesType = 'Google_Service_CivicInfo_Source';
+    protected $sourcesDataType = 'array';
 
-
-  public function setBallotPlacement($ballotPlacement)
-  {
-    $this->ballotPlacement = $ballotPlacement;
-  }
   public function getBallotPlacement()
   {
     return $this->ballotPlacement;
   }
+
+    public function setBallotPlacement($ballotPlacement)
+    {
+        $this->ballotPlacement = $ballotPlacement;
+    }
+
   public function setCandidates($candidates)
   {
     $this->candidates = $candidates;
@@ -654,94 +694,117 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     return $this->district;
   }
-  public function setElectorateSpecifications($electorateSpecifications)
-  {
-    $this->electorateSpecifications = $electorateSpecifications;
-  }
+
   public function getElectorateSpecifications()
   {
     return $this->electorateSpecifications;
   }
-  public function setId($id)
+
+    public function setElectorateSpecifications($electorateSpecifications)
   {
-    $this->id = $id;
+      $this->electorateSpecifications = $electorateSpecifications;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setLevel($level)
+
+    public function setId($id)
   {
-    $this->level = $level;
+      $this->id = $id;
   }
+
   public function getLevel()
   {
     return $this->level;
   }
-  public function setNumberElected($numberElected)
+
+    public function setLevel($level)
   {
-    $this->numberElected = $numberElected;
+      $this->level = $level;
   }
+
   public function getNumberElected()
   {
     return $this->numberElected;
   }
-  public function setNumberVotingFor($numberVotingFor)
+
+    public function setNumberElected($numberElected)
   {
-    $this->numberVotingFor = $numberVotingFor;
+      $this->numberElected = $numberElected;
   }
+
   public function getNumberVotingFor()
   {
     return $this->numberVotingFor;
   }
-  public function setOffice($office)
+
+    public function setNumberVotingFor($numberVotingFor)
   {
-    $this->office = $office;
+      $this->numberVotingFor = $numberVotingFor;
   }
+
   public function getOffice()
   {
     return $this->office;
   }
-  public function setPrimaryParty($primaryParty)
+
+    public function setOffice($office)
   {
-    $this->primaryParty = $primaryParty;
+      $this->office = $office;
   }
+
   public function getPrimaryParty()
   {
     return $this->primaryParty;
   }
-  public function setReferendumSubtitle($referendumSubtitle)
+
+    public function setPrimaryParty($primaryParty)
   {
-    $this->referendumSubtitle = $referendumSubtitle;
+      $this->primaryParty = $primaryParty;
   }
+
   public function getReferendumSubtitle()
   {
     return $this->referendumSubtitle;
   }
-  public function setReferendumTitle($referendumTitle)
+
+    public function setReferendumSubtitle($referendumSubtitle)
   {
-    $this->referendumTitle = $referendumTitle;
+      $this->referendumSubtitle = $referendumSubtitle;
   }
+
   public function getReferendumTitle()
   {
     return $this->referendumTitle;
   }
-  public function setReferendumUrl($referendumUrl)
+
+    public function setReferendumTitle($referendumTitle)
   {
-    $this->referendumUrl = $referendumUrl;
+      $this->referendumTitle = $referendumTitle;
   }
+
   public function getReferendumUrl()
   {
     return $this->referendumUrl;
   }
-  public function setRoles($roles)
+
+    public function setReferendumUrl($referendumUrl)
   {
-    $this->roles = $roles;
+      $this->referendumUrl = $referendumUrl;
   }
+
   public function getRoles()
   {
     return $this->roles;
   }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
   public function setSources($sources)
   {
     $this->sources = $sources;
@@ -750,42 +813,47 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     return $this->sources;
   }
-  public function setSpecial($special)
-  {
-    $this->special = $special;
-  }
+
   public function getSpecial()
   {
     return $this->special;
   }
-  public function setType($type)
+
+    public function setSpecial($special)
   {
-    $this->type = $type;
+      $this->special = $special;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'results';
   protected $internal_gapi_mappings = array(
   );
-  public $kind;
   protected $resultsType = 'Google_Service_CivicInfo_DivisionSearchResult';
   protected $resultsDataType = 'array';
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setResults($results)
   {
     $this->results = $results;
@@ -798,137 +866,149 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
 
 class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
 {
-  protected $collection_key = 'aliases';
-  protected $internal_gapi_mappings = array(
-  );
   public $aliases;
   public $name;
   public $ocdId;
+    protected $collection_key = 'aliases';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAliases($aliases)
-  {
-    $this->aliases = $aliases;
-  }
   public function getAliases()
   {
     return $this->aliases;
   }
-  public function setName($name)
+
+    public function setAliases($aliases)
   {
-    $this->name = $name;
+      $this->aliases = $aliases;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOcdId($ocdId)
+
+    public function setName($name)
   {
-    $this->ocdId = $ocdId;
+      $this->name = $name;
   }
+
   public function getOcdId()
   {
     return $this->ocdId;
   }
+
+    public function setOcdId($ocdId)
+    {
+        $this->ocdId = $ocdId;
+    }
 }
 
 class Google_Service_CivicInfo_Election extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $electionDay;
   public $id;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setElectionDay($electionDay)
-  {
-    $this->electionDay = $electionDay;
-  }
   public function getElectionDay()
   {
     return $this->electionDay;
   }
-  public function setId($id)
+
+    public function setElectionDay($electionDay)
   {
-    $this->id = $id;
+      $this->electionDay = $electionDay;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setName($name)
+
+    public function setId($id)
   {
-    $this->name = $name;
+      $this->id = $id;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $emailAddress;
   public $faxNumber;
   public $name;
   public $officePhoneNumber;
   public $title;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmailAddress($emailAddress)
-  {
-    $this->emailAddress = $emailAddress;
-  }
   public function getEmailAddress()
   {
     return $this->emailAddress;
   }
-  public function setFaxNumber($faxNumber)
+
+    public function setEmailAddress($emailAddress)
   {
-    $this->faxNumber = $faxNumber;
+      $this->emailAddress = $emailAddress;
   }
+
   public function getFaxNumber()
   {
     return $this->faxNumber;
   }
-  public function setName($name)
+
+    public function setFaxNumber($faxNumber)
   {
-    $this->name = $name;
+      $this->faxNumber = $faxNumber;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOfficePhoneNumber($officePhoneNumber)
+
+    public function setName($name)
   {
-    $this->officePhoneNumber = $officePhoneNumber;
+      $this->name = $name;
   }
+
   public function getOfficePhoneNumber()
   {
     return $this->officePhoneNumber;
   }
-  public function setTitle($title)
+
+    public function setOfficePhoneNumber($officePhoneNumber)
   {
-    $this->title = $title;
+      $this->officePhoneNumber = $officePhoneNumber;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'elections';
   protected $internal_gapi_mappings = array(
   );
   protected $electionsType = 'Google_Service_CivicInfo_Election';
   protected $electionsDataType = 'array';
-  public $kind;
-
 
   public function setElections($elections)
   {
@@ -938,141 +1018,157 @@ class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
   {
     return $this->elections;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $name;
   public $scope;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setName($name)
+
+    public function setId($id)
   {
-    $this->name = $name;
+      $this->id = $id;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setScope($scope)
+
+    public function setName($name)
   {
-    $this->scope = $scope;
+      $this->name = $name;
   }
+
   public function getScope()
   {
     return $this->scope;
   }
+
+    public function setScope($scope)
+    {
+        $this->scope = $scope;
+    }
 }
 
 class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 {
-  protected $collection_key = 'officeIndices';
-  protected $internal_gapi_mappings = array(
-  );
   public $alsoKnownAs;
   public $name;
   public $officeIndices;
+    protected $collection_key = 'officeIndices';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAlsoKnownAs($alsoKnownAs)
-  {
-    $this->alsoKnownAs = $alsoKnownAs;
-  }
   public function getAlsoKnownAs()
   {
     return $this->alsoKnownAs;
   }
-  public function setName($name)
+
+    public function setAlsoKnownAs($alsoKnownAs)
   {
-    $this->name = $name;
+      $this->alsoKnownAs = $alsoKnownAs;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOfficeIndices($officeIndices)
+
+    public function setName($name)
   {
-    $this->officeIndices = $officeIndices;
+      $this->name = $name;
   }
+
   public function getOfficeIndices()
   {
     return $this->officeIndices;
   }
+
+    public function setOfficeIndices($officeIndices)
+    {
+        $this->officeIndices = $officeIndices;
+    }
 }
 
 class Google_Service_CivicInfo_Office extends Google_Collection
 {
-  protected $collection_key = 'sources';
-  protected $internal_gapi_mappings = array(
-  );
   public $divisionId;
   public $levels;
   public $name;
   public $officialIndices;
   public $roles;
+    protected $collection_key = 'sources';
+    protected $internal_gapi_mappings = array();
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
 
-
-  public function setDivisionId($divisionId)
-  {
-    $this->divisionId = $divisionId;
-  }
   public function getDivisionId()
   {
     return $this->divisionId;
   }
-  public function setLevels($levels)
+
+    public function setDivisionId($divisionId)
   {
-    $this->levels = $levels;
+      $this->divisionId = $divisionId;
   }
+
   public function getLevels()
   {
     return $this->levels;
   }
-  public function setName($name)
+
+    public function setLevels($levels)
   {
-    $this->name = $name;
+      $this->levels = $levels;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOfficialIndices($officialIndices)
+
+    public function setName($name)
   {
-    $this->officialIndices = $officialIndices;
+      $this->name = $name;
   }
+
   public function getOfficialIndices()
   {
     return $this->officialIndices;
   }
-  public function setRoles($roles)
+
+    public function setOfficialIndices($officialIndices)
   {
-    $this->roles = $roles;
+      $this->officialIndices = $officialIndices;
   }
+
   public function getRoles()
   {
     return $this->roles;
   }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
   public function setSources($sources)
   {
     $this->sources = $sources;
@@ -1085,20 +1181,18 @@ class Google_Service_CivicInfo_Office extends Google_Collection
 
 class Google_Service_CivicInfo_Official extends Google_Collection
 {
-  protected $collection_key = 'urls';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
-  protected $addressDataType = 'array';
-  protected $channelsType = 'Google_Service_CivicInfo_Channel';
-  protected $channelsDataType = 'array';
   public $emails;
   public $name;
   public $party;
   public $phones;
   public $photoUrl;
   public $urls;
-
+    protected $collection_key = 'urls';
+    protected $internal_gapi_mappings = array();
+    protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
+    protected $addressDataType = 'array';
+    protected $channelsType = 'Google_Service_CivicInfo_Channel';
+    protected $channelsDataType = 'array';
 
   public function setAddress($address)
   {
@@ -1116,73 +1210,83 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     return $this->channels;
   }
-  public function setEmails($emails)
-  {
-    $this->emails = $emails;
-  }
-  public function getEmails()
+
+    public function getEmails()
   {
     return $this->emails;
   }
-  public function setName($name)
+
+    public function setEmails($emails)
   {
-    $this->name = $name;
+      $this->emails = $emails;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setParty($party)
+
+    public function setName($name)
   {
-    $this->party = $party;
+      $this->name = $name;
   }
-  public function getParty()
+
+    public function getParty()
   {
     return $this->party;
   }
-  public function setPhones($phones)
+
+    public function setParty($party)
   {
-    $this->phones = $phones;
+      $this->party = $party;
   }
-  public function getPhones()
+
+    public function getPhones()
   {
     return $this->phones;
   }
-  public function setPhotoUrl($photoUrl)
+
+    public function setPhones($phones)
   {
-    $this->photoUrl = $photoUrl;
+      $this->phones = $phones;
   }
-  public function getPhotoUrl()
+
+    public function getPhotoUrl()
   {
     return $this->photoUrl;
   }
-  public function setUrls($urls)
+
+    public function setPhotoUrl($photoUrl)
   {
-    $this->urls = $urls;
+      $this->photoUrl = $photoUrl;
   }
-  public function getUrls()
+
+    public function getUrls()
   {
     return $this->urls;
   }
+
+    public function setUrls($urls)
+    {
+        $this->urls = $urls;
+    }
 }
 
 class Google_Service_CivicInfo_PollingLocation extends Google_Collection
 {
-  protected $collection_key = 'sources';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
-  protected $addressDataType = '';
   public $endDate;
   public $id;
   public $name;
   public $notes;
   public $pollingHours;
-  protected $sourcesType = 'Google_Service_CivicInfo_Source';
-  protected $sourcesDataType = 'array';
   public $startDate;
   public $voterServices;
-
+    protected $collection_key = 'sources';
+    protected $internal_gapi_mappings = array();
+    protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
+    protected $addressDataType = '';
+    protected $sourcesType = 'Google_Service_CivicInfo_Source';
+    protected $sourcesDataType = 'array';
 
   public function setAddress(Google_Service_CivicInfo_SimpleAddressType $address)
   {
@@ -1192,46 +1296,57 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     return $this->address;
   }
-  public function setEndDate($endDate)
-  {
-    $this->endDate = $endDate;
-  }
-  public function getEndDate()
+
+    public function getEndDate()
   {
     return $this->endDate;
   }
-  public function setId($id)
+
+    public function setEndDate($endDate)
   {
-    $this->id = $id;
+      $this->endDate = $endDate;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setName($name)
+
+    public function setId($id)
   {
-    $this->name = $name;
+      $this->id = $id;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
-  public function setNotes($notes)
+
+    public function setName($name)
   {
-    $this->notes = $notes;
+      $this->name = $name;
   }
-  public function getNotes()
+
+    public function getNotes()
   {
     return $this->notes;
   }
-  public function setPollingHours($pollingHours)
+
+    public function setNotes($notes)
   {
-    $this->pollingHours = $pollingHours;
+      $this->notes = $notes;
   }
-  public function getPollingHours()
+
+    public function getPollingHours()
   {
     return $this->pollingHours;
   }
+
+    public function setPollingHours($pollingHours)
+    {
+        $this->pollingHours = $pollingHours;
+    }
+
   public function setSources($sources)
   {
     $this->sources = $sources;
@@ -1240,22 +1355,26 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     return $this->sources;
   }
-  public function setStartDate($startDate)
-  {
-    $this->startDate = $startDate;
-  }
-  public function getStartDate()
+
+    public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setVoterServices($voterServices)
+
+    public function setStartDate($startDate)
   {
-    $this->voterServices = $voterServices;
+      $this->startDate = $startDate;
   }
-  public function getVoterServices()
+
+    public function getVoterServices()
   {
     return $this->voterServices;
   }
+
+    public function setVoterServices($voterServices)
+    {
+        $this->voterServices = $voterServices;
+    }
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
@@ -1303,12 +1422,12 @@ class Google_Service_CivicInfo_RepresentativeInfoDataDivisions extends Google_Mo
 
 class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'officials';
   protected $internal_gapi_mappings = array(
   );
   protected $divisionsType = 'Google_Service_CivicInfo_GeographicDivision';
   protected $divisionsDataType = 'map';
-  public $kind;
   protected $normalizedInputType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $normalizedInputDataType = '';
   protected $officesType = 'Google_Service_CivicInfo_Office';
@@ -1325,14 +1444,17 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   {
     return $this->divisions;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setNormalizedInput(Google_Service_CivicInfo_SimpleAddressType $normalizedInput)
   {
     $this->normalizedInput = $normalizedInput;
@@ -1365,8 +1487,6 @@ class Google_Service_CivicInfo_RepresentativeInfoResponseDivisions extends Googl
 
 class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $city;
   public $line1;
   public $line2;
@@ -1374,94 +1494,110 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   public $locationName;
   public $state;
   public $zip;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCity($city)
-  {
-    $this->city = $city;
-  }
   public function getCity()
   {
     return $this->city;
   }
-  public function setLine1($line1)
+
+    public function setCity($city)
   {
-    $this->line1 = $line1;
+      $this->city = $city;
   }
-  public function getLine1()
+
+    public function getLine1()
   {
     return $this->line1;
   }
-  public function setLine2($line2)
+
+    public function setLine1($line1)
   {
-    $this->line2 = $line2;
+      $this->line1 = $line1;
   }
-  public function getLine2()
+
+    public function getLine2()
   {
     return $this->line2;
   }
-  public function setLine3($line3)
+
+    public function setLine2($line2)
   {
-    $this->line3 = $line3;
+      $this->line2 = $line2;
   }
-  public function getLine3()
+
+    public function getLine3()
   {
     return $this->line3;
   }
-  public function setLocationName($locationName)
+
+    public function setLine3($line3)
   {
-    $this->locationName = $locationName;
+      $this->line3 = $line3;
   }
-  public function getLocationName()
+
+    public function getLocationName()
   {
     return $this->locationName;
   }
-  public function setState($state)
+
+    public function setLocationName($locationName)
   {
-    $this->state = $state;
+      $this->locationName = $locationName;
   }
-  public function getState()
+
+    public function getState()
   {
     return $this->state;
   }
-  public function setZip($zip)
+
+    public function setState($state)
   {
-    $this->zip = $zip;
+      $this->state = $state;
   }
-  public function getZip()
+
+    public function getZip()
   {
     return $this->zip;
   }
+
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+    }
 }
 
 class Google_Service_CivicInfo_Source extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $official;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setOfficial($official)
+
+    public function setName($name)
   {
-    $this->official = $official;
+      $this->name = $name;
   }
-  public function getOfficial()
+
+    public function getOfficial()
   {
     return $this->official;
   }
+
+    public function setOfficial($official)
+    {
+        $this->official = $official;
+    }
 }
 
 class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
 {
+    public $kind;
+    public $precinctId;
   protected $collection_key = 'state';
   protected $internal_gapi_mappings = array(
   );
@@ -1473,14 +1609,12 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   protected $earlyVoteSitesDataType = 'array';
   protected $electionType = 'Google_Service_CivicInfo_Election';
   protected $electionDataType = '';
-  public $kind;
   protected $normalizedInputType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $normalizedInputDataType = '';
   protected $otherElectionsType = 'Google_Service_CivicInfo_Election';
   protected $otherElectionsDataType = 'array';
   protected $pollingLocationsType = 'Google_Service_CivicInfo_PollingLocation';
   protected $pollingLocationsDataType = 'array';
-  public $precinctId;
   protected $stateType = 'Google_Service_CivicInfo_AdministrationRegion';
   protected $stateDataType = 'array';
 
@@ -1517,14 +1651,17 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     return $this->election;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setNormalizedInput(Google_Service_CivicInfo_SimpleAddressType $normalizedInput)
   {
     $this->normalizedInput = $normalizedInput;
@@ -1549,14 +1686,17 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     return $this->pollingLocations;
   }
-  public function setPrecinctId($precinctId)
-  {
-    $this->precinctId = $precinctId;
-  }
-  public function getPrecinctId()
+
+    public function getPrecinctId()
   {
     return $this->precinctId;
   }
+
+    public function setPrecinctId($precinctId)
+    {
+        $this->precinctId = $precinctId;
+    }
+
   public function setState($state)
   {
     $this->state = $state;

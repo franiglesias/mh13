@@ -324,9 +324,10 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
    * Deletes a deployment and all of the resources in the deployment.
    * (deployments.delete)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project    The project ID for this request.
    * @param string $deployment The name of the deployment for this request.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Deploymentmanager_Operation
    */
   public function delete($project, $deployment, $optParams = array())
@@ -339,9 +340,10 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
   /**
    * Gets information about a specific deployment. (deployments.get)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project    The project ID for this request.
    * @param string $deployment The name of the deployment for this request.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_Deploymentmanager_Deployment
    */
   public function get($project, $deployment, $optParams = array())
@@ -355,9 +357,10 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
    * Creates a deployment and all of the resources described by the deployment
    * manifest. (deployments.insert)
    *
-   * @param string $project The project ID for this request.
+   * @param string            $project   The project ID for this request.
    * @param Google_Deployment $postBody
-   * @param array $optParams Optional parameters.
+   * @param array             $optParams Optional parameters.
+   *
    * @return Google_Service_Deploymentmanager_Operation
    */
   public function insert($project, Google_Service_Deploymentmanager_Deployment $postBody, $optParams = array())
@@ -406,6 +409,7 @@ class Google_Service_Deploymentmanager_Manifests_Resource extends Google_Service
    * @param string $deployment The name of the deployment for this request.
    * @param string $manifest The name of the manifest for this request.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Deploymentmanager_Manifest
    */
   public function get($project, $deployment, $manifest, $optParams = array())
@@ -454,6 +458,7 @@ class Google_Service_Deploymentmanager_Operations_Resource extends Google_Servic
    * @param string $project The project ID for this request.
    * @param string $operation The name of the operation for this request.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Deploymentmanager_Operation
    */
   public function get($project, $operation, $optParams = array())
@@ -502,6 +507,7 @@ class Google_Service_Deploymentmanager_Resources_Resource extends Google_Service
    * @param string $deployment The name of the deployment for this request.
    * @param string $resource The name of the resource for this request.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Deploymentmanager_DeploymentmanagerResource
    */
   public function get($project, $deployment, $resource, $optParams = array())
@@ -570,62 +576,66 @@ class Google_Service_Deploymentmanager_Types_Resource extends Google_Service_Res
 
 class Google_Service_Deploymentmanager_Deployment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $description;
   public $id;
   public $manifest;
   public $name;
   public $targetConfig;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
-  public function setId($id)
+
+    public function setDescription($description)
   {
-    $this->id = $id;
+      $this->description = $description;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setManifest($manifest)
+
+    public function setId($id)
   {
-    $this->manifest = $manifest;
+      $this->id = $id;
   }
+
   public function getManifest()
   {
     return $this->manifest;
   }
-  public function setName($name)
+
+    public function setManifest($manifest)
   {
-    $this->name = $name;
+      $this->manifest = $manifest;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setTargetConfig($targetConfig)
+
+    public function setName($name)
   {
-    $this->targetConfig = $targetConfig;
+      $this->name = $name;
   }
+
   public function getTargetConfig()
   {
     return $this->targetConfig;
   }
+
+    public function setTargetConfig($targetConfig)
+    {
+        $this->targetConfig = $targetConfig;
+    }
 }
 
 class Google_Service_Deploymentmanager_DeploymentmanagerResource extends Google_Collection
 {
-  protected $collection_key = 'errors';
-  protected $internal_gapi_mappings = array(
-  );
   public $errors;
   public $id;
   public $intent;
@@ -634,83 +644,98 @@ class Google_Service_Deploymentmanager_DeploymentmanagerResource extends Google_
   public $state;
   public $type;
   public $url;
+    protected $collection_key = 'errors';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setErrors($errors)
-  {
-    $this->errors = $errors;
-  }
   public function getErrors()
   {
     return $this->errors;
   }
-  public function setId($id)
+
+    public function setErrors($errors)
   {
-    $this->id = $id;
+      $this->errors = $errors;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setIntent($intent)
+
+    public function setId($id)
   {
-    $this->intent = $intent;
+      $this->id = $id;
   }
+
   public function getIntent()
   {
     return $this->intent;
   }
-  public function setManifest($manifest)
+
+    public function setIntent($intent)
   {
-    $this->manifest = $manifest;
+      $this->intent = $intent;
   }
+
   public function getManifest()
   {
     return $this->manifest;
   }
-  public function setName($name)
+
+    public function setManifest($manifest)
   {
-    $this->name = $name;
+      $this->manifest = $manifest;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setState($state)
+
+    public function setName($name)
   {
-    $this->state = $state;
+      $this->name = $name;
   }
+
   public function getState()
   {
     return $this->state;
   }
-  public function setType($type)
+
+    public function setState($state)
   {
-    $this->type = $type;
+      $this->state = $state;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_Deploymentmanager_DeploymentsListResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'deployments';
   protected $internal_gapi_mappings = array(
   );
   protected $deploymentsType = 'Google_Service_Deploymentmanager_Deployment';
   protected $deploymentsDataType = 'array';
-  public $nextPageToken;
-
 
   public function setDeployments($deployments)
   {
@@ -720,78 +745,86 @@ class Google_Service_Deploymentmanager_DeploymentsListResponse extends Google_Co
   {
     return $this->deployments;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Deploymentmanager_Manifest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $config;
   public $evaluatedConfig;
   public $id;
   public $name;
   public $selfLink;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setConfig($config)
-  {
-    $this->config = $config;
-  }
   public function getConfig()
   {
     return $this->config;
   }
-  public function setEvaluatedConfig($evaluatedConfig)
+
+    public function setConfig($config)
   {
-    $this->evaluatedConfig = $evaluatedConfig;
+      $this->config = $config;
   }
+
   public function getEvaluatedConfig()
   {
     return $this->evaluatedConfig;
   }
-  public function setId($id)
+
+    public function setEvaluatedConfig($evaluatedConfig)
   {
-    $this->id = $id;
+      $this->evaluatedConfig = $evaluatedConfig;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setName($name)
+
+    public function setId($id)
   {
-    $this->name = $name;
+      $this->id = $id;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setSelfLink($selfLink)
+
+    public function setName($name)
   {
-    $this->selfLink = $selfLink;
+      $this->name = $name;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Deploymentmanager_ManifestsListResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'manifests';
   protected $internal_gapi_mappings = array(
   );
   protected $manifestsType = 'Google_Service_Deploymentmanager_Manifest';
   protected $manifestsDataType = 'array';
-  public $nextPageToken;
-
 
   public function setManifests($manifests)
   {
@@ -801,25 +834,22 @@ class Google_Service_Deploymentmanager_ManifestsListResponse extends Google_Coll
   {
     return $this->manifests;
   }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Deploymentmanager_Operation extends Google_Collection
 {
-  protected $collection_key = 'warnings';
-  protected $internal_gapi_mappings = array(
-  );
   public $creationTimestamp;
   public $endTime;
-  protected $errorType = 'Google_Service_Deploymentmanager_OperationError';
-  protected $errorDataType = '';
   public $httpErrorMessage;
   public $httpErrorStatusCode;
   public $id;
@@ -834,26 +864,33 @@ class Google_Service_Deploymentmanager_Operation extends Google_Collection
   public $targetId;
   public $targetLink;
   public $user;
+    protected $collection_key = 'warnings';
+    protected $internal_gapi_mappings = array();
+    protected $errorType = 'Google_Service_Deploymentmanager_OperationError';
+    protected $errorDataType = '';
   protected $warningsType = 'Google_Service_Deploymentmanager_OperationWarnings';
   protected $warningsDataType = 'array';
 
-
-  public function setCreationTimestamp($creationTimestamp)
-  {
-    $this->creationTimestamp = $creationTimestamp;
-  }
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setEndTime($endTime)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->endTime = $endTime;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getEndTime()
   {
     return $this->endTime;
   }
+
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+    }
+
   public function setError(Google_Service_Deploymentmanager_OperationError $error)
   {
     $this->error = $error;
@@ -862,118 +899,147 @@ class Google_Service_Deploymentmanager_Operation extends Google_Collection
   {
     return $this->error;
   }
-  public function setHttpErrorMessage($httpErrorMessage)
-  {
-    $this->httpErrorMessage = $httpErrorMessage;
-  }
+
   public function getHttpErrorMessage()
   {
     return $this->httpErrorMessage;
   }
-  public function setHttpErrorStatusCode($httpErrorStatusCode)
+
+    public function setHttpErrorMessage($httpErrorMessage)
   {
-    $this->httpErrorStatusCode = $httpErrorStatusCode;
+      $this->httpErrorMessage = $httpErrorMessage;
   }
+
   public function getHttpErrorStatusCode()
   {
     return $this->httpErrorStatusCode;
   }
-  public function setId($id)
+
+    public function setHttpErrorStatusCode($httpErrorStatusCode)
   {
-    $this->id = $id;
+      $this->httpErrorStatusCode = $httpErrorStatusCode;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInsertTime($insertTime)
+
+    public function setId($id)
   {
-    $this->insertTime = $insertTime;
+      $this->id = $id;
   }
+
   public function getInsertTime()
   {
     return $this->insertTime;
   }
-  public function setName($name)
+
+    public function setInsertTime($insertTime)
   {
-    $this->name = $name;
+      $this->insertTime = $insertTime;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOperationType($operationType)
+
+    public function setName($name)
   {
-    $this->operationType = $operationType;
+      $this->name = $name;
   }
+
   public function getOperationType()
   {
     return $this->operationType;
   }
-  public function setProgress($progress)
+
+    public function setOperationType($operationType)
   {
-    $this->progress = $progress;
+      $this->operationType = $operationType;
   }
+
   public function getProgress()
   {
     return $this->progress;
   }
-  public function setSelfLink($selfLink)
+
+    public function setProgress($progress)
   {
-    $this->selfLink = $selfLink;
+      $this->progress = $progress;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStartTime($startTime)
+
+    public function setSelfLink($selfLink)
   {
-    $this->startTime = $startTime;
+      $this->selfLink = $selfLink;
   }
+
   public function getStartTime()
   {
     return $this->startTime;
   }
-  public function setStatus($status)
+
+    public function setStartTime($startTime)
   {
-    $this->status = $status;
+      $this->startTime = $startTime;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setStatusMessage($statusMessage)
+
+    public function setStatus($status)
   {
-    $this->statusMessage = $statusMessage;
+      $this->status = $status;
   }
-  public function getStatusMessage()
+
+    public function getStatusMessage()
   {
     return $this->statusMessage;
   }
-  public function setTargetId($targetId)
+
+    public function setStatusMessage($statusMessage)
   {
-    $this->targetId = $targetId;
+      $this->statusMessage = $statusMessage;
   }
-  public function getTargetId()
+
+    public function getTargetId()
   {
     return $this->targetId;
   }
-  public function setTargetLink($targetLink)
+
+    public function setTargetId($targetId)
   {
-    $this->targetLink = $targetLink;
+      $this->targetId = $targetId;
   }
-  public function getTargetLink()
+
+    public function getTargetLink()
   {
     return $this->targetLink;
   }
-  public function setUser($user)
+
+    public function setTargetLink($targetLink)
   {
-    $this->user = $user;
+      $this->targetLink = $targetLink;
   }
-  public function getUser()
+
+    public function getUser()
   {
     return $this->user;
   }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -1005,58 +1071,62 @@ class Google_Service_Deploymentmanager_OperationError extends Google_Collection
 
 class Google_Service_Deploymentmanager_OperationErrorErrors extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $code;
   public $location;
   public $message;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
-  public function setLocation($location)
+
+    public function setCode($code)
   {
-    $this->location = $location;
+      $this->code = $code;
   }
-  public function getLocation()
+
+    public function getLocation()
   {
     return $this->location;
   }
-  public function setMessage($message)
+
+    public function setLocation($location)
   {
-    $this->message = $message;
+      $this->location = $location;
   }
-  public function getMessage()
+
+    public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Deploymentmanager_OperationWarnings extends Google_Collection
 {
+    public $code;
+    public $message;
   protected $collection_key = 'data';
   protected $internal_gapi_mappings = array(
   );
-  public $code;
   protected $dataType = 'Google_Service_Deploymentmanager_OperationWarningsData';
   protected $dataDataType = 'array';
-  public $message;
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
   public function setData($data)
   {
     $this->data = $data;
@@ -1065,60 +1135,64 @@ class Google_Service_Deploymentmanager_OperationWarnings extends Google_Collecti
   {
     return $this->data;
   }
-  public function setMessage($message)
-  {
-    $this->message = $message;
-  }
-  public function getMessage()
+
+    public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Deploymentmanager_OperationWarningsData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setValue($value)
+
+    public function setKey($key)
   {
-    $this->value = $value;
+      $this->key = $key;
   }
-  public function getValue()
+
+    public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Deploymentmanager_OperationsListResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'operations';
   protected $internal_gapi_mappings = array(
   );
-  public $nextPageToken;
   protected $operationsType = 'Google_Service_Deploymentmanager_Operation';
   protected $operationsDataType = 'array';
 
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setOperations($operations)
   {
     $this->operations = $operations;
@@ -1131,22 +1205,23 @@ class Google_Service_Deploymentmanager_OperationsListResponse extends Google_Col
 
 class Google_Service_Deploymentmanager_ResourcesListResponse extends Google_Collection
 {
+    public $nextPageToken;
   protected $collection_key = 'resources';
   protected $internal_gapi_mappings = array(
   );
-  public $nextPageToken;
   protected $resourcesType = 'Google_Service_Deploymentmanager_DeploymentmanagerResource';
   protected $resourcesDataType = 'array';
 
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -1159,19 +1234,18 @@ class Google_Service_Deploymentmanager_ResourcesListResponse extends Google_Coll
 
 class Google_Service_Deploymentmanager_Type extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Deploymentmanager_TypesListResponse extends Google_Collection

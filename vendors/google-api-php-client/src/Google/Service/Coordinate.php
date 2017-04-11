@@ -478,8 +478,9 @@ class Google_Service_Coordinate_CustomFieldDef_Resource extends Google_Service_R
    * Retrieves a list of custom field definitions for a team.
    * (customFieldDef.listCustomFieldDef)
    *
-   * @param string $teamId Team ID
-   * @param array $optParams Optional parameters.
+   * @param string $teamId    Team ID
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Coordinate_CustomFieldDefListResponse
    */
   public function listCustomFieldDef($teamId, $optParams = array())
@@ -504,9 +505,10 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
   /**
    * Retrieves a job, including all the changes made to the job. (jobs.get)
    *
-   * @param string $teamId Team ID
-   * @param string $jobId Job number
-   * @param array $optParams Optional parameters.
+   * @param string $teamId    Team ID
+   * @param string $jobId     Job number
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Coordinate_Job
    */
   public function get($teamId, $jobId, $optParams = array())
@@ -520,13 +522,13 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * Inserts a new job. Only the state field of the job should be set.
    * (jobs.insert)
    *
-   * @param string $teamId Team ID
-   * @param string $address Job address as newline (Unix) separated string
-   * @param double $lat The latitude coordinate of this job's location.
-   * @param double $lng The longitude coordinate of this job's location.
-   * @param string $title Job title
+   * @param string     $teamId    Team ID
+   * @param string     $address   Job address as newline (Unix) separated string
+   * @param double     $lat       The latitude coordinate of this job's location.
+   * @param double     $lng       The longitude coordinate of this job's location.
+   * @param string     $title     Job title
    * @param Google_Job $postBody
-   * @param array $optParams Optional parameters.
+   * @param array      $optParams Optional parameters.
    *
    * @opt_param string customerName Customer name
    * @opt_param string note Job note as newline (Unix) separated string
@@ -551,8 +553,8 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
   /**
    * Retrieves jobs created or modified since the given timestamp. (jobs.listJobs)
    *
-   * @param string $teamId Team ID
-   * @param array $optParams Optional parameters.
+   * @param string $teamId    Team ID
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string minModifiedTimestampMs Minimum time a job was modified in
    * milliseconds since epoch.
@@ -571,10 +573,10 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * Updates a job. Fields that are set in the job state will be updated. This
    * method supports patch semantics. (jobs.patch)
    *
-   * @param string $teamId Team ID
-   * @param string $jobId Job number
+   * @param string     $teamId    Team ID
+   * @param string     $jobId     Job number
    * @param Google_Job $postBody
-   * @param array $optParams Optional parameters.
+   * @param array      $optParams Optional parameters.
    *
    * @opt_param string customerName Customer name
    * @opt_param string title Job title
@@ -605,10 +607,10 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * Updates a job. Fields that are set in the job state will be updated.
    * (jobs.update)
    *
-   * @param string $teamId Team ID
-   * @param string $jobId Job number
+   * @param string     $teamId    Team ID
+   * @param string     $jobId     Job number
    * @param Google_Job $postBody
-   * @param array $optParams Optional parameters.
+   * @param array      $optParams Optional parameters.
    *
    * @opt_param string customerName Customer name
    * @opt_param string title Job title
@@ -650,11 +652,11 @@ class Google_Service_Coordinate_Location_Resource extends Google_Service_Resourc
   /**
    * Retrieves a list of locations for a worker. (location.listLocation)
    *
-   * @param string $teamId Team ID
-   * @param string $workerEmail Worker email address.
+   * @param string $teamId           Team ID
+   * @param string $workerEmail      Worker email address.
    * @param string $startTimestampMs Start timestamp in milliseconds since the
    * epoch.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams        Optional parameters.
    *
    * @opt_param string pageToken Continuation token
    * @opt_param string maxResults Maximum number of results to return in one page.
@@ -682,9 +684,10 @@ class Google_Service_Coordinate_Schedule_Resource extends Google_Service_Resourc
   /**
    * Retrieves the schedule for a job. (schedule.get)
    *
-   * @param string $teamId Team ID
-   * @param string $jobId Job number
-   * @param array $optParams Optional parameters.
+   * @param string $teamId    Team ID
+   * @param string $jobId     Job number
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Coordinate_Schedule
    */
   public function get($teamId, $jobId, $optParams = array())
@@ -788,6 +791,7 @@ class Google_Service_Coordinate_Worker_Resource extends Google_Service_Resource
    *
    * @param string $teamId Team ID
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Coordinate_WorkerListResponse
    */
   public function listWorker($teamId, $optParams = array())
@@ -803,62 +807,65 @@ class Google_Service_Coordinate_Worker_Resource extends Google_Service_Resource
 
 class Google_Service_Coordinate_CustomField extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $customFieldId;
   public $kind;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCustomFieldId($customFieldId)
-  {
-    $this->customFieldId = $customFieldId;
-  }
   public function getCustomFieldId()
   {
     return $this->customFieldId;
   }
-  public function setKind($kind)
+
+    public function setCustomFieldId($customFieldId)
   {
-    $this->kind = $kind;
+      $this->customFieldId = $customFieldId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setValue($value)
+
+    public function setKind($kind)
   {
-    $this->value = $value;
+      $this->kind = $kind;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Coordinate_CustomFieldDef extends Google_Collection
 {
-  protected $collection_key = 'enumitems';
-  protected $internal_gapi_mappings = array(
-  );
   public $enabled;
-  protected $enumitemsType = 'Google_Service_Coordinate_EnumItemDef';
-  protected $enumitemsDataType = 'array';
   public $id;
   public $kind;
   public $name;
   public $requiredForCheckout;
   public $type;
+    protected $collection_key = 'enumitems';
+    protected $internal_gapi_mappings = array();
+    protected $enumitemsType = 'Google_Service_Coordinate_EnumItemDef';
+    protected $enumitemsDataType = 'array';
 
-
-  public function setEnabled($enabled)
-  {
-    $this->enabled = $enabled;
-  }
   public function getEnabled()
   {
     return $this->enabled;
   }
+
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
   public function setEnumitems($enumitems)
   {
     $this->enumitems = $enumitems;
@@ -867,57 +874,66 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Collection
   {
     return $this->enumitems;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setRequiredForCheckout($requiredForCheckout)
+
+    public function setName($name)
   {
-    $this->requiredForCheckout = $requiredForCheckout;
+      $this->name = $name;
   }
+
   public function getRequiredForCheckout()
   {
     return $this->requiredForCheckout;
   }
-  public function setType($type)
+
+    public function setRequiredForCheckout($requiredForCheckout)
   {
-    $this->type = $type;
+      $this->requiredForCheckout = $requiredForCheckout;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Coordinate_CustomFieldDef';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -927,25 +943,26 @@ class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collec
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Coordinate_CustomFields extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'customField';
   protected $internal_gapi_mappings = array(
   );
   protected $customFieldType = 'Google_Service_Coordinate_CustomField';
   protected $customFieldDataType = 'array';
-  public $kind;
-
 
   public function setCustomField($customField)
   {
@@ -955,72 +972,78 @@ class Google_Service_Coordinate_CustomFields extends Google_Collection
   {
     return $this->customField;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Coordinate_EnumItemDef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $active;
   public $kind;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setActive($active)
-  {
-    $this->active = $active;
-  }
   public function getActive()
   {
     return $this->active;
   }
-  public function setKind($kind)
+
+    public function setActive($active)
   {
-    $this->kind = $kind;
+      $this->active = $active;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setValue($value)
+
+    public function setKind($kind)
   {
-    $this->value = $value;
+      $this->kind = $kind;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Coordinate_Job extends Google_Collection
 {
+    public $id;
+    public $kind;
   protected $collection_key = 'jobChange';
   protected $internal_gapi_mappings = array(
   );
-  public $id;
   protected $jobChangeType = 'Google_Service_Coordinate_JobChange';
   protected $jobChangeDataType = 'array';
-  public $kind;
   protected $stateType = 'Google_Service_Coordinate_JobState';
   protected $stateDataType = '';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setJobChange($jobChange)
   {
     $this->jobChange = $jobChange;
@@ -1029,14 +1052,17 @@ class Google_Service_Coordinate_Job extends Google_Collection
   {
     return $this->jobChange;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setState(Google_Service_Coordinate_JobState $state)
   {
     $this->state = $state;
@@ -1049,22 +1075,22 @@ class Google_Service_Coordinate_Job extends Google_Collection
 
 class Google_Service_Coordinate_JobChange extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
+    public $timestamp;
+    protected $internal_gapi_mappings = array();
   protected $stateType = 'Google_Service_Coordinate_JobState';
   protected $stateDataType = '';
-  public $timestamp;
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setState(Google_Service_Coordinate_JobState $state)
   {
     $this->state = $state;
@@ -1073,26 +1099,27 @@ class Google_Service_Coordinate_JobChange extends Google_Model
   {
     return $this->state;
   }
-  public function setTimestamp($timestamp)
-  {
-    $this->timestamp = $timestamp;
-  }
+
   public function getTimestamp()
   {
     return $this->timestamp;
   }
+
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
 }
 
 class Google_Service_Coordinate_JobListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Coordinate_Job';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -1102,50 +1129,54 @@ class Google_Service_Coordinate_JobListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Coordinate_JobState extends Google_Collection
 {
-  protected $collection_key = 'note';
-  protected $internal_gapi_mappings = array(
-  );
   public $assignee;
-  protected $customFieldsType = 'Google_Service_Coordinate_CustomFields';
-  protected $customFieldsDataType = '';
   public $customerName;
   public $customerPhoneNumber;
   public $kind;
-  protected $locationType = 'Google_Service_Coordinate_Location';
-  protected $locationDataType = '';
   public $note;
   public $progress;
   public $title;
+    protected $collection_key = 'note';
+    protected $internal_gapi_mappings = array();
+    protected $customFieldsType = 'Google_Service_Coordinate_CustomFields';
+    protected $customFieldsDataType = '';
+    protected $locationType = 'Google_Service_Coordinate_Location';
+    protected $locationDataType = '';
 
-
-  public function setAssignee($assignee)
-  {
-    $this->assignee = $assignee;
-  }
   public function getAssignee()
   {
     return $this->assignee;
   }
+
+    public function setAssignee($assignee)
+    {
+        $this->assignee = $assignee;
+    }
+
   public function setCustomFields(Google_Service_Coordinate_CustomFields $customFields)
   {
     $this->customFields = $customFields;
@@ -1154,30 +1185,37 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->customFields;
   }
-  public function setCustomerName($customerName)
-  {
-    $this->customerName = $customerName;
-  }
+
   public function getCustomerName()
   {
     return $this->customerName;
   }
-  public function setCustomerPhoneNumber($customerPhoneNumber)
+
+    public function setCustomerName($customerName)
   {
-    $this->customerPhoneNumber = $customerPhoneNumber;
+      $this->customerName = $customerName;
   }
+
   public function getCustomerPhoneNumber()
   {
     return $this->customerPhoneNumber;
   }
-  public function setKind($kind)
+
+    public function setCustomerPhoneNumber($customerPhoneNumber)
   {
-    $this->kind = $kind;
+      $this->customerPhoneNumber = $customerPhoneNumber;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLocation(Google_Service_Coordinate_Location $location)
   {
     $this->location = $location;
@@ -1186,86 +1224,97 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->location;
   }
-  public function setNote($note)
-  {
-    $this->note = $note;
-  }
+
   public function getNote()
   {
     return $this->note;
   }
-  public function setProgress($progress)
+
+    public function setNote($note)
   {
-    $this->progress = $progress;
+      $this->note = $note;
   }
+
   public function getProgress()
   {
     return $this->progress;
   }
-  public function setTitle($title)
+
+    public function setProgress($progress)
   {
-    $this->title = $title;
+      $this->progress = $progress;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_Coordinate_Location extends Google_Collection
 {
-  protected $collection_key = 'addressLine';
-  protected $internal_gapi_mappings = array(
-  );
   public $addressLine;
   public $kind;
   public $lat;
   public $lng;
+    protected $collection_key = 'addressLine';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAddressLine($addressLine)
-  {
-    $this->addressLine = $addressLine;
-  }
   public function getAddressLine()
   {
     return $this->addressLine;
   }
-  public function setKind($kind)
+
+    public function setAddressLine($addressLine)
   {
-    $this->kind = $kind;
+      $this->addressLine = $addressLine;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLat($lat)
+
+    public function setKind($kind)
   {
-    $this->lat = $lat;
+      $this->kind = $kind;
   }
+
   public function getLat()
   {
     return $this->lat;
   }
-  public function setLng($lng)
+
+    public function setLat($lat)
   {
-    $this->lng = $lng;
+      $this->lat = $lat;
   }
+
   public function getLng()
   {
     return $this->lng;
   }
+
+    public function setLng($lng)
+    {
+        $this->lng = $lng;
+    }
 }
 
 class Google_Service_Coordinate_LocationListResponse extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Coordinate_LocationRecord';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
   protected $tokenPaginationType = 'Google_Service_Coordinate_TokenPagination';
   protected $tokenPaginationDataType = '';
 
@@ -1278,22 +1327,27 @@ class Google_Service_Coordinate_LocationListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setTokenPagination(Google_Service_Coordinate_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -1306,154 +1360,170 @@ class Google_Service_Coordinate_LocationListResponse extends Google_Collection
 
 class Google_Service_Coordinate_LocationRecord extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $collectionTime;
   public $confidenceRadius;
   public $kind;
   public $latitude;
   public $longitude;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCollectionTime($collectionTime)
-  {
-    $this->collectionTime = $collectionTime;
-  }
   public function getCollectionTime()
   {
     return $this->collectionTime;
   }
-  public function setConfidenceRadius($confidenceRadius)
+
+    public function setCollectionTime($collectionTime)
   {
-    $this->confidenceRadius = $confidenceRadius;
+      $this->collectionTime = $collectionTime;
   }
+
   public function getConfidenceRadius()
   {
     return $this->confidenceRadius;
   }
-  public function setKind($kind)
+
+    public function setConfidenceRadius($confidenceRadius)
   {
-    $this->kind = $kind;
+      $this->confidenceRadius = $confidenceRadius;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setLatitude($latitude)
+
+    public function setKind($kind)
   {
-    $this->latitude = $latitude;
+      $this->kind = $kind;
   }
+
   public function getLatitude()
   {
     return $this->latitude;
   }
-  public function setLongitude($longitude)
+
+    public function setLatitude($latitude)
   {
-    $this->longitude = $longitude;
+      $this->latitude = $latitude;
   }
+
   public function getLongitude()
   {
     return $this->longitude;
   }
+
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
 }
 
 class Google_Service_Coordinate_Schedule extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $allDay;
   public $duration;
   public $endTime;
   public $kind;
   public $startTime;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAllDay($allDay)
-  {
-    $this->allDay = $allDay;
-  }
   public function getAllDay()
   {
     return $this->allDay;
   }
-  public function setDuration($duration)
+
+    public function setAllDay($allDay)
   {
-    $this->duration = $duration;
+      $this->allDay = $allDay;
   }
-  public function getDuration()
+
+    public function getDuration()
   {
     return $this->duration;
   }
-  public function setEndTime($endTime)
+
+    public function setDuration($duration)
   {
-    $this->endTime = $endTime;
+      $this->duration = $duration;
   }
-  public function getEndTime()
+
+    public function getEndTime()
   {
     return $this->endTime;
   }
-  public function setKind($kind)
+
+    public function setEndTime($endTime)
   {
-    $this->kind = $kind;
+      $this->endTime = $endTime;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setStartTime($startTime)
+
+    public function setKind($kind)
   {
-    $this->startTime = $startTime;
+      $this->kind = $kind;
   }
-  public function getStartTime()
+
+    public function getStartTime()
   {
     return $this->startTime;
   }
+
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+    }
 }
 
 class Google_Service_Coordinate_Team extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Coordinate_TeamListResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Coordinate_Team';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -1463,86 +1533,91 @@ class Google_Service_Coordinate_TeamListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Coordinate_TokenPagination extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $kind;
   public $nextPageToken;
   public $previousPageToken;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setPreviousPageToken($previousPageToken)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->previousPageToken = $previousPageToken;
+      $this->nextPageToken = $nextPageToken;
   }
-  public function getPreviousPageToken()
+
+    public function getPreviousPageToken()
   {
     return $this->previousPageToken;
   }
+
+    public function setPreviousPageToken($previousPageToken)
+    {
+        $this->previousPageToken = $previousPageToken;
+    }
 }
 
 class Google_Service_Coordinate_Worker extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_Coordinate_WorkerListResponse extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Coordinate_Worker';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -1552,12 +1627,14 @@ class Google_Service_Coordinate_WorkerListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }

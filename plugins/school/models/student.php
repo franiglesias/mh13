@@ -48,7 +48,8 @@ class Student extends SchoolAppModel {
 /**
  * Retrieve data for autocomplete action
  *
- * @param string $term 
+ * @param string $term
+ *
  * @return void
  */
 	public function autocomplete($term)
@@ -63,18 +64,37 @@ class Student extends SchoolAppModel {
 			)
 		);
 	}
-	
+
+    public function _findCantineStats($state, $query, $results = array())
+    {
+        if ($state === 'before') {
+            $query = $this->_findCantine('before', $query);
+            $query['fields'] = array(
+                'CantineTurn.title',
+                'count(Student.id) AS total',
+            );
+            $query['group'] = array('CantineTurn.slot');
+
+            return $query;
+        }
+        foreach ($results as &$result) {
+            $result['CantineTurn']['attendances'] = $result[0]['total'];
+            unset($result[0]);
+        }
+
+        return $results;
+    }
 	
 	public function _findCantine($state, $query, $results = array())
 	{
 		if ($state === 'before') {
-			
+
 			if (!$query['date']) {
 				$query['date'] = date('Y-m-d');
 			}
 
 			$date = $query['date'];
-			
+
 			$thisMonth = date('m', strtotime($date));
 			$thisWeekDay = pow(2, date('w', strtotime($date)) - 1);
 
@@ -145,16 +165,16 @@ class Student extends SchoolAppModel {
 				"CantineRule.day_of_week & $thisWeekDay",
 				array('or' => array(
 					array(
-						'CantineRegular.month' => $thisMonth, 
-						"CantineRegular.days_of_week & $thisWeekDay", 
+                        'CantineRegular.month' => $thisMonth,
+                        "CantineRegular.days_of_week & $thisWeekDay",
 						'CantineTicket.date' => null
 						),
 					array(
-						'CantineTicket.date' => $date, 
+                        'CantineTicket.date' => $date,
 						'or' => array(
 							'CantineRegular.month' => null,
 							array(
-								'CantineRegular.month' => $thisMonth, 
+                                'CantineRegular.month' => $thisMonth,
 								'not' => array("CantineRegular.days_of_week & $thisWeekDay")
 								)
 							)
@@ -171,8 +191,8 @@ class Student extends SchoolAppModel {
 			);
 
 			$query = Set::merge($query, compact('fields', 'conditions', 'joins', 'order'));
-			
-			return $query;
+
+            return $query;
 		}
 		foreach ($results as &$result) {
 			if (!empty($result['CantineIncidence']['remark'])) {
@@ -180,29 +200,10 @@ class Student extends SchoolAppModel {
 					$result['CantineIncidence']['remark'].'<br />'.
 					$result['Student']['remarks'];
 			}
-			
-		}
+
+        }
 		return $results;
 	}
-	
-	public function _findCantineStats($state, $query, $results = array())
-	{
-		if ($state === 'before') {
-			$query = $this->_findCantine('before', $query);
-			$query['fields'] = array(
-				'CantineTurn.title', 
-				'count(Student.id) AS total'
-			);
-			$query['group'] = array('CantineTurn.slot');
-			return $query;
-		}
-		foreach ($results as &$result) {
-			$result['CantineTurn']['attendances'] = $result[0]['total'];
-			unset($result[0]);
-		}
-		return $results;
-	}
-	
 	
 	public function _findCantineStats2($state, $query, $results = array())
 	{
@@ -254,9 +255,10 @@ class Student extends SchoolAppModel {
 /**
  * Returns the list of students from a section
  *
- * @param string $state 
- * @param string $query 
- * @param string $results 
+ * @param string $state
+ * @param string $query
+ * @param string $results
+ *
  * @return void
  * @author Fran Iglesias
  */

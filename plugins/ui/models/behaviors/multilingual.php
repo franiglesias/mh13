@@ -52,10 +52,11 @@ class MultilingualBehavior extends ModelBehavior {
 /**
  * MUltilingual wrapper for read
  *
- * @param string $model The model
- * @param string $fields Array of fields to retrieve
- * @param string $id ID of the record
+ * @param string $model    The model
+ * @param string $fields   Array of fields to retrieve
+ * @param string $id       ID of the record
  * @param string $contains Array of model to contain
+ *
  * @return array
  */
 	public function get(&$model, $fields = null, $id = null) {
@@ -83,7 +84,8 @@ class MultilingualBehavior extends ModelBehavior {
 /**
  * Ensures that translated fields are populated, to avoid
  *
- * @param string $model 
+ * @param string $model
+ *
  * @return void
  * @author Frankie
  */	

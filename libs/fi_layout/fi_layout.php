@@ -66,17 +66,6 @@ abstract class AbstractLayout implements Layout
 		return $this;
 	}
 	
-	public function body()
-	{
-		$result = '';
-		$order = $this->order();
-		foreach ($order as $item) {
-			$this->CollectionPresentationModel->pointer($item);
-			$result .= $this->block($this->template);
-		}
-		return $result;
-	}
-	
 	public function render()
 	{
 		$layout = $this->block($this->layout);
@@ -108,6 +97,18 @@ abstract class AbstractLayout implements Layout
 		return $element;
 	}
 
+    public function body()
+    {
+        $result = '';
+        $order = $this->order();
+        foreach ($order as $item) {
+            $this->CollectionPresentationModel->pointer($item);
+            $result .= $this->block($this->template);
+        }
+
+        return $result;
+    }
+
 }
 
 App::import('Lib', 'Singleton');
@@ -129,11 +130,28 @@ class LayoutFactory extends Singleton
 		return self::create($Layout, $CollectionPresentationModel);
 	}
 
+    /**
+     * Returns registered class
+     *
+     * @param string $type
+     *
+     * @return the class
+     */
+    protected function exists($type)
+    {
+        if (!isset(self::$_registry[$type])) {
+            return false;
+        }
+
+        return self::$_registry[$type];
+    }
+
 	/**
 	 * Creates a new class and appends it to the registry
 	 *
-	 * @param string $Layout 
-	 * @param string $CPM 
+     * @param string $Layout
+     * @param string $CPM
+     *
 	 * @return the class
 	 */
 	protected function create($Layout, $CPM)
@@ -145,19 +163,6 @@ class LayoutFactory extends Singleton
 		$L = new $Layout($CPM);
 		self::$_registry[$Layout] = $L;
 		return $L;
-	}
-	/**
-	 * Returns registered class
-	 *
-	 * @param string $type 
-	 * @return the class
-	 */
-	protected function exists($type)
-	{
-		if (!isset(self::$_registry[$type])) {
-			return false;
-		}
-		return self::$_registry[$type];
 	}
 	
 }

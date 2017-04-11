@@ -44,48 +44,6 @@ class Google_Model implements ArrayAccess
   }
 
   /**
-   * Getter that handles passthrough access to the data array, and lazy object creation.
-   * @param string $key Property name.
-   * @return mixed The value if any, or null.
-   */
-  public function __get($key)
-  {
-    $keyTypeName = $this->keyType($key);
-    $keyDataType = $this->dataType($key);
-    if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
-      if (isset($this->modelData[$key])) {
-        $val = $this->modelData[$key];
-      } else if (isset($this->$keyDataType) &&
-          ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')) {
-        $val = array();
-      } else {
-        $val = null;
-      }
-
-      if ($this->isAssociativeArray($val)) {
-        if (isset($this->$keyDataType) && 'map' == $this->$keyDataType) {
-          foreach ($val as $arrayKey => $arrayItem) {
-              $this->modelData[$key][$arrayKey] =
-                $this->createObjectFromName($keyTypeName, $arrayItem);
-          }
-        } else {
-          $this->modelData[$key] = $this->createObjectFromName($keyTypeName, $val);
-        }
-      } else if (is_array($val)) {
-        $arrayObject = array();
-        foreach ($val as $arrayIndex => $arrayItem) {
-          $arrayObject[$arrayIndex] =
-            $this->createObjectFromName($keyTypeName, $arrayItem);
-        }
-        $this->modelData[$key] = $arrayObject;
-      }
-      $this->processed[$key] = true;
-    }
-
-    return isset($this->modelData[$key]) ? $this->modelData[$key] : null;
-  }
-
-  /**
    * Initialize this object's properties from an array.
    *
    * @param array $array Used to seed this object's properties.
@@ -107,6 +65,11 @@ class Google_Model implements ArrayAccess
     }
     $this->modelData = $array;
   }
+
+    protected function keyType($key)
+    {
+        return $key."Type";
+    }
 
   /**
    * Blank initialiser to be used in subclasses to do  post-construction initialisation - this
@@ -185,6 +148,82 @@ class Google_Model implements ArrayAccess
     return $key;
   }
 
+    /**
+     * Verify if $obj is an array.
+     * @throws Google_Exception Thrown if $obj isn't an array.
+     *
+     * @param array  $obj    Items that should be validated.
+     * @param string $method Method expecting an array as an argument.
+     */
+    public function assertIsArray($obj, $method)
+    {
+        if ($obj && !is_array($obj)) {
+            throw new Google_Exception(
+                "Incorrect parameter type passed to $method(). Expected an array."
+            );
+        }
+    }
+
+    public function offsetExists($offset)
+    {
+        return isset($this->$offset) || isset($this->modelData[$offset]);
+    }
+
+    public function offsetGet($offset)
+    {
+        return isset($this->$offset) ? $this->$offset : $this->__get($offset);
+    }
+
+    /**
+     * Getter that handles passthrough access to the data array, and lazy object creation.
+     *
+     * @param string $key Property name.
+     *
+     * @return mixed The value if any, or null.
+     */
+    public function __get($key)
+    {
+        $keyTypeName = $this->keyType($key);
+        $keyDataType = $this->dataType($key);
+        if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
+            if (isset($this->modelData[$key])) {
+                $val = $this->modelData[$key];
+            } else {
+                if (isset($this->$keyDataType) && ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')) {
+                    $val = array();
+                } else {
+                    $val = null;
+                }
+            }
+
+            if ($this->isAssociativeArray($val)) {
+                if (isset($this->$keyDataType) && 'map' == $this->$keyDataType) {
+                    foreach ($val as $arrayKey => $arrayItem) {
+                        $this->modelData[$key][$arrayKey] = $this->createObjectFromName($keyTypeName, $arrayItem);
+                    }
+                } else {
+                    $this->modelData[$key] = $this->createObjectFromName($keyTypeName, $val);
+                }
+            } else {
+                if (is_array($val)) {
+                    $arrayObject = array();
+                    foreach ($val as $arrayIndex => $arrayItem) {
+                        $arrayObject[$arrayIndex] = $this->createObjectFromName($keyTypeName, $arrayItem);
+                    }
+                    $this->modelData[$key] = $arrayObject;
+                }
+            }
+            $this->processed[$key] = true;
+        }
+
+        return isset($this->modelData[$key]) ? $this->modelData[$key] : null;
+    }
+
+    protected function dataType($key)
+    {
+        return $key."DataType";
+    }
+
   /**
    * Returns true only if the array is associative.
    * @param array $array
@@ -217,33 +256,6 @@ class Google_Model implements ArrayAccess
     return new $type($item);
   }
 
-  /**
-   * Verify if $obj is an array.
-   * @throws Google_Exception Thrown if $obj isn't an array.
-   * @param array $obj Items that should be validated.
-   * @param string $method Method expecting an array as an argument.
-   */
-  public function assertIsArray($obj, $method)
-  {
-    if ($obj && !is_array($obj)) {
-      throw new Google_Exception(
-          "Incorrect parameter type passed to $method(). Expected an array."
-      );
-    }
-  }
-
-  public function offsetExists($offset)
-  {
-    return isset($this->$offset) || isset($this->modelData[$offset]);
-  }
-
-  public function offsetGet($offset)
-  {
-    return isset($this->$offset) ?
-        $this->$offset :
-        $this->__get($offset);
-  }
-
   public function offsetSet($offset, $value)
   {
     if (property_exists($this, $offset)) {
@@ -257,16 +269,6 @@ class Google_Model implements ArrayAccess
   public function offsetUnset($offset)
   {
     unset($this->modelData[$offset]);
-  }
-
-  protected function keyType($key)
-  {
-    return $key . "Type";
-  }
-
-  protected function dataType($key)
-  {
-    return $key . "DataType";
   }
 
   public function __isset($key)

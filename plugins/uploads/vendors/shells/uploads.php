@@ -130,6 +130,44 @@ class UploadsShell extends Shell
 		}
 		$this->hr();
 	}
+
+    /**
+     * Checks if a file is used in a model, looking into certain fields
+     *
+     * @param string $fileName
+     *
+     * @return boolean false if the file is not used
+     */
+
+    protected function _checkModels($fileName)
+    {
+        if ($this->Item->find('count', array('conditions' => array('image LIKE' => '%'.$fileName)))) {
+            return true;
+        }
+
+        if ($this->Channel->find('count', array('conditions' => array('image LIKE' => '%'.$fileName)))) {
+            return true;
+        }
+
+        if ($this->Channel->find('count', array('conditions' => array('icon LIKE' => '%'.$fileName)))) {
+            return true;
+        }
+
+        if ($this->User->find('count', array('conditions' => array('photo LIKE' => '%'.$fileName)))) {
+            return true;
+        }
+
+        if ($this->Resume->find('count', array('conditions' => array('photo LIKE' => '%'.$fileName)))) {
+            return true;
+        }
+
+        if ($this->Merit->find('count', array('conditions' => array('file LIKE' => '%'.$fileName)))) {
+            return true;
+        }
+
+
+        return false;
+    }
 	
 	protected function _deleteFile($filePath)
 	{
@@ -156,7 +194,7 @@ class UploadsShell extends Shell
 		$this->hr();
 		$this->out('Deletes Upload records that lost their files.');
 		$this->hr();
-		
+
 		$paths = $this->Upload->find('all', array(
 			'fields' => array('id', 'fullPath')
 			)
@@ -165,8 +203,8 @@ class UploadsShell extends Shell
 		if (!$total) {
 			$this->error('There are no records.');
 			return false;
-		}
-		
+        }
+
 		$delete = array();
 		foreach ($paths as $record) {
 			if (!file_exists($record['Upload']['fullPath'])) {
@@ -177,54 +215,16 @@ class UploadsShell extends Shell
 		if (empty($delete)) {
 			$this->error('There are no records to purgue.');
 			return false;
-		}
-		
+        }
+
 		$toDelete = count($delete);
-		
+
 		if (!in_array('dry', $this->args)) {
 			$this->Upload->deleteAll(array('Upload.id' => $delete));
 			$this->out(sprintf('%s records were deleted', $toDelete));
 		} else {
 			$this->out('This was a dry run. No records deleted.');
 		}
-	}
-	
-	
-/**
- * Checks if a file is used in a model, looking into certain fields
- *
- * @param string $fileName 
- * @return boolean false if the file is not used
- */	
-
-	protected function _checkModels($fileName)
-	{
-		if ($this->Item->find('count', array('conditions' => array('image LIKE' => '%'.$fileName)))) {
-			return true;
-		}
-
-		if ($this->Channel->find('count', array('conditions' => array('image LIKE' => '%'.$fileName)))) {
-			return true;
-		}
-
-		if ($this->Channel->find('count', array('conditions' => array('icon LIKE' => '%'.$fileName)))) {
-			return true;
-		}
-
-		if ($this->User->find('count', array('conditions' => array('photo LIKE' => '%'.$fileName)))) {
-			return true;
-		}
-		
-		if ($this->Resume->find('count', array('conditions' => array('photo LIKE' => '%'.$fileName)))) {
-			return true;
-		}
-
-		if ($this->Merit->find('count', array('conditions' => array('file LIKE' => '%'.$fileName)))) {
-			return true;
-		}
-
-
-		return false;
 	}
 	
 	public function move()

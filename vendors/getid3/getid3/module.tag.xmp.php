@@ -54,32 +54,62 @@ class Image_XMP
 	public $_bXMPParse = false;
 
 	/**
-	* Returns the status of XMP parsing during instantiation
+     * Constructor
 	*
-	* You'll normally want to call this method before trying to get XMP fields.
-	*
-	* @return boolean
-	* Returns true if an APP1 segment was found to contain XMP metadata.
+     * @param string - Name of the image file to access and extract XMP information from.
 	*/
-	public function isValid()
+    public function Image_XMP($sFilename)
 	{
-		return $this->_bXMPParse;
+        $this->_sFilename = $sFilename;
+
+        if (is_file($this->_sFilename)) {
+            // Get XMP data
+            $xmp_data = $this->_get_XMP_text($sFilename);
+            if ($xmp_data) {
+                $this->_aXMP = $this->read_XMP_array_from_text($xmp_data);
+                $this->_bXMPParse = true;
+            }
+        }
 	}
 
 	/**
-	* Get a copy of all XMP tags extracted from the image
+     * Retrieves XMP information from an APP1 JPEG segment and returns the raw XML text as a string.
 	*
-	* @return array - An array of XMP fields as it extracted by the XMPparse() function
+     * @param string $filename - the filename of the JPEG file to read
+     *
+     * @return string $xmp_data - the string of raw XML text
+     * @return boolean FALSE - if an APP 1 XMP segment could not be found, or if an error occured
 	*/
-	public function getAllTags()
+    public function _get_XMP_text($filename)
 	{
-		return $this->_aXMP;
+        //Get JPEG header data
+        $jpeg_header_data = $this->_get_jpeg_header_data($filename);
+
+        //Cycle through the header segments
+        for ($i = 0; $i < count($jpeg_header_data); $i++) {
+            // If we find an APP1 header,
+            if (strcmp($jpeg_header_data[$i]['SegName'], 'APP1') == 0) {
+                // And if it has the Adobe XMP/RDF label (http://ns.adobe.com/xap/1.0/\x00) ,
+                if (strncmp($jpeg_header_data[$i]['SegData'], 'http://ns.adobe.com/xap/1.0/'."\x00", 29) == 0) {
+                    // Found a XMP/RDF block
+                    // Return the XMP text
+                    $xmp_data = substr($jpeg_header_data[$i]['SegData'], 29);
+
+                    return trim(
+                        $xmp_data
+                    ); // trim() should not be neccesary, but some files found in the wild with null-terminated block (known samples from Apple Aperture) causes problems elsewhere (see http://www.getid3.org/phpBB3/viewtopic.php?f=4&t=1153)
+                }
+            }
+        }
+
+        return false;
 	}
 
 	/**
 	* Reads all the JPEG header segments from an JPEG image file into an array
 	*
 	* @param string $filename - the filename of the JPEG file to read
+     *
 	* @return array $headerdata - Array of JPEG header segments
 	* @return boolean FALSE - if headers could not be read
 	*/
@@ -185,44 +215,12 @@ class Image_XMP
 		return $headerdata;
 	}
 
-
-	/**
-	* Retrieves XMP information from an APP1 JPEG segment and returns the raw XML text as a string.
-	*
-	* @param string $filename - the filename of the JPEG file to read
-	* @return string $xmp_data - the string of raw XML text
-	* @return boolean FALSE - if an APP 1 XMP segment could not be found, or if an error occured
-	*/
-	public function _get_XMP_text($filename)
-	{
-		//Get JPEG header data
-		$jpeg_header_data = $this->_get_jpeg_header_data($filename);
-
-		//Cycle through the header segments
-		for ($i = 0; $i < count($jpeg_header_data); $i++)
-		{
-			// If we find an APP1 header,
-			if (strcmp($jpeg_header_data[$i]['SegName'], 'APP1') == 0)
-			{
-				// And if it has the Adobe XMP/RDF label (http://ns.adobe.com/xap/1.0/\x00) ,
-				if (strncmp($jpeg_header_data[$i]['SegData'], 'http://ns.adobe.com/xap/1.0/'."\x00", 29) == 0)
-				{
-					// Found a XMP/RDF block
-					// Return the XMP text
-					$xmp_data = substr($jpeg_header_data[$i]['SegData'], 29);
-
-					return trim($xmp_data); // trim() should not be neccesary, but some files found in the wild with null-terminated block (known samples from Apple Aperture) causes problems elsewhere (see http://www.getid3.org/phpBB3/viewtopic.php?f=4&t=1153)
-				}
-			}
-		}
-		return false;
-	}
-
 	/**
 	* Parses a string containing XMP data (XML), and returns an array
 	* which contains all the XMP (XML) information.
 	*
 	* @param string $xml_text - a string containing the XMP data (XML) to be parsed
+     *
 	* @return array $xmp_array - an array containing all xmp details retrieved.
 	* @return boolean FALSE - couldn't parse the XMP data
 	*/
@@ -392,26 +390,27 @@ class Image_XMP
 		return $xmp_array;
 	}
 
-
 	/**
-	* Constructor
+     * Returns the status of XMP parsing during instantiation
 	*
-	* @param string - Name of the image file to access and extract XMP information from.
+     * You'll normally want to call this method before trying to get XMP fields.
+     *
+     * @return boolean
+     * Returns true if an APP1 segment was found to contain XMP metadata.
 	*/
-	public function Image_XMP($sFilename)
+    public function isValid()
 	{
-		$this->_sFilename = $sFilename;
+        return $this->_bXMPParse;
+    }
 
-		if (is_file($this->_sFilename))
-		{
-			// Get XMP data
-			$xmp_data = $this->_get_XMP_text($sFilename);
-			if ($xmp_data)
-			{
-				$this->_aXMP = $this->read_XMP_array_from_text($xmp_data);
-				$this->_bXMPParse = true;
-			}
-		}
+    /**
+     * Get a copy of all XMP tags extracted from the image
+     *
+     * @return array - An array of XMP fields as it extracted by the XMPparse() function
+     */
+    public function getAllTags()
+    {
+        return $this->_aXMP;
 	}
 
 }

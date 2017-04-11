@@ -39,7 +39,7 @@
 
 {% block sidebar %}
     {% import 'macros/blocks.twig' as blocks %}
-    {{ blocks.widget('Resumen', item.Item.content|length > 50 ? item.Item.content|striptags|slice(0, 50) ~ '...' : item.Item.content|striptags, 'fi-check' ) }}
+    {{ blocks.widget('Resumen', article.content.body|length > 50 ? article.content.body|striptags|slice(0, 50) ~ '...' : article.content.body|striptags, 'fi-check' ) }}
     {% include 'plugins/contents/items/widgets/mdata.twig' %}
     {% include 'plugins/contents/items/widgets/social.twig' %}
     {% include 'plugins/contents/items/widgets/tags.twig' %}

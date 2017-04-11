@@ -2,14 +2,6 @@
 /* contents schema generated on: 2013-02-22 13:40:49 : 1361536849*/
 class contentsSchema extends CakeSchema {
 	var $name = 'contents';
-
-	function before($event = array()) {
-		return true;
-	}
-
-	function after($event = array()) {
-	}
-
 	var $channels = array(
 		'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'license_id' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 36, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -121,5 +113,14 @@ class contentsSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
+
+    function before($event = array())
+    {
+        return true;
+    }
+
+    function after($event = array())
+    {
+    }
 }
 ?>

@@ -16,7 +16,7 @@ class Youtube
 	
 	public function Youtube($widget)
 	{
-		$this->Widget =& $widget;
+        $this->Widget = $widget;
 	}
 	public function code($options = array())
 	{

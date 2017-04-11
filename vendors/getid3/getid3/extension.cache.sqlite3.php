@@ -90,9 +90,22 @@
 */
 class getID3_cached_sqlite3 extends getID3 {
 
+    /**
+     * hold the sqlite db
+     * @var SQLite Resource
+     */
+    private $db;
+    /**
+     * table to use for caching
+     * @var string $table
+     */
+    private $table;
+
 	/**
 	* __construct()
+     *
 	* @param string $table holds name of sqlite table
+     *
 	* @return type
 	*/
 	public function __construct($table='getid3_cache', $hide=false) {
@@ -117,24 +130,17 @@ class getID3_cached_sqlite3 extends getID3 {
 	}
 
 	/**
-	* close the database connection
+     * create data base table
+     * this is almost the same as MySQL, with the exception of the dirname being added
+     * @return type
 	*/
-	public function __destruct() {
-		$db=$this->db;
-		$db->close();
+    private function create_table()
+    {
+        $db = $this->db;
+        $sql = $this->make_table;
+
+        return $db->exec($sql);
 	}
-
-	/**
-	* hold the sqlite db
-	* @var SQLite Resource
-	*/
-	private $db;
-
-	/**
-	* table to use for caching
-	* @var string $table
-	*/
-	private $table;
 
 	/**
 	* clear the cache
@@ -152,6 +158,15 @@ class getID3_cached_sqlite3 extends getID3 {
 		$stmt->bindValue(':val', getID3::VERSION, SQLITE3_TEXT);
 		return $stmt->execute();
 	}
+
+    /**
+     * close the database connection
+     */
+    public function __destruct()
+    {
+        $db = $this->db;
+        $db->close();
+    }
 
 	/**
 	* analyze file and cache them, if cached pull from the db
@@ -196,24 +211,15 @@ class getID3_cached_sqlite3 extends getID3 {
 	}
 
 	/**
-	* create data base table
-	* this is almost the same as MySQL, with the exception of the dirname being added
-	* @return type
-	*/
-	private function create_table() {
-		$db = $this->db;
-		$sql = $this->make_table;
-		return $db->exec($sql);
-	}
-
-	/**
 	* get cached directory
 	*
 	* This function is not in the MySQL extention, it's ment to speed up requesting multiple files
 	* which is ideal for podcasting, playlists, etc.
 	*
 	* @access public
+     *
 	* @param string $dir directory to search the cache database for
+     *
 	* @return array return an array of matching id3 data
 	*/
 	public function get_cached_dir($dir) {

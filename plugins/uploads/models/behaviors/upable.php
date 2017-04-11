@@ -132,29 +132,14 @@ class UpableBehavior extends ModelBehavior {
 		return true;
 	}
 
-
-/**
- * Retrieves upload settings for one or all fields
- *
- * @param string $field if empty, returns settings for all fields
- * @return void
- */
-	public function uploadSettings(&$model, $field = null)
-	{
-		if ($field) {
-			return $model->Behaviors->Upable->settings[$model->alias][$field];
-		}
-		return $model->Behaviors->Upable->settings[$model->alias];
-	}
-
-
 /**
  * Computes what value should be returned to the field data
  *
- * @param string $path 
- * @param string $options 
+ * @param string $path
+ * @param string $options
+ *
  * @return void
- */	
+ */
 	protected function whatToReturn($path, $options)
 	{
 		$options = strtolower($options);
@@ -177,6 +162,22 @@ class UpableBehavior extends ModelBehavior {
 
 		// Return data of attached upload
 	}
+
+    /**
+     * Retrieves upload settings for one or all fields
+     *
+     * @param string $field if empty, returns settings for all fields
+     *
+     * @return void
+     */
+    public function uploadSettings(&$model, $field = null)
+    {
+        if ($field) {
+            return $model->Behaviors->Upable->settings[$model->alias][$field];
+        }
+
+        return $model->Behaviors->Upable->settings[$model->alias];
+    }
 
 	
 } // End of UpableBehavior

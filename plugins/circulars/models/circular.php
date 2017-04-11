@@ -218,6 +218,7 @@ class Circular extends CircularsAppModel {
  * Reads current circular data
  *
  * @param string $id
+ *
  * @return circular data
  */
 	public function load($id = null)
@@ -263,6 +264,7 @@ class Circular extends CircularsAppModel {
      * Returns file path to the PDF circular file
      *
      * @param string $id
+     *
      * @return string the file path
      */
     public function getFilePath($id = null)

@@ -96,41 +96,6 @@ class FileUploader extends Object{
         }
     }
  
-
-	/**
-	 * Returns a normalized file name to avoid problems with url and special chars
-	 * 
-	 * Solves some problems with fileName UTF-8 encoding
-	 *
-	 * @param  string the name we want to normalize
-	 * @return string normalized name
-	 * 
-	 **/
-
-	protected function normalizeFileName ($fileName) {
-		if (empty ($fileName)) {
-			$fileName = __('untitled', true);
-		}
-		$fileName = mb_convert_encoding($fileName, "ISO-8859-1", "UTF-8");
-		$fileName = str_replace('?', '', $fileName);
-		return Inflector::slug(mb_convert_encoding($fileName, "UTF-8", "ISO-8859-1"));
-	}
-
-	/**
-	 * Returns an error array. We want a normalized response
-	 *
-	 * @param string $message 
-	 * @return array with the content for ajax response
-	 */
-	protected function error($message) {
-		$this->log('Upload error: '.$message, 'uploads');
-		return array(
-			'success' => false,
-			'tmp' => false,
-			'error' => $message
-			);
-	}
-  
     /**
      * Returns array('success'=>true) or array('error'=>'error message')
      */
@@ -138,11 +103,11 @@ class FileUploader extends Object{
         if (!is_writable($uploadDirectory)){
             return $this->error('Server error. Upload directory isn\'t writable.');
         }
-        
+
         if (!$this->file){
             return $this->error('No files were uploaded.');
         }
-        
+
         if ($this->file->getSize() > $this->sizeLimit) {
             return $this->error('File is too large');
         }
@@ -153,7 +118,7 @@ class FileUploader extends Object{
 		// foreach ($pathinfo as $key => $value) {
 		// 	$this->log(' '.$key.' => '.$value, 'uploads');
 		// }
-		
+
         $filename = $pathinfo['filename'];
 		$filename = $this->normalizeFileName($filename);
         $ext = $pathinfo['extension'];
@@ -162,21 +127,21 @@ class FileUploader extends Object{
             $these = implode(', ', $this->allowedExtensions);
             return $this->error('File has an invalid extension, it should be one of '. $these . '.');
         }
-        
+
         if(!$replaceOldFile){
             /// don't overwrite previous files that were uploaded
             while (file_exists($uploadDirectory . $filename . '.' . $ext)) {
                 $filename .= rand(10, 99);
             }
         }
-        
-		$finalSize = 0;
+
+        $finalSize = 0;
 
 		/**
 		 * Returns some more info about the file
 		 */
 		$theFile = $uploadDirectory . $filename . '.' . $ext;
-		
+
         if ($this->file->save($theFile)){
 			$this->log('Storing file '.$theFile, 'uploads');
 			$finalSize = filesize($theFile);
@@ -191,7 +156,47 @@ class FileUploader extends Object{
 		}
 
         return $this->error('Could not save uploaded file. Empty file.');
-    }    
+    }
+
+    /**
+     * Returns an error array. We want a normalized response
+     *
+     * @param string $message
+     *
+     * @return array with the content for ajax response
+     */
+    protected function error($message)
+    {
+        $this->log('Upload error: '.$message, 'uploads');
+
+        return array(
+            'success' => false,
+            'tmp' => false,
+            'error' => $message,
+        );
+    }
+
+    /**
+     * Returns a normalized file name to avoid problems with url and special chars
+     *
+     * Solves some problems with fileName UTF-8 encoding
+     *
+     * @param  string the name we want to normalize
+     *
+     * @return string normalized name
+     *
+     **/
+
+    protected function normalizeFileName($fileName)
+    {
+        if (empty ($fileName)) {
+            $fileName = __('untitled', true);
+        }
+        $fileName = mb_convert_encoding($fileName, "ISO-8859-1", "UTF-8");
+        $fileName = str_replace('?', '', $fileName);
+
+        return Inflector::slug(mb_convert_encoding($fileName, "UTF-8", "ISO-8859-1"));
+    }
 }
 
 ?>

@@ -149,6 +149,7 @@ class Upload extends UploadsAppModel {
  *
  * @param string $path The fullpath of the file
  * @param string $data Data for the Upload Record
+ *
  * @return void
  */
 
@@ -253,7 +254,7 @@ class Upload extends UploadsAppModel {
  * Get max order field given model-fk
  *
  * @param $model string the Model
- * @param $fk string the Id of the Model / foreign_key
+ * @param $fk    string the Id of the Model / foreign_key
  */
 	public function maxOrder($model, $fk)
 	{

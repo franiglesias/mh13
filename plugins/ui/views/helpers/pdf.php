@@ -46,7 +46,7 @@ class PdfHelper extends AppHelper {
 
     public function setup($settings = array()) {
 		$this->settings = array_merge($this->defaultSettings, $settings);
-		$this->fpdf =& new FPDF();
+        $this->fpdf = new FPDF();
 		extract ($this->settings);
         $this->fpdf->FPDF($orientation, $unit, $format);
 		$this->fpdf->setLineWidth($lineWidth);
@@ -60,7 +60,8 @@ class PdfHelper extends AppHelper {
  * Wrapper for fpdf->addpage. Adds a new page to the document
  *
  * @param string $orientation (P)ortrait (L)andscape
- * @param string $size 
+ * @param string $size
+ *
  * @return void
  */
 	public function addPage($orientation='', $size='') {
@@ -70,8 +71,9 @@ class PdfHelper extends AppHelper {
 /**
  * Define a text style sheet
  *
- * @param string $style The name for the stylesheet
+ * @param string $style    The name for the stylesheet
  * @param string $settings An array of settings
+ *
  * @return void
  */
 	public function defineStyle($style, $settings = array()) {
@@ -82,41 +84,25 @@ class PdfHelper extends AppHelper {
 		$this->styles[$style] = array_merge($this->styles[$base], $settings);
 	}
 
-/**
- * Draws a line
- *
- * @param string $x X start coordinate
- * @param string $y Y start coordinate
- * @param string $xx X end coordinate
- * @param string $yy Y end coordiante
- * @param string $width Width in mm
- * @param string $color Color (0-255) black to white
- * @return void
- */
-	public function line($x, $y, $xx, $yy, $width = 0.25, $color = 0) {
-		$this->fpdf->SetLineWidth($width);
-		$this->fpdf->SetDrawColor($color);
-		$this->fpdf->Line($x, $y, $xx, $yy);
-	}
-	
 	public function rectangle($x, $y, $width, $height, $line = 0.25, $lineColor = 0, $backgroundColor = 251) {
 		$this->fpdf->SetLineWidth($line);
 		$this->fpdf->SetDrawColor($lineColor);
 		$this->fpdf->SetFillColor($backgroundColor);
 		$this->fpdf->Rect($x, $y, $width, $height, 'DF');
 	}
-    
-/**
+
+    /**
  * Draws a Line With Dashes
  *
- * @param string $x 
- * @param string $y 
- * @param string $xx 
- * @param string $yy 
- * @param string $dash Dash lenght
- * @param string $sep Separation between dashes
- * @param string $width the width of the line in mm
- * @param string $color The color
+     * @param string $x
+     * @param string $y
+     * @param string $xx
+     * @param string $yy
+     * @param string $dash  Dash lenght
+     * @param string $sep   Separation between dashes
+ * @param string     $width the width of the line in mm
+ * @param string     $color The color
+     *
  * @return void
  */
 	public function dashLine($x, $y, $xx, $yy, $dash = 1, $sep = 1, $width = 0.25, $color = 0) {
@@ -136,10 +122,29 @@ class PdfHelper extends AppHelper {
 		for ($step=0; $step < $steps; $step++) {
 			// Start points for dash
 			$xs = $x + $xd * $step;
-			$ys = $y + $yd * $step; 
+            $ys = $y + $yd * $step;
 			$this->line($xs, $ys, $xs+$xl, $ys+$yl, $width, $color);
 		}
 	}
+
+    /**
+     * Draws a line
+     *
+     * @param string $x     X start coordinate
+     * @param string $y     Y start coordinate
+     * @param string $xx    X end coordinate
+     * @param string $yy    Y end coordiante
+     * @param string $width Width in mm
+     * @param string $color Color (0-255) black to white
+     *
+     * @return void
+     */
+    public function line($x, $y, $xx, $yy, $width = 0.25, $color = 0)
+    {
+        $this->fpdf->SetLineWidth($width);
+        $this->fpdf->SetDrawColor($color);
+        $this->fpdf->Line($x, $y, $xx, $yy);
+    }
 
 /**
  * Writes an image file
@@ -149,12 +154,25 @@ class PdfHelper extends AppHelper {
  * @param string $image The image file
  * @param string $width THe width to display the image
  * @param string $height The height of the image, 0 for proportional scaling
+ *
  * @return void
  */
 	public function writeImageAt($x, $y, $image, $width = 0, $height = 0) {
 		$this->fpdf->Image($image, $x, $y, $width, $height);
 	}
 
+    /**
+     * Relies on writeTextAt. Writes a text in the current position
+     *
+     * @param string $text  The text
+     * @param string $style An stylesheet
+     *
+     * @return void
+     */
+    public function writeText($text = '', $style = 'default')
+    {
+        $this->writeTextAt(false, false, 0, $text, $style);
+    }
 
 /**
  * Write text at a given position
@@ -164,6 +182,7 @@ class PdfHelper extends AppHelper {
  * @param string $width Max width for text box
  * @param string $text The text
  * @param string $style An stylesheet, defaults to default
+ *
  * @return void
  */
 	public function writeTextAt($x = false, $y = false, $width = 100, $text='', $style = 'default') {
@@ -190,33 +209,54 @@ class PdfHelper extends AppHelper {
 		}
 		$this->fpdf->MultiCell($width, $style['line-height'], $text, $style['border'], $style['text-align'], $style['background']);
 		// Calculo de la nueva posición Y. Obtenemos la que haya quedado por defecto y le añadimos lo que corresponde de valorar after.
-		
+
 		$this->position['y'] = $this->fpdf->GetY() + $style['after'];
 		$this->position['x'] = $x;
 		$this->position['width'] = $width;
 	}
 
-/**
- * Relies on writeTextAt. Writes a text in the current position
- *
- * @param string $text The text
- * @param string $style An stylesheet
- * @return void
- */	
-	public function writeText($text = '', $style = 'default') {
-		$this->writeTextAt(false, false, 0, $text, $style);
+    function __parseTextStyles($newStyle)
+    {
+        // Si recibe un array lo fusiona con el estilo por defecto para asegurarnos de que adquiere todas las propiedades que necesitamos que tenga. Si es una cadena, busca un estilo predefinido. Si no toma el estilo por defecto
+        if (is_array($newStyle)) {
+            $newStyle = array_merge($newStyle, $this->styles['default']);
+        } elseif (is_string($newStyle) && isset ($this->styles[$newStyle])) {
+            $newStyle = $this->styles[$newStyle];
+        } else {
+            $newStyle = $this->styles['default'];
+        }
+        $longFontStyles = array('bold', 'italic', 'underline');
+        $shortFontStyles = array('B', 'I', 'U');
+        $newStyle['font-style'] = str_replace(
+            ' ',
+            '',
+            str_replace($longFontStyles, $shortFontStyles, $newStyle['font-style'])
+        );
+
+        $longAlignStyles = array('left', 'right', 'center', 'justify');
+        $shortAlignStyles = array('L', 'R', 'C', 'J');
+        $newStyle['text-align'] = str_replace($longAlignStyles, $shortAlignStyles, $newStyle['text-align']);
+
+        return $newStyle;
+    }
+
+    public function save($name)
+    {
+        $destination = 'F';
+        $this->output($name, $destination);
 	}
 
 /**
  * Outputs the document
  *
- * @param string $name A file name
+ * @param string $name        A file name
  * @param string $destination // I D F S
- * I: send the file inline to the browser. The plug-in is used if available. 
+ *                            I: send the file inline to the browser. The plug-in is used if available.
  * The name given by name is used when one selects the "Save as" option on the link generating the PDF.
  * D: send to the browser and force a file download with the name given by name.
  * F: save to a local file with the name given by name.
  * S: return the document as a string. name is ignored.
+ *
  * @return void
  */
     public function output($name = 'pagetest.pdf', $destination = 'I') {
@@ -228,23 +268,19 @@ class PdfHelper extends AppHelper {
         return $this->fpdf->Output($name, $destination);
     }
 
-	public function save($name) {
-		$destination = 'F';
-		$this->output($name, $destination);
-	}
-
 /**
  * Sets metadata
  *
- * @param array $metadata 
+ * @param array $metadata
  * keys:
  *		author
  *		creator
  *		subject
  *		title
  *		keywords (comma separated)
+ *
  * @return void
- */	
+ */
 	public function setMetaData($metadata) {
 		$metadata = array_intersect_key($metadata, array(
 			'author' => true,
@@ -260,14 +296,14 @@ class PdfHelper extends AppHelper {
 			$method = 'Set'.ucfirst($key);
 			$this->fpdf->{$method}($value, true);
 		}
-	}
-
+    }
+	
 /**
  * Draws a table in the X, Y coordinates
  *
- * @param string $x X Coordinate
- * @param string $y Y Coordinate
- * @param array $data The data to show in the table
+ * @param string $x       X Coordinate
+ * @param string $y       Y Coordinate
+ * @param array  $data    The data to show in the table
  * array(
  *		array(
  *			'column_1' => 'content of column_1 in 1st row',
@@ -375,8 +411,8 @@ class PdfHelper extends AppHelper {
 			}
 			$this->writeTableRowAt($x, $y, $headers, $settings);
 			$y += $height;
-		}
-				
+        }
+
 		// Celdas
 		$yy = $y;
 		foreach ($data as $number => $row) {
@@ -411,8 +447,8 @@ class PdfHelper extends AppHelper {
 			$this->writeTableCellAt($xx, $yy, $width, $height, $value, $style);
 			$xx += $width;
 		}
-	}
-	
+    }
+
 	function writeTableCellAt($x, $y, $width, $height, $text='', $style = 'default') {
 		$style = $this->__parseTextStyles($style);
 		// Estos ajustes los tenemos que reescribir
@@ -429,25 +465,6 @@ class PdfHelper extends AppHelper {
 		$this->fpdf->Cell($width, $style['line-height'], $text, $style['border'], 0, $style['text-align'], $style['background']);
 	}
 
-	function __parseTextStyles($newStyle) {
-		// Si recibe un array lo fusiona con el estilo por defecto para asegurarnos de que adquiere todas las propiedades que necesitamos que tenga. Si es una cadena, busca un estilo predefinido. Si no toma el estilo por defecto
-		if (is_array($newStyle)) {
-			$newStyle = array_merge($newStyle, $this->styles['default']);
-		} elseif (is_string($newStyle) && isset ($this->styles[$newStyle])) {
-			$newStyle = $this->styles[$newStyle];
-		} else {
-			$newStyle = $this->styles['default'];
-		}
-		$longFontStyles = array('bold', 'italic', 'underline');
-		$shortFontStyles = array('B', 'I', 'U');
-		$newStyle['font-style'] = str_replace(' ', '', str_replace($longFontStyles, $shortFontStyles, $newStyle['font-style']));
-		
-		$longAlignStyles = array('left', 'right', 'center', 'justify');
-		$shortAlignStyles = array('L', 'R', 'C', 'J');
-		$newStyle['text-align'] = str_replace($longAlignStyles, $shortAlignStyles, $newStyle['text-align']);
-		
-		return $newStyle;
-	}
-
 }
+
 ?>

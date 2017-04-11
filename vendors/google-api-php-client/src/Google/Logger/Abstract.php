@@ -147,21 +147,33 @@ abstract class Google_Logger_Abstract
   }
 
   /**
-   * Checks if the logger should handle messages at the provided level.
+   * Converts a given log level to the integer form.
    *
-   * @param  integer $level
-   * @return boolean
+   * @param  mixed $level The logging level
+   *
+   * @return integer $level The normalized level
+   * @throws Google_Logger_Exception If $level is invalid
    */
-  public function shouldHandle($level)
-  {
-    return $this->normalizeLevel($level) >= $this->level;
+    protected function normalizeLevel($level)
+    {
+        if (is_int($level) && array_search($level, self::$levels) !== false) {
+            return $level;
+        }
+
+        if (is_string($level) && isset(self::$levels[$level])) {
+            return self::$levels[$level];
+        }
+
+        throw new Google_Logger_Exception(
+            sprintf("Unknown LogLevel: '%s'", $level)
+        );
   }
 
   /**
    * System is unusable.
    *
    * @param string $message The log message
-   * @param array $context  The log context
+   * @param array  $context The log context
    */
   public function emergency($message, array $context = array())
   {
@@ -169,99 +181,11 @@ abstract class Google_Logger_Abstract
   }
 
   /**
-   * Action must be taken immediately.
-   *
-   * Example: Entire website down, database unavailable, etc. This should
-   * trigger the SMS alerts and wake you up.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function alert($message, array $context = array())
-  {
-    $this->log(self::ALERT, $message, $context);
-  }
-
-  /**
-   * Critical conditions.
-   *
-   * Example: Application component unavailable, unexpected exception.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function critical($message, array $context = array())
-  {
-    $this->log(self::CRITICAL, $message, $context);
-  }
-
-  /**
-   * Runtime errors that do not require immediate action but should typically
-   * be logged and monitored.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function error($message, array $context = array())
-  {
-    $this->log(self::ERROR, $message, $context);
-  }
-
-  /**
-   * Exceptional occurrences that are not errors.
-   *
-   * Example: Use of deprecated APIs, poor use of an API, undesirable things
-   * that are not necessarily wrong.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function warning($message, array $context = array())
-  {
-    $this->log(self::WARNING, $message, $context);
-  }
-
-  /**
-   * Normal but significant events.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function notice($message, array $context = array())
-  {
-    $this->log(self::NOTICE, $message, $context);
-  }
-
-  /**
-   * Interesting events.
-   *
-   * Example: User logs in, SQL logs.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function info($message, array $context = array())
-  {
-    $this->log(self::INFO, $message, $context);
-  }
-
-  /**
-   * Detailed debug information.
-   *
-   * @param string $message The log message
-   * @param array $context  The log context
-   */
-  public function debug($message, array $context = array())
-  {
-    $this->log(self::DEBUG, $message, $context);
-  }
-
-  /**
    * Logs with an arbitrary level.
    *
-   * @param mixed $level    The log level
+   * @param mixed  $level   The log level
    * @param string $message The log message
-   * @param array $context  The log context
+   * @param array  $context The log context
    */
   public function log($level, $message, array $context = array())
   {
@@ -282,10 +206,23 @@ abstract class Google_Logger_Abstract
     $this->write($message);
   }
 
+    /**
+     * Checks if the logger should handle messages at the provided level.
+     *
+     * @param  integer $level
+     *
+     * @return boolean
+     */
+    public function shouldHandle($level)
+    {
+        return $this->normalizeLevel($level) >= $this->level;
+    }
+
   /**
    * Interpolates log variables into the defined log format.
    *
    * @param  array $variables The log variables.
+   *
    * @return string
    */
   protected function interpolate(array $variables = array())
@@ -376,31 +313,97 @@ abstract class Google_Logger_Abstract
   }
 
   /**
-   * Converts a given log level to the integer form.
-   *
-   * @param  mixed $level   The logging level
-   * @return integer $level The normalized level
-   * @throws Google_Logger_Exception If $level is invalid
-   */
-  protected function normalizeLevel($level)
-  {
-    if (is_int($level) && array_search($level, self::$levels) !== false) {
-      return $level;
-    }
-
-    if (is_string($level) && isset(self::$levels[$level])) {
-      return self::$levels[$level];
-    }
-
-    throw new Google_Logger_Exception(
-        sprintf("Unknown LogLevel: '%s'", $level)
-    );
-  }
-
-  /**
    * Writes a message to the current log implementation.
    *
    * @param string $message The message
    */
   abstract protected function write($message);
+
+    /**
+     * Action must be taken immediately.
+     *
+     * Example: Entire website down, database unavailable, etc. This should
+     * trigger the SMS alerts and wake you up.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function alert($message, array $context = array())
+    {
+        $this->log(self::ALERT, $message, $context);
+    }
+
+    /**
+     * Critical conditions.
+     *
+     * Example: Application component unavailable, unexpected exception.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function critical($message, array $context = array())
+    {
+        $this->log(self::CRITICAL, $message, $context);
+    }
+
+    /**
+     * Runtime errors that do not require immediate action but should typically
+     * be logged and monitored.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function error($message, array $context = array())
+    {
+        $this->log(self::ERROR, $message, $context);
+    }
+
+    /**
+     * Exceptional occurrences that are not errors.
+     *
+     * Example: Use of deprecated APIs, poor use of an API, undesirable things
+     * that are not necessarily wrong.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function warning($message, array $context = array())
+    {
+        $this->log(self::WARNING, $message, $context);
+    }
+
+    /**
+     * Normal but significant events.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function notice($message, array $context = array())
+    {
+        $this->log(self::NOTICE, $message, $context);
+    }
+
+    /**
+     * Interesting events.
+     *
+     * Example: User logs in, SQL logs.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function info($message, array $context = array())
+    {
+        $this->log(self::INFO, $message, $context);
+    }
+
+    /**
+     * Detailed debug information.
+     *
+     * @param string $message The log message
+     * @param array  $context The log context
+     */
+    public function debug($message, array $context = array())
+    {
+        $this->log(self::DEBUG, $message, $context);
+    }
 }

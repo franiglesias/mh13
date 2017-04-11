@@ -55,21 +55,6 @@ class BackendHelper extends AppHelper
 		return $code;
 	}
 	
-	public function button($label, $url = false, $class = false, $help = false, $image = false)
-	{
-		if (is_array($label)) {
-			$button = $label;
-			extract($button, EXTR_OVERWRITE);
-		}
-		$class = 'mh-button mh-subpanel-button'.' '.$class;
-		$link = $this->Html->link(
-			$label,
-			$url,
-			array('class' => $class, 'title' => $help)
-		);
-		return $link;
-	}
-	
 	public function subpanel($subpanel)
 	{
 		$title = $help = false;
@@ -88,6 +73,22 @@ class BackendHelper extends AppHelper
 		$subpanel = $this->Html->div('mh-button-backend-subpanel', $header.$buttons);
 		return $subpanel;
 	}
+
+    public function button($label, $url = false, $class = false, $help = false, $image = false)
+    {
+        if (is_array($label)) {
+            $button = $label;
+            extract($button, EXTR_OVERWRITE);
+        }
+        $class = 'mh-button mh-subpanel-button'.' '.$class;
+        $link = $this->Html->link(
+            $label,
+            $url,
+            array('class' => $class, 'title' => $help)
+        );
+
+        return $link;
+    }
 	
 	public function menuToPanel($menus,$options = array('label' => 'Panel', 'domain' => 'domain'))
 	{
@@ -111,10 +112,11 @@ class BackendHelper extends AppHelper
 /**
  * Simple Helper to create a title for edit views
  *
- * @param string $data 
- * @param string $model 
- * @param string $domain 
- * @param string $title 
+ * @param string $data
+ * @param string $model
+ * @param string $domain
+ * @param string $title
+ *
  * @return void
  * @author Fran Iglesias
  */	

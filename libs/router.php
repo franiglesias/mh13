@@ -191,7 +191,7 @@ class Router
      */
     function getNamedExpressions()
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
 
         return $self->__named;
     }
@@ -208,7 +208,7 @@ class Router
         static $instance = array();
 
         if (!$instance) {
-            $instance[0] =& new Router();
+            $instance[0] = new Router();
         }
 
         return $instance[0];
@@ -228,7 +228,7 @@ class Router
      */
     function defaults($connect = true)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $self->__connectDefaults = $connect;
     }
 
@@ -250,7 +250,7 @@ class Router
      */
     function mapResources($controller, $options = array())
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $options = array_merge(
             array('prefix' => '/', 'id' => $self->__named['ID'].'|'.$self->__named['UUID']),
             $options
@@ -331,7 +331,7 @@ class Router
      */
     function connect($route, $defaults = array(), $options = array())
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
 
         foreach ($self->__prefixes as $prefix) {
             if (isset($defaults[$prefix])) {
@@ -353,13 +353,13 @@ class Router
             unset($options['routeClass']);
         }
         //TODO 2.0 refactor this to use a string class name, throw exception, and then construct.
-        $Route =& new $routeClass($route, $defaults, $options);
+        $Route = new $routeClass($route, $defaults, $options);
         if ($routeClass !== 'CakeRoute' && !is_subclass_of($Route, 'CakeRoute')) {
             trigger_error(__('Route classes must extend CakeRoute', true), E_USER_WARNING);
 
             return false;
         }
-        $self->routes[] =& $Route;
+        $self->routes[] = $Route;
 
         return $self->routes;
     }
@@ -373,7 +373,7 @@ class Router
      */
     function prefixes()
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
 
         return $self->__prefixes;
     }
@@ -390,7 +390,7 @@ class Router
      */
     function parse($url)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         if (!$self->__defaultsMapped && $self->__connectDefaults) {
             $self->__connectDefaultRoutes();
         }
@@ -413,9 +413,9 @@ class Router
         extract($self->__parseExtension($url));
 
         for ($i = 0, $len = count($self->routes); $i < $len; $i++) {
-            $route =& $self->routes[$i];
+            $route = $self->routes[$i];
             if (($r = $route->parse($url)) !== false) {
-                $self->__currentRoute[] =& $route;
+                $self->__currentRoute[] = $route;
 
                 $params = $route->options;
                 $argOptions = array();
@@ -572,7 +572,7 @@ class Router
      */
     function connectNamed($named, $options = array())
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
 
         if (isset($options['argSeparator'])) {
             $self->named['separator'] = $options['argSeparator'];
@@ -653,7 +653,7 @@ class Router
      */
     function getArgs($args, $options = array())
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $pass = $named = array();
         $args = explode('/', $args);
 
@@ -758,7 +758,7 @@ class Router
      */
     function setRequestInfo($params)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $defaults = array('plugin' => null, 'controller' => null, 'action' => null);
         $params[0] = array_merge($defaults, (array)$params[0]);
         $params[1] = array_merge($defaults, (array)$params[1]);
@@ -804,7 +804,7 @@ class Router
      */
     function getParams($current = false)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         if ($current) {
             return $self->__params[count($self->__params) - 1];
         }
@@ -825,7 +825,7 @@ class Router
      */
     function reload()
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         foreach (get_class_vars('Router') as $key => $val) {
             $self->{$key} = $val;
         }
@@ -844,14 +844,14 @@ class Router
      */
     function promote($which = null)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         if ($which === null) {
             $which = count($self->routes) - 1;
         }
         if (!isset($self->routes[$which])) {
             return false;
         }
-        $route =& $self->routes[$which];
+        $route = $self->routes[$which];
         unset($self->routes[$which]);
         array_unshift($self->routes, $route);
 
@@ -871,7 +871,7 @@ class Router
      */
     function getNamedElements($params, $controller = null, $action = null)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $named = array();
 
         foreach ($params as $param => $val) {
@@ -951,7 +951,7 @@ class Router
      */
     static public function url($url = null, $full = false)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $defaults = $params = array('plugin' => null, 'controller' => null, 'action' => 'index');
 
         if (is_bool($full)) {
@@ -1241,7 +1241,7 @@ class Router
      */
     function getPaths($current = false)
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         if ($current) {
             return $self->__paths[count($self->__paths) - 1];
         }
@@ -1261,7 +1261,7 @@ class Router
      */
     function &requestRoute()
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
 
         return $self->__currentRoute[0];
     }
@@ -1275,7 +1275,7 @@ class Router
      */
     function &currentRoute()
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
 
         return $self->__currentRoute[count($self->__currentRoute) - 1];
     }
@@ -1324,7 +1324,7 @@ class Router
      */
     function parseExtensions()
     {
-        $self =& Router::getInstance();
+        $self = Router::getInstance();
         $self->__parseExtensions = true;
         if (func_num_args() > 0) {
             $self->__validExtensions = func_get_args();
@@ -1692,7 +1692,7 @@ class CakeRoute
             $params['pass'] = implode('/', $params['pass']);
         }
 
-        $instance =& Router::getInstance();
+        $instance = Router::getInstance();
         $separator = $instance->named['separator'];
 
         if (!empty($params['named']) && is_array($params['named'])) {

@@ -5,7 +5,8 @@ class Sindex extends SearchableAppModel {
 /**
  * Looks for the search terms into de Sindex model and returns an array with the id as keys and the relevance index
  *
- * @param string $term 
+ * @param string $term
+ *
  * @return array ids as keys, relevance as value
  * @status deprecated ????
  */	
@@ -25,4 +26,5 @@ class Sindex extends SearchableAppModel {
 
 
 }
+
 ?>

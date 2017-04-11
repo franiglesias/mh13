@@ -38,7 +38,8 @@ class AjaxRequestComponent extends Object {
 	 * Retrieves a param from Controller->params['url'] array. These params are url query params
 	 * sent by ajax requests
 	 *
-	 * @param string $key 
+     * @param string $key
+     *
 	 * @return the value of the param or null if not present in the url query
 	 * @author Fran Iglesias
 	 */

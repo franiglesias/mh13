@@ -55,7 +55,7 @@ class Configure extends Object
      */
     function delete($var = null)
     {
-        $_this =& Configure::getInstance();
+        $_this = Configure::getInstance();
 
         if (strpos($var, '.') === false) {
             unset($_this->{$var});
@@ -80,7 +80,7 @@ class Configure extends Object
             if (!class_exists('Set')) {
                 require LIBS.'set.php';
             }
-            $instance[0] =& new Configure();
+            $instance[0] = new Configure();
             $instance[0]->__loadBootstrap($boot);
         }
 
@@ -223,7 +223,7 @@ class Configure extends Object
      */
     function write($config, $value = null)
     {
-        $_this =& Configure::getInstance();
+        $_this = Configure::getInstance();
 
         if (!is_array($config)) {
             $config = array($config => $value);
@@ -308,7 +308,7 @@ class Configure extends Object
      */
     static public function read($var = 'debug')
     {
-        $_this =& Configure::getInstance();
+        $_this = Configure::getInstance();
 
         if ($var === 'debug') {
             return $_this->debug;
@@ -420,7 +420,7 @@ class Configure extends Object
      */
     function version()
     {
-        $_this =& Configure::getInstance();
+        $_this = Configure::getInstance();
 
         if (!isset($_this->Cake['version'])) {
             require(CORE_PATH.'cake'.DS.'config'.DS.'config.php');
@@ -715,7 +715,7 @@ class App extends Object
      */
     function path($type)
     {
-        $_this =& App::getInstance();
+        $_this = App::getInstance();
         if (!isset($_this->{$type})) {
             return array();
         }
@@ -733,7 +733,7 @@ class App extends Object
     {
         static $instance = array();
         if (!$instance) {
-            $instance[0] =& new App();
+            $instance[0] = new App();
             $instance[0]->__map = (array)Cache::read('file_map', '_cake_core_');
         }
 
@@ -752,7 +752,7 @@ class App extends Object
      */
     function build($paths = array(), $reset = false)
     {
-        $_this =& App::getInstance();
+        $_this = App::getInstance();
         $defaults = array(
             'models' => array(MODELS),
             'behaviors' => array(BEHAVIORS),
@@ -820,7 +820,7 @@ class App extends Object
      */
     function pluginPath($plugin)
     {
-        $_this =& App::getInstance();
+        $_this = App::getInstance();
         $pluginDir = Inflector::underscore($plugin);
         for ($i = 0, $length = count($_this->plugins); $i < $length; $i++) {
             if (is_dir($_this->plugins[$i].$pluginDir)) {
@@ -840,7 +840,7 @@ class App extends Object
      */
     function themePath($theme)
     {
-        $_this =& App::getInstance();
+        $_this = App::getInstance();
         $themeDir = 'themed'.DS.Inflector::underscore($theme);
         for ($i = 0, $length = count($_this->views); $i < $length; $i++) {
             if (is_dir($_this->views[$i].$themeDir)) {
@@ -878,7 +878,7 @@ class App extends Object
             $extension = true;
             $name = $type.str_replace(DS, '', $path);
         }
-        $_this =& App::getInstance();
+        $_this = App::getInstance();
 
         if (empty($_this->__objects) && $cache === true) {
             $_this->__objects = Cache::read('object_map', '_cake_core_');
@@ -965,7 +965,7 @@ class App extends Object
                 if (!class_exists('Folder')) {
                     require LIBS.'folder.php';
                 }
-                $Folder =& new Folder();
+                $Folder = new Folder();
                 $directories = $Folder->tree($path, array('.svn', '.git', 'CVS', 'tests', 'templates'), 'dir');
                 sort($directories);
                 $this->__paths[$path] = $directories;
@@ -1265,7 +1265,7 @@ class App extends Object
             list($plugin, $name) = explode('.', $name);
             $plugin = Inflector::camelize($plugin);
         }
-        $_this =& App::getInstance();
+        $_this = App::getInstance();
         $_this->return = $return;
 
         if (isset($ext)) {
@@ -1433,7 +1433,7 @@ class App extends Object
             require LIBS.'folder.php';
         }
         $items = array();
-        $Folder =& new Folder($path);
+        $Folder = new Folder($path);
         $contents = $Folder->read(false, true);
 
         if (is_array($contents)) {

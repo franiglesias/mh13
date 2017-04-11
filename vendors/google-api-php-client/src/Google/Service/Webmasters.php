@@ -298,11 +298,11 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Deletes a sitemap from this site. (sitemaps.delete)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param string $feedpath The URL of the actual sitemap (for example
+   * @param string $feedpath  The URL of the actual sitemap (for example
    * http://www.example.com/sitemap.xml).
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($siteUrl, $feedpath, $optParams = array())
   {
@@ -314,11 +314,12 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Retrieves information about a specific sitemap. (sitemaps.get)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param string $feedpath The URL of the actual sitemap (for example
+   * @param string $feedpath  The URL of the actual sitemap (for example
    * http://www.example.com/sitemap.xml).
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Webmasters_WmxSitemap
    */
   public function get($siteUrl, $feedpath, $optParams = array())
@@ -331,9 +332,9 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Lists sitemaps uploaded to the site. (sitemaps.listSitemaps)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string sitemapIndex A URL of a site's sitemap index.
    * @return Google_Service_Webmasters_SitemapsListResponse
@@ -348,10 +349,10 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Submits a sitemap for a site. (sitemaps.submit)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param string $feedpath The URL of the sitemap to add.
-   * @param array $optParams Optional parameters.
+   * @param string $feedpath  The URL of the sitemap to add.
+   * @param array  $optParams Optional parameters.
    */
   public function submit($siteUrl, $feedpath, $optParams = array())
   {
@@ -375,8 +376,8 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
   /**
    * Adds a site to the set of the user's sites in Webmaster Tools. (sites.add)
    *
-   * @param string $siteUrl The URL of the site to add.
-   * @param array $optParams Optional parameters.
+   * @param string $siteUrl   The URL of the site to add.
+   * @param array  $optParams Optional parameters.
    */
   public function add($siteUrl, $optParams = array())
   {
@@ -389,9 +390,9 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
    * Removes a site from the set of the user's Webmaster Tools sites.
    * (sites.delete)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($siteUrl, $optParams = array())
   {
@@ -403,9 +404,10 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
   /**
    * Retrieves information about specific site. (sites.get)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Webmasters_WmxSite
    */
   public function get($siteUrl, $optParams = array())
@@ -444,9 +446,9 @@ class Google_Service_Webmasters_Urlcrawlerrorscounts_Resource extends Google_Ser
    * Retrieves a time series of the number of URL crawl errors per error category
    * and platform. (urlcrawlerrorscounts.query)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string category The crawl error category, for example
    * 'serverError'. If not specified, we return results for all categories.
@@ -480,15 +482,16 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
    * Retrieves details about crawl errors for a site's sample URL.
    * (urlcrawlerrorssamples.get)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
+   * @param string $siteUrl   The site's URL, including protocol, for example
    * 'http://www.example.com/'
-   * @param string $url The relative path (without the site) of the sample URL;
+   * @param string $url       The relative path (without the site) of the sample URL;
    * must be one of the URLs returned by list
-   * @param string $category The crawl error category, for example
+   * @param string $category  The crawl error category, for example
    * 'authPermissions'
-   * @param string $platform The user agent type (platform) that made the request,
+   * @param string $platform  The user agent type (platform) that made the request,
    * for example 'web'
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Webmasters_UrlCrawlErrorsSample
    */
   public function get($siteUrl, $url, $category, $platform, $optParams = array())
@@ -509,6 +512,7 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
    * @param string $platform The user agent type (platform) that made the request,
    * for example 'web'
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse
    */
   public function listUrlcrawlerrorssamples($siteUrl, $category, $platform, $optParams = array())
@@ -583,49 +587,51 @@ class Google_Service_Webmasters_SitesListResponse extends Google_Collection
 
 class Google_Service_Webmasters_UrlCrawlErrorCount extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $count;
   public $timestamp;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
   public function getCount()
   {
     return $this->count;
   }
-  public function setTimestamp($timestamp)
+
+    public function setCount($count)
   {
-    $this->timestamp = $timestamp;
+      $this->count = $count;
   }
+
   public function getTimestamp()
   {
     return $this->timestamp;
   }
+
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collection
 {
+    public $category;
+    public $platform;
   protected $collection_key = 'entries';
   protected $internal_gapi_mappings = array(
   );
-  public $category;
   protected $entriesType = 'Google_Service_Webmasters_UrlCrawlErrorCount';
   protected $entriesDataType = 'array';
-  public $platform;
 
-
-  public function setCategory($category)
-  {
-    $this->category = $category;
-  }
   public function getCategory()
   {
     return $this->category;
   }
+
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
   public function setEntries($entries)
   {
     $this->entries = $entries;
@@ -634,14 +640,16 @@ class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collec
   {
     return $this->entries;
   }
-  public function setPlatform($platform)
-  {
-    $this->platform = $platform;
-  }
+
   public function getPlatform()
   {
     return $this->platform;
   }
+
+    public function setPlatform($platform)
+    {
+        $this->platform = $platform;
+    }
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse extends Google_Collection
@@ -665,50 +673,57 @@ class Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse extends Google
 
 class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-        "firstDetected" => "first_detected",
-        "lastCrawled" => "last_crawled",
-  );
   public $firstDetected;
   public $lastCrawled;
   public $pageUrl;
   public $responseCode;
+    protected $internal_gapi_mappings = array(
+        "firstDetected" => "first_detected",
+        "lastCrawled" => "last_crawled",
+    );
   protected $urlDetailsType = 'Google_Service_Webmasters_UrlSampleDetails';
   protected $urlDetailsDataType = '';
 
-
-  public function setFirstDetected($firstDetected)
-  {
-    $this->firstDetected = $firstDetected;
-  }
   public function getFirstDetected()
   {
     return $this->firstDetected;
   }
-  public function setLastCrawled($lastCrawled)
+
+    public function setFirstDetected($firstDetected)
   {
-    $this->lastCrawled = $lastCrawled;
+      $this->firstDetected = $firstDetected;
   }
+
   public function getLastCrawled()
   {
     return $this->lastCrawled;
   }
-  public function setPageUrl($pageUrl)
+
+    public function setLastCrawled($lastCrawled)
   {
-    $this->pageUrl = $pageUrl;
+      $this->lastCrawled = $lastCrawled;
   }
+
   public function getPageUrl()
   {
     return $this->pageUrl;
   }
-  public function setResponseCode($responseCode)
+
+    public function setPageUrl($pageUrl)
   {
-    $this->responseCode = $responseCode;
+      $this->pageUrl = $pageUrl;
   }
+
   public function getResponseCode()
   {
     return $this->responseCode;
   }
+
+    public function setResponseCode($responseCode)
+    {
+        $this->responseCode = $responseCode;
+    }
+
   public function setUrlDetails(Google_Service_Webmasters_UrlSampleDetails $urlDetails)
   {
     $this->urlDetails = $urlDetails;
@@ -740,64 +755,61 @@ class Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse extends Google
 
 class Google_Service_Webmasters_UrlSampleDetails extends Google_Collection
 {
-  protected $collection_key = 'linkedFromUrls';
-  protected $internal_gapi_mappings = array(
-  );
   public $containingSitemaps;
   public $linkedFromUrls;
+    protected $collection_key = 'linkedFromUrls';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setContainingSitemaps($containingSitemaps)
-  {
-    $this->containingSitemaps = $containingSitemaps;
-  }
   public function getContainingSitemaps()
   {
     return $this->containingSitemaps;
   }
-  public function setLinkedFromUrls($linkedFromUrls)
+
+    public function setContainingSitemaps($containingSitemaps)
   {
-    $this->linkedFromUrls = $linkedFromUrls;
+      $this->containingSitemaps = $containingSitemaps;
   }
+
   public function getLinkedFromUrls()
   {
     return $this->linkedFromUrls;
   }
+
+    public function setLinkedFromUrls($linkedFromUrls)
+    {
+        $this->linkedFromUrls = $linkedFromUrls;
+    }
 }
 
 class Google_Service_Webmasters_WmxSite extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $permissionLevel;
   public $siteUrl;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPermissionLevel($permissionLevel)
-  {
-    $this->permissionLevel = $permissionLevel;
-  }
   public function getPermissionLevel()
   {
     return $this->permissionLevel;
   }
-  public function setSiteUrl($siteUrl)
+
+    public function setPermissionLevel($permissionLevel)
   {
-    $this->siteUrl = $siteUrl;
+      $this->permissionLevel = $permissionLevel;
   }
+
   public function getSiteUrl()
   {
     return $this->siteUrl;
   }
+
+    public function setSiteUrl($siteUrl)
+    {
+        $this->siteUrl = $siteUrl;
+    }
 }
 
 class Google_Service_Webmasters_WmxSitemap extends Google_Collection
 {
-  protected $collection_key = 'contents';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentsType = 'Google_Service_Webmasters_WmxSitemapContent';
-  protected $contentsDataType = 'array';
   public $errors;
   public $isPending;
   public $isSitemapsIndex;
@@ -806,7 +818,10 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   public $path;
   public $type;
   public $warnings;
-
+    protected $collection_key = 'contents';
+    protected $internal_gapi_mappings = array();
+    protected $contentsType = 'Google_Service_Webmasters_WmxSitemapContent';
+    protected $contentsDataType = 'array';
 
   public function setContents($contents)
   {
@@ -816,103 +831,122 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->contents;
   }
-  public function setErrors($errors)
-  {
-    $this->errors = $errors;
-  }
+
   public function getErrors()
   {
     return $this->errors;
   }
-  public function setIsPending($isPending)
+
+    public function setErrors($errors)
   {
-    $this->isPending = $isPending;
+      $this->errors = $errors;
   }
+
   public function getIsPending()
   {
     return $this->isPending;
   }
-  public function setIsSitemapsIndex($isSitemapsIndex)
+
+    public function setIsPending($isPending)
   {
-    $this->isSitemapsIndex = $isSitemapsIndex;
+      $this->isPending = $isPending;
   }
+
   public function getIsSitemapsIndex()
   {
     return $this->isSitemapsIndex;
   }
-  public function setLastDownloaded($lastDownloaded)
+
+    public function setIsSitemapsIndex($isSitemapsIndex)
   {
-    $this->lastDownloaded = $lastDownloaded;
+      $this->isSitemapsIndex = $isSitemapsIndex;
   }
+
   public function getLastDownloaded()
   {
     return $this->lastDownloaded;
   }
-  public function setLastSubmitted($lastSubmitted)
+
+    public function setLastDownloaded($lastDownloaded)
   {
-    $this->lastSubmitted = $lastSubmitted;
+      $this->lastDownloaded = $lastDownloaded;
   }
+
   public function getLastSubmitted()
   {
     return $this->lastSubmitted;
   }
-  public function setPath($path)
+
+    public function setLastSubmitted($lastSubmitted)
   {
-    $this->path = $path;
+      $this->lastSubmitted = $lastSubmitted;
   }
-  public function getPath()
+
+    public function getPath()
   {
     return $this->path;
   }
-  public function setType($type)
+
+    public function setPath($path)
   {
-    $this->type = $type;
+      $this->path = $path;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
-  public function setWarnings($warnings)
+
+    public function setType($type)
   {
-    $this->warnings = $warnings;
+      $this->type = $type;
   }
-  public function getWarnings()
+
+    public function getWarnings()
   {
     return $this->warnings;
   }
+
+    public function setWarnings($warnings)
+    {
+        $this->warnings = $warnings;
+    }
 }
 
 class Google_Service_Webmasters_WmxSitemapContent extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $indexed;
   public $submitted;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setIndexed($indexed)
-  {
-    $this->indexed = $indexed;
-  }
   public function getIndexed()
   {
     return $this->indexed;
   }
-  public function setSubmitted($submitted)
+
+    public function setIndexed($indexed)
   {
-    $this->submitted = $submitted;
+      $this->indexed = $indexed;
   }
-  public function getSubmitted()
+
+    public function getSubmitted()
   {
     return $this->submitted;
   }
-  public function setType($type)
+
+    public function setSubmitted($submitted)
   {
-    $this->type = $type;
+      $this->submitted = $submitted;
   }
-  public function getType()
+
+    public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }

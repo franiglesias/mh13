@@ -17,8 +17,9 @@ class AppModel extends Model
 /**
  * Toggles a boolean field value
  *
- * @param string $field 
- * @param string $id 
+ * @param string $field
+ * @param string $id
+ *
  * @return void
  * @author Tecknoid
  * 
@@ -65,9 +66,10 @@ class AppModel extends Model
  *      'field' => array(0 => 'Undefined', 1 => 'Inactive', 2 => 'Active')
  * );
  *
- * @param string $field The field name to rotate
+ * @param string $field  The field name to rotate
  * @param string $states Number of possible states
- * @param string $id Model ID
+ * @param string $id     Model ID
+ *
  * @return integer The new state
  */	
 	public function rotateField($field, $states, $id = null)
@@ -108,8 +110,8 @@ class AppModel extends Model
  *
  * @param string $value
  * @param string $matchField The field against match the value
- * @param string $hash string (false) or a valid hash type (sha1/sha256/md5)
- * @param string $salt bool (false) add App.Salt to the hash
+ * @param string $hash       string (false) or a valid hash type (sha1/sha256/md5)
+ * @param string $salt       bool (false) add App.Salt to the hash
  *
 *@return void
  */
@@ -127,8 +129,9 @@ class AppModel extends Model
  * Handles the before/after filter logic for find('count') operations.  Only called by Model::find().
  *
  * @param string $state Either "before" or "after"
- * @param array $query
- * @param array $data
+ * @param array  $query
+ * @param array  $data
+ *
  * @return int The number of records found, or false
  * @access protected
  * @see Model::find()
@@ -157,7 +160,7 @@ class AppModel extends Model
 			if (!class_exists('I18n')) {
 				App::import('Core', 'i18n');
 			}
-			$I18n =& I18n::getInstance();
+            $I18n = I18n::getInstance();
 			$I18n->l10n->get(Configure::read('Config.language'));
 			$this->locale = $I18n->l10n->locale;
 		}

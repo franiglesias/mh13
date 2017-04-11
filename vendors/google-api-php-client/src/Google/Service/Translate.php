@@ -146,8 +146,9 @@ class Google_Service_Translate_Detections_Resource extends Google_Service_Resour
   /**
    * Detect the language of text. (detections.listDetections)
    *
-   * @param string $q The text to detect
-   * @param array $optParams Optional parameters.
+   * @param string $q         The text to detect
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Translate_DetectionsListResponse
    */
   public function listDetections($q, $optParams = array())
@@ -202,10 +203,10 @@ class Google_Service_Translate_Translations_Resource extends Google_Service_Reso
    * Returns text translations from one language to another.
    * (translations.listTranslations)
    *
-   * @param string $q The text to translate
-   * @param string $target The target language into which the text should be
+   * @param string $q         The text to translate
+   * @param string $target    The target language into which the text should be
    * translated
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string source The source language of the text
    * @opt_param string format The format of the text
@@ -244,37 +245,40 @@ class Google_Service_Translate_DetectionsListResponse extends Google_Collection
 
 class Google_Service_Translate_DetectionsResourceItems extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $confidence;
   public $isReliable;
   public $language;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setConfidence($confidence)
-  {
-    $this->confidence = $confidence;
-  }
   public function getConfidence()
   {
     return $this->confidence;
   }
-  public function setIsReliable($isReliable)
+
+    public function setConfidence($confidence)
   {
-    $this->isReliable = $isReliable;
+      $this->confidence = $confidence;
   }
+
   public function getIsReliable()
   {
     return $this->isReliable;
   }
-  public function setLanguage($language)
+
+    public function setIsReliable($isReliable)
   {
-    $this->language = $language;
+      $this->isReliable = $isReliable;
   }
+
   public function getLanguage()
   {
     return $this->language;
   }
+
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
 }
 
 class Google_Service_Translate_LanguagesListResponse extends Google_Collection
@@ -298,28 +302,29 @@ class Google_Service_Translate_LanguagesListResponse extends Google_Collection
 
 class Google_Service_Translate_LanguagesResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $language;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLanguage($language)
-  {
-    $this->language = $language;
-  }
   public function getLanguage()
   {
     return $this->language;
   }
-  public function setName($name)
+
+    public function setLanguage($language)
   {
-    $this->name = $name;
+      $this->language = $language;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_Translate_TranslationsListResponse extends Google_Collection
@@ -343,26 +348,27 @@ class Google_Service_Translate_TranslationsListResponse extends Google_Collectio
 
 class Google_Service_Translate_TranslationsResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $detectedSourceLanguage;
   public $translatedText;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDetectedSourceLanguage($detectedSourceLanguage)
-  {
-    $this->detectedSourceLanguage = $detectedSourceLanguage;
-  }
   public function getDetectedSourceLanguage()
   {
     return $this->detectedSourceLanguage;
   }
-  public function setTranslatedText($translatedText)
+
+    public function setDetectedSourceLanguage($detectedSourceLanguage)
   {
-    $this->translatedText = $translatedText;
+      $this->detectedSourceLanguage = $detectedSourceLanguage;
   }
-  public function getTranslatedText()
+
+    public function getTranslatedText()
   {
     return $this->translatedText;
   }
+
+    public function setTranslatedText($translatedText)
+    {
+        $this->translatedText = $translatedText;
+    }
 }

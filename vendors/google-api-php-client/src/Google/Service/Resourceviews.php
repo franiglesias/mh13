@@ -351,10 +351,11 @@ class Google_Service_Resourceviews_ZoneOperations_Resource extends Google_Servic
    * Retrieves the specified zone-specific operation resource.
    * (zoneOperations.get)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project   Name of the project scoping this request.
+   * @param string $zone      Name of the zone scoping this request.
    * @param string $operation Name of the operation resource to return.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
+   *
    * @return Google_Service_Resourceviews_Operation
    */
   public function get($project, $zone, $operation, $optParams = array())
@@ -368,9 +369,9 @@ class Google_Service_Resourceviews_ZoneOperations_Resource extends Google_Servic
    * Retrieves the list of operation resources contained within the specified
    * zone. (zoneOperations.listZoneOperations)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param array $optParams Optional parameters.
+   * @param string $project   Name of the project scoping this request.
+   * @param string $zone      Name of the zone scoping this request.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
    * resources.
@@ -402,11 +403,12 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
   /**
    * Add resources to the view. (zoneViews.addResources)
    *
-   * @param string $project The project name of the resource view.
-   * @param string $zone The zone name of the resource view.
-   * @param string $resourceView The name of the resource view.
+   * @param string                              $project      The project name of the resource view.
+   * @param string                              $zone         The zone name of the resource view.
+   * @param string                              $resourceView The name of the resource view.
    * @param Google_ZoneViewsAddResourcesRequest $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                               $optParams    Optional parameters.
+   *
    * @return Google_Service_Resourceviews_Operation
    */
   public function addResources($project, $zone, $resourceView, Google_Service_Resourceviews_ZoneViewsAddResourcesRequest $postBody, $optParams = array())
@@ -419,10 +421,11 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
   /**
    * Delete a resource view. (zoneViews.delete)
    *
-   * @param string $project The project name of the resource view.
-   * @param string $zone The zone name of the resource view.
+   * @param string $project      The project name of the resource view.
+   * @param string $zone         The zone name of the resource view.
    * @param string $resourceView The name of the resource view.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams    Optional parameters.
+   *
    * @return Google_Service_Resourceviews_Operation
    */
   public function delete($project, $zone, $resourceView, $optParams = array())
@@ -439,6 +442,7 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @param string $zone The zone name of the resource view.
    * @param string $resourceView The name of the resource view.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Resourceviews_ResourceView
    */
   public function get($project, $zone, $resourceView, $optParams = array())
@@ -475,6 +479,7 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @param string $zone The zone name of the resource view.
    * @param Google_ResourceView $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Resourceviews_Operation
    */
   public function insert($project, $zone, Google_Service_Resourceviews_ResourceView $postBody, $optParams = array())
@@ -543,6 +548,7 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @param string $resourceView The name of the resource view.
    * @param Google_ZoneViewsRemoveResourcesRequest $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Resourceviews_Operation
    */
   public function removeResources($project, $zone, $resourceView, Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest $postBody, $optParams = array())
@@ -561,6 +567,7 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @param string $resourceView The name of the resource view.
    * @param Google_ZoneViewsSetServiceRequest $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Resourceviews_Operation
    */
   public function setService($project, $zone, $resourceView, Google_Service_Resourceviews_ZoneViewsSetServiceRequest $postBody, $optParams = array())
@@ -576,54 +583,56 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
 
 class Google_Service_Resourceviews_Label extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setValue($value)
+
+    public function setKey($key)
   {
-    $this->value = $value;
+      $this->key = $key;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $endpoints;
   public $resource;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEndpoints($endpoints)
-  {
-    $this->endpoints = $endpoints;
-  }
   public function getEndpoints()
   {
     return $this->endpoints;
   }
-  public function setResource($resource)
+
+    public function setEndpoints($endpoints)
   {
-    $this->resource = $resource;
+      $this->endpoints = $endpoints;
   }
+
   public function getResource()
   {
     return $this->resource;
   }
+
+    public function setResource($resource)
+    {
+        $this->resource = $resource;
+    }
 }
 
 class Google_Service_Resourceviews_ListResourceResponseItemEndpoints extends Google_Model
@@ -632,14 +641,9 @@ class Google_Service_Resourceviews_ListResourceResponseItemEndpoints extends Goo
 
 class Google_Service_Resourceviews_Operation extends Google_Collection
 {
-  protected $collection_key = 'warnings';
-  protected $internal_gapi_mappings = array(
-  );
   public $clientOperationId;
   public $creationTimestamp;
   public $endTime;
-  protected $errorType = 'Google_Service_Resourceviews_OperationError';
-  protected $errorDataType = '';
   public $httpErrorMessage;
   public $httpErrorStatusCode;
   public $id;
@@ -656,35 +660,44 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   public $targetId;
   public $targetLink;
   public $user;
+    public $zone;
+    protected $collection_key = 'warnings';
+    protected $internal_gapi_mappings = array();
+    protected $errorType = 'Google_Service_Resourceviews_OperationError';
+    protected $errorDataType = '';
   protected $warningsType = 'Google_Service_Resourceviews_OperationWarnings';
   protected $warningsDataType = 'array';
-  public $zone;
 
-
-  public function setClientOperationId($clientOperationId)
-  {
-    $this->clientOperationId = $clientOperationId;
-  }
   public function getClientOperationId()
   {
     return $this->clientOperationId;
   }
-  public function setCreationTimestamp($creationTimestamp)
+
+    public function setClientOperationId($clientOperationId)
   {
-    $this->creationTimestamp = $creationTimestamp;
+      $this->clientOperationId = $clientOperationId;
   }
+
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setEndTime($endTime)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->endTime = $endTime;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getEndTime()
   {
     return $this->endTime;
   }
+
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+    }
+
   public function setError(Google_Service_Resourceviews_OperationError $error)
   {
     $this->error = $error;
@@ -693,134 +706,167 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->error;
   }
-  public function setHttpErrorMessage($httpErrorMessage)
-  {
-    $this->httpErrorMessage = $httpErrorMessage;
-  }
+
   public function getHttpErrorMessage()
   {
     return $this->httpErrorMessage;
   }
-  public function setHttpErrorStatusCode($httpErrorStatusCode)
+
+    public function setHttpErrorMessage($httpErrorMessage)
   {
-    $this->httpErrorStatusCode = $httpErrorStatusCode;
+      $this->httpErrorMessage = $httpErrorMessage;
   }
+
   public function getHttpErrorStatusCode()
   {
     return $this->httpErrorStatusCode;
   }
-  public function setId($id)
+
+    public function setHttpErrorStatusCode($httpErrorStatusCode)
   {
-    $this->id = $id;
+      $this->httpErrorStatusCode = $httpErrorStatusCode;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setInsertTime($insertTime)
+
+    public function setId($id)
   {
-    $this->insertTime = $insertTime;
+      $this->id = $id;
   }
+
   public function getInsertTime()
   {
     return $this->insertTime;
   }
-  public function setKind($kind)
+
+    public function setInsertTime($insertTime)
   {
-    $this->kind = $kind;
+      $this->insertTime = $insertTime;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setOperationType($operationType)
+
+    public function setName($name)
   {
-    $this->operationType = $operationType;
+      $this->name = $name;
   }
+
   public function getOperationType()
   {
     return $this->operationType;
   }
-  public function setProgress($progress)
+
+    public function setOperationType($operationType)
   {
-    $this->progress = $progress;
+      $this->operationType = $operationType;
   }
+
   public function getProgress()
   {
     return $this->progress;
   }
-  public function setRegion($region)
+
+    public function setProgress($progress)
   {
-    $this->region = $region;
+      $this->progress = $progress;
   }
+
   public function getRegion()
   {
     return $this->region;
   }
-  public function setSelfLink($selfLink)
+
+    public function setRegion($region)
   {
-    $this->selfLink = $selfLink;
+      $this->region = $region;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setStartTime($startTime)
+
+    public function setSelfLink($selfLink)
   {
-    $this->startTime = $startTime;
+      $this->selfLink = $selfLink;
   }
+
   public function getStartTime()
   {
     return $this->startTime;
   }
-  public function setStatus($status)
+
+    public function setStartTime($startTime)
   {
-    $this->status = $status;
+      $this->startTime = $startTime;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
-  public function setStatusMessage($statusMessage)
+
+    public function setStatus($status)
   {
-    $this->statusMessage = $statusMessage;
+      $this->status = $status;
   }
+
   public function getStatusMessage()
   {
     return $this->statusMessage;
   }
-  public function setTargetId($targetId)
+
+    public function setStatusMessage($statusMessage)
   {
-    $this->targetId = $targetId;
+      $this->statusMessage = $statusMessage;
   }
+
   public function getTargetId()
   {
     return $this->targetId;
   }
-  public function setTargetLink($targetLink)
+
+    public function setTargetId($targetId)
   {
-    $this->targetLink = $targetLink;
+      $this->targetId = $targetId;
   }
+
   public function getTargetLink()
   {
     return $this->targetLink;
   }
-  public function setUser($user)
+
+    public function setTargetLink($targetLink)
   {
-    $this->user = $user;
+      $this->targetLink = $targetLink;
   }
+
   public function getUser()
   {
     return $this->user;
   }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -829,14 +875,16 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->warnings;
   }
-  public function setZone($zone)
-  {
-    $this->zone = $zone;
-  }
+
   public function getZone()
   {
     return $this->zone;
   }
+
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
 }
 
 class Google_Service_Resourceviews_OperationError extends Google_Collection
@@ -860,60 +908,63 @@ class Google_Service_Resourceviews_OperationError extends Google_Collection
 
 class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $code;
   public $location;
   public $message;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
-  public function setLocation($location)
+
+    public function setCode($code)
   {
-    $this->location = $location;
+      $this->code = $code;
   }
+
   public function getLocation()
   {
     return $this->location;
   }
-  public function setMessage($message)
+
+    public function setLocation($location)
   {
-    $this->message = $message;
+      $this->location = $location;
   }
+
   public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Resourceviews_OperationList extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
-  protected $itemsType = 'Google_Service_Resourceviews_Operation';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
   public $selfLink;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_Resourceviews_Operation';
+    protected $itemsDataType = 'array';
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -922,51 +973,58 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
 {
+    public $code;
+    public $message;
   protected $collection_key = 'data';
   protected $internal_gapi_mappings = array(
   );
-  public $code;
   protected $dataType = 'Google_Service_Resourceviews_OperationWarningsData';
   protected $dataDataType = 'array';
-  public $message;
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
   public function setData($data)
   {
     $this->data = $data;
@@ -975,79 +1033,84 @@ class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
   {
     return $this->data;
   }
-  public function setMessage($message)
-  {
-    $this->message = $message;
-  }
+
   public function getMessage()
   {
     return $this->message;
   }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
 
 class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $key;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
   public function getKey()
   {
     return $this->key;
   }
-  public function setValue($value)
+
+    public function setKey($key)
   {
-    $this->value = $value;
+      $this->key = $key;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_Resourceviews_ResourceView extends Google_Collection
 {
-  protected $collection_key = 'resources';
-  protected $internal_gapi_mappings = array(
-  );
   public $creationTimestamp;
   public $description;
-  protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
-  protected $endpointsDataType = 'array';
   public $fingerprint;
   public $id;
   public $kind;
-  protected $labelsType = 'Google_Service_Resourceviews_Label';
-  protected $labelsDataType = 'array';
   public $name;
   public $network;
   public $resources;
   public $selfLink;
   public $size;
+    protected $collection_key = 'resources';
+    protected $internal_gapi_mappings = array();
+    protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
+    protected $endpointsDataType = 'array';
+    protected $labelsType = 'Google_Service_Resourceviews_Label';
+    protected $labelsDataType = 'array';
 
-
-  public function setCreationTimestamp($creationTimestamp)
-  {
-    $this->creationTimestamp = $creationTimestamp;
-  }
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
   }
-  public function setDescription($description)
+
+    public function setCreationTimestamp($creationTimestamp)
   {
-    $this->description = $description;
+      $this->creationTimestamp = $creationTimestamp;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
   public function setEndpoints($endpoints)
   {
     $this->endpoints = $endpoints;
@@ -1056,30 +1119,37 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->endpoints;
   }
-  public function setFingerprint($fingerprint)
-  {
-    $this->fingerprint = $fingerprint;
-  }
+
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setId($id)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->id = $id;
+      $this->fingerprint = $fingerprint;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLabels($labels)
   {
     $this->labels = $labels;
@@ -1088,101 +1158,111 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->labels;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setNetwork($network)
+
+    public function setName($name)
   {
-    $this->network = $network;
+      $this->name = $name;
   }
-  public function getNetwork()
+
+    public function getNetwork()
   {
     return $this->network;
   }
-  public function setResources($resources)
+
+    public function setNetwork($network)
   {
-    $this->resources = $resources;
+      $this->network = $network;
   }
-  public function getResources()
+
+    public function getResources()
   {
     return $this->resources;
   }
-  public function setSelfLink($selfLink)
+
+    public function setResources($resources)
   {
-    $this->selfLink = $selfLink;
+      $this->resources = $resources;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
-  public function setSize($size)
+
+    public function setSelfLink($selfLink)
   {
-    $this->size = $size;
+      $this->selfLink = $selfLink;
   }
-  public function getSize()
+
+    public function getSize()
   {
     return $this->size;
   }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
 }
 
 class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $name;
   public $port;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
   public function getName()
   {
     return $this->name;
   }
-  public function setPort($port)
+
+    public function setName($name)
   {
-    $this->port = $port;
+      $this->name = $name;
   }
-  public function getPort()
+
+    public function getPort()
   {
     return $this->port;
   }
+
+    public function setPort($port)
+    {
+        $this->port = $port;
+    }
 }
 
 class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_Collection
 {
+    public $resources;
   protected $collection_key = 'resources';
   protected $internal_gapi_mappings = array(
   );
-  public $resources;
 
-
-  public function setResources($resources)
-  {
-    $this->resources = $resources;
-  }
   public function getResources()
   {
     return $this->resources;
   }
+
+    public function setResources($resources)
+    {
+        $this->resources = $resources;
+    }
 }
 
 class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Collection
 {
+    public $fingerprint;
   protected $collection_key = 'endpoints';
   protected $internal_gapi_mappings = array(
   );
   protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
   protected $endpointsDataType = 'array';
-  public $fingerprint;
-
 
   public function setEndpoints($endpoints)
   {
@@ -1192,27 +1272,28 @@ class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Co
   {
     return $this->endpoints;
   }
-  public function setFingerprint($fingerprint)
-  {
-    $this->fingerprint = $fingerprint;
-  }
-  public function getFingerprint()
+
+    public function getFingerprint()
   {
     return $this->fingerprint;
   }
+
+    public function setFingerprint($fingerprint)
+    {
+        $this->fingerprint = $fingerprint;
+    }
 }
 
 class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
 {
+    public $kind;
+    public $nextPageToken;
+    public $selfLink;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Resourceviews_ResourceView';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-  public $selfLink;
-
 
   public function setItems($items)
   {
@@ -1222,42 +1303,47 @@ class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-  public function setSelfLink($selfLink)
+
+    public function setNextPageToken($nextPageToken)
   {
-    $this->selfLink = $selfLink;
+      $this->nextPageToken = $nextPageToken;
   }
-  public function getSelfLink()
+
+    public function getSelfLink()
   {
     return $this->selfLink;
   }
+
+    public function setSelfLink($selfLink)
+    {
+        $this->selfLink = $selfLink;
+    }
 }
 
 class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google_Collection
 {
+    public $network;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_Resourceviews_ListResourceResponseItem';
   protected $itemsDataType = 'array';
-  public $network;
-  public $nextPageToken;
-
 
   public function setItems($items)
   {
@@ -1267,52 +1353,55 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
   {
     return $this->items;
   }
-  public function setNetwork($network)
-  {
-    $this->network = $network;
-  }
-  public function getNetwork()
+
+    public function getNetwork()
   {
     return $this->network;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setNetwork($network)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->network = $network;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Google_Collection
 {
+    public $resources;
   protected $collection_key = 'resources';
   protected $internal_gapi_mappings = array(
   );
-  public $resources;
 
-
-  public function setResources($resources)
-  {
-    $this->resources = $resources;
-  }
   public function getResources()
   {
     return $this->resources;
   }
+
+    public function setResources($resources)
+    {
+        $this->resources = $resources;
+    }
 }
 
 class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Collection
 {
+    public $fingerprint;
+    public $resourceName;
   protected $collection_key = 'endpoints';
   protected $internal_gapi_mappings = array(
   );
   protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
   protected $endpointsDataType = 'array';
-  public $fingerprint;
-  public $resourceName;
-
 
   public function setEndpoints($endpoints)
   {
@@ -1322,20 +1411,24 @@ class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Col
   {
     return $this->endpoints;
   }
-  public function setFingerprint($fingerprint)
-  {
-    $this->fingerprint = $fingerprint;
-  }
-  public function getFingerprint()
+
+    public function getFingerprint()
   {
     return $this->fingerprint;
   }
-  public function setResourceName($resourceName)
+
+    public function setFingerprint($fingerprint)
   {
-    $this->resourceName = $resourceName;
+      $this->fingerprint = $fingerprint;
   }
-  public function getResourceName()
+
+    public function getResourceName()
   {
     return $this->resourceName;
   }
+
+    public function setResourceName($resourceName)
+    {
+        $this->resourceName = $resourceName;
+    }
 }

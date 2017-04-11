@@ -18,12 +18,13 @@ class PageHelper extends AppHelper {
 	public function __construct($options = array())
 	{
 		parent::__construct($options);
-		$this->View =& ClassRegistry::getObject('View');
+        $this->View = ClassRegistry::getObject('View');
 	}
 	/**
 	 * Sets the title for the page and sends it to the layout
 	 *
-	 * @param string $title 
+     * @param string $title
+     *
 	 * @return string $title
 	 */
 	public function title($title)
@@ -55,7 +56,8 @@ class PageHelper extends AppHelper {
 	 * Writes a block using an element
 	 *
 	 * @param string $element /plugin/folder/element notation
-	 * @param string $options 
+     * @param string $options
+     *
 	 * @return HTML code generated
 	 */
 	public function block($element, $options = array())
@@ -85,14 +87,6 @@ class PageHelper extends AppHelper {
 			return $element;
 		}
 	
-		private function noCache(&$options)
-		{
-			if (isset($options['cache']) && $options['cache'] == 'no') {
-				return true;
-			}
-			return false;
-		}
-	
 		private function loadHelpers(&$options)
 		{
 			if (empty($options['loadHelpers'])) {
@@ -102,6 +96,15 @@ class PageHelper extends AppHelper {
 			unset($options['loadHelpers']);
 			return $response;
 		}
+
+    private function noCache(&$options)
+    {
+        if (isset($options['cache']) && $options['cache'] == 'no') {
+            return true;
+        }
+
+        return false;
+    }
 	
 	public function paginator($paginator = 'mh-mini-paginator')
 	{

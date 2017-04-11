@@ -35,13 +35,15 @@ class ArticleController
     public function view($slug, Application $app)
     {
         try {
-            $request = new GetArticleRequest($slug);
+            $id = $app['item.slug.converter']->mapToId($slug);
+            $request = new GetArticleRequest($id);
             $article = $app['get_article.service']->execute($request);
 
             return $app['twig']->render(
                 'plugins/contents/items/view.twig',
                 [
                     'article' => $article,
+                    'slug' => $slug,
                 ]
             );
         } catch (\Exception $exception) {

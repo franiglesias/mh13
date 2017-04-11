@@ -1076,7 +1076,7 @@ class Google_Service_AdSense_Accounts_Resource extends Google_Service_Resource
    * Get information about the selected AdSense account. (accounts.get)
    *
    * @param string $accountId Account to get information about.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param bool tree Whether the tree of sub accounts should be returned.
    * @return Google_Service_AdSense_Account
@@ -1124,7 +1124,7 @@ class Google_Service_AdSense_AccountsAdclients_Resource extends Google_Service_R
    * (adclients.listAccountsAdclients)
    *
    * @param string $accountId Account for which to list ad clients.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string pageToken A continuation token, used to page through ad
    * clients. To retrieve the next page, set this parameter to the value of
@@ -1155,10 +1155,11 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
    * Gets the specified ad unit in the specified ad client for the specified
    * account. (adunits.get)
    *
-   * @param string $accountId Account to which the ad client belongs.
+   * @param string $accountId  Account to which the ad client belongs.
    * @param string $adClientId Ad client for which to get the ad unit.
-   * @param string $adUnitId Ad unit to retrieve.
-   * @param array $optParams Optional parameters.
+   * @param string $adUnitId   Ad unit to retrieve.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_AdSense_AdUnit
    */
   public function get($accountId, $adClientId, $adUnitId, $optParams = array())
@@ -1171,10 +1172,11 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
   /**
    * Get ad code for the specified ad unit. (adunits.getAdCode)
    *
-   * @param string $accountId Account which contains the ad client.
+   * @param string $accountId  Account which contains the ad client.
    * @param string $adClientId Ad client with contains the ad unit.
-   * @param string $adUnitId Ad unit to get the code for.
-   * @param array $optParams Optional parameters.
+   * @param string $adUnitId   Ad unit to get the code for.
+   * @param array  $optParams  Optional parameters.
+   *
    * @return Google_Service_AdSense_AdCode
    */
   public function getAdCode($accountId, $adClientId, $adUnitId, $optParams = array())
@@ -1188,9 +1190,9 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
    * List all ad units in the specified ad client for the specified account.
    * (adunits.listAccountsAdunits)
    *
-   * @param string $accountId Account to which the ad client belongs.
+   * @param string $accountId  Account to which the ad client belongs.
    * @param string $adClientId Ad client for which to list ad units.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams  Optional parameters.
    *
    * @opt_param bool includeInactive Whether to include inactive ad units.
    * Default: true.
@@ -1224,10 +1226,10 @@ class Google_Service_AdSense_AccountsAdunitsCustomchannels_Resource extends Goog
    * List all custom channels which the specified ad unit belongs to.
    * (customchannels.listAccountsAdunitsCustomchannels)
    *
-   * @param string $accountId Account to which the ad client belongs.
+   * @param string $accountId  Account to which the ad client belongs.
    * @param string $adClientId Ad client which contains the ad unit.
-   * @param string $adUnitId Ad unit for which to list custom channels.
-   * @param array $optParams Optional parameters.
+   * @param string $adUnitId   Ad unit for which to list custom channels.
+   * @param array  $optParams  Optional parameters.
    *
    * @opt_param string pageToken A continuation token, used to page through custom
    * channels. To retrieve the next page, set this parameter to the value of
@@ -1259,8 +1261,8 @@ class Google_Service_AdSense_AccountsAlerts_Resource extends Google_Service_Reso
    * account. (alerts.delete)
    *
    * @param string $accountId Account which contains the ad unit.
-   * @param string $alertId Alert to delete.
-   * @param array $optParams Optional parameters.
+   * @param string $alertId   Alert to delete.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($accountId, $alertId, $optParams = array())
   {
@@ -1274,7 +1276,7 @@ class Google_Service_AdSense_AccountsAlerts_Resource extends Google_Service_Reso
    * (alerts.listAccountsAlerts)
    *
    * @param string $accountId Account for which to retrieve the alerts.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string locale The locale to use for translating alert messages.
    * The account locale will be used if this is not supplied. The AdSense default
@@ -1303,10 +1305,11 @@ class Google_Service_AdSense_AccountsCustomchannels_Resource extends Google_Serv
    * Get the specified custom channel from the specified ad client for the
    * specified account. (customchannels.get)
    *
-   * @param string $accountId Account to which the ad client belongs.
-   * @param string $adClientId Ad client which contains the custom channel.
+   * @param string $accountId       Account to which the ad client belongs.
+   * @param string $adClientId      Ad client which contains the custom channel.
    * @param string $customChannelId Custom channel to retrieve.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams       Optional parameters.
+   *
    * @return Google_Service_AdSense_CustomChannel
    */
   public function get($accountId, $adClientId, $customChannelId, $optParams = array())
@@ -1392,6 +1395,7 @@ class Google_Service_AdSense_AccountsPayments_Resource extends Google_Service_Re
    *
    * @param string $accountId Account for which to retrieve the payments.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AdSense_Payments
    */
   public function listAccountsPayments($accountId, $optParams = array())
@@ -1521,6 +1525,7 @@ class Google_Service_AdSense_AccountsSavedadstyles_Resource extends Google_Servi
    * @param string $accountId Account for which to get the saved ad style.
    * @param string $savedAdStyleId Saved ad style to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AdSense_SavedAdStyle
    */
   public function get($accountId, $savedAdStyleId, $optParams = array())
@@ -1633,6 +1638,7 @@ class Google_Service_AdSense_Adunits_Resource extends Google_Service_Resource
    * @param string $adClientId Ad client for which to get the ad unit.
    * @param string $adUnitId Ad unit to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AdSense_AdUnit
    */
   public function get($adClientId, $adUnitId, $optParams = array())
@@ -1648,6 +1654,7 @@ class Google_Service_AdSense_Adunits_Resource extends Google_Service_Resource
    * @param string $adClientId Ad client with contains the ad unit.
    * @param string $adUnitId Ad unit to get the code for.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AdSense_AdCode
    */
   public function getAdCode($adClientId, $adUnitId, $optParams = array())
@@ -1776,6 +1783,7 @@ class Google_Service_AdSense_Customchannels_Resource extends Google_Service_Reso
    * @param string $adClientId Ad client which contains the custom channel.
    * @param string $customChannelId Custom channel to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AdSense_CustomChannel
    */
   public function get($adClientId, $customChannelId, $optParams = array())
@@ -1947,11 +1955,11 @@ class Google_Service_AdSense_Reports_Resource extends Google_Service_Resource
    * parameters. Returns the result as JSON; to retrieve output in CSV format
    * specify "alt=csv" as a query parameter. (reports.generate)
    *
-   * @param string $startDate Start of the date range to report on in "YYYY-MM-DD"
+   * @param string $startDate     Start of the date range to report on in "YYYY-MM-DD"
+   *                              format, inclusive.
+   * @param string $endDate       End of the date range to report on in "YYYY-MM-DD"
    * format, inclusive.
-   * @param string $endDate End of the date range to report on in "YYYY-MM-DD"
-   * format, inclusive.
-   * @param array $optParams Optional parameters.
+   * @param array $optParams      Optional parameters.
    *
    * @opt_param string sort The name of a dimension or metric to sort the
    * resulting report on, optionally prefixed with "+" to sort ascending or "-" to
@@ -2048,6 +2056,7 @@ class Google_Service_AdSense_Savedadstyles_Resource extends Google_Service_Resou
    *
    * @param string $savedAdStyleId Saved ad style to retrieve.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AdSense_SavedAdStyle
    */
   public function get($savedAdStyleId, $optParams = array())
@@ -2116,50 +2125,56 @@ class Google_Service_AdSense_Urlchannels_Resource extends Google_Service_Resourc
 
 class Google_Service_AdSense_Account extends Google_Collection
 {
-  protected $collection_key = 'subAccounts';
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $name;
   public $premium;
+    public $timezone;
+    protected $collection_key = 'subAccounts';
+    protected $internal_gapi_mappings = array();
   protected $subAccountsType = 'Google_Service_AdSense_Account';
   protected $subAccountsDataType = 'array';
-  public $timezone;
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setPremium($premium)
+
+    public function setName($name)
   {
-    $this->premium = $premium;
+      $this->name = $name;
   }
+
   public function getPremium()
   {
     return $this->premium;
   }
+
+    public function setPremium($premium)
+    {
+        $this->premium = $premium;
+    }
+
   public function setSubAccounts($subAccounts)
   {
     $this->subAccounts = $subAccounts;
@@ -2168,36 +2183,39 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->subAccounts;
   }
-  public function setTimezone($timezone)
-  {
-    $this->timezone = $timezone;
-  }
+
   public function getTimezone()
   {
     return $this->timezone;
   }
+
+    public function setTimezone($timezone)
+    {
+        $this->timezone = $timezone;
+    }
 }
 
 class Google_Service_AdSense_Accounts extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_Account';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2206,106 +2224,120 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_AdSense_AdClient extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $arcOptIn;
   public $arcReviewMode;
   public $id;
   public $kind;
   public $productCode;
   public $supportsReporting;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setArcOptIn($arcOptIn)
-  {
-    $this->arcOptIn = $arcOptIn;
-  }
   public function getArcOptIn()
   {
     return $this->arcOptIn;
   }
-  public function setArcReviewMode($arcReviewMode)
+
+    public function setArcOptIn($arcOptIn)
   {
-    $this->arcReviewMode = $arcReviewMode;
+      $this->arcOptIn = $arcOptIn;
   }
+
   public function getArcReviewMode()
   {
     return $this->arcReviewMode;
   }
-  public function setId($id)
+
+    public function setArcReviewMode($arcReviewMode)
   {
-    $this->id = $id;
+      $this->arcReviewMode = $arcReviewMode;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setProductCode($productCode)
+
+    public function setKind($kind)
   {
-    $this->productCode = $productCode;
+      $this->kind = $kind;
   }
+
   public function getProductCode()
   {
     return $this->productCode;
   }
-  public function setSupportsReporting($supportsReporting)
+
+    public function setProductCode($productCode)
   {
-    $this->supportsReporting = $supportsReporting;
+      $this->productCode = $productCode;
   }
+
   public function getSupportsReporting()
   {
     return $this->supportsReporting;
   }
+
+    public function setSupportsReporting($supportsReporting)
+    {
+        $this->supportsReporting = $supportsReporting;
+    }
 }
 
 class Google_Service_AdSense_AdClients extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_AdClient';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2314,61 +2346,65 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_AdSense_AdCode extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $adCode;
   public $kind;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAdCode($adCode)
-  {
-    $this->adCode = $adCode;
-  }
   public function getAdCode()
   {
     return $this->adCode;
   }
-  public function setKind($kind)
+
+    public function setAdCode($adCode)
   {
-    $this->kind = $kind;
+      $this->adCode = $adCode;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_AdSense_AdStyle extends Google_Model
 {
+    public $corners;
+    public $kind;
   protected $internal_gapi_mappings = array(
   );
   protected $colorsType = 'Google_Service_AdSense_AdStyleColors';
   protected $colorsDataType = '';
-  public $corners;
   protected $fontType = 'Google_Service_AdSense_AdStyleFont';
   protected $fontDataType = '';
-  public $kind;
-
 
   public function setColors(Google_Service_AdSense_AdStyleColors $colors)
   {
@@ -2378,14 +2414,17 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     return $this->colors;
   }
-  public function setCorners($corners)
-  {
-    $this->corners = $corners;
-  }
+
   public function getCorners()
   {
     return $this->corners;
   }
+
+    public function setCorners($corners)
+    {
+        $this->corners = $corners;
+    }
+
   public function setFont(Google_Service_AdSense_AdStyleFont $font)
   {
     $this->font = $font;
@@ -2394,123 +2433,133 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     return $this->font;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_AdSense_AdStyleColors extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $background;
   public $border;
   public $text;
   public $title;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBackground($background)
-  {
-    $this->background = $background;
-  }
   public function getBackground()
   {
     return $this->background;
   }
-  public function setBorder($border)
+
+    public function setBackground($background)
   {
-    $this->border = $border;
+      $this->background = $background;
   }
+
   public function getBorder()
   {
     return $this->border;
   }
-  public function setText($text)
+
+    public function setBorder($border)
   {
-    $this->text = $text;
+      $this->border = $border;
   }
+
   public function getText()
   {
     return $this->text;
   }
-  public function setTitle($title)
+
+    public function setText($text)
   {
-    $this->title = $title;
+      $this->text = $text;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setUrl($url)
+
+    public function setTitle($title)
   {
-    $this->url = $url;
+      $this->title = $title;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_AdSense_AdStyleFont extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $family;
   public $size;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFamily($family)
-  {
-    $this->family = $family;
-  }
   public function getFamily()
   {
     return $this->family;
   }
-  public function setSize($size)
+
+    public function setFamily($family)
   {
-    $this->size = $size;
+      $this->family = $family;
   }
+
   public function getSize()
   {
     return $this->size;
   }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
 }
 
 class Google_Service_AdSense_AdUnit extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $code;
+    public $id;
+    public $kind;
+    public $name;
+    public $savedStyleId;
+    public $status;
+    protected $internal_gapi_mappings = array();
   protected $contentAdsSettingsType = 'Google_Service_AdSense_AdUnitContentAdsSettings';
   protected $contentAdsSettingsDataType = '';
   protected $customStyleType = 'Google_Service_AdSense_AdStyle';
   protected $customStyleDataType = '';
   protected $feedAdsSettingsType = 'Google_Service_AdSense_AdUnitFeedAdsSettings';
   protected $feedAdsSettingsDataType = '';
-  public $id;
-  public $kind;
   protected $mobileContentAdsSettingsType = 'Google_Service_AdSense_AdUnitMobileContentAdsSettings';
   protected $mobileContentAdsSettingsDataType = '';
-  public $name;
-  public $savedStyleId;
-  public $status;
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
   public function setContentAdsSettings(Google_Service_AdSense_AdUnitContentAdsSettings $contentAdsSettings)
   {
     $this->contentAdsSettings = $contentAdsSettings;
@@ -2535,22 +2584,27 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->feedAdsSettings;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setMobileContentAdsSettings(Google_Service_AdSense_AdUnitMobileContentAdsSettings $mobileContentAdsSettings)
   {
     $this->mobileContentAdsSettings = $mobileContentAdsSettings;
@@ -2559,41 +2613,46 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->mobileContentAdsSettings;
   }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setSavedStyleId($savedStyleId)
+
+    public function setName($name)
   {
-    $this->savedStyleId = $savedStyleId;
+      $this->name = $name;
   }
+
   public function getSavedStyleId()
   {
     return $this->savedStyleId;
   }
-  public function setStatus($status)
+
+    public function setSavedStyleId($savedStyleId)
   {
-    $this->status = $status;
+      $this->savedStyleId = $savedStyleId;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }
 
 class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
 {
+    public $size;
+    public $type;
   protected $internal_gapi_mappings = array(
   );
   protected $backupOptionType = 'Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption';
   protected $backupOptionDataType = '';
-  public $size;
-  public $type;
-
 
   public function setBackupOption(Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption $backupOption)
   {
@@ -2603,167 +2662,185 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   {
     return $this->backupOption;
   }
-  public function setSize($size)
-  {
-    $this->size = $size;
-  }
+
   public function getSize()
   {
     return $this->size;
   }
-  public function setType($type)
+
+    public function setSize($size)
   {
-    $this->type = $type;
+      $this->size = $size;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $color;
   public $type;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setColor($color)
-  {
-    $this->color = $color;
-  }
   public function getColor()
   {
     return $this->color;
   }
-  public function setType($type)
+
+    public function setColor($color)
   {
-    $this->type = $type;
+      $this->color = $color;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setUrl($url)
+
+    public function setType($type)
   {
-    $this->url = $url;
+      $this->type = $type;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $adPosition;
   public $frequency;
   public $minimumWordCount;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAdPosition($adPosition)
-  {
-    $this->adPosition = $adPosition;
-  }
   public function getAdPosition()
   {
     return $this->adPosition;
   }
-  public function setFrequency($frequency)
+
+    public function setAdPosition($adPosition)
   {
-    $this->frequency = $frequency;
+      $this->adPosition = $adPosition;
   }
+
   public function getFrequency()
   {
     return $this->frequency;
   }
-  public function setMinimumWordCount($minimumWordCount)
+
+    public function setFrequency($frequency)
   {
-    $this->minimumWordCount = $minimumWordCount;
+      $this->frequency = $frequency;
   }
+
   public function getMinimumWordCount()
   {
     return $this->minimumWordCount;
   }
-  public function setType($type)
+
+    public function setMinimumWordCount($minimumWordCount)
   {
-    $this->type = $type;
+      $this->minimumWordCount = $minimumWordCount;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $markupLanguage;
   public $scriptingLanguage;
   public $size;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setMarkupLanguage($markupLanguage)
-  {
-    $this->markupLanguage = $markupLanguage;
-  }
   public function getMarkupLanguage()
   {
     return $this->markupLanguage;
   }
-  public function setScriptingLanguage($scriptingLanguage)
+
+    public function setMarkupLanguage($markupLanguage)
   {
-    $this->scriptingLanguage = $scriptingLanguage;
+      $this->markupLanguage = $markupLanguage;
   }
+
   public function getScriptingLanguage()
   {
     return $this->scriptingLanguage;
   }
-  public function setSize($size)
+
+    public function setScriptingLanguage($scriptingLanguage)
   {
-    $this->size = $size;
+      $this->scriptingLanguage = $scriptingLanguage;
   }
+
   public function getSize()
   {
     return $this->size;
   }
-  public function setType($type)
+
+    public function setSize($size)
   {
-    $this->type = $type;
+      $this->size = $size;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_AdSense_AdUnits extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_AdUnit';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2772,57 +2849,63 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Collection
 {
-  protected $collection_key = 'warnings';
-  protected $internal_gapi_mappings = array(
-  );
   public $averages;
   public $endDate;
-  protected $headersType = 'Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders';
-  protected $headersDataType = 'array';
   public $kind;
   public $rows;
   public $startDate;
   public $totalMatchedRows;
   public $totals;
   public $warnings;
+    protected $collection_key = 'warnings';
+    protected $internal_gapi_mappings = array();
+    protected $headersType = 'Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders';
+    protected $headersDataType = 'array';
 
-
-  public function setAverages($averages)
-  {
-    $this->averages = $averages;
-  }
   public function getAverages()
   {
     return $this->averages;
   }
-  public function setEndDate($endDate)
+
+    public function setAverages($averages)
   {
-    $this->endDate = $endDate;
+      $this->averages = $averages;
   }
+
   public function getEndDate()
   {
     return $this->endDate;
   }
+
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
+
   public function setHeaders($headers)
   {
     $this->headers = $headers;
@@ -2831,162 +2914,185 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->headers;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setRows($rows)
+
+    public function setKind($kind)
   {
-    $this->rows = $rows;
+      $this->kind = $kind;
   }
+
   public function getRows()
   {
     return $this->rows;
   }
-  public function setStartDate($startDate)
+
+    public function setRows($rows)
   {
-    $this->startDate = $startDate;
+      $this->rows = $rows;
   }
+
   public function getStartDate()
   {
     return $this->startDate;
   }
-  public function setTotalMatchedRows($totalMatchedRows)
+
+    public function setStartDate($startDate)
   {
-    $this->totalMatchedRows = $totalMatchedRows;
+      $this->startDate = $startDate;
   }
+
   public function getTotalMatchedRows()
   {
     return $this->totalMatchedRows;
   }
-  public function setTotals($totals)
+
+    public function setTotalMatchedRows($totalMatchedRows)
   {
-    $this->totals = $totals;
+      $this->totalMatchedRows = $totalMatchedRows;
   }
+
   public function getTotals()
   {
     return $this->totals;
   }
-  public function setWarnings($warnings)
+
+    public function setTotals($totals)
   {
-    $this->warnings = $warnings;
+      $this->totals = $totals;
   }
+
   public function getWarnings()
   {
     return $this->warnings;
   }
+
+    public function setWarnings($warnings)
+    {
+        $this->warnings = $warnings;
+    }
 }
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $currency;
   public $name;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCurrency($currency)
-  {
-    $this->currency = $currency;
-  }
   public function getCurrency()
   {
     return $this->currency;
   }
-  public function setName($name)
+
+    public function setCurrency($currency)
   {
-    $this->name = $name;
+      $this->currency = $currency;
   }
+
   public function getName()
   {
     return $this->name;
   }
-  public function setType($type)
+
+    public function setName($name)
   {
-    $this->type = $type;
+      $this->name = $name;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_AdSense_Alert extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $isDismissible;
   public $kind;
   public $message;
   public $severity;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setIsDismissible($isDismissible)
+
+    public function setId($id)
   {
-    $this->isDismissible = $isDismissible;
+      $this->id = $id;
   }
+
   public function getIsDismissible()
   {
     return $this->isDismissible;
   }
-  public function setKind($kind)
+
+    public function setIsDismissible($isDismissible)
   {
-    $this->kind = $kind;
+      $this->isDismissible = $isDismissible;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setMessage($message)
+
+    public function setKind($kind)
   {
-    $this->message = $message;
+      $this->kind = $kind;
   }
+
   public function getMessage()
   {
     return $this->message;
   }
-  public function setSeverity($severity)
+
+    public function setMessage($message)
   {
-    $this->severity = $severity;
+      $this->message = $message;
   }
+
   public function getSeverity()
   {
     return $this->severity;
   }
-  public function setType($type)
+
+    public function setSeverity($severity)
   {
-    $this->type = $type;
+      $this->severity = $severity;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_AdSense_Alerts extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_AdSense_Alert';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -2996,60 +3102,68 @@ class Google_Service_AdSense_Alerts extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_AdSense_CustomChannel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $code;
   public $id;
   public $kind;
   public $name;
+    protected $internal_gapi_mappings = array();
   protected $targetingInfoType = 'Google_Service_AdSense_CustomChannelTargetingInfo';
   protected $targetingInfoDataType = '';
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
   public function getCode()
   {
     return $this->code;
   }
-  public function setId($id)
+
+    public function setCode($code)
   {
-    $this->id = $id;
+      $this->code = $code;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
   public function setTargetingInfo(Google_Service_AdSense_CustomChannelTargetingInfo $targetingInfo)
   {
     $this->targetingInfo = $targetingInfo;
@@ -3062,68 +3176,74 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
 
 class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $adsAppearOn;
   public $description;
   public $location;
   public $siteLanguage;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAdsAppearOn($adsAppearOn)
-  {
-    $this->adsAppearOn = $adsAppearOn;
-  }
   public function getAdsAppearOn()
   {
     return $this->adsAppearOn;
   }
-  public function setDescription($description)
+
+    public function setAdsAppearOn($adsAppearOn)
   {
-    $this->description = $description;
+      $this->adsAppearOn = $adsAppearOn;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setLocation($location)
+
+    public function setDescription($description)
   {
-    $this->location = $location;
+      $this->description = $description;
   }
+
   public function getLocation()
   {
     return $this->location;
   }
-  public function setSiteLanguage($siteLanguage)
+
+    public function setLocation($location)
   {
-    $this->siteLanguage = $siteLanguage;
+      $this->location = $location;
   }
+
   public function getSiteLanguage()
   {
     return $this->siteLanguage;
   }
+
+    public function setSiteLanguage($siteLanguage)
+    {
+        $this->siteLanguage = $siteLanguage;
+    }
 }
 
 class Google_Service_AdSense_CustomChannels extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_CustomChannel';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3132,33 +3252,36 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_AdSense_Metadata extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_AdSense_ReportingMetadataEntry';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -3168,78 +3291,86 @@ class Google_Service_AdSense_Metadata extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_AdSense_Payment extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $paymentAmount;
   public $paymentAmountCurrencyCode;
   public $paymentDate;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setPaymentAmount($paymentAmount)
+
+    public function setKind($kind)
   {
-    $this->paymentAmount = $paymentAmount;
+      $this->kind = $kind;
   }
-  public function getPaymentAmount()
+
+    public function getPaymentAmount()
   {
     return $this->paymentAmount;
   }
-  public function setPaymentAmountCurrencyCode($paymentAmountCurrencyCode)
+
+    public function setPaymentAmount($paymentAmount)
   {
-    $this->paymentAmountCurrencyCode = $paymentAmountCurrencyCode;
+      $this->paymentAmount = $paymentAmount;
   }
-  public function getPaymentAmountCurrencyCode()
+
+    public function getPaymentAmountCurrencyCode()
   {
     return $this->paymentAmountCurrencyCode;
   }
-  public function setPaymentDate($paymentDate)
+
+    public function setPaymentAmountCurrencyCode($paymentAmountCurrencyCode)
   {
-    $this->paymentDate = $paymentDate;
+      $this->paymentAmountCurrencyCode = $paymentAmountCurrencyCode;
   }
-  public function getPaymentDate()
+
+    public function getPaymentDate()
   {
     return $this->paymentDate;
   }
+
+    public function setPaymentDate($paymentDate)
+    {
+        $this->paymentDate = $paymentDate;
+    }
 }
 
 class Google_Service_AdSense_Payments extends Google_Collection
 {
+    public $kind;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
   protected $itemsType = 'Google_Service_AdSense_Payment';
   protected $itemsDataType = 'array';
-  public $kind;
-
 
   public function setItems($items)
   {
@@ -3249,21 +3380,20 @@ class Google_Service_AdSense_Payments extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
 }
 
 class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
 {
-  protected $collection_key = 'supportedProducts';
-  protected $internal_gapi_mappings = array(
-  );
   public $compatibleDimensions;
   public $compatibleMetrics;
   public $id;
@@ -3271,76 +3401,88 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   public $requiredDimensions;
   public $requiredMetrics;
   public $supportedProducts;
+    protected $collection_key = 'supportedProducts';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCompatibleDimensions($compatibleDimensions)
-  {
-    $this->compatibleDimensions = $compatibleDimensions;
-  }
   public function getCompatibleDimensions()
   {
     return $this->compatibleDimensions;
   }
-  public function setCompatibleMetrics($compatibleMetrics)
+
+    public function setCompatibleDimensions($compatibleDimensions)
   {
-    $this->compatibleMetrics = $compatibleMetrics;
+      $this->compatibleDimensions = $compatibleDimensions;
   }
-  public function getCompatibleMetrics()
+
+    public function getCompatibleMetrics()
   {
     return $this->compatibleMetrics;
   }
-  public function setId($id)
+
+    public function setCompatibleMetrics($compatibleMetrics)
   {
-    $this->id = $id;
+      $this->compatibleMetrics = $compatibleMetrics;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setRequiredDimensions($requiredDimensions)
+
+    public function setKind($kind)
   {
-    $this->requiredDimensions = $requiredDimensions;
+      $this->kind = $kind;
   }
-  public function getRequiredDimensions()
+
+    public function getRequiredDimensions()
   {
     return $this->requiredDimensions;
   }
-  public function setRequiredMetrics($requiredMetrics)
+
+    public function setRequiredDimensions($requiredDimensions)
   {
-    $this->requiredMetrics = $requiredMetrics;
+      $this->requiredDimensions = $requiredDimensions;
   }
-  public function getRequiredMetrics()
+
+    public function getRequiredMetrics()
   {
     return $this->requiredMetrics;
   }
-  public function setSupportedProducts($supportedProducts)
+
+    public function setRequiredMetrics($requiredMetrics)
   {
-    $this->supportedProducts = $supportedProducts;
+      $this->requiredMetrics = $requiredMetrics;
   }
-  public function getSupportedProducts()
+
+    public function getSupportedProducts()
   {
     return $this->supportedProducts;
   }
+
+    public function setSupportedProducts($supportedProducts)
+    {
+        $this->supportedProducts = $supportedProducts;
+    }
 }
 
 class Google_Service_AdSense_SavedAdStyle extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $adStyleType = 'Google_Service_AdSense_AdStyle';
-  protected $adStyleDataType = '';
   public $id;
   public $kind;
   public $name;
-
+    protected $internal_gapi_mappings = array();
+    protected $adStyleType = 'Google_Service_AdSense_AdStyle';
+    protected $adStyleDataType = '';
 
   public function setAdStyle(Google_Service_AdSense_AdStyle $adStyle)
   {
@@ -3350,52 +3492,59 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     return $this->adStyle;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_AdSense_SavedAdStyles extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_SavedAdStyle';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3404,79 +3553,87 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_AdSense_SavedReport extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setName($name)
+
+    public function setKind($kind)
   {
-    $this->name = $name;
+      $this->kind = $kind;
   }
-  public function getName()
+
+    public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_AdSense_SavedReports extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_SavedReport';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3485,79 +3642,87 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }
 
 class Google_Service_AdSense_UrlChannel extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $id;
   public $kind;
   public $urlPattern;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setUrlPattern($urlPattern)
+
+    public function setKind($kind)
   {
-    $this->urlPattern = $urlPattern;
+      $this->kind = $kind;
   }
-  public function getUrlPattern()
+
+    public function getUrlPattern()
   {
     return $this->urlPattern;
   }
+
+    public function setUrlPattern($urlPattern)
+    {
+        $this->urlPattern = $urlPattern;
+    }
 }
 
 class Google_Service_AdSense_UrlChannels extends Google_Collection
 {
+    public $etag;
+    public $kind;
+    public $nextPageToken;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  public $etag;
   protected $itemsType = 'Google_Service_AdSense_UrlChannel';
   protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3566,20 +3731,24 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
 }

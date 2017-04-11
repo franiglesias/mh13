@@ -67,23 +67,25 @@ class Event extends CircularsAppModel {
 		$this->refreshCache();
 	}
 
-	function afterDelete() {
-		$this->refreshCache();
-	}
-	
 	private function refreshCache()
 	{
 		$this->_deleteCache('events_next');
 		$this->_deleteCache('events_today');
 	}
+
+    function afterDelete()
+    {
+        $this->refreshCache();
+    }
 	
 /**
  * Custom find method to retrieve valid events to show as Next Events. This should
  * take care about Circular status if present
  *
- * @param string $state 
- * @param string $query 
- * @param string $results 
+ * @param string $state
+ * @param string $query
+ * @param string $results
+ *
  * @return array the data
  */
 	public function _findNext($state, $query, $results = array()) {
@@ -131,9 +133,10 @@ class Event extends CircularsAppModel {
 /**
  * Custom find to retrieve Events for Current Date
  *
- * @param string $state 
- * @param string $query 
- * @param string $results 
+ * @param string $state
+ * @param string $query
+ * @param string $results
+ *
  * @return void
  */	
 	public function _findToday($state, $query, $results = array()) {

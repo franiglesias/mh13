@@ -375,40 +375,8 @@ class AMFStream {
 	public $pos;
 
 	public function AMFStream(&$bytes) {
-		$this->bytes =& $bytes;
+        $this->bytes = $bytes;
 		$this->pos = 0;
-	}
-
-	public function readByte() {
-		return getid3_lib::BigEndian2Int(substr($this->bytes, $this->pos++, 1));
-	}
-
-	public function readInt() {
-		return ($this->readByte() << 8) + $this->readByte();
-	}
-
-	public function readLong() {
-		return ($this->readByte() << 24) + ($this->readByte() << 16) + ($this->readByte() << 8) + $this->readByte();
-	}
-
-	public function readDouble() {
-		return getid3_lib::BigEndian2Float($this->read(8));
-	}
-
-	public function readUTF() {
-		$length = $this->readInt();
-		return $this->read($length);
-	}
-
-	public function readLongUTF() {
-		$length = $this->readLong();
-		return $this->read($length);
-	}
-
-	public function read($length) {
-		$val = substr($this->bytes, $this->pos, $length);
-		$this->pos += $length;
-		return $val;
 	}
 
 	public function peekByte() {
@@ -418,12 +386,22 @@ class AMFStream {
 		return $val;
 	}
 
+    public function readByte()
+    {
+        return getid3_lib::BigEndian2Int(substr($this->bytes, $this->pos++, 1));
+    }
+
 	public function peekInt() {
 		$pos = $this->pos;
 		$val = $this->readInt();
 		$this->pos = $pos;
 		return $val;
 	}
+
+    public function readInt()
+    {
+        return ($this->readByte() << 8) + $this->readByte();
+    }
 
 	public function peekLong() {
 		$pos = $this->pos;
@@ -432,12 +410,30 @@ class AMFStream {
 		return $val;
 	}
 
+    public function readLong()
+    {
+        return ($this->readByte() << 24) + ($this->readByte() << 16) + ($this->readByte() << 8) + $this->readByte();
+    }
+
 	public function peekDouble() {
 		$pos = $this->pos;
 		$val = $this->readDouble();
 		$this->pos = $pos;
 		return $val;
 	}
+
+    public function readDouble()
+    {
+        return getid3_lib::BigEndian2Float($this->read(8));
+    }
+
+    public function read($length)
+    {
+        $val = substr($this->bytes, $this->pos, $length);
+        $this->pos += $length;
+
+        return $val;
+    }
 
 	public function peekUTF() {
 		$pos = $this->pos;
@@ -446,19 +442,33 @@ class AMFStream {
 		return $val;
 	}
 
+    public function readUTF()
+    {
+        $length = $this->readInt();
+
+        return $this->read($length);
+    }
+
 	public function peekLongUTF() {
 		$pos = $this->pos;
 		$val = $this->readLongUTF();
 		$this->pos = $pos;
 		return $val;
 	}
+
+    public function readLongUTF()
+    {
+        $length = $this->readLong();
+
+        return $this->read($length);
+    }
 }
 
 class AMFReader {
 	public $stream;
 
 	public function AMFReader(&$stream) {
-		$this->stream =& $stream;
+        $this->stream = $stream;
 	}
 
 	public function readData() {
@@ -681,12 +691,6 @@ class AVCSequenceParameterSetReader {
 		$this->currentBits = $newBits % 8;
 	}
 
-	public function getBit() {
-		$result = (getid3_lib::BigEndian2Int(substr($this->sps, $this->currentBytes, 1)) >> (7 - $this->currentBits)) & 0x01;
-		$this->skipBits(1);
-		return $result;
-	}
-
 	public function getBits($bits) {
 		$result = 0;
 		for ($i = 0; $i < $bits; $i++) {
@@ -694,6 +698,16 @@ class AVCSequenceParameterSetReader {
 		}
 		return $result;
 	}
+
+    public function getBit()
+    {
+        $result = (getid3_lib::BigEndian2Int(
+                    substr($this->sps, $this->currentBytes, 1)
+                ) >> (7 - $this->currentBits)) & 0x01;
+        $this->skipBits(1);
+
+        return $result;
+    }
 
 	public function expGolombUe() {
 		$significantBits = 0;

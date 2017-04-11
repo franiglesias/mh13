@@ -1331,14 +1331,15 @@ class Google_Service_YouTube_Activities_Resource extends Google_Service_Resource
    * playlistItems.insert() method to mark a video as a favorite.
    * (activities.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string          $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet and
    * contentDetails.
    * @param Google_Activity $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams Optional parameters.
+   *
    * @return Google_Service_YouTube_Activity
    */
   public function insert($part, Google_Service_YouTube_Activity $postBody, $optParams = array())
@@ -1470,10 +1471,10 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
   /**
    * Deletes a channelSection. (channelSections.delete)
    *
-   * @param string $id The id parameter specifies the YouTube channelSection ID
+   * @param string $id        The id parameter specifies the YouTube channelSection ID
    * for the resource that is being deleted. In a channelSection resource, the id
    * property specifies the YouTube channelSection ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
@@ -1499,14 +1500,14 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
    * Adds a channelSection for the authenticated user's channel.
    * (channelSections.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string                $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet and
    * contentDetails.
    * @param Google_ChannelSection $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                 $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -1596,14 +1597,14 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
   /**
    * Update a channelSection. (channelSections.update)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string                $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet and
    * contentDetails.
    * @param Google_ChannelSection $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                 $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
@@ -1697,7 +1698,7 @@ class Google_Service_YouTube_Channels_Resource extends Google_Service_Resource
   /**
    * Updates a channel's metadata. (channels.update)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string         $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
@@ -1708,7 +1709,7 @@ class Google_Service_YouTube_Channels_Resource extends Google_Service_Resource
    * mutable properties that are contained in any parts that the parameter value
    * specifies.
    * @param Google_Channel $postBody
-   * @param array $optParams Optional parameters.
+   * @param array          $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner The onBehalfOfContentOwner parameter
    * indicates that the authenticated user is acting on behalf of the content
@@ -1788,11 +1789,11 @@ class Google_Service_YouTube_I18nLanguages_Resource extends Google_Service_Resou
   /**
    * Returns a list of supported languages. (i18nLanguages.listI18nLanguages)
    *
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part      The part parameter specifies a comma-separated list of
    * one or more i18nLanguage resource properties that the API response will
    * include. The part names that you can include in the parameter value are id
    * and snippet.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string hl The hl parameter specifies the language that should be
    * used for text values in the API response.
@@ -1820,11 +1821,11 @@ class Google_Service_YouTube_I18nRegions_Resource extends Google_Service_Resourc
   /**
    * Returns a list of supported regions. (i18nRegions.listI18nRegions)
    *
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part      The part parameter specifies a comma-separated list of
    * one or more i18nRegion resource properties that the API response will
    * include. The part names that you can include in the parameter value are id
    * and snippet.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string hl The hl parameter specifies the language that should be
    * used for text values in the API response.
@@ -1854,13 +1855,13 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
    * a broadcast and a stream. A broadcast can only be bound to one video stream.
    * (liveBroadcasts.bind)
    *
-   * @param string $id The id parameter specifies the unique ID of the broadcast
+   * @param string $id        The id parameter specifies the unique ID of the broadcast
    * that is being bound to a video stream.
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part      The part parameter specifies a comma-separated list of
    * one or more liveBroadcast resource properties that the API response will
    * include. The part names that you can include in the parameter value are id,
    * snippet, contentDetails, and status.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -1910,13 +1911,13 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
    * Controls the settings for a slate that can be displayed in the broadcast
    * stream. (liveBroadcasts.control)
    *
-   * @param string $id The id parameter specifies the YouTube live broadcast ID
+   * @param string $id        The id parameter specifies the YouTube live broadcast ID
    * that uniquely identifies the broadcast in which the slate is being updated.
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part      The part parameter specifies a comma-separated list of
    * one or more liveBroadcast resource properties that the API response will
    * include. The part names that you can include in the parameter value are id,
    * snippet, contentDetails, and status.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
@@ -1979,9 +1980,9 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
   /**
    * Deletes a broadcast. (liveBroadcasts.delete)
    *
-   * @param string $id The id parameter specifies the YouTube live broadcast ID
+   * @param string $id        The id parameter specifies the YouTube live broadcast ID
    * for the resource that is being deleted.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -2025,14 +2026,14 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
   /**
    * Creates a broadcast. (liveBroadcasts.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string               $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part properties that you can include in the parameter value are id,
    * snippet, contentDetails, and status.
    * @param Google_LiveBroadcast $postBody
-   * @param array $optParams Optional parameters.
+   * @param array                $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -2078,11 +2079,11 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
    * Returns a list of YouTube broadcasts that match the API request parameters.
    * (liveBroadcasts.listLiveBroadcasts)
    *
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part      The part parameter specifies a comma-separated list of
    * one or more liveBroadcast resource properties that the API response will
    * include. The part names that you can include in the parameter value are id,
    * snippet, contentDetails, and status.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string broadcastStatus The broadcastStatus parameter filters the
    * API response to only include broadcasts with the specified status.
@@ -2150,13 +2151,13 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
    * state to which the broadcast is changing. Note that to transition a broadcast
    * to either the testing or live state, the status.streamStatus must be active
    * for the stream that the broadcast is bound to.
-   * @param string $id The id parameter specifies the unique ID of the broadcast
+   * @param string $id              The id parameter specifies the unique ID of the broadcast
    * that is transitioning to another status.
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part            The part parameter specifies a comma-separated list of
    * one or more liveBroadcast resource properties that the API response will
    * include. The part names that you can include in the parameter value are id,
    * snippet, contentDetails, and status.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams       Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -2277,9 +2278,9 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
   /**
    * Deletes a video stream. (liveStreams.delete)
    *
-   * @param string $id The id parameter specifies the YouTube live stream ID for
+   * @param string $id        The id parameter specifies the YouTube live stream ID for
    * the resource that is being deleted.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -2324,14 +2325,14 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
    * Creates a video stream. The stream enables you to send your video to YouTube,
    * which can then broadcast the video to your audience. (liveStreams.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string            $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part properties that you can include in the parameter value are id,
    * snippet, cdn, and status.
    * @param Google_LiveStream $postBody
-   * @param array $optParams Optional parameters.
+   * @param array             $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -2377,11 +2378,11 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
    * Returns a list of video streams that match the API request parameters.
    * (liveStreams.listLiveStreams)
    *
-   * @param string $part The part parameter specifies a comma-separated list of
+   * @param string $part      The part parameter specifies a comma-separated list of
    * one or more liveStream resource properties that the API response will
    * include. The part names that you can include in the parameter value are id,
    * snippet, cdn, and status.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
@@ -2510,10 +2511,10 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
   /**
    * Deletes a playlist item. (playlistItems.delete)
    *
-   * @param string $id The id parameter specifies the YouTube playlist item ID for
+   * @param string $id        The id parameter specifies the YouTube playlist item ID for
    * the playlist item that is being deleted. In a playlistItem resource, the id
    * property specifies the playlist item's ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
   {
@@ -2525,14 +2526,14 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
   /**
    * Adds a resource to a playlist. (playlistItems.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string              $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet,
    * contentDetails, and status.
    * @param Google_PlaylistItem $postBody
-   * @param array $optParams Optional parameters.
+   * @param array               $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
@@ -2633,6 +2634,7 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
    * replaced with the default settings.
    * @param Google_PlaylistItem $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_YouTube_PlaylistItem
    */
   public function update($part, Google_Service_YouTube_PlaylistItem $postBody, $optParams = array())
@@ -2657,10 +2659,10 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
   /**
    * Deletes a playlist. (playlists.delete)
    *
-   * @param string $id The id parameter specifies the YouTube playlist ID for the
+   * @param string $id        The id parameter specifies the YouTube playlist ID for the
    * playlist that is being deleted. In a playlist resource, the id property
    * specifies the playlist's ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
@@ -2685,14 +2687,14 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
   /**
    * Creates a playlist. (playlists.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string          $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet and
    * status.
    * @param Google_Playlist $postBody
-   * @param array $optParams Optional parameters.
+   * @param array           $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
    * used in a properly authorized request. Note: This parameter is intended
@@ -2998,10 +3000,10 @@ class Google_Service_YouTube_Subscriptions_Resource extends Google_Service_Resou
   /**
    * Deletes a subscription. (subscriptions.delete)
    *
-   * @param string $id The id parameter specifies the YouTube subscription ID for
+   * @param string $id        The id parameter specifies the YouTube subscription ID for
    * the resource that is being deleted. In a subscription resource, the id
    * property specifies the YouTube subscription ID.
-   * @param array $optParams Optional parameters.
+   * @param array  $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
   {
@@ -3014,14 +3016,15 @@ class Google_Service_YouTube_Subscriptions_Resource extends Google_Service_Resou
    * Adds a subscription for the authenticated user's channel.
    * (subscriptions.insert)
    *
-   * @param string $part The part parameter serves two purposes in this operation.
+   * @param string              $part      The part parameter serves two purposes in this operation.
    * It identifies the properties that the write operation will set as well as the
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet and
    * contentDetails.
    * @param Google_Subscription $postBody
-   * @param array $optParams Optional parameters.
+   * @param array               $optParams Optional parameters.
+   *
    * @return Google_Service_YouTube_Subscription
    */
   public function insert($part, Google_Service_YouTube_Subscription $postBody, $optParams = array())
@@ -3532,40 +3535,40 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
 
 class Google_Service_YouTube_AccessPolicy extends Google_Collection
 {
-  protected $collection_key = 'exception';
-  protected $internal_gapi_mappings = array(
-  );
   public $allowed;
   public $exception;
+    protected $collection_key = 'exception';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAllowed($allowed)
-  {
-    $this->allowed = $allowed;
-  }
   public function getAllowed()
   {
     return $this->allowed;
   }
-  public function setException($exception)
+
+    public function setAllowed($allowed)
   {
-    $this->exception = $exception;
+      $this->allowed = $allowed;
   }
+
   public function getException()
   {
     return $this->exception;
   }
+
+    public function setException($exception)
+    {
+        $this->exception = $exception;
+    }
 }
 
 class Google_Service_YouTube_Activity extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentDetailsType = 'Google_Service_YouTube_ActivityContentDetails';
-  protected $contentDetailsDataType = '';
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $contentDetailsType = 'Google_Service_YouTube_ActivityContentDetails';
+    protected $contentDetailsDataType = '';
   protected $snippetType = 'Google_Service_YouTube_ActivitySnippet';
   protected $snippetDataType = '';
 
@@ -3578,30 +3581,37 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_ActivitySnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -3822,30 +3832,32 @@ class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
 
 class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $playlistId;
   public $playlistItemId;
+    protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
-
-  public function setPlaylistId($playlistId)
-  {
-    $this->playlistId = $playlistId;
-  }
   public function getPlaylistId()
   {
     return $this->playlistId;
   }
-  public function setPlaylistItemId($playlistItemId)
+
+    public function setPlaylistId($playlistId)
   {
-    $this->playlistItemId = $playlistItemId;
+      $this->playlistId = $playlistId;
   }
+
   public function getPlaylistItemId()
   {
     return $this->playlistItemId;
   }
+
+    public function setPlaylistItemId($playlistItemId)
+    {
+        $this->playlistItemId = $playlistItemId;
+    }
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3858,9 +3870,6 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
 
 class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_Collection
 {
-  protected $collection_key = 'impressionUrl';
-  protected $internal_gapi_mappings = array(
-  );
   public $adTag;
   public $clickTrackingUrl;
   public $creativeViewUrl;
@@ -3871,109 +3880,129 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   public $forecastingUrl;
   public $impressionUrl;
   public $videoId;
+    protected $collection_key = 'impressionUrl';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAdTag($adTag)
-  {
-    $this->adTag = $adTag;
-  }
   public function getAdTag()
   {
     return $this->adTag;
   }
-  public function setClickTrackingUrl($clickTrackingUrl)
+
+    public function setAdTag($adTag)
   {
-    $this->clickTrackingUrl = $clickTrackingUrl;
+      $this->adTag = $adTag;
   }
+
   public function getClickTrackingUrl()
   {
     return $this->clickTrackingUrl;
   }
-  public function setCreativeViewUrl($creativeViewUrl)
+
+    public function setClickTrackingUrl($clickTrackingUrl)
   {
-    $this->creativeViewUrl = $creativeViewUrl;
+      $this->clickTrackingUrl = $clickTrackingUrl;
   }
+
   public function getCreativeViewUrl()
   {
     return $this->creativeViewUrl;
   }
-  public function setCtaType($ctaType)
+
+    public function setCreativeViewUrl($creativeViewUrl)
   {
-    $this->ctaType = $ctaType;
+      $this->creativeViewUrl = $creativeViewUrl;
   }
+
   public function getCtaType()
   {
     return $this->ctaType;
   }
-  public function setCustomCtaButtonText($customCtaButtonText)
+
+    public function setCtaType($ctaType)
   {
-    $this->customCtaButtonText = $customCtaButtonText;
+      $this->ctaType = $ctaType;
   }
+
   public function getCustomCtaButtonText()
   {
     return $this->customCtaButtonText;
   }
-  public function setDescriptionText($descriptionText)
+
+    public function setCustomCtaButtonText($customCtaButtonText)
   {
-    $this->descriptionText = $descriptionText;
+      $this->customCtaButtonText = $customCtaButtonText;
   }
+
   public function getDescriptionText()
   {
     return $this->descriptionText;
   }
-  public function setDestinationUrl($destinationUrl)
+
+    public function setDescriptionText($descriptionText)
   {
-    $this->destinationUrl = $destinationUrl;
+      $this->descriptionText = $descriptionText;
   }
+
   public function getDestinationUrl()
   {
     return $this->destinationUrl;
   }
-  public function setForecastingUrl($forecastingUrl)
+
+    public function setDestinationUrl($destinationUrl)
   {
-    $this->forecastingUrl = $forecastingUrl;
+      $this->destinationUrl = $destinationUrl;
   }
+
   public function getForecastingUrl()
   {
     return $this->forecastingUrl;
   }
-  public function setImpressionUrl($impressionUrl)
+
+    public function setForecastingUrl($forecastingUrl)
   {
-    $this->impressionUrl = $impressionUrl;
+      $this->forecastingUrl = $forecastingUrl;
   }
+
   public function getImpressionUrl()
   {
     return $this->impressionUrl;
   }
-  public function setVideoId($videoId)
+
+    public function setImpressionUrl($impressionUrl)
   {
-    $this->videoId = $videoId;
+      $this->impressionUrl = $impressionUrl;
   }
+
   public function getVideoId()
   {
     return $this->videoId;
   }
+
+    public function setVideoId($videoId)
+    {
+        $this->videoId = $videoId;
+    }
 }
 
 class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $reason;
+    protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
   protected $seedResourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $seedResourceIdDataType = '';
 
-
-  public function setReason($reason)
-  {
-    $this->reason = $reason;
-  }
   public function getReason()
   {
     return $this->reason;
   }
+
+    public function setReason($reason)
+    {
+        $this->reason = $reason;
+    }
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3994,40 +4023,44 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
 
 class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $author;
   public $imageUrl;
   public $referenceUrl;
+    public $type;
+    protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
-  public $type;
 
-
-  public function setAuthor($author)
-  {
-    $this->author = $author;
-  }
   public function getAuthor()
   {
     return $this->author;
   }
-  public function setImageUrl($imageUrl)
+
+    public function setAuthor($author)
   {
-    $this->imageUrl = $imageUrl;
+      $this->author = $author;
   }
+
   public function getImageUrl()
   {
     return $this->imageUrl;
   }
-  public function setReferenceUrl($referenceUrl)
+
+    public function setImageUrl($imageUrl)
   {
-    $this->referenceUrl = $referenceUrl;
+      $this->imageUrl = $imageUrl;
   }
+
   public function getReferenceUrl()
   {
     return $this->referenceUrl;
   }
+
+    public function setReferenceUrl($referenceUrl)
+    {
+        $this->referenceUrl = $referenceUrl;
+    }
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -4036,14 +4069,16 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     return $this->resourceId;
   }
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_Model
@@ -4066,56 +4101,57 @@ class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_M
 
 class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $videoId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setVideoId($videoId)
-  {
-    $this->videoId = $videoId;
-  }
   public function getVideoId()
   {
     return $this->videoId;
   }
+
+    public function setVideoId($videoId)
+    {
+        $this->videoId = $videoId;
+    }
 }
 
 class Google_Service_YouTube_ActivityListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_Activity';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_Activity';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -4124,22 +4160,27 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -4148,14 +4189,17 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -4164,71 +4208,81 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_ActivitySnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $channelTitle;
   public $description;
   public $groupId;
   public $publishedAt;
-  protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
-  protected $thumbnailsDataType = '';
   public $title;
   public $type;
+    protected $internal_gapi_mappings = array();
+    protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
+    protected $thumbnailsDataType = '';
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setChannelTitle($channelTitle)
+
+    public function setChannelId($channelId)
   {
-    $this->channelTitle = $channelTitle;
+      $this->channelId = $channelId;
   }
+
   public function getChannelTitle()
   {
     return $this->channelTitle;
   }
-  public function setDescription($description)
+
+    public function setChannelTitle($channelTitle)
   {
-    $this->description = $description;
+      $this->channelTitle = $channelTitle;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setGroupId($groupId)
+
+    public function setDescription($description)
   {
-    $this->groupId = $groupId;
+      $this->description = $description;
   }
+
   public function getGroupId()
   {
     return $this->groupId;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setGroupId($groupId)
   {
-    $this->publishedAt = $publishedAt;
+      $this->groupId = $groupId;
   }
+
   public function getPublishedAt()
   {
     return $this->publishedAt;
   }
+
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -4237,42 +4291,46 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setType($type)
+
+    public function setTitle($title)
   {
-    $this->type = $type;
+      $this->title = $title;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_YouTube_CdnSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $format;
+    public $ingestionType;
+    protected $internal_gapi_mappings = array();
   protected $ingestionInfoType = 'Google_Service_YouTube_IngestionInfo';
   protected $ingestionInfoDataType = '';
-  public $ingestionType;
 
-
-  public function setFormat($format)
-  {
-    $this->format = $format;
-  }
   public function getFormat()
   {
     return $this->format;
   }
+
+    public function setFormat($format)
+    {
+        $this->format = $format;
+    }
+
   public function setIngestionInfo(Google_Service_YouTube_IngestionInfo $ingestionInfo)
   {
     $this->ingestionInfo = $ingestionInfo;
@@ -4281,18 +4339,23 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   {
     return $this->ingestionInfo;
   }
-  public function setIngestionType($ingestionType)
-  {
-    $this->ingestionType = $ingestionType;
-  }
+
   public function getIngestionType()
   {
     return $this->ingestionType;
   }
+
+    public function setIngestionType($ingestionType)
+    {
+        $this->ingestionType = $ingestionType;
+    }
 }
 
 class Google_Service_YouTube_Channel extends Google_Model
 {
+    public $etag;
+    public $id;
+    public $kind;
   protected $internal_gapi_mappings = array(
   );
   protected $auditDetailsType = 'Google_Service_YouTube_ChannelAuditDetails';
@@ -4305,11 +4368,8 @@ class Google_Service_YouTube_Channel extends Google_Model
   protected $contentOwnerDetailsDataType = '';
   protected $conversionPingsType = 'Google_Service_YouTube_ChannelConversionPings';
   protected $conversionPingsDataType = '';
-  public $etag;
-  public $id;
   protected $invideoPromotionType = 'Google_Service_YouTube_InvideoPromotion';
   protected $invideoPromotionDataType = '';
-  public $kind;
   protected $localizationsType = 'Google_Service_YouTube_ChannelLocalization';
   protected $localizationsDataType = 'map';
   protected $snippetType = 'Google_Service_YouTube_ChannelSnippet';
@@ -4362,22 +4422,27 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->conversionPings;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
   public function setInvideoPromotion(Google_Service_YouTube_InvideoPromotion $invideoPromotion)
   {
     $this->invideoPromotion = $invideoPromotion;
@@ -4386,14 +4451,17 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->invideoPromotion;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLocalizations($localizations)
   {
     $this->localizations = $localizations;
@@ -4438,81 +4506,89 @@ class Google_Service_YouTube_Channel extends Google_Model
 
 class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $communityGuidelinesGoodStanding;
   public $contentIdClaimsGoodStanding;
   public $copyrightStrikesGoodStanding;
   public $overallGoodStanding;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCommunityGuidelinesGoodStanding($communityGuidelinesGoodStanding)
-  {
-    $this->communityGuidelinesGoodStanding = $communityGuidelinesGoodStanding;
-  }
   public function getCommunityGuidelinesGoodStanding()
   {
     return $this->communityGuidelinesGoodStanding;
   }
-  public function setContentIdClaimsGoodStanding($contentIdClaimsGoodStanding)
+
+    public function setCommunityGuidelinesGoodStanding($communityGuidelinesGoodStanding)
   {
-    $this->contentIdClaimsGoodStanding = $contentIdClaimsGoodStanding;
+      $this->communityGuidelinesGoodStanding = $communityGuidelinesGoodStanding;
   }
+
   public function getContentIdClaimsGoodStanding()
   {
     return $this->contentIdClaimsGoodStanding;
   }
-  public function setCopyrightStrikesGoodStanding($copyrightStrikesGoodStanding)
+
+    public function setContentIdClaimsGoodStanding($contentIdClaimsGoodStanding)
   {
-    $this->copyrightStrikesGoodStanding = $copyrightStrikesGoodStanding;
+      $this->contentIdClaimsGoodStanding = $contentIdClaimsGoodStanding;
   }
+
   public function getCopyrightStrikesGoodStanding()
   {
     return $this->copyrightStrikesGoodStanding;
   }
-  public function setOverallGoodStanding($overallGoodStanding)
+
+    public function setCopyrightStrikesGoodStanding($copyrightStrikesGoodStanding)
   {
-    $this->overallGoodStanding = $overallGoodStanding;
+      $this->copyrightStrikesGoodStanding = $copyrightStrikesGoodStanding;
   }
+
   public function getOverallGoodStanding()
   {
     return $this->overallGoodStanding;
   }
+
+    public function setOverallGoodStanding($overallGoodStanding)
+    {
+        $this->overallGoodStanding = $overallGoodStanding;
+    }
 }
 
 class Google_Service_YouTube_ChannelBannerResource extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $kind;
   public $url;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setKind($kind)
+
+    public function setEtag($etag)
   {
-    $this->kind = $kind;
+      $this->etag = $etag;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setUrl($url)
+
+    public function setKind($kind)
   {
-    $this->url = $url;
+      $this->kind = $kind;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }
 
 class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
@@ -4566,21 +4642,21 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
 
 class Google_Service_YouTube_ChannelContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $googlePlusUserId;
+    protected $internal_gapi_mappings = array();
   protected $relatedPlaylistsType = 'Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists';
   protected $relatedPlaylistsDataType = '';
 
-
-  public function setGooglePlusUserId($googlePlusUserId)
-  {
-    $this->googlePlusUserId = $googlePlusUserId;
-  }
   public function getGooglePlusUserId()
   {
     return $this->googlePlusUserId;
   }
+
+    public function setGooglePlusUserId($googlePlusUserId)
+    {
+        $this->googlePlusUserId = $googlePlusUserId;
+    }
+
   public function setRelatedPlaylists(Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists $relatedPlaylists)
   {
     $this->relatedPlaylists = $relatedPlaylists;
@@ -4593,107 +4669,116 @@ class Google_Service_YouTube_ChannelContentDetails extends Google_Model
 
 class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $favorites;
   public $likes;
   public $uploads;
   public $watchHistory;
   public $watchLater;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setFavorites($favorites)
-  {
-    $this->favorites = $favorites;
-  }
   public function getFavorites()
   {
     return $this->favorites;
   }
-  public function setLikes($likes)
+
+    public function setFavorites($favorites)
   {
-    $this->likes = $likes;
+      $this->favorites = $favorites;
   }
+
   public function getLikes()
   {
     return $this->likes;
   }
-  public function setUploads($uploads)
+
+    public function setLikes($likes)
   {
-    $this->uploads = $uploads;
+      $this->likes = $likes;
   }
+
   public function getUploads()
   {
     return $this->uploads;
   }
-  public function setWatchHistory($watchHistory)
+
+    public function setUploads($uploads)
   {
-    $this->watchHistory = $watchHistory;
+      $this->uploads = $uploads;
   }
+
   public function getWatchHistory()
   {
     return $this->watchHistory;
   }
-  public function setWatchLater($watchLater)
+
+    public function setWatchHistory($watchHistory)
   {
-    $this->watchLater = $watchLater;
+      $this->watchHistory = $watchHistory;
   }
+
   public function getWatchLater()
   {
     return $this->watchLater;
   }
+
+    public function setWatchLater($watchLater)
+    {
+        $this->watchLater = $watchLater;
+    }
 }
 
 class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $contentOwner;
   public $timeLinked;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setContentOwner($contentOwner)
-  {
-    $this->contentOwner = $contentOwner;
-  }
   public function getContentOwner()
   {
     return $this->contentOwner;
   }
-  public function setTimeLinked($timeLinked)
+
+    public function setContentOwner($contentOwner)
   {
-    $this->timeLinked = $timeLinked;
+      $this->contentOwner = $contentOwner;
   }
+
   public function getTimeLinked()
   {
     return $this->timeLinked;
   }
+
+    public function setTimeLinked($timeLinked)
+    {
+        $this->timeLinked = $timeLinked;
+    }
 }
 
 class Google_Service_YouTube_ChannelConversionPing extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $context;
   public $conversionUrl;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setContext($context)
-  {
-    $this->context = $context;
-  }
   public function getContext()
   {
     return $this->context;
   }
-  public function setConversionUrl($conversionUrl)
+
+    public function setContext($context)
   {
-    $this->conversionUrl = $conversionUrl;
+      $this->context = $context;
   }
+
   public function getConversionUrl()
   {
     return $this->conversionUrl;
   }
+
+    public function setConversionUrl($conversionUrl)
+    {
+        $this->conversionUrl = $conversionUrl;
+    }
 }
 
 class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
@@ -4717,39 +4802,41 @@ class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
 
 class Google_Service_YouTube_ChannelListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_Channel';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_Channel';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -4758,22 +4845,27 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -4782,14 +4874,17 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -4798,40 +4893,43 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_ChannelLocalization extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $description;
   public $title;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
   public function getDescription()
   {
     return $this->description;
   }
-  public function setTitle($title)
+
+    public function setDescription($description)
   {
-    $this->title = $title;
+      $this->description = $description;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_ChannelLocalizations extends Google_Model
@@ -4840,13 +4938,12 @@ class Google_Service_YouTube_ChannelLocalizations extends Google_Model
 
 class Google_Service_YouTube_ChannelSection extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentDetailsType = 'Google_Service_YouTube_ChannelSectionContentDetails';
-  protected $contentDetailsDataType = '';
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $contentDetailsType = 'Google_Service_YouTube_ChannelSectionContentDetails';
+    protected $contentDetailsDataType = '';
   protected $snippetType = 'Google_Service_YouTube_ChannelSectionSnippet';
   protected $snippetDataType = '';
 
@@ -4859,30 +4956,37 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_ChannelSectionSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -4895,60 +4999,63 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
 
 class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collection
 {
-  protected $collection_key = 'playlists';
-  protected $internal_gapi_mappings = array(
-  );
   public $channels;
   public $playlists;
+    protected $collection_key = 'playlists';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChannels($channels)
-  {
-    $this->channels = $channels;
-  }
   public function getChannels()
   {
     return $this->channels;
   }
-  public function setPlaylists($playlists)
+
+    public function setChannels($channels)
   {
-    $this->playlists = $playlists;
+      $this->channels = $channels;
   }
+
   public function getPlaylists()
   {
     return $this->playlists;
   }
+
+    public function setPlaylists($playlists)
+    {
+        $this->playlists = $playlists;
+    }
 }
 
 class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_ChannelSection';
-  protected $itemsDataType = 'array';
   public $kind;
   public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_ChannelSection';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -4957,82 +5064,90 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setVisitorId($visitorId)
+
+    public function setKind($kind)
   {
-    $this->visitorId = $visitorId;
+      $this->kind = $kind;
   }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $position;
   public $style;
   public $title;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setPosition($position)
+
+    public function setChannelId($channelId)
   {
-    $this->position = $position;
+      $this->channelId = $channelId;
   }
+
   public function getPosition()
   {
     return $this->position;
   }
-  public function setStyle($style)
+
+    public function setPosition($position)
   {
-    $this->style = $style;
+      $this->position = $position;
   }
+
   public function getStyle()
   {
     return $this->style;
   }
-  public function setTitle($title)
+
+    public function setStyle($style)
   {
-    $this->title = $title;
+      $this->style = $style;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setType($type)
+
+    public function setTitle($title)
   {
-    $this->type = $type;
+      $this->title = $title;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_YouTube_ChannelSettings extends Google_Collection
 {
-  protected $collection_key = 'featuredChannelsUrls';
-  protected $internal_gapi_mappings = array(
-  );
   public $defaultLanguage;
   public $defaultTab;
   public $description;
@@ -5046,144 +5161,172 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   public $title;
   public $trackingAnalyticsAccountId;
   public $unsubscribedTrailer;
+    protected $collection_key = 'featuredChannelsUrls';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDefaultLanguage($defaultLanguage)
-  {
-    $this->defaultLanguage = $defaultLanguage;
-  }
   public function getDefaultLanguage()
   {
     return $this->defaultLanguage;
   }
-  public function setDefaultTab($defaultTab)
+
+    public function setDefaultLanguage($defaultLanguage)
   {
-    $this->defaultTab = $defaultTab;
+      $this->defaultLanguage = $defaultLanguage;
   }
+
   public function getDefaultTab()
   {
     return $this->defaultTab;
   }
-  public function setDescription($description)
+
+    public function setDefaultTab($defaultTab)
   {
-    $this->description = $description;
+      $this->defaultTab = $defaultTab;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setFeaturedChannelsTitle($featuredChannelsTitle)
+
+    public function setDescription($description)
   {
-    $this->featuredChannelsTitle = $featuredChannelsTitle;
+      $this->description = $description;
   }
+
   public function getFeaturedChannelsTitle()
   {
     return $this->featuredChannelsTitle;
   }
-  public function setFeaturedChannelsUrls($featuredChannelsUrls)
+
+    public function setFeaturedChannelsTitle($featuredChannelsTitle)
   {
-    $this->featuredChannelsUrls = $featuredChannelsUrls;
+      $this->featuredChannelsTitle = $featuredChannelsTitle;
   }
+
   public function getFeaturedChannelsUrls()
   {
     return $this->featuredChannelsUrls;
   }
-  public function setKeywords($keywords)
+
+    public function setFeaturedChannelsUrls($featuredChannelsUrls)
   {
-    $this->keywords = $keywords;
+      $this->featuredChannelsUrls = $featuredChannelsUrls;
   }
+
   public function getKeywords()
   {
     return $this->keywords;
   }
-  public function setModerateComments($moderateComments)
+
+    public function setKeywords($keywords)
   {
-    $this->moderateComments = $moderateComments;
+      $this->keywords = $keywords;
   }
+
   public function getModerateComments()
   {
     return $this->moderateComments;
   }
-  public function setProfileColor($profileColor)
+
+    public function setModerateComments($moderateComments)
   {
-    $this->profileColor = $profileColor;
+      $this->moderateComments = $moderateComments;
   }
+
   public function getProfileColor()
   {
     return $this->profileColor;
   }
-  public function setShowBrowseView($showBrowseView)
+
+    public function setProfileColor($profileColor)
   {
-    $this->showBrowseView = $showBrowseView;
+      $this->profileColor = $profileColor;
   }
+
   public function getShowBrowseView()
   {
     return $this->showBrowseView;
   }
-  public function setShowRelatedChannels($showRelatedChannels)
+
+    public function setShowBrowseView($showBrowseView)
   {
-    $this->showRelatedChannels = $showRelatedChannels;
+      $this->showBrowseView = $showBrowseView;
   }
+
   public function getShowRelatedChannels()
   {
     return $this->showRelatedChannels;
   }
-  public function setTitle($title)
+
+    public function setShowRelatedChannels($showRelatedChannels)
   {
-    $this->title = $title;
+      $this->showRelatedChannels = $showRelatedChannels;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
-  public function setTrackingAnalyticsAccountId($trackingAnalyticsAccountId)
+
+    public function setTitle($title)
   {
-    $this->trackingAnalyticsAccountId = $trackingAnalyticsAccountId;
+      $this->title = $title;
   }
+
   public function getTrackingAnalyticsAccountId()
   {
     return $this->trackingAnalyticsAccountId;
   }
-  public function setUnsubscribedTrailer($unsubscribedTrailer)
+
+    public function setTrackingAnalyticsAccountId($trackingAnalyticsAccountId)
   {
-    $this->unsubscribedTrailer = $unsubscribedTrailer;
+      $this->trackingAnalyticsAccountId = $trackingAnalyticsAccountId;
   }
+
   public function getUnsubscribedTrailer()
   {
     return $this->unsubscribedTrailer;
   }
+
+    public function setUnsubscribedTrailer($unsubscribedTrailer)
+    {
+        $this->unsubscribedTrailer = $unsubscribedTrailer;
+    }
 }
 
 class Google_Service_YouTube_ChannelSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $defaultLanguage;
   public $description;
+    public $publishedAt;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $localizedType = 'Google_Service_YouTube_ChannelLocalization';
   protected $localizedDataType = '';
-  public $publishedAt;
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setDefaultLanguage($defaultLanguage)
-  {
-    $this->defaultLanguage = $defaultLanguage;
-  }
   public function getDefaultLanguage()
   {
     return $this->defaultLanguage;
   }
-  public function setDescription($description)
+
+    public function setDefaultLanguage($defaultLanguage)
   {
-    $this->description = $description;
+      $this->defaultLanguage = $defaultLanguage;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
   public function setLocalized(Google_Service_YouTube_ChannelLocalization $localized)
   {
     $this->localized = $localized;
@@ -5192,14 +5335,17 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     return $this->localized;
   }
-  public function setPublishedAt($publishedAt)
-  {
-    $this->publishedAt = $publishedAt;
-  }
+
   public function getPublishedAt()
   {
     return $this->publishedAt;
   }
+
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -5208,127 +5354,136 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_ChannelStatistics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $commentCount;
   public $hiddenSubscriberCount;
   public $subscriberCount;
   public $videoCount;
   public $viewCount;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCommentCount($commentCount)
-  {
-    $this->commentCount = $commentCount;
-  }
   public function getCommentCount()
   {
     return $this->commentCount;
   }
-  public function setHiddenSubscriberCount($hiddenSubscriberCount)
+
+    public function setCommentCount($commentCount)
   {
-    $this->hiddenSubscriberCount = $hiddenSubscriberCount;
+      $this->commentCount = $commentCount;
   }
+
   public function getHiddenSubscriberCount()
   {
     return $this->hiddenSubscriberCount;
   }
-  public function setSubscriberCount($subscriberCount)
+
+    public function setHiddenSubscriberCount($hiddenSubscriberCount)
   {
-    $this->subscriberCount = $subscriberCount;
+      $this->hiddenSubscriberCount = $hiddenSubscriberCount;
   }
+
   public function getSubscriberCount()
   {
     return $this->subscriberCount;
   }
-  public function setVideoCount($videoCount)
+
+    public function setSubscriberCount($subscriberCount)
   {
-    $this->videoCount = $videoCount;
+      $this->subscriberCount = $subscriberCount;
   }
+
   public function getVideoCount()
   {
     return $this->videoCount;
   }
-  public function setViewCount($viewCount)
+
+    public function setVideoCount($videoCount)
   {
-    $this->viewCount = $viewCount;
+      $this->videoCount = $videoCount;
   }
+
   public function getViewCount()
   {
     return $this->viewCount;
   }
+
+    public function setViewCount($viewCount)
+    {
+        $this->viewCount = $viewCount;
+    }
 }
 
 class Google_Service_YouTube_ChannelStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $isLinked;
   public $longUploadsStatus;
   public $privacyStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setIsLinked($isLinked)
-  {
-    $this->isLinked = $isLinked;
-  }
   public function getIsLinked()
   {
     return $this->isLinked;
   }
-  public function setLongUploadsStatus($longUploadsStatus)
+
+    public function setIsLinked($isLinked)
   {
-    $this->longUploadsStatus = $longUploadsStatus;
+      $this->isLinked = $isLinked;
   }
+
   public function getLongUploadsStatus()
   {
     return $this->longUploadsStatus;
   }
-  public function setPrivacyStatus($privacyStatus)
+
+    public function setLongUploadsStatus($longUploadsStatus)
   {
-    $this->privacyStatus = $privacyStatus;
+      $this->longUploadsStatus = $longUploadsStatus;
   }
+
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
+
+    public function setPrivacyStatus($privacyStatus)
+    {
+        $this->privacyStatus = $privacyStatus;
+    }
 }
 
 class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
 {
+    public $topicIds;
   protected $collection_key = 'topicIds';
   protected $internal_gapi_mappings = array(
   );
-  public $topicIds;
 
-
-  public function setTopicIds($topicIds)
-  {
-    $this->topicIds = $topicIds;
-  }
   public function getTopicIds()
   {
     return $this->topicIds;
   }
+
+    public function setTopicIds($topicIds)
+    {
+        $this->topicIds = $topicIds;
+    }
 }
 
 class Google_Service_YouTube_ContentRating extends Google_Collection
 {
-  protected $collection_key = 'djctqRatingReasons';
-  protected $internal_gapi_mappings = array(
-  );
   public $acbRating;
   public $agcomRating;
   public $anatelRating;
@@ -5393,592 +5548,727 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public $smsaRating;
   public $tvpgRating;
   public $ytRating;
+    protected $collection_key = 'djctqRatingReasons';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAcbRating($acbRating)
-  {
-    $this->acbRating = $acbRating;
-  }
   public function getAcbRating()
   {
     return $this->acbRating;
   }
-  public function setAgcomRating($agcomRating)
+
+    public function setAcbRating($acbRating)
   {
-    $this->agcomRating = $agcomRating;
+      $this->acbRating = $acbRating;
   }
+
   public function getAgcomRating()
   {
     return $this->agcomRating;
   }
-  public function setAnatelRating($anatelRating)
+
+    public function setAgcomRating($agcomRating)
   {
-    $this->anatelRating = $anatelRating;
+      $this->agcomRating = $agcomRating;
   }
+
   public function getAnatelRating()
   {
     return $this->anatelRating;
   }
-  public function setBbfcRating($bbfcRating)
+
+    public function setAnatelRating($anatelRating)
   {
-    $this->bbfcRating = $bbfcRating;
+      $this->anatelRating = $anatelRating;
   }
+
   public function getBbfcRating()
   {
     return $this->bbfcRating;
   }
-  public function setBfvcRating($bfvcRating)
+
+    public function setBbfcRating($bbfcRating)
   {
-    $this->bfvcRating = $bfvcRating;
+      $this->bbfcRating = $bbfcRating;
   }
+
   public function getBfvcRating()
   {
     return $this->bfvcRating;
   }
-  public function setBmukkRating($bmukkRating)
+
+    public function setBfvcRating($bfvcRating)
   {
-    $this->bmukkRating = $bmukkRating;
+      $this->bfvcRating = $bfvcRating;
   }
+
   public function getBmukkRating()
   {
     return $this->bmukkRating;
   }
-  public function setCatvRating($catvRating)
+
+    public function setBmukkRating($bmukkRating)
   {
-    $this->catvRating = $catvRating;
+      $this->bmukkRating = $bmukkRating;
   }
+
   public function getCatvRating()
   {
     return $this->catvRating;
   }
-  public function setCatvfrRating($catvfrRating)
+
+    public function setCatvRating($catvRating)
   {
-    $this->catvfrRating = $catvfrRating;
+      $this->catvRating = $catvRating;
   }
+
   public function getCatvfrRating()
   {
     return $this->catvfrRating;
   }
-  public function setCbfcRating($cbfcRating)
+
+    public function setCatvfrRating($catvfrRating)
   {
-    $this->cbfcRating = $cbfcRating;
+      $this->catvfrRating = $catvfrRating;
   }
+
   public function getCbfcRating()
   {
     return $this->cbfcRating;
   }
-  public function setCccRating($cccRating)
+
+    public function setCbfcRating($cbfcRating)
   {
-    $this->cccRating = $cccRating;
+      $this->cbfcRating = $cbfcRating;
   }
+
   public function getCccRating()
   {
     return $this->cccRating;
   }
-  public function setCceRating($cceRating)
+
+    public function setCccRating($cccRating)
   {
-    $this->cceRating = $cceRating;
+      $this->cccRating = $cccRating;
   }
+
   public function getCceRating()
   {
     return $this->cceRating;
   }
-  public function setChfilmRating($chfilmRating)
+
+    public function setCceRating($cceRating)
   {
-    $this->chfilmRating = $chfilmRating;
+      $this->cceRating = $cceRating;
   }
+
   public function getChfilmRating()
   {
     return $this->chfilmRating;
   }
-  public function setChvrsRating($chvrsRating)
+
+    public function setChfilmRating($chfilmRating)
   {
-    $this->chvrsRating = $chvrsRating;
+      $this->chfilmRating = $chfilmRating;
   }
+
   public function getChvrsRating()
   {
     return $this->chvrsRating;
   }
-  public function setCicfRating($cicfRating)
+
+    public function setChvrsRating($chvrsRating)
   {
-    $this->cicfRating = $cicfRating;
+      $this->chvrsRating = $chvrsRating;
   }
+
   public function getCicfRating()
   {
     return $this->cicfRating;
   }
-  public function setCnaRating($cnaRating)
+
+    public function setCicfRating($cicfRating)
   {
-    $this->cnaRating = $cnaRating;
+      $this->cicfRating = $cicfRating;
   }
+
   public function getCnaRating()
   {
     return $this->cnaRating;
   }
-  public function setCsaRating($csaRating)
+
+    public function setCnaRating($cnaRating)
   {
-    $this->csaRating = $csaRating;
+      $this->cnaRating = $cnaRating;
   }
+
   public function getCsaRating()
   {
     return $this->csaRating;
   }
-  public function setCscfRating($cscfRating)
+
+    public function setCsaRating($csaRating)
   {
-    $this->cscfRating = $cscfRating;
+      $this->csaRating = $csaRating;
   }
+
   public function getCscfRating()
   {
     return $this->cscfRating;
   }
-  public function setCzfilmRating($czfilmRating)
+
+    public function setCscfRating($cscfRating)
   {
-    $this->czfilmRating = $czfilmRating;
+      $this->cscfRating = $cscfRating;
   }
+
   public function getCzfilmRating()
   {
     return $this->czfilmRating;
   }
-  public function setDjctqRating($djctqRating)
+
+    public function setCzfilmRating($czfilmRating)
   {
-    $this->djctqRating = $djctqRating;
+      $this->czfilmRating = $czfilmRating;
   }
+
   public function getDjctqRating()
   {
     return $this->djctqRating;
   }
-  public function setDjctqRatingReasons($djctqRatingReasons)
+
+    public function setDjctqRating($djctqRating)
   {
-    $this->djctqRatingReasons = $djctqRatingReasons;
+      $this->djctqRating = $djctqRating;
   }
+
   public function getDjctqRatingReasons()
   {
     return $this->djctqRatingReasons;
   }
-  public function setEefilmRating($eefilmRating)
+
+    public function setDjctqRatingReasons($djctqRatingReasons)
   {
-    $this->eefilmRating = $eefilmRating;
+      $this->djctqRatingReasons = $djctqRatingReasons;
   }
+
   public function getEefilmRating()
   {
     return $this->eefilmRating;
   }
-  public function setEgfilmRating($egfilmRating)
+
+    public function setEefilmRating($eefilmRating)
   {
-    $this->egfilmRating = $egfilmRating;
+      $this->eefilmRating = $eefilmRating;
   }
+
   public function getEgfilmRating()
   {
     return $this->egfilmRating;
   }
-  public function setEirinRating($eirinRating)
+
+    public function setEgfilmRating($egfilmRating)
   {
-    $this->eirinRating = $eirinRating;
+      $this->egfilmRating = $egfilmRating;
   }
+
   public function getEirinRating()
   {
     return $this->eirinRating;
   }
-  public function setFcbmRating($fcbmRating)
+
+    public function setEirinRating($eirinRating)
   {
-    $this->fcbmRating = $fcbmRating;
+      $this->eirinRating = $eirinRating;
   }
+
   public function getFcbmRating()
   {
     return $this->fcbmRating;
   }
-  public function setFcoRating($fcoRating)
+
+    public function setFcbmRating($fcbmRating)
   {
-    $this->fcoRating = $fcoRating;
+      $this->fcbmRating = $fcbmRating;
   }
+
   public function getFcoRating()
   {
     return $this->fcoRating;
   }
-  public function setFmocRating($fmocRating)
+
+    public function setFcoRating($fcoRating)
   {
-    $this->fmocRating = $fmocRating;
+      $this->fcoRating = $fcoRating;
   }
+
   public function getFmocRating()
   {
     return $this->fmocRating;
   }
-  public function setFpbRating($fpbRating)
+
+    public function setFmocRating($fmocRating)
   {
-    $this->fpbRating = $fpbRating;
+      $this->fmocRating = $fmocRating;
   }
+
   public function getFpbRating()
   {
     return $this->fpbRating;
   }
-  public function setFskRating($fskRating)
+
+    public function setFpbRating($fpbRating)
   {
-    $this->fskRating = $fskRating;
+      $this->fpbRating = $fpbRating;
   }
+
   public function getFskRating()
   {
     return $this->fskRating;
   }
-  public function setGrfilmRating($grfilmRating)
+
+    public function setFskRating($fskRating)
   {
-    $this->grfilmRating = $grfilmRating;
+      $this->fskRating = $fskRating;
   }
+
   public function getGrfilmRating()
   {
     return $this->grfilmRating;
   }
-  public function setIcaaRating($icaaRating)
+
+    public function setGrfilmRating($grfilmRating)
   {
-    $this->icaaRating = $icaaRating;
+      $this->grfilmRating = $grfilmRating;
   }
+
   public function getIcaaRating()
   {
     return $this->icaaRating;
   }
-  public function setIfcoRating($ifcoRating)
+
+    public function setIcaaRating($icaaRating)
   {
-    $this->ifcoRating = $ifcoRating;
+      $this->icaaRating = $icaaRating;
   }
+
   public function getIfcoRating()
   {
     return $this->ifcoRating;
   }
-  public function setIlfilmRating($ilfilmRating)
+
+    public function setIfcoRating($ifcoRating)
   {
-    $this->ilfilmRating = $ilfilmRating;
+      $this->ifcoRating = $ifcoRating;
   }
+
   public function getIlfilmRating()
   {
     return $this->ilfilmRating;
   }
-  public function setIncaaRating($incaaRating)
+
+    public function setIlfilmRating($ilfilmRating)
   {
-    $this->incaaRating = $incaaRating;
+      $this->ilfilmRating = $ilfilmRating;
   }
+
   public function getIncaaRating()
   {
     return $this->incaaRating;
   }
-  public function setKfcbRating($kfcbRating)
+
+    public function setIncaaRating($incaaRating)
   {
-    $this->kfcbRating = $kfcbRating;
+      $this->incaaRating = $incaaRating;
   }
+
   public function getKfcbRating()
   {
     return $this->kfcbRating;
   }
-  public function setKijkwijzerRating($kijkwijzerRating)
+
+    public function setKfcbRating($kfcbRating)
   {
-    $this->kijkwijzerRating = $kijkwijzerRating;
+      $this->kfcbRating = $kfcbRating;
   }
+
   public function getKijkwijzerRating()
   {
     return $this->kijkwijzerRating;
   }
-  public function setKmrbRating($kmrbRating)
+
+    public function setKijkwijzerRating($kijkwijzerRating)
   {
-    $this->kmrbRating = $kmrbRating;
+      $this->kijkwijzerRating = $kijkwijzerRating;
   }
+
   public function getKmrbRating()
   {
     return $this->kmrbRating;
   }
-  public function setLsfRating($lsfRating)
+
+    public function setKmrbRating($kmrbRating)
   {
-    $this->lsfRating = $lsfRating;
+      $this->kmrbRating = $kmrbRating;
   }
+
   public function getLsfRating()
   {
     return $this->lsfRating;
   }
-  public function setMccaaRating($mccaaRating)
+
+    public function setLsfRating($lsfRating)
   {
-    $this->mccaaRating = $mccaaRating;
+      $this->lsfRating = $lsfRating;
   }
+
   public function getMccaaRating()
   {
     return $this->mccaaRating;
   }
-  public function setMccypRating($mccypRating)
+
+    public function setMccaaRating($mccaaRating)
   {
-    $this->mccypRating = $mccypRating;
+      $this->mccaaRating = $mccaaRating;
   }
+
   public function getMccypRating()
   {
     return $this->mccypRating;
   }
-  public function setMdaRating($mdaRating)
+
+    public function setMccypRating($mccypRating)
   {
-    $this->mdaRating = $mdaRating;
+      $this->mccypRating = $mccypRating;
   }
+
   public function getMdaRating()
   {
     return $this->mdaRating;
   }
-  public function setMedietilsynetRating($medietilsynetRating)
+
+    public function setMdaRating($mdaRating)
   {
-    $this->medietilsynetRating = $medietilsynetRating;
+      $this->mdaRating = $mdaRating;
   }
+
   public function getMedietilsynetRating()
   {
     return $this->medietilsynetRating;
   }
-  public function setMekuRating($mekuRating)
+
+    public function setMedietilsynetRating($medietilsynetRating)
   {
-    $this->mekuRating = $mekuRating;
+      $this->medietilsynetRating = $medietilsynetRating;
   }
+
   public function getMekuRating()
   {
     return $this->mekuRating;
   }
-  public function setMibacRating($mibacRating)
+
+    public function setMekuRating($mekuRating)
   {
-    $this->mibacRating = $mibacRating;
+      $this->mekuRating = $mekuRating;
   }
+
   public function getMibacRating()
   {
     return $this->mibacRating;
   }
-  public function setMocRating($mocRating)
+
+    public function setMibacRating($mibacRating)
   {
-    $this->mocRating = $mocRating;
+      $this->mibacRating = $mibacRating;
   }
+
   public function getMocRating()
   {
     return $this->mocRating;
   }
-  public function setMoctwRating($moctwRating)
+
+    public function setMocRating($mocRating)
   {
-    $this->moctwRating = $moctwRating;
+      $this->mocRating = $mocRating;
   }
+
   public function getMoctwRating()
   {
     return $this->moctwRating;
   }
-  public function setMpaaRating($mpaaRating)
+
+    public function setMoctwRating($moctwRating)
   {
-    $this->mpaaRating = $mpaaRating;
+      $this->moctwRating = $moctwRating;
   }
+
   public function getMpaaRating()
   {
     return $this->mpaaRating;
   }
-  public function setMtrcbRating($mtrcbRating)
+
+    public function setMpaaRating($mpaaRating)
   {
-    $this->mtrcbRating = $mtrcbRating;
+      $this->mpaaRating = $mpaaRating;
   }
+
   public function getMtrcbRating()
   {
     return $this->mtrcbRating;
   }
-  public function setNbcRating($nbcRating)
+
+    public function setMtrcbRating($mtrcbRating)
   {
-    $this->nbcRating = $nbcRating;
+      $this->mtrcbRating = $mtrcbRating;
   }
+
   public function getNbcRating()
   {
     return $this->nbcRating;
   }
-  public function setNbcplRating($nbcplRating)
+
+    public function setNbcRating($nbcRating)
   {
-    $this->nbcplRating = $nbcplRating;
+      $this->nbcRating = $nbcRating;
   }
+
   public function getNbcplRating()
   {
     return $this->nbcplRating;
   }
-  public function setNfrcRating($nfrcRating)
+
+    public function setNbcplRating($nbcplRating)
   {
-    $this->nfrcRating = $nfrcRating;
+      $this->nbcplRating = $nbcplRating;
   }
+
   public function getNfrcRating()
   {
     return $this->nfrcRating;
   }
-  public function setNfvcbRating($nfvcbRating)
+
+    public function setNfrcRating($nfrcRating)
   {
-    $this->nfvcbRating = $nfvcbRating;
+      $this->nfrcRating = $nfrcRating;
   }
+
   public function getNfvcbRating()
   {
     return $this->nfvcbRating;
   }
-  public function setNkclvRating($nkclvRating)
+
+    public function setNfvcbRating($nfvcbRating)
   {
-    $this->nkclvRating = $nkclvRating;
+      $this->nfvcbRating = $nfvcbRating;
   }
+
   public function getNkclvRating()
   {
     return $this->nkclvRating;
   }
-  public function setOflcRating($oflcRating)
+
+    public function setNkclvRating($nkclvRating)
   {
-    $this->oflcRating = $oflcRating;
+      $this->nkclvRating = $nkclvRating;
   }
+
   public function getOflcRating()
   {
     return $this->oflcRating;
   }
-  public function setPefilmRating($pefilmRating)
+
+    public function setOflcRating($oflcRating)
   {
-    $this->pefilmRating = $pefilmRating;
+      $this->oflcRating = $oflcRating;
   }
+
   public function getPefilmRating()
   {
     return $this->pefilmRating;
   }
-  public function setRcnofRating($rcnofRating)
+
+    public function setPefilmRating($pefilmRating)
   {
-    $this->rcnofRating = $rcnofRating;
+      $this->pefilmRating = $pefilmRating;
   }
+
   public function getRcnofRating()
   {
     return $this->rcnofRating;
   }
-  public function setResorteviolenciaRating($resorteviolenciaRating)
+
+    public function setRcnofRating($rcnofRating)
   {
-    $this->resorteviolenciaRating = $resorteviolenciaRating;
+      $this->rcnofRating = $rcnofRating;
   }
+
   public function getResorteviolenciaRating()
   {
     return $this->resorteviolenciaRating;
   }
-  public function setRtcRating($rtcRating)
+
+    public function setResorteviolenciaRating($resorteviolenciaRating)
   {
-    $this->rtcRating = $rtcRating;
+      $this->resorteviolenciaRating = $resorteviolenciaRating;
   }
+
   public function getRtcRating()
   {
     return $this->rtcRating;
   }
-  public function setRteRating($rteRating)
+
+    public function setRtcRating($rtcRating)
   {
-    $this->rteRating = $rteRating;
+      $this->rtcRating = $rtcRating;
   }
+
   public function getRteRating()
   {
     return $this->rteRating;
   }
-  public function setRussiaRating($russiaRating)
+
+    public function setRteRating($rteRating)
   {
-    $this->russiaRating = $russiaRating;
+      $this->rteRating = $rteRating;
   }
+
   public function getRussiaRating()
   {
     return $this->russiaRating;
   }
-  public function setSkfilmRating($skfilmRating)
+
+    public function setRussiaRating($russiaRating)
   {
-    $this->skfilmRating = $skfilmRating;
+      $this->russiaRating = $russiaRating;
   }
+
   public function getSkfilmRating()
   {
     return $this->skfilmRating;
   }
-  public function setSmaisRating($smaisRating)
+
+    public function setSkfilmRating($skfilmRating)
   {
-    $this->smaisRating = $smaisRating;
+      $this->skfilmRating = $skfilmRating;
   }
+
   public function getSmaisRating()
   {
     return $this->smaisRating;
   }
-  public function setSmsaRating($smsaRating)
+
+    public function setSmaisRating($smaisRating)
   {
-    $this->smsaRating = $smsaRating;
+      $this->smaisRating = $smaisRating;
   }
+
   public function getSmsaRating()
   {
     return $this->smsaRating;
   }
-  public function setTvpgRating($tvpgRating)
+
+    public function setSmsaRating($smsaRating)
   {
-    $this->tvpgRating = $tvpgRating;
+      $this->smsaRating = $smsaRating;
   }
+
   public function getTvpgRating()
   {
     return $this->tvpgRating;
   }
-  public function setYtRating($ytRating)
+
+    public function setTvpgRating($tvpgRating)
   {
-    $this->ytRating = $ytRating;
+      $this->tvpgRating = $tvpgRating;
   }
+
   public function getYtRating()
   {
     return $this->ytRating;
   }
+
+    public function setYtRating($ytRating)
+    {
+        $this->ytRating = $ytRating;
+    }
 }
 
 class Google_Service_YouTube_GeoPoint extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $altitude;
   public $latitude;
   public $longitude;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAltitude($altitude)
-  {
-    $this->altitude = $altitude;
-  }
   public function getAltitude()
   {
     return $this->altitude;
   }
-  public function setLatitude($latitude)
+
+    public function setAltitude($altitude)
   {
-    $this->latitude = $latitude;
+      $this->altitude = $altitude;
   }
+
   public function getLatitude()
   {
     return $this->latitude;
   }
-  public function setLongitude($longitude)
+
+    public function setLatitude($latitude)
   {
-    $this->longitude = $longitude;
+      $this->latitude = $latitude;
   }
+
   public function getLongitude()
   {
     return $this->longitude;
   }
+
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
 }
 
 class Google_Service_YouTube_GuideCategory extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $snippetType = 'Google_Service_YouTube_GuideCategorySnippet';
   protected $snippetDataType = '';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_GuideCategorySnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -5991,39 +6281,41 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
 
 class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_GuideCategory';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_GuideCategory';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -6032,22 +6324,27 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -6056,14 +6353,17 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -6072,77 +6372,84 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $title;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setTitle($title)
+
+    public function setChannelId($channelId)
   {
-    $this->title = $title;
+      $this->channelId = $channelId;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_I18nLanguage extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $snippetType = 'Google_Service_YouTube_I18nLanguageSnippet';
   protected $snippetDataType = '';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_I18nLanguageSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -6155,33 +6462,35 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
 
 class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_I18nLanguage';
-  protected $itemsDataType = 'array';
   public $kind;
   public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_I18nLanguage';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -6190,85 +6499,94 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setVisitorId($visitorId)
+
+    public function setKind($kind)
   {
-    $this->visitorId = $visitorId;
+      $this->kind = $kind;
   }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $hl;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHl($hl)
-  {
-    $this->hl = $hl;
-  }
   public function getHl()
   {
     return $this->hl;
   }
-  public function setName($name)
+
+    public function setHl($hl)
   {
-    $this->name = $name;
+      $this->hl = $hl;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_YouTube_I18nRegion extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $snippetType = 'Google_Service_YouTube_I18nRegionSnippet';
   protected $snippetDataType = '';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_I18nRegionSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -6281,33 +6599,35 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
 
 class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_I18nRegion';
-  protected $itemsDataType = 'array';
   public $kind;
   public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_I18nRegion';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -6316,56 +6636,57 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setVisitorId($visitorId)
+
+    public function setKind($kind)
   {
-    $this->visitorId = $visitorId;
+      $this->kind = $kind;
   }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $gl;
   public $name;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setGl($gl)
-  {
-    $this->gl = $gl;
-  }
   public function getGl()
   {
     return $this->gl;
   }
-  public function setName($name)
+
+    public function setGl($gl)
   {
-    $this->name = $name;
+      $this->gl = $gl;
   }
+
   public function getName()
   {
     return $this->name;
   }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
 
 class Google_Service_YouTube_ImageSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $backgroundImageUrlType = 'Google_Service_YouTube_LocalizedProperty';
-  protected $backgroundImageUrlDataType = '';
   public $bannerExternalUrl;
   public $bannerImageUrl;
   public $bannerMobileExtraHdImageUrl;
@@ -6381,6 +6702,11 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   public $bannerTvImageUrl;
   public $bannerTvLowImageUrl;
   public $bannerTvMediumImageUrl;
+    public $trackingImageUrl;
+    public $watchIconImageUrl;
+    protected $internal_gapi_mappings = array();
+    protected $backgroundImageUrlType = 'Google_Service_YouTube_LocalizedProperty';
+    protected $backgroundImageUrlDataType = '';
   protected $largeBrandedBannerImageImapScriptType = 'Google_Service_YouTube_LocalizedProperty';
   protected $largeBrandedBannerImageImapScriptDataType = '';
   protected $largeBrandedBannerImageUrlType = 'Google_Service_YouTube_LocalizedProperty';
@@ -6389,9 +6715,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   protected $smallBrandedBannerImageImapScriptDataType = '';
   protected $smallBrandedBannerImageUrlType = 'Google_Service_YouTube_LocalizedProperty';
   protected $smallBrandedBannerImageUrlDataType = '';
-  public $trackingImageUrl;
-  public $watchIconImageUrl;
-
 
   public function setBackgroundImageUrl(Google_Service_YouTube_LocalizedProperty $backgroundImageUrl)
   {
@@ -6401,126 +6724,157 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->backgroundImageUrl;
   }
-  public function setBannerExternalUrl($bannerExternalUrl)
-  {
-    $this->bannerExternalUrl = $bannerExternalUrl;
-  }
+
   public function getBannerExternalUrl()
   {
     return $this->bannerExternalUrl;
   }
-  public function setBannerImageUrl($bannerImageUrl)
+
+    public function setBannerExternalUrl($bannerExternalUrl)
   {
-    $this->bannerImageUrl = $bannerImageUrl;
+      $this->bannerExternalUrl = $bannerExternalUrl;
   }
+
   public function getBannerImageUrl()
   {
     return $this->bannerImageUrl;
   }
-  public function setBannerMobileExtraHdImageUrl($bannerMobileExtraHdImageUrl)
+
+    public function setBannerImageUrl($bannerImageUrl)
   {
-    $this->bannerMobileExtraHdImageUrl = $bannerMobileExtraHdImageUrl;
+      $this->bannerImageUrl = $bannerImageUrl;
   }
+
   public function getBannerMobileExtraHdImageUrl()
   {
     return $this->bannerMobileExtraHdImageUrl;
   }
-  public function setBannerMobileHdImageUrl($bannerMobileHdImageUrl)
+
+    public function setBannerMobileExtraHdImageUrl($bannerMobileExtraHdImageUrl)
   {
-    $this->bannerMobileHdImageUrl = $bannerMobileHdImageUrl;
+      $this->bannerMobileExtraHdImageUrl = $bannerMobileExtraHdImageUrl;
   }
+
   public function getBannerMobileHdImageUrl()
   {
     return $this->bannerMobileHdImageUrl;
   }
-  public function setBannerMobileImageUrl($bannerMobileImageUrl)
+
+    public function setBannerMobileHdImageUrl($bannerMobileHdImageUrl)
   {
-    $this->bannerMobileImageUrl = $bannerMobileImageUrl;
+      $this->bannerMobileHdImageUrl = $bannerMobileHdImageUrl;
   }
+
   public function getBannerMobileImageUrl()
   {
     return $this->bannerMobileImageUrl;
   }
-  public function setBannerMobileLowImageUrl($bannerMobileLowImageUrl)
+
+    public function setBannerMobileImageUrl($bannerMobileImageUrl)
   {
-    $this->bannerMobileLowImageUrl = $bannerMobileLowImageUrl;
+      $this->bannerMobileImageUrl = $bannerMobileImageUrl;
   }
+
   public function getBannerMobileLowImageUrl()
   {
     return $this->bannerMobileLowImageUrl;
   }
-  public function setBannerMobileMediumHdImageUrl($bannerMobileMediumHdImageUrl)
+
+    public function setBannerMobileLowImageUrl($bannerMobileLowImageUrl)
   {
-    $this->bannerMobileMediumHdImageUrl = $bannerMobileMediumHdImageUrl;
+      $this->bannerMobileLowImageUrl = $bannerMobileLowImageUrl;
   }
+
   public function getBannerMobileMediumHdImageUrl()
   {
     return $this->bannerMobileMediumHdImageUrl;
   }
-  public function setBannerTabletExtraHdImageUrl($bannerTabletExtraHdImageUrl)
+
+    public function setBannerMobileMediumHdImageUrl($bannerMobileMediumHdImageUrl)
   {
-    $this->bannerTabletExtraHdImageUrl = $bannerTabletExtraHdImageUrl;
+      $this->bannerMobileMediumHdImageUrl = $bannerMobileMediumHdImageUrl;
   }
+
   public function getBannerTabletExtraHdImageUrl()
   {
     return $this->bannerTabletExtraHdImageUrl;
   }
-  public function setBannerTabletHdImageUrl($bannerTabletHdImageUrl)
+
+    public function setBannerTabletExtraHdImageUrl($bannerTabletExtraHdImageUrl)
   {
-    $this->bannerTabletHdImageUrl = $bannerTabletHdImageUrl;
+      $this->bannerTabletExtraHdImageUrl = $bannerTabletExtraHdImageUrl;
   }
+
   public function getBannerTabletHdImageUrl()
   {
     return $this->bannerTabletHdImageUrl;
   }
-  public function setBannerTabletImageUrl($bannerTabletImageUrl)
+
+    public function setBannerTabletHdImageUrl($bannerTabletHdImageUrl)
   {
-    $this->bannerTabletImageUrl = $bannerTabletImageUrl;
+      $this->bannerTabletHdImageUrl = $bannerTabletHdImageUrl;
   }
+
   public function getBannerTabletImageUrl()
   {
     return $this->bannerTabletImageUrl;
   }
-  public function setBannerTabletLowImageUrl($bannerTabletLowImageUrl)
+
+    public function setBannerTabletImageUrl($bannerTabletImageUrl)
   {
-    $this->bannerTabletLowImageUrl = $bannerTabletLowImageUrl;
+      $this->bannerTabletImageUrl = $bannerTabletImageUrl;
   }
+
   public function getBannerTabletLowImageUrl()
   {
     return $this->bannerTabletLowImageUrl;
   }
-  public function setBannerTvHighImageUrl($bannerTvHighImageUrl)
+
+    public function setBannerTabletLowImageUrl($bannerTabletLowImageUrl)
   {
-    $this->bannerTvHighImageUrl = $bannerTvHighImageUrl;
+      $this->bannerTabletLowImageUrl = $bannerTabletLowImageUrl;
   }
+
   public function getBannerTvHighImageUrl()
   {
     return $this->bannerTvHighImageUrl;
   }
-  public function setBannerTvImageUrl($bannerTvImageUrl)
+
+    public function setBannerTvHighImageUrl($bannerTvHighImageUrl)
   {
-    $this->bannerTvImageUrl = $bannerTvImageUrl;
+      $this->bannerTvHighImageUrl = $bannerTvHighImageUrl;
   }
+
   public function getBannerTvImageUrl()
   {
     return $this->bannerTvImageUrl;
   }
-  public function setBannerTvLowImageUrl($bannerTvLowImageUrl)
+
+    public function setBannerTvImageUrl($bannerTvImageUrl)
   {
-    $this->bannerTvLowImageUrl = $bannerTvLowImageUrl;
+      $this->bannerTvImageUrl = $bannerTvImageUrl;
   }
+
   public function getBannerTvLowImageUrl()
   {
     return $this->bannerTvLowImageUrl;
   }
-  public function setBannerTvMediumImageUrl($bannerTvMediumImageUrl)
+
+    public function setBannerTvLowImageUrl($bannerTvLowImageUrl)
   {
-    $this->bannerTvMediumImageUrl = $bannerTvMediumImageUrl;
+      $this->bannerTvLowImageUrl = $bannerTvLowImageUrl;
   }
+
   public function getBannerTvMediumImageUrl()
   {
     return $this->bannerTvMediumImageUrl;
   }
+
+    public function setBannerTvMediumImageUrl($bannerTvMediumImageUrl)
+    {
+        $this->bannerTvMediumImageUrl = $bannerTvMediumImageUrl;
+    }
+
   public function setLargeBrandedBannerImageImapScript(Google_Service_YouTube_LocalizedProperty $largeBrandedBannerImageImapScript)
   {
     $this->largeBrandedBannerImageImapScript = $largeBrandedBannerImageImapScript;
@@ -6553,88 +6907,97 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->smallBrandedBannerImageUrl;
   }
-  public function setTrackingImageUrl($trackingImageUrl)
-  {
-    $this->trackingImageUrl = $trackingImageUrl;
-  }
+
   public function getTrackingImageUrl()
   {
     return $this->trackingImageUrl;
   }
-  public function setWatchIconImageUrl($watchIconImageUrl)
+
+    public function setTrackingImageUrl($trackingImageUrl)
   {
-    $this->watchIconImageUrl = $watchIconImageUrl;
+      $this->trackingImageUrl = $trackingImageUrl;
   }
+
   public function getWatchIconImageUrl()
   {
     return $this->watchIconImageUrl;
   }
+
+    public function setWatchIconImageUrl($watchIconImageUrl)
+    {
+        $this->watchIconImageUrl = $watchIconImageUrl;
+    }
 }
 
 class Google_Service_YouTube_IngestionInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $backupIngestionAddress;
   public $ingestionAddress;
   public $streamName;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBackupIngestionAddress($backupIngestionAddress)
-  {
-    $this->backupIngestionAddress = $backupIngestionAddress;
-  }
   public function getBackupIngestionAddress()
   {
     return $this->backupIngestionAddress;
   }
-  public function setIngestionAddress($ingestionAddress)
+
+    public function setBackupIngestionAddress($backupIngestionAddress)
   {
-    $this->ingestionAddress = $ingestionAddress;
+      $this->backupIngestionAddress = $backupIngestionAddress;
   }
+
   public function getIngestionAddress()
   {
     return $this->ingestionAddress;
   }
-  public function setStreamName($streamName)
+
+    public function setIngestionAddress($ingestionAddress)
   {
-    $this->streamName = $streamName;
+      $this->ingestionAddress = $ingestionAddress;
   }
+
   public function getStreamName()
   {
     return $this->streamName;
   }
+
+    public function setStreamName($streamName)
+    {
+        $this->streamName = $streamName;
+    }
 }
 
 class Google_Service_YouTube_InvideoBranding extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $imageBytes;
   public $imageUrl;
+    public $targetChannelId;
+    protected $internal_gapi_mappings = array();
   protected $positionType = 'Google_Service_YouTube_InvideoPosition';
   protected $positionDataType = '';
-  public $targetChannelId;
   protected $timingType = 'Google_Service_YouTube_InvideoTiming';
   protected $timingDataType = '';
 
-
-  public function setImageBytes($imageBytes)
-  {
-    $this->imageBytes = $imageBytes;
-  }
   public function getImageBytes()
   {
     return $this->imageBytes;
   }
-  public function setImageUrl($imageUrl)
+
+    public function setImageBytes($imageBytes)
   {
-    $this->imageUrl = $imageUrl;
+      $this->imageBytes = $imageBytes;
   }
+
   public function getImageUrl()
   {
     return $this->imageUrl;
   }
+
+    public function setImageUrl($imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
+    }
+
   public function setPosition(Google_Service_YouTube_InvideoPosition $position)
   {
     $this->position = $position;
@@ -6643,14 +7006,17 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     return $this->position;
   }
-  public function setTargetChannelId($targetChannelId)
-  {
-    $this->targetChannelId = $targetChannelId;
-  }
+
   public function getTargetChannelId()
   {
     return $this->targetChannelId;
   }
+
+    public function setTargetChannelId($targetChannelId)
+    {
+        $this->targetChannelId = $targetChannelId;
+    }
+
   public function setTiming(Google_Service_YouTube_InvideoTiming $timing)
   {
     $this->timing = $timing;
@@ -6663,32 +7029,34 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
 
 class Google_Service_YouTube_InvideoPosition extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $cornerPosition;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCornerPosition($cornerPosition)
-  {
-    $this->cornerPosition = $cornerPosition;
-  }
   public function getCornerPosition()
   {
     return $this->cornerPosition;
   }
-  public function setType($type)
+
+    public function setCornerPosition($cornerPosition)
   {
-    $this->type = $type;
+      $this->cornerPosition = $cornerPosition;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_YouTube_InvideoPromotion extends Google_Collection
 {
+    public $useSmartTiming;
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
@@ -6698,8 +7066,6 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   protected $itemsDataType = 'array';
   protected $positionType = 'Google_Service_YouTube_InvideoPosition';
   protected $positionDataType = '';
-  public $useSmartTiming;
-
 
   public function setDefaultTiming(Google_Service_YouTube_InvideoTiming $defaultTiming)
   {
@@ -6725,77 +7091,80 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     return $this->position;
   }
-  public function setUseSmartTiming($useSmartTiming)
-  {
-    $this->useSmartTiming = $useSmartTiming;
-  }
+
   public function getUseSmartTiming()
   {
     return $this->useSmartTiming;
   }
+
+    public function setUseSmartTiming($useSmartTiming)
+    {
+        $this->useSmartTiming = $useSmartTiming;
+    }
 }
 
 class Google_Service_YouTube_InvideoTiming extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $durationMs;
   public $offsetMs;
   public $type;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setDurationMs($durationMs)
-  {
-    $this->durationMs = $durationMs;
-  }
   public function getDurationMs()
   {
     return $this->durationMs;
   }
-  public function setOffsetMs($offsetMs)
+
+    public function setDurationMs($durationMs)
   {
-    $this->offsetMs = $offsetMs;
+      $this->durationMs = $durationMs;
   }
+
   public function getOffsetMs()
   {
     return $this->offsetMs;
   }
-  public function setType($type)
+
+    public function setOffsetMs($offsetMs)
   {
-    $this->type = $type;
+      $this->offsetMs = $offsetMs;
   }
+
   public function getType()
   {
     return $this->type;
   }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 }
 
 class Google_Service_YouTube_LanguageTag extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_YouTube_LiveBroadcast extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentDetailsType = 'Google_Service_YouTube_LiveBroadcastContentDetails';
-  protected $contentDetailsDataType = '';
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $contentDetailsType = 'Google_Service_YouTube_LiveBroadcastContentDetails';
+    protected $contentDetailsDataType = '';
   protected $snippetType = 'Google_Service_YouTube_LiveBroadcastSnippet';
   protected $snippetDataType = '';
   protected $statusType = 'Google_Service_YouTube_LiveBroadcastStatus';
@@ -6810,30 +7179,37 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_LiveBroadcastSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -6854,59 +7230,67 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
 
 class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $boundStreamId;
   public $enableClosedCaptions;
   public $enableContentEncryption;
   public $enableDvr;
   public $enableEmbed;
-  protected $monitorStreamType = 'Google_Service_YouTube_MonitorStreamInfo';
-  protected $monitorStreamDataType = '';
   public $recordFromStart;
   public $startWithSlate;
+    protected $internal_gapi_mappings = array();
+    protected $monitorStreamType = 'Google_Service_YouTube_MonitorStreamInfo';
+    protected $monitorStreamDataType = '';
 
-
-  public function setBoundStreamId($boundStreamId)
-  {
-    $this->boundStreamId = $boundStreamId;
-  }
   public function getBoundStreamId()
   {
     return $this->boundStreamId;
   }
-  public function setEnableClosedCaptions($enableClosedCaptions)
+
+    public function setBoundStreamId($boundStreamId)
   {
-    $this->enableClosedCaptions = $enableClosedCaptions;
+      $this->boundStreamId = $boundStreamId;
   }
+
   public function getEnableClosedCaptions()
   {
     return $this->enableClosedCaptions;
   }
-  public function setEnableContentEncryption($enableContentEncryption)
+
+    public function setEnableClosedCaptions($enableClosedCaptions)
   {
-    $this->enableContentEncryption = $enableContentEncryption;
+      $this->enableClosedCaptions = $enableClosedCaptions;
   }
+
   public function getEnableContentEncryption()
   {
     return $this->enableContentEncryption;
   }
-  public function setEnableDvr($enableDvr)
+
+    public function setEnableContentEncryption($enableContentEncryption)
   {
-    $this->enableDvr = $enableDvr;
+      $this->enableContentEncryption = $enableContentEncryption;
   }
+
   public function getEnableDvr()
   {
     return $this->enableDvr;
   }
-  public function setEnableEmbed($enableEmbed)
+
+    public function setEnableDvr($enableDvr)
   {
-    $this->enableEmbed = $enableEmbed;
+      $this->enableDvr = $enableDvr;
   }
+
   public function getEnableEmbed()
   {
     return $this->enableEmbed;
   }
+
+    public function setEnableEmbed($enableEmbed)
+    {
+        $this->enableEmbed = $enableEmbed;
+    }
+
   public function setMonitorStream(Google_Service_YouTube_MonitorStreamInfo $monitorStream)
   {
     $this->monitorStream = $monitorStream;
@@ -6915,59 +7299,65 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->monitorStream;
   }
-  public function setRecordFromStart($recordFromStart)
-  {
-    $this->recordFromStart = $recordFromStart;
-  }
+
   public function getRecordFromStart()
   {
     return $this->recordFromStart;
   }
-  public function setStartWithSlate($startWithSlate)
+
+    public function setRecordFromStart($recordFromStart)
   {
-    $this->startWithSlate = $startWithSlate;
+      $this->recordFromStart = $recordFromStart;
   }
+
   public function getStartWithSlate()
   {
     return $this->startWithSlate;
   }
+
+    public function setStartWithSlate($startWithSlate)
+    {
+        $this->startWithSlate = $startWithSlate;
+    }
 }
 
 class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_LiveBroadcast';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_LiveBroadcast';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -6976,22 +7366,27 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -7000,14 +7395,17 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -7016,20 +7414,20 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $actualEndTime;
   public $actualStartTime;
   public $channelId;
@@ -7037,67 +7435,81 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   public $publishedAt;
   public $scheduledEndTime;
   public $scheduledStartTime;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setActualEndTime($actualEndTime)
-  {
-    $this->actualEndTime = $actualEndTime;
-  }
   public function getActualEndTime()
   {
     return $this->actualEndTime;
   }
-  public function setActualStartTime($actualStartTime)
+
+    public function setActualEndTime($actualEndTime)
   {
-    $this->actualStartTime = $actualStartTime;
+      $this->actualEndTime = $actualEndTime;
   }
+
   public function getActualStartTime()
   {
     return $this->actualStartTime;
   }
-  public function setChannelId($channelId)
+
+    public function setActualStartTime($actualStartTime)
   {
-    $this->channelId = $channelId;
+      $this->actualStartTime = $actualStartTime;
   }
+
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setDescription($description)
+
+    public function setChannelId($channelId)
   {
-    $this->description = $description;
+      $this->channelId = $channelId;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setDescription($description)
   {
-    $this->publishedAt = $publishedAt;
+      $this->description = $description;
   }
+
   public function getPublishedAt()
   {
     return $this->publishedAt;
   }
-  public function setScheduledEndTime($scheduledEndTime)
+
+    public function setPublishedAt($publishedAt)
   {
-    $this->scheduledEndTime = $scheduledEndTime;
+      $this->publishedAt = $publishedAt;
   }
+
   public function getScheduledEndTime()
   {
     return $this->scheduledEndTime;
   }
-  public function setScheduledStartTime($scheduledStartTime)
+
+    public function setScheduledEndTime($scheduledEndTime)
   {
-    $this->scheduledStartTime = $scheduledStartTime;
+      $this->scheduledEndTime = $scheduledEndTime;
   }
+
   public function getScheduledStartTime()
   {
     return $this->scheduledStartTime;
   }
+
+    public function setScheduledStartTime($scheduledStartTime)
+    {
+        $this->scheduledStartTime = $scheduledStartTime;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -7106,71 +7518,78 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $lifeCycleStatus;
   public $liveBroadcastPriority;
   public $privacyStatus;
   public $recordingStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLifeCycleStatus($lifeCycleStatus)
-  {
-    $this->lifeCycleStatus = $lifeCycleStatus;
-  }
   public function getLifeCycleStatus()
   {
     return $this->lifeCycleStatus;
   }
-  public function setLiveBroadcastPriority($liveBroadcastPriority)
+
+    public function setLifeCycleStatus($lifeCycleStatus)
   {
-    $this->liveBroadcastPriority = $liveBroadcastPriority;
+      $this->lifeCycleStatus = $lifeCycleStatus;
   }
+
   public function getLiveBroadcastPriority()
   {
     return $this->liveBroadcastPriority;
   }
-  public function setPrivacyStatus($privacyStatus)
+
+    public function setLiveBroadcastPriority($liveBroadcastPriority)
   {
-    $this->privacyStatus = $privacyStatus;
+      $this->liveBroadcastPriority = $liveBroadcastPriority;
   }
+
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
-  public function setRecordingStatus($recordingStatus)
+
+    public function setPrivacyStatus($privacyStatus)
   {
-    $this->recordingStatus = $recordingStatus;
+      $this->privacyStatus = $privacyStatus;
   }
+
   public function getRecordingStatus()
   {
     return $this->recordingStatus;
   }
+
+    public function setRecordingStatus($recordingStatus)
+    {
+        $this->recordingStatus = $recordingStatus;
+    }
 }
 
 class Google_Service_YouTube_LiveStream extends Google_Model
 {
+    public $etag;
+    public $id;
+    public $kind;
   protected $internal_gapi_mappings = array(
   );
   protected $cdnType = 'Google_Service_YouTube_CdnSettings';
   protected $cdnDataType = '';
   protected $contentDetailsType = 'Google_Service_YouTube_LiveStreamContentDetails';
   protected $contentDetailsDataType = '';
-  public $etag;
-  public $id;
-  public $kind;
   protected $snippetType = 'Google_Service_YouTube_LiveStreamSnippet';
   protected $snippetDataType = '';
   protected $statusType = 'Google_Service_YouTube_LiveStreamStatus';
@@ -7193,30 +7612,37 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_LiveStreamSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -7237,65 +7663,68 @@ class Google_Service_YouTube_LiveStream extends Google_Model
 
 class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $closedCaptionsIngestionUrl;
   public $isReusable;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setClosedCaptionsIngestionUrl($closedCaptionsIngestionUrl)
-  {
-    $this->closedCaptionsIngestionUrl = $closedCaptionsIngestionUrl;
-  }
   public function getClosedCaptionsIngestionUrl()
   {
     return $this->closedCaptionsIngestionUrl;
   }
-  public function setIsReusable($isReusable)
+
+    public function setClosedCaptionsIngestionUrl($closedCaptionsIngestionUrl)
   {
-    $this->isReusable = $isReusable;
+      $this->closedCaptionsIngestionUrl = $closedCaptionsIngestionUrl;
   }
+
   public function getIsReusable()
   {
     return $this->isReusable;
   }
+
+    public function setIsReusable($isReusable)
+    {
+        $this->isReusable = $isReusable;
+    }
 }
 
 class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_LiveStream';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_LiveStream';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -7304,22 +7733,27 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -7328,14 +7762,17 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -7344,97 +7781,104 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $description;
   public $publishedAt;
   public $title;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setDescription($description)
+
+    public function setChannelId($channelId)
   {
-    $this->description = $description;
+      $this->channelId = $channelId;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setDescription($description)
   {
-    $this->publishedAt = $publishedAt;
+      $this->description = $description;
   }
+
   public function getPublishedAt()
   {
     return $this->publishedAt;
   }
-  public function setTitle($title)
+
+    public function setPublishedAt($publishedAt)
   {
-    $this->title = $title;
+      $this->publishedAt = $publishedAt;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_LiveStreamStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $streamStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setStreamStatus($streamStatus)
-  {
-    $this->streamStatus = $streamStatus;
-  }
   public function getStreamStatus()
   {
     return $this->streamStatus;
   }
+
+    public function setStreamStatus($streamStatus)
+    {
+        $this->streamStatus = $streamStatus;
+    }
 }
 
 class Google_Service_YouTube_LocalizedProperty extends Google_Collection
 {
+    public $default;
   protected $collection_key = 'localized';
   protected $internal_gapi_mappings = array(
   );
-  public $default;
   protected $defaultLanguageType = 'Google_Service_YouTube_LanguageTag';
   protected $defaultLanguageDataType = '';
   protected $localizedType = 'Google_Service_YouTube_LocalizedString';
   protected $localizedDataType = 'array';
 
-
-  public function setDefault($default)
-  {
-    $this->default = $default;
-  }
   public function getDefault()
   {
     return $this->default;
   }
+
+    public function setDefault($default)
+    {
+        $this->default = $default;
+    }
+
   public function setDefaultLanguage(Google_Service_YouTube_LanguageTag $defaultLanguage)
   {
     $this->defaultLanguage = $defaultLanguage;
@@ -7455,100 +7899,104 @@ class Google_Service_YouTube_LocalizedProperty extends Google_Collection
 
 class Google_Service_YouTube_LocalizedString extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $language;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setLanguage($language)
-  {
-    $this->language = $language;
-  }
   public function getLanguage()
   {
     return $this->language;
   }
-  public function setValue($value)
+
+    public function setLanguage($language)
   {
-    $this->value = $value;
+      $this->language = $language;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $broadcastStreamDelayMs;
   public $embedHtml;
   public $enableMonitorStream;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBroadcastStreamDelayMs($broadcastStreamDelayMs)
-  {
-    $this->broadcastStreamDelayMs = $broadcastStreamDelayMs;
-  }
   public function getBroadcastStreamDelayMs()
   {
     return $this->broadcastStreamDelayMs;
   }
-  public function setEmbedHtml($embedHtml)
+
+    public function setBroadcastStreamDelayMs($broadcastStreamDelayMs)
   {
-    $this->embedHtml = $embedHtml;
+      $this->broadcastStreamDelayMs = $broadcastStreamDelayMs;
   }
+
   public function getEmbedHtml()
   {
     return $this->embedHtml;
   }
-  public function setEnableMonitorStream($enableMonitorStream)
+
+    public function setEmbedHtml($embedHtml)
   {
-    $this->enableMonitorStream = $enableMonitorStream;
+      $this->embedHtml = $embedHtml;
   }
+
   public function getEnableMonitorStream()
   {
     return $this->enableMonitorStream;
   }
+
+    public function setEnableMonitorStream($enableMonitorStream)
+    {
+        $this->enableMonitorStream = $enableMonitorStream;
+    }
 }
 
 class Google_Service_YouTube_PageInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $resultsPerPage;
   public $totalResults;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setResultsPerPage($resultsPerPage)
-  {
-    $this->resultsPerPage = $resultsPerPage;
-  }
   public function getResultsPerPage()
   {
     return $this->resultsPerPage;
   }
-  public function setTotalResults($totalResults)
+
+    public function setResultsPerPage($resultsPerPage)
   {
-    $this->totalResults = $totalResults;
+      $this->resultsPerPage = $resultsPerPage;
   }
+
   public function getTotalResults()
   {
     return $this->totalResults;
   }
+
+    public function setTotalResults($totalResults)
+    {
+        $this->totalResults = $totalResults;
+    }
 }
 
 class Google_Service_YouTube_Playlist extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentDetailsType = 'Google_Service_YouTube_PlaylistContentDetails';
-  protected $contentDetailsDataType = '';
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $contentDetailsType = 'Google_Service_YouTube_PlaylistContentDetails';
+    protected $contentDetailsDataType = '';
   protected $playerType = 'Google_Service_YouTube_PlaylistPlayer';
   protected $playerDataType = '';
   protected $snippetType = 'Google_Service_YouTube_PlaylistSnippet';
@@ -7565,30 +8013,37 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setPlayer(Google_Service_YouTube_PlaylistPlayer $player)
   {
     $this->player = $player;
@@ -7617,30 +8072,28 @@ class Google_Service_YouTube_Playlist extends Google_Model
 
 class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $itemCount;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setItemCount($itemCount)
-  {
-    $this->itemCount = $itemCount;
-  }
   public function getItemCount()
   {
     return $this->itemCount;
   }
+
+    public function setItemCount($itemCount)
+    {
+        $this->itemCount = $itemCount;
+    }
 }
 
 class Google_Service_YouTube_PlaylistItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentDetailsType = 'Google_Service_YouTube_PlaylistItemContentDetails';
-  protected $contentDetailsDataType = '';
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $contentDetailsType = 'Google_Service_YouTube_PlaylistItemContentDetails';
+    protected $contentDetailsDataType = '';
   protected $snippetType = 'Google_Service_YouTube_PlaylistItemSnippet';
   protected $snippetDataType = '';
   protected $statusType = 'Google_Service_YouTube_PlaylistItemStatus';
@@ -7655,30 +8108,37 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
+
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
+
   public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_PlaylistItemSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -7699,83 +8159,90 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
 
 class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $endAt;
   public $note;
   public $startAt;
   public $videoId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEndAt($endAt)
-  {
-    $this->endAt = $endAt;
-  }
   public function getEndAt()
   {
     return $this->endAt;
   }
-  public function setNote($note)
+
+    public function setEndAt($endAt)
   {
-    $this->note = $note;
+      $this->endAt = $endAt;
   }
+
   public function getNote()
   {
     return $this->note;
   }
-  public function setStartAt($startAt)
+
+    public function setNote($note)
   {
-    $this->startAt = $startAt;
+      $this->note = $note;
   }
+
   public function getStartAt()
   {
     return $this->startAt;
   }
-  public function setVideoId($videoId)
+
+    public function setStartAt($startAt)
   {
-    $this->videoId = $videoId;
+      $this->startAt = $startAt;
   }
+
   public function getVideoId()
   {
     return $this->videoId;
   }
+
+    public function setVideoId($videoId)
+    {
+        $this->videoId = $videoId;
+    }
 }
 
 class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_PlaylistItem';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_PlaylistItem';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -7784,22 +8251,27 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -7808,14 +8280,17 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -7824,81 +8299,93 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $channelTitle;
   public $description;
   public $playlistId;
   public $position;
   public $publishedAt;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setChannelTitle($channelTitle)
+
+    public function setChannelId($channelId)
   {
-    $this->channelTitle = $channelTitle;
+      $this->channelId = $channelId;
   }
+
   public function getChannelTitle()
   {
     return $this->channelTitle;
   }
-  public function setDescription($description)
+
+    public function setChannelTitle($channelTitle)
   {
-    $this->description = $description;
+      $this->channelTitle = $channelTitle;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setPlaylistId($playlistId)
+
+    public function setDescription($description)
   {
-    $this->playlistId = $playlistId;
+      $this->description = $description;
   }
+
   public function getPlaylistId()
   {
     return $this->playlistId;
   }
-  public function setPosition($position)
+
+    public function setPlaylistId($playlistId)
   {
-    $this->position = $position;
+      $this->playlistId = $playlistId;
   }
+
   public function getPosition()
   {
     return $this->position;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setPosition($position)
   {
-    $this->publishedAt = $publishedAt;
+      $this->position = $position;
   }
+
   public function getPublishedAt()
   {
     return $this->publishedAt;
   }
+
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+    }
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -7915,68 +8402,71 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $privacyStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPrivacyStatus($privacyStatus)
-  {
-    $this->privacyStatus = $privacyStatus;
-  }
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
+
+    public function setPrivacyStatus($privacyStatus)
+    {
+        $this->privacyStatus = $privacyStatus;
+    }
 }
 
 class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_Playlist';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_Playlist';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -7985,22 +8475,27 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -8009,14 +8504,17 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -8025,88 +8523,97 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
+
   public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_PlaylistPlayer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $embedHtml;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmbedHtml($embedHtml)
-  {
-    $this->embedHtml = $embedHtml;
-  }
   public function getEmbedHtml()
   {
     return $this->embedHtml;
   }
+
+    public function setEmbedHtml($embedHtml)
+    {
+        $this->embedHtml = $embedHtml;
+    }
 }
 
 class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
 {
-  protected $collection_key = 'tags';
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $channelTitle;
   public $description;
   public $publishedAt;
   public $tags;
+    public $title;
+    protected $collection_key = 'tags';
+    protected $internal_gapi_mappings = array();
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setChannelTitle($channelTitle)
+
+    public function setChannelId($channelId)
   {
-    $this->channelTitle = $channelTitle;
+      $this->channelId = $channelId;
   }
+
   public function getChannelTitle()
   {
     return $this->channelTitle;
   }
-  public function setDescription($description)
+
+    public function setChannelTitle($channelTitle)
   {
-    $this->description = $description;
+      $this->channelTitle = $channelTitle;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setDescription($description)
   {
-    $this->publishedAt = $publishedAt;
+      $this->description = $description;
   }
+
   public function getPublishedAt()
   {
     return $this->publishedAt;
   }
-  public function setTags($tags)
+
+    public function setPublishedAt($publishedAt)
   {
-    $this->tags = $tags;
+      $this->publishedAt = $publishedAt;
   }
+
   public function getTags()
   {
     return $this->tags;
   }
+
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -8115,53 +8622,54 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
+
   public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_PlaylistStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $privacyStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPrivacyStatus($privacyStatus)
-  {
-    $this->privacyStatus = $privacyStatus;
-  }
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
+
+    public function setPrivacyStatus($privacyStatus)
+    {
+        $this->privacyStatus = $privacyStatus;
+    }
 }
 
 class Google_Service_YouTube_PromotedItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $customMessage;
+    public $promotedByContentOwner;
+    protected $internal_gapi_mappings = array();
   protected $idType = 'Google_Service_YouTube_PromotedItemId';
   protected $idDataType = '';
-  public $promotedByContentOwner;
   protected $timingType = 'Google_Service_YouTube_InvideoTiming';
   protected $timingDataType = '';
 
-
-  public function setCustomMessage($customMessage)
-  {
-    $this->customMessage = $customMessage;
-  }
   public function getCustomMessage()
   {
     return $this->customMessage;
   }
+
+    public function setCustomMessage($customMessage)
+    {
+        $this->customMessage = $customMessage;
+    }
+
   public function setId(Google_Service_YouTube_PromotedItemId $id)
   {
     $this->id = $id;
@@ -8170,14 +8678,17 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     return $this->id;
   }
-  public function setPromotedByContentOwner($promotedByContentOwner)
-  {
-    $this->promotedByContentOwner = $promotedByContentOwner;
-  }
+
   public function getPromotedByContentOwner()
   {
     return $this->promotedByContentOwner;
   }
+
+    public function setPromotedByContentOwner($promotedByContentOwner)
+    {
+        $this->promotedByContentOwner = $promotedByContentOwner;
+    }
+
   public function setTiming(Google_Service_YouTube_InvideoTiming $timing)
   {
     $this->timing = $timing;
@@ -8190,153 +8701,166 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
 
 class Google_Service_YouTube_PromotedItemId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $recentlyUploadedBy;
   public $type;
   public $videoId;
   public $websiteUrl;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setRecentlyUploadedBy($recentlyUploadedBy)
-  {
-    $this->recentlyUploadedBy = $recentlyUploadedBy;
-  }
   public function getRecentlyUploadedBy()
   {
     return $this->recentlyUploadedBy;
   }
-  public function setType($type)
+
+    public function setRecentlyUploadedBy($recentlyUploadedBy)
   {
-    $this->type = $type;
+      $this->recentlyUploadedBy = $recentlyUploadedBy;
   }
+
   public function getType()
   {
     return $this->type;
   }
-  public function setVideoId($videoId)
+
+    public function setType($type)
   {
-    $this->videoId = $videoId;
+      $this->type = $type;
   }
+
   public function getVideoId()
   {
     return $this->videoId;
   }
-  public function setWebsiteUrl($websiteUrl)
+
+    public function setVideoId($videoId)
   {
-    $this->websiteUrl = $websiteUrl;
+      $this->videoId = $videoId;
   }
+
   public function getWebsiteUrl()
   {
     return $this->websiteUrl;
   }
+
+    public function setWebsiteUrl($websiteUrl)
+    {
+        $this->websiteUrl = $websiteUrl;
+    }
 }
 
 class Google_Service_YouTube_PropertyValue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $property;
   public $value;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setProperty($property)
-  {
-    $this->property = $property;
-  }
   public function getProperty()
   {
     return $this->property;
   }
-  public function setValue($value)
+
+    public function setProperty($property)
   {
-    $this->value = $value;
+      $this->property = $property;
   }
+
   public function getValue()
   {
     return $this->value;
   }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }
 
 class Google_Service_YouTube_ResourceId extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $kind;
   public $playlistId;
   public $videoId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setKind($kind)
+
+    public function setChannelId($channelId)
   {
-    $this->kind = $kind;
+      $this->channelId = $channelId;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setPlaylistId($playlistId)
+
+    public function setKind($kind)
   {
-    $this->playlistId = $playlistId;
+      $this->kind = $kind;
   }
+
   public function getPlaylistId()
   {
     return $this->playlistId;
   }
-  public function setVideoId($videoId)
+
+    public function setPlaylistId($playlistId)
   {
-    $this->videoId = $videoId;
+      $this->playlistId = $playlistId;
   }
+
   public function getVideoId()
   {
     return $this->videoId;
   }
+
+    public function setVideoId($videoId)
+    {
+        $this->videoId = $videoId;
+    }
 }
 
 class Google_Service_YouTube_SearchListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_SearchResult';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_SearchResult';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
+
   public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -8345,22 +8869,27 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
+
   public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -8369,14 +8898,17 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
-  public function getPrevPageToken()
+
+    public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -8385,36 +8917,38 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
-  public function getVisitorId()
+
+    public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_SearchResult extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
+    public $kind;
+    protected $internal_gapi_mappings = array();
   protected $idType = 'Google_Service_YouTube_ResourceId';
   protected $idDataType = '';
-  public $kind;
   protected $snippetType = 'Google_Service_YouTube_SearchResultSnippet';
   protected $snippetDataType = '';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setId(Google_Service_YouTube_ResourceId $id)
   {
     $this->id = $id;
@@ -8423,14 +8957,17 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     return $this->id;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_SearchResultSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -8443,58 +8980,66 @@ class Google_Service_YouTube_SearchResult extends Google_Model
 
 class Google_Service_YouTube_SearchResultSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $channelTitle;
   public $description;
   public $liveBroadcastContent;
   public $publishedAt;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setChannelTitle($channelTitle)
+
+    public function setChannelId($channelId)
   {
-    $this->channelTitle = $channelTitle;
+      $this->channelId = $channelId;
   }
-  public function getChannelTitle()
+
+    public function getChannelTitle()
   {
     return $this->channelTitle;
   }
-  public function setDescription($description)
+
+    public function setChannelTitle($channelTitle)
   {
-    $this->description = $description;
+      $this->channelTitle = $channelTitle;
   }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setLiveBroadcastContent($liveBroadcastContent)
+
+    public function setDescription($description)
   {
-    $this->liveBroadcastContent = $liveBroadcastContent;
+      $this->description = $description;
   }
-  public function getLiveBroadcastContent()
+
+    public function getLiveBroadcastContent()
   {
     return $this->liveBroadcastContent;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setLiveBroadcastContent($liveBroadcastContent)
   {
-    $this->publishedAt = $publishedAt;
+      $this->liveBroadcastContent = $liveBroadcastContent;
   }
-  public function getPublishedAt()
+
+    public function getPublishedAt()
   {
     return $this->publishedAt;
   }
+
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -8503,25 +9048,26 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_Subscription extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-  protected $contentDetailsType = 'Google_Service_YouTube_SubscriptionContentDetails';
-  protected $contentDetailsDataType = '';
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
+    protected $contentDetailsType = 'Google_Service_YouTube_SubscriptionContentDetails';
+    protected $contentDetailsDataType = '';
   protected $snippetType = 'Google_Service_YouTube_SubscriptionSnippet';
   protected $snippetDataType = '';
   protected $subscriberSnippetType = 'Google_Service_YouTube_SubscriptionSubscriberSnippet';
@@ -8536,30 +9082,37 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->contentDetails;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
-  public function getEtag()
+
+    public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_SubscriptionSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -8580,74 +9133,79 @@ class Google_Service_YouTube_Subscription extends Google_Model
 
 class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $activityType;
   public $newItemCount;
   public $totalItemCount;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setActivityType($activityType)
-  {
-    $this->activityType = $activityType;
-  }
   public function getActivityType()
   {
     return $this->activityType;
   }
-  public function setNewItemCount($newItemCount)
+
+    public function setActivityType($activityType)
   {
-    $this->newItemCount = $newItemCount;
+      $this->activityType = $activityType;
   }
-  public function getNewItemCount()
+
+    public function getNewItemCount()
   {
     return $this->newItemCount;
   }
-  public function setTotalItemCount($totalItemCount)
+
+    public function setNewItemCount($newItemCount)
   {
-    $this->totalItemCount = $totalItemCount;
+      $this->newItemCount = $newItemCount;
   }
-  public function getTotalItemCount()
+
+    public function getTotalItemCount()
   {
     return $this->totalItemCount;
   }
+
+    public function setTotalItemCount($totalItemCount)
+    {
+        $this->totalItemCount = $totalItemCount;
+    }
 }
 
 class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_Subscription';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_Subscription';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
-  public function getEventId()
+
+    public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -8656,22 +9214,27 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -8680,14 +9243,17 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
-  public function getPrevPageToken()
+
+    public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -8696,63 +9262,71 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
-  public function getVisitorId()
+
+    public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $channelTitle;
   public $description;
   public $publishedAt;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setChannelTitle($channelTitle)
+
+    public function setChannelId($channelId)
   {
-    $this->channelTitle = $channelTitle;
+      $this->channelId = $channelId;
   }
-  public function getChannelTitle()
+
+    public function getChannelTitle()
   {
     return $this->channelTitle;
   }
-  public function setDescription($description)
+
+    public function setChannelTitle($channelTitle)
   {
-    $this->description = $description;
+      $this->channelTitle = $channelTitle;
   }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setDescription($description)
   {
-    $this->publishedAt = $publishedAt;
+      $this->description = $description;
   }
-  public function getPublishedAt()
+
+    public function getPublishedAt()
   {
     return $this->publishedAt;
   }
+
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+    }
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -8769,43 +9343,47 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $channelId;
   public $description;
+    public $title;
+    protected $internal_gapi_mappings = array();
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setChannelId($channelId)
-  {
-    $this->channelId = $channelId;
-  }
   public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setDescription($description)
+
+    public function setChannelId($channelId)
   {
-    $this->description = $description;
+      $this->channelId = $channelId;
   }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -8814,49 +9392,54 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_Thumbnail extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $height;
   public $url;
   public $width;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
   public function getHeight()
   {
     return $this->height;
   }
-  public function setUrl($url)
+
+    public function setHeight($height)
   {
-    $this->url = $url;
+      $this->height = $height;
   }
-  public function getUrl()
+
+    public function getUrl()
   {
     return $this->url;
   }
-  public function setWidth($width)
+
+    public function setUrl($url)
   {
-    $this->width = $width;
+      $this->url = $url;
   }
-  public function getWidth()
+
+    public function getWidth()
   {
     return $this->width;
   }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
 }
 
 class Google_Service_YouTube_ThumbnailDetails extends Google_Model
@@ -8919,33 +9502,35 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
 
 class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_ThumbnailDetails';
-  protected $itemsDataType = 'array';
   public $kind;
   public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_ThumbnailDetails';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
-  public function getEventId()
+
+    public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -8954,22 +9539,26 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setVisitorId($visitorId)
+
+    public function setKind($kind)
   {
-    $this->visitorId = $visitorId;
+      $this->kind = $kind;
   }
-  public function getVisitorId()
+
+    public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_TokenPagination extends Google_Model
@@ -8978,6 +9567,9 @@ class Google_Service_YouTube_TokenPagination extends Google_Model
 
 class Google_Service_YouTube_Video extends Google_Model
 {
+    public $etag;
+    public $id;
+    public $kind;
   protected $internal_gapi_mappings = array(
   );
   protected $ageGatingType = 'Google_Service_YouTube_VideoAgeGating';
@@ -8986,11 +9578,8 @@ class Google_Service_YouTube_Video extends Google_Model
   protected $contentDetailsDataType = '';
   protected $conversionPingsType = 'Google_Service_YouTube_VideoConversionPings';
   protected $conversionPingsDataType = '';
-  public $etag;
   protected $fileDetailsType = 'Google_Service_YouTube_VideoFileDetails';
   protected $fileDetailsDataType = '';
-  public $id;
-  public $kind;
   protected $liveStreamingDetailsType = 'Google_Service_YouTube_VideoLiveStreamingDetails';
   protected $liveStreamingDetailsDataType = '';
   protected $monetizationDetailsType = 'Google_Service_YouTube_VideoMonetizationDetails';
@@ -9039,14 +9628,17 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->conversionPings;
   }
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
-  public function getEtag()
+
+    public function getEtag()
   {
     return $this->etag;
   }
+
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+    }
+
   public function setFileDetails(Google_Service_YouTube_VideoFileDetails $fileDetails)
   {
     $this->fileDetails = $fileDetails;
@@ -9055,22 +9647,27 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->fileDetails;
   }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setLiveStreamingDetails(Google_Service_YouTube_VideoLiveStreamingDetails $liveStreamingDetails)
   {
     $this->liveStreamingDetails = $liveStreamingDetails;
@@ -9163,74 +9760,81 @@ class Google_Service_YouTube_Video extends Google_Model
 
 class Google_Service_YouTube_VideoAgeGating extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $alcoholContent;
   public $restricted;
   public $videoGameRating;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAlcoholContent($alcoholContent)
-  {
-    $this->alcoholContent = $alcoholContent;
-  }
   public function getAlcoholContent()
   {
     return $this->alcoholContent;
   }
-  public function setRestricted($restricted)
+
+    public function setAlcoholContent($alcoholContent)
   {
-    $this->restricted = $restricted;
+      $this->alcoholContent = $alcoholContent;
   }
-  public function getRestricted()
+
+    public function getRestricted()
   {
     return $this->restricted;
   }
-  public function setVideoGameRating($videoGameRating)
+
+    public function setRestricted($restricted)
   {
-    $this->videoGameRating = $videoGameRating;
+      $this->restricted = $restricted;
   }
-  public function getVideoGameRating()
+
+    public function getVideoGameRating()
   {
     return $this->videoGameRating;
   }
+
+    public function setVideoGameRating($videoGameRating)
+    {
+        $this->videoGameRating = $videoGameRating;
+    }
 }
 
 class Google_Service_YouTube_VideoCategory extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $id;
   public $kind;
+    protected $internal_gapi_mappings = array();
   protected $snippetType = 'Google_Service_YouTube_VideoCategorySnippet';
   protected $snippetDataType = '';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setId($id)
+
+    public function setEtag($etag)
   {
-    $this->id = $id;
+      $this->etag = $etag;
   }
-  public function getId()
+
+    public function getId()
   {
     return $this->id;
   }
-  public function setKind($kind)
+
+    public function setId($id)
   {
-    $this->kind = $kind;
+      $this->id = $id;
   }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
+
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+
   public function setSnippet(Google_Service_YouTube_VideoCategorySnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -9243,39 +9847,41 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
 
 class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_VideoCategory';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_VideoCategory';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
-  public function getEventId()
+
+    public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -9284,22 +9890,27 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -9308,14 +9919,17 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
-  public function getPrevPageToken()
+
+    public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -9324,76 +9938,81 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
-  public function getVisitorId()
+
+    public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $assignable;
   public $channelId;
   public $title;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAssignable($assignable)
-  {
-    $this->assignable = $assignable;
-  }
   public function getAssignable()
   {
     return $this->assignable;
   }
-  public function setChannelId($channelId)
+
+    public function setAssignable($assignable)
   {
-    $this->channelId = $channelId;
+      $this->assignable = $assignable;
   }
-  public function getChannelId()
+
+    public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setTitle($title)
+
+    public function setChannelId($channelId)
   {
-    $this->title = $title;
+      $this->channelId = $channelId;
   }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_VideoContentDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $caption;
-  protected $contentRatingType = 'Google_Service_YouTube_ContentRating';
-  protected $contentRatingDataType = '';
-  protected $countryRestrictionType = 'Google_Service_YouTube_AccessPolicy';
-  protected $countryRestrictionDataType = '';
   public $definition;
   public $dimension;
   public $duration;
   public $licensedContent;
+    protected $internal_gapi_mappings = array();
+    protected $contentRatingType = 'Google_Service_YouTube_ContentRating';
+    protected $contentRatingDataType = '';
+    protected $countryRestrictionType = 'Google_Service_YouTube_AccessPolicy';
+    protected $countryRestrictionDataType = '';
   protected $regionRestrictionType = 'Google_Service_YouTube_VideoContentDetailsRegionRestriction';
   protected $regionRestrictionDataType = '';
 
-
-  public function setCaption($caption)
-  {
-    $this->caption = $caption;
-  }
   public function getCaption()
   {
     return $this->caption;
   }
+
+    public function setCaption($caption)
+    {
+        $this->caption = $caption;
+    }
+
   public function setContentRating(Google_Service_YouTube_ContentRating $contentRating)
   {
     $this->contentRating = $contentRating;
@@ -9410,38 +10029,47 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->countryRestriction;
   }
-  public function setDefinition($definition)
-  {
-    $this->definition = $definition;
-  }
-  public function getDefinition()
+
+    public function getDefinition()
   {
     return $this->definition;
   }
-  public function setDimension($dimension)
+
+    public function setDefinition($definition)
   {
-    $this->dimension = $dimension;
+      $this->definition = $definition;
   }
-  public function getDimension()
+
+    public function getDimension()
   {
     return $this->dimension;
   }
-  public function setDuration($duration)
+
+    public function setDimension($dimension)
   {
-    $this->duration = $duration;
+      $this->dimension = $dimension;
   }
-  public function getDuration()
+
+    public function getDuration()
   {
     return $this->duration;
   }
-  public function setLicensedContent($licensedContent)
+
+    public function setDuration($duration)
   {
-    $this->licensedContent = $licensedContent;
+      $this->duration = $duration;
   }
-  public function getLicensedContent()
+
+    public function getLicensedContent()
   {
     return $this->licensedContent;
   }
+
+    public function setLicensedContent($licensedContent)
+    {
+        $this->licensedContent = $licensedContent;
+    }
+
   public function setRegionRestriction(Google_Service_YouTube_VideoContentDetailsRegionRestriction $regionRestriction)
   {
     $this->regionRestriction = $regionRestriction;
@@ -9454,55 +10082,57 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
 
 class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google_Collection
 {
-  protected $collection_key = 'blocked';
-  protected $internal_gapi_mappings = array(
-  );
   public $allowed;
   public $blocked;
+    protected $collection_key = 'blocked';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAllowed($allowed)
-  {
-    $this->allowed = $allowed;
-  }
   public function getAllowed()
   {
     return $this->allowed;
   }
-  public function setBlocked($blocked)
+
+    public function setAllowed($allowed)
   {
-    $this->blocked = $blocked;
+      $this->allowed = $allowed;
   }
-  public function getBlocked()
+
+    public function getBlocked()
   {
     return $this->blocked;
   }
+
+    public function setBlocked($blocked)
+    {
+        $this->blocked = $blocked;
+    }
 }
 
 class Google_Service_YouTube_VideoConversionPing extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $context;
   public $conversionUrl;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setContext($context)
-  {
-    $this->context = $context;
-  }
   public function getContext()
   {
     return $this->context;
   }
-  public function setConversionUrl($conversionUrl)
+
+    public function setContext($context)
   {
-    $this->conversionUrl = $conversionUrl;
+      $this->context = $context;
   }
-  public function getConversionUrl()
+
+    public function getConversionUrl()
   {
     return $this->conversionUrl;
   }
+
+    public function setConversionUrl($conversionUrl)
+    {
+        $this->conversionUrl = $conversionUrl;
+    }
 }
 
 class Google_Service_YouTube_VideoConversionPings extends Google_Collection
@@ -9526,11 +10156,6 @@ class Google_Service_YouTube_VideoConversionPings extends Google_Collection
 
 class Google_Service_YouTube_VideoFileDetails extends Google_Collection
 {
-  protected $collection_key = 'videoStreams';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $audioStreamsType = 'Google_Service_YouTube_VideoFileDetailsAudioStream';
-  protected $audioStreamsDataType = 'array';
   public $bitrateBps;
   public $container;
   public $creationTime;
@@ -9538,6 +10163,10 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   public $fileName;
   public $fileSize;
   public $fileType;
+    protected $collection_key = 'videoStreams';
+    protected $internal_gapi_mappings = array();
+    protected $audioStreamsType = 'Google_Service_YouTube_VideoFileDetailsAudioStream';
+    protected $audioStreamsDataType = 'array';
   protected $recordingLocationType = 'Google_Service_YouTube_GeoPoint';
   protected $recordingLocationDataType = '';
   protected $videoStreamsType = 'Google_Service_YouTube_VideoFileDetailsVideoStream';
@@ -9552,62 +10181,77 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->audioStreams;
   }
-  public function setBitrateBps($bitrateBps)
-  {
-    $this->bitrateBps = $bitrateBps;
-  }
-  public function getBitrateBps()
+
+    public function getBitrateBps()
   {
     return $this->bitrateBps;
   }
-  public function setContainer($container)
+
+    public function setBitrateBps($bitrateBps)
   {
-    $this->container = $container;
+      $this->bitrateBps = $bitrateBps;
   }
-  public function getContainer()
+
+    public function getContainer()
   {
     return $this->container;
   }
-  public function setCreationTime($creationTime)
+
+    public function setContainer($container)
   {
-    $this->creationTime = $creationTime;
+      $this->container = $container;
   }
-  public function getCreationTime()
+
+    public function getCreationTime()
   {
     return $this->creationTime;
   }
-  public function setDurationMs($durationMs)
+
+    public function setCreationTime($creationTime)
   {
-    $this->durationMs = $durationMs;
+      $this->creationTime = $creationTime;
   }
-  public function getDurationMs()
+
+    public function getDurationMs()
   {
     return $this->durationMs;
   }
-  public function setFileName($fileName)
+
+    public function setDurationMs($durationMs)
   {
-    $this->fileName = $fileName;
+      $this->durationMs = $durationMs;
   }
-  public function getFileName()
+
+    public function getFileName()
   {
     return $this->fileName;
   }
-  public function setFileSize($fileSize)
+
+    public function setFileName($fileName)
   {
-    $this->fileSize = $fileSize;
+      $this->fileName = $fileName;
   }
-  public function getFileSize()
+
+    public function getFileSize()
   {
     return $this->fileSize;
   }
-  public function setFileType($fileType)
+
+    public function setFileSize($fileSize)
   {
-    $this->fileType = $fileType;
+      $this->fileSize = $fileSize;
   }
-  public function getFileType()
+
+    public function getFileType()
   {
     return $this->fileType;
   }
+
+    public function setFileType($fileType)
+    {
+        $this->fileType = $fileType;
+    }
+
   public function setRecordingLocation(Google_Service_YouTube_GeoPoint $recordingLocation)
   {
     $this->recordingLocation = $recordingLocation;
@@ -9628,52 +10272,55 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
 
 class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $bitrateBps;
   public $channelCount;
   public $codec;
   public $vendor;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBitrateBps($bitrateBps)
-  {
-    $this->bitrateBps = $bitrateBps;
-  }
   public function getBitrateBps()
   {
     return $this->bitrateBps;
   }
-  public function setChannelCount($channelCount)
+
+    public function setBitrateBps($bitrateBps)
   {
-    $this->channelCount = $channelCount;
+      $this->bitrateBps = $bitrateBps;
   }
-  public function getChannelCount()
+
+    public function getChannelCount()
   {
     return $this->channelCount;
   }
-  public function setCodec($codec)
+
+    public function setChannelCount($channelCount)
   {
-    $this->codec = $codec;
+      $this->channelCount = $channelCount;
   }
-  public function getCodec()
+
+    public function getCodec()
   {
     return $this->codec;
   }
-  public function setVendor($vendor)
+
+    public function setCodec($codec)
   {
-    $this->vendor = $vendor;
+      $this->codec = $codec;
   }
-  public function getVendor()
+
+    public function getVendor()
   {
     return $this->vendor;
   }
+
+    public function setVendor($vendor)
+    {
+        $this->vendor = $vendor;
+    }
 }
 
 class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $aspectRatio;
   public $bitrateBps;
   public $codec;
@@ -9682,103 +10329,120 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   public $rotation;
   public $vendor;
   public $widthPixels;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setAspectRatio($aspectRatio)
-  {
-    $this->aspectRatio = $aspectRatio;
-  }
   public function getAspectRatio()
   {
     return $this->aspectRatio;
   }
-  public function setBitrateBps($bitrateBps)
+
+    public function setAspectRatio($aspectRatio)
   {
-    $this->bitrateBps = $bitrateBps;
+      $this->aspectRatio = $aspectRatio;
   }
-  public function getBitrateBps()
+
+    public function getBitrateBps()
   {
     return $this->bitrateBps;
   }
-  public function setCodec($codec)
+
+    public function setBitrateBps($bitrateBps)
   {
-    $this->codec = $codec;
+      $this->bitrateBps = $bitrateBps;
   }
-  public function getCodec()
+
+    public function getCodec()
   {
     return $this->codec;
   }
-  public function setFrameRateFps($frameRateFps)
+
+    public function setCodec($codec)
   {
-    $this->frameRateFps = $frameRateFps;
+      $this->codec = $codec;
   }
-  public function getFrameRateFps()
+
+    public function getFrameRateFps()
   {
     return $this->frameRateFps;
   }
-  public function setHeightPixels($heightPixels)
+
+    public function setFrameRateFps($frameRateFps)
   {
-    $this->heightPixels = $heightPixels;
+      $this->frameRateFps = $frameRateFps;
   }
-  public function getHeightPixels()
+
+    public function getHeightPixels()
   {
     return $this->heightPixels;
   }
-  public function setRotation($rotation)
+
+    public function setHeightPixels($heightPixels)
   {
-    $this->rotation = $rotation;
+      $this->heightPixels = $heightPixels;
   }
-  public function getRotation()
+
+    public function getRotation()
   {
     return $this->rotation;
   }
-  public function setVendor($vendor)
+
+    public function setRotation($rotation)
   {
-    $this->vendor = $vendor;
+      $this->rotation = $rotation;
   }
-  public function getVendor()
+
+    public function getVendor()
   {
     return $this->vendor;
   }
-  public function setWidthPixels($widthPixels)
+
+    public function setVendor($vendor)
   {
-    $this->widthPixels = $widthPixels;
+      $this->vendor = $vendor;
   }
-  public function getWidthPixels()
+
+    public function getWidthPixels()
   {
     return $this->widthPixels;
   }
+
+    public function setWidthPixels($widthPixels)
+    {
+        $this->widthPixels = $widthPixels;
+    }
 }
 
 class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_VideoRating';
-  protected $itemsDataType = 'array';
   public $kind;
   public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_VideoRating';
+    protected $itemsDataType = 'array';
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
-  public function getEventId()
+
+    public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -9787,59 +10451,65 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setVisitorId($visitorId)
+
+    public function setKind($kind)
   {
-    $this->visitorId = $visitorId;
+      $this->kind = $kind;
   }
-  public function getVisitorId()
+
+    public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_VideoListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
   public $etag;
   public $eventId;
-  protected $itemsType = 'Google_Service_YouTube_Video';
-  protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+    public $prevPageToken;
+    public $visitorId;
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array();
+    protected $itemsType = 'Google_Service_YouTube_Video';
+    protected $itemsDataType = 'array';
   protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
   protected $pageInfoDataType = '';
-  public $prevPageToken;
   protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
   protected $tokenPaginationDataType = '';
-  public $visitorId;
 
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
   public function getEtag()
   {
     return $this->etag;
   }
-  public function setEventId($eventId)
+
+    public function setEtag($etag)
   {
-    $this->eventId = $eventId;
+      $this->etag = $etag;
   }
-  public function getEventId()
+
+    public function getEventId()
   {
     return $this->eventId;
   }
+
+    public function setEventId($eventId)
+    {
+        $this->eventId = $eventId;
+    }
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -9848,22 +10518,27 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->items;
   }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
+
+    public function getKind()
   {
     return $this->kind;
   }
-  public function setNextPageToken($nextPageToken)
+
+    public function setKind($kind)
   {
-    $this->nextPageToken = $nextPageToken;
+      $this->kind = $kind;
   }
-  public function getNextPageToken()
+
+    public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -9872,14 +10547,17 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-  public function setPrevPageToken($prevPageToken)
-  {
-    $this->prevPageToken = $prevPageToken;
-  }
-  public function getPrevPageToken()
+
+    public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+
+    public function setPrevPageToken($prevPageToken)
+    {
+        $this->prevPageToken = $prevPageToken;
+    }
+
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -9888,67 +10566,76 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-  public function setVisitorId($visitorId)
-  {
-    $this->visitorId = $visitorId;
-  }
-  public function getVisitorId()
+
+    public function getVisitorId()
   {
     return $this->visitorId;
   }
+
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+    }
 }
 
 class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $actualEndTime;
   public $actualStartTime;
   public $concurrentViewers;
   public $scheduledEndTime;
   public $scheduledStartTime;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setActualEndTime($actualEndTime)
-  {
-    $this->actualEndTime = $actualEndTime;
-  }
   public function getActualEndTime()
   {
     return $this->actualEndTime;
   }
-  public function setActualStartTime($actualStartTime)
+
+    public function setActualEndTime($actualEndTime)
   {
-    $this->actualStartTime = $actualStartTime;
+      $this->actualEndTime = $actualEndTime;
   }
-  public function getActualStartTime()
+
+    public function getActualStartTime()
   {
     return $this->actualStartTime;
   }
-  public function setConcurrentViewers($concurrentViewers)
+
+    public function setActualStartTime($actualStartTime)
   {
-    $this->concurrentViewers = $concurrentViewers;
+      $this->actualStartTime = $actualStartTime;
   }
-  public function getConcurrentViewers()
+
+    public function getConcurrentViewers()
   {
     return $this->concurrentViewers;
   }
-  public function setScheduledEndTime($scheduledEndTime)
+
+    public function setConcurrentViewers($concurrentViewers)
   {
-    $this->scheduledEndTime = $scheduledEndTime;
+      $this->concurrentViewers = $concurrentViewers;
   }
-  public function getScheduledEndTime()
+
+    public function getScheduledEndTime()
   {
     return $this->scheduledEndTime;
   }
-  public function setScheduledStartTime($scheduledStartTime)
+
+    public function setScheduledEndTime($scheduledEndTime)
   {
-    $this->scheduledStartTime = $scheduledStartTime;
+      $this->scheduledEndTime = $scheduledEndTime;
   }
-  public function getScheduledStartTime()
+
+    public function getScheduledStartTime()
   {
     return $this->scheduledStartTime;
   }
+
+    public function setScheduledStartTime($scheduledStartTime)
+    {
+        $this->scheduledStartTime = $scheduledStartTime;
+    }
 }
 
 class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
@@ -9971,68 +10658,73 @@ class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
 
 class Google_Service_YouTube_VideoPlayer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $embedHtml;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmbedHtml($embedHtml)
-  {
-    $this->embedHtml = $embedHtml;
-  }
   public function getEmbedHtml()
   {
     return $this->embedHtml;
   }
+
+    public function setEmbedHtml($embedHtml)
+    {
+        $this->embedHtml = $embedHtml;
+    }
 }
 
 class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $editorSuggestionsAvailability;
   public $fileDetailsAvailability;
   public $processingFailureReason;
   public $processingIssuesAvailability;
-  protected $processingProgressType = 'Google_Service_YouTube_VideoProcessingDetailsProcessingProgress';
-  protected $processingProgressDataType = '';
   public $processingStatus;
   public $tagSuggestionsAvailability;
   public $thumbnailsAvailability;
+    protected $internal_gapi_mappings = array();
+    protected $processingProgressType = 'Google_Service_YouTube_VideoProcessingDetailsProcessingProgress';
+    protected $processingProgressDataType = '';
 
-
-  public function setEditorSuggestionsAvailability($editorSuggestionsAvailability)
-  {
-    $this->editorSuggestionsAvailability = $editorSuggestionsAvailability;
-  }
   public function getEditorSuggestionsAvailability()
   {
     return $this->editorSuggestionsAvailability;
   }
-  public function setFileDetailsAvailability($fileDetailsAvailability)
+
+    public function setEditorSuggestionsAvailability($editorSuggestionsAvailability)
   {
-    $this->fileDetailsAvailability = $fileDetailsAvailability;
+      $this->editorSuggestionsAvailability = $editorSuggestionsAvailability;
   }
-  public function getFileDetailsAvailability()
+
+    public function getFileDetailsAvailability()
   {
     return $this->fileDetailsAvailability;
   }
-  public function setProcessingFailureReason($processingFailureReason)
+
+    public function setFileDetailsAvailability($fileDetailsAvailability)
   {
-    $this->processingFailureReason = $processingFailureReason;
+      $this->fileDetailsAvailability = $fileDetailsAvailability;
   }
-  public function getProcessingFailureReason()
+
+    public function getProcessingFailureReason()
   {
     return $this->processingFailureReason;
   }
-  public function setProcessingIssuesAvailability($processingIssuesAvailability)
+
+    public function setProcessingFailureReason($processingFailureReason)
   {
-    $this->processingIssuesAvailability = $processingIssuesAvailability;
+      $this->processingFailureReason = $processingFailureReason;
   }
-  public function getProcessingIssuesAvailability()
+
+    public function getProcessingIssuesAvailability()
   {
     return $this->processingIssuesAvailability;
   }
+
+    public function setProcessingIssuesAvailability($processingIssuesAvailability)
+    {
+        $this->processingIssuesAvailability = $processingIssuesAvailability;
+    }
+
   public function setProcessingProgress(Google_Service_YouTube_VideoProcessingDetailsProcessingProgress $processingProgress)
   {
     $this->processingProgress = $processingProgress;
@@ -10041,120 +10733,129 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->processingProgress;
   }
-  public function setProcessingStatus($processingStatus)
-  {
-    $this->processingStatus = $processingStatus;
-  }
-  public function getProcessingStatus()
+
+    public function getProcessingStatus()
   {
     return $this->processingStatus;
   }
-  public function setTagSuggestionsAvailability($tagSuggestionsAvailability)
+
+    public function setProcessingStatus($processingStatus)
   {
-    $this->tagSuggestionsAvailability = $tagSuggestionsAvailability;
+      $this->processingStatus = $processingStatus;
   }
-  public function getTagSuggestionsAvailability()
+
+    public function getTagSuggestionsAvailability()
   {
     return $this->tagSuggestionsAvailability;
   }
-  public function setThumbnailsAvailability($thumbnailsAvailability)
+
+    public function setTagSuggestionsAvailability($tagSuggestionsAvailability)
   {
-    $this->thumbnailsAvailability = $thumbnailsAvailability;
+      $this->tagSuggestionsAvailability = $tagSuggestionsAvailability;
   }
-  public function getThumbnailsAvailability()
+
+    public function getThumbnailsAvailability()
   {
     return $this->thumbnailsAvailability;
   }
+
+    public function setThumbnailsAvailability($thumbnailsAvailability)
+    {
+        $this->thumbnailsAvailability = $thumbnailsAvailability;
+    }
 }
 
 class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $partsProcessed;
   public $partsTotal;
   public $timeLeftMs;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setPartsProcessed($partsProcessed)
-  {
-    $this->partsProcessed = $partsProcessed;
-  }
   public function getPartsProcessed()
   {
     return $this->partsProcessed;
   }
-  public function setPartsTotal($partsTotal)
+
+    public function setPartsProcessed($partsProcessed)
   {
-    $this->partsTotal = $partsTotal;
+      $this->partsProcessed = $partsProcessed;
   }
-  public function getPartsTotal()
+
+    public function getPartsTotal()
   {
     return $this->partsTotal;
   }
-  public function setTimeLeftMs($timeLeftMs)
+
+    public function setPartsTotal($partsTotal)
   {
-    $this->timeLeftMs = $timeLeftMs;
+      $this->partsTotal = $partsTotal;
   }
-  public function getTimeLeftMs()
+
+    public function getTimeLeftMs()
   {
     return $this->timeLeftMs;
   }
+
+    public function setTimeLeftMs($timeLeftMs)
+    {
+        $this->timeLeftMs = $timeLeftMs;
+    }
 }
 
 class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
 {
+    public $tags;
   protected $collection_key = 'tags';
   protected $internal_gapi_mappings = array(
   );
-  public $tags;
 
-
-  public function setTags($tags)
-  {
-    $this->tags = $tags;
-  }
   public function getTags()
   {
     return $this->tags;
   }
+
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
 }
 
 class Google_Service_YouTube_VideoRating extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $rating;
   public $videoId;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setRating($rating)
-  {
-    $this->rating = $rating;
-  }
   public function getRating()
   {
     return $this->rating;
   }
-  public function setVideoId($videoId)
+
+    public function setRating($rating)
   {
-    $this->videoId = $videoId;
+      $this->rating = $rating;
   }
-  public function getVideoId()
+
+    public function getVideoId()
   {
     return $this->videoId;
   }
+
+    public function setVideoId($videoId)
+    {
+        $this->videoId = $videoId;
+    }
 }
 
 class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
 {
+    public $locationDescription;
+    public $recordingDate;
   protected $internal_gapi_mappings = array(
   );
   protected $locationType = 'Google_Service_YouTube_GeoPoint';
   protected $locationDataType = '';
-  public $locationDescription;
-  public $recordingDate;
-
 
   public function setLocation(Google_Service_YouTube_GeoPoint $location)
   {
@@ -10164,29 +10865,30 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   {
     return $this->location;
   }
-  public function setLocationDescription($locationDescription)
-  {
-    $this->locationDescription = $locationDescription;
-  }
-  public function getLocationDescription()
+
+    public function getLocationDescription()
   {
     return $this->locationDescription;
   }
-  public function setRecordingDate($recordingDate)
+
+    public function setLocationDescription($locationDescription)
   {
-    $this->recordingDate = $recordingDate;
+      $this->locationDescription = $locationDescription;
   }
-  public function getRecordingDate()
+
+    public function getRecordingDate()
   {
     return $this->recordingDate;
   }
+
+    public function setRecordingDate($recordingDate)
+    {
+        $this->recordingDate = $recordingDate;
+    }
 }
 
 class Google_Service_YouTube_VideoSnippet extends Google_Collection
 {
-  protected $collection_key = 'tags';
-  protected $internal_gapi_mappings = array(
-  );
   public $categoryId;
   public $channelId;
   public $channelTitle;
@@ -10194,67 +10896,82 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   public $liveBroadcastContent;
   public $publishedAt;
   public $tags;
+    public $title;
+    protected $collection_key = 'tags';
+    protected $internal_gapi_mappings = array();
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
-  public $title;
 
-
-  public function setCategoryId($categoryId)
-  {
-    $this->categoryId = $categoryId;
-  }
   public function getCategoryId()
   {
     return $this->categoryId;
   }
-  public function setChannelId($channelId)
+
+    public function setCategoryId($categoryId)
   {
-    $this->channelId = $channelId;
+      $this->categoryId = $categoryId;
   }
-  public function getChannelId()
+
+    public function getChannelId()
   {
     return $this->channelId;
   }
-  public function setChannelTitle($channelTitle)
+
+    public function setChannelId($channelId)
   {
-    $this->channelTitle = $channelTitle;
+      $this->channelId = $channelId;
   }
-  public function getChannelTitle()
+
+    public function getChannelTitle()
   {
     return $this->channelTitle;
   }
-  public function setDescription($description)
+
+    public function setChannelTitle($channelTitle)
   {
-    $this->description = $description;
+      $this->channelTitle = $channelTitle;
   }
-  public function getDescription()
+
+    public function getDescription()
   {
     return $this->description;
   }
-  public function setLiveBroadcastContent($liveBroadcastContent)
+
+    public function setDescription($description)
   {
-    $this->liveBroadcastContent = $liveBroadcastContent;
+      $this->description = $description;
   }
-  public function getLiveBroadcastContent()
+
+    public function getLiveBroadcastContent()
   {
     return $this->liveBroadcastContent;
   }
-  public function setPublishedAt($publishedAt)
+
+    public function setLiveBroadcastContent($liveBroadcastContent)
   {
-    $this->publishedAt = $publishedAt;
+      $this->liveBroadcastContent = $liveBroadcastContent;
   }
-  public function getPublishedAt()
+
+    public function getPublishedAt()
   {
     return $this->publishedAt;
   }
-  public function setTags($tags)
+
+    public function setPublishedAt($publishedAt)
   {
-    $this->tags = $tags;
+      $this->publishedAt = $publishedAt;
   }
-  public function getTags()
+
+    public function getTags()
   {
     return $this->tags;
   }
+
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -10263,73 +10980,80 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->thumbnails;
   }
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
-  public function getTitle()
+
+    public function getTitle()
   {
     return $this->title;
   }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }
 
 class Google_Service_YouTube_VideoStatistics extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $commentCount;
   public $dislikeCount;
   public $favoriteCount;
   public $likeCount;
   public $viewCount;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCommentCount($commentCount)
-  {
-    $this->commentCount = $commentCount;
-  }
   public function getCommentCount()
   {
     return $this->commentCount;
   }
-  public function setDislikeCount($dislikeCount)
+
+    public function setCommentCount($commentCount)
   {
-    $this->dislikeCount = $dislikeCount;
+      $this->commentCount = $commentCount;
   }
-  public function getDislikeCount()
+
+    public function getDislikeCount()
   {
     return $this->dislikeCount;
   }
-  public function setFavoriteCount($favoriteCount)
+
+    public function setDislikeCount($dislikeCount)
   {
-    $this->favoriteCount = $favoriteCount;
+      $this->dislikeCount = $dislikeCount;
   }
-  public function getFavoriteCount()
+
+    public function getFavoriteCount()
   {
     return $this->favoriteCount;
   }
-  public function setLikeCount($likeCount)
+
+    public function setFavoriteCount($favoriteCount)
   {
-    $this->likeCount = $likeCount;
+      $this->favoriteCount = $favoriteCount;
   }
-  public function getLikeCount()
+
+    public function getLikeCount()
   {
     return $this->likeCount;
   }
-  public function setViewCount($viewCount)
+
+    public function setLikeCount($likeCount)
   {
-    $this->viewCount = $viewCount;
+      $this->likeCount = $likeCount;
   }
-  public function getViewCount()
+
+    public function getViewCount()
   {
     return $this->viewCount;
   }
+
+    public function setViewCount($viewCount)
+    {
+        $this->viewCount = $viewCount;
+    }
 }
 
 class Google_Service_YouTube_VideoStatus extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $embeddable;
   public $failureReason;
   public $license;
@@ -10338,119 +11062,140 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   public $publishAt;
   public $rejectionReason;
   public $uploadStatus;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setEmbeddable($embeddable)
-  {
-    $this->embeddable = $embeddable;
-  }
   public function getEmbeddable()
   {
     return $this->embeddable;
   }
-  public function setFailureReason($failureReason)
+
+    public function setEmbeddable($embeddable)
   {
-    $this->failureReason = $failureReason;
+      $this->embeddable = $embeddable;
   }
-  public function getFailureReason()
+
+    public function getFailureReason()
   {
     return $this->failureReason;
   }
-  public function setLicense($license)
+
+    public function setFailureReason($failureReason)
   {
-    $this->license = $license;
+      $this->failureReason = $failureReason;
   }
-  public function getLicense()
+
+    public function getLicense()
   {
     return $this->license;
   }
-  public function setPrivacyStatus($privacyStatus)
+
+    public function setLicense($license)
   {
-    $this->privacyStatus = $privacyStatus;
+      $this->license = $license;
   }
-  public function getPrivacyStatus()
+
+    public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
-  public function setPublicStatsViewable($publicStatsViewable)
+
+    public function setPrivacyStatus($privacyStatus)
   {
-    $this->publicStatsViewable = $publicStatsViewable;
+      $this->privacyStatus = $privacyStatus;
   }
-  public function getPublicStatsViewable()
+
+    public function getPublicStatsViewable()
   {
     return $this->publicStatsViewable;
   }
-  public function setPublishAt($publishAt)
+
+    public function setPublicStatsViewable($publicStatsViewable)
   {
-    $this->publishAt = $publishAt;
+      $this->publicStatsViewable = $publicStatsViewable;
   }
-  public function getPublishAt()
+
+    public function getPublishAt()
   {
     return $this->publishAt;
   }
-  public function setRejectionReason($rejectionReason)
+
+    public function setPublishAt($publishAt)
   {
-    $this->rejectionReason = $rejectionReason;
+      $this->publishAt = $publishAt;
   }
-  public function getRejectionReason()
+
+    public function getRejectionReason()
   {
     return $this->rejectionReason;
   }
-  public function setUploadStatus($uploadStatus)
+
+    public function setRejectionReason($rejectionReason)
   {
-    $this->uploadStatus = $uploadStatus;
+      $this->rejectionReason = $rejectionReason;
   }
-  public function getUploadStatus()
+
+    public function getUploadStatus()
   {
     return $this->uploadStatus;
   }
+
+    public function setUploadStatus($uploadStatus)
+    {
+        $this->uploadStatus = $uploadStatus;
+    }
 }
 
 class Google_Service_YouTube_VideoSuggestions extends Google_Collection
 {
-  protected $collection_key = 'tagSuggestions';
-  protected $internal_gapi_mappings = array(
-  );
   public $editorSuggestions;
   public $processingErrors;
   public $processingHints;
   public $processingWarnings;
+    protected $collection_key = 'tagSuggestions';
+    protected $internal_gapi_mappings = array();
   protected $tagSuggestionsType = 'Google_Service_YouTube_VideoSuggestionsTagSuggestion';
   protected $tagSuggestionsDataType = 'array';
 
-
-  public function setEditorSuggestions($editorSuggestions)
-  {
-    $this->editorSuggestions = $editorSuggestions;
-  }
   public function getEditorSuggestions()
   {
     return $this->editorSuggestions;
   }
-  public function setProcessingErrors($processingErrors)
+
+    public function setEditorSuggestions($editorSuggestions)
   {
-    $this->processingErrors = $processingErrors;
+      $this->editorSuggestions = $editorSuggestions;
   }
-  public function getProcessingErrors()
+
+    public function getProcessingErrors()
   {
     return $this->processingErrors;
   }
-  public function setProcessingHints($processingHints)
+
+    public function setProcessingErrors($processingErrors)
   {
-    $this->processingHints = $processingHints;
+      $this->processingErrors = $processingErrors;
   }
-  public function getProcessingHints()
+
+    public function getProcessingHints()
   {
     return $this->processingHints;
   }
-  public function setProcessingWarnings($processingWarnings)
+
+    public function setProcessingHints($processingHints)
   {
-    $this->processingWarnings = $processingWarnings;
+      $this->processingHints = $processingHints;
   }
-  public function getProcessingWarnings()
+
+    public function getProcessingWarnings()
   {
     return $this->processingWarnings;
   }
+
+    public function setProcessingWarnings($processingWarnings)
+    {
+        $this->processingWarnings = $processingWarnings;
+    }
+
   public function setTagSuggestions($tagSuggestions)
   {
     $this->tagSuggestions = $tagSuggestions;
@@ -10463,89 +11208,94 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
 
 class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collection
 {
-  protected $collection_key = 'categoryRestricts';
-  protected $internal_gapi_mappings = array(
-  );
   public $categoryRestricts;
   public $tag;
+    protected $collection_key = 'categoryRestricts';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setCategoryRestricts($categoryRestricts)
-  {
-    $this->categoryRestricts = $categoryRestricts;
-  }
   public function getCategoryRestricts()
   {
     return $this->categoryRestricts;
   }
-  public function setTag($tag)
+
+    public function setCategoryRestricts($categoryRestricts)
   {
-    $this->tag = $tag;
+      $this->categoryRestricts = $categoryRestricts;
   }
-  public function getTag()
+
+    public function getTag()
   {
     return $this->tag;
   }
+
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+    }
 }
 
 class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
 {
-  protected $collection_key = 'topicIds';
-  protected $internal_gapi_mappings = array(
-  );
   public $relevantTopicIds;
   public $topicIds;
+    protected $collection_key = 'topicIds';
+    protected $internal_gapi_mappings = array();
 
-
-  public function setRelevantTopicIds($relevantTopicIds)
-  {
-    $this->relevantTopicIds = $relevantTopicIds;
-  }
   public function getRelevantTopicIds()
   {
     return $this->relevantTopicIds;
   }
-  public function setTopicIds($topicIds)
+
+    public function setRelevantTopicIds($relevantTopicIds)
   {
-    $this->topicIds = $topicIds;
+      $this->relevantTopicIds = $relevantTopicIds;
   }
-  public function getTopicIds()
+
+    public function getTopicIds()
   {
     return $this->topicIds;
   }
+
+    public function setTopicIds($topicIds)
+    {
+        $this->topicIds = $topicIds;
+    }
 }
 
 class Google_Service_YouTube_WatchSettings extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
   public $backgroundColor;
   public $featuredPlaylistId;
   public $textColor;
+    protected $internal_gapi_mappings = array();
 
-
-  public function setBackgroundColor($backgroundColor)
-  {
-    $this->backgroundColor = $backgroundColor;
-  }
   public function getBackgroundColor()
   {
     return $this->backgroundColor;
   }
-  public function setFeaturedPlaylistId($featuredPlaylistId)
+
+    public function setBackgroundColor($backgroundColor)
   {
-    $this->featuredPlaylistId = $featuredPlaylistId;
+      $this->backgroundColor = $backgroundColor;
   }
-  public function getFeaturedPlaylistId()
+
+    public function getFeaturedPlaylistId()
   {
     return $this->featuredPlaylistId;
   }
-  public function setTextColor($textColor)
+
+    public function setFeaturedPlaylistId($featuredPlaylistId)
   {
-    $this->textColor = $textColor;
+      $this->featuredPlaylistId = $featuredPlaylistId;
   }
-  public function getTextColor()
+
+    public function getTextColor()
   {
     return $this->textColor;
   }
+
+    public function setTextColor($textColor)
+    {
+        $this->textColor = $textColor;
+    }
 }

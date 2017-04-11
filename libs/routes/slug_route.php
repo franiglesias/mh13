@@ -35,27 +35,16 @@ class SlugRoute extends CakeRoute {
         return false;
     }
 
-	public function match($url) {
-		$keys = array(
-			'plugin' => 'contents',
-			'controller' => 'items',
-			'action' => 'view'
-			);
-		if (array_intersect_assoc($keys, $url) == $keys) {
-			return '/'.$url[0];
-		}
-		return false;
-	}
-
 /**
  * Checks if a given slug points to a channel
  *
- * @param string $slug 
+ * @param string $slug
+ *
  * @return void
  */
 	public function _isChannel($slug)
-	{
-		App::import('Model', 'Contents.Channel'); 
+    {
+        App::import('Model', 'Contents.Channel');
 		$Channel = ClassRegistry::init('Channel');
 		$count = $Channel->find('first', array('conditions' => array('I18n__slug.content' => $slug)));
 		unset($Channel);
@@ -63,8 +52,22 @@ class SlugRoute extends CakeRoute {
 			return true;
 		}
 		return false;
-	}
+    }
+
+    public function match($url)
+    {
+        $keys = array(
+            'plugin' => 'contents',
+            'controller' => 'items',
+            'action' => 'view',
+        );
+        if (array_intersect_assoc($keys, $url) == $keys) {
+            return '/'.$url[0];
+        }
+
+        return false;
+    }
 
 }
- 
+
 ?>
