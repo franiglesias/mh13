@@ -58,24 +58,29 @@ class TransferMenusToYamlFileCommand extends Command
         $menus = [];
         foreach ($menusData as $menu) {
             $menus[$menu['title']] = [
-                'help' => $menu['help'],
-                'icon' => $menu['icon'],
-                'label' => $menu['label'],
-                'url' => $menu['url'],
-                'access' => $menu['access'],
+                'help' => (string)$menu['help'],
+                'icon' => (string)$menu['icon'],
+                'label' => (string)$menu['label'],
+                'url' => (string)$menu['url'],
+                'access' => (string)$menu['access'],
             ];
 
             $itemsSQL = 'select * from menu_items where menu_id = ? order by menu_items.order asc';
             $items = $connection->fetchAll($itemsSQL, [$menu['id']]);
             foreach ($items as $item) {
-                $menus[$menu['title']]['items'][] = [
-                    'label' => $item['label'],
-                    'url' => $item['url'],
-                    'access' => $item['access'],
-                    'help' => $item['help'],
-                    'icon' => $item['icon'],
-                    'class' => $item['class'],
-                ];
+                if ($item['label'] == '/') {
+                    $entry = 'separator';
+                } else {
+                    $entry = [
+                        'label' => (string)$item['label'],
+                        'url' => (string)$item['url'],
+                        'access' => (string)$item['access'],
+                        'help' => (string)$item['help'],
+                        'icon' => (string)$item['icon'],
+                        'class' => (string)$item['class'],
+                    ];
+                }
+                $menus[$menu['title']]['items'][] = $entry;
             }
         }
         $config = [
