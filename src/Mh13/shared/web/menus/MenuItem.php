@@ -56,9 +56,8 @@ class MenuItem
             'icon' => '',
             'class' => '',
         ];
-        $data = array_merge($defaults, $data);
 
-        return $data;
+        return array_merge($defaults, $data);
     }
 
     public function getLabel()

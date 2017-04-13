@@ -2,6 +2,7 @@
 
 namespace spec\Mh13\shared\web\menus;
 
+use Mh13\shared\web\menus\Menu;
 use Mh13\shared\web\menus\MenuLoader;
 use org\bovigo\vfs\vfsStream;
 use PhpSpec\ObjectBehavior;
@@ -54,9 +55,6 @@ EOD;
 
     public function it_reads_menu_data()
     {
-        $this->load('global')->shouldBeArray();
-        $this->load('global')['items']->shouldHaveCount(5);
-        $this->load('global')['items'][2]->shouldBe('separator');
-        $this->load('global')['items'][3]['label']->shouldBe('Item 3');
+        $this->load('global')->shouldBeAnInstanceOf(Menu::class);
     }
 }

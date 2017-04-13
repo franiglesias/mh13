@@ -18,15 +18,15 @@ class MenuLoader
         $this->file = $file;
     }
 
-    public function load(string $menuLabel)
+    public function load(string $menuTitle)
     {
-        return $this->loadFromFile($menuLabel);
+        return $this->loadFromFile($menuTitle);
     }
 
-    private function loadFromFile(string $menuLabel)
+    private function loadFromFile(string $menuTitle)
     {
         $data = Yaml::parse(file_get_contents($this->file));
 
-        return $data['menus'][$menuLabel];
+        return Menu::fromConfiguration($menuTitle, $data['menus'][$menuTitle]);
     }
 }

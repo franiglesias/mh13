@@ -26,6 +26,7 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
+use Mh13\plugins\contents\infrastructure\web\UiProvider;
 use Mh13\shared\web\twig\Twig_Extension_Media;
 use Silex\Provider\DoctrineServiceProvider;
 use Symfony\Component\Yaml\Yaml;
@@ -43,9 +44,13 @@ $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 $app = new Silex\Application();
 
-$app['debug'] = false;
+$app['debug'] = true;
 
 /* Service definitions */
+
+$app['menu.loader'] = function ($app) {
+    return new MenuLoader(dirname(__DIR__).'/config/menus.yml');
+};
 
 $app['article.repository'] = function ($app) {
     return new DbalArticleRepository($app['db']);
@@ -95,6 +100,7 @@ $app->extend(
 );
 
 $app->mount("/articles", new ArticleProvider());
+$app->mount("/ui", new UiProvider());
 
 $app->get(
     '/hello/{name}',

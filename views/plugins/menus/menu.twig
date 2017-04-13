@@ -1,5 +1,5 @@
 <ul class="vertical menu">
-{% for item in menu.MenuItem %}
+    {% for item in menu.items %}
     <li><a href="{{ item.url }}" {% if item.icon %}class="fi-{{item.icon}}"{% endif %}>{{item.label}}</a></li>
 {% endfor %}
 </ul>
