@@ -65,5 +65,45 @@ class MenuItem
         return $this->label;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAccess()
+    {
+        return $this->access;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHelp()
+    {
+        return $this->help;
+    }
+
 
 }

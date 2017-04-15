@@ -8,12 +8,14 @@
 
 namespace Mh13\plugins\contents\infrastructure\web;
 
+use Silex\Application;
+
 
 class MenuController
 {
     public function menu($menuTitle, Application $app)
     {
-        $menu = $app['menu.loader']->menuTitle($menuTitle);
+        $menu = $app['menu.loader']->load($menuTitle);
 
         return $app['twig']->render(
             'plugins/menus/menu.twig',

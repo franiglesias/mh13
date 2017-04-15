@@ -27,6 +27,7 @@ use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugR
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
+use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
 use Silex\Provider\DoctrineServiceProvider;
 use Symfony\Component\Yaml\Yaml;
@@ -72,7 +73,7 @@ $app->register(
         'twig.options' => [
             'auto_reload' => true,
             'cache' => false,
-            'debug' => false,
+            'debug' => true,
         ],
     ]
 );

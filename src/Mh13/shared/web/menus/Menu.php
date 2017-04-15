@@ -41,9 +41,10 @@ class Menu
         foreach ($data['items'] as $item) {
             if ($item == 'separator') {
                 $menu->addItem(MenuItem::fromConfiguration(['label' => '/']));
+                continue;
             }
+            $menu->addItem(MenuItem::fromConfiguration($item));
         }
-        $menu->addItem(MenuItem::fromConfiguration($item));
 
         return $menu;
     }
@@ -69,6 +70,11 @@ class Menu
     public function getLabel()
     {
         return $this->label;
+    }
+
+    public function getItems()
+    {
+        return $this->items;
     }
 
 
