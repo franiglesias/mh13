@@ -61,17 +61,17 @@ menus:
             - { label: Profesorado, url: /pages/profesorado, access: '0', help: '', icon: '', class: '' }
             - { label: APA, url: /contents/channels/view/apa, access: '0', help: '', icon: '', class: '' }
             - { label: 'Trabaja con nosotros', url: /cv, access: '0', help: '', icon: '', class: '' }
-    Proyectos:
+    proyectos:
         help: ''
         icon: ''
         label: ''
         url: ''
         access: '0'
         items:
-            - { label: 'Acción Social', url: 'http://miralba.org/contents/channels/view/accion_social', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Acción Social', url: '/blog/accion_social', access: '0', help: '', icon: '', class: '' }
             - { label: 'Seminario Linguas Estranxeiras', url: 'http://sites.google.com/a/miralba.org/seminario-ingles/', access: '0', help: '', icon: '', class: '' }
             - { label: Juanitatxo-Musical, url: 'http://juanitatxo.miralba.org', access: '0', help: '', icon: '', class: '' }
-            - { label: 'LIbrozapping (hasta 2010)', url: 'http://librozapping.miralba.org/', access: '0', help: '', icon: '', class: '' }
+            - { label: 'Librozapping (hasta 2010)', url: 'http://librozapping.miralba.org/', access: '0', help: '', icon: '', class: '' }
     cd_miralba:
         help: ''
         icon: ''

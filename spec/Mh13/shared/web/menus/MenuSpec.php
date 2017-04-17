@@ -35,7 +35,16 @@ class MenuSpec extends ObjectBehavior
 
     public function it_can_be_created_from_configuration_data()
     {
-        $title = 'global';
+        $this->beConstructedThrough('fromConfiguration', ['global', $this->getMenuFixture()]);
+        $this->getLabel()->shouldBe('Global');
+        $this->getItems()->shouldHaveCount(3);
+    }
+
+    /**
+     * @return array
+     */
+    public function getMenuFixture(): array
+    {
         $data = [
             'label' => 'Global',
             'icon' => 'icon',
@@ -61,7 +70,7 @@ class MenuSpec extends ObjectBehavior
                 ],
             ],
         ];
-        $this->beConstructedThrough('fromConfiguration', [$title, $data]);
-        $this->getLabel()->shouldBe('Global');
+
+        return $data;
     }
 }

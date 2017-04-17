@@ -5,7 +5,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\SlugConverter;
 use Doctrine\DBAL\Connection;
 
 
-class CakeItemSlugRepository implements SlugRepository
+class CakeChannelSlugRepository implements SlugRepository
 {
     /**
      * @var Connection

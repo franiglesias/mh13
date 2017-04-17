@@ -45,7 +45,7 @@ $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 $app = new Silex\Application();
 
-$app['debug'] = true;
+$app['debug'] = false;
 
 /* Service definitions */
 
@@ -103,17 +103,11 @@ $app->extend(
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 
-$app->get(
-    '/hello/{name}',
-    function ($name) use ($app) {
-        return 'Hello '.$app->escape($name);
-    }
-);
 
 $app->get(
     '/blogs/{slug}',
     function ($slug) use ($app) {
-        $sql = 'select id from items where slug = ?';;
+        $sql = 'SELECT id FROM items WHERE slug = ?';
         $statement = $app['db']->executeQuery($sql, [(string)$slug]);
         $result = $statement->fetch();
 
@@ -124,7 +118,7 @@ $app->get(
 // Compatibility with old route scheme
 $app->get('/{slug}', ArticleController::class."::view");
 
-// Default render home page
+// Default rout render home page
 $app->get(
     '/',
     function () use ($app) {
