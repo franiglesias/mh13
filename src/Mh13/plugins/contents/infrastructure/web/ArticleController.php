@@ -11,6 +11,7 @@ namespace Mh13\plugins\contents\infrastructure\web;
 
 use Mh13\plugins\contents\application\service\GetArticleRequest;
 use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -22,7 +23,7 @@ class ArticleController
     public function catalog(Request $request, Application $app)
     {
 
-        return Response::create($request);
+        return Response::create($request->query->get('site'));
     }
 
     /**
