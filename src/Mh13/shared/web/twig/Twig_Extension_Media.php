@@ -28,7 +28,7 @@ class Twig_Extension_Media extends Twig_Extension
 
             new Twig_SimpleFilter(
                 'readable_playtime', function ($playtime) {
-                $seconds = fmod($playtime, 60);
+                $seconds = $playtime % 60;
                 $minutes = floor($playtime / 60);
 
                 return sprintf('%d:%d', $minutes, $seconds);
@@ -46,16 +46,14 @@ class Twig_Extension_Media extends Twig_Extension
             new Twig_SimpleFilter(
                 'parse', function ($environment, $text) {
                 $this->environment = $environment;
-                $text = preg_replace_callback(
+                $buildYoutubePlayer = function ($videoId) {
+                    return $this->environment->render('plugins/media/youtube.twig', ['videoid' => $videoId[1]]);
+                };
+                $patterns = [
                     '/https?:\/\/(?:www)?\.youtube\.com\/watch\?v=([^<&]*)(&\S*)?/',
-                    [$this, 'buildYoutubePlayer'],
-                    $text
-                );
-                $text = preg_replace_callback(
                     '/https?:\/\/youtu\.be\/([a-zA-Z0-9\-]*)/',
-                    [$this, 'buildYoutubePlayer'],
-                    $text
-                );
+                ];
+                $text = preg_replace_callback($patterns, $buildYoutubePlayer, $text);
 
                 return $text;
             }, array('needs_environment' => true)
@@ -63,8 +61,5 @@ class Twig_Extension_Media extends Twig_Extension
         );
     }
 
-    private function buildYoutubePlayer($videoId)
-    {
-        return $this->environment->render('plugins/media/youtube.twig', ['videoid' => $videoId[1]]);
-    }
+
 }

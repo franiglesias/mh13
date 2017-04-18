@@ -18,8 +18,8 @@ class ArticleProvider implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $articles = $app['controllers_factory'];
+        $articles->get('/catalog', ArticleController::class."::catalog");
         $articles->get('/{slug}', ArticleController::class."::view");
-
         return $articles;
     }
 }

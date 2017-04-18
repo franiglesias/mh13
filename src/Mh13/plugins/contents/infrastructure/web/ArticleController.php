@@ -19,9 +19,10 @@ class ArticleController
     /**
      * Returns a view of the selected articles
      */
-    public function catalog()
+    public function catalog(Request $request, Application $app)
     {
 
+        return Response::create($request);
     }
 
     /**

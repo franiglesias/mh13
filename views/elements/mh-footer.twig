@@ -7,9 +7,9 @@
 					<img src="{{ site.icon }}" alt="" width="64">
 				</div>
 				<div class="media-object-section main-section">
-					<p class="mh-footer-title">{{ Site.title }}</p>
-					<p class="mh-footer-tagline">{{ Site.tagline }}</p>
-					<p class="mh-footer-description">{{ Site.description }}</p>
+					<p class="mh-footer-title">{{ site.title }}</p>
+					<p class="mh-footer-tagline">{{ site.tagline }}</p>
+					<p class="mh-footer-description">{{ site.description }}</p>
 				</div>
 			</div>
 		</div>
@@ -18,10 +18,10 @@
 				<li class="fn">{{ organization.title }}</li>
 				<li class="street-address">{{ organization.address }}</li>
 				<li class="locality">{{ organization.city }}</li>
-				<li><span class="state">{{ organization.state }}</span>, <span class="zip">{{ Organization.zip }}</span>
+				<li><span class="state">{{ organization.state }}</span>, <span class="zip">{{ organization.zip }}</span>
 				</li>
-				<li class="phone">986 213 047</li>
-				<li class="email"><a href="mailto:{{ organization.email }}">{{ Organization.email }}</a></li>
+				<li class="phone">{{ organization.phone }}</li>
+				<li class="email"><a href="mailto:{{ organization.email }}">{{ organization.email }}</a></li>
 			</ul>
 		</div>
 	</div>
