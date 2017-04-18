@@ -3,16 +3,16 @@
         <li class="column">
             <a href="{{ menu.url }}">{{ menu.label }}</a>
             {% if menu.items %}
-            <ul class="menu vertical">
-                {% for item in menu.items %}
-                {% if item.label == '/' %}
-                <li class="divider"></li>
-                {% else %}
-                <li><a href="{{ item.url}}">{% if item.icon %}<i class="fi-{{item.icon}}"></i>{% endif %}{{item.label}}</a></li>
-                {% endif %}
-
-                {% endfor %}
-            </ul>
+                <ul class="menu vertical">
+                    {% for item in menu.items %}
+                        {% if item.label == '/' %}
+                            <li class="divider"></li>
+                        {% else %}
+                            <li><a href="{{ item.url }}">{% if item.icon %}<i
+                                        class="fi-{{ item.icon }}"></i>{% endif %}{{ item.label }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             {% endif %}
         </li>
     {% endfor %}
