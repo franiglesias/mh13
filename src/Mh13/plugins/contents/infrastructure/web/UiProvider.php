@@ -19,7 +19,7 @@ class UiProvider implements ControllerProviderInterface
     {
         $ui = $app['controllers_factory'];
         $ui->get('/menu/{menuTitle}', MenuController::class."::menu");
-
+        $ui->get('/menubar/{barTitle}/{type}', MenuController::class."::bar")->assert('type', 'menu|wide');
         return $ui;
     }
 }

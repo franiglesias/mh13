@@ -27,6 +27,7 @@ use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugR
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
+use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
 use Silex\Provider\DoctrineServiceProvider;
@@ -43,6 +44,7 @@ require_once(dirname(__DIR__).'/vendor/autoload.php');
 
 $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
+/** @var Application $app */
 $app = new Silex\Application();
 
 $app['debug'] = false;
@@ -51,6 +53,10 @@ $app['debug'] = false;
 
 $app['menu.loader'] = function ($app) {
     return new MenuLoader(dirname(__DIR__).'/config/menus.yml');
+};
+
+$app['bar.loader'] = function ($app) {
+    return new MenuBarLoader(dirname(__DIR__).'/config/menus.yml');
 };
 
 $app['article.repository'] = function ($app) {

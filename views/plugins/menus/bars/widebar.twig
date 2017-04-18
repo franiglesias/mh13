@@ -1,10 +1,10 @@
 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-{{ menubar|length }} row">
-    {% for menu in menubar %}
+    {% for menu in bar.menus %}
         <li class="column">
-            <a href="{{ menu.Menu.url }}">{{ menu.Menu.label }}</a>
-            {% if menu.MenuItem %}
+            <a href="{{ menu.url }}">{{ menu.label }}</a>
+            {% if menu.items %}
             <ul class="menu vertical">
-                {% for item in menu.MenuItem %}
+                {% for item in menu.items %}
                 {% if item.label == '/' %}
                 <li class="divider"></li>
                 {% else %}

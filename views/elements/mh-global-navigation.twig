@@ -6,11 +6,12 @@
                 <button class="menu-icon dark" type="button" data-toggle></button>
             </span>
             <strong>
-                <a href="{{ BaseUrl }}"><img src="{{ Site.icon}}" alt="" class="mh-channel-menu-home-icon" width="48">{{ Site.title }}</a>
+                <a href="{{ BaseUrl }}"><img src="{{ site.icon }}" alt="" class="mh-channel-menu-home-icon"
+                                             width="48">{{ Site.title }}</a>
             </strong>
         </div>
         <div id="responsive-menu">
-            {{ modules.module('mh-global-main-menu', '/menus/bars/menubar/main', 'top-bar-left')}}
+            {{ modules.module('mh-global-main-menu', '/ui/menubar/main/menu', 'top-bar-left') }}
         </div>
         <div class="top-bar-right">
             <ul class="menu">

@@ -4,7 +4,7 @@
 		<div class="small-12 medium-6 large-8 columns">
 			<div class="media-object">
 				<div class="media-object-section">
-					<img src="{{ Site.icon}}" alt="" width="64">
+					<img src="{{ site.icon }}" alt="" width="64">
 				</div>
 				<div class="media-object-section main-section">
 					<p class="mh-footer-title">{{ Site.title }}</p>
@@ -15,17 +15,18 @@
 		</div>
 		<div class="small-12 medium-6 large-4 columns">
 			<ul class="vcard">
-				<li class="fn">{{ Organization.title }}</li>
-				<li class="street-address">{{ Organization.address }}</li>
-				<li class="locality">{{ Organization.city }}</li>
-				<li><span class="state">{{ Organization.state }}</span>, <span class="zip">{{ Organization.zip }}</span></li>
+				<li class="fn">{{ organization.title }}</li>
+				<li class="street-address">{{ organization.address }}</li>
+				<li class="locality">{{ organization.city }}</li>
+				<li><span class="state">{{ organization.state }}</span>, <span class="zip">{{ Organization.zip }}</span>
+				</li>
 				<li class="phone">986 213 047</li>
-				<li class="email"><a href="mailto:{{ Organization.email }}">{{ Organization.email }}</a></li>
+				<li class="email"><a href="mailto:{{ organization.email }}">{{ Organization.email }}</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="row">
-		{{ modules.module('mh-global-wide-menu', '/menus/bars/widebar/main') }}
+        {{ modules.module('mh-global-wide-menu', '/ui/menubar/main/wide') }}
 	</div>
 	<div class="row">
 		{{ modules.module('mh-global-channels-available', '/contents/channels/external') }}

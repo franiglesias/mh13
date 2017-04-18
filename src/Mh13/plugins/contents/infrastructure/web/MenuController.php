@@ -24,4 +24,17 @@ class MenuController
             ]
         );
     }
+
+    public function bar($barTitle, $type, Application $app)
+    {
+        $bar = $app['bar.loader']->load($barTitle);
+
+        return $app['twig']->render(
+            'plugins/menus/bars/'.$type.'bar.twig',
+            [
+                'bar' => $bar,
+            ]
+        );
+
+    }
 }
