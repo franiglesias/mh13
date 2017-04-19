@@ -65,4 +65,13 @@ class DbalArticleRepository implements ArticleRepository
         return ArticleId::generate();
     }
 
+    /**
+     * @param DBalArticleSpecification $specification
+     */
+    public function findAll($specification)
+    {
+        $stmt = $this->dbal->executeQuery($specification->getQuery());
+
+        return $stmt->fetchAll();
+    }
 }

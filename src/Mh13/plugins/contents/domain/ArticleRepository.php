@@ -30,6 +30,6 @@ interface ArticleRepository
      */
     public function nextIdentity();
 
-
+    public function findAll($specification);
 
 }

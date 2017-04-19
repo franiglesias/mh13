@@ -20,9 +20,12 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use Mh13\plugins\contents\application\service\catalog\CatalogService;
+use Mh13\plugins\contents\application\service\catalog\SiteService;
 use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
@@ -47,7 +50,7 @@ $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 /** @var Application $app */
 $app = new Silex\Application();
 
-$app['debug'] = true;
+$app['debug'] = false;
 
 /* Service definitions */
 
@@ -59,8 +62,20 @@ $app['bar.loader'] = function ($app) {
     return new MenuBarLoader(dirname(__DIR__).'/config/menus.yml');
 };
 
+$app['site.service'] = function ($app) {
+    return new SiteService(dirname(__DIR__).'/config/config.yml');
+};
+
+$app['article.specification.factory'] = function ($app) {
+    return new DBalArticleSpecificationFactory($app['db']);
+};
+
 $app['article.repository'] = function ($app) {
     return new DbalArticleRepository($app['db']);
+};
+
+$app['catalog.service'] = function ($app) {
+    return new CatalogService($app['article.repository'], $app['article.specification.factory']);
 };
 
 $app['get_article.service'] = function ($app) {

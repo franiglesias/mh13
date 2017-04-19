@@ -9,9 +9,14 @@
 namespace Mh13\plugins\contents\domain;
 
 
+use Mh13\plugins\contents\application\service\catalog\CatalogRequest;
+
+
 interface ArticleSpecificationFactory
 {
     public function createLastArticles();
+
+    public function createFromCatalogRequest(CatalogRequest $catalogRequest);
 
 
 }
