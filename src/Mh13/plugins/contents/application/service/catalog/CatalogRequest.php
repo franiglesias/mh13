@@ -29,6 +29,7 @@ class CatalogRequest
     protected $max;
     protected $blogs;
     protected $excludedBlogs;
+    protected $ignoreSticky;
     /**
      * @var bool
      */
@@ -88,7 +89,7 @@ class CatalogRequest
             return 0;
         }
 
-        return (($this->page - 1) * $this->max) + 1;
+        return ($this->page - 1) * $this->max;
 
     }
 
@@ -113,7 +114,7 @@ class CatalogRequest
     /**
      * @return mixed
      */
-    public function excludedBlogs()
+    public function excludedBlogs(): array
     {
         return $this->excludedBlogs;
     }
@@ -124,6 +125,20 @@ class CatalogRequest
     public function setExcludedBlogs($excludedBlogs)
     {
         $this->excludedBlogs = $excludedBlogs;
+    }
+
+
+    /**
+     * @param mixed $sticky
+     */
+    public function setIgnoreSticky($ignoreSticky)
+    {
+        $this->ignoreSticky = $ignoreSticky;
+    }
+
+    public function ignoreSticky(): bool
+    {
+        return $this->ignoreSticky;
     }
 
 

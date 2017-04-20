@@ -14,6 +14,11 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 interface DBalArticleSpecification
 {
+    /**
+     * Generates a Query to retrieve the desired articles
+     *
+     * @return QueryBuilder
+     */
     public function getQuery(): QueryBuilder;
 
 }

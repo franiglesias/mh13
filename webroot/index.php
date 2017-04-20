@@ -50,7 +50,7 @@ $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 /** @var Application $app */
 $app = new Silex\Application();
 
-$app['debug'] = false;
+$app['debug'] = true;
 
 /* Service definitions */
 

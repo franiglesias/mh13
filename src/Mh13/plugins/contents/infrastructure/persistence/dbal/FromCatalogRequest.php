@@ -51,34 +51,34 @@ class FromCatalogRequest implements DBalArticleSpecification
             'items.pubDate as article_pubDate',
             'items.expiration as article_expiration',
             'items.featured as article_featured',
-            'items.sticky as article_sticky',
+            'items.stick as article_sticky',
             'blogs.slug as blog_slug',
             'blogs.title as blog_title',
             'uploads.path as image_path'
         )->from(
             'items'
         )->leftJoin(
-                'items',
-                'blogs',
-                'blogs',
-                'items.channel_id = blogs.id'
-            )->leftJoin(
-                'items',
-                'uploads',
-                'uploads',
-                $queryBuilder->expr()->eq('uploads.id', '('.$subQuery->getSQL().')')
+            'items',
+            'blogs',
+            'blogs',
+            'items.channel_id = blogs.id'
+        )->leftJoin(
+            'items',
+            'uploads',
+            'uploads',
+            $queryBuilder->expr()->eq('uploads.id', '('.$subQuery->getSQL().')')
 
-            )->where(
-                $queryBuilder->expr()->andX(
-                    $queryBuilder->expr()->eq('items.status', Article::PUBLISHED),
-                    $queryBuilder->expr()->lte('items.pubDate', 'NOW()'),
-                    $queryBuilder->expr()->orX(
-                        $queryBuilder->expr()->isNull('items.expiration'),
-                        $queryBuilder->expr()->gt('items.expiration', 'NOW()')
-                    ),
-                    $queryBuilder->expr()->eq('blogs.active', true)
-                )
+        )->where(
+            $queryBuilder->expr()->andX(
+                $queryBuilder->expr()->eq('items.status', Article::PUBLISHED),
+                $queryBuilder->expr()->lte('items.pubDate', 'NOW()'),
+                $queryBuilder->expr()->orX(
+                    $queryBuilder->expr()->isNull('items.expiration'),
+                    $queryBuilder->expr()->gt('items.expiration', 'NOW()')
+                ),
+                $queryBuilder->expr()->eq('blogs.active', true)
             )
+        )
         ;
         if ($this->catalogRequest->blogs()) {
             $queryBuilder->andWhere('blogs.slug IN (:blogs)');
@@ -95,6 +95,10 @@ class FromCatalogRequest implements DBalArticleSpecification
                 $this->catalogRequest->excludedBlogs(),
                 \Doctrine\DBAL\Connection::PARAM_STR_ARRAY
             );
+        }
+
+        if (!$this->catalogRequest->ignoreSticky()) {
+            $queryBuilder->addOrderBy('items.stick', 'desc');
         }
 
         $queryBuilder->addOrderBy('items.pubDate', 'desc');

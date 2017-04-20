@@ -6,31 +6,31 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 
 /**
- * Class CatalogQueryBuilder
+ * Class CatalogRequestBuilder
  *
  * Data neede to make a request to the catalog service
  *
  * @package Mh13\plugins\contents\application\service\catalog
  */
-class CatalogQueryBuilder
+class CatalogRequestBuilder
 {
     const LIMIT = 15;
 
     private $blogs = [];
     private $excludeBlogs = [];
-    private $labels = [];
+//    private $labels = [];
     // pagination
 
     private $page;
     private $limit = self::LIMIT;
-    private $offset;
-
-    private $sticky;
 
     // restrictions
+
     private $home = false;
     private $featured = false;
     private $public = true;
+    private $ignoreSticky = false;
+
     /**
      * @var SiteService
      */
@@ -44,9 +44,15 @@ class CatalogQueryBuilder
 
     public static function fromQuery(ParameterBag $query, SiteService $siteService)
     {
-        $builder = new CatalogQueryBuilder($siteService);
-        $builder->fromBlogs(...$query->get('blogs'));
-        $builder->excludeBlogs(...$query->get('excludeBlogs'));
+        $builder = new CatalogRequestBuilder($siteService);
+        if ($query->has('blogs')) {
+            $builder->fromBlogs(...$query->get('blogs'));
+
+        }
+        if ($query->has('excludeBlogs')) {
+
+            $builder->excludeBlogs(...$query->get('excludeBlogs'));
+        }
         if ($site = $query->getAlnum('site')) {
             $builder->fromBlogs($builder->siteService->getBlogs($site));
         }
@@ -68,7 +74,7 @@ class CatalogQueryBuilder
     }
 
     /**
-     * @return CatalogQueryBuilder
+     * @return CatalogRequestBuilder
      */
     public function fromBlogs(): self
     {
@@ -84,13 +90,6 @@ class CatalogQueryBuilder
         $this->manageCollissions();
 
         return $this;
-    }
-
-    protected function manageCollissions()
-    {
-        $coincidences = array_intersect($this->blogs, $this->excludeBlogs);
-        $this->blogs = array_values(array_diff($this->blogs, $this->excludeBlogs));
-        $this->excludeBlogs = array_values(array_diff($this->excludeBlogs, $coincidences));
     }
 
     public function excludeBlogs(): self
@@ -130,14 +129,11 @@ class CatalogQueryBuilder
         return $this;
     }
 
-    public function isRestrictedToHome(): bool
+    protected function manageCollissions()
     {
-        return $this->home;
-    }
-
-    public function isRestrictedToFeatured(): bool
-    {
-        return $this->featured;
+        $coincidences = array_intersect($this->blogs, $this->excludeBlogs);
+        $this->blogs = array_values(array_diff($this->blogs, $this->excludeBlogs));
+        $this->excludeBlogs = array_values(array_diff($this->excludeBlogs, $coincidences));
     }
 
     public function onlyPublic(): self
@@ -147,30 +143,19 @@ class CatalogQueryBuilder
         return $this;
     }
 
-    public function isRestrictedToPublic(): bool
-    {
-        return $this->public;
-    }
-
-    public function getPage()
-    {
-        return $this->page;
-    }
-
-    public function getBlogs()
-    {
-        return $this->blogs;
-    }
-
-    public function getExcludedBlogs()
-    {
-        return $this->excludeBlogs;
-    }
 
     public function fromSite($site): self
     {
         $this->fromBlogs($this->siteService->getBlogs($site));
         $this->manageCollissions();
+
+        return $this;
+    }
+
+
+    public function ignoreSticky()
+    {
+        $this->ignoreSticky = true;
 
         return $this;
     }
@@ -184,9 +169,8 @@ class CatalogQueryBuilder
         $request->setPage($this->page, $this->limit);
         $request->setBlogs($this->blogs);
         $request->setExcludedBlogs($this->excludeBlogs);
+        $request->setIgnoreSticky($this->ignoreSticky);
 
         return $request;
     }
-
-
 }

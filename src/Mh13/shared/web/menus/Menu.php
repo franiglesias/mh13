@@ -77,5 +77,42 @@ class Menu
         return $this->items;
     }
 
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHelp()
+    {
+        return $this->help;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAccess(): int
+    {
+        return $this->access;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
 
 }

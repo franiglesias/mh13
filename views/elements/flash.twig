@@ -1,3 +1,4 @@
+{% set Session= {'Message': {'flash': '', 'auth': '' }} %}
 <div class="mh-flash mh-autohide">
     {% if Session.Message.flash or Session.Message.auth %}
         {% set messages = [Session.Message.flash, Session.Message.auth] %}

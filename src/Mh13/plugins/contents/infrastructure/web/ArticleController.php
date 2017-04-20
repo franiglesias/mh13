@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\service\catalog\CatalogQueryBuilder;
+use Mh13\plugins\contents\application\service\catalog\CatalogRequestBuilder;
 use Mh13\plugins\contents\application\service\GetArticleRequest;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,11 +19,16 @@ use Symfony\Component\HttpFoundation\Response;
 class ArticleController
 {
     /**
-     * Returns a view of the selected articles
+     * Returns a selection of articles
+     *
+     * @param Request     $request
+     * @param Application $app
+     *
+     * @return
      */
     public function catalog(Request $request, Application $app)
     {
-        $catalogRequest = CatalogQueryBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
+        $catalogRequest = CatalogRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
         $articles = $app['catalog.service']->getArticles($catalogRequest);
         return $app['twig']->render(
             'plugins/contents/items/catalog.twig',

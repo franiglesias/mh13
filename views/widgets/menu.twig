@@ -2,7 +2,7 @@
 {% set body %}
 <div id="{{selector}}"></div>
 {% endset %}
-{{ blocks.widget( title, body, icon )}}
+{{ blocks.widget( title, body, icon|default('') ) }}
 <script type="text/javascript">
     $("#{{ selector }}").load('/ui/menu/{{ menu }}');
 </script>

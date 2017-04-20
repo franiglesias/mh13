@@ -3,6 +3,7 @@
 namespace spec\Mh13\plugins\contents\application\service\catalog;
 
 use Mh13\plugins\contents\application\service\catalog\SiteService;
+use Mh13\plugins\contents\exceptions\InvalidSite;
 use org\bovigo\vfs\vfsStream;
 use PhpSpec\ObjectBehavior;
 
@@ -46,6 +47,11 @@ sites:
 EOD;
 
 
+    }
+
+    public function it_throws_exception_if_no_site_with_that_name_is_configured()
+    {
+        $this->shouldThrow(InvalidSite::class)->during('getBlogs', ['other']);
     }
 
     public function it_loads_list_of_blogs_for_site()

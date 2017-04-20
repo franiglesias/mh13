@@ -36,6 +36,11 @@ class CatalogService
         $this->specificationFactory = $specificationFactory;
     }
 
+    /**
+     * @param CatalogRequest $request
+     *
+     * @return array
+     */
     public function getArticles(CatalogRequest $request)
     {
         $articles = $this->repository->findAll($this->specificationFactory->createFromCatalogRequest($request));
