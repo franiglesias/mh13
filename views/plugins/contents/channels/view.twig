@@ -18,14 +18,7 @@
         {% endset %}
     {% endif %}
     {{ modules.widget('mh-blog-home', '/articles/catalog?blogs[]=%blog%&layout=index'|replace({'%blog%': blog.slug}), '') }}
-    {% for article in articles %}
-        {% if not article.MainImage.path %}
-            {% set image = article.MainImage[0] %}
-        {% else %}
-            {% set image = article.MainImage %}
-        {% endif %}
-        {{ catalog.channel_index( article.Item, image.path) }}
-    {% endfor %}
+
 
 {% endblock %}
 

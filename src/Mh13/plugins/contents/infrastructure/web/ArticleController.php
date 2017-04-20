@@ -41,8 +41,8 @@ class ArticleController
     }
 
     /**
-     * Shows a view for the article specified by a slug
-     *
+     * Shows a view for the article specified by a sl
+     *  
      * @param string      $slug
      * @param Application $app
      *
