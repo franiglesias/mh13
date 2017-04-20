@@ -1,31 +1,37 @@
 {% extends 'layouts/main.twig' %}
 {% block header %}
     {% import 'macros/headers.twig' as headers %}
-    {{ headers.channel(channel.title, channel.tagline, channel.icon, channel.image) }}
-    <div class="container mh-channel-menu"> {#echo $this->Channel->menu();#} </div>
+    {{ headers.channel(blog.title, blog.tagline, blog.icon, blog.image) }}
+    <div class="container mh-blog-menu"> {#echo $this->Channel->menu();#} </div>
 {% endblock %}
 {% block content %}
     {% import 'macros/catalog.twig' as catalog %}
+    {% set blogIntro = 'Artículos' %}
     {% if tag %}
-        <p>Artículos etiquetados con <strong>{{ tag }}</strong></p>
+        {% set blogIntro %}
+            <p>Artículos etiquetados con <strong>{{ tag }}</strong></p>
+        {% endset %}
     {% endif %}
     {% if level_id %}
-        <p>Artículos dirigidos al curso <strong>{{ level_id }}</strong></p>
+        {% set blogIntro %}
+            <p>Artículos dirigidos al curso <strong>{{ level_id }}</strong></p>
+        {% endset %}
     {% endif %}
+    {{ modules.widget('mh-blog-home', '/articles/catalog?blogs[]=%blog%&layout=index'|replace({'%blog%': blog.slug}), '') }}
     {% for article in articles %}
         {% if not article.MainImage.path %}
             {% set image = article.MainImage[0] %}
         {% else %}
             {% set image = article.MainImage %}
         {% endif %}
-        {{ catalog.channel_index( article.Item, image.path)}}
+        {{ catalog.channel_index( article.Item, image.path) }}
     {% endfor %}
+
 {% endblock %}
 
 {% block sidebar %}
     {% import 'macros/modules.twig' as modules %}
-    {% include 'plugins/contents/channels/widgets/description.twig' with {'channel': channel}
-    only %}
-    {{ modules.widget('mh-channel-labels', '/contents/channels/tags/'~channel.id, 'Etiquetas', '') }}
-    {{ modules.widget('mh-channel-recent', '/contents/items/catalog/limit:10/channelList:'~channel.id~'/featured:1/layout:channel_feed', 'Artículos destacados', '') }}
+    {% include 'plugins/contents/channels/widgets/description.twig' with {'channel': blog} only %}
+    {{ modules.widget('mh-blog-labels', '/contents/channels/tags/'~blog.id, 'Etiquetas', '') }}
+    {{ modules.widget('mh-blog-recent', '/articles/catalog?blogs[]=%blog%&featured=true&layout=channel_feed'|replace({'%blog%': blog.slug}), 'Artículos destacados', '') }}
 {% endblock %}

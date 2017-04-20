@@ -30,6 +30,7 @@ class ArticleController
     {
         $catalogRequest = CatalogRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
         $articles = $app['catalog.service']->getArticles($catalogRequest);
+
         return $app['twig']->render(
             'plugins/contents/items/catalog.twig',
             [
@@ -49,21 +50,17 @@ class ArticleController
      */
     public function view($slug, Application $app)
     {
-        try {
-            $id = $app['item.slug.converter']->mapToId($slug);
-            $request = new GetArticleRequest($id);
-            $article = $app['get_article.service']->execute($request);
+        $id = $app['item.slug.converter']->mapToId($slug);
+        $request = new GetArticleRequest($id);
+        $article = $app['get_article.service']->execute($request);
 
-            return $app['twig']->render(
-                'plugins/contents/items/view.twig',
-                [
-                    'article' => $article,
-                    'slug' => $slug,
-                ]
-            );
-        } catch (\Exception $exception) {
-            return Response::create('Ha habido un problema con el artículo: '.$exception->getMessage());
-        }
+        return $app['twig']->render(
+            'plugins/contents/items/view.twig',
+            [
+                'article' => $article,
+                'slug' => $slug,
+            ]
+        );
 
         return Response::create('Solicitaste el artículo: '.$slug);
 

@@ -126,13 +126,21 @@ $app->mount("/ui", new UiProvider());
 
 
 $app->get(
-    '/blogs/{slug}',
+    '/blog/{slug}',
     function ($slug) use ($app) {
-        $sql = 'SELECT id FROM items WHERE slug = ?';
+        $sql = 'SELECT * FROM blogs WHERE slug = ?';
         $statement = $app['db']->executeQuery($sql, [(string)$slug]);
         $result = $statement->fetch();
 
-        return $result['id'];
+        return $app['twig']->render(
+            'plugins/contents/channels/view.twig',
+            [
+                'blog' => $result,
+                'tag' => false,
+                'level_id' => false,
+            ]
+        );
+
     }
 );
 
