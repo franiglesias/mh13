@@ -61,4 +61,9 @@ class CakeArticleRepository implements ArticleRepository
         return $this->mapper->toArticle($dataArray);
 
     }
+
+    public function findAll($specification)
+    {
+        // TODO: Implement findAll() method.
+    }
 }
