@@ -15,13 +15,13 @@
     </ul>
     <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
         <div class="tabs-panel is-active" id="mh-news">
-            {{ modules.widget('mh-catalog-news-feed', '/articles/catalog?page=1&site=noticias&layout=index', 'Últimas noticias', '', 'mh-catalog') }}
+            {{ modules.widget('mh-catalog-news-feed', '/articles/catalog?site=noticias&layout=index', 'Últimas noticias', '', 'mh-catalog') }}
         </div>
         <div class="tabs-panel" id="mh-anuncios">
-            {{ modules.widget('mh-catalog-announces-feed', '/contents/items/catalog/limit:10/siteName:'~Home.announces~'/sticky:1/excludePrivate:1/layout:feed', 'Tablón de anuncios', '', 'mh-catalog') }}
+            {{ modules.widget('mh-catalog-announces-feed', '/articles/catalog?blogs[]=anuncios&sticky=true&layout=feed', 'Tablón de anuncios', '', 'mh-catalog') }}
         </div>
         <div class="tabs-panel" id="mh-resto">
-            {{ modules.widget('mh-catalog-all-feed', '/contents/items/catalog/limit:10/excludePrivate:1/layout:feed', 'Últimas novedades', '', 'mh-catalog') }}
+            {{ modules.widget('mh-catalog-all-feed', '/articles/catalog?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed', 'Últimas novedades', '', 'mh-catalog') }}
         </div>
     </div>
 {% endblock %}

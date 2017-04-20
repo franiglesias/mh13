@@ -9,8 +9,11 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 
+use Doctrine\DBAL\Query\QueryBuilder;
+
+
 interface DBalArticleSpecification
 {
-    public function getQuery();
+    public function getQuery(): QueryBuilder;
 
 }

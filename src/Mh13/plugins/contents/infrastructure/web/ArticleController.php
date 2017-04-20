@@ -25,12 +25,11 @@ class ArticleController
     {
         $catalogRequest = CatalogQueryBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
         $articles = $app['catalog.service']->getArticles($catalogRequest);
-
         return $app['twig']->render(
             'plugins/contents/items/catalog.twig',
             [
                 'articles' => $articles,
-                'layout' => 'feed',
+                'layout' => $request->query->get('layout', 'feed'),
             ]
         );
     }

@@ -26,6 +26,9 @@ class CatalogService
 
     /**
      * CatalogService constructor.
+     *
+     * @param ArticleRepository           $repository
+     * @param ArticleSpecificationFactory $specificationFactory
      */
     public function __construct(ArticleRepository $repository, ArticleSpecificationFactory $specificationFactory)
     {
@@ -36,7 +39,28 @@ class CatalogService
     public function getArticles(CatalogRequest $request)
     {
         $articles = $this->repository->findAll($this->specificationFactory->createFromCatalogRequest($request));
+        $result = [];
+        foreach ($articles as $article) {
+            $result[] = [
+                'article' => [
+                    'id' => $article['article_id'],
+                    'title' => $article['article_title'],
+                    'slug' => $article['article_slug'],
+                    'content' => $article['article_content'],
+                    'pubDate' => $article['article_pubDate'],
+                    'expiration' => $article['article_expiration'],
+                ],
+                'blog' => [
+                    'title' => $article['blog_title'],
+                    'slug' => $article['blog_slug'],
+                ],
+                'image' => [
+                    'path' => $article['image_path'],
 
-        return $articles;
+                ]
+            ];
+        }
+
+        return $result;
     }
 }

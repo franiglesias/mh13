@@ -73,7 +73,14 @@ class CatalogQueryBuilder
     public function fromBlogs(): self
     {
         $arguments = func_get_args();
-        $this->blogs = array_merge($this->blogs, $arguments);
+        foreach ($arguments as $argument) {
+            if (is_array($argument)) {
+                $this->fromBlogs(...$argument);
+                continue;
+            }
+            $this->blogs[] = $argument;
+        }
+
         $this->manageCollissions();
 
         return $this;
@@ -162,7 +169,7 @@ class CatalogQueryBuilder
 
     public function fromSite($site): self
     {
-        $this->blogs = $this->siteService->getBlogs($site);
+        $this->fromBlogs($this->siteService->getBlogs($site));
         $this->manageCollissions();
 
         return $this;

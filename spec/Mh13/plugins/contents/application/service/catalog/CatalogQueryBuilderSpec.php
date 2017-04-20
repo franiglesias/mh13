@@ -76,6 +76,14 @@ class CatalogQueryBuilderSpec extends ObjectBehavior
         $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
     }
 
+    public function it_can_specify_blogs_as_array()
+    {
+        $this->fromBlogs(['blog1', 'blog2', 'blog3']);
+        $this->getBlogs()->shouldBe(['blog1', 'blog2', 'blog3']);
+        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
+
+    }
+
     public function it_can_exclude_blogs()
     {
         $this->excludeBlogs('blog3')->shouldBe($this);
@@ -94,6 +102,15 @@ class CatalogQueryBuilderSpec extends ObjectBehavior
 
         $this->getCatalogRequest()->blogs()->shouldBe(['blog3', 'blog4']);
         $this->getCatalogRequest()->excludedBlogs()->shouldBe(['blog5']);
+
+    }
+
+    public function it_can_manage_include_exclude_blogs_with_no_collissions()
+    {
+        $this->fromBlogs('blog1', 'blog2', 'blog3');
+        $this->excludeBlogs('blog4', 'blog5');
+        $this->getBlogs()->shouldBeLike(['blog1', 'blog2', 'blog3']);
+        $this->getExcludedBlogs()->shouldBeLike(['blog4', 'blog5']);
 
     }
 

@@ -70,8 +70,7 @@ class DbalArticleRepository implements ArticleRepository
      */
     public function findAll($specification)
     {
-        $stmt = $this->dbal->executeQuery($specification->getQuery());
-
+        $stmt = $specification->getQuery()->execute();
         return $stmt->fetchAll();
     }
 }

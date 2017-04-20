@@ -3,7 +3,7 @@
 {% macro module(selector, url, class) %}
 <div id="{{ selector }}" class="{{ class }}"></div>
 <script type="text/javascript">
-    $.get("{{ url }}", function (data) {
+    $.get("{{ url|raw }}", function (data) {
     $("#{{ selector }}")
         .html(data);
     });

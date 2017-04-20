@@ -21,7 +21,6 @@ class SiteService
         if (!$this->data) {
             $this->load();
         }
-
         return $this->data['sites'][$site];
     }
 
