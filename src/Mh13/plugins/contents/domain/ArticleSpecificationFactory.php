@@ -18,5 +18,8 @@ interface ArticleSpecificationFactory
 
     public function createFromCatalogRequest(CatalogRequest $catalogRequest);
 
+    public function createPublishedArticleWithSlug(string $slug);
+
+
 
 }

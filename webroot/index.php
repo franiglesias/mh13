@@ -20,10 +20,10 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\catalog\CatalogService;
 use Mh13\plugins\contents\application\service\catalog\SiteService;
-use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
@@ -50,7 +50,7 @@ require_once(dirname(__DIR__).'/vendor/autoload.php');
 
 $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
-/** @var Application $app */
+/** @var $app */
 $app = new Silex\Application();
 
 $app['debug'] = true;
@@ -89,8 +89,8 @@ $app['blog.service'] = function ($app) {
     return new BlogService($app['blog.specification.factory']);
 };
 
-$app['get_article.service'] = function ($app) {
-    return new GetArticleService($app['article.repository']);
+$app['article.service'] = function ($app) {
+    return new ArticleService($app['article.specification.factory']);
 };
 $app['item.slug.converter'] = function ($app) {
     return new SlugConverter(new CakeItemSlugRepository($app['db']));

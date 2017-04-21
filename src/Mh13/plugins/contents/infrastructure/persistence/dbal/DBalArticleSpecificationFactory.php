@@ -13,6 +13,7 @@ use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\service\catalog\CatalogRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\FromCatalogRequest;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\PublishedArticleWithSlug;
 
 
 class DBalArticleSpecificationFactory implements ArticleSpecificationFactory
@@ -39,5 +40,10 @@ class DBalArticleSpecificationFactory implements ArticleSpecificationFactory
     public function createFromCatalogRequest(CatalogRequest $catalogRequest)
     {
         return new FromCatalogRequest($this->connection, $catalogRequest);
+    }
+
+    public function createPublishedArticleWithSlug(string $slug)
+    {
+        return new PublishedArticleWithSlug($this->connection, $slug);
     }
 }

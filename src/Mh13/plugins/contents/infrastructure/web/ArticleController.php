@@ -49,9 +49,8 @@ class ArticleController
      */
     public function view($slug, Application $app)
     {
-        $id = $app['item.slug.converter']->mapToId($slug);
-        $request = new GetArticleRequest($id);
-        $article = $app['get_article.service']->execute($request);
+
+        $article = $app['article.service']->getArticle($slug);
 
         return $app['twig']->render(
             'plugins/contents/items/view.twig',

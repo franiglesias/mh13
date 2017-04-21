@@ -2,8 +2,8 @@
 
 namespace spec\Mh13\plugins\contents\application\service;
 
+use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\GetArticleRequest;
-use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleId;
 use Mh13\plugins\contents\domain\ArticleRepository;
@@ -20,7 +20,7 @@ class GetArticleServiceSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(GetArticleService::class);
+        $this->shouldHaveType(ArticleService::class);
     }
 
     public function it_returns_an_article(
