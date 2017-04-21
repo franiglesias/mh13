@@ -15,3 +15,6 @@ tmp/
 /frontend/node_modules/
 /webroot/assets/
 /config/config.yml
+/ansistrano/
+/bin/doctrine-dbal
+/bin/
