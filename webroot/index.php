@@ -78,7 +78,7 @@ $app['article.repository'] = function ($app) {
 };
 
 $app['catalog.service'] = function ($app) {
-    return new CatalogService($app['article.repository'], $app['article.specification.factory']);
+    return new CatalogService($app['article.specification.factory']);
 };
 
 $app['blog.specification.factory'] = function ($app) {

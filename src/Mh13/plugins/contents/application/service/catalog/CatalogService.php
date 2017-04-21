@@ -9,16 +9,12 @@
 namespace Mh13\plugins\contents\application\service\catalog;
 
 
-use Mh13\plugins\contents\domain\ArticleRepository;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
 
 class CatalogService
 {
-    /**
-     * @var ArticleRepository
-     */
-    private $repository;
+
     /**
      * @var ArticleSpecificationFactory
      */
@@ -27,12 +23,12 @@ class CatalogService
     /**
      * CatalogService constructor.
      *
-     * @param ArticleRepository           $repository
      * @param ArticleSpecificationFactory $specificationFactory
+     *
+     * @internal param ArticleRepository $repository
      */
-    public function __construct(ArticleRepository $repository, ArticleSpecificationFactory $specificationFactory)
+    public function __construct(ArticleSpecificationFactory $specificationFactory)
     {
-        $this->repository = $repository;
         $this->specificationFactory = $specificationFactory;
     }
 
@@ -43,7 +39,8 @@ class CatalogService
      */
     public function getArticles(CatalogRequest $request)
     {
-        $articles = $this->repository->findAll($this->specificationFactory->createFromCatalogRequest($request));
+        $query = $this->specificationFactory->createFromCatalogRequest($request);
+        $articles = $query->fetch();
         $result = [];
         foreach ($articles as $article) {
             $result[] = [

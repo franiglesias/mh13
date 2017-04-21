@@ -10,6 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 
 class ActiveBlogWithSlug implements DBalBlogSpecification
@@ -37,12 +38,12 @@ class ActiveBlogWithSlug implements DBalBlogSpecification
 
     public function fetch()
     {
-        $statement = $this->getSQL()->execute();
+        $statement = $this->getQuery()->execute();
 
         return $statement->fetch();
     }
 
-    public function getSQL()
+    public function getQuery(): QueryBuilder
     {
         $builder = $this->connection->createQueryBuilder();
         $builder->select('blogs.*')->from('blogs')->where('blogs.slug = ?')->andWhere('blogs.active = 1')->setParameter(

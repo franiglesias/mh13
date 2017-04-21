@@ -13,7 +13,6 @@ use Mh13\plugins\contents\application\service\catalog\CatalogRequestBuilder;
 use Mh13\plugins\contents\application\service\GetArticleRequest;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class ArticleController
@@ -61,8 +60,5 @@ class ArticleController
                 'slug' => $slug,
             ]
         );
-
-        return Response::create('Solicitaste el artículo: '.$slug);
-
     }
 }

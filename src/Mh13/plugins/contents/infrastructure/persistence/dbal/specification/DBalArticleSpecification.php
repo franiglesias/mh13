@@ -6,7 +6,7 @@
  * Time: 16:35
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -20,5 +20,7 @@ interface DBalArticleSpecification
      * @return QueryBuilder
      */
     public function getQuery(): QueryBuilder;
+
+    public function fetch();
 
 }

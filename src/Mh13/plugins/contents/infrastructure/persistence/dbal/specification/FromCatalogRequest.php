@@ -6,7 +6,7 @@
  * Time: 16:42
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 
 use Doctrine\DBAL\Connection;
@@ -33,6 +33,13 @@ class FromCatalogRequest implements DBalArticleSpecification
     {
         $this->connection = $connection;
         $this->catalogRequest = $catalogRequest;
+    }
+
+    public function fetch()
+    {
+        $statement = $this->getQuery()->execute();
+
+        return $statement->fetchAll();
     }
 
     public function getQuery(): QueryBuilder

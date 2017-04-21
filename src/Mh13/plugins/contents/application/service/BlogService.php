@@ -3,7 +3,6 @@
 namespace Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\query\BlogWithSlug;
 
 
 class BlogService
