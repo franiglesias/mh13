@@ -2,34 +2,31 @@
 
 namespace Mh13\plugins\contents\application\service;
 
-use Mh13\plugins\contents\domain\BlogRepository;
+use Mh13\plugins\contents\domain\BlogSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\query\BlogWithSlug;
 
 
 class BlogService
 {
-    /**
-     * @var BlogRepository
-     */
-    private $blogRepository;
 
-    public function __construct(BlogRepository $blogRepository)
+    /**
+     * @var BlogSpecificationFactory
+     */
+    private $factory;
+
+    public function __construct(BlogSpecificationFactory $factory)
     {
-        $this->blogRepository = $blogRepository;
+        $this->factory = $factory;
     }
 
     public function getBlog(string $slug)
     {
-        $blog = $this->blogRepository->getBySlugOrFail($slug);
+        $query = $this->factory->createBlogWithSlug($slug);
+        $blog = $query->fetch();
 
-        return [
-            'id' => $blog->getId(),
-            'title' => $blog->getTitle(),
-            'slug' => $blog->getSlug(),
-            'icon' => $blog->getIcon(),
-            'tagline' => $blog->getTagline(),
-            'description' => $blog->getDescription(),
-            'image' => $blog->getImage(),
-        ];
+        return $blog;
+
+
     }
 
 

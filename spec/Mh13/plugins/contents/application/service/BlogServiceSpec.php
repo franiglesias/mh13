@@ -3,17 +3,16 @@
 namespace spec\Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\contents\application\service\BlogService;
-use Mh13\plugins\contents\domain\Blog;
-use Mh13\plugins\contents\domain\BlogId;
-use Mh13\plugins\contents\domain\BlogRepository;
+use Mh13\plugins\contents\domain\BlogSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\ActiveBlogWithSlug;
 use PhpSpec\ObjectBehavior;
 
 
 class BlogServiceSpec extends ObjectBehavior
 {
-    public function let(BlogRepository $blogRepository)
+    public function let(BlogSpecificationFactory $factory)
     {
-        $this->beConstructedWith($blogRepository);
+        $this->beConstructedWith($factory);
     }
 
     function it_is_initializable()
@@ -21,10 +20,19 @@ class BlogServiceSpec extends ObjectBehavior
         $this->shouldHaveType(BlogService::class);
     }
 
-    public function it_can_request_a_blog(BlogRepository $blogRepository)
+    public function it_can_request_a_blog(BlogSpecificationFactory $factory, ActiveBlogWithSlug $query)
     {
-        $blogRepository->getBySlugOrFail('slug')->shouldBeCalled()->willReturn(
-            new Blog(new BlogId('blog1'), 'Blog Title', 'slug')
+        $factory->createBlogWithSlug('slug')->shouldBeCalled()->willReturn($query);
+        $query->fetch()->shouldBeCalled()->willReturn(
+            [
+                'id' => 'blog1',
+                'title' => 'Blog Title',
+                'slug' => 'slug',
+                'tagline' => null,
+                'icon' => null,
+                'description' => null,
+                'image' => null,
+            ]
         )
         ;
         $this->getBlog('slug')->shouldBeArray();

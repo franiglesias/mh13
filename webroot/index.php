@@ -27,7 +27,7 @@ use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogRepository;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
@@ -81,11 +81,12 @@ $app['catalog.service'] = function ($app) {
     return new CatalogService($app['article.repository'], $app['article.specification.factory']);
 };
 
-$app['blog.repository'] = function ($app) {
-    return new DbalBlogRepository($app['db']);
+$app['blog.specification.factory'] = function ($app) {
+    return new DBalBlogSpecificationFactory($app['db']);
 };
+
 $app['blog.service'] = function ($app) {
-    return new BlogService($app['blog.repository']);
+    return new BlogService($app['blog.specification.factory']);
 };
 
 $app['get_article.service'] = function ($app) {
