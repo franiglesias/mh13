@@ -23,13 +23,18 @@ class DbalBlogRepository implements BlogRepository
 
     public function getBySlugOrFail(string $slug): Blog
     {
-        $sql = 'SELECT * FROM blogs WHERE slug = ?';
+        $sql = 'SELECT * FROM blogs WHERE blogs.slug = ?';
         $statement = $this->connection->executeQuery($sql, [$slug]);
-        $data = $statement->fetchAll();
+        $data = $statement->fetch();
         if (!$data) {
             throw InvalidBlog::withSlug($slug);
         }
+        $blog = new Blog(new BlogId($data['id']), $data['title'], $data['slug']);
+        $blog->setIcon($data['icon']);
+        $blog->setImage($data['image']);
+        $blog->setTagline($data['tagline']);
+        $blog->setDescription($data['description']);
 
-        return new Blog(new BlogId($data['id']), $data['title'], $data['tagline'], $data['description']);
+        return $blog;
     }
 }

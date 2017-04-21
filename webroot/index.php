@@ -20,15 +20,18 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\catalog\CatalogService;
 use Mh13\plugins\contents\application\service\catalog\SiteService;
 use Mh13\plugins\contents\application\service\GetArticleService;
 use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogRepository;
 use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
+use Mh13\plugins\contents\infrastructure\web\BlogController;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
 use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
@@ -78,6 +81,13 @@ $app['catalog.service'] = function ($app) {
     return new CatalogService($app['article.repository'], $app['article.specification.factory']);
 };
 
+$app['blog.repository'] = function ($app) {
+    return new DbalBlogRepository($app['db']);
+};
+$app['blog.service'] = function ($app) {
+    return new BlogService($app['blog.repository']);
+};
+
 $app['get_article.service'] = function ($app) {
     return new GetArticleService($app['article.repository']);
 };
@@ -124,27 +134,9 @@ $app->extend(
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 
-
-$app->get(
-    '/blog/{slug}',
-    function ($slug) use ($app) {
-        $sql = 'SELECT * FROM blogs WHERE slug = ?';
-        $statement = $app['db']->executeQuery($sql, [(string)$slug]);
-        $result = $statement->fetch();
-
-        return $app['twig']->render(
-            'plugins/contents/channels/view.twig',
-            [
-                'blog' => $result,
-                'tag' => false,
-                'level_id' => false,
-            ]
-        );
-
-    }
-);
-
 // Compatibility with old route scheme
+
+$app->get('/blog/{slug}', BlogController::class."::view");
 $app->get('/{slug}', ArticleController::class."::view");
 
 // Default rout render home page

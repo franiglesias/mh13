@@ -28,7 +28,7 @@ class DbalBlogRepositorySpec extends ObjectBehavior
 
     public function it_can_get_a_blog_by_its_slug(Connection $connection, Statement $statement)
     {
-        $expected = new Blog(new BlogId('blogid'), 'título', 'tagline', 'descripción');
+        $expected = new Blog(new BlogId('blogid'), 'título', null);
         $connection->executeQuery('SELECT * FROM blogs WHERE slug = ?', Argument::type('array'))
             ->shouldBeCalled()
             ->willReturn($statement)
