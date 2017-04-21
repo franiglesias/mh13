@@ -2,12 +2,12 @@
 {% set widget_body %}
 	<ul id="mh-social">
         <li>
-            <a href="JavaScript:window.open('http://www.facebook.com/sharer.php?u={{ BaseUrl ~ slug }}','','width=657,height=400,scrollbars=1')"
+            <a href="JavaScript:window.open('http://www.facebook.com/sharer.php?u={{ BaseUrl ~ article.slug }}','','width=657,height=400,scrollbars=1')"
                class="fi-social-facebook">Me gusta</a></li>
         <li>
-            <a href="JavaScript:window.open('https://twitter.com/share?url={{ BaseUrl ~ slug }}&text={{ title }}','','width=450,height=350')"
+            <a href="JavaScript:window.open('https://twitter.com/share?url={{ BaseUrl ~ article.slug }}&text={{ article.title }}','','width=450,height=350')"
                class="fi-social-twitter">Twitter</a></li>
-        <li><a href="https://plus.google.com/share?url={{ BaseUrl ~ slug }}" target="_blank"
+        <li><a href="https://plus.google.com/share?url={{ BaseUrl ~ article.slug }}" target="_blank"
                class="fi-social-google-plus">Compartir</a></li>
 	<li><a href="http://www.tumblr.com/share" title="Share on Tumblr" class="fi-social-tumblr">Compartir</a></li>
         <li><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"

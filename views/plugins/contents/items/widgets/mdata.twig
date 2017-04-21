@@ -1,25 +1,28 @@
 {% import 'macros/blocks.twig' as blocks %}
+{% set images = [] %}
+{% set multimedia = [] %}
+{% set downloads = [] %}
 {% set widget_body %}
     <ul id="mh-metadata">
-        <li><a href="/{{ slug }}" class="fi-link">Enlace</a></li>
+        <li><a href="/{{ article.slug }}" class="fi-link">Enlace</a></li>
         <li><a href="#" class="fi-calendar">{{ article.pubDate|date('j/m/Y') }}</a></li>
         {% if article.expiration %}
-            <li><a href="#" class="fi-alert">Válido hasta: {{ item.Item.expiration|date('j/m') }}</a></li>
+            <li><a href="#" class="fi-alert">Válido hasta: {{ article.expiration|date('j/m') }}</a></li>
 		{% endif %}
-        {% if item.Image|length %}
-            <li><a href="#mh-images" class="fi-photo">{{ item.Image|length }} imágenes</a></li>
+        {% if images|length %}
+            <li><a href="#mh-images" class="fi-photo">{{ images|length }} imágenes</a></li>
         {% endif %}
-        {% if item.Multimedia|length %}
-            <li><a href="#mh-multimedia" class="fi-video">{{ item.Multimedia|length }} videos</a></li>
+        {% if multimedia|length %}
+            <li><a href="#mh-multimedia" class="fi-video">{{ multimedia|length }} videos</a></li>
         {% endif %}
-        {% if item.Download|length %}
-            <li><a href="#mh-downloads" class="fi-download">{{ item.Download|length }} archivos</a></li>
+        {% if downloads|length %}
+            <li><a href="#mh-downloads" class="fi-download">{{ downloads|length }} archivos</a></li>
         {% endif %}
         <li><a class="fi-eye" id="mh-item-readings">0</a></li>
 	</ul>
 	<script>
 	$(function(){
-		$("#mh-item-readings").load("/contents/items/readings/{{ item.Item.id }}");
+        $("#mh-item-readings").load("/contents/items/readings/{{ article.id }}");
 	});
 	</script>
 {% endset %}

@@ -47,7 +47,12 @@ class PublishedArticleWithSlug implements DBalArticleSpecification
     public function getQuery(): QueryBuilder
     {
         $builder = $this->connection->createQueryBuilder();
-        $builder->select('articles.*')->from('items', 'articles')->where('articles.slug = ?')->setParameter(
+        $builder->select('articles.*', 'blogs.slug as blog_slug', 'images.path as image')
+            ->from('items', 'articles')
+            ->leftJoin('articles', 'blogs', 'blogs', 'articles.channel_id = blogs.id')
+            ->leftJoin('articles', 'uploads', 'images', 'images.model = "Item" and images.foreign_key = articles.id')
+            ->where('articles.slug = ?')
+            ->setParameter(
             0,
             $this->slug
         )

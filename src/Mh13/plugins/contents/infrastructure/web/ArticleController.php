@@ -51,12 +51,14 @@ class ArticleController
     {
 
         $article = $app['article.service']->getArticle($slug);
-
+        $blog = $app['blog.service']->getBlog($article['blog_slug']);
         return $app['twig']->render(
             'plugins/contents/items/view.twig',
             [
                 'article' => $article,
-                'slug' => $slug,
+                'blog' => $blog,
+                'image' => $article['image'],
+                'preview' => false,
             ]
         );
     }
