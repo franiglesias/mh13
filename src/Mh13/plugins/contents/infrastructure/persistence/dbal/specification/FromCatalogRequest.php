@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
-use Mh13\plugins\contents\application\service\catalog\CatalogRequest;
+use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
 use Mh13\plugins\contents\domain\Article;
 
 
@@ -22,14 +22,14 @@ class FromCatalogRequest implements DBalArticleSpecification
      */
     private $connection;
     /**
-     * @var CatalogRequest
+     * @var ArticleRequest
      */
     private $catalogRequest;
 
     /**
      * FromCatalogRequest constructor.
      */
-    public function __construct(Connection $connection, CatalogRequest $catalogRequest)
+    public function __construct(Connection $connection, ArticleRequest $catalogRequest)
     {
         $this->connection = $connection;
         $this->catalogRequest = $catalogRequest;

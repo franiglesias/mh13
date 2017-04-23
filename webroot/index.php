@@ -21,13 +21,13 @@
  */
 
 use Mh13\plugins\contents\application\service\ArticleService;
-use Mh13\plugins\contents\application\service\BlogService;
-use Mh13\plugins\contents\application\service\catalog\CatalogService;
 use Mh13\plugins\contents\application\service\catalog\SiteService;
 use Mh13\plugins\contents\application\service\SlugConverter;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalReadOnlyArticleRepository;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalReadOnlyBlogRepository;
 use Mh13\plugins\contents\infrastructure\persistence\SlugConverter\CakeItemSlugRepository;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
@@ -78,7 +78,7 @@ $app['article.repository'] = function ($app) {
 };
 
 $app['catalog.service'] = function ($app) {
-    return new CatalogService($app['article.specification.factory']);
+    return new DBalReadOnlyArticleRepository($app['article.specification.factory']);
 };
 
 $app['blog.specification.factory'] = function ($app) {
@@ -86,12 +86,9 @@ $app['blog.specification.factory'] = function ($app) {
 };
 
 $app['blog.service'] = function ($app) {
-    return new BlogService($app['blog.specification.factory']);
+    return new DbalReadOnlyBlogRepository($app['blog.specification.factory']);
 };
 
-$app['article.service'] = function ($app) {
-    return new ArticleService($app['article.specification.factory']);
-};
 $app['item.slug.converter'] = function ($app) {
     return new SlugConverter(new CakeItemSlugRepository($app['db']));
 };

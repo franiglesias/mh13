@@ -6,13 +6,15 @@
  * Time: 17:01
  */
 
-namespace Mh13\plugins\contents\application\service\catalog;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 
+use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
+use Mh13\plugins\contents\application\service\ReadOnlyArticleRepository;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
 
-class CatalogService
+class DBalReadOnlyArticleRepository implements ReadOnlyArticleRepository
 {
 
     /**
@@ -32,12 +34,20 @@ class CatalogService
         $this->specificationFactory = $specificationFactory;
     }
 
+
+    public function getArticleBySlug(string $slug)
+    {
+        $query = $this->specificationFactory->createPublishedArticleWithSlug($slug);
+
+        return $query->fetch();
+    }
+
     /**
-     * @param CatalogRequest $request
+     * @param ArticleRequest $request
      *
      * @return array
      */
-    public function getArticles(CatalogRequest $request)
+    public function getArticles(ArticleRequest $request)
     {
         $query = $this->specificationFactory->createFromCatalogRequest($request);
         $articles = $query->fetch();

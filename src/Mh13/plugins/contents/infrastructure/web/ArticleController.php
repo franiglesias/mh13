@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\service\catalog\CatalogRequestBuilder;
+use Mh13\plugins\contents\application\service\catalog\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\GetArticleRequest;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +27,7 @@ class ArticleController
      */
     public function catalog(Request $request, Application $app)
     {
-        $catalogRequest = CatalogRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
+        $catalogRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
         $articles = $app['catalog.service']->getArticles($catalogRequest);
 
         return $app['twig']->render(
@@ -50,7 +50,7 @@ class ArticleController
     public function view($slug, Application $app)
     {
 
-        $article = $app['article.service']->getArticle($slug);
+        $article = $app['catalog.service']->getArticleBySlug($slug);
         $blog = $app['blog.service']->getBlog($article['blog_slug']);
         return $app['twig']->render(
             'plugins/contents/items/view.twig',
