@@ -31,13 +31,6 @@ class PublishedArticleWithSlug implements DBalArticleSpecification
         $this->slug = $slug;
     }
 
-    public function fetch()
-    {
-        $statement = $this->getQuery()->execute();
-
-        return $statement->fetch();
-
-    }
 
     /**
      * Generates a Query to retrieve the desired articles

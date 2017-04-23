@@ -35,12 +35,6 @@ class FromArticleRequest implements DBalArticleSpecification
         $this->catalogRequest = $catalogRequest;
     }
 
-    public function fetch()
-    {
-        $statement = $this->getQuery()->execute();
-
-        return $statement->fetchAll();
-    }
 
     public function getQuery(): QueryBuilder
     {

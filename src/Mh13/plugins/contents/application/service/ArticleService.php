@@ -1,56 +1,50 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Fran Iglesias <franiglesias@mac.com>
- * Date: 19/4/17
- * Time: 17:01
+ * User: frankie
+ * Date: 23/4/17
+ * Time: 20:14
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\application\service;
 
 
+use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
 use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
-use Mh13\plugins\contents\application\service\ReadOnlyArticleRepository;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
 
-class DBalReadOnlyArticleRepository implements ReadOnlyArticleRepository
+class ArticleService
 {
 
+    /**
+     * @var ArticleReadModel
+     */
+    private $readmodel;
     /**
      * @var ArticleSpecificationFactory
      */
     private $specificationFactory;
 
-    /**
-     * CatalogService constructor.
-     *
-     * @param ArticleSpecificationFactory $specificationFactory
-     *
-     * @internal param ArticleRepository $repository
-     */
-    public function __construct(ArticleSpecificationFactory $specificationFactory)
+    public function __construct(ArticleReadModel $readmodel, ArticleSpecificationFactory $specificationFactory)
     {
+
+        $this->readmodel = $readmodel;
         $this->specificationFactory = $specificationFactory;
     }
 
-
     public function getArticleBySlug(string $slug)
     {
-        $query = $this->specificationFactory->createPublishedArticleWithSlug($slug);
+        $specification = $this->specificationFactory->createPublishedArticleWithSlug($slug);
+        $article = $this->readmodel->getArticle($specification);
 
-        return $query->fetch();
+        return $article;
     }
 
-    /**
-     * @param ArticleRequest $request
-     *
-     * @return array
-     */
-    public function getArticles(ArticleRequest $request)
+    public function getArticlesFromRequest(ArticleRequest $request)
     {
-        $query = $this->specificationFactory->createFromCatalogRequest($request);
-        $articles = $query->fetch();
+        $specification = $this->specificationFactory->createFromCatalogRequest($request);
+        $articles = $this->readmodel->findArticles($specification);
         $result = [];
         foreach ($articles as $article) {
             $result[] = [
@@ -69,10 +63,12 @@ class DBalReadOnlyArticleRepository implements ReadOnlyArticleRepository
                 'image' => [
                     'path' => $article['image_path'],
 
-                ]
+                ],
             ];
         }
 
         return $result;
+
     }
+
 }

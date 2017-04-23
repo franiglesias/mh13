@@ -21,6 +21,4 @@ interface DBalArticleSpecification
      */
     public function getQuery(): QueryBuilder;
 
-    public function fetch();
-
 }

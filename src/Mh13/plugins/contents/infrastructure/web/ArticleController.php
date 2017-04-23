@@ -27,8 +27,8 @@ class ArticleController
      */
     public function catalog(Request $request, Application $app)
     {
-        $catalogRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
-        $articles = $app['catalog.service']->getArticles($catalogRequest);
+        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
+        $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
 
         return $app['twig']->render(
             'plugins/contents/items/catalog.twig',
@@ -50,8 +50,8 @@ class ArticleController
     public function view($slug, Application $app)
     {
 
-        $article = $app['catalog.service']->getArticleBySlug($slug);
-        $blog = $app['blog.service']->getBlog($article['blog_slug']);
+        $article = $app['article.service']->getArticleBySlug($slug);
+        $blog = $app['blog.service']->getBlogWithSlug($article['blog_slug']);
         return $app['twig']->render(
             'plugins/contents/items/view.twig',
             [

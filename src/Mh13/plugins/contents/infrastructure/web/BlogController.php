@@ -16,7 +16,7 @@ class BlogController
 {
     public function view($slug, Application $app)
     {
-        $blog = $app['blog.service']->getBlog($slug);
+        $blog = $app['blog.service']->getBlogWithSlug($slug);
 
         return $app['twig']->render(
             'plugins/contents/channels/view.twig',

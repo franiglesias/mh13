@@ -3,7 +3,7 @@
 namespace spec\Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalReadOnlyBlogRepository;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\ActiveBlogWithSlug;
 use PhpSpec\ObjectBehavior;
 
@@ -17,7 +17,7 @@ class BlogServiceSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(DbalReadOnlyBlogRepository::class);
+        $this->shouldHaveType(DbalBlogReadModel::class);
     }
 
     public function it_can_request_a_blog(BlogSpecificationFactory $factory, ActiveBlogWithSlug $query)
