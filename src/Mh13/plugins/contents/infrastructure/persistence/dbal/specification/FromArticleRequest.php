@@ -11,25 +11,25 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
-use Mh13\plugins\contents\application\service\catalog\CatalogRequest;
+use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
 use Mh13\plugins\contents\domain\Article;
 
 
-class FromCatalogRequest implements DBalArticleSpecification
+class FromArticleRequest implements DBalArticleSpecification
 {
     /**
      * @var Connection
      */
     private $connection;
     /**
-     * @var CatalogRequest
+     * @var ArticleRequest
      */
     private $catalogRequest;
 
     /**
      * FromCatalogRequest constructor.
      */
-    public function __construct(Connection $connection, CatalogRequest $catalogRequest)
+    public function __construct(Connection $connection, ArticleRequest $catalogRequest)
     {
         $this->connection = $connection;
         $this->catalogRequest = $catalogRequest;
@@ -76,28 +76,18 @@ class FromCatalogRequest implements DBalArticleSpecification
             $queryBuilder->expr()->eq('uploads.id', '('.$subQuery->getSQL().')')
 
         )->where(
-            $queryBuilder->expr()->andX(
-                $queryBuilder->expr()->eq('items.status', Article::PUBLISHED),
-                $queryBuilder->expr()->lte('items.pubDate', 'NOW()'),
-                $queryBuilder->expr()->orX(
-                    $queryBuilder->expr()->isNull('items.expiration'),
-                    $queryBuilder->expr()->gt('items.expiration', 'NOW()')
-                ),
-                $queryBuilder->expr()->eq('blogs.active', true)
-            )
-        )
+            'items.status = :published and items.pubDate <= now() and (items.expiration is null or items.expiration > now() ) and blogs.active = 1'
+        )->setParameter('published', Article::PUBLISHED)
         ;
         if ($this->catalogRequest->blogs()) {
-            $queryBuilder->andWhere('blogs.slug IN (:blogs)');
-            $queryBuilder->setParameter(
+            $queryBuilder->andWhere('blogs.slug IN (:blogs)')->setParameter(
                 'blogs',
                 $this->catalogRequest->blogs(),
                 \Doctrine\DBAL\Connection::PARAM_STR_ARRAY
             );
         }
         if ($this->catalogRequest->excludedBlogs()) {
-            $queryBuilder->andWhere('blogs.slug NOT IN (:excluded)');
-            $queryBuilder->setParameter(
+            $queryBuilder->andWhere('blogs.slug NOT IN (:excluded)')->setParameter(
                 'excluded',
                 $this->catalogRequest->excludedBlogs(),
                 \Doctrine\DBAL\Connection::PARAM_STR_ARRAY

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  *
  * @package Mh13\plugins\contents\application\service\catalog
  */
-class CatalogRequestBuilder
+class ArticleRequestBuilder
 {
     const LIMIT = 15;
 
@@ -44,13 +44,11 @@ class CatalogRequestBuilder
 
     public static function fromQuery(ParameterBag $query, SiteService $siteService)
     {
-        $builder = new CatalogRequestBuilder($siteService);
+        $builder = new ArticleRequestBuilder($siteService);
         if ($query->has('blogs')) {
             $builder->fromBlogs(...$query->get('blogs'));
-
         }
         if ($query->has('excludeBlogs')) {
-
             $builder->excludeBlogs(...$query->get('excludeBlogs'));
         }
         if ($site = $query->getAlnum('site')) {
@@ -74,7 +72,7 @@ class CatalogRequestBuilder
     }
 
     /**
-     * @return CatalogRequestBuilder
+     * @return ArticleRequestBuilder
      */
     public function fromBlogs(): self
     {
@@ -90,6 +88,13 @@ class CatalogRequestBuilder
         $this->manageCollissions();
 
         return $this;
+    }
+
+    protected function manageCollissions()
+    {
+        $coincidences = array_intersect($this->blogs, $this->excludeBlogs);
+        $this->blogs = array_values(array_diff($this->blogs, $this->excludeBlogs));
+        $this->excludeBlogs = array_values(array_diff($this->excludeBlogs, $coincidences));
     }
 
     public function excludeBlogs(): self
@@ -129,13 +134,6 @@ class CatalogRequestBuilder
         return $this;
     }
 
-    protected function manageCollissions()
-    {
-        $coincidences = array_intersect($this->blogs, $this->excludeBlogs);
-        $this->blogs = array_values(array_diff($this->blogs, $this->excludeBlogs));
-        $this->excludeBlogs = array_values(array_diff($this->excludeBlogs, $coincidences));
-    }
-
     public function onlyPublic(): self
     {
         $this->public = true;
@@ -160,9 +158,9 @@ class CatalogRequestBuilder
         return $this;
     }
 
-    public function getCatalogRequest(): CatalogRequest
+    public function getCatalogRequest(): ArticleRequest
     {
-        $request = new CatalogRequest();
+        $request = new ArticleRequest();
         $request->setHome($this->home);
         $request->setFeatured($this->featured);
         $request->setPublic($this->public);

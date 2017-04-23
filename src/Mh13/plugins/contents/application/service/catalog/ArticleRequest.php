@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\service\catalog;
 
 
-class CatalogRequest
+class ArticleRequest
 {
     /**
      * @var bool

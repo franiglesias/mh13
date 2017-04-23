@@ -2,7 +2,7 @@
 
 namespace spec\Mh13\plugins\contents\application\service\catalog;
 
-use Mh13\plugins\contents\application\service\catalog\CatalogRequestBuilder;
+use Mh13\plugins\contents\application\service\catalog\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\catalog\SiteService;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -18,7 +18,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(CatalogRequestBuilder::class);
+        $this->shouldHaveType(ArticleRequestBuilder::class);
     }
 
     public function it_can_restrict_to_home_only()

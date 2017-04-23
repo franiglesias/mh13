@@ -1,11 +1,12 @@
 <?php
 
-namespace Mh13\plugins\contents\application\service;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
+use Mh13\plugins\contents\application\service\ReadOnlyBlogRepository;
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
 
 
-class BlogService
+class DbalReadOnlyBlogRepository implements ReadOnlyBlogRepository
 {
 
     /**
