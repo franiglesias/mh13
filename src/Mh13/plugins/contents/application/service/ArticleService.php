@@ -33,7 +33,7 @@ class ArticleService
         $this->specificationFactory = $specificationFactory;
     }
 
-    public function getArticleBySlug(string $slug)
+    public function getArticleWithSlug(string $slug)
     {
         $specification = $this->specificationFactory->createPublishedArticleWithSlug($slug);
         $article = $this->readmodel->getArticle($specification);

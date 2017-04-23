@@ -50,7 +50,7 @@ class ArticleController
     public function view($slug, Application $app)
     {
 
-        $article = $app['article.service']->getArticleBySlug($slug);
+        $article = $app['article.service']->getArticleWithSlug($slug);
         $blog = $app['blog.service']->getBlogWithSlug($article['blog_slug']);
         return $app['twig']->render(
             'plugins/contents/items/view.twig',
