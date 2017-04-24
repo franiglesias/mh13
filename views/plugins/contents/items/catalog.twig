@@ -1,4 +1,6 @@
 {% for article in articles %}
     {% import 'macros/catalog.twig' as catalog %}
-    {{ attribute(catalog, layout|default('index'), [article.article, article.blog, article.image.path]) }}
+
+    {% set blog = {'slug': article.blogSlug, 'title': article.blogTitle} %}
+    {{ attribute(catalog, layout|default('index'), [article, blog, article.image]) }}
 {% endfor %}

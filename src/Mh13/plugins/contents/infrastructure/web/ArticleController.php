@@ -11,6 +11,8 @@ namespace Mh13\plugins\contents\infrastructure\web;
 
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\GetArticleRequest;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\model\article\ArticleListView;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\model\article\FullArticleView;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -33,7 +35,12 @@ class ArticleController
         return $app['twig']->render(
             'plugins/contents/items/catalog.twig',
             [
-                'articles' => $articles,
+                'articles' => array_map(
+                    function ($article) {
+                        return ArticleListView::fromArray($article);
+                    },
+                    $articles
+                ),
                 'layout' => $request->query->get('layout', 'feed'),
             ]
         );
@@ -41,7 +48,7 @@ class ArticleController
 
     /**
      * Shows a view for the article specified by a sl
-     *  
+     *
      * @param string      $slug
      * @param Application $app
      *
@@ -49,15 +56,14 @@ class ArticleController
      */
     public function view($slug, Application $app)
     {
-
         $article = $app['article.service']->getArticleWithSlug($slug);
         $blog = $app['blog.service']->getBlogWithSlug($article['blog_slug']);
+
         return $app['twig']->render(
             'plugins/contents/items/view.twig',
             [
-                'article' => $article,
+                'article' => FullArticleView::fromArray($article),
                 'blog' => $blog,
-                'image' => $article['image'],
                 'preview' => false,
             ]
         );

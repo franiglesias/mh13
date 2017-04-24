@@ -1,27 +1,26 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Fran Iglesias <franiglesias@mac.com>
+ * User: frankie
  * Date: 24/4/17
- * Time: 17:05
+ * Time: 19:46
  */
 
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\model;
 
 
-class ViewModel
+abstract class ViewModel
 {
 
-    protected $values = array();
-
-    public function __get($key)
+    static public function fromArray($source)
     {
-        return $this->values[$key];
-    }
+        $model = new static();
+        foreach ($source as $key => $value) {
+            if (property_exists($model, $key)) {
+                $model->$key = $value;
+            }
+        }
 
-    public function __set($key, $value)
-    {
-        $this->values[$key] = $value;
+        return $model;
     }
-
 }

@@ -12,7 +12,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\model\article;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\model\ViewModel;
 
 
-class FullArticleView extends ViewModel
+class ArticleListView extends ViewModel
 {
     protected $id;
     protected $title;

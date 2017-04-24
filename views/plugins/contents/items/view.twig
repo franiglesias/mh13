@@ -2,7 +2,7 @@
 
 {% block header %}
     {% import 'macros/headers.twig' as headers %}
-    {{ headers.article(article, blog, image) }}
+    {{ headers.article(article, blog, article.image) }}
     <div class="container mh-channel-menu">{# echo $this->Channel->menu(); #}</div>
 {% endblock %}
 
@@ -16,8 +16,8 @@
             <a href="#" class="close">[cerrar]</a>
         </div>
     {% endif %}
-    {% if image %}
-        <img src="{{ image }}" alt="" width="35%" class="float-right">
+    {% if article.image %}
+        <img src="{{ article.image }}" alt="" width="35%" class="float-right">
     {% endif %}
 
     {{ article.content|parse|raw }}
