@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\cakephp;
 
 
+use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
 
@@ -22,4 +23,13 @@ class CakeArticleSpecificationFactory implements ArticleSpecificationFactory
         // TODO: Implement createLastArticles() method.
     }
 
+    public function createFromCatalogRequest(ArticleRequest $catalogRequest)
+    {
+        // TODO: Implement createFromCatalogRequest() method.
+    }
+
+    public function createPublishedArticleWithSlug(string $slug)
+    {
+        // TODO: Implement createPublishedArticleWithSlug() method.
+    }
 }

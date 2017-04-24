@@ -12,7 +12,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\ar
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
-interface DBalArticleSpecification
+interface DbalArticleSpecification
 {
     /**
      * Generates a Query to retrieve the desired articles

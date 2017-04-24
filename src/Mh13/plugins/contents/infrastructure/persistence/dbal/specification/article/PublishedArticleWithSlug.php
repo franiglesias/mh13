@@ -12,7 +12,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\ar
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
-class PublishedArticleWithSlug implements DBalArticleSpecification
+class PublishedArticleWithSlug implements DbalArticleSpecification
 {
     /**
      * @var QueryBuilder

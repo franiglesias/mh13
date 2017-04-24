@@ -14,7 +14,7 @@ use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;
 use Mh13\plugins\contents\domain\ArticleId;
 use Mh13\plugins\contents\domain\ArticleRepository;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\DBalArticleSpecification;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\DbalArticleSpecification;
 
 
 class DbalArticleRepository implements ArticleRepository
@@ -67,7 +67,7 @@ class DbalArticleRepository implements ArticleRepository
     }
 
     /**
-     * @param DBalArticleSpecification $specification
+     * @param DbalArticleSpecification $specification
      */
     public function findAll($specification)
     {

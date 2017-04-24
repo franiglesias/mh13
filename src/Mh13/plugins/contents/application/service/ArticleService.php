@@ -13,6 +13,7 @@ use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
 use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\model\article\FullArticleView;
 
 
 class ArticleService
@@ -48,7 +49,7 @@ class ArticleService
         $specification = $this->specificationFactory->createPublishedArticleWithSlug($slug);
         $article = $this->readmodel->getArticle($specification);
 
-        return $article;
+        return $this->mapper->mapToViewModel($article, new FullArticleView());
     }
 
     public function getArticlesFromRequest(ArticleRequest $request)

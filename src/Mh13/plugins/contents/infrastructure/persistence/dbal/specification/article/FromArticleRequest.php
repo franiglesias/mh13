@@ -14,7 +14,7 @@ use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\Article;
 
 
-class FromArticleRequest implements DBalArticleSpecification
+class FromArticleRequest implements DbalArticleSpecification
 {
     /**
      * @var QueryBuilder

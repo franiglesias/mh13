@@ -9,28 +9,24 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 
-use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
 use Mh13\plugins\contents\application\service\article\ArticleRequest;
+use Mh13\plugins\contents\exceptions\ArticleNotFound;
 
 
 class DBalArticleReadModel implements ArticleReadModel
 {
-    /**
-     * @var Connection
-     */
-    private $connection;
 
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
-    }
 
     public function getArticle($specification)
     {
         $statement = $specification->getQuery()->execute();
+        $article = $statement->fetch();
+        if (!$article) {
+            throw ArticleNotFound::message('Article was not found.');
+        }
 
-        return $statement->fetch();
+        return $article;
     }
 
     /**

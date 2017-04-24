@@ -40,4 +40,17 @@ class ArticleMapper
         return $result;
     }
 
+    public function mapToViewModel($data, $model)
+    {
+        foreach ($data as $key => $datum) {
+
+            $method = 'set'.ucfirst($key);
+
+            $model->$method($datum);
+
+        }
+
+        return $model;
+    }
+
 }
