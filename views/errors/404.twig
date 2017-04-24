@@ -1,0 +1,18 @@
+{% extends 'layouts/main.twig' %}
+{% block content %}
+    <header>
+        <h1>Lo sentimos mucho</h1>
+        <h2>Pero no hemos encontrado lo que buscas</h2>
+    </header>
+    <p>Puede ser que la dirección que solicitaste (/{{ url }}) no exista, no esté activa, o se te haya colado algún
+        error al teclearla.</p>
+    <p>También podría ser un error de configuración por nuestra parte o algún fallo puntual en nuestro sistema. Los
+        administradores del sitio ya han sido informados automáticamente.</p>
+    <p>Gracias por tu comprensión.</p>
+    <h2>Información técnica.</h2>
+    <p>Respuesta Error 404. page not found.</p>
+    <p>Mensaje del sistema: {{ message }}</p>
+    <p>Intentando acceder a /{{ url }}</p>
+
+
+{% endblock content %}

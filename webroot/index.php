@@ -23,6 +23,7 @@
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
+use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
@@ -32,12 +33,15 @@ use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\BlogController;
+use Mh13\plugins\contents\infrastructure\web\PageController;
 use Mh13\plugins\contents\infrastructure\web\SiteController;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
 use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
 use Silex\Provider\DoctrineServiceProvider;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 
 
@@ -105,7 +109,7 @@ $app['blog.service'] = function ($app) {
 };
 
 
-/* End of servide definitions */
+/* End of service definitions */
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -141,14 +145,35 @@ $app->extend(
     }
 );
 
+/* Error Handlers */
+
+$app->error(
+    function (ContentException $exception, Request $request, $code) use ($app) {
+
+        return new Response(
+            $app['twig']->render(
+                'errors/404.twig',
+                [
+                    'url' => $request->get('url'),
+                    'message' => $exception->getMessage(),
+                ]
+            ), 404
+        );
+
+    }
+);
+
+/* Routes */
+
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 
 // Compatibility with old route scheme
 
-$app->get('/site/{slug}', SiteController::class."::view");
-$app->get('/blog/{slug}', BlogController::class."::view");
-$app->get('/{slug}', ArticleController::class."::view");
+$app->get('/page/{page}', PageController::class.'::view');
+$app->get('/site/{slug}', SiteController::class.'::view');
+$app->get('/blog/{slug}', BlogController::class.'::view');
+$app->get('/{slug}', ArticleController::class.'::view');
 
 // Default rout render home page
 $app->get(
@@ -159,13 +184,3 @@ $app->get(
 );
 
 $app->run();
-
-/*if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
-    return;
-} else {
-    $Dispatcher = new Dispatcher();
-    $Dispatcher->dispatch();
-}
-if (Configure::read() > 0) {
-    echo '<!-- '.round(getMicrotime() - $TIME_START, 4).'s -->';
-}*/
