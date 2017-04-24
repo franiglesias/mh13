@@ -46,17 +46,17 @@ class FromArticleRequest implements DbalArticleSpecification
         )->orderBy('uploads.order')->setMaxResults(1)
         ;
         $this->queryBuilder->select(
-            'items.id as article_id',
-            'items.slug as article_slug',
-            'items.title as article_title',
-            'items.content as article_content',
-            'items.pubDate as article_pubDate',
-            'items.expiration as article_expiration',
-            'items.featured as article_featured',
-            'items.stick as article_sticky',
+            'items.id as id',
+            'items.slug as slug',
+            'items.title as title',
+            'items.content as content',
+            'items.pubDate as pubDate',
+            'items.expiration as expiration',
+            'items.featured as featured',
+            'items.stick as sticky',
             'blogs.slug as blog_slug',
             'blogs.title as blog_title',
-            'uploads.path as image_path'
+            'uploads.path as image'
         )->from(
             'items'
         )->leftJoin(
