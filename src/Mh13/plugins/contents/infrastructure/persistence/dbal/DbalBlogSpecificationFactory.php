@@ -28,6 +28,6 @@ class DbalBlogSpecificationFactory implements BlogSpecificationFactory
 
     public function createBlogWithSlug(string $slug)
     {
-        return new ActiveBlogWithSlug($this->connection, $slug);
+        return new ActiveBlogWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 }

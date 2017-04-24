@@ -16,9 +16,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
 class ActiveBlogWithSlug implements DBalBlogSpecification
 {
     /**
-     * @var Connection
+     * @var QueryBuilder
      */
-    private $connection;
+    private $queryBuilder;
     /**
      * @var string
      */
@@ -27,32 +27,29 @@ class ActiveBlogWithSlug implements DBalBlogSpecification
     /**
      * ActiveBlogWithSlug constructor.
      *
-     * @param Connection $connection
-     * @param string     $slug
+     * @param Connection|QueryBuilder $queryBuilder
+     * @param string                  $slug
      */
-    public function __construct(Connection $connection, string $slug)
+    public function __construct(QueryBuilder $queryBuilder, string $slug)
     {
-        $this->connection = $connection;
+        $this->queryBuilder = $queryBuilder;
         $this->slug = $slug;
     }
 
-    public function fetch()
-    {
-        $statement = $this->getQuery()->execute();
-
-        return $statement->fetch();
-    }
 
     public function getQuery(): QueryBuilder
     {
-        $builder = $this->connection->createQueryBuilder();
-        $builder->select('blogs.*')->from('blogs')->where('blogs.slug = ?')->andWhere('blogs.active = 1')->setParameter(
+        $this->queryBuilder->select('blogs.*')
+            ->from('blogs')
+            ->where('blogs.slug = ?')
+            ->andWhere('blogs.active = 1')
+            ->setParameter(
                 0,
                 $this->slug
             )
         ;
 
-        return $builder;
+        return $this->queryBuilder;
 
     }
 }

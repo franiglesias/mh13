@@ -39,11 +39,11 @@ class DBalArticleSpecificationFactory implements ArticleSpecificationFactory
 
     public function createFromCatalogRequest(ArticleRequest $catalogRequest)
     {
-        return new FromArticleRequest($this->connection, $catalogRequest);
+        return new FromArticleRequest($this->connection->createQueryBuilder(), $catalogRequest);
     }
 
     public function createPublishedArticleWithSlug(string $slug)
     {
-        return new PublishedArticleWithSlug($this->connection, $slug);
+        return new PublishedArticleWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 }

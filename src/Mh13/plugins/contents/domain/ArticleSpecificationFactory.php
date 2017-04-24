@@ -20,6 +20,4 @@ interface ArticleSpecificationFactory
 
     public function createPublishedArticleWithSlug(string $slug);
 
-
-
 }

@@ -9,7 +9,6 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 
-use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
 use Mh13\plugins\contents\domain\Article;
@@ -18,33 +17,35 @@ use Mh13\plugins\contents\domain\Article;
 class FromArticleRequest implements DBalArticleSpecification
 {
     /**
-     * @var Connection
+     * @var QueryBuilder
      */
-    private $connection;
+    private $queryBuilder;
     /**
      * @var ArticleRequest
      */
-    private $catalogRequest;
+    private $articleRequest;
 
     /**
      * FromCatalogRequest constructor.
+     *
+     * @param QueryBuilder   $queryBuilder
+     * @param ArticleRequest $articleRequest
      */
-    public function __construct(Connection $connection, ArticleRequest $catalogRequest)
+    public function __construct(QueryBuilder $queryBuilder, ArticleRequest $articleRequest)
     {
-        $this->connection = $connection;
-        $this->catalogRequest = $catalogRequest;
+        $this->queryBuilder = $queryBuilder;
+        $this->articleRequest = $articleRequest;
     }
 
 
     public function getQuery(): QueryBuilder
     {
-        $queryBuilder = $this->connection->createQueryBuilder();
-        $subQuery = $this->connection->createQueryBuilder();
+        $subQuery = clone $this->queryBuilder;
         $subQuery->select('uploads.id')->from('uploads')->where(
             "uploads.model = 'Item' and uploads.foreign_key = items.id"
         )->orderBy('uploads.order')->setMaxResults(1)
         ;
-        $queryBuilder->select(
+        $this->queryBuilder->select(
             'items.id as article_id',
             'items.slug as article_slug',
             'items.title as article_title',
@@ -67,39 +68,39 @@ class FromArticleRequest implements DBalArticleSpecification
             'items',
             'uploads',
             'uploads',
-            $queryBuilder->expr()->eq('uploads.id', '('.$subQuery->getSQL().')')
+            $this->queryBuilder->expr()->eq('uploads.id', '('.$subQuery->getSQL().')')
 
         )->where(
             'items.status = :published and items.pubDate <= now() and (items.expiration is null or items.expiration > now() ) and blogs.active = 1'
         )->setParameter('published', Article::PUBLISHED)
         ;
-        if ($this->catalogRequest->blogs()) {
-            $queryBuilder->andWhere('blogs.slug IN (:blogs)')->setParameter(
+        if ($this->articleRequest->blogs()) {
+            $this->queryBuilder->andWhere('blogs.slug IN (:blogs)')->setParameter(
                 'blogs',
-                $this->catalogRequest->blogs(),
+                $this->articleRequest->blogs(),
                 \Doctrine\DBAL\Connection::PARAM_STR_ARRAY
             );
         }
-        if ($this->catalogRequest->excludedBlogs()) {
-            $queryBuilder->andWhere('blogs.slug NOT IN (:excluded)')->setParameter(
+        if ($this->articleRequest->excludedBlogs()) {
+            $this->queryBuilder->andWhere('blogs.slug NOT IN (:excluded)')->setParameter(
                 'excluded',
-                $this->catalogRequest->excludedBlogs(),
+                $this->articleRequest->excludedBlogs(),
                 \Doctrine\DBAL\Connection::PARAM_STR_ARRAY
             );
         }
 
-        if (!$this->catalogRequest->ignoreSticky()) {
-            $queryBuilder->addOrderBy('items.stick', 'desc');
+        if (!$this->articleRequest->ignoreSticky()) {
+            $this->queryBuilder->addOrderBy('items.stick', 'desc');
         }
 
-        $queryBuilder->addOrderBy('items.pubDate', 'desc');
-        if ($this->catalogRequest->from()) {
-            $queryBuilder->setFirstResult($this->catalogRequest->from());
+        $this->queryBuilder->addOrderBy('items.pubDate', 'desc');
+        if ($this->articleRequest->from()) {
+            $this->queryBuilder->setFirstResult($this->articleRequest->from());
         }
-        if ($this->catalogRequest->max()) {
-            $queryBuilder->setMaxResults($this->catalogRequest->max());
+        if ($this->articleRequest->max()) {
+            $this->queryBuilder->setMaxResults($this->articleRequest->max());
         }
 
-        return $queryBuilder;
+        return $this->queryBuilder;
     }
 }
