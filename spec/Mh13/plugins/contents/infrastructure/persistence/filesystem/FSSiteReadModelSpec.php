@@ -1,18 +1,18 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\application\service\catalog;
+namespace spec\Mh13\plugins\contents\infrastructure\persistence\filesystem;
 
-use Mh13\plugins\contents\application\service\catalog\SiteService;
 use Mh13\plugins\contents\exceptions\InvalidSite;
+use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
 use org\bovigo\vfs\vfsStream;
 use PhpSpec\ObjectBehavior;
 
 
-class SiteServiceSpec extends ObjectBehavior
+class FSSiteReadModelSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(SiteService::class);
+        $this->shouldHaveType(FSSiteReadModel::class);
     }
 
     public function let()
@@ -34,16 +34,24 @@ class SiteServiceSpec extends ObjectBehavior
      */
     private function getData()
     {
-        return <<<EOD
+
+        return /** @lang Yaml */
+            <<<EOD
 sites:
     main:
-        - blog1
-        - blog2
-        - blog3
+        description: 'Main site'
+        title: 'Main'
+        blogs:
+            - blog1
+            - blog2
+            - blog3
     aux:
-        - blog1
-        - blog5
-        - blog7
+        title: 'Aux site'
+        description: 'Auxiliar site'
+        blogs:
+            - blog1
+            - blog5
+            - blog7
 EOD;
 
 
@@ -60,4 +68,8 @@ EOD;
         $this->getBlogs('aux')->shouldBe(['blog1', 'blog5', 'blog7']);
     }
 
+    public function it_returns_site_data()
+    {
+        $this->getWithSlug('main')->shouldBe(['name' => 'main', 'title' => 'Main', 'description' => 'Main site']);
+    }
 }

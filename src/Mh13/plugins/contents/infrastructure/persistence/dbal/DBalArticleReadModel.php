@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
-use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
+use Mh13\plugins\contents\application\service\article\ArticleRequest;
 
 
 class DBalArticleReadModel implements ArticleReadModel

@@ -10,10 +10,10 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
+use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\FromArticleRequest;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\PublishedArticleWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\FromArticleRequest;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\PublishedArticleWithSlug;
 
 
 class DBalArticleSpecificationFactory implements ArticleSpecificationFactory
@@ -32,10 +32,6 @@ class DBalArticleSpecificationFactory implements ArticleSpecificationFactory
         $this->connection = $connection;
     }
 
-    public function createLastArticles()
-    {
-        // TODO: Implement createLastArticles() method.
-    }
 
     public function createFromCatalogRequest(ArticleRequest $catalogRequest)
     {

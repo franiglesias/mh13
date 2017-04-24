@@ -1,7 +1,8 @@
 <?php
 
-namespace Mh13\plugins\contents\application\service\catalog;
+namespace Mh13\plugins\contents\application\service\article;
 
+use Mh13\plugins\contents\application\readmodel\SiteReadModel;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 
@@ -32,17 +33,17 @@ class ArticleRequestBuilder
     private $ignoreSticky = false;
 
     /**
-     * @var SiteService
+     * @var SiteReadModel
      */
     private $siteService;
 
-    public function __construct(SiteService $siteService)
+    public function __construct(SiteReadModel $siteService)
     {
 
         $this->siteService = $siteService;
     }
 
-    public static function fromQuery(ParameterBag $query, SiteService $siteService)
+    public static function fromQuery(ParameterBag $query, SiteReadModel $siteService)
     {
         $builder = new ArticleRequestBuilder($siteService);
         if ($query->has('blogs')) {
@@ -90,13 +91,6 @@ class ArticleRequestBuilder
         return $this;
     }
 
-    protected function manageCollissions()
-    {
-        $coincidences = array_intersect($this->blogs, $this->excludeBlogs);
-        $this->blogs = array_values(array_diff($this->blogs, $this->excludeBlogs));
-        $this->excludeBlogs = array_values(array_diff($this->excludeBlogs, $coincidences));
-    }
-
     public function excludeBlogs(): self
     {
         $this->excludeBlogs = array_merge($this->excludeBlogs, func_get_args());
@@ -132,6 +126,13 @@ class ArticleRequestBuilder
         $this->page = $page;
 
         return $this;
+    }
+
+    protected function manageCollissions()
+    {
+        $coincidences = array_intersect($this->blogs, $this->excludeBlogs);
+        $this->blogs = array_values(array_diff($this->blogs, $this->excludeBlogs));
+        $this->excludeBlogs = array_values(array_diff($this->excludeBlogs, $coincidences));
     }
 
     public function onlyPublic(): self

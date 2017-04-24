@@ -14,7 +14,7 @@ use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\domain\ArticleContent;
 use Mh13\plugins\contents\domain\ArticleId;
 use Mh13\plugins\contents\domain\ArticleRepository;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\DBalArticleSpecification;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\DBalArticleSpecification;
 
 
 class DbalArticleRepository implements ArticleRepository

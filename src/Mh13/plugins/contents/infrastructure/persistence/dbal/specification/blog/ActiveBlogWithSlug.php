@@ -6,7 +6,7 @@
  * Time: 12:44
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog;
 
 
 use Doctrine\DBAL\Connection;

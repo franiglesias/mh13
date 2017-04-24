@@ -6,11 +6,11 @@
  * Time: 16:42
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
 use Doctrine\DBAL\Query\QueryBuilder;
-use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
+use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\Article;
 
 

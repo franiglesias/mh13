@@ -6,7 +6,7 @@
  * Time: 16:12
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
 use Doctrine\DBAL\Query\QueryBuilder;

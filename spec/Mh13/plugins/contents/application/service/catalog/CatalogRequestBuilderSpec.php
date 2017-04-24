@@ -2,8 +2,8 @@
 
 namespace spec\Mh13\plugins\contents\application\service\catalog;
 
-use Mh13\plugins\contents\application\service\catalog\ArticleRequestBuilder;
-use Mh13\plugins\contents\application\service\catalog\SiteService;
+use Mh13\plugins\contents\application\readmodel\SiteReadModel;
+use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 class CatalogRequestBuilderSpec extends ObjectBehavior
 {
 
-    public function let(SiteService $siteService)
+    public function let(SiteReadModel $siteService)
     {
         $this->beConstructedWith($siteService);
     }
@@ -106,7 +106,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
 
     }
 
-    public function it_can_specify_a_site(SiteService $siteService)
+    public function it_can_specify_a_site(SiteReadModel $siteService)
     {
         $siteService->getBlogs('site')->shouldBeCalled()->willReturn(['blog1', 'blog2', 'blog3']);
         $this->fromSite('site')->shouldBe($this);
@@ -114,7 +114,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
     }
 
 
-    public function it_manages_featured_flag_from_request_query(SiteService $siteService)
+    public function it_manages_featured_flag_from_request_query(SiteReadModel $siteService)
     {
         $query = $this->getFullFixtureQuery();
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
@@ -139,7 +139,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         );
     }
 
-    public function it_manages_public_flag_from_request_query(SiteService $siteService)
+    public function it_manages_public_flag_from_request_query(SiteReadModel $siteService)
     {
         $query = $this->getFullFixtureQuery();
 
@@ -147,7 +147,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         $this->getCatalogRequest()->onlyPublic()->shouldBe(true);
     }
 
-    public function it_manages_sticky_flag_from_request_query(SiteService $siteService)
+    public function it_manages_sticky_flag_from_request_query(SiteReadModel $siteService)
     {
         $query = $this->getFullFixtureQuery();
 
@@ -157,7 +157,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
     }
 
 
-    public function it_manags_home_flag_from_request_query(SiteService $siteService)
+    public function it_manags_home_flag_from_request_query(SiteReadModel $siteService)
     {
         $query = $this->getFullFixtureQuery();
 
@@ -165,7 +165,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         $this->getCatalogRequest()->onlyHome()->shouldBe(false);
     }
 
-    public function it_manages_blogs_key_from_request_query(SiteService $siteService)
+    public function it_manages_blogs_key_from_request_query(SiteReadModel $siteService)
     {
         $query = $this->getFullFixtureQuery();
 
@@ -175,7 +175,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
 
     }
 
-    public function it_manages_excluded_blogs_from_request_query(SiteService $siteService)
+    public function it_manages_excluded_blogs_from_request_query(SiteReadModel $siteService)
     {
         $query = $this->getFullFixtureQuery();
 
@@ -184,7 +184,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
 
     }
 
-    public function it_manages_site_key_from_request_query(SiteService $siteService)
+    public function it_manages_site_key_from_request_query(SiteReadModel $siteService)
     {
         $siteService->getBlogs('main')->shouldBeCalled()->willReturn(['blog1', 'blog2']);
         $query = new ParameterBag(

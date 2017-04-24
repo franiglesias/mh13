@@ -6,7 +6,7 @@
  * Time: 13:35
  */
 
-namespace Mh13\plugins\contents\application\service\catalog;
+namespace Mh13\plugins\contents\application\service\article;
 
 
 class ArticleRequest

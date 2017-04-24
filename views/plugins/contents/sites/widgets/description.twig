@@ -5,21 +5,18 @@
     <div class="card">
         <div class="media-object card-section">
             <div class="media-object-section">
-                {% set icon = site.icon ? site.icon : Site.icon %}
+                {% set icon = web.icon ? web.icon : web.icon %}
                 <img src="{{ icon }}" alt="" width="51">
             </div>
             <div class="media-object-section main-section">
-                <p>{{ site.tagline }}</p>
+                <p>{{ site.description }}</p>
             </div>
 		</div>
         <div class="button-group tiny float-right">
-            <a href="/blog/{{ site.slug }}" class="button success fi-eye">Visita</a>
-            <a href="/contents/items/feed/{{ site.slug }}.rss" class="button secondary fi-rss">RSS</a>
+            <a href="/blog/{{ site.name }}" class="button success fi-eye">Visita</a>
+            <a href="/contents/items/feed/{{ site.name }}.rss" class="button secondary fi-rss">RSS</a>
         </div>
-        {% if site.image %}
 
-            <img src="{{ site.image }}" alt="" width="100%">
-        {% endif %}
         {% if site.description %}
             <div class="card-section">
                 <p>{{ site.description|raw }}</p>

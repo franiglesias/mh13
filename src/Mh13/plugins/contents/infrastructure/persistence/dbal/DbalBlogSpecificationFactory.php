@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\ActiveBlogWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\ActiveBlogWithSlug;
 
 
 class DbalBlogSpecificationFactory implements BlogSpecificationFactory

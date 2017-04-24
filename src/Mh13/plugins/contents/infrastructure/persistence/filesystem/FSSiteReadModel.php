@@ -1,13 +1,14 @@
 <?php
 
-namespace Mh13\plugins\contents\application\service\catalog;
+namespace Mh13\plugins\contents\infrastructure\persistence\filesystem;
 
+use Mh13\plugins\contents\application\readmodel\SiteReadModel;
 use Mh13\plugins\contents\exceptions\InvalidSite;
 use Symfony\Component\Yaml\Yaml;
 
 
 /**
- * Class SiteService
+ * Class FSSiteReadModel
  *
  * Provides the list of configured blogs for a given site
  *
@@ -15,13 +16,13 @@ use Symfony\Component\Yaml\Yaml;
  *
  * @package Mh13\plugins\contents\application\service\catalog
  */
-class SiteService
+class FSSiteReadModel implements SiteReadModel
 {
     private $file;
     private $sites;
 
     /**
-     * SiteService constructor.
+     * FSSiteReadModel constructor.
      *
      * @param string $file
      */
@@ -41,7 +42,7 @@ class SiteService
         $this->load();
         $this->isValidSite($site);
 
-        return $this->sites[$site];
+        return $this->sites[$site]['blogs'];
     }
 
     /**
@@ -66,5 +67,17 @@ class SiteService
         if (!isset($this->sites[$site])) {
             throw InvalidSite::withName($site);
         }
+    }
+
+    public function getWithSlug(string $site): array
+    {
+        $this->load();
+        $this->isValidSite($site);
+
+        return [
+            'name' => $site,
+            'title' => $this->sites[$site]['title'],
+            'description' => $this->sites[$site]['description'],
+        ];
     }
 }

@@ -9,11 +9,11 @@
 {% block content %}
     {% import 'macros/modules.twig' as modules %}
 
-    {{ modules.widget('mh-site-home', '/contents/items/catalog/limit:10/siteName:'~site.key~'/sticky:0/paginate:1/layout:feed', 'Últimas entradas', '', 'mh-catalog') }}
+    {{ modules.widget('mh-site-home', '/articles/catalog?site=%site%&sticky=0&page=1&layout=feed'|replace ({'%site%': site.name}), 'Últimas entradas', '', 'mh-catalog') }}
 {% endblock %}
 
 {% block sidebar %}
     {% include 'plugins/contents/sites/widgets/description.twig' with {'site' : site } only %}
-    {% include 'plugins/contents/sites/widgets/channels.twig' with {'channels' : channels } only %}
+    {#{% include 'plugins/contents/sites/widgets/channels.twig' with {'channels' : channels } only %}#}
     {{ parent() }}
 {% endblock %}

@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\application\service;
 
 
 use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
-use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
+use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
