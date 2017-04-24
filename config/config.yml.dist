@@ -4,3 +4,70 @@ doctrine:
     connections:
       default:
         url: 'driver://user:pwd@server/database?charset=utf8mb4'
+site:
+  title: '[Dev] Miralba'
+  description: 'Colegio de las Hijas de Jesús'
+  tagline: 'Colegio de las Hijas de Jesús en Vigo'
+  author: 'Fran Iglesias'
+  icon: '/assets/img/miralba_icon_logo.png'
+  logo: '/assets/img/miralba_main_logo.png'
+  theme: ''
+
+organization:
+  title: 'Colegio Miralba. Hijas de Jesús'
+  address: 'Gran Vía 164'
+  city: 'Vigo'
+  state: 'Pontevedra'
+  zip: 'Gran Vía 164'
+  email: 'colegio@miralba.org'
+  phone: '986213047'
+
+sites:
+  noticias:
+    - noticias
+    - anuncios
+    - accion_evangelizadora
+  primaria:
+    - primero_ep
+    - segundo_ep
+    - tercero_ep
+    - cuarto_ep
+    - quinto_ep
+    - sexto_ep
+  tablon:
+    - anuncios
+    - impresos
+
+
+gapps:
+  domain: ['miralba.org', 'alumnos.miralba.org']
+access:
+  registration: 'auto'
+analytics:
+  domain: 'miralba.org'
+  id: 'UA-11787509-1'
+config:
+  language: 'spa'
+  languages: ['spa', 'glg']
+mail:
+  type: 'ssl'
+  host: 'ssl://smtp.gmail.com'
+  port: 465
+  username: 'sistema@miralba.org'
+  password: '709Z98'
+  from: 'sistema@miralba.org (Development zone)'
+uploads:
+  tmp: inbox
+  private: inbox
+  base:
+  normalize:
+    width: 2048
+    height: 1536
+school:
+  applications:
+    notify_email: ['frankie@miralba.org (Fran Cole)', 'franiglesias@mac.com (Fran Personal)']
+    private_levels: [14, 15]
+  roles:
+    coordinator: 'user'
+    tutor: 'user'
+    teacher: 'user'

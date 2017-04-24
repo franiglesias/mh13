@@ -11,6 +11,7 @@ namespace Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
 use Mh13\plugins\contents\application\service\catalog\ArticleRequest;
+use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
 
@@ -25,12 +26,21 @@ class ArticleService
      * @var ArticleSpecificationFactory
      */
     private $specificationFactory;
+    /**
+     * @var ArticleMapper
+     */
+    private $mapper;
 
-    public function __construct(ArticleReadModel $readmodel, ArticleSpecificationFactory $specificationFactory)
+    public function __construct(
+        ArticleReadModel $readmodel,
+        ArticleSpecificationFactory $specificationFactory,
+        ArticleMapper $mapper
+    )
     {
 
         $this->readmodel = $readmodel;
         $this->specificationFactory = $specificationFactory;
+        $this->mapper = $mapper;
     }
 
     public function getArticleWithSlug(string $slug)
@@ -45,30 +55,8 @@ class ArticleService
     {
         $specification = $this->specificationFactory->createFromCatalogRequest($request);
         $articles = $this->readmodel->findArticles($specification);
-        $result = [];
-        foreach ($articles as $article) {
-            $result[] = [
-                'article' => [
-                    'id' => $article['article_id'],
-                    'title' => $article['article_title'],
-                    'slug' => $article['article_slug'],
-                    'content' => $article['article_content'],
-                    'pubDate' => $article['article_pubDate'],
-                    'expiration' => $article['article_expiration'],
-                ],
-                'blog' => [
-                    'title' => $article['blog_title'],
-                    'slug' => $article['blog_slug'],
-                ],
-                'image' => [
-                    'path' => $article['image_path'],
 
-                ],
-            ];
-        }
-
-        return $result;
-
+        return $this->mapper->fromDbToView($articles);
     }
 
 }
