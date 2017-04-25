@@ -20,7 +20,7 @@ class DBalArticleReadModel implements ArticleReadModel
 
     public function getArticle($specification)
     {
-        $statement = $specification->getQuery()->execute();
+        $statement = $specification->getQuery();
         $article = $statement->fetch();
         if (!$article) {
             throw ArticleNotFound::message('Article was not found.');
@@ -36,7 +36,7 @@ class DBalArticleReadModel implements ArticleReadModel
      */
     public function findArticles($specification)
     {
-        $statement = $specification->getQuery()->execute();
+        $statement = $specification->getQuery();
 
         return $statement->fetchAll();
 

@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
+use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\Article;
@@ -38,7 +39,7 @@ class FromArticleRequest implements DbalArticleSpecification
     }
 
 
-    public function getQuery(): QueryBuilder
+    public function getQuery(): Statement
     {
         $subQuery = clone $this->queryBuilder;
         $subQuery->select('uploads.id')->from('uploads')->where(
@@ -101,6 +102,6 @@ class FromArticleRequest implements DbalArticleSpecification
             $this->queryBuilder->setMaxResults($this->articleRequest->max());
         }
 
-        return $this->queryBuilder;
+        return $this->queryBuilder->execute();
     }
 }

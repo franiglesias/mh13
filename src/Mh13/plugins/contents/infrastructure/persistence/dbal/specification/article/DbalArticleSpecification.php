@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
+use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
@@ -19,6 +20,6 @@ interface DbalArticleSpecification
      *
      * @return QueryBuilder
      */
-    public function getQuery(): QueryBuilder;
+    public function getQuery(): Statement;
 
 }

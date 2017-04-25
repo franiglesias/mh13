@@ -8,7 +8,6 @@
 
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
-use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Statement;
 use Mh13\plugins\contents\exceptions\ArticleNotFound;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\DbalArticleSpecification;
@@ -39,11 +38,9 @@ class DBalArticleReadModelTest extends TestCase
     protected function prepareSpecificationThatReturnsAnArticle(): \Prophecy\Prophecy\ObjectProphecy
     {
         $specification = $this->prophesize(DbalArticleSpecification::class);
-        $builder = $this->prophesize(QueryBuilder::class);
         $statement = $this->prophesize(Statement::class);
 
-        $specification->getQuery()->shouldBeCalled()->willReturn($builder);
-        $builder->execute()->shouldBeCalled()->willReturn($statement);
+        $specification->getQuery()->shouldBeCalled()->willReturn($statement);
         $statement->fetch()->shouldBeCalled()->willReturn('theArticle');
 
         return $specification;
@@ -61,11 +58,9 @@ class DBalArticleReadModelTest extends TestCase
     protected function prepareSpecificationThatDoesNotReturnTheArticle(): \Prophecy\Prophecy\ObjectProphecy
     {
         $specification = $this->prophesize(DbalArticleSpecification::class);
-        $builder = $this->prophesize(QueryBuilder::class);
         $statement = $this->prophesize(Statement::class);
 
-        $specification->getQuery()->shouldBeCalled()->willReturn($builder);
-        $builder->execute()->shouldBeCalled()->willReturn($statement);
+        $specification->getQuery()->shouldBeCalled()->willReturn($statement);
         $statement->fetch()->shouldBeCalled()->willReturn(false);
 
         return $specification;
@@ -81,11 +76,9 @@ class DBalArticleReadModelTest extends TestCase
     protected function prepareSpecificationThatDoesNotFoundAnyArticles(): \Prophecy\Prophecy\ObjectProphecy
     {
         $specification = $this->prophesize(DbalArticleSpecification::class);
-        $builder = $this->prophesize(QueryBuilder::class);
         $statement = $this->prophesize(Statement::class);
 
-        $specification->getQuery()->shouldBeCalled()->willReturn($builder);
-        $builder->execute()->shouldBeCalled()->willReturn($statement);
+        $specification->getQuery()->shouldBeCalled()->willReturn($statement);
         $statement->fetchAll()->shouldBeCalled()->willReturn(false);
 
         return $specification;

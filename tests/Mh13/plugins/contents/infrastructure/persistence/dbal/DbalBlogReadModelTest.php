@@ -8,7 +8,6 @@
 
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
-use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Statement;
 use Mh13\plugins\contents\exceptions\InvalidBlog;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\DBalBlogSpecification;
@@ -38,11 +37,9 @@ class DbalBlogReadModelTest extends TestCase
     protected function prepareSpecification(): \Prophecy\Prophecy\ObjectProphecy
     {
         $specification = $this->prophesize(DBalBlogSpecification::class);
-        $builder = $this->prophesize(QueryBuilder::class);
         $statement = $this->prophesize(Statement::class);
 
-        $specification->getQuery()->shouldBeCalled()->willReturn($builder);
-        $builder->execute()->shouldBeCalled()->willReturn($statement);
+        $specification->getQuery()->shouldBeCalled()->willReturn($statement);
         $statement->fetch()->shouldBeCalled()->willReturn('theBlog');
 
         return $specification;
@@ -62,11 +59,9 @@ class DbalBlogReadModelTest extends TestCase
     protected function prepareSpecificationWithNoResults(): \Prophecy\Prophecy\ObjectProphecy
     {
         $specification = $this->prophesize(DBalBlogSpecification::class);
-        $builder = $this->prophesize(QueryBuilder::class);
         $statement = $this->prophesize(Statement::class);
 
-        $specification->getQuery()->shouldBeCalled()->willReturn($builder);
-        $builder->execute()->shouldBeCalled()->willReturn($statement);
+        $specification->getQuery()->shouldBeCalled()->willReturn($statement);
         $statement->fetch()->shouldBeCalled()->willReturn(false);
 
         return $specification;

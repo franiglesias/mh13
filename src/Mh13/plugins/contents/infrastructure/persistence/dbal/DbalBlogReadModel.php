@@ -12,7 +12,7 @@ class DbalBlogReadModel implements BlogReadModel
 
     public function getBlog($specification)
     {
-        $statement = $specification->getQuery()->execute();
+        $statement = $specification->getQuery();
         $blog = $statement->fetch();
         if (!$blog) {
             throw InvalidBlog::message('That blog does not exist.');

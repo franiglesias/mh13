@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
+use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
@@ -36,7 +37,7 @@ class PublishedArticleWithSlug implements DbalArticleSpecification
      *
      * @return QueryBuilder
      */
-    public function getQuery(): QueryBuilder
+    public function getQuery(): Statement
     {
         $this->queryBuilder->select('articles.*', 'blogs.slug as blog_slug', 'images.path as image')
             ->from('items', 'articles')
@@ -44,11 +45,11 @@ class PublishedArticleWithSlug implements DbalArticleSpecification
             ->leftJoin('articles', 'uploads', 'images', 'images.model = "Item" and images.foreign_key = articles.id')
             ->where('articles.slug = ?')
             ->setParameter(
-            0,
-            $this->slug
-        )
+                0,
+                $this->slug
+            )
         ;
 
-        return $this->queryBuilder;
+        return $this->queryBuilder->execute();
     }
 }
