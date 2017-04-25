@@ -8,10 +8,10 @@
 
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog;
 
-use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\DBAL\Driver\Statement;
 
 
 interface DBalBlogSpecification
 {
-    public function getQuery(): QueryBuilder;
+    public function getQuery(): Statement;
 }

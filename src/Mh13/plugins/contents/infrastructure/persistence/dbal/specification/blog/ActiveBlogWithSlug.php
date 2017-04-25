@@ -10,6 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\bl
 
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
@@ -37,7 +38,7 @@ class ActiveBlogWithSlug implements DBalBlogSpecification
     }
 
 
-    public function getQuery(): QueryBuilder
+    public function getQuery(): Statement
     {
         $this->queryBuilder->select('blogs.*')
             ->from('blogs')
@@ -49,7 +50,7 @@ class ActiveBlogWithSlug implements DBalBlogSpecification
             )
         ;
 
-        return $this->queryBuilder;
+        return $this->queryBuilder->execute();
 
     }
 }
