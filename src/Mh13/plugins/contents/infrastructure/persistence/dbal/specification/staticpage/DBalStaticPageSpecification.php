@@ -9,12 +9,10 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage;
 
 
-use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\DBAL\Driver\Statement;
 
 
 interface DBalStaticPageSpecification
 {
-    public function getQuery(): QueryBuilder;
-
-
+    public function getQuery(): Statement;
 }

@@ -22,6 +22,7 @@
 
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
+use Mh13\plugins\contents\application\service\StaticPageService;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleReadModel;
@@ -29,12 +30,15 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalStaticPageReadModel;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalStaticPageSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\BlogController;
 use Mh13\plugins\contents\infrastructure\web\PageController;
 use Mh13\plugins\contents\infrastructure\web\SiteController;
+use Mh13\plugins\contents\infrastructure\web\StaticPageController;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
 use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
@@ -94,6 +98,17 @@ $app['article.service'] = function ($app) {
     return new ArticleService($app['article.readmodel'], $app['article.specification.factory'], $app['article.mapper']);
 };
 
+$app['staticpage.readmodel'] = function ($app) {
+    return new DbalStaticPageReadModel();
+};
+
+$app['staticpage.specification.factory'] = function ($app) {
+    return new DBalStaticPageSpecificationFactory($app['db']);
+};
+
+$app['staticpage.service'] = function ($app) {
+    return new StaticPageService($app['staticpage.readmodel'], $app['staticpage.specification.factory']);
+};
 
 
 $app['blog.specification.factory'] = function ($app) {
@@ -170,6 +185,7 @@ $app->mount("/ui", new UiProvider());
 
 // Compatibility with old route scheme
 
+$app->get('/static/{slug}', StaticPageController::class.'::view');
 $app->get('/page/{page}', PageController::class.'::view');
 $app->get('/site/{slug}', SiteController::class.'::view');
 $app->get('/blog/{slug}', BlogController::class.'::view');
