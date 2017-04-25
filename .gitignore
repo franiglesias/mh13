@@ -18,3 +18,5 @@ tmp/
 /ansistrano/
 /bin/doctrine-dbal
 /bin/
+
+webroot/.DS_Store
