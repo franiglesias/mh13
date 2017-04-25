@@ -13,4 +13,8 @@ interface StaticPageReadModel
 {
     public function getPage($specification);
 
+    public function findPages($specification);
+
+
+
 }

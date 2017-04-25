@@ -13,5 +13,8 @@ interface StaticPageSpecificationFactory
 {
     public function createGetPageWithSlug(string $slug);
 
+    public function createGetParentsForPageWithSlug(string $slug);
+
+    public function createGetDescendantsForPageWithSlug(string $slug);
 
 }

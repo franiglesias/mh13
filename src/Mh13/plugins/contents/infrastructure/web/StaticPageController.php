@@ -18,6 +18,7 @@ class StaticPageController
     {
         $page = $app['staticpage.service']->getPageWithSlug($slug);
 
+
         return $app['twig']->render(
             'plugins/contents/static_pages/view.twig',
             [
@@ -25,9 +26,9 @@ class StaticPageController
                 'tag' => false,
                 'level_id' => false,
                 'preview' => false,
-                'parents' => false,
+                'parents' => $app['staticpage.service']->getParentsForPage($slug),
                 'siblings' => false,
-                'descendants' => false,
+                'descendants' => $app['staticpage.service']->getDescendantsForPage($slug),
             ]
         );
     }

@@ -37,4 +37,20 @@ class StaticPageService
         return $this->readModel->getPage($specification);
     }
 
+    public function getParentsForPage(string $slug)
+    {
+        $specification = $this->factory->createGetParentsForPageWithSlug($slug);
+
+        return $this->readModel->findPages($specification);
+    }
+
+    public function getDescendantsForPage(string $slug)
+    {
+        $specification = $this->factory->createGetDescendantsForPageWithSlug($slug);
+
+        return $this->readModel->findPages($specification);
+    }
+
+
+
 }
