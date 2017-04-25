@@ -30,4 +30,11 @@ class DbalStaticPageReadModel implements StaticPageReadModel
 
         return $page;
     }
+
+    public function findPages($specification)
+    {
+        $statement = $specification->getQuery();
+
+        return $statement->fetchAll();
+    }
 }

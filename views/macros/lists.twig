@@ -1,14 +1,8 @@
 {% macro tree(data, nested) %}
-<ul class="{% if nested %}nested{% endif %} vertical menu">
-{% for root in data %}
-    {% for key, page in root %}
-        {% if key == 'children' %}
-        {% import _self as lists %}
-            {{ lists.tree(page, true) }}
-        {% else %}
-        <li><a href="/contents/static_pages/view/{{ page.slug }}">{{ page.title }}</a></li>
-        {% endif %}
-    {% endfor %}
-{% endfor %}
-</ul>
+    <ul class="{% if nested %}nested{% endif %} vertical menu">
+        {% for page in data %}
+
+            <li><a href="/static/{{ page.slug }}">{{ page.title }}</a></li>
+        {% endfor %}
+    </ul>
 {% endmacro %}

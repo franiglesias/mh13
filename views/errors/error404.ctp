@@ -1,2 +1,0 @@
-<h2 class="fi-unlink">
-<?php printf(__d('errors', 'The requested item <strong>%s</strong> was not found', true), $url); ?></h2>	<p><?php __d('errors', 'We are sorry. The url you entered has some errors or doesn\'t exist in the server.'); ?></p>
