@@ -19,4 +19,12 @@ interface ArticleSpecificationFactory
 
     public function createPublishedArticleWithSlug(string $slug);
 
+    public function createArticleIsAvailable();
+
+    public function createArticleFromBlogs(array $blogs);
+
+    public function createArticleWithSlug(string $slug);
+
+    public function createArticleNotFromBlogs(array $excludedBlogs);
+
 }

@@ -12,4 +12,9 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 interface DbalSpecification
 {
     public function getConditions();
+
+    public function getParameters();
+
+    public function getTypes();
+
 }

@@ -32,4 +32,24 @@ class CakeArticleSpecificationFactory implements ArticleSpecificationFactory
     {
         // TODO: Implement createPublishedArticleWithSlug() method.
     }
+
+    public function createArticleIsAvailable()
+    {
+        // TODO: Implement createArticleIsAvailable() method.
+    }
+
+    public function createArticleFromBlogs(array $blogs)
+    {
+        // TODO: Implement createArticleFromBlogs() method.
+    }
+
+    public function createArticleWithSlug(string $slug)
+    {
+        // TODO: Implement createArticleWithSlug() method.
+    }
+
+    public function createArticleNotFromBlogs(array $excludedBlogs)
+    {
+        // TODO: Implement createArticleNotFromBlogs() method.
+    }
 }

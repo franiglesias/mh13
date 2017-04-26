@@ -28,21 +28,28 @@ abstract class CompositeDbalSpecification implements DbalSpecification
 
     abstract public function getConditions();
 
-    public function getTypes()
-    {
-        return $this->types;
-    }
-
     public function and (CompositeDbalSpecification $specification)
     {
         return new AndSpecification($this->expressionBuilder, $this, $specification);
     }
 
+    public function or (CompositeDbalSpecification $specification)
+    {
+        return new OrSpecification($this->expressionBuilder, $this, $specification);
+    }
+
     protected function addParameters(CompositeDbalSpecification $specification)
     {
+        $types = $specification->getTypes();
         foreach ($specification->getParameters() as $key => $value) {
-            $this->setParameter($key, $value);
+            $this->setParameter($key, $value, $types[$key]);
+
         }
+    }
+
+    public function getTypes()
+    {
+        return $this->types;
     }
 
     /**

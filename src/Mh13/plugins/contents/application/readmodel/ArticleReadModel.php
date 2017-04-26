@@ -22,5 +22,11 @@ interface ArticleReadModel
 
     public function findArticles($specification);
 
+    public function ignoringStickFlag($ignore = false): ArticleReadModel;
+
+    public function from($offset): ArticleReadModel;
+
+    public function max($max): ArticleReadModel;
+
 
 }

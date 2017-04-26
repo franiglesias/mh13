@@ -37,7 +37,6 @@ class ArticleService
         ArticleMapper $mapper
     )
     {
-
         $this->readmodel = $readmodel;
         $this->specificationFactory = $specificationFactory;
         $this->mapper = $mapper;
@@ -55,7 +54,10 @@ class ArticleService
     {
         $specification = $this->specificationFactory->createFromCatalogRequest($request);
 
-        return $this->readmodel->findArticles($specification);
+        return $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
+                $request->max()
+            )->findArticles($specification)
+            ;
 
     }
 
