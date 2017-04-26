@@ -48,6 +48,6 @@
     {% endif %}
 
     {% if siblings %}
-        {{ blocks.widget('Páginas relacionadas',  lists.tree(siblings)) }}
+        {{ blocks.widget('Páginas relacionadas',  lists.list(siblings)) }}
     {% endif %}
 {% endblock %}

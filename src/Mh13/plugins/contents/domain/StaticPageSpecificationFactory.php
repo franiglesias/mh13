@@ -19,4 +19,7 @@ interface StaticPageSpecificationFactory
 
     public function createGetDescendantsWithDepthForPageWithSlug(string $slug);
 
+    public function createGetSiblingsForPageWithSlug(string $slug);
+
+
 }

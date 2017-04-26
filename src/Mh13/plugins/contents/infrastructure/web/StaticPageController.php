@@ -27,7 +27,7 @@ class StaticPageController
                 'level_id' => false,
                 'preview' => false,
                 'parents' => $app['staticpage.service']->getParentsForPage($slug),
-                'siblings' => false,
+                'siblings' => $app['staticpage.service']->getSiblingsForPage($slug),
                 'descendants' => $app['staticpage.service']->getDescendantsForPage($slug),
             ]
         );

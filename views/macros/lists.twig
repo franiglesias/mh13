@@ -11,8 +11,16 @@
             {% if page.depth < currentDepth %}
                 </ul>
                 {% set currentDepth = page.depth %}
-                <li><a href="/static/{{ page.slug }}">{{ page.title }} ({{ page.depth }})</a></li>
+                <li><a href="/static/{{ page.slug }}">{{ page.title }}</a></li>
             {% endif %}
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro list(data) %}
+    <ul class="vertical menu">
+        {% for page in data %}
+            <li><a href="/static/{{ page.slug }}">{{ page.title }}</a></li>
         {% endfor %}
     </ul>
 {% endmacro %}
