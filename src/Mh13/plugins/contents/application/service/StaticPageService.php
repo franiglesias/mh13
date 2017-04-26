@@ -46,9 +46,11 @@ class StaticPageService
 
     public function getDescendantsForPage(string $slug)
     {
-        $specification = $this->factory->createGetDescendantsForPageWithSlug($slug);
+//        $specification = $this->factory->createGetDescendantsForPageWithSlug($slug);
+        $specification = $this->factory->createGetDescendantsWithDepthForPageWithSlug($slug);
+        $data = $this->readModel->findPages($specification);
 
-        return $this->readModel->findPages($specification);
+        return $data;
     }
 
 

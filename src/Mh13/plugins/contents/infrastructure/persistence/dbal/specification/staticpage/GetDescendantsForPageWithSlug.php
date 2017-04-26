@@ -31,21 +31,6 @@ class GetDescendantsForPageWithSlug implements DBalStaticPageSpecification
         $this->slug = $slug;
     }
 
-    /*
-     * SELECT node.title, node.slug , count(parent.slug) - (sub_tree.depth) as depth
-    FROM static_pages as node, static_pages as parent, static_pages as sub_parent, (
-        SELECT node.title, node.slug , count(parent.slug) as depth
-        FROM static_pages as node, static_pages as parent
-        WHERE (node.lft BETWEEN parent.lft AND parent.rght) AND (node.slug = 'comunidad_educativa')
-        group by node.slug
-        ORDER BY node.lft asc
-    ) as sub_tree
-    WHERE (node.lft BETWEEN parent.lft AND parent.rght) and (node.lft between sub_parent.lft and sub_parent.rght) and (sub_parent.slug = sub_tree.slug)
-    group by node.slug
-    ORDER BY node.lft asc
-     *
-     *
-     * */
 
     public function getQuery(): Statement
     {

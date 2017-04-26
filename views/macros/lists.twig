@@ -1,8 +1,18 @@
-{% macro tree(data, nested) %}
-    <ul class="{% if nested %}nested{% endif %} vertical menu">
+{% macro tree(data, currentDepth) %}
+    <ul class="vertical menu">
         {% for page in data %}
-
+            {% if page.depth > currentDepth %}
+                <ul class="nested vertical menu">
+                {% set currentDepth = page.depth %}
+            {% endif %}
+            {% if page.depth == currentDepth %}
             <li><a href="/static/{{ page.slug }}">{{ page.title }}</a></li>
+            {% endif %}
+            {% if page.depth < currentDepth %}
+                </ul>
+                {% set currentDepth = page.depth %}
+                <li><a href="/static/{{ page.slug }}">{{ page.title }} ({{ page.depth }})</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 {% endmacro %}

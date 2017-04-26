@@ -12,6 +12,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetDescendantsForPageWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetDescendantsWithDepthForPageWithSlug;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetPageWithSlug;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetParentsForPageWithSlug;
 
@@ -42,5 +43,10 @@ class DBalStaticPageSpecificationFactory implements StaticPageSpecificationFacto
     public function createGetDescendantsForPageWithSlug(string $slug)
     {
         return new GetDescendantsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+    }
+
+    public function createGetDescendantsWithDepthForPageWithSlug(string $slug)
+    {
+        return new GetDescendantsWithDepthForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 }

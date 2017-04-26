@@ -62,7 +62,7 @@ $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 /** @var $app */
 $app = new \Silex\Application();
 
-$app['debug'] = false;
+$app['debug'] = true;
 
 /* Service definitions */
 
