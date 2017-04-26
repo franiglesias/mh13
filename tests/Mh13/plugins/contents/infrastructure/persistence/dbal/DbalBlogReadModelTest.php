@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Statement;
 use Mh13\plugins\contents\exceptions\InvalidBlog;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\DBalBlogSpecification;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\DbalBlogSpecification;
 use PHPUnit\Framework\TestCase;
 
 
@@ -36,7 +36,7 @@ class DbalBlogReadModelTest extends TestCase
      */
     protected function prepareSpecification(): \Prophecy\Prophecy\ObjectProphecy
     {
-        $specification = $this->prophesize(DBalBlogSpecification::class);
+        $specification = $this->prophesize(DbalBlogSpecification::class);
         $statement = $this->prophesize(Statement::class);
 
         $specification->getQuery()->shouldBeCalled()->willReturn($statement);
@@ -58,7 +58,7 @@ class DbalBlogReadModelTest extends TestCase
      */
     protected function prepareSpecificationWithNoResults(): \Prophecy\Prophecy\ObjectProphecy
     {
-        $specification = $this->prophesize(DBalBlogSpecification::class);
+        $specification = $this->prophesize(DbalBlogSpecification::class);
         $statement = $this->prophesize(Statement::class);
 
         $specification->getQuery()->shouldBeCalled()->willReturn($statement);

@@ -116,7 +116,7 @@ $app['blog.specification.factory'] = function ($app) {
 };
 
 $app['blog.readmodel'] = function ($app) {
-    return new DbalBlogReadModel();
+    return new DbalBlogReadModel($app['db']);
 };
 
 $app['blog.service'] = function ($app) {
