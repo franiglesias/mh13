@@ -23,7 +23,7 @@ class DbalBlogReadModel implements BlogReadModel
     public function getBlog($specification)
     {
         $builder = $this->connection->createQueryBuilder();
-        $builder->select('blogs.*')->from('blogs')->where($specification->getConditions())->setParameters(
+        $builder->select('blog.*')->from('blogs', 'blog')->where($specification->getConditions())->setParameters(
                 $specification->getParameters(),
                 $specification->getTypes()
             )

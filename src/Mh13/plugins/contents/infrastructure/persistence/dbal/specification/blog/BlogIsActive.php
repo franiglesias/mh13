@@ -17,6 +17,6 @@ class BlogIsActive extends CompositeDbalSpecification
 
     public function getConditions()
     {
-        return $this->expressionBuilder->eq('active', 1);
+        return 'blog.active = 1';
     }
 }

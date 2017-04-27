@@ -46,8 +46,7 @@ class GetDescendantsWithDepthForPageWithSlug implements DBalStaticPageSpecificat
             ->orderBy('node.lft', 'asc')
         ;
 
-        $this->builder->select('node.title, node.slug, count(parent.slug) - (sub_tree.depth) as depth')
-            ->from(
+        $this->builder->select('node.title, node.slug, count(parent.slug) - (sub_tree.depth) as depth')->from(
                 'static_pages',
                 'node'
             )

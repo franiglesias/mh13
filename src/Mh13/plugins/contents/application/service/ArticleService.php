@@ -11,7 +11,6 @@ namespace Mh13\plugins\contents\application\service;
 
 use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
 use Mh13\plugins\contents\application\service\article\ArticleRequest;
-use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 
 
@@ -26,20 +25,15 @@ class ArticleService
      * @var ArticleSpecificationFactory
      */
     private $specificationFactory;
-    /**
-     * @var ArticleMapper
-     */
-    private $mapper;
+
 
     public function __construct(
         ArticleReadModel $readmodel,
-        ArticleSpecificationFactory $specificationFactory,
-        ArticleMapper $mapper
+        ArticleSpecificationFactory $specificationFactory
     )
     {
         $this->readmodel = $readmodel;
         $this->specificationFactory = $specificationFactory;
-        $this->mapper = $mapper;
     }
 
     public function getArticleWithSlug(string $slug)

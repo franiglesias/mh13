@@ -79,6 +79,7 @@ class DBalArticleReadModel implements ArticleReadModel
             'article.expiration as expiration',
             'article.featured as featured',
             'article.stick as sticky',
+            'article.gallery as gallery',
             'blog.slug as blog_slug',
             'blog.title as blog_title',
             'image.path as image'

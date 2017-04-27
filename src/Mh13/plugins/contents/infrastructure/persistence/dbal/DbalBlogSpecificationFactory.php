@@ -18,16 +18,14 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\Blo
 
 class DbalBlogSpecificationFactory implements BlogSpecificationFactory
 {
-    protected $expressionBuilder;
     /**
-     * @var Connection
+     * @var \Doctrine\DBAL\Query\Expression\ExpressionBuilder
      */
-    private $connection;
+    protected $expressionBuilder;
 
     public function __construct(Connection $connection)
     {
-        $this->connection = $connection;
-        $this->expressionBuilder = $this->connection->createQueryBuilder()->expr();
+        $this->expressionBuilder = $connection->getExpressionBuilder();
     }
 
     public function createBlogWithSlug(string $slug)
