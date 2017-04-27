@@ -16,9 +16,7 @@
             <a href="#" class="close">[cerrar]</a>
         </div>
     {% endif %}
-    {% if article.image %}
-        <img src="{{ article.image }}" alt="" width="35%" class="float-right">
-    {% endif %}
+
 
     {{ article.content|parse|raw }}
 
