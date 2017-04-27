@@ -25,6 +25,7 @@ class FullArticleView extends ViewModel
     protected $image;
     protected $blog_slug;
     protected $blog_title;
+    protected $gallery;
 
     /**
      * @return mixed
@@ -200,6 +201,22 @@ class FullArticleView extends ViewModel
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    /**
+     * @param mixed $gallery
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
     }
 
 

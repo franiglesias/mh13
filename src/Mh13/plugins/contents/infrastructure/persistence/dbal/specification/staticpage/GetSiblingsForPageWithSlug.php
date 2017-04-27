@@ -41,7 +41,7 @@ class GetSiblingsForPageWithSlug implements DBalStaticPageSpecification
         $subQuery->select('parent_id')->from('static_pages')->where('slug = :slug');
         $this->builder->select('page.title, page.slug')->from('static_pages', 'page')->where(
             'parent_id = ('.$subQuery->getSQL().')'
-        )->andWhere('page.slug <> :slug')->setParameter('slug', $this->slug)
+            )->andWhere('page.slug <> :slug')->setParameter('slug', $this->slug)
         ;
 
         return $this->builder->execute();

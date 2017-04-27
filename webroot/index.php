@@ -23,6 +23,7 @@
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\StaticPageService;
+use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleReadModel;
@@ -32,6 +33,8 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalStaticPageReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalStaticPageSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalUploadReadModel;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalUploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
@@ -40,6 +43,7 @@ use Mh13\plugins\contents\infrastructure\web\PageController;
 use Mh13\plugins\contents\infrastructure\web\SiteController;
 use Mh13\plugins\contents\infrastructure\web\StaticPageController;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
+use Mh13\plugins\contents\infrastructure\web\UploadController;
 use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
@@ -110,6 +114,17 @@ $app['staticpage.service'] = function ($app) {
     return new StaticPageService($app['staticpage.readmodel'], $app['staticpage.specification.factory']);
 };
 
+$app['upload.readmodel'] = function ($app) {
+    return new DbalUploadReadModel($app['db']);
+};
+
+$app['upload.specification.factory'] = function ($app) {
+    return new DbalUploadSpecificationFactory($app['db']);
+};
+
+$app['upload.service'] = function ($app) {
+    return new UploadService($app['upload.readmodel'], $app['upload.specification.factory']);
+};
 
 $app['blog.specification.factory'] = function ($app) {
     return new DBalBlogSpecificationFactory($app['db']);
@@ -182,6 +197,7 @@ $app->error(
 
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
+$app->get('/uploads/gallery/{type}/{article}', UploadController::class.'::gallery');
 
 // Compatibility with old route scheme
 

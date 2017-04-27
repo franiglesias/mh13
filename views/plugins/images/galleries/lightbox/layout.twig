@@ -1,9 +1,9 @@
 <div class="gallery">
 <p>Clic en una foto para ver la galería</p>
 <ul class="clearing-thumbs clearing-feature" data-clearing>
-    {% for image in item.Image %}
+    {% for image in images %}
         <li class="th">
-            {% include 'plugins/images/galleries/lightbox/thumbnail.twig' with {'image': 'image'} only %}
+            {% include 'plugins/images/galleries/lightbox/thumbnail.twig' with {'image': image} only %}
         </li>
     {% endfor %}
 </ul>
