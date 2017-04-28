@@ -35,7 +35,13 @@ class GetPageWithSlug implements DBalStaticPageSpecification
 
     public function getQuery(): Statement
     {
-        $this->builder->select('*')->from('static_pages', 'static')->where('static.slug = ?')->setParameter(
+        $this->builder->select('*', 'image.path as image')->from('static_pages', 'static')->leftJoin(
+                'static',
+                'uploads',
+                'image',
+                'image.id = (select uploads.id from uploads where uploads.model="StaticPage" and foreign_key = static.id order by uploads.order asc limit 1)'
+
+            )->where('static.slug = ?')->setParameter(
             0,
             $this->slug
         )

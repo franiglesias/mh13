@@ -38,4 +38,28 @@ class UploadService
         return $this->readModel->findUploads($specification);
 
     }
+
+    public function getImagesOf(string $object, string $slug)
+    {
+        switch ($object) {
+            case 'article':
+                $specification = $this->factory->createImagesOfArticle($slug);
+                break;
+            case 'collection':
+                $specification = $this->factory->createImagesOfCollection($slug);
+                break;
+            case 'static':
+                $specification = $this->factory->createImagesOfStaticPage($slug);
+                break;
+        }
+
+        return $this->readModel->findUploads($specification);
+    }
+
+    public function getImagesOfCollection(string $slug)
+    {
+        $specification = $this->factory->createImagesOfCollection($slug);
+
+        return $this->readModel->findUploads($specification);
+    }
 }

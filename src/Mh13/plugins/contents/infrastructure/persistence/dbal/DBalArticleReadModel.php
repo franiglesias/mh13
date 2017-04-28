@@ -99,7 +99,10 @@ class DBalArticleReadModel implements ArticleReadModel
 
         )->where(
             $specification->getConditions()
-        )->setParameters($specification->getParameters(), $specification->getTypes())
+        )->setParameters(
+            $specification->getParameters(),
+            $specification->getTypes()
+        )
         ;
         if ($this->keepStickOnTop) {
             $builder->addOrderBy('article.stick', 'desc');

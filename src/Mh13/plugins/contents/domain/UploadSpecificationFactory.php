@@ -11,6 +11,10 @@ namespace Mh13\plugins\contents\domain;
 
 interface UploadSpecificationFactory
 {
-    public function createImagesOfArticle(string $collection);
+    public function createImagesOfArticle(string $article);
+
+    public function createImagesOfCollection(string $collection);
+
+    public function createImagesOfStaticPage(string $page);
 
 }

@@ -21,12 +21,15 @@ class DbalUploadReadModel implements UploadReadModel
 
     public function findUploads($specification)
     {
+        $parameters = $specification->getParameters();
         $builder = $this->connection->createQueryBuilder();
-        $builder->select('image.path', 'image.name', 'image.description')->from('uploads', 'image')->leftJoin(
+        $builder->select('image.path', 'image.name', 'image.description', 'image.url')
+            ->from('uploads', 'image')
+            ->leftJoin(
                 'image',
-                'items',
+                $parameters['table'],
                 'article',
-                'image.model = \'Item\' AND image.foreign_key = article.id'
+                'image.model = :model AND image.foreign_key = article.id'
             )->where($specification->getConditions())->setParameters(
                 $specification->getParameters(),
                 $specification->getTypes()

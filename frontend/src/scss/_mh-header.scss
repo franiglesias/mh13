@@ -2,8 +2,7 @@ $overlay-header-color: #000;
 
 .mh-header
 {
-    height: 10rem;
-    margin-bottom: $global-margin;
+    margin-bottom: $global-margin * 2;
     padding: 0;
 
     background-color: $primary-color;
@@ -13,7 +12,7 @@ $overlay-header-color: #000;
     .bg
     {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
         width: 100%;
         height: 100%;
@@ -24,15 +23,16 @@ $overlay-header-color: #000;
 
         .mh-text-block
         {
-            display: flex;
+            display: block;
 
             max-width: 75%;
 
             color: $white;
 
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: left;
             align-content: center;
+
+            padding: 0.5rem 4rem 0.5rem 4rem;
 
             .text-center
             {

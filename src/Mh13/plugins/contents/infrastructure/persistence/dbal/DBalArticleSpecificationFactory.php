@@ -43,7 +43,9 @@ class DBalArticleSpecificationFactory implements ArticleSpecificationFactory
     {
         $articleIsAvailable = $this->createArticleIsAvailable();
         if ($catalogRequest->blogs()) {
-            $articleIsAvailable = $articleIsAvailable->and($this->createArticleFromBlogs($catalogRequest->blogs()));
+            $articleIsAvailable = $articleIsAvailable->and(
+                $this->createArticleFromBlogs($catalogRequest->blogs())
+            );
         }
         if ($catalogRequest->excludedBlogs()) {
             $articleIsAvailable = $articleIsAvailable->and(

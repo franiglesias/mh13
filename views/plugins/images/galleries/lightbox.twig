@@ -5,7 +5,7 @@
 <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
     {% for image in images %}
         <div data-img="{{ image.path }}">
-            <p><strong>{{ image.name }}</strong>{% if image.description %}
+            <p class="photocaption"><strong>{{ image.name }}</strong>{% if image.description %}
                 : {{ image.description }}
                 {% endif %}</p>
         </div>

@@ -2,11 +2,11 @@
 <div class="mh-header" {% if image %} style="background: url({{ image }}); background-size: cover;" {% endif %}>
     <div class="bg">
         <div class="mh-text-block">
-            <div class="icon text-center">
+            <div class="icon">
                 <a href="/blog/{{ channel.slug }}"><img src="{{ channel.icon }}" alt="" width="51">
                     {{ channel.title }}</a>
             </div>
-            <h1 class="text-center">{{ article.title }}</h1>
+            <h1 class="">{{ article.title }}</h1>
             {% include 'plugins/contents/items/widgets/header/author.twig' %}
         </div>
     </div>

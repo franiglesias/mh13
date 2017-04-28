@@ -24,6 +24,6 @@ class ArticleNotFromBlogs extends CompositeDbalSpecification
 
     public function getConditions()
     {
-        return 'blog.slug NOT IN (:blogs)';
+        return 'blog.slug NOT IN (:excluded)';
     }
 }

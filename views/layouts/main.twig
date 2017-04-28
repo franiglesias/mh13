@@ -7,7 +7,7 @@
 	{{ include('elements/mh-global-navigation.twig') }}
     {{ include('elements/flash.twig') }}
 	{% block header %}
-		{{ modules.module('mh-main-header', '/uploads/image_collections/collection/home') }}
+        {{ modules.module('mh-main-header', '/uploads/collection/header/home') }}
 		{% include 'elements/mh-direct-links.twig' %}
 	{% endblock %}
 
@@ -23,10 +23,10 @@
 			<div class="small-12 medium-4 columns">
 			{% block sidebar %}
 				{% include 'widgets/menu.twig' with {'title': 'Encuentranos en', 'menu': 'social', 'selector': 'mh-social', 'icon': 'fi-eye'} only %}
-				{{ modules.widget('mh-advert-charters', '/uploads/image_collections/collection/concertada', 'En colegios también puedes elegir') }}
+                {{ modules.widget('mh-advert-charters', '/uploads/collection/orbit/concertada', 'En colegios también puedes elegir') }}
 				{{ modules.widget('mh-next-events', '/circulars/events/next', 'Próximos eventos') }}
                 {{ modules.widget('mh-cantine-today', '/cantine/cantine/today/1',' Menú para hoy ('~ date()|date('l, j/n/Y') ~')') }}
-				{{ modules.widget('mh-miralba-certifications', '/uploads/image_collections/collection/programas', 'Nuestras certificaciones') }}
+                {{ modules.widget('mh-miralba-certifications', '/uploads/collection/orbit/programas', 'Nuestras certificaciones') }}
 				{{ modules.widget('mh-current-circulars', '/circulars/circulars/current', 'Últimas circulares') }}
 				{% include 'widgets/menu.twig' with {'title': 'Proyectos', 'menu': 'proyectos', 'selector': 'mh-proyectos'} only %}
 			{% endblock %}
