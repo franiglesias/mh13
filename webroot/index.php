@@ -199,6 +199,7 @@ $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 $app->get('/uploads/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');
 $app->get('/uploads/collection/{type}/{collection}', UploadController::class.'::collection');
+$app->get('/uploads/downloads/{slug}', UploadController::class.'::downloads');
 
 // Compatibility with old route scheme
 

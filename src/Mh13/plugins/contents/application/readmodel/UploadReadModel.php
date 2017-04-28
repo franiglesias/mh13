@@ -9,9 +9,12 @@
 namespace Mh13\plugins\contents\application\readmodel;
 
 
+use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
+
+
 interface UploadReadModel
 {
-    public function findUploads($specification);
+    public function findUploads($specification, AttachedFilesContext $context);
 
 
 }

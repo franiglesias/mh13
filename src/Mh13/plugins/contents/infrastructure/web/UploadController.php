@@ -28,6 +28,18 @@ class UploadController
         );
     }
 
+    public function downloads(string $slug, Request $request, Application $app)
+    {
+        $files = $app['upload.service']->getDownloadsOfArticle($slug);
+
+        return $app['twig']->render(
+            'plugins/contents/items/widgets/downloads.twig',
+            [
+                'files' => $files,
+            ]
+        );
+    }
+
     public function collection(string $type, string $collection, Request $request, Application $app)
     {
         $images = $app['upload.service']->getImagesOfCollection($collection);

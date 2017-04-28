@@ -11,6 +11,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\DownloadsOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfCollection;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfStaticPage;
@@ -40,5 +41,10 @@ class DbalUploadSpecificationFactory implements UploadSpecificationFactory
     public function createImagesOfStaticPage(string $page)
     {
         return new ImagesOfStaticPage($this->expressionBuilder, $page);
+    }
+
+    public function createDownloadsOfArticle(string $article)
+    {
+        return new DownloadsOfArticle($this->expressionBuilder, $article);
     }
 }

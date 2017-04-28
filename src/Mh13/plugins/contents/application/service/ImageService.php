@@ -10,12 +10,10 @@ namespace Mh13\plugins\contents\application\service;
 
 
 use Mh13\plugins\contents\application\readmodel\UploadReadModel;
-use Mh13\plugins\contents\application\service\upload\ArticleContext;
-use Mh13\plugins\contents\application\service\upload\ImageCollectionContext;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 
 
-class UploadService
+class ImageService
 {
     /**
      * @var UploadReadModel
@@ -37,7 +35,7 @@ class UploadService
     {
         $specification = $this->factory->createImagesOfArticle($slug);
 
-        return $this->readModel->findUploads($specification, new ArticleContext());
+        return $this->readModel->findUploads($specification);
 
     }
 
@@ -55,20 +53,13 @@ class UploadService
                 break;
         }
 
-        return $this->readModel->findUploads($specification, new ArticleContext());
+        return $this->readModel->findUploads($specification);
     }
 
     public function getImagesOfCollection(string $slug)
     {
         $specification = $this->factory->createImagesOfCollection($slug);
 
-        return $this->readModel->findUploads($specification, new ImageCollectionContext());
-    }
-
-    public function getDownloadsOfArticle(string $slug)
-    {
-        $specification = $this->factory->createDownloadsOfArticle($slug);
-
-        return $this->readModel->findUploads($specification, new ArticleContext());
+        return $this->readModel->findUploads($specification);
     }
 }

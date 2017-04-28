@@ -17,4 +17,6 @@ interface UploadSpecificationFactory
 
     public function createImagesOfStaticPage(string $page);
 
+    public function createDownloadsOfArticle(string $article);
+
 }

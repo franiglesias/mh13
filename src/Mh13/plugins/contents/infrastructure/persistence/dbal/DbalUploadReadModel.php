@@ -4,6 +4,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\readmodel\UploadReadModel;
+use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
 
 
 class DbalUploadReadModel implements UploadReadModel
@@ -19,24 +20,31 @@ class DbalUploadReadModel implements UploadReadModel
         $this->connection = $connection;
     }
 
-    public function findUploads($specification)
+    public function findUploads($specification, AttachedFilesContext $context)
     {
-        $parameters = $specification->getParameters();
         $builder = $this->connection->createQueryBuilder();
-        $builder->select('image.path', 'image.name', 'image.description', 'image.url')
-            ->from('uploads', 'image')
-            ->leftJoin(
-                'image',
-                $parameters['table'],
-                'article',
-                'image.model = :model AND image.foreign_key = article.id'
+        $builder->select(
+            [
+                'upload.path',
+                'upload.name',
+                'upload.description',
+                'upload.url',
+                'upload.size',
+                'upload.type',
+                'upload.playtime',
+            ]
+        )->from('uploads', 'upload')->leftJoin(
+            'upload',
+            $context->getTable(),
+            $context->getAlias(),
+            'upload.model = :model AND upload.foreign_key = article.id'
             )->where($specification->getConditions())->setParameters(
                 $specification->getParameters(),
                 $specification->getTypes()
-            )->orderBy('image.order', 'asc')
+        )->setParameter('model', $context->getModel())->orderBy('upload.order', 'asc')
         ;
-        $images = $builder->execute()->fetchAll();
+        $uploads = $builder->execute()->fetchAll();
 
-        return $images;
+        return $uploads;
     }
 }
