@@ -1,0 +1,9 @@
+<ol class="step gallery">
+    {% for image in images %}
+        <li>
+            <p><strong>{{ image.name }}</strong></p>
+            <p>{{ image.description }}</p>
+            <p><img src="{{ image.path }}" alt="{{ image.description }}"></p>
+        </li>
+    {% endfor %}
+</ol>

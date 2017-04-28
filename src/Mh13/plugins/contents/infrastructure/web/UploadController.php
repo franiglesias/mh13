@@ -21,7 +21,7 @@ class UploadController
         $images = $app['upload.service']->getImagesOfArticle($article);
 
         return $app['twig']->render(
-            'plugins/images/galleries/'.$type.'/layout.twig',
+            'plugins/images/galleries/'.$type.'.twig',
             [
                 'images' => $images,
             ]

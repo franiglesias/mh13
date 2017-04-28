@@ -1,0 +1,8 @@
+<div class="row small-up-1 medium-up-2 large-up-3">
+    {% for image in images %}
+        <div class="column  coulmn-block">
+            <a href="{{ image.path }}"><img src="{{ image.path }}" width="164"
+                                            data-caption="<strong>{{ image.name }}:</strong> {{ image.description }}"/></a>
+        </div>
+    {% endfor %}
+</div>

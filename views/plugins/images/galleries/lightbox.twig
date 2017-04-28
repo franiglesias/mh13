@@ -1,0 +1,14 @@
+{# http://fotorama.io #}
+<link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+<div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
+    {% for image in images %}
+        <div data-img="{{ image.path }}">
+            <p><strong>{{ image.name }}</strong>{% if image.description %}
+                : {{ image.description }}
+                {% endif %}</p>
+        </div>
+        {#<img src="{{ image.path }}" alt="{{ image.description }}"/>#}
+    {% endfor %}
+</div>
