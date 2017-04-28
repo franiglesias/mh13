@@ -23,6 +23,7 @@
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\StaticPageService;
+use Mh13\plugins\contents\application\service\upload\AttachedFilesContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\exceptions\ContentException;
@@ -32,7 +33,7 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificati
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalStaticPageReadModel;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalStaticPageSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalStaticPageSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalUploadReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalUploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
@@ -107,7 +108,7 @@ $app['staticpage.readmodel'] = function ($app) {
 };
 
 $app['staticpage.specification.factory'] = function ($app) {
-    return new DBalStaticPageSpecificationFactory($app['db']);
+    return new DbalStaticPageSpecificationFactory($app['db']);
 };
 
 $app['staticpage.service'] = function ($app) {
@@ -122,8 +123,16 @@ $app['upload.specification.factory'] = function ($app) {
     return new DbalUploadSpecificationFactory($app['db']);
 };
 
+$app['upload.context.factory'] = function ($app) {
+    return new AttachedFilesContextFactory();
+};
+
 $app['upload.service'] = function ($app) {
-    return new UploadService($app['upload.readmodel'], $app['upload.specification.factory']);
+    return new UploadService(
+        $app['upload.readmodel'],
+        $app['upload.specification.factory'],
+        $app['upload.context.factory']
+    );
 };
 
 $app['blog.specification.factory'] = function ($app) {

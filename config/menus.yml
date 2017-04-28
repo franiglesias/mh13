@@ -55,11 +55,11 @@ menus:
             - { label: 'Privado Familias', url: 'https://www.jesuitinas.net/miralba/alumno/login.asp', access: '0', help: '', icon: '', class: '' }
             - { label: Inicio, url: /, access: '0', help: '', icon: '', class: '' }
             - { label: 'El Curso', url: /static/informacion_practica, access: '0', help: '', icon: '', class: '' }
-            - { label: Impresos, url: /contents/channels/view/impresos, access: '0', help: '', icon: '', class: '' }
+            - { label: Impresos, url: /blog/impresos, access: '0', help: '', icon: '', class: '' }
             - { label: 'El colegio', url: /static/bienvenida, access: '0', help: '', icon: '', class: '' }
-            - { label: 'Estudiar en Miralba', url: /contents/static_pages/view/admisiones, access: '0', help: '', icon: '', class: '' }
+            - { label: 'Estudiar en Miralba', url: /static/admisiones, access: '0', help: '', icon: '', class: '' }
             - { label: Profesorado, url: /pages/profesorado, access: '0', help: '', icon: '', class: '' }
-            - { label: APA, url: /contents/channels/view/apa, access: '0', help: '', icon: '', class: '' }
+            - { label: APA, url: /blog/apa, access: '0', help: '', icon: '', class: '' }
             - { label: 'Trabaja con nosotros', url: /cv, access: '0', help: '', icon: '', class: '' }
     proyectos:
         help: ''
@@ -210,7 +210,7 @@ menus:
             - { label: Plurilingüísmo, url: /static/plurilinguismo_y_proyectos_internacionales, access: '0', help: '', icon: comments, class: '' }
             - { label: 'Acción evangelizadora', url: /blog/accion_evangelizadora, access: '0', help: '', icon: plus, class: '' }
             - separator
-            - { label: 'Estudiar en Miralba', url: /contents/static_pages/view/admisiones, access: '0', help: '', icon: book-bookmark, class: '' }
+            - { label: 'Estudiar en Miralba', url: /static/admisiones, access: '0', help: '', icon: book-bookmark, class: '' }
             - separator
             - { label: 'Trabaja con nosotros', url: /cv, access: '0', help: '', icon: target, class: '' }
     curso:
@@ -225,7 +225,7 @@ menus:
             - { label: 'Horarios de atención', url: /static/horarios_de_atencion, access: '0', help: '', icon: clock, class: '' }
             - separator
             - { label: Uniforme, url: /static/uniforme, access: '0', help: '', icon: torsos-female-male, class: '' }
-            - { label: 'Descarga de Impresos', url: /contents/channels/view/impresos, access: '0', help: '', icon: page, class: '' }
+            - { label: 'Descarga de Impresos', url: /blog/impresos, access: '0', help: '', icon: page, class: '' }
             - separator
             - { label: 'Contacto y localización', url: /static/contacto_y_localizacion, access: '0', help: '', icon: map, class: '' }
     familias:

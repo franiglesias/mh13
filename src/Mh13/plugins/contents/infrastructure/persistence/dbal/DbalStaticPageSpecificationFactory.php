@@ -18,7 +18,7 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpa
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetSiblingsForPageWithSlug;
 
 
-class DBalStaticPageSpecificationFactory implements StaticPageSpecificationFactory
+class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFactory
 {
     /**
      * @var Connection

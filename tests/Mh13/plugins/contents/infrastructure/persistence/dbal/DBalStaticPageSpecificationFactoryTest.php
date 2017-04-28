@@ -24,7 +24,7 @@ class DBalStaticPageSpecificationFactoryTest extends TestCase
         $connection = $this->prophesize(Connection::class);
         $builder = $this->prophesize(QueryBuilder::class);
         $connection->createQueryBuilder()->shouldBeCalled()->willReturn($builder);
-        $this->factory = new DBalStaticPageSpecificationFactory($connection->reveal());
+        $this->factory = new DbalStaticPageSpecificationFactory($connection->reveal());
     }
 
     public function test_it_creates_GetPageWithSlug_specification()

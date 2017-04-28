@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\service\upload;
 
 
-abstract class AttachedFilesContext
+class AttachedFilesContext
 {
     protected $alias = 'file';
     protected $model = 'Uploads';

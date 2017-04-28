@@ -10,7 +10,11 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 
 use Doctrine\DBAL\Connection;
+use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedDownloads;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedImages;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedMedia;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\DownloadsOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfCollection;
@@ -27,24 +31,18 @@ class DbalUploadSpecificationFactory implements UploadSpecificationFactory
         $this->expressionBuilder = $connection->getExpressionBuilder();
     }
 
-    public function createImagesOfArticle(string $slug)
+    public function createAttachedImages(AttachedFilesContext $context, string $slug)
     {
-        return new ImagesOfArticle($this->expressionBuilder, $slug);
+        return new AttachedImages($this->expressionBuilder, $context, $slug);
     }
 
-
-    public function createImagesOfCollection(string $collection)
+    public function createAttachedDownloads(AttachedFilesContext $context, string $slug)
     {
-        return new ImagesOfCollection($this->expressionBuilder, $collection);
+        return new AttachedDownloads($this->expressionBuilder, $context, $slug);
     }
 
-    public function createImagesOfStaticPage(string $page)
+    public function createAttachedMedia(AttachedFilesContext $context, string $slug)
     {
-        return new ImagesOfStaticPage($this->expressionBuilder, $page);
-    }
-
-    public function createDownloadsOfArticle(string $article)
-    {
-        return new DownloadsOfArticle($this->expressionBuilder, $article);
+        return new AttachedMedia($this->expressionBuilder, $context, $slug);
     }
 }

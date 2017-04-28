@@ -37,8 +37,8 @@ class DbalUploadReadModel implements UploadReadModel
             'upload',
             $context->getTable(),
             $context->getAlias(),
-            'upload.model = :model AND upload.foreign_key = article.id'
-            )->where($specification->getConditions())->setParameters(
+            'upload.model = :model AND upload.foreign_key = '.$context->getAlias().'.id'
+        )->where($specification->getConditions())->setParameters(
                 $specification->getParameters(),
                 $specification->getTypes()
         )->setParameter('model', $context->getModel())->orderBy('upload.order', 'asc')

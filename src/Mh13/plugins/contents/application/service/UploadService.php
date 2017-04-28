@@ -10,8 +10,7 @@ namespace Mh13\plugins\contents\application\service;
 
 
 use Mh13\plugins\contents\application\readmodel\UploadReadModel;
-use Mh13\plugins\contents\application\service\upload\ArticleContext;
-use Mh13\plugins\contents\application\service\upload\ImageCollectionContext;
+use Mh13\plugins\contents\application\service\upload\AttachedFilesContextFactory;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 
 
@@ -25,50 +24,45 @@ class UploadService
      * @var UploadSpecificationFactory
      */
     private $factory;
+    /**
+     * @var AttachedFilesContextFactory
+     */
+    private $contextFactory;
 
-    public function __construct(UploadReadModel $readModel, UploadSpecificationFactory $factory)
+    public function __construct(
+        UploadReadModel $readModel,
+        UploadSpecificationFactory $factory,
+        AttachedFilesContextFactory $contextFactory
+    )
     {
 
         $this->readModel = $readModel;
         $this->factory = $factory;
-    }
-
-    public function getImagesOfArticle(string $slug)
-    {
-        $specification = $this->factory->createImagesOfArticle($slug);
-
-        return $this->readModel->findUploads($specification, new ArticleContext());
-
+        $this->contextFactory = $contextFactory;
     }
 
     public function getImagesOf(string $object, string $slug)
     {
-        switch ($object) {
-            case 'article':
-                $specification = $this->factory->createImagesOfArticle($slug);
-                break;
-            case 'collection':
-                $specification = $this->factory->createImagesOfCollection($slug);
-                break;
-            case 'static':
-                $specification = $this->factory->createImagesOfStaticPage($slug);
-                break;
-        }
+        $context = $this->contextFactory->getContextFor($object);
+        $specification = $this->factory->createAttachedImages($context, $slug);
 
-        return $this->readModel->findUploads($specification, new ArticleContext());
+        return $this->readModel->findUploads($specification, $context);
     }
 
-    public function getImagesOfCollection(string $slug)
+    public function getDownloadsOf(string $object, string $slug)
     {
-        $specification = $this->factory->createImagesOfCollection($slug);
+        $context = $this->contextFactory->getContextFor($object);
+        $specification = $this->factory->createAttachedDownloads($context, $slug);
 
-        return $this->readModel->findUploads($specification, new ImageCollectionContext());
+        return $this->readModel->findUploads($specification, $context);
     }
 
-    public function getDownloadsOfArticle(string $slug)
+    public function getMediaOf(string $object, string $slug)
     {
-        $specification = $this->factory->createDownloadsOfArticle($slug);
+        $context = $this->contextFactory->getContextFor($object);
+        $specification = $this->factory->createAttachedMedia($context, $slug);
 
-        return $this->readModel->findUploads($specification, new ArticleContext());
+        return $this->readModel->findUploads($specification, $context);
     }
+
 }
