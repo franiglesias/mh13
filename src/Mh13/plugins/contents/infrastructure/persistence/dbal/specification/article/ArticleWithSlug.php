@@ -9,17 +9,15 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
-use Doctrine\DBAL\Query\Expression\ExpressionBuilder;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
 class ArticleWithSlug extends CompositeDbalSpecification
 {
-    public function __construct(ExpressionBuilder $expressionBuilder, string $slug)
+    public function __construct(string $slug)
     {
 
         $this->setParameter('slug', $slug);
-        $this->expressionBuilder = $expressionBuilder;
     }
 
     public function getConditions()

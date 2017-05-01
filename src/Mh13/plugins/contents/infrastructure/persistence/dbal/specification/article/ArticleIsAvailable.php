@@ -9,18 +9,16 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 
-use Doctrine\DBAL\Query\Expression\ExpressionBuilder;
 use Mh13\plugins\contents\domain\Article;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
 class ArticleIsAvailable extends CompositeDbalSpecification
 {
-    public function __construct(ExpressionBuilder $expressionBuilder)
+    public function __construct()
     {
 
         $this->setParameter('published', Article::PUBLISHED);
-        $this->expressionBuilder = $expressionBuilder;
     }
 
     public function getConditions()

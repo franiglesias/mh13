@@ -9,7 +9,6 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload;
 
 
-use Doctrine\DBAL\Query\Expression\ExpressionBuilder;
 use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
@@ -22,10 +21,9 @@ class AttachedMedia extends CompositeDbalSpecification
      */
     private $context;
 
-    public function __construct(ExpressionBuilder $expressionBuilder, AttachedFilesContext $context, string $slug)
+    public function __construct(AttachedFilesContext $context, string $slug)
     {
         $this->setParameter('slug', $slug, 'string');
-        parent::__construct($expressionBuilder);
         $this->context = $context;
     }
 

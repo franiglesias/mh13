@@ -9,16 +9,12 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 
-use Doctrine\DBAL\Query\Expression\ExpressionBuilder;
-
-
 class OrSpecification extends CompositeDbalSpecification
 {
     protected $left;
     protected $right;
 
     public function __construct(
-        ExpressionBuilder $expressionBuilder,
         CompositeDbalSpecification $left,
         CompositeDbalSpecification $right
     ) {
@@ -26,11 +22,11 @@ class OrSpecification extends CompositeDbalSpecification
         $this->right = $right;
         $this->addParameters($left);
         $this->addParameters($right);
-        parent::__construct($expressionBuilder);
+        parent::__construct();
     }
 
     public function getConditions()
     {
-        return $this->expressionBuilder->orX($this->left->getConditions(), $this->right->getConditions());
+        return sprintf('%s OR %s', $this->left->getConditions(), $this->right->getConditions());
     }
 }

@@ -38,7 +38,7 @@ class BlogIsActiveTest extends TestCase
     {
         $expressionBuilder = $this->getExpressionBuilder();
         $blogIsActive = new BlogIsActive($expressionBuilder);
-        $combined = $blogIsActive->and(new BlogWithSlug($expressionBuilder, 'blog_slug'));
+        $combined = $blogIsActive->and(new BlogWithSlug('blog_slug'));
         $expected = $expressionBuilder->andX('active = 1', 'slug = :slug');
         $this->assertEquals($expected, $combined->getConditions());
         $this->assertEquals(['slug' => 'blog_slug'], $combined->getParameters());

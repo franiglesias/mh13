@@ -9,7 +9,6 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 
 
-use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedDownloads;
@@ -23,26 +22,20 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\I
 
 class DbalUploadSpecificationFactory implements UploadSpecificationFactory
 {
-    protected $expressionBuilder;
 
-
-    public function __construct(Connection $connection)
-    {
-        $this->expressionBuilder = $connection->getExpressionBuilder();
-    }
 
     public function createAttachedImages(AttachedFilesContext $context, string $slug)
     {
-        return new AttachedImages($this->expressionBuilder, $context, $slug);
+        return new AttachedImages($context, $slug);
     }
 
     public function createAttachedDownloads(AttachedFilesContext $context, string $slug)
     {
-        return new AttachedDownloads($this->expressionBuilder, $context, $slug);
+        return new AttachedDownloads($context, $slug);
     }
 
     public function createAttachedMedia(AttachedFilesContext $context, string $slug)
     {
-        return new AttachedMedia($this->expressionBuilder, $context, $slug);
+        return new AttachedMedia($context, $slug);
     }
 }

@@ -108,7 +108,7 @@ $app['staticpage.readmodel'] = function ($app) {
 };
 
 $app['staticpage.specification.factory'] = function ($app) {
-    return new DbalStaticPageSpecificationFactory($app['db']);
+    return new DbalStaticPageSpecificationFactory();
 };
 
 $app['staticpage.service'] = function ($app) {
@@ -120,7 +120,7 @@ $app['upload.readmodel'] = function ($app) {
 };
 
 $app['upload.specification.factory'] = function ($app) {
-    return new DbalUploadSpecificationFactory($app['db']);
+    return new DbalUploadSpecificationFactory();
 };
 
 $app['upload.context.factory'] = function ($app) {
@@ -136,7 +136,7 @@ $app['upload.service'] = function ($app) {
 };
 
 $app['blog.specification.factory'] = function ($app) {
-    return new DBalBlogSpecificationFactory($app['db']);
+    return new DBalBlogSpecificationFactory();
 };
 
 $app['blog.readmodel'] = function ($app) {

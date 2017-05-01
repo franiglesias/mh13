@@ -9,33 +9,21 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification;
 
 
-use Doctrine\DBAL\Query\Expression\ExpressionBuilder;
-
-
 abstract class CompositeDbalSpecification implements DbalSpecification
 {
-    /**
-     * @var ExpressionBuilder
-     */
-    protected $expressionBuilder;
     protected $parameters = [];
     protected $types = [];
-
-    public function __construct(ExpressionBuilder $expressionBuilder)
-    {
-        $this->expressionBuilder = $expressionBuilder;
-    }
 
     abstract public function getConditions();
 
     public function and (CompositeDbalSpecification $specification)
     {
-        return new AndSpecification($this->expressionBuilder, $this, $specification);
+        return new AndSpecification($this, $specification);
     }
 
     public function or (CompositeDbalSpecification $specification)
     {
-        return new OrSpecification($this->expressionBuilder, $this, $specification);
+        return new OrSpecification($this, $specification);
     }
 
     protected function addParameters(CompositeDbalSpecification $specification)

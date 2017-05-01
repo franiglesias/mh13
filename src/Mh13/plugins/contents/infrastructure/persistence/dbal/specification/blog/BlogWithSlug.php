@@ -9,23 +9,20 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog;
 
 
-use Doctrine\DBAL\Query\Expression\ExpressionBuilder;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
 class BlogWithSlug extends CompositeDbalSpecification
 {
 
-    public function __construct(ExpressionBuilder $expressionBuilder, string $slug)
+    public function __construct(string $slug)
     {
         $this->setParameter('slug', $slug);
-
-        parent::__construct($expressionBuilder);
     }
 
     public function getConditions()
     {
-        return $this->expressionBuilder->eq('blog.slug', ':slug');
+        return 'blog.slug = :slug';
 
     }
 
