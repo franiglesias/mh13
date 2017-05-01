@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\application\service\upload;
 
 class ImageCollectionContext extends AttachedFilesContext
 {
-    protected $alias = 'collection';
-    protected $model = 'ImageCollection';
-    protected $table = 'image_collections';
+    const ALIAS = 'collection';
+    const MODEL = 'ImageCollection';
+    const TABLE = 'image_collections';
 }

@@ -24,6 +24,6 @@ class ArticleIsAvailable extends CompositeDbalSpecification
     public function getConditions()
     {
 
-        return 'article.status = :published and article.pubDate <= now() and (article.expiration is null or article.expiration > now() ) and blog.active = 1';
+        return 'article.status = :published and article.pubDate <= now() and (article.expiration is null or article.expiration > now()) and blog.active = 1';
     }
 }

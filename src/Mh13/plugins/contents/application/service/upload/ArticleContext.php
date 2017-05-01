@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\application\service\upload;
 
 class ArticleContext extends AttachedFilesContext
 {
-    protected $alias = 'article';
-    protected $model = 'Item';
-    protected $table = 'items';
+    const ALIAS = 'article';
+    const MODEL = 'Item';
+    const TABLE = 'items';
 }

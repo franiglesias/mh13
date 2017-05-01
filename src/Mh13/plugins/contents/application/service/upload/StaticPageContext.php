@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\application\service\upload;
 
 class StaticPageContext extends AttachedFilesContext
 {
-    protected $alias = 'page';
-    protected $model = 'StaticPage';
-    protected $table = 'static_pages';
+    const ALIAS = 'page';
+    const MODEL = 'StaticPage';
+    const TABLE = 'static_pages';
 }

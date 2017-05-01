@@ -11,16 +11,16 @@ namespace Mh13\plugins\contents\application\service\upload;
 
 class AttachedFilesContext
 {
-    protected $alias = 'file';
-    protected $model = 'Uploads';
-    protected $table = 'uploads';
+    const ALIAS = 'file';
+    const MODEL = 'Uploads';
+    const TABLE = 'uploads';
 
     /**
      * @return string
      */
     public function getAlias(): string
     {
-        return $this->alias;
+        return self::ALIAS;
     }
 
     /**
@@ -28,7 +28,7 @@ class AttachedFilesContext
      */
     public function getModel(): string
     {
-        return $this->model;
+        return self::MODEL;
     }
 
     /**
@@ -36,6 +36,6 @@ class AttachedFilesContext
      */
     public function getTable(): string
     {
-        return $this->table;
+        return self::TABLE;
     }
 }
