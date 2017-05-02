@@ -20,7 +20,7 @@ class AttachedFilesContext
      */
     public function getAlias(): string
     {
-        return self::ALIAS;
+        return static::ALIAS;
     }
 
     /**
@@ -28,7 +28,7 @@ class AttachedFilesContext
      */
     public function getModel(): string
     {
-        return self::MODEL;
+        return static::MODEL;
     }
 
     /**
@@ -36,6 +36,6 @@ class AttachedFilesContext
      */
     public function getTable(): string
     {
-        return self::TABLE;
+        return static::TABLE;
     }
 }
