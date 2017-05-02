@@ -43,7 +43,7 @@
 
 {% block sidebar %}
     {% import 'macros/blocks.twig' as blocks %}
-    {{ blocks.widget('Resumen', article.content|length > 50 ? article.content|striptags|slice(0, 50) ~ '...' : article.content|striptags, 'fi-check' ) }}
+    {{ blocks.widget('Resumen', article.content|striptags|abstract, 'fi-check' ) }}
     {% include 'plugins/contents/items/widgets/mdata.twig' %}
     {% include 'plugins/contents/items/widgets/social.twig' %}
     {% include 'plugins/contents/items/widgets/tags.twig' %}

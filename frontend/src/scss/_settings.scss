@@ -46,7 +46,7 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
-$foundation-palette: ( primary: #642f6c, secondary: #ff8200, success: #008000, warning: #ffae00, alert: #ec5840, );
+$foundation-palette: (primary: #642f6c, secondary: #ff8200, success: #008000, warning: #ffae00, alert: #ec5840,);
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -70,27 +70,30 @@ $spacing: 1rem;
 $interface-font: 'Montserrat', sans-serif;
 // 2. Breakpoints
 // --------------
-$breakpoints: ( small: 0, medium: 640px, large: 1024px, xlarge: 1200px, xxlarge: 1440px, );
+$breakpoints: (small: 0, medium: 640px, large: 1024px, xlarge: 1200px, xxlarge: 1440px,);
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);
 // 3. The Grid
 // -----------
 $grid-row-width: $global-width;
 $grid-column-count: 12;
-$grid-column-gutter: ( small: 20px, medium: 30px, );
+$grid-column-gutter: (small: 20px, medium: 30px,);
 $grid-column-align-edge: true;
 $block-grid-max: 8;
+
 // 4. Base Typography
 // ------------------
 // $header-font-family: $body-font-family;
-$header-font-family: 'Signika', 'Helvetica Neue', sans-serif;
+$header-font-family: 'Oswald', 'Helvetica Neue', sans-serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: .5rem;
-$header-styles: ( small: ( 'h1': ('font-size': 24), 'h2': ('font-size': 20), 'h3': ('font-size': 19), 'h4': ('font-size': 18), 'h5': ('font-size': 17), 'h6': ('font-size': 16), ), medium: ( 'h1': ('font-size': 48), 'h2': ('font-size': 40), 'h3': ('font-size': 31), 'h4': ('font-size': 25), 'h5': ('font-size': 20), 'h6': ('font-size': 16), ), );
+$header-styles: (
+        small: ('h1': ('font-size': 2rem), 'h2': ('font-size': 1.5rem), 'h3': ('font-size': 1.3rem), 'h4': ('font-size': 1.2rem), 'h5': ('font-size': 1rem), 'h6': ('font-size': 1rem),),
+        medium: ('h1': ('font-size': 2rem), 'h2': ('font-size': 1.5rem), 'h3': ('font-size': 1.3rem), 'h4': ('font-size': 1.2rem), 'h5': ('font-size': 1rem), 'h6': ('font-size': 1rem),),);
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
@@ -190,7 +193,7 @@ $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
-$button-sizes: ( tiny: .6rem, small: .75rem, default: .9rem, large: 1.25rem, );
+$button-sizes: (tiny: .6rem, small: .75rem, default: .9rem, large: 1.25rem,);
 $button-palette: $foundation-palette;
 $button-opacity-disabled: .25;
 $button-background-hover-lightness: -20%;
@@ -226,9 +229,9 @@ $card-margin: $global-margin;
 // 15. Close Button
 // ----------------
 $closebutton-position: right top;
-$closebutton-offset-horizontal: ( small: .66rem, medium: 1rem, );
-$closebutton-offset-vertical: ( small: .33em, medium: .5rem, );
-$closebutton-size: ( small: 1.5em, medium: 2em, );
+$closebutton-offset-horizontal: (small: .66rem, medium: 1rem,);
+$closebutton-offset-vertical: (small: .33em, medium: .5rem,);
+$closebutton-size: (small: 1.5em, medium: 2em,);
 $closebutton-lineheight: 1;
 $closebutton-color: $dark-gray;
 $closebutton-color-hover: $black;
@@ -247,7 +250,7 @@ $dropdown-border: 1px solid $medium-gray;
 $dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;
-$dropdown-sizes: ( tiny: 100px, small: 200px, large: 400px, );
+$dropdown-sizes: (tiny: 100px, small: 200px, large: 400px,);
 // 18. Dropdown Menu
 // -----------------
 $dropdownmenu-arrows: true;
@@ -372,7 +375,7 @@ $progress-meter-background: $primary-color;
 $progress-radius: $global-radius; // 28. Responsive Embed
 // --------------------
 $responsive-embed-margin-bottom: rem-calc(16);
-$responsive-embed-ratios: ( default: 4 by 3, widescreen: 16 by 9, ); // 29. Reveal
+$responsive-embed-ratios: (default: 4 by 3, widescreen: 16 by 9,); // 29. Reveal
 // ----------
 $reveal-background: $white;
 $reveal-width: 600px;

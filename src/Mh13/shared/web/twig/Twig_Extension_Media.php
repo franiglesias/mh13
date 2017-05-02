@@ -2,6 +2,8 @@
 
 namespace Mh13\shared\web\twig;
 
+use Mh13\shared\web\twig\filter\Humanizer;
+use Mh13\shared\web\twig\filter\Summarizer;
 use Twig_Extension;
 use Twig_SimpleFilter;
 
@@ -12,18 +14,9 @@ class Twig_Extension_Media extends Twig_Extension
 
     public function getFilters()
     {
-        return array(
+        return [
             new Twig_SimpleFilter(
-                'readable_size', function ($size) {
-                if ($size > 1048576) {
-                    return round(1048576 / $size, 2).' MB';
-                }
-                if ($size > 1024) {
-                    return round(1024 / $size, 2).' KB';
-                }
-
-                return $size.' bytes';
-            }
+                'readable_size', [Humanizer::class, 'humanizeFileSize']
             ),
 
             new Twig_SimpleFilter(
@@ -44,6 +37,10 @@ class Twig_Extension_Media extends Twig_Extension
             ),
 
             new Twig_SimpleFilter(
+                'abstract', [Summarizer::class, 'summarizeText']
+            ),
+
+            new Twig_SimpleFilter(
                 'parse', function ($environment, $text) {
                 $this->environment = $environment;
                 $buildYoutubePlayer = function ($videoId) {
@@ -56,9 +53,9 @@ class Twig_Extension_Media extends Twig_Extension
                 $text = preg_replace_callback($patterns, $buildYoutubePlayer, $text);
 
                 return $text;
-            }, array('needs_environment' => true)
+            }, ['needs_environment' => true]
             ),
-        );
+        ];
     }
 
 

@@ -1,5 +1,4 @@
 {% macro index(article, channel, image) %}
-    {% set abstract = article.content | striptags | slice(0, 50) ~ '...' %}
     <div class="article media-object">
         {% if image %}
             <div class="media-object-section">
@@ -18,7 +17,7 @@
                     </span>
                 {% endif %}
             </div>
-            <p>{{ abstract }}</p>
+            <p>{{ article.content | striptags| abstract(50) |raw }}</p>
         </div>
     </div>
 {% endmacro index %}
@@ -61,7 +60,7 @@
             <div class="metadata">
                 <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
             </div>
-            <p>{{ abstract }}</p>
+            <p>{{ article.content | striptags| abstract(50) | raw }}</p>
         </div>
     </div>
 {% endmacro channel_index %}
