@@ -12,6 +12,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\ActiveBlogWithSlug;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\BlogIsActive;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\BlogIsExternal;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\BlogWithSlug;
 
 
@@ -23,5 +24,22 @@ class DbalBlogSpecificationFactory implements BlogSpecificationFactory
         $blogIsActive = new BlogIsActive();
 
         return $blogIsActive->and(new BlogWithSlug($slug));
+    }
+
+    public function createBlogIsExternal()
+    {
+        return new BlogIsExternal();
+    }
+
+    public function createBlogIsActive()
+    {
+        return new BlogIsActive();
+    }
+
+    public function createPublicBlogs()
+    {
+        $blogIsActive = new BlogIsActive();
+
+        return $blogIsActive->and(new BlogIsExternal());
     }
 }

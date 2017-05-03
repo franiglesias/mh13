@@ -211,7 +211,7 @@ $app->get('/uploads/collection/{type}/{collection}', UploadController::class.'::
 $app->get('/uploads/downloads/{slug}', UploadController::class.'::downloads');
 
 // Compatibility with old route scheme
-
+$app->get('/contents/channels/external', BlogController::class.'::public');
 $app->get('/static/{slug}', StaticPageController::class.'::view');
 $app->get('/page/{page}', PageController::class.'::view');
 $app->get('/site/{slug}', SiteController::class.'::view');

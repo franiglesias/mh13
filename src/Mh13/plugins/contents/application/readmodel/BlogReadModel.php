@@ -11,4 +11,6 @@ namespace Mh13\plugins\contents\application\readmodel;
 interface BlogReadModel
 {
     public function getBlog($specification);
+
+    public function findBlogs($specification);
 }

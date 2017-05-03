@@ -39,4 +39,12 @@ class BlogService
         return $blog;
     }
 
+    public function getPublicBlogs()
+    {
+        $specification = $this->specificationFactory->createPublicBlogs();
+        $blogs = $this->readmodel->findBlogs($specification);
+
+        return $blogs;
+    }
+
 }
