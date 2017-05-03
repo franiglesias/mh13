@@ -75,4 +75,10 @@ class HumanizerSpec extends ObjectBehavior
         $this::humanizePlayTime($playtime)->shouldBe('01:16:21');
 
     }
+
+    public function it_humanizes_file_names()
+    {
+        $file = 'example_of_file_name';
+        $this::humanizeFileName($file)->shouldBe('Example of file name');
+    }
 }
