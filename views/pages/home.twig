@@ -21,7 +21,8 @@
             {{ modules.widget('mh-catalog-announces-feed', '/articles/catalog?blogs[]=anuncios&sticky=true&layout=feed', 'Tablón de anuncios', '', 'mh-catalog') }}
         </div>
         <div class="tabs-panel" id="mh-resto">
-            {{ modules.widget('mh-catalog-all-feed', '/articles/catalog?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed', 'Últimas novedades', '', 'mh-catalog') }}
+            {% include 'elements/modules/latest.twig' %}
+            {#{{ modules.widget('mh-catalog-all-feed', '/articles/catalog?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed', 'Últimas novedades', '', 'mh-catalog') }}#}
         </div>
     </div>
 {% endblock %}

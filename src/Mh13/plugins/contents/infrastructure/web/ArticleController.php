@@ -46,6 +46,15 @@ class ArticleController
         );
     }
 
+    public function feed(Request $request, Application $app)
+    {
+        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
+        $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
+
+        return $app->json($articles);
+    }
+
+
     /**
      * Shows a view for the article specified by a sl
      *

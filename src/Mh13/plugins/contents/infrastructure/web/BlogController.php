@@ -32,12 +32,7 @@ class BlogController
     {
         $blogs = $app['blog.service']->getPublicBlogs();
 
-        return $app['twig']->render(
-            'plugins/contents/channels/external.twig',
-            [
-                'blogs' => $blogs,
-            ]
-        );
+        return $app->json($blogs);
     }
 
 }

@@ -29,7 +29,8 @@
         {{ modules.module('mh-global-wide-menu', '/ui/menubar/main/wide') }}
 	</div>
 	<div class="row">
-		{{ modules.module('mh-global-channels-available', '/contents/channels/external') }}
+        {% include 'elements/modules/publicblogs.twig' %}
+        {#{{ modules.module('mh-global-channels-available', '/contents/channels/external') }}#}
 	</div>
 	<div class="row">
 		<div class="small-12">
