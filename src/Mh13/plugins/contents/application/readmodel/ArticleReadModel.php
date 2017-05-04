@@ -28,5 +28,7 @@ interface ArticleReadModel
 
     public function max($max): ArticleReadModel;
 
+    public function count($specification);
+
 
 }

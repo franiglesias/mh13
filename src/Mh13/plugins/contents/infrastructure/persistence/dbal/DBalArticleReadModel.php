@@ -117,6 +117,34 @@ class DBalArticleReadModel implements ArticleReadModel
 
     }
 
+    public function count($specification)
+    {
+        $builder = $this->connection->createQueryBuilder();
+        $builder->select(
+            'count(article.id) as count'
+        )->from(
+            'items',
+            'article'
+        )->leftJoin(
+            'article',
+            'blogs',
+            'blog',
+            'article.channel_id = blog.id'
+        )->where(
+            $specification->getConditions()
+        )->setParameters(
+            $specification->getParameters(),
+            $specification->getTypes()
+        )
+        ;
+
+        $result = $builder->execute()->fetch();
+
+        return $result['count'];
+
+    }
+
+
     public function ignoringStickFlag($ignore = false): ArticleReadModel
     {
         $this->keepStickOnTop = !$ignore;

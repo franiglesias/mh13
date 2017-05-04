@@ -19,7 +19,10 @@ class ArticleProvider implements ControllerProviderInterface
     {
         $articles = $app['controllers_factory'];
         $articles->get('/catalog', ArticleController::class."::catalog");
-        $articles->get('/feed', ArticleController::class."::feed");
+        $articles->get(
+            '/',
+            ArticleController::class."::feed"
+        ); //->when("request.headers.get('Accept') matches '/application\\\\/json/'");
         $articles->get('/{slug}', ArticleController::class."::view");
         return $articles;
     }

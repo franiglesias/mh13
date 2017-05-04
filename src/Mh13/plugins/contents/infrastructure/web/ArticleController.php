@@ -50,8 +50,50 @@ class ArticleController
     {
         $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
         $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
+        $total = $app['article.service']->getArticlesCountForRequest($articleRequest);
 
-        return $app->json($articles);
+        $maxPages = ceil($total / $articleRequest->max());
+
+        if (!$articles) {
+            $error = ['code' => 204, 'message' => 'No articles found for this query.'];
+
+            return $app->json($error, 204);
+        }
+        $url = $request->getUri();
+        $first = preg_replace('/page\=\d+/', 'page=1', $url);
+        $prev = preg_replace_callback(
+            '/page\=\d+/',
+            function ($page) {
+                list(, $number) = explode('=', $page[0]);
+                if ($number > 1) {
+                    return 'page='.($number - 1);
+                }
+
+                return $page[0];
+            },
+            $url
+        );
+        $next = preg_replace_callback(
+            '/page\=\d+/',
+            function ($page) use ($maxPages) {
+                list(, $number) = explode('=', $page[0]);
+                if ($number < $maxPages) {
+                    return 'page='.($number + 1);
+                }
+
+                return $page[0];
+            },
+            $url
+        );
+
+        return $app->json(
+            $articles,
+            200,
+            [
+                'X-Max-Pages' => $maxPages,
+                'Link' => ['<'.$first.'>; rel=first', "<$prev>; rel=prev", "<$next>; rel=next"],
+            ]
+        );
     }
 
 

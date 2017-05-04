@@ -4,7 +4,7 @@
 <div id="mh-catalog-all-feed"></div>
 <script type="text/javascript">
     ReactDOM.render(React.createElement(CatalogView, {
-        url: '/articles/feed?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed',
+        url: '/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed',
         title: 'Ültimos artículos',
         pollInterval: 30000
     }), document.getElementById('mh-catalog-all-feed'));

@@ -30,8 +30,7 @@ class ArticleService
     public function __construct(
         ArticleReadModel $readmodel,
         ArticleSpecificationFactory $specificationFactory
-    )
-    {
+    ) {
         $this->readmodel = $readmodel;
         $this->specificationFactory = $specificationFactory;
     }
@@ -49,10 +48,20 @@ class ArticleService
         $specification = $this->specificationFactory->createFromCatalogRequest($request);
 
         return $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
-                $request->max()
-            )->findArticles($specification)
+            $request->max()
+        )->findArticles($specification)
             ;
 
+    }
+
+    public function getArticlesCountForRequest(ArticleRequest $request)
+    {
+        $specification = $this->specificationFactory->createFromCatalogRequest($request);
+
+        return $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
+            $request->max()
+        )->count($specification)
+            ;
     }
 
 }

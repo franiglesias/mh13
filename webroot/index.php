@@ -216,7 +216,7 @@ $app->get('/static/{slug}', StaticPageController::class.'::view');
 $app->get('/page/{page}', PageController::class.'::view');
 $app->get('/site/{slug}', SiteController::class.'::view');
 $app->get('/blog/{slug}', BlogController::class.'::view');
-$app->get('/{slug}', ArticleController::class.'::view');
+$app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 
 // Default rout render home page
 $app->get(
