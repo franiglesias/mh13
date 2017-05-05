@@ -26,7 +26,6 @@ var CatalogView = React.createClass({
                 if (jqXHR.status != "200") {
                     return;
                 }
-
                 this.setState({
                     data: data,
                     links: parse_link_header(jqXHR.getResponseHeader('Link')),
@@ -55,7 +54,7 @@ var CatalogView = React.createClass({
         this.setState({url: this.state.links['rel=prev'], shouldLoad: true});
         this.loadArticles();
     },
-    goPage: function (page, event) {
+    firstPage: function (event) {
         event.preventDefault();
         this.setState({url: this.state.links['rel=first'], shouldLoad: true});
         this.loadArticles();
@@ -63,22 +62,35 @@ var CatalogView = React.createClass({
     render: function () {
         return (
             <div className="mh-catalog-list">
-                <div className="button-group expanded"><span className="secondary button">Página {this.state.page}
-                    de {this.state.maxPages} </span>
-                    {this.state.page > 1 &&
-                    <button className="button" onClick={this.goPage.bind(this, 1)}>Portada</button>                    }
-                    {this.state.page == 1 &&
-                    <button className="button disabled" onClick={this.goPage.bind(this, 1)} disabled>Portada</button>}
-                    {this.state.page > 1 && <button className="button" onClick={this.prevPage}>Más recientes</button>}
-                    {this.state.page == 1 &&
-                    <button className="button disabled" onClick={this.prevPage} disabled>Más recientes</button>}
-                    {this.state.page < this.state.maxPages &&
-                    <button className="button" onClick={this.nextPage}>Más antiguas</button> }
-                    {this.state.page == this.state.maxPages &&
-                    <button className="button disabled" onClick={this.nextPage} disabled>Más antiguas</button>}
-                </div>
+                <PaginationBar first={this.firstPage} prev={this.prevPage} next={this.nextPage} page={this.state.page}
+                               maxPages={this.state.maxPages}/>
                 <CatalogArticleList data={this.state.data}/>
             </div>
         )
+    }
+});
+
+var Button = React.createClass({
+    render: function () {
+        if (this.props.disabled) {
+            return (<button className="button disabled" disabled>{this.props.label}</button>)
+        }
+        return (<button className="button" onClick={this.props.action}>{this.props.label}</button>);
+
+    }
+});
+
+var PaginationBar = React.createClass({
+    render: function () {
+        return (
+            <div className="button-group secondary expanded">
+                <span className="primary button">Página {this.props.page} de {this.props.maxPages} </span>
+                <Button action={this.props.first} label="Portada" disabled={this.props.page == 1}/>
+                <Button action={this.props.prev} label="Más recientes" disabled={this.props.page == 1}/>
+                <Button action={this.props.next} label="Más antiguas"
+                        disabled={this.props.page == this.props.maxPages}/>
+            </div>
+        )
+
     }
 });

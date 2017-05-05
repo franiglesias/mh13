@@ -1,21 +1,15 @@
 var Article = React.createClass({
     render: function () {
         var article = this.props.article;
-        date = new Date(article.pubDate);
+        date = article.pubDate.replace(/(\d+)-(\d+)-(\d+).*/, '$3/$2/$1');
         return (
             <div className="article media-object" key={article.id}>
-                { article.image && <div className="media-object-section">
-                    <div className="mh-image-crop large" style={{backgroundImage: 'url(' + article.image + ')'}}></div>
-                </div>
-                }
+                <FeedArticleImage size="large" image={article.image}/>
+
                 <div className="media-object-section main-section">
                     <h2><a href={"/" + article.slug}>{article.title}</a></h2>
-                    <div className="metadata">
-                        <span className="date left">{ date.toLocaleDateString('es-ES') }</span>
-                        <span className="channel right">
-                        <a href={"/blog/" + article.blog_slug}>{ article.blog_title }</a>
-                    </span>
-                    </div>
+                    <FeedArticleMetadata date={date} slug={article.blog_slug} label={article.blog_title}/>
+                    <p></p>
                     <p><a href={"/" + article.slug} className="button secondary small">Leer más</a></p>
 
                 </div>
@@ -24,3 +18,28 @@ var Article = React.createClass({
     }
 });
 
+var FeedArticleImage = React.createClass({
+    render: function () {
+        if (this.props.image) {
+            return (
+                <div className="media-object-section">
+                    <div className={"mh-image-crop " + this.props.size}
+                         style={{backgroundImage: 'url(' + this.props.image + ')'}}></div>
+                </div>
+            )
+        }
+        return (null);
+    }
+});
+
+var FeedArticleMetadata = React.createClass({
+    render: function () {
+        return (
+            <div className="metadata">
+                <span className="date left">{ this.props.date } </span>
+                <span className="channel right"><a href={"/blog/" + this.props.slug }>{ this.props.label }</a></span>
+            </div>
+
+        )
+    }
+});
