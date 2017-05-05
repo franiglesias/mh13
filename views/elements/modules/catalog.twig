@@ -1,11 +1,11 @@
 <script src="/assets/js/modules/catalog/article.js"></script>
 <script src="/assets/js/modules/catalog/catalogarticlelist.js"></script>
 <script src="/assets/js/modules/catalog/catalogview.js"></script>
-<div id="mh-catalog-all-feed"></div>
+<div id="{{ element }}"></div>
 <script type="text/javascript">
     ReactDOM.render(React.createElement(CatalogView, {
-        url: '/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed',
-        title: 'Ültimos artículos',
+        url: "{{ url|raw }}",
+        title: "{{ title }}",
         pollInterval: 1000
-    }), document.getElementById('mh-catalog-all-feed'));
+    }), document.getElementById("{{ element }}"));
 </script>

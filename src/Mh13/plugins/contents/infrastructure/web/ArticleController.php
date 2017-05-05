@@ -10,7 +10,6 @@ namespace Mh13\plugins\contents\infrastructure\web;
 
 
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
-use Mh13\plugins\contents\application\service\GetArticleRequest;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\model\article\ArticleListView;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\model\article\FullArticleView;
 use Silex\Application;
@@ -51,7 +50,7 @@ class ArticleController
         $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
         $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
         $total = $app['article.service']->getArticlesCountForRequest($articleRequest);
-
+        $currentPage = $articleRequest->getPage();
         $maxPages = ceil($total / $articleRequest->max());
 
         if (!$articles) {
@@ -60,7 +59,14 @@ class ArticleController
             return $app->json($error, 204);
         }
         $url = $request->getUri();
+        $url = str_replace(['&url=articles', '%2F'], '', $url);
+
+        if (strpos($url, 'page=') === false) {
+            $url = $url.'&page=1';
+        }
+
         $first = preg_replace('/page\=\d+/', 'page=1', $url);
+
         $prev = preg_replace_callback(
             '/page\=\d+/',
             function ($page) {
@@ -91,6 +97,7 @@ class ArticleController
             200,
             [
                 'X-Max-Pages' => $maxPages,
+                'X-Current-Page' => $currentPage,
                 'Link' => ['<'.$first.'>; rel=first', "<$prev>; rel=prev", "<$next>; rel=next"],
             ]
         );

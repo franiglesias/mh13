@@ -22,7 +22,7 @@ class ArticleRequestBuilder
 //    private $labels = [];
     // pagination
 
-    private $page;
+    private $page = 1;
     private $limit = self::LIMIT;
 
     // restrictions

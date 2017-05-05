@@ -4,7 +4,7 @@ function parse_link_header(header) {
     for (i = 0; i < parts.length; i++) {
         var section = parts[i].split(';');
         var url = section[0].replace(/<([^>]+)>/, '$1').trim();
-        var name = section[1].replace(/rel="([^"]+)"/, '$1').trim();
+        var name = section[1].replace(/rel=\"([^\"]+)\"/, '$1').trim();
         links[name] = url;
     }
     return links;
@@ -13,23 +13,30 @@ function parse_link_header(header) {
 
 var CatalogView = React.createClass({
     getInitialState: function () {
-        return {data: [], page: 1, links: []};
+        return {data: [], page: 1, shouldLoad: true, links: [], url: this.props.url, maxPages: 100};
     },
     loadArticles: function () {
+        if (!this.state.shouldLoad) {
+            return;
+        }
         $.ajax({
-            url: this.props.url + '&page=' + this.state.page,
+            url: this.state.url,
             dataType: 'json',
             success: function (data, status, jqXHR) {
                 if (jqXHR.status != "200") {
-                    this.state.page = this.state.page - 1;
                     return;
                 }
-                var links = parse_link_header(jqXHR.getResponseHeader('Link'));
-                this.setState({data: data, links: links});
+
+                this.setState({
+                    data: data,
+                    links: parse_link_header(jqXHR.getResponseHeader('Link')),
+                    page: jqXHR.getResponseHeader('X-Current-Page'),
+                    maxPages: jqXHR.getResponseHeader('X-Max-Pages'),
+                    shouldLoad: false
+                });
 
             }.bind(this),
             error: function (xhr, status, err) {
-                this.state.page = this.state.page - 1;
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
@@ -40,34 +47,36 @@ var CatalogView = React.createClass({
     },
     nextPage: function (event) {
         event.preventDefault();
-        this.state.page = this.state.page + 1;
+        this.setState({url: this.state.links['rel=next'], shouldLoad: true});
         this.loadArticles();
     },
     prevPage: function (event) {
         event.preventDefault();
-        if (this.state.page > 1) {
-            this.state.page = this.state.page - 1;
-        } else {
-            this.state.page = 1;
-        }
+        this.setState({url: this.state.links['rel=prev'], shouldLoad: true});
         this.loadArticles();
     },
     goPage: function (page, event) {
         event.preventDefault();
-        this.state.page = page;
+        this.setState({url: this.state.links['rel=first'], shouldLoad: true});
         this.loadArticles();
     },
     render: function () {
         return (
             <div className="mh-catalog-list">
-                <p>Página {this.state.page} -- {this.state.page > 1 &&
-                <button onClick={this.goPage.bind(this, 1)}>Portada</button> }
-                    {this.state.page > 1 && <button onClick={this.prevPage}>Más recientes</button> }
-                    <button onClick={this.nextPage}>Más antiguas</button>
-                </p>
-                <p>
-                    <a href={this.state.links['rel=first']}>Primera página</a>
-                </p>
+                <div className="button-group expanded"><span className="secondary button">Página {this.state.page}
+                    de {this.state.maxPages} </span>
+                    {this.state.page > 1 &&
+                    <button className="button" onClick={this.goPage.bind(this, 1)}>Portada</button>                    }
+                    {this.state.page == 1 &&
+                    <button className="button disabled" onClick={this.goPage.bind(this, 1)} disabled>Portada</button>}
+                    {this.state.page > 1 && <button className="button" onClick={this.prevPage}>Más recientes</button>}
+                    {this.state.page == 1 &&
+                    <button className="button disabled" onClick={this.prevPage} disabled>Más recientes</button>}
+                    {this.state.page < this.state.maxPages &&
+                    <button className="button" onClick={this.nextPage}>Más antiguas</button> }
+                    {this.state.page == this.state.maxPages &&
+                    <button className="button disabled" onClick={this.nextPage} disabled>Más antiguas</button>}
+                </div>
                 <CatalogArticleList data={this.state.data}/>
             </div>
         )

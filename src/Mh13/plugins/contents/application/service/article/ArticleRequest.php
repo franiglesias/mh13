@@ -22,7 +22,7 @@ class ArticleRequest
     /**
      * @var int
      */
-    protected $page;
+    protected $page = 1;
     /**
      * @var int
      */
@@ -77,12 +77,6 @@ class ArticleRequest
         $this->public = $public;
     }
 
-    public function setPage($page, $max)
-    {
-        $this->page = $page;
-        $this->max = $max;
-    }
-
     public function from()
     {
         if (!$this->page) {
@@ -127,7 +121,6 @@ class ArticleRequest
         $this->excludedBlogs = $excludedBlogs;
     }
 
-
     /**
      * @param mixed $sticky
      */
@@ -139,6 +132,20 @@ class ArticleRequest
     public function ignoreSticky(): bool
     {
         return $this->ignoreSticky;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPage(): int
+    {
+        return $this->page;
+    }
+
+    public function setPage($page, $max)
+    {
+        $this->page = $page;
+        $this->max = $max;
     }
 
 
