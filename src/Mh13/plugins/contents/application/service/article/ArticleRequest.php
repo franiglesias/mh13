@@ -87,6 +87,11 @@ class ArticleRequest
 
     }
 
+    public function maxPages(int $total)
+    {
+        return ceil($total / $this->max());
+    }
+
     public function max()
     {
         return $this->max;
