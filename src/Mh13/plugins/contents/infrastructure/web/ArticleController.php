@@ -55,7 +55,6 @@ class ArticleController
         }
 
         $currentPage = $articleRequest->getPage();
-
         $maxPages = $articleRequest->maxPages($app['article.service']->getArticlesCountForRequest($articleRequest));
 
 
@@ -81,16 +80,24 @@ class ArticleController
      */
     protected function computeLinks(Request $request, $currentPage, $maxPages): array
     {
-        $url = $this->cleanUrlAndInjectPageIfNeeded($request);
+        $url = $this->prepareTemplateURL($request);
 
-        $prevPage = $currentPage > 1 ? $currentPage - 1 : 1;
-        $nextPage = $currentPage < $maxPages ? $currentPage + 1 : $maxPages;
 
-        $first = preg_replace('/page\=\d+/', 'page=1', $url);
-        $prev = preg_replace('/page\=\d+/', 'page='.$prevPage, $url);
-        $next = preg_replace('/page\=\d+/', 'page='.$nextPage, $url);
+        $links = [
+            ['name' => 'first', 'page' => 1],
+            ['name' => 'prev', 'page' => $currentPage > 1 ? $currentPage - 1 : 1],
+            ['name' => 'next', 'page' => $currentPage < $maxPages ? $currentPage + 1 : $maxPages],
+        ];
 
-        return ["<$first>; rel=first", "<$prev>; rel=prev", "<$next>; rel=next"];
+        return array_map(
+            function ($link) use ($url) {
+                $linkUrl = preg_replace('/page\=\d+/', 'page='.$link['page'], $url);
+
+                return sprintf('<%s>; rel=%s', $linkUrl, $link['name']);
+            },
+            $links
+        );
+
     }
 
     /**
@@ -98,7 +105,7 @@ class ArticleController
      *
      * @return mixed|string
      */
-    protected function cleanUrlAndInjectPageIfNeeded(Request $request)
+    protected function prepareTemplateURL(Request $request)
     {
         $url = str_replace(['&url=articles', '%2F'], '', $request->getUri());
 
