@@ -26,6 +26,12 @@ var foundationSrc = [
     "node_modules/foundation-sites/dist/js/plugins/foundation.util.triggers.js",
     "node_modules/foundation-sites/vendor/jquery/dist/jquery.js"
 ];
+
+var vueSrc = [
+    "node_modules/vue/dist/vue.js",
+    "node_modules/vue-resource/dist/vue-resource.js"
+];
+
 // Tasks
 
 gulp.task("default", [
@@ -44,6 +50,7 @@ gulp.task("update", [
     "copy-foundation-icons",
     "copy-images",
     "copy-jquery-te",
+    "copy-vue",
     "default"
 ]);
 
@@ -102,6 +109,11 @@ gulp.task("copy-react-dom", function () {
 
 gulp.task("copy-foundation", function () {
     gulp.src(foundationSrc)
+        .pipe(gulp.dest(jsVendorSource))
+});
+
+gulp.task("copy-vue", function () {
+    gulp.src(vueSrc)
         .pipe(gulp.dest(jsVendorSource))
 });
 

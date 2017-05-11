@@ -1,0 +1,70 @@
+<script src="/assets/js/vendor/vue.js"></script>
+<script src="/assets/js/vendor/vue-resource.js"></script>
+
+<div id="{{ element }}">
+    {{ title }}
+    {% raw %}
+        <div v-for="article in articles">
+            <div class="article media-object" key={{article.id}}>
+
+
+                <article-image v-bind:path="article.image"></article-image>
+
+                <div class="media-object-section main-section">
+                    <h2><a v-bind:href="'/'+article.slug">{{ article.title }}</a></h2>
+                    <p></p>
+                    <div class="metadata">
+                        <blog-link v-bind:blog="article.blog_title" v-bind:alias="article.blog_slug"></blog-link>
+                    </div>
+                    <p><a v-bind:href="'/'+article.slug" class="button secondary small">Leer más</a></p>
+
+                </div>
+            </div>
+        </div>
+    {% endraw %}
+</div>
+
+<script type="text/javascript">
+    var ArticleImage = {
+        props: [
+            'path'
+        ],
+        template: '<div class="media-object-section" v-if="path"><div class="mh-image-crop large" v-bind:style="\'backgroundImage: url(\' + path + \')\'"></div></div>',
+    };
+    {% raw %}
+
+    var BlogLink = {
+        props: [
+            'blog',
+            'alias'
+        ],
+        template: '<span class="channel right"><a v-bind:href="\'/blog/\' + alias">{{ blog }}</a></span>'
+    };
+    {% endraw %}
+
+    var articlesApp = new Vue({
+        el: '#{{ element }}',
+        data: {
+            articles: [],
+            page: 1,
+            maxPages: 0,
+            links: [],
+        },
+        components: {
+            'article-image': ArticleImage,
+            'blog-link': BlogLink
+        },
+        created: function () {
+            this.$http.get('{{ url|raw }}').then(function (response) {
+                this.articles = response.body;
+                this.page = response.headers.get('X-Current-Page');
+                this.maxPages = response.headers.get('X-Max-Pages');
+                this.links = response.headers.get('Link');
+            }, function (response) {
+
+            })
+        }
+    });
+
+</script>
+
