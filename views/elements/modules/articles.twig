@@ -1,12 +1,14 @@
 <script src="/assets/js/vendor/vue.js"></script>
 <script src="/assets/js/vendor/vue-resource.js"></script>
 
-<div id="{{ element }}">
-    {{ title }}
+<div id="{{ element }}" my-url="{{ url }}">
     {% raw %}
+        <pagination-bar v-bind:current-page="page" v-bind:max-pages="maxPages" v-on:next-page-requested="getNextPage"
+                        v-on:first-page-requested="getFirstPage"
+                        v-on:prev-page-requested="getPrevPage"></pagination-bar>
+
         <div v-for="article in articles">
             <div class="article media-object" key={{article.id}}>
-
 
                 <article-image v-bind:path="article.image"></article-image>
 
@@ -25,6 +27,50 @@
 </div>
 
 <script type="text/javascript">
+
+
+    function parse_link_header(header) {
+        var parts = header.split(',');
+        var links = {};
+        for (i = 0; i < parts.length; i++) {
+            var section = parts[i].split(';');
+            var url = section[0].replace(/<([^>]+)>/, '$1').trim();
+            var name = section[1].replace(/rel=\"([^\"]+)\"/, '$1').trim();
+            links[name] = url;
+        }
+        return links;
+    }
+
+    {% raw %}
+
+    Vue.component('pagination-bar', {
+        props: [
+            'currentPage',
+            'maxPages'
+        ],
+        template: '<div class="button-group secondary expanded">'
+        + '<span class="primary button">Página {{ currentPage }} de {{ maxPages }} </span>'
+        + '<button class="button" v-on:click="firstPage" v-bind:disabled="currentPage == 1">Portada</button>'
+        + '<button class="button" v-on:click="prevPage" v-bind:disabled="currentPage == 1">Más recientes</button>'
+        + '<button class="button" v-on:click="nextPage" v-bind:disabled="currentPage == maxPages">Más antiguas</button>'
+        + '</div>',
+        methods: {
+            firstPage: function () {
+                this.$emit('first-page-requested')
+            },
+            nextPage: function () {
+                this.$emit('next-page-requested')
+            },
+            prevPage: function () {
+                this.$emit('prev-page-requested')
+            }
+        }
+
+    });
+
+
+    {% endraw %}
+
     var ArticleImage = {
         props: [
             'path'
@@ -49,21 +95,44 @@
             page: 1,
             maxPages: 0,
             links: [],
+            url: '{{ url }}'
         },
         components: {
             'article-image': ArticleImage,
             'blog-link': BlogLink
         },
+        mounted: function () {
+            this.url = this.$el.attributes['my-url'].value;
+        },
         created: function () {
-            this.$http.get('{{ url|raw }}').then(function (response) {
-                this.articles = response.body;
-                this.page = response.headers.get('X-Current-Page');
-                this.maxPages = response.headers.get('X-Max-Pages');
-                this.links = response.headers.get('Link');
-            }, function (response) {
+            this.getArticles(this.url);
+        },
 
-            })
+        methods: {
+            getArticles: function (url) {
+                this.$http.get(url).then(function (response) {
+                    this.articles = response.body;
+                    this.page = response.headers.get('X-Current-Page');
+                    this.maxPages = response.headers.get('X-Max-Pages');
+                    this.links = parse_link_header(response.headers.get('Link'));
+                }, function (response) {
+
+                })
+            },
+            getNextPage: function (event) {
+                url = this.links['rel=next'];
+                this.getArticles(url);
+            },
+            getFirstPage: function (event) {
+                url = this.links['rel=first'];
+                this.getArticles(url);
+            },
+            getPrevPage: function (event) {
+                url = this.links['rel=prev'];
+                this.getArticles(url);
+            }
         }
+
     });
 
 </script>
