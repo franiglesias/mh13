@@ -65,8 +65,6 @@ class ArticleController
                 'X-Max-Pages' => $maxPages,
                 'X-Current-Page' => $currentPage,
                 'Link' => $this->computeLinks($request, $currentPage, $maxPages),
-                'Access-Control-Allow-Origin' => '*',
-                'Access-Control-Allow-Methods' => ['GET', 'PUT'],
             ]
         );
     }
