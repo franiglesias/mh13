@@ -36,7 +36,6 @@ var vueSrc = [
 
 gulp.task("default", [
     "sass",
-    "compile-jsx",
     "scripts",
     "styleguide",
     "html",
@@ -44,8 +43,6 @@ gulp.task("default", [
 ]);
 
 gulp.task("update", [
-    "copy-react",
-    "copy-react-dom",
     "copy-foundation",
     "copy-foundation-icons",
     "copy-images",
