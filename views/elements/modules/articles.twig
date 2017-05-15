@@ -49,7 +49,7 @@
             'maxPages'
         ],
         template: '<div class="button-group secondary expanded">'
-        + '<span class="primary button">Página {{ currentPage }} de {{ maxPages }} </span>'
+        + '<span class="white button">Página {{ currentPage }} de {{ maxPages }} </span>'
         + '<button class="button" v-on:click="firstPage" v-bind:disabled="currentPage == 1">Portada</button>'
         + '<button class="button" v-on:click="prevPage" v-bind:disabled="currentPage == 1">Más recientes</button>'
         + '<button class="button" v-on:click="nextPage" v-bind:disabled="currentPage == maxPages">Más antiguas</button>'

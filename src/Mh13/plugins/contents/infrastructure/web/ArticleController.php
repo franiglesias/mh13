@@ -89,9 +89,7 @@ class ArticleController
 
         return array_map(
             function ($link) use ($url) {
-                $linkUrl = preg_replace('/page\=\d+/', 'page='.$link['page'], $url);
-
-                return sprintf('<%s>; rel=%s', $linkUrl, $link['name']);
+                return sprintf('<%s&page=%s>; rel=%s', $url, $link['page'], $link['name']);
             },
             $links
         );
@@ -107,11 +105,7 @@ class ArticleController
     {
         $url = str_replace(['&url=articles', '%2F'], '', $request->getUri());
 
-        if (strpos($url, 'page=') === false) {
-            $url = $url.'&page=1';
-        }
-
-        return $url;
+        return preg_replace('/[&]?page=\d+/', '', $url);
     }
 
     /**
