@@ -1,139 +1,173 @@
 <script src="/assets/js/vendor/vue.js"></script>
 <script src="/assets/js/vendor/vue-resource.js"></script>
 
-<div id="{{ element }}" my-url="{{ url }}">
-    {% raw %}
-        <pagination-bar v-bind:current-page="page" v-bind:max-pages="maxPages" v-on:next-page-requested="getNextPage"
-                        v-on:first-page-requested="getFirstPage"
-                        v-on:prev-page-requested="getPrevPage"></pagination-bar>
-
-        <div v-for="article in articles">
-            <div class="article media-object" key={{article.id}}>
-
-                <article-image v-bind:path="article.image"></article-image>
-
-                <div class="media-object-section main-section">
-                    <h2><a v-bind:href="'/'+article.slug">{{ article.title }}</a></h2>
-                    <p></p>
-                    <div class="metadata">
-                        <blog-link v-bind:blog="article.blog_title" v-bind:alias="article.blog_slug"></blog-link>
-                    </div>
-                    <p><a v-bind:href="'/'+article.slug" class="button secondary small">Leer más</a></p>
-
-                </div>
-            </div>
-        </div>
-    {% endraw %}
+<ul id="mh-home-page-tabs" class="tabs" data-tabs>
+    <li class="tabs-title is-active">
+        <a href="#mh-news">Noticias</a>
+    </li>
+    <li class="tabs-title">
+        <a href="#mh-anuncios">Tablón de anuncios
+        </a>
+    </li>
+    <li class="tabs-title">
+        <a href="#mh-resto">Todas las novedades</a>
+    </li>
+</ul>
+<div id="mh-home-page" class="tabs-content" data-tabs-content="mh-home-page-tabs">
+    <articles-view class="tabs-panel is-active" id="mh-news" url="{{ urlNews }}"></articles-view>
+    <articles-view class="tabs-panel" id="mh-anuncios" url="{{ urlAnnounces }}"></articles-view>
+    <articles-view class="tabs-panel" id="mh-resto" url="{{ urlResto }}"></articles-view>
 </div>
 
-<script type="text/javascript">
+{% raw %}
 
-
-    function parse_link_header(header) {
-        var parts = header.split(',');
-        var links = {};
-        for (i = 0; i < parts.length; i++) {
-            var section = parts[i].split(';');
-            var url = section[0].replace(/<([^>]+)>/, '$1').trim();
-            var name = section[1].replace(/rel=\"([^\"]+)\"/, '$1').trim();
-            links[name] = url;
-        }
-        return links;
-    }
-
-    {% raw %}
-
-    Vue.component('pagination-bar', {
-        props: [
-            'currentPage',
-            'maxPages'
-        ],
-        template: '<div class="button-group secondary expanded">'
-        + '<span class="white button">Página {{ currentPage }} de {{ maxPages }} </span>'
-        + '<button class="button" v-on:click="firstPage" v-bind:disabled="currentPage == 1">Portada</button>'
-        + '<button class="button" v-on:click="prevPage" v-bind:disabled="currentPage == 1">Más recientes</button>'
-        + '<button class="button" v-on:click="nextPage" v-bind:disabled="currentPage == maxPages">Más antiguas</button>'
-        + '</div>',
-        methods: {
-            firstPage: function () {
-                this.$emit('first-page-requested')
-            },
-            nextPage: function () {
-                this.$emit('next-page-requested')
-            },
-            prevPage: function () {
-                this.$emit('prev-page-requested')
+    <script type="text/javascript">
+        function parse_link_header(header) {
+            var parts = header.split(',');
+            var links = {};
+            for (i = 0; i < parts.length; i++) {
+                var section = parts[i].split(';');
+                var url = section[0].replace(/<([^>]+)>/, '$1').trim();
+                var name = section[1].replace(/rel=\"([^\"]+)\"/, '$1').trim();
+                links[name] = url;
             }
+            return links;
         }
 
-    });
-
-
-    {% endraw %}
-
-    var ArticleImage = {
-        props: [
-            'path'
-        ],
-        template: '<div class="media-object-section" v-if="path"><div class="mh-image-crop large" v-bind:style="\'backgroundImage: url(\' + path + \')\'"></div></div>',
-    };
-    {% raw %}
-
-    var BlogLink = {
-        props: [
-            'blog',
-            'alias'
-        ],
-        template: '<span class="channel right"><a v-bind:href="\'/blog/\' + alias">{{ blog }}</a></span>'
-    };
-    {% endraw %}
-
-    var articlesApp = new Vue({
-        el: '#{{ element }}',
-        data: {
-            articles: [],
-            page: 1,
-            maxPages: 0,
-            links: [],
-            url: '{{ url }}'
-        },
-        components: {
-            'article-image': ArticleImage,
-            'blog-link': BlogLink
-        },
-        mounted: function () {
-            this.url = this.$el.attributes['my-url'].value;
-        },
-        created: function () {
-            this.getArticles(this.url);
-        },
-
-        methods: {
-            getArticles: function (url) {
-                this.$http.get(url).then(function (response) {
-                    this.articles = response.body;
-                    this.page = response.headers.get('X-Current-Page');
-                    this.maxPages = response.headers.get('X-Max-Pages');
-                    this.links = parse_link_header(response.headers.get('Link'));
-                }, function (response) {
-
-                })
-            },
-            getNextPage: function (event) {
-                url = this.links['rel=next'];
-                this.getArticles(url);
-            },
-            getFirstPage: function (event) {
-                url = this.links['rel=first'];
-                this.getArticles(url);
-            },
-            getPrevPage: function (event) {
-                url = this.links['rel=prev'];
-                this.getArticles(url);
+        Vue.component('pagination-bar', {
+            props: [
+                'currentPage',
+                'maxPages'
+            ],
+            template: '<div class="button-group secondary expanded">'
+            + '<span class="white button">Página {{ currentPage }} de {{ maxPages }} </span>'
+            + '<button class="button" v-on:click="firstPage" v-bind:disabled="currentPage == 1">Portada</button>'
+            + '<button class="button" v-on:click="prevPage" v-bind:disabled="currentPage == 1">Más recientes</button>'
+            + '<button class="button" v-on:click="nextPage" v-bind:disabled="currentPage == maxPages">Más antiguas</button>'
+            + '</div>',
+            methods: {
+                firstPage: function () {
+                    this.$emit('first-page-requested')
+                },
+                nextPage: function () {
+                    this.$emit('next-page-requested')
+                },
+                prevPage: function () {
+                    this.$emit('prev-page-requested')
+                }
             }
-        }
 
-    });
+        });
 
-</script>
+        var ArticleImage = {
+            props: [
+                'path'
+            ],
+            template: '<div class="media-object-section" v-if="path"><div class="mh-image-crop large" v-bind:style="\'backgroundImage: url(\' + path + \')\'"></div></div>',
+        };
 
+        var BlogLink = {
+            props: [
+                'blog',
+                'alias'
+            ],
+            computed: {
+                blogUrl: function () {
+                    return '/blog/' + this.alias;
+                }
+            },
+            template: '<span class="channel right"><a v-bind:href="blogUrl">{{ blog }}</a></span>'
+        };
+
+        Vue.component('article-abstract', {
+            props: [
+                'image',
+                'slug',
+                'title',
+                'abstract',
+                'blogTitle',
+                'blogSlug'
+            ],
+            components: {
+                'article-image': ArticleImage,
+                'blog-link': BlogLink
+            },
+            computed: {
+                articleUrl: function () {
+                    return '/' + this.slug;
+                }
+            },
+            template: '<article class="media-object">' +
+            '<article-image v-bind:path="image"></article-image>' +
+            '<div class="media-object-section main-section">' +
+            '<h2><a v-bind:href="articleUrl">{{ title }}</a></h2>' +
+            '<p>{{ abstract }}</p>' +
+            '<div class="metadata">' +
+            '<blog-link v-bind:blog="blogTitle" v-bind:alias="blogSlug"></blog-link>' +
+            '</div>' +
+            '<p><a v-bind:href="articleUrl" class="button secondary small">Leer más</a></p>' +
+            '</div>' +
+            '</article>'
+        });
+
+        Vue.component('article-list', {
+            props: ['articles'],
+            template: '<div>' +
+            '<article-abstract v-for="article in articles" :image="article.image" :slug="article.slug" :title="article.title" abstract="Example" :blog-slug="article.blog_slug" :blog-title="article.blog_title"></article-abstract>' +
+            '</div>',
+
+        });
+
+        Vue.component('articles-view', {
+            props: ['element', 'url'],
+            data: function () {
+                return {
+                    selector: this.element,
+                    articles: [],
+                    page: 1,
+                    maxPages: 0,
+                    links: [],
+                    remoteUrl: this.url
+                }
+            },
+
+            template: '<div class="tabs-panel is-active" id="id"><pagination-bar v-bind:current-page="page" v-bind:max-pages="maxPages" v-on:next-page-requested="getNextPage" v-on:first-page-requested="getFirstPage" v-on:prev-page-requested="getPrevPage"></pagination-bar>' +
+            '<article-list :articles="articles"></article-list></div>',
+
+            created: function () {
+                this.getArticles(this.remoteUrl);
+            },
+
+            methods: {
+                getArticles: function (url) {
+                    this.$http.get(url).then(function (response) {
+                        this.articles = response.body;
+                        this.page = response.headers.get('X-Current-Page');
+                        this.maxPages = response.headers.get('X-Max-Pages');
+                        this.links = parse_link_header(response.headers.get('Link'));
+                    }, function (response) {
+
+                    })
+                },
+                getNextPage: function (event) {
+                    url = this.links['rel=next'];
+                    this.getArticles(url);
+                },
+                getFirstPage: function (event) {
+                    url = this.links['rel=first'];
+                    this.getArticles(url);
+                },
+                getPrevPage: function (event) {
+                    url = this.links['rel=prev'];
+                    this.getArticles(url);
+                }
+            }
+        });
+
+        var app = new Vue({
+            el: '#mh-home-page'
+        });
+
+    </script>
+
+{% endraw %}

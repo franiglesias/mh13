@@ -1,31 +1,10 @@
 {% extends 'layouts/main.twig' %}
 {% import 'macros/modules.twig' as modules %}
 {% block content %}
-    <ul id="mh-home-page-tabs" class="tabs" data-tabs>
-        <li class="tabs-title is-active">
-            <a href="#mh-news">Noticias</a>
-        </li>
-        <li class="tabs-title">
-            <a href="#mh-anuncios">Tablón de anuncios
-            </a>
-        </li>
-        <li class="tabs-title">
-            <a href="#mh-resto">Todas las novedades</a>
-        </li>
-    </ul>
-    <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
-        <div class="tabs-panel is-active" id="mh-news">
-            {#{% include 'elements/modules/catalog.twig' with {'url': '/articles?site=noticias&layout=index', 'element': 'mh-catalog-news-feed', 'title': 'Últimas noticias'} only %}#}
-            {% include 'elements/modules/articles.twig' with {'url': '/articles?site=noticias&layout=index', 'element': 'mh-catalog-news-feed', 'title': 'Últimas noticias'} only %}
 
-        </div>
-        <div class="tabs-panel" id="mh-anuncios">
-            {% include 'elements/modules/catalog.twig' with {'url': '/articles?blogs[]=anuncios&sticky=true&layout=feed', 'element': 'mh-catalog-announces-feed', 'title': 'Últimos avisos'} only %}
-        </div>
-        <div class="tabs-panel" id="mh-resto">
-            {% include 'elements/modules/catalog.twig' with {'url': '/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed', 'element': 'mh-catalog-all-feed', 'title': 'Últimas noticias'} only %}
-        </div>
-    </div>
+    {% include 'elements/modules/articles.twig' with {'urlNews': '/articles?site=noticias&layout=index', 'urlAnnounces': '/articles?blogs[]=anuncios&sticky=true&layout=feed', 'urlResto': '/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed'} only %}
+
+
 {% endblock %}
 
 {% block page_scripts %}{% endblock %}
