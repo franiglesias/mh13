@@ -4,8 +4,9 @@
 <div id="mh-tabbed-articles" :feeds="setFeeds({{ feeds|json_encode }})">
     {% raw %}
     <ul id="mh-home-page-tabs" class="tabs" data-tabs>
-        <li class="tabs-title" v-for="(feed, index) in feeds" :class="index == 0 ? 'is-active' : ''" :key="feed.id"><a
-                    :href="'#'+feed.id">{{ feed.title }}</a></li>
+        <li class="tabs-title" v-for="(feed, index) in feeds" :class="index == 0 ? 'is-active' : ''" :key="feed.id">
+            <a :href="'#'+feed.id">{{ feed.title }}</a>
+        </li>
     </ul>
     <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
         <articles-view class="tabs-panel" :class="index == 0 ? 'is-active' : ''" :id="feed.id"
