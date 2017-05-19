@@ -1,25 +1,19 @@
 <script src="/assets/js/vendor/vue.js"></script>
 <script src="/assets/js/vendor/vue-resource.js"></script>
 
-<ul id="mh-home-page-tabs" class="tabs" data-tabs>
-    <li class="tabs-title is-active">
-        <a href="#mh-news">Noticias</a>
-    </li>
-    <li class="tabs-title">
-        <a href="#mh-anuncios">Tablón de anuncios
-        </a>
-    </li>
-    <li class="tabs-title">
-        <a href="#mh-resto">Todas las novedades</a>
-    </li>
-</ul>
-<div id="mh-home-page" class="tabs-content" data-tabs-content="mh-home-page-tabs">
-    <articles-view class="tabs-panel is-active" id="mh-news" url="{{ urlNews }}"></articles-view>
-    <articles-view class="tabs-panel" id="mh-anuncios" url="{{ urlAnnounces }}"></articles-view>
-    <articles-view class="tabs-panel" id="mh-resto" url="{{ urlResto }}"></articles-view>
+<div id="mh-tabbed-articles" :feeds="setFeeds({{ feeds|json_encode }})">
+    {% raw %}
+    <ul id="mh-home-page-tabs" class="tabs" data-tabs>
+        <li class="tabs-title" v-for="(feed, index) in feeds" :class="index == 0 ? 'is-active' : ''" :key="feed.id"><a
+                    :href="'#'+feed.id">{{ feed.title }}</a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="mh-home-page-tabs">
+        <articles-view class="tabs-panel" :class="index == 0 ? 'is-active' : ''" :id="feed.id"
+                       v-for="(feed, index) in feeds" :url="feed.url" :key="feed.id"></articles-view>
+    </div>
 </div>
 
-{% raw %}
+
 
     <script type="text/javascript">
         function parse_link_header(header) {
@@ -63,7 +57,12 @@
             props: [
                 'path'
             ],
-            template: '<div class="media-object-section" v-if="path"><div class="mh-image-crop large" v-bind:style="\'backgroundImage: url(\' + path + \')\'"></div></div>',
+            computed: {
+                imageUrl: function () {
+                    return 'url(' + this.path + ')';
+                }
+            },
+            template: '<div class="media-object-section" v-if="path"><div class="mh-image-crop large" v-bind:style="{ backgroundImage: imageUrl }"></div></div>',
         };
 
         var BlogLink = {
@@ -113,7 +112,7 @@
         Vue.component('article-list', {
             props: ['articles'],
             template: '<div>' +
-            '<article-abstract v-for="article in articles" :image="article.image" :slug="article.slug" :title="article.title" abstract="Example" :blog-slug="article.blog_slug" :blog-title="article.blog_title"></article-abstract>' +
+            '<article-abstract v-for="article in articles" :key="article.id" :image="article.image" :slug="article.slug" :title="article.title" abstract="Example" :blog-slug="article.blog_slug" :blog-title="article.blog_title"></article-abstract>' +
             '</div>',
 
         });
@@ -165,7 +164,15 @@
         });
 
         var app = new Vue({
-            el: '#mh-home-page'
+            el: '#mh-tabbed-articles',
+            data: {
+                feeds: []
+            },
+            methods: {
+                setFeeds(feedsData) {
+                    this.feeds = feedsData;
+                }
+            }
         });
 
     </script>
