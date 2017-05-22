@@ -5,9 +5,9 @@
     {#{% include 'elements/modules/articles.twig' with {'urlNews': '/articles?site=noticias&layout=index', 'urlAnnounces': '/articles?blogs[]=anuncios&sticky=true&layout=feed', 'urlResto': '/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed'} only %}#}
     {% include 'elements/modules/articles.twig' with {
     'feeds': [
-    { id: 'mh-news', title: 'Noticias', url: '/articles?site=noticias&layout=index'},
-    { id: 'mh-announces', title: 'Anuncios', url: '/articles?blogs[]=anuncios&sticky=true&layout=feed'},
-    { id: 'mh-other', title: 'Novedades', url: '/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed'}
+    { id: 'mh-news', title: 'Noticias', url: '/api/articles?site=noticias&layout=index'},
+    { id: 'mh-announces', title: 'Anuncios', url: '/api/articles?blogs[]=anuncios&sticky=true&layout=feed'},
+    { id: 'mh-other', title: 'Novedades', url: '/api/articles?excludeBlogs[]=noticias&excludeBlogs[]=anuncios&sticky=true&layout=feed'}
     ]
     } only %}
 

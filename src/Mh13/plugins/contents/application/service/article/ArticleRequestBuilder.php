@@ -39,37 +39,41 @@ class ArticleRequestBuilder
 
     public function __construct(SiteReadModel $siteService)
     {
-
         $this->siteService = $siteService;
     }
 
     public static function fromQuery(ParameterBag $query, SiteReadModel $siteService)
     {
         $builder = new ArticleRequestBuilder($siteService);
+
+        return $builder->withQuery($query);
+    }
+
+    public function withQuery(ParameterBag $query)
+    {
         if ($query->has('blogs')) {
-            $builder->fromBlogs(...$query->get('blogs'));
+            $this->fromBlogs(...$query->get('blogs'));
         }
         if ($query->has('excludeBlogs')) {
-            $builder->excludeBlogs(...$query->get('excludeBlogs'));
+            $this->excludeBlogs(...$query->get('excludeBlogs'));
         }
         if ($site = $query->getAlnum('site')) {
-            $builder->fromBlogs($builder->siteService->getBlogs($site));
+            $this->fromBlogs($this->siteService->getBlogs($site));
         }
         if ($query->getBoolean('featured', false)) {
-            $builder->onlyFeatured();
+            $this->onlyFeatured();
         }
         if ($query->getBoolean('home', false)) {
-            $builder->onlyHome();
+            $this->onlyHome();
         }
         if (!$query->getBoolean('public', true)) {
-            $builder->allowPrivate();
+            $this->allowPrivate();
         }
         if ($query->has('page')) {
-            $builder->page($query->getInt('page'));
+            $this->page($query->getInt('page'));
         }
 
-
-        return $builder;
+        return $this;
     }
 
     /**
@@ -159,7 +163,7 @@ class ArticleRequestBuilder
         return $this;
     }
 
-    public function getCatalogRequest(): ArticleRequest
+    public function getRequest(): ArticleRequest
     {
         $request = new ArticleRequest();
         $request->setHome($this->home);

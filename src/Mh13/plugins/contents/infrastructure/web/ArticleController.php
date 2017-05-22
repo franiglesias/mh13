@@ -28,7 +28,7 @@ class ArticleController
      */
     public function catalog(Request $request, Application $app)
     {
-        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
+        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getRequest();
         $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
 
         return $app['twig']->render(
@@ -47,7 +47,7 @@ class ArticleController
 
     public function feed(Request $request, Application $app)
     {
-        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getCatalogRequest();
+        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getRequest();
         $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
 
         if (!$articles) {

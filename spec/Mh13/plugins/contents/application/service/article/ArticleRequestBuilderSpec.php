@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\application\service\catalog;
+namespace spec\Mh13\plugins\contents\application\service\article;
 
 use Mh13\plugins\contents\application\readmodel\SiteReadModel;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
@@ -8,7 +8,7 @@ use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 
-class CatalogRequestBuilderSpec extends ObjectBehavior
+class ArticleRequestBuilderSpec extends ObjectBehavior
 {
 
     public function let(SiteReadModel $siteService)
@@ -24,76 +24,76 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
     public function it_can_restrict_to_home_only()
     {
         $this->onlyHome()->shouldBe($this);
-        $this->getCatalogRequest()->onlyHome()->shouldBe(true);
+        $this->getRequest()->onlyHome()->shouldBe(true);
     }
 
     public function it_can_restrict_to_featured_only()
     {
         $this->onlyFeatured()->shouldBe($this);
-        $this->getCatalogRequest()->onlyFeatured()->shouldBe(true);
+        $this->getRequest()->onlyFeatured()->shouldBe(true);
     }
 
     public function it_can_restrict_to_public_only()
     {
         $this->onlyPublic()->shouldBe($this);
-        $this->getCatalogRequest()->onlyPublic()->shouldBe(true);
+        $this->getRequest()->onlyPublic()->shouldBe(true);
     }
 
     public function it_can_handle_ignore_sticky_flag()
     {
         $this->ignoreSticky()->shouldBe($this);
-        $this->getCatalogRequest()->ignoreSticky()->shouldBe(true);
+        $this->getRequest()->ignoreSticky()->shouldBe(true);
     }
 
     public function it_can_allow_public_and_private()
     {
         $this->allowPrivate()->shouldBe($this);
-        $this->getCatalogRequest()->onlyPublic()->shouldBe(false);
+        $this->getRequest()->onlyPublic()->shouldBe(false);
     }
 
     public function it_has_restrictions_by_default()
     {
-        $this->getCatalogRequest()->onlyFeatured()->shouldBe(false);
-        $this->getCatalogRequest()->onlyHome()->shouldBe(false);
-        $this->getCatalogRequest()->onlyPublic()->shouldBe(true);
-        $this->getCatalogRequest()->ignoreSticky()->shouldBe(false);
+        $this->getRequest()->onlyFeatured()->shouldBe(false);
+        $this->getRequest()->onlyHome()->shouldBe(false);
+        $this->getRequest()->onlyPublic()->shouldBe(true);
+        $this->getRequest()->ignoreSticky()->shouldBe(false);
     }
 
     public function it_can_restrict_to_page()
     {
         $this->page(3)->shouldBe($this);
-        $this->getCatalogRequest()->from()->shouldBe(30);
-        $this->getCatalogRequest()->max()->shouldBe(15);
+        $this->getRequest()->from()->shouldBe(30);
+        $this->getRequest()->max()->shouldBe(15);
     }
 
     public function it_can_specify_blogs()
     {
         $this->fromBlogs('blog1')->shouldBe($this);
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1']);
+        $this->getRequest()->blogs()->shouldBe(['blog1']);
         $this->fromBlogs('blog2', 'blog3');
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
+        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
     }
 
     public function it_can_specify_blogs_as_array()
     {
         $this->fromBlogs(['blog1', 'blog2', 'blog3']);
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
+        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
     }
 
     public function it_can_exclude_blogs()
     {
         $this->excludeBlogs('blog3')->shouldBe($this);
-        $this->getCatalogRequest()->excludedBlogs()->shouldBe(['blog3']);
+        $this->getRequest()->excludedBlogs()->shouldBe(['blog3']);
         $this->excludeBlogs('blog4', 'blog5')->shouldBe($this);
-        $this->getCatalogRequest()->excludedBlogs()->shouldBe(['blog3', 'blog4', 'blog5']);
+        $this->getRequest()->excludedBlogs()->shouldBe(['blog3', 'blog4', 'blog5']);
     }
 
     public function it_can_manage_include_exclude_blogs_collissions()
     {
         $this->fromBlogs('blog1', 'blog2', 'blog3', 'blog4');
         $this->excludeBlogs('blog2', 'blog1', 'blog5');
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog3', 'blog4']);
-        $this->getCatalogRequest()->excludedBlogs()->shouldBe(['blog5']);
+        $this->getRequest()->blogs()->shouldBe(['blog3', 'blog4']);
+        $this->getRequest()->excludedBlogs()->shouldBe(['blog5']);
 
     }
 
@@ -101,8 +101,8 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
     {
         $this->fromBlogs('blog1', 'blog2', 'blog3');
         $this->excludeBlogs('blog4', 'blog5');
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
-        $this->getCatalogRequest()->excludedBlogs()->shouldBe(['blog4', 'blog5']);
+        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
+        $this->getRequest()->excludedBlogs()->shouldBe(['blog4', 'blog5']);
 
     }
 
@@ -110,7 +110,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
     {
         $siteService->getBlogs('site')->shouldBeCalled()->willReturn(['blog1', 'blog2', 'blog3']);
         $this->fromSite('site')->shouldBe($this);
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
+        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
     }
 
 
@@ -118,7 +118,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
     {
         $query = $this->getFullFixtureQuery();
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getCatalogRequest()->onlyFeatured()->shouldBe(true);
+        $this->getRequest()->onlyFeatured()->shouldBe(true);
     }
 
     private function getFullFixtureQuery()
@@ -144,7 +144,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         $query = $this->getFullFixtureQuery();
 
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getCatalogRequest()->onlyPublic()->shouldBe(true);
+        $this->getRequest()->onlyPublic()->shouldBe(true);
     }
 
     public function it_manages_sticky_flag_from_request_query(SiteReadModel $siteService)
@@ -152,7 +152,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         $query = $this->getFullFixtureQuery();
 
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getCatalogRequest()->ignoreSticky()->shouldBe(false);
+        $this->getRequest()->ignoreSticky()->shouldBe(false);
 
     }
 
@@ -162,7 +162,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         $query = $this->getFullFixtureQuery();
 
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getCatalogRequest()->onlyHome()->shouldBe(false);
+        $this->getRequest()->onlyHome()->shouldBe(false);
     }
 
     public function it_manages_blogs_key_from_request_query(SiteReadModel $siteService)
@@ -171,7 +171,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
 
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
 
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2']);
+        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2']);
 
     }
 
@@ -180,7 +180,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         $query = $this->getFullFixtureQuery();
 
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getCatalogRequest()->excludedBlogs()->shouldBe(['blog3']);
+        $this->getRequest()->excludedBlogs()->shouldBe(['blog3']);
 
     }
 
@@ -194,7 +194,7 @@ class CatalogRequestBuilderSpec extends ObjectBehavior
         );
 
         $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getCatalogRequest()->blogs()->shouldBe(['blog1', 'blog2']);
+        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2']);
     }
 
 

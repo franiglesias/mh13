@@ -20,6 +20,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\StaticPageService;
@@ -27,6 +28,7 @@ use Mh13\plugins\contents\application\service\upload\AttachedFilesContextFactory
 use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\exceptions\ContentException;
+use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalArticleSpecificationFactory;
@@ -49,6 +51,7 @@ use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
 use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
@@ -69,6 +72,31 @@ $app = new \Silex\Application();
 
 $app['debug'] = true;
 
+/* Register service providers */
+
+$app->register(new ServiceControllerServiceProvider());
+
+$app->register(
+    new Silex\Provider\TwigServiceProvider(),
+    [
+        'twig.path' => __DIR__.'/../views',
+        'twig.options' => [
+            'auto_reload' => true,
+            'cache' => false,
+            'debug' => true,
+        ],
+    ]
+);
+
+$app->register(
+    new DoctrineServiceProvider(),
+    [
+        'db.options' => $config['doctrine']['dbal']['connections']['default'],
+    ]
+);
+
+/* End of register service providers */
+
 /* Service definitions */
 
 $app['menu.loader'] = function ($app) {
@@ -81,6 +109,10 @@ $app['bar.loader'] = function ($app) {
 
 $app['site.service'] = function ($app) {
     return new FSSiteReadModel(dirname(__DIR__).'/config/config.yml');
+};
+
+$app['article.request.builder'] = function ($app) {
+    return new ArticleRequestBuilder($app['site.service']);
 };
 
 $app['article.specification.factory'] = function ($app) {
@@ -150,24 +182,11 @@ $app['blog.service'] = function ($app) {
 
 /* End of service definitions */
 
-$app->register(
-    new Silex\Provider\TwigServiceProvider(),
-    [
-        'twig.path' => __DIR__.'/../views',
-        'twig.options' => [
-            'auto_reload' => true,
-            'cache' => false,
-            'debug' => true,
-        ],
-    ]
-);
+$app['api.article.controller'] = function () use ($app) {
+    return new ApiArticleController($app['article.request.builder'], $app['article.service']);
+};
 
-$app->register(
-    new DoctrineServiceProvider(),
-    [
-        'db.options' => $config['doctrine']['dbal']['connections']['default'],
-    ]
-);
+
 
 $app->extend(
     'twig',
@@ -204,6 +223,10 @@ $app->error(
 
 /* Routes */
 
+$app->get(
+    '/api/articles',
+    "api.article.controller:feed"
+); //->when("request.headers.get('Accept') matches '/application\\\\/json/'");
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 $app->get('/uploads/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');
