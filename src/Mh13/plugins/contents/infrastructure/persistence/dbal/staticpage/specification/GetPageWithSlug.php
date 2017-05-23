@@ -9,14 +9,12 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification;
 
 
-use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
-class GetPageWithSlug implements DBalStaticPageSpecification
+class GetPageWithSlug extends CompositeDbalSpecification
 {
-
-
     /**
      * @var QueryBuilder
      */
@@ -26,27 +24,15 @@ class GetPageWithSlug implements DBalStaticPageSpecification
      */
     private $slug;
 
-    public function __construct(QueryBuilder $builder, string $slug)
+    public function __construct(string $slug)
     {
 
-        $this->builder = $builder;
-        $this->slug = $slug;
+
+        $this->setParameter('slug', $slug);
     }
 
-    public function getQuery(): Statement
+    public function getConditions()
     {
-        $this->builder->select('*', 'image.path as image')->from('static_pages', 'static')->leftJoin(
-                'static',
-                'uploads',
-                'image',
-                'image.id = (select uploads.id from uploads where uploads.model="StaticPage" and foreign_key = static.id order by uploads.order asc limit 1)'
-
-            )->where('static.slug = ?')->setParameter(
-            0,
-            $this->slug
-        )
-        ;
-
-        return $this->builder->execute();
+        return 'static.slug = ?';
     }
 }

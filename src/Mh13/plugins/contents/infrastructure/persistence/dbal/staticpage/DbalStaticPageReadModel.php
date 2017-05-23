@@ -15,13 +15,38 @@ use Mh13\plugins\contents\exceptions\InvalidStaticPage;
 
 class DbalStaticPageReadModel implements StaticPageReadModel
 {
+    /**
+     * @var Connection
+     */
+    private $connection;
 
+
+    public function __construct(Connection $connection)
+    {
+        $this->connection = $connection;
+    }
     /**
      * @param \Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug $specification
      */
     public function getPage($specification)
     {
-        $statement = $specification->getQuery();
+        $builder = $this->connection->createQueryBuilder();
+
+        $builder->select('*', 'image.path as image')->from('static_pages', 'static')->leftJoin(
+            'static',
+            'uploads',
+            'image',
+            'image.id = (select uploads.id from uploads where uploads.model="StaticPage" and foreign_key = static.id order by uploads.order asc limit 1)'
+
+        )->where(
+            $specification->getConditions()
+        )->setParameter(
+            $specification->getParameters(),
+            $specification->getTypes()
+        )
+        ;
+        $statement = $builder->execute();
+
         $page = $statement->fetch();
         if (!$page) {
             throw InvalidStaticPage::message('Static Page not found with that name');
@@ -29,6 +54,7 @@ class DbalStaticPageReadModel implements StaticPageReadModel
 
         return $page;
     }
+
 
     public function findPages($specification)
     {

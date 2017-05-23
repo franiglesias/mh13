@@ -9,10 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification;
 
 
-use Doctrine\DBAL\Driver\Statement;
-
-
 interface DBalStaticPageSpecification
 {
-    public function getQuery(): Statement;
+    public function getConditions();
 }
