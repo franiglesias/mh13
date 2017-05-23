@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 use Mh13\plugins\contents\domain\Article;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleIsAvailable;
 use PHPUnit\Framework\TestCase;
 
 

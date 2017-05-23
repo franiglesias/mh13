@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\utility\mapper;
 
 
-use Mh13\plugins\contents\infrastructure\persistence\dbal\model\article\FullArticleView;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\model\FullArticleView;
 
 
 class ArticleMapperTest extends \PHPUnit_Framework_TestCase

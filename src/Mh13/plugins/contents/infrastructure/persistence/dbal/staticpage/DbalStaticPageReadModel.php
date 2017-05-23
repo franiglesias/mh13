@@ -6,19 +6,19 @@
  * Time: 10:40
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 
 use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
 use Mh13\plugins\contents\exceptions\InvalidStaticPage;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetPageWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug;
 
 
 class DbalStaticPageReadModel implements StaticPageReadModel
 {
 
     /**
-     * @param GetPageWithSlug $specification
+     * @param \Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug $specification
      */
     public function getPage($specification)
     {

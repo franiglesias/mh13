@@ -6,16 +6,13 @@
  * Time: 10:02
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetDescendantsForPageWithSlug;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetDescendantsWithDepthForPageWithSlug;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetPageWithSlug;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetParentsForPageWithSlug;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage\GetSiblingsForPageWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetDescendantsWithDepthForPageWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug;
 
 
 class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFactory
@@ -38,12 +35,12 @@ class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFacto
 
     public function createGetParentsForPageWithSlug(string $slug)
     {
-        return new GetParentsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+        return new specification\GetParentsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
     public function createGetDescendantsForPageWithSlug(string $slug)
     {
-        return new GetDescendantsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+        return new specification\GetDescendantsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
     public function createGetDescendantsWithDepthForPageWithSlug(string $slug)
@@ -53,6 +50,6 @@ class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFacto
 
     public function createGetSiblingsForPageWithSlug(string $slug)
     {
-        return new GetSiblingsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+        return new specification\GetSiblingsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 }

@@ -6,15 +6,15 @@
  * Time: 16:35
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\article;
 
 
 use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\ArticleFromBlogs;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\ArticleIsAvailable;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\ArticleNotFromBlogs;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\ArticleWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleFromBlogs;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleIsAvailable;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleNotFromBlogs;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleWithSlug;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article\PublishedArticleWithSlug;
 
 

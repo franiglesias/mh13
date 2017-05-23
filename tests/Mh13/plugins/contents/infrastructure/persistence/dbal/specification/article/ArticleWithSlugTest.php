@@ -8,6 +8,7 @@
 
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleWithSlug;
 use PHPUnit\Framework\TestCase;
 
 

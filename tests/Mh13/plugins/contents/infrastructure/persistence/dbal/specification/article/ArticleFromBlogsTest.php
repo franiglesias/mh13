@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\article;
 
 use Doctrine\DBAL\Connection;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleFromBlogs;
 use PHPUnit\Framework\TestCase;
 
 

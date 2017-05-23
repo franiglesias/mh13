@@ -6,7 +6,7 @@
  * Time: 10:11
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\staticpage;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification;
 
 
 use Doctrine\DBAL\Driver\Statement;

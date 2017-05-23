@@ -6,7 +6,7 @@
  * Time: 16:20
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\model\article;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\article\model;
 
 
 use Mh13\plugins\contents\infrastructure\persistence\dbal\model\ViewModel;
