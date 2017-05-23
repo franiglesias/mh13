@@ -6,17 +6,17 @@
  * Time: 12:05
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\blog\specification;
 
 
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
-class BlogIsActive extends CompositeDbalSpecification
+class BlogIsExternal extends CompositeDbalSpecification
 {
 
     public function getConditions()
     {
-        return 'blog.active = 1';
+        return 'blog.external = 1';
     }
 }

@@ -6,7 +6,7 @@
  * Time: 12:06
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\blog\specification;
 
 
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;

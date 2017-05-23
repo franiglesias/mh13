@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace spec\Mh13\plugins\contents\infrastructure\persistence\dbal\blog;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Statement;
@@ -8,7 +8,7 @@ use Mh13\plugins\contents\domain\Blog;
 use Mh13\plugins\contents\domain\BlogId;
 use Mh13\plugins\contents\domain\BlogRepository;
 use Mh13\plugins\contents\exceptions\InvalidBlog;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\DbalBlogRepository;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogRepository;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
