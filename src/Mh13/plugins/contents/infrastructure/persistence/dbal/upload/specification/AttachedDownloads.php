@@ -6,14 +6,14 @@
  * Time: 19:17
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload\specification;
 
 
 use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
-class AttachedImages extends CompositeDbalSpecification
+class AttachedDownloads extends CompositeDbalSpecification
 {
 
     /**
@@ -29,6 +29,7 @@ class AttachedImages extends CompositeDbalSpecification
 
     public function getConditions()
     {
-        return $this->context->getAlias().'.slug = :slug AND upload.type LIKE \'image%\'';
+        return $this->context->getAlias(
+            ).".slug = :slug AND upload.type NOT LIKE 'image%' AND upload.type NOT LIKE 'video%' AND upload.type NOT LIKE 'audio%'";
     }
 }

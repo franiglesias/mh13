@@ -1,6 +1,6 @@
 <?php
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\readmodel\UploadReadModel;

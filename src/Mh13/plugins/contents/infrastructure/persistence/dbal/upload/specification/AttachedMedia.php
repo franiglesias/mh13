@@ -6,7 +6,7 @@
  * Time: 19:17
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload\specification;
 
 
 use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;

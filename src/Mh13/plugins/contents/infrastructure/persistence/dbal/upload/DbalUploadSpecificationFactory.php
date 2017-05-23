@@ -6,18 +6,16 @@
  * Time: 10:11
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
 
 
 use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedDownloads;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedImages;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\AttachedMedia;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\DownloadsOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfCollection;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfStaticPage;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\specification\AttachedDownloads;
 
 
 class DbalUploadSpecificationFactory implements UploadSpecificationFactory
@@ -26,7 +24,7 @@ class DbalUploadSpecificationFactory implements UploadSpecificationFactory
 
     public function createAttachedImages(AttachedFilesContext $context, string $slug)
     {
-        return new AttachedImages($context, $slug);
+        return new specification\AttachedImages($context, $slug);
     }
 
     public function createAttachedDownloads(AttachedFilesContext $context, string $slug)
@@ -36,6 +34,6 @@ class DbalUploadSpecificationFactory implements UploadSpecificationFactory
 
     public function createAttachedMedia(AttachedFilesContext $context, string $slug)
     {
-        return new AttachedMedia($context, $slug);
+        return new specification\AttachedMedia($context, $slug);
     }
 }
