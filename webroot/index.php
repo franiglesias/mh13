@@ -140,7 +140,7 @@ $app['staticpage.readmodel'] = function ($app) {
 };
 
 $app['staticpage.specification.factory'] = function ($app) {
-    return new DbalStaticPageSpecificationFactory();
+    return new DbalStaticPageSpecificationFactory($app['db']);
 };
 
 $app['staticpage.service'] = function ($app) {

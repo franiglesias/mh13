@@ -12,6 +12,7 @@ namespace Mh13\plugins\contents\application\service;
 use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
 use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
+use Mh13\shared\web\twig\filter\Summarizer;
 
 
 class ArticleService
@@ -47,10 +48,19 @@ class ArticleService
     {
         $specification = $this->specificationFactory->createFromCatalogRequest($request);
 
-        return $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
-            $request->max()
-        )->findArticles($specification)
+        $articles = $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
+                $request->max()
+            )->findArticles($specification)
             ;
+
+        return array_map(
+            function ($article) {
+                $article['abstract'] = Summarizer::summarizeText($article['content']);
+
+                return $article;
+            },
+            $articles
+        );
 
     }
 

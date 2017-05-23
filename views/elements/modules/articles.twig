@@ -102,10 +102,10 @@
             '<div class="media-object-section main-section">' +
             '<h2><a v-bind:href="articleUrl">{{ title }}</a></h2>' +
             '<p>{{ abstract }}</p>' +
+            '<p><a v-bind:href="articleUrl" class="button secondary small">Leer más</a></p>' +
             '<div class="metadata">' +
             '<blog-link v-bind:blog="blogTitle" v-bind:alias="blogSlug"></blog-link>' +
             '</div>' +
-            '<p><a v-bind:href="articleUrl" class="button secondary small">Leer más</a></p>' +
             '</div>' +
             '</article>'
         });
@@ -113,7 +113,7 @@
         Vue.component('article-list', {
             props: ['articles'],
             template: '<div>' +
-            '<article-abstract v-for="article in articles" :key="article.id" :image="article.image" :slug="article.slug" :title="article.title" abstract="Example" :blog-slug="article.blog_slug" :blog-title="article.blog_title"></article-abstract>' +
+            '<article-abstract v-for="article in articles" :key="article.id" :image="article.image" :slug="article.slug" :title="article.title" :abstract="article.abstract" :blog-slug="article.blog_slug" :blog-title="article.blog_title"></article-abstract>' +
             '</div>',
 
         });

@@ -6,6 +6,7 @@ class Summarizer
 {
     public static function summarizeText(string $text, int $words = 50)
     {
+        $text = html_entity_decode(strip_tags($text));
         $abstractor = new Summarizer();
         $paragraph = $abstractor->extractFirstParagraph($text);
         if (str_word_count($paragraph) <= $words) {

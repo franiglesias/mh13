@@ -24,7 +24,7 @@ class BlogServiceSpec extends ObjectBehavior
     public function it_can_request_a_blog(
         BlogReadModel $readModel,
         BlogSpecificationFactory $factory,
-        ActiveBlogWithSlug $specification
+        $specification
     ) {
         $factory->createBlogWithSlug('slug')->shouldBeCalled()->willReturn($specification);
         $readModel->getBlog($specification)->shouldBeCalled()->willReturn('blog_data');

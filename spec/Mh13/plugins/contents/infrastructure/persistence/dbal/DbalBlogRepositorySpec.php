@@ -28,31 +28,34 @@ class DbalBlogRepositorySpec extends ObjectBehavior
 
     public function it_can_get_a_blog_by_its_slug(Connection $connection, Statement $statement)
     {
-        $expected = new Blog(new BlogId('blogid'), 'título', null);
-        $connection->executeQuery('SELECT * FROM blogs WHERE slug = ?', Argument::type('array'))
+        $expected = new Blog(new BlogId('blogid'), 'blog_title', 'blog_slug');
+        $connection->executeQuery('SELECT * FROM blogs WHERE blogs.slug = ?', ['blog_slug'])
             ->shouldBeCalled()
             ->willReturn($statement)
         ;
-        $statement->fetchAll()->shouldBeCalled()->willReturn(
+        $statement->fetch()->shouldBeCalled()->willReturn(
             [
                 'id' => 'blogid',
-                'title' => 'título',
-                'tagline' => 'tagline',
-                'description' => 'descripción',
+                'title' => 'blog_title',
+                'slug' => 'blog_slug',
+                'tagline' => '',
+                'description' => '',
+                'icon' => '',
+                'image' => '',
             ]
         )
         ;
 
-        $this->getBySlugOrFail('slug')->shouldBeLike($expected);
+        $this->getBySlugOrFail('blog_slug')->shouldBeLike($expected);
     }
 
     public function it_fails_if_no_blog_is_found(Connection $connection, Statement $statement)
     {
-        $connection->executeQuery('SELECT * FROM blogs WHERE slug = ?', Argument::type('array'))
+        $connection->executeQuery('SELECT * FROM blogs WHERE blogs.slug = ?', Argument::type('array'))
             ->shouldBeCalled()
             ->willReturn($statement)
         ;
-        $statement->fetchAll()->shouldBeCalled()->willReturn([]);
+        $statement->fetch()->shouldBeCalled()->willReturn([]);
         $this->shouldThrow(InvalidBlog::class)->during('getBySlugOrFail', ['invalid_slug']);
     }
 }

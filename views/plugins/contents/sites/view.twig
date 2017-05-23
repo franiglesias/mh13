@@ -9,7 +9,13 @@
 {% block content %}
     {% import 'macros/modules.twig' as modules %}
 
-    {{ modules.widget('mh-site-home', '/articles/catalog?site=%site%&sticky=0&page=1&layout=feed'|replace ({'%site%': site.name}), 'Últimas entradas', '', 'mh-catalog') }}
+    {% include 'elements/modules/articles.twig' with {
+    'feeds': [
+    { id: 'mh-site-home', title: 'Portada', url: '/api/articles?site=%site%&sticky=0&page=1&layout=feed'|replace ({'%site%': site.name}) },
+
+    ]
+    } only %}
+
 {% endblock %}
 
 {% block sidebar %}

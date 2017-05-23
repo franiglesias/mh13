@@ -18,7 +18,13 @@
             <p>Artículos dirigidos al curso <strong>{{ level_id }}</strong></p>
         {% endset %}
     {% endif %}
-    {{ modules.widget('mh-blog-home', '/articles/catalog?blogs[]=%blog%&layout=index'|replace({'%blog%': blog.slug}), '') }}
+    {% include 'elements/modules/articles.twig' with {
+    'feeds': [
+    { id: 'mh-blog-home', title: 'Portada', url: '/api/articles?blogs[]=%blog%&layout=index'|replace({'%blog%': blog.slug}) },
+
+    ]
+    } only %}
+
 
 
 {% endblock %}
