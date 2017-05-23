@@ -11,7 +11,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetDescendantsWithDepthForPageWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related\GetDescendantsWithDepthForPageWithSlug;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug;
 
 
@@ -35,12 +35,12 @@ class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFacto
 
     public function createGetParentsForPageWithSlug(string $slug)
     {
-        return new specification\GetParentsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+        return new related\GetParentsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
     public function createGetDescendantsForPageWithSlug(string $slug)
     {
-        return new specification\GetDescendantsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+        return new related\GetDescendantsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
     public function createGetDescendantsWithDepthForPageWithSlug(string $slug)
@@ -50,6 +50,6 @@ class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFacto
 
     public function createGetSiblingsForPageWithSlug(string $slug)
     {
-        return new specification\GetSiblingsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
+        return new related\GetSiblingsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 }

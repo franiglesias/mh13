@@ -15,6 +15,7 @@ interface StaticPageReadModel
 
     public function findPages($specification);
 
+    public function findRelated($relatedQuery);
 
 
 }

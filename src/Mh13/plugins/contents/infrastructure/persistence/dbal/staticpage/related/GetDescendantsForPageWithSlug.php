@@ -6,14 +6,14 @@
  * Time: 16:14
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification;
+namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related;
 
 
 use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
-class GetDescendantsForPageWithSlug implements DBalStaticPageSpecification
+class GetDescendantsForPageWithSlug implements DBalStaticPageRelatedQuery
 {
     /**
      * @var QueryBuilder

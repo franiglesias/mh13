@@ -11,7 +11,6 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
 use Mh13\plugins\contents\exceptions\InvalidStaticPage;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug;
 
 
 class DbalStaticPageReadModel implements StaticPageReadModel
@@ -34,6 +33,13 @@ class DbalStaticPageReadModel implements StaticPageReadModel
     public function findPages($specification)
     {
         $statement = $specification->getQuery();
+
+        return $statement->fetchAll();
+    }
+
+    public function findRelated($relatedQuery)
+    {
+        $statement = $relatedQuery->getQuery();
 
         return $statement->fetchAll();
     }
