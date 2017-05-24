@@ -9,6 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\api;
 
 
+use Doctrine\DBAL\Exception\ConnectionException;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\SiteService;
@@ -41,7 +42,7 @@ class ArticleController
     public function feed(Request $request): JsonResponse
     {
         try {
-            $articleRequest = $this->articleRequestBuilder->withQuery($request->query)->getRequest();
+            $articleRequest = $this->articleRequestBuilder->buildFromQueryData($request->query);
             $articles = $this->articleService->getArticlesFromRequest($articleRequest);
             if (!$articles) {
                 return new JsonResponse(
@@ -55,15 +56,21 @@ class ArticleController
 
             return new JsonResponse(
                 $articles, Response::HTTP_OK, [
-                             'X-Max-Pages' => $maxPages,
+                             'X-Max-Pages'    => $maxPages,
                              'X-Current-Page' => $currentPage,
-                             'Link' => $this->computeLinks($request, $currentPage, $maxPages),
+                             'Link'           => $this->computeLinks($request, $currentPage, $maxPages),
                          ]
             );
-
+        } catch (ConnectionException $exception) {
+            return new JsonResponse(
+                ['code'    => 502,
+                 'message' => 'Estamos teniendo un problema con nuestro servidor de contenidos. Sentimos las molestias.',
+                ],
+                Response::HTTP_BAD_GATEWAY
+            );
         } catch (\Exception $e) {
             return new JsonResponse(
-                ['code' => 500, 'message' => 'Error in Article Service.'],
+                ['code' => 500, 'message' => $e->getMessage().' '.get_class($e)],
                 Response::HTTP_INTERNAL_SERVER_ERROR
             );
         }
@@ -93,7 +100,6 @@ class ArticleController
             },
             $links
         );
-
     }
 
     /**

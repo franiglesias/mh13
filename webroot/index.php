@@ -23,10 +23,10 @@
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
+use Mh13\plugins\contents\application\service\SiteService;
 use Mh13\plugins\contents\application\service\StaticPageService;
 use Mh13\plugins\contents\application\service\upload\AttachedFilesContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
-use Mh13\plugins\contents\application\utility\mapper\ArticleMapper;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleReadModel;
@@ -108,8 +108,13 @@ $app['bar.loader'] = function ($app) {
     return new MenuBarLoader(dirname(__DIR__).'/config/menus.yml');
 };
 
-$app['site.service'] = function ($app) {
+
+$app['site.readmodel'] = function ($app) {
     return new FSSiteReadModel(dirname(__DIR__).'/config/config.yml');
+};
+
+$app['site.service'] = function ($app) {
+    return new SiteService($app['site.readmodel']);
 };
 
 $app['article.request.builder'] = function ($app) {
@@ -128,12 +133,8 @@ $app['article.readmodel'] = function ($app) {
     return new DBalArticleReadModel($app['db']);
 };
 
-$app['article.mapper'] = function ($app) {
-    return new ArticleMapper();
-};
-
 $app['article.service'] = function ($app) {
-    return new ArticleService($app['article.readmodel'], $app['article.specification.factory'], $app['article.mapper']);
+    return new ArticleService($app['article.readmodel'], $app['article.specification.factory']);
 };
 
 $app['staticpage.readmodel'] = function ($app) {
@@ -232,10 +233,11 @@ $app->error(
 
 /* Routes */
 
-$app->get(
-    '/api/articles',
-    "api.article.controller:feed"
-); //->when("request.headers.get('Accept') matches '/application\\\\/json/'");
+$app->get('/api/articles', "api.article.controller:feed")->when(
+    "request.headers.get('Accept') matches '/application\\\\/json/'"
+)
+;
+
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 $app->get('/uploads/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');

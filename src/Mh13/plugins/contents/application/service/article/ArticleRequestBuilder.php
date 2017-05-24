@@ -2,7 +2,7 @@
 
 namespace Mh13\plugins\contents\application\service\article;
 
-use Mh13\plugins\contents\application\readmodel\SiteReadModel;
+use Mh13\plugins\contents\application\service\SiteService;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 
@@ -19,7 +19,11 @@ class ArticleRequestBuilder
 
     private $blogs = [];
     private $excludeBlogs = [];
-//    private $labels = [];
+
+    // Not implemented yet
+
+    private $labels = [];
+
     // pagination
 
     private $page = 1;
@@ -33,16 +37,16 @@ class ArticleRequestBuilder
     private $ignoreSticky = false;
 
     /**
-     * @var SiteReadModel
+     * @var SiteService
      */
     private $siteService;
 
-    public function __construct(SiteReadModel $siteService)
+    public function __construct(SiteService $siteService)
     {
         $this->siteService = $siteService;
     }
 
-    public static function fromQuery(ParameterBag $query, SiteReadModel $siteService)
+    public static function fromQuery(ParameterBag $query, SiteService $siteService)
     {
         $builder = new ArticleRequestBuilder($siteService);
 
@@ -161,6 +165,11 @@ class ArticleRequestBuilder
         $this->ignoreSticky = true;
 
         return $this;
+    }
+
+    public function buildFromQueryData(ParameterBag $query)
+    {
+        return $this->withQuery($query)->getRequest();
     }
 
     public function getRequest(): ArticleRequest

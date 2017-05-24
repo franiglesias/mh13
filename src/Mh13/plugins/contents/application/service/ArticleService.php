@@ -41,7 +41,6 @@ class ArticleService
         $specification = $this->specificationFactory->createPublishedArticleWithSlug($slug);
 
         return $this->readmodel->getArticle($specification);
-
     }
 
     public function getArticlesFromRequest(ArticleRequest $request)
@@ -49,9 +48,9 @@ class ArticleService
         $specification = $this->specificationFactory->createFromCatalogRequest($request);
 
         $articles = $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
-                $request->max()
-            )->findArticles($specification)
-            ;
+            $request->max()
+        )->findArticles($specification)
+        ;
 
         return array_map(
             function ($article) {
@@ -61,7 +60,6 @@ class ArticleService
             },
             $articles
         );
-
     }
 
     public function getArticlesCountForRequest(ArticleRequest $request)

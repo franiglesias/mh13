@@ -127,12 +127,13 @@
                     page: 1,
                     maxPages: 0,
                     links: [],
-                    remoteUrl: this.url
+                    remoteUrl: this.url,
+                    message: ''
                 }
             },
 
             template: '<div class="tabs-panel is-active" id="id"><pagination-bar v-bind:current-page="page" v-bind:max-pages="maxPages" v-on:next-page-requested="getNextPage" v-on:first-page-requested="getFirstPage" v-on:prev-page-requested="getPrevPage"></pagination-bar>' +
-            '<article-list :articles="articles"></article-list></div>',
+            '<template v-if="articles"><article-list :articles="articles"></article-list></template><template v-else><p>Tenemos un problema en el servidor.</p><p>{{ message }}</p></template></div>',
 
             created: function () {
                 this.getArticles(this.remoteUrl);
@@ -146,7 +147,8 @@
                         this.maxPages = response.headers.get('X-Max-Pages');
                         this.links = parse_link_header(response.headers.get('Link'));
                     }, function (response) {
-
+                        this.message = response.body['message'];
+                        this.articles = false;
                     })
                 },
                 getNextPage: function (event) {

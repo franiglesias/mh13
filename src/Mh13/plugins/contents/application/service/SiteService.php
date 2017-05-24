@@ -23,6 +23,10 @@ class SiteService
     public function getSiteWithSlug(string $site)
     {
         return $this->readModel->getWithSlug($site);
+    }
 
+    public function getBlogs(string $site)
+    {
+        return $this->readModel->getBlogs($site);
     }
 }
