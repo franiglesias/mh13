@@ -9,30 +9,18 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification;
 
 
-use Doctrine\DBAL\Query\QueryBuilder;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
-class GetPageWithSlug extends CompositeDbalSpecification
+class PageWithSlug extends CompositeDbalSpecification
 {
-    /**
-     * @var QueryBuilder
-     */
-    private $builder;
-    /**
-     * @var string
-     */
-    private $slug;
-
     public function __construct(string $slug)
     {
-
-
         $this->setParameter('slug', $slug);
     }
 
     public function getConditions()
     {
-        return 'static.slug = ?';
+        return 'static.slug = :slug';
     }
 }

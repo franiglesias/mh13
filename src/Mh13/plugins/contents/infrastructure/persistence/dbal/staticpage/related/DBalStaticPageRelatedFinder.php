@@ -12,7 +12,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\relat
 use Doctrine\DBAL\Driver\Statement;
 
 
-interface DBalStaticPageRelatedQuery
+interface DBalStaticPageRelatedFinder
 {
     public function getQuery(): Statement;
 }

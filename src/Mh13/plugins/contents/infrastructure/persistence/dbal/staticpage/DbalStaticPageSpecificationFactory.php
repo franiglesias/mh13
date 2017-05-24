@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\PageWithSlug;
 
 
 class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFactory
@@ -19,7 +19,7 @@ class DbalStaticPageSpecificationFactory implements StaticPageSpecificationFacto
 
     public function createGetPageWithSlug(string $slug)
     {
-        return new GetPageWithSlug($slug);
+        return new PageWithSlug($slug);
     }
 
 }

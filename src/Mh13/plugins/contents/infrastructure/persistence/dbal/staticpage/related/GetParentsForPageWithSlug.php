@@ -13,7 +13,7 @@ use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 
-class GetParentsForPageWithSlug implements DBalStaticPageRelatedQuery
+class GetParentsForPageWithSlug implements DBalStaticPageRelatedFinder
 {
     /**
      * @var QueryBuilder

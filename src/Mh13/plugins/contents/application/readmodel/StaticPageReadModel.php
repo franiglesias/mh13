@@ -9,13 +9,16 @@
 namespace Mh13\plugins\contents\application\readmodel;
 
 
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related\DBalStaticPageRelatedFinder;
+
+
 interface StaticPageReadModel
 {
     public function getPage($specification);
 
     public function findPages($specification);
 
-    public function findRelated($relatedQuery);
+    public function findRelated(DBalStaticPageRelatedFinder $finder);
 
 
 }

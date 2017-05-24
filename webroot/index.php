@@ -35,6 +35,7 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleSpe
 use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\DbalStaticPageReadModel;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\DbalStaticPageRelatedFinderFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\DbalStaticPageSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
@@ -136,15 +137,23 @@ $app['article.service'] = function ($app) {
 };
 
 $app['staticpage.readmodel'] = function ($app) {
-    return new DbalStaticPageReadModel();
+    return new DbalStaticPageReadModel($app['db']);
 };
 
 $app['staticpage.specification.factory'] = function ($app) {
     return new DbalStaticPageSpecificationFactory($app['db']);
 };
 
+$app['staticpage.relatedquery.factory'] = function ($app) {
+    return new DbalStaticPageRelatedFinderFactory($app['db']);
+};
+
 $app['staticpage.service'] = function ($app) {
-    return new StaticPageService($app['staticpage.readmodel'], $app['staticpage.specification.factory']);
+    return new StaticPageService(
+        $app['staticpage.readmodel'],
+        $app['staticpage.specification.factory'],
+        $app['staticpage.relatedquery.factory']
+    );
 };
 
 $app['upload.readmodel'] = function ($app) {

@@ -10,11 +10,11 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\domain\StaticPageRelatedQueryFactory;
+use Mh13\plugins\contents\domain\StaticPageRelatedFinderFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related\GetDescendantsWithDepthForPageWithSlug;
 
 
-class DbalStaticPageRelatedQueryFactory implements StaticPageRelatedQueryFactory
+class DbalStaticPageRelatedFinderFactory implements StaticPageRelatedFinderFactory
 {
     /**
      * @var Connection
@@ -27,22 +27,22 @@ class DbalStaticPageRelatedQueryFactory implements StaticPageRelatedQueryFactory
         $this->connection = $connection;
     }
 
-    public function createGetParentsForPageWithSlug(string $slug)
+    public function createFindParentsForPageWithSlug(string $slug)
     {
         return new related\GetParentsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
-    public function createGetDescendantsForPageWithSlug(string $slug)
+    public function createFindDescendantsForPageWithSlug(string $slug)
     {
         return new related\GetDescendantsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
-    public function createGetDescendantsWithDepthForPageWithSlug(string $slug)
+    public function createFindDescendantsWithDepthForPageWithSlug(string $slug)
     {
         return new GetDescendantsWithDepthForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }
 
-    public function createGetSiblingsForPageWithSlug(string $slug)
+    public function createFindSiblingsForPageWithSlug(string $slug)
     {
         return new related\GetSiblingsForPageWithSlug($this->connection->createQueryBuilder(), $slug);
     }

@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\application\service;
 
 
 use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
-use Mh13\plugins\contents\domain\StaticPageRelatedQueryFactory;
+use Mh13\plugins\contents\domain\StaticPageRelatedFinderFactory;
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
 
 
@@ -25,14 +25,14 @@ class StaticPageService
      */
     private $factory;
     /**
-     * @var StaticPageRelatedQueryFactory
+     * @var StaticPageRelatedFinderFactory
      */
     private $relatedQueryFactory;
 
     public function __construct(
         StaticPageReadModel $readModel,
         StaticPageSpecificationFactory $factory,
-        StaticPageRelatedQueryFactory $relatedQueryFactory
+        StaticPageRelatedFinderFactory $relatedQueryFactory
     )
     {
         $this->readModel = $readModel;
@@ -49,14 +49,14 @@ class StaticPageService
 
     public function getParentsForPage(string $slug)
     {
-        $specification = $this->relatedQueryFactory->createGetParentsForPageWithSlug($slug);
+        $specification = $this->relatedQueryFactory->createFindParentsForPageWithSlug($slug);
 
         return $this->readModel->findPages($specification);
     }
 
     public function getDescendantsForPage(string $slug)
     {
-        $specification = $this->relatedQueryFactory->createGetDescendantsWithDepthForPageWithSlug($slug);
+        $specification = $this->relatedQueryFactory->createFindDescendantsWithDepthForPageWithSlug($slug);
         $data = $this->readModel->findPages($specification);
 
         return $data;
@@ -64,7 +64,7 @@ class StaticPageService
 
     public function getSiblingsForPage(string $slug)
     {
-        $specification = $this->relatedQueryFactory->createGetSiblingsForPageWithSlug($slug);
+        $specification = $this->relatedQueryFactory->createFindSiblingsForPageWithSlug($slug);
         $data = $this->readModel->findPages($specification);
 
         return $data;

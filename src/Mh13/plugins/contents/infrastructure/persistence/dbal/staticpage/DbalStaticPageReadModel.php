@@ -9,8 +9,10 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 
+use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
 use Mh13\plugins\contents\exceptions\InvalidStaticPage;
+use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related\DBalStaticPageRelatedFinder;
 
 
 class DbalStaticPageReadModel implements StaticPageReadModel
@@ -25,14 +27,15 @@ class DbalStaticPageReadModel implements StaticPageReadModel
     {
         $this->connection = $connection;
     }
+
     /**
-     * @param \Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\GetPageWithSlug $specification
+     * @param \Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\specification\PageWithSlug $specification
      */
     public function getPage($specification)
     {
         $builder = $this->connection->createQueryBuilder();
 
-        $builder->select('*', 'image.path as image')->from('static_pages', 'static')->leftJoin(
+        $builder->select('static.*', 'image.path as image')->from('static_pages', 'static')->leftJoin(
             'static',
             'uploads',
             'image',
@@ -40,7 +43,7 @@ class DbalStaticPageReadModel implements StaticPageReadModel
 
         )->where(
             $specification->getConditions()
-        )->setParameter(
+        )->setParameters(
             $specification->getParameters(),
             $specification->getTypes()
         )
@@ -63,9 +66,9 @@ class DbalStaticPageReadModel implements StaticPageReadModel
         return $statement->fetchAll();
     }
 
-    public function findRelated($relatedQuery)
+    public function findRelated(DBalStaticPageRelatedFinder $finder)
     {
-        $statement = $relatedQuery->getQuery();
+        $statement = $finder->getQuery();
 
         return $statement->fetchAll();
     }
