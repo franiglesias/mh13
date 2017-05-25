@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload\specification;
 
 
-use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
+use Mh13\plugins\contents\application\service\upload\UploadContext;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
 
 
@@ -17,11 +17,11 @@ class AttachedImages extends CompositeDbalSpecification
 {
 
     /**
-     * @var AttachedFilesContext
+     * @var UploadContext
      */
     private $context;
 
-    public function __construct(AttachedFilesContext $context, string $slug)
+    public function __construct(UploadContext $context, string $slug)
     {
         $this->setParameter('slug', $slug, 'string');
         $this->context = $context;

@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\service\upload;
 
 
-class ArticleContext extends AttachedFilesContext
+class ArticleContext extends UploadContext
 {
     const ALIAS = 'article';
     const MODEL = 'Item';

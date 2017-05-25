@@ -9,16 +9,16 @@
 namespace Mh13\plugins\contents\domain;
 
 
-use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
+use Mh13\plugins\contents\application\service\upload\UploadContext;
 
 
 interface UploadSpecificationFactory
 {
 
-    public function createAttachedImages(AttachedFilesContext $context, string $slug);
+    public function createAttachedImages(UploadContext $context, string $slug);
 
-    public function createAttachedDownloads(AttachedFilesContext $context, string $slug);
+    public function createAttachedDownloads(UploadContext $context, string $slug);
 
-    public function createAttachedMedia(AttachedFilesContext $context, string $slug);
+    public function createAttachedMedia(UploadContext $context, string $slug);
 
 }

@@ -25,7 +25,7 @@ use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\SiteService;
 use Mh13\plugins\contents\application\service\StaticPageService;
-use Mh13\plugins\contents\application\service\upload\AttachedFilesContextFactory;
+use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
@@ -166,7 +166,7 @@ $app['upload.specification.factory'] = function ($app) {
 };
 
 $app['upload.context.factory'] = function ($app) {
-    return new AttachedFilesContextFactory();
+    return new UploadContextFactory();
 };
 
 $app['upload.service'] = function ($app) {

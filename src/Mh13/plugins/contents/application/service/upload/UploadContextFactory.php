@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\service\upload;
 
 
-class AttachedFilesContextFactory
+class UploadContextFactory
 {
     /**
      * @param string $type
@@ -24,7 +24,7 @@ class AttachedFilesContextFactory
             case 'static':
                 return new StaticPageContext();
             default:
-                return new AttachedFilesContext();
+                return new UploadContext();
         }
     }
 }

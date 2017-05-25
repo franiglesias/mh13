@@ -4,7 +4,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\contents\application\readmodel\UploadReadModel;
-use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
+use Mh13\plugins\contents\application\service\upload\UploadContext;
 
 
 class DbalUploadReadModel implements UploadReadModel
@@ -20,7 +20,7 @@ class DbalUploadReadModel implements UploadReadModel
         $this->connection = $connection;
     }
 
-    public function findUploads($specification, AttachedFilesContext $context)
+    public function findUploads($specification, UploadContext $context)
     {
         $builder = $this->connection->createQueryBuilder();
         $builder->select(

@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\service\upload;
 
 
-class StaticPageContext extends AttachedFilesContext
+class StaticPageContext extends UploadContext
 {
     const ALIAS = 'page';
     const MODEL = 'StaticPage';

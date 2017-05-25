@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
 
 
-use Mh13\plugins\contents\application\service\upload\AttachedFilesContext;
+use Mh13\plugins\contents\application\service\upload\UploadContext;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\DownloadsOfArticle;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\upload\ImagesOfArticle;
@@ -22,17 +22,17 @@ class DbalUploadSpecificationFactory implements UploadSpecificationFactory
 {
 
 
-    public function createAttachedImages(AttachedFilesContext $context, string $slug)
+    public function createAttachedImages(UploadContext $context, string $slug)
     {
         return new specification\AttachedImages($context, $slug);
     }
 
-    public function createAttachedDownloads(AttachedFilesContext $context, string $slug)
+    public function createAttachedDownloads(UploadContext $context, string $slug)
     {
         return new AttachedDownloads($context, $slug);
     }
 
-    public function createAttachedMedia(AttachedFilesContext $context, string $slug)
+    public function createAttachedMedia(UploadContext $context, string $slug)
     {
         return new specification\AttachedMedia($context, $slug);
     }

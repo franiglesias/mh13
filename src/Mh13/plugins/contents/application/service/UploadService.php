@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\application\service;
 
 
 use Mh13\plugins\contents\application\readmodel\UploadReadModel;
-use Mh13\plugins\contents\application\service\upload\AttachedFilesContextFactory;
+use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 
 
@@ -25,14 +25,14 @@ class UploadService
      */
     private $factory;
     /**
-     * @var AttachedFilesContextFactory
+     * @var UploadContextFactory
      */
     private $contextFactory;
 
     public function __construct(
         UploadReadModel $readModel,
         UploadSpecificationFactory $factory,
-        AttachedFilesContextFactory $contextFactory
+        UploadContextFactory $contextFactory
     )
     {
 
