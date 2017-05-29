@@ -18,10 +18,12 @@ class CanteenController
      * @var CantineReadModel
      */
     private $readModel;
+    private $templating;
 
-    public function __construct(CantineReadModel $readModel)
+    public function __construct(CantineReadModel $readModel, $templating)
     {
         $this->readModel = $readModel;
+        $this->templating = $templating;
     }
 
     public function today()
@@ -29,14 +31,26 @@ class CanteenController
         $today = new \DateTimeImmutable();
         $result = $this->readModel->getTodayMeals($today);
 
-        return $result;
+        return $this->templating->render(
+            'plugins/cantine/today.twig',
+            [
+                'meals' => $result,
+            ]
+        );
+
     }
 
     public function week()
     {
-        $today = new \DateTimeImmutable('2017/03/27');
+        $today = new \DateTimeImmutable();
         $result = $this->readModel->getWeekMeals($today);
 
-        return json_encode($result);
+        return $this->templating->render(
+            'plugins/cantine/week.twig',
+            [
+                'meals' => $result,
+                'range' => ['start' => $today, 'end' => $today],
+            ]
+        );
     }
 }

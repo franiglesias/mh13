@@ -196,7 +196,7 @@ $app['cantine.readmodel'] = function ($app) {
 };
 
 $app['cantine.controller'] = function ($app) {
-    return new CanteenController($app['cantine.readmodel']);
+    return new CanteenController($app['cantine.readmodel'], $app['twig']);
 };
 
 /* End of service definitions */

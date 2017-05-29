@@ -12,14 +12,13 @@
     <th>Info. nutricional</th>
     </thead>
     <tbody>
-    {% for week in month %}
         <tr>
-            {% for day in week.CantineWeekMenu.CantineDayMenu %}
+            {% for meal in meals %}
                 {% set weekday = current|date('w') %}
                 {% if loop.index == weekday %}
                     <td {% if date(current)|date('ymd') == date()|date('ymd') %}class="today"{% endif %}>
                         <p class="text-right">{{ current|date("j/n") }}</p>
-                        <p>{{ day.menu|nl2br }}</p>
+                        <p>{{ meal.menu|nl2br }}</p>
 
                     </td>
                     {% set current = weekday < 5 ? current|date_modify('+1day') : current|date_modify('+3day') %}
@@ -32,17 +31,16 @@
             <td>
                 <dl class="mh-nutrition-facts">
                     <dt>Calorías:</dt>
-                    <dd>{{ week.CantineWeekMenu.calories }}</dd>
+                    <dd>{{ meals[0].calories }}</dd>
                     <dt>Hidratos de carbono:</dt>
-                    <dd>{{ week.CantineWeekMenu.glucides }}</dd>
+                    <dd>{{ meals[0].glucides }}</dd>
                     <dt>Grasas:</dt>
-                    <dd>{{ week.CantineWeekMenu.lipids }}</dd>
+                    <dd>{{ meals[0].lipids }}</dd>
                     <dt>Proteínas:</dt>
-                    <dd>{{ week.CantineWeekMenu.proteines }}</dd>
+                    <dd>{{ meals[0].proteines }}</dd>
                 </dl>
 
             </td>
         </tr>
-    {% endfor %}
     </tbody>
 </table>
