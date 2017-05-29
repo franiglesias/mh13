@@ -33,11 +33,9 @@ class ArticleControllerTest extends TestCase
         $articleRequest->maxPages(Argument::any())->willReturn(1);
 
         $articleRequestBuilder = $this->prophesize(ArticleRequestBuilder::class);
-        $articleRequestBuilder->withQuery(Argument::any())->willReturn($articleRequestBuilder->reveal());
-        $articleRequestBuilder->getRequest()->willReturn($articleRequest);
+        $articleRequestBuilder->buildFromQueryData(Argument::any())->willReturn($articleRequest);
 
         $this->articleService = $this->prophesize(ArticleService::class);
-
 
         $this->articleController = new ArticleController(
             $articleRequestBuilder->reveal(),
