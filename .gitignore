@@ -20,3 +20,11 @@ tmp/
 /bin/
 
 webroot/.DS_Store
+frontend/dist/
+frontend/src/gulp/
+frontend/src/js/vendor/vue-resource.js
+frontend/src/js/vendor/vue.js
+locale/eng/
+models/
+node_modules/
+webroot/js/

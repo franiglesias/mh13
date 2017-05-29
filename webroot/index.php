@@ -20,6 +20,8 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
+use Mh13\plugins\cantine\infrastructure\web\CanteenController;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
@@ -189,6 +191,13 @@ $app['blog.service'] = function ($app) {
     return new BlogService($app['blog.readmodel'], $app['blog.specification.factory']);
 };
 
+$app['cantine.readmodel'] = function ($app) {
+    return new DBalCantineReadModel($app['db']);
+};
+
+$app['cantine.controller'] = function ($app) {
+    return new CanteenController($app['cantine.readmodel']);
+};
 
 /* End of service definitions */
 
@@ -237,6 +246,10 @@ $app->get('/api/articles', "api.article.controller:feed")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"
 )
 ;
+
+
+$app->get('/cantine/today', "cantine.controller:today");
+$app->get('/cantine/week', "cantine.controller:week");
 
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
