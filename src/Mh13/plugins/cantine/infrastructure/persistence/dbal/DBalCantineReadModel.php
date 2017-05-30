@@ -59,8 +59,22 @@ class DBalCantineReadModel implements CantineReadModel
         return $result;
     }
 
-    public function getMonthMeals()
+    public function getMonthMeals(\DateTimeInterface $today)
     {
+        $builder = $this->connection->createQueryBuilder();
+        $builder->select('*')
+            ->from('cantine_menu_dates', 'dates')
+            ->leftJoin('dates', 'cantine_week_menus', 'week', 'dates.cantine_week_menu_id = week.id')
+            ->leftJoin('week', 'cantine_day_menus', 'meals', 'meals.cantine_week_menu_id = week.id')
+            ->where('month(:today) = month(dates.start) and year(:today) = year(dates.start)')
+            ->orderBy('dates.start', 'asc')
+            ->addOrderBy('meals.weekday', 'asc')
+            ->setParameter('today', $today->format('Y-m-d'))
+        ;
+        $statement = $builder->execute();
+        $result = $statement->fetchAll();
+
+        return $result;
     }
 
 }

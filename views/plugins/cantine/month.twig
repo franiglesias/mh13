@@ -1,7 +1,8 @@
 <h2>Menú desde {{ range.start|date('j/m/Y') }}
     hasta {{ range.end|date('j/m/Y') }}{# echo $this->Page->title($title); #}</h2>
 
-{% set days = 0 %}
+{% set rows = (meals|length)/5 %}
+
 {% set current = range.start %}
 <table>
     <thead>
@@ -13,33 +14,29 @@
     <th>Info. nutricional</th>
     </thead>
     <tbody>
-    {% for week in month %}
+    {% for row in 1..rows %}
         <tr>
-            {% for day in week.CantineWeekMenu.CantineDayMenu %}
-                {% set weekday = current|date('w') %}
-                {% if loop.index == weekday %}
-                    <td {% if date(current)|date('ymd') == date()|date('ymd') %}class="today"{% endif %}>
-                        <p class="text-right">{{ current|date("j/n") }}</p>
-                        <p>{{ day.menu|nl2br }}</p>
+            {% for meal in meals|slice((row-1)*5, 5) %}
+
+                <td>
+                    {% set modifier = '+' ~ (meal.weekday - 1) ~' day' %}
+                    <p class="text-right">{{ meal.start|date_modify(modifier)|date("j/n") }}</p>
+                    <p>{{ meal.menu|nl2br }}</p>
 
                     </td>
-                    {% set current = weekday < 5 ? current|date_modify('+1day') : current|date_modify('+3day') %}
-                {% else %}
-                    <td></td>
-                {% endif %}
 
             {% endfor %}
 
             <td>
                 <dl class="mh-nutrition-facts">
                     <dt>Calorías:</dt>
-                    <dd>{{ week.CantineWeekMenu.calories }}</dd>
+                    <dd>{{ meals[(row-1)*5].calories }}</dd>
                     <dt>Hidratos de carbono:</dt>
-                    <dd>{{ week.CantineWeekMenu.glucides }}</dd>
+                    <dd>{{ meals[(row-1)*5].glucides }}</dd>
                     <dt>Grasas:</dt>
-                    <dd>{{ week.CantineWeekMenu.lipids }}</dd>
+                    <dd>{{ meals[(row-1)*5].lipids }}</dd>
                     <dt>Proteínas:</dt>
-                    <dd>{{ week.CantineWeekMenu.proteines }}</dd>
+                    <dd>{{ meals[(row-1)*5].proteines }}</dd>
                 </dl>
 
             </td>

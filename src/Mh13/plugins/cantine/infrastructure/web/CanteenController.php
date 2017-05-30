@@ -53,4 +53,23 @@ class CanteenController
             ]
         );
     }
+
+    public function month()
+    {
+        $today = new \DateTimeImmutable('2017-03-16');
+        $result = $this->readModel->getMonthMeals($today);
+
+        return $this->templating->render(
+            'plugins/cantine/month.twig',
+            [
+                'month' => $today->format('m'),
+                'meals' => $result,
+                'range' => [
+                    'start' => $today->modify('first day of this month'),
+                    'end'   => $today->modify('last day of this month'),
+                ],
+            ]
+
+        );
+    }
 }

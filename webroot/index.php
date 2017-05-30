@@ -22,6 +22,7 @@
 
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
 use Mh13\plugins\cantine\infrastructure\web\CanteenController;
+use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
@@ -49,7 +50,7 @@ use Mh13\plugins\contents\infrastructure\web\PageController;
 use Mh13\plugins\contents\infrastructure\web\SiteController;
 use Mh13\plugins\contents\infrastructure\web\StaticPageController;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
-use Mh13\plugins\contents\infrastructure\web\UploadController;
+use Mh13\plugins\uploads\infrastructure\web\UploadsProvider;
 use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
@@ -248,14 +249,14 @@ $app->get('/api/articles', "api.article.controller:feed")->when(
 ;
 
 
-$app->get('/cantine/today', "cantine.controller:today");
-$app->get('/cantine/week', "cantine.controller:week");
-
+$app->mount('/uploads', new UploadsProvider());
+$app->mount('/cantine', new CantineProvider());
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
-$app->get('/uploads/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');
-$app->get('/uploads/collection/{type}/{collection}', UploadController::class.'::collection');
-$app->get('/uploads/downloads/{slug}', UploadController::class.'::downloads');
+
+//$app->get('/uploads/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');
+//$app->get('/uploads/collection/{type}/{collection}', UploadController::class.'::collection');
+//$app->get('/uploads/downloads/{slug}', UploadController::class.'::downloads');
 
 // Compatibility with old route scheme
 $app->get('/contents/channels/external', BlogController::class.'::public');
@@ -265,7 +266,7 @@ $app->get('/site/{slug}', SiteController::class.'::view');
 $app->get('/blog/{slug}', BlogController::class.'::view');
 $app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 
-// Default rout render home page
+// Default route render home page
 $app->get(
     '/',
     function () use ($app) {

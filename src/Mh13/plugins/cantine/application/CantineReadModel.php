@@ -14,5 +14,5 @@ interface CantineReadModel
 
     public function getWeekMeals(\DateTimeInterface $today);
 
-    public function getMonthMeals();
+    public function getMonthMeals(\DateTimeInterface $today);
 }
