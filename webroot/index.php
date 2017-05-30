@@ -21,7 +21,7 @@
  */
 
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
-use Mh13\plugins\cantine\infrastructure\web\CanteenController;
+use Mh13\plugins\cantine\infrastructure\web\CantineController;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
@@ -197,7 +197,7 @@ $app['cantine.readmodel'] = function ($app) {
 };
 
 $app['cantine.controller'] = function ($app) {
-    return new CanteenController($app['cantine.readmodel'], $app['twig']);
+    return new CantineController($app['cantine.readmodel'], $app['twig']);
 };
 
 /* End of service definitions */

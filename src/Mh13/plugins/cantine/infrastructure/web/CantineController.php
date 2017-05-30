@@ -12,7 +12,7 @@ namespace Mh13\plugins\cantine\infrastructure\web;
 use Mh13\plugins\cantine\application\CantineReadModel;
 
 
-class CanteenController
+class CantineController
 {
     /**
      * @var CantineReadModel
@@ -56,7 +56,7 @@ class CanteenController
 
     public function month()
     {
-        $today = new \DateTimeImmutable('2017-03-16');
+        $today = new \DateTimeImmutable();
         $result = $this->readModel->getMonthMeals($today);
 
         return $this->templating->render(
