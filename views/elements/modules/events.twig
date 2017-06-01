@@ -3,20 +3,52 @@
 
 {% raw %}
 
+    <aside class="mh-widget">
+        <header><h1>Próximos eventos</h1></header>
+        <div id="mh-next-events">
+            <ul>
+                <li v-for="event in events">
+                    <event :id="event.id" :date="event.startDate" :label="event.title"></event>
+                </li>
+            </ul>
 
-    <div id="mh-next-events">
-        <p v-for="event in events">{{ event.title }}</p>
-    </div>
+        </div>
+    </aside>
 
+    <script type="text/javascript">
 
-    <script>
+        var Event = {
+            props: [
+                'date',
+                'label',
+                'id'
+            ],
+            computed: {
+                day: function () {
+                    theDate = new Date(this.date);
+                    return theDate.getDay();
+                },
+                month: function () {
+                    theDate = new Date(this.date);
+                    return theDate.getMonth() + 1;
+                }
+
+            },
+            template: '<p><span class="date">{{ day }}/{{ month }}</span>: <span>{{ label }}</span></p>',
+        };
+
         var nextEvents = new Vue({
             el: '#mh-next-events',
+            components: {
+                'event': Event
+
+            },
             data: {
                 events: []
             },
             created: function () {
                 this.load();
+                this.timer = setInterval(this.load, 300000)
             },
             methods: {
                 load() {

@@ -39,9 +39,9 @@ class DBalEventReadModel implements EventReadModel
             ->from(
                 'events'
             )
-//            ->where(
-//                'events.publish = 1 and ((events.endDate is null and events.startDate >= now() ) or events.endDate >= now() )'
-//            )
+            ->where(
+                'events.publish = 1 and ((events.endDate is null and events.startDate >= now() ) or events.endDate >= now() )'
+            )
             ->orderBy(
                 'startDate',
                 'desc'

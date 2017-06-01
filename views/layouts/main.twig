@@ -24,7 +24,6 @@
 			{% block sidebar %}
 				{% include 'widgets/menu.twig' with {'title': 'Encuentranos en', 'menu': 'social', 'selector': 'mh-social', 'icon': 'fi-eye'} only %}
                 {{ modules.widget('mh-advert-charters', '/uploads/collection/orbit/concertada', 'En colegios también puedes elegir') }}
-				{{ modules.widget('mh-next-events', '/circulars/events/next', 'Próximos eventos') }}
                 {% include('elements/modules/events.twig') %}
                 {{ modules.widget('mh-cantine-today', '/cantine/today','Servicio de comedor') }}
                 {{ modules.widget('mh-miralba-certifications', '/uploads/collection/orbit/programas', 'Nuestras certificaciones') }}
