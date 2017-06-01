@@ -1,0 +1,34 @@
+<script src="/assets/js/vendor/vue.js"></script>
+<script src="/assets/js/vendor/vue-resource.js"></script>
+
+{% raw %}
+
+
+    <div id="mh-next-events">
+        <p v-for="event in events">{{ event.title }}</p>
+    </div>
+
+
+    <script>
+        var nextEvents = new Vue({
+            el: '#mh-next-events',
+            data: {
+                events: []
+            },
+            created: function () {
+                this.load();
+            },
+            methods: {
+                load() {
+                    this.$http.get('/api/events').then(function (response) {
+                        this.events = response.body;
+                    }, function (response) {
+                        this.events = false;
+                    })
+
+                }
+            }
+        });
+    </script>
+
+{% endraw %}

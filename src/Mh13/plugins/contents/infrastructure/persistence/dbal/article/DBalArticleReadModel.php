@@ -31,7 +31,7 @@ class DBalArticleReadModel implements ArticleReadModel
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
-        $this->bringMainImage = "SELECT id FROM uploads WHERE model = 'Item' AND foreign_key = article.id AND type LIKE  'image%' ORDER BY uploads.order LIMIT 1";
+        $this->bringMainImage = "SELECT id FROM uploads WHERE model = 'Item' AND foreign_key = article.id AND type LIKE 'image%' ORDER BY uploads.order LIMIT 1";
 
     }
 

@@ -23,6 +23,10 @@
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
 use Mh13\plugins\cantine\infrastructure\web\CantineController;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
+use Mh13\plugins\circulars\application\service\EventService;
+use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
+use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalEventReadModel;
+use Mh13\plugins\circulars\infrastructure\web\EventController;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
@@ -95,7 +99,7 @@ $app->register(
 $app->register(
     new DoctrineServiceProvider(),
     [
-        'db.options' => $config['doctrine']['dbal']['connections']['default'],
+        'db.options' => $config['doctrine']['dbal']['connections'][$config['doctrine']['dbal']['default_connection']],
     ]
 );
 
@@ -200,13 +204,27 @@ $app['cantine.controller'] = function ($app) {
     return new CantineController($app['cantine.readmodel'], $app['twig']);
 };
 
+$app['event.readmodel'] = function ($app) {
+    return new DBalEventReadModel($app['db']);
+};
+
+$app['event.service'] = function ($app) {
+    return new EventService($app['event.readmodel']);
+};
+
 /* End of service definitions */
 
 $app['api.article.controller'] = function () use ($app) {
     return new ApiArticleController($app['article.request.builder'], $app['article.service']);
 };
 
+$app['event.controller'] = function () use ($app) {
+    return new EventController($app['event.service'], $app['twig']);
+};
 
+$app['api.event.controller'] = function () use ($app) {
+    return new ApiEventController($app['event.service']);
+};
 
 $app->extend(
     'twig',
@@ -248,15 +266,17 @@ $app->get('/api/articles', "api.article.controller:feed")->when(
 )
 ;
 
+$app->get('/api/events', "api.event.controller:last")->when(
+    "request.headers.get('Accept') matches '/application\\\\/json/'"
+)
+;
 
 $app->mount('/uploads', new UploadsProvider());
 $app->mount('/cantine', new CantineProvider());
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
 
-//$app->get('/uploads/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');
-//$app->get('/uploads/collection/{type}/{collection}', UploadController::class.'::collection');
-//$app->get('/uploads/downloads/{slug}', UploadController::class.'::downloads');
+$app->get('/events/last', 'event.controller:last');
 
 // Compatibility with old route scheme
 $app->get('/contents/channels/external', BlogController::class.'::public');
