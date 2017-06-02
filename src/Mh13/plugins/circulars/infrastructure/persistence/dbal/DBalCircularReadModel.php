@@ -11,22 +11,24 @@ namespace Mh13\plugins\circulars\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\circulars\application\readmodel\CircularReadModel;
+use Mh13\shared\persistence\Multilingual;
 
 
 class DBalCircularReadModel implements CircularReadModel
 {
 
-
+    use Multilingual;
     /**
      * @var Connection
      */
     private $connection;
-    private $subQueryTemplate = '(select content from circular_i18ns where circular_i18ns.foreign_key = circulars.id and locale="%2$s" and field="%1$s" and model="Circular") as %1$s';
 
     public function __construct(Connection $connection)
     {
 
         $this->connection = $connection;
+        $this->configureTranslations('circulars', 'Circular', 'circular_i18ns');
+
     }
 
     public function findCirculars($maxCount)
@@ -57,15 +59,4 @@ class DBalCircularReadModel implements CircularReadModel
         return $statement->fetchAll();
     }
 
-    /**-
-     * @param $field
-     *
-     * @param $locale
-     *
-     * @return string
-     */
-    protected function selectFieldFromTranslation($field, $locale): string
-    {
-        return sprintf($this->subQueryTemplate, $field, $locale);
-    }
 }
