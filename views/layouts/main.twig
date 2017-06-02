@@ -27,7 +27,7 @@
                 {% include('elements/modules/events.twig') %}
                 {{ modules.widget('mh-cantine-today', '/cantine/today','Servicio de comedor') }}
                 {{ modules.widget('mh-miralba-certifications', '/uploads/collection/orbit/programas', 'Nuestras certificaciones') }}
-				{{ modules.widget('mh-current-circulars', '/circulars/circulars/current', 'Últimas circulares') }}
+                {% include('elements/modules/circulars.twig') %}
 				{% include 'widgets/menu.twig' with {'title': 'Proyectos', 'menu': 'proyectos', 'selector': 'mh-proyectos'} only %}
 			{% endblock %}
 			</div>

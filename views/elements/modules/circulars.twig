@@ -1,0 +1,66 @@
+<script src="/assets/js/vendor/vue.js"></script>
+<script src="/assets/js/vendor/vue-resource.js"></script>
+
+{% raw %}
+
+    <aside class="mh-widget">
+        <header><h1>Circulares vigentes</h1></header>
+        <div id="mh-next-circulars">
+            <ul>
+                <li v-for="circular in circulars">
+                    <circular :id="circular.id" :date="circular.pubDate" :label="circular.title"></circular>
+                </li>
+            </ul>
+
+        </div>
+    </aside>
+
+    <script type="text/javascript">
+
+        var Circular = {
+            props: [
+                'date',
+                'label',
+                'id'
+            ],
+            computed: {
+                day: function () {
+                    theDate = new Date(this.date);
+                    return theDate.getDay();
+                },
+                month: function () {
+                    theDate = new Date(this.date);
+                    return theDate.getMonth() + 1;
+                }
+
+            },
+            template: '<p><span class="date">{{ day }}/{{ month }}</span>: <span>{{ label }}</span></p>',
+        };
+
+        var nextEvents = new Vue({
+            el: '#mh-next-circulars',
+            components: {
+                'circular': Circular
+
+            },
+            data: {
+                circulars: []
+            },
+            created: function () {
+                this.load();
+                this.timer = setInterval(this.load, 300000)
+            },
+            methods: {
+                load() {
+                    this.$http.get('/api/circulars').then(function (response) {
+                        this.circulars = response.body;
+                    }, function (response) {
+                        this.circulars = false;
+                    })
+
+                }
+            }
+        });
+    </script>
+
+{% endraw %}

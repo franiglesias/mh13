@@ -9,13 +9,25 @@
 namespace Mh13\plugins\circulars\infrastructure\persistence\dbal;
 
 
+use Doctrine\DBAL\Connection;
 use Mh13\plugins\circulars\application\readmodel\CircularReadModel;
 
 
 class DBalCircularReadModel implements CircularReadModel
 {
 
+
+    /**
+     * @var Connection
+     */
+    private $connection;
     private $subQueryTemplate = '(select content from circular_i18ns where circular_i18ns.foreign_key = circulars.id and locale="%2$s" and field="%1$s" and model="Circular") as %1$s';
+
+    public function __construct(Connection $connection)
+    {
+
+        $this->connection = $connection;
+    }
 
     public function findCirculars($maxCount)
     {

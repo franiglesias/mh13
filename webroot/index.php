@@ -23,9 +23,13 @@
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
 use Mh13\plugins\cantine\infrastructure\web\CantineController;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
+use Mh13\plugins\circulars\application\service\CircularService;
 use Mh13\plugins\circulars\application\service\EventService;
+use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
+use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalCircularReadModel;
 use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalEventReadModel;
+use Mh13\plugins\circulars\infrastructure\web\CircularController;
 use Mh13\plugins\circulars\infrastructure\web\EventController;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
@@ -212,6 +216,22 @@ $app['event.service'] = function ($app) {
     return new EventService($app['event.readmodel']);
 };
 
+$app['circular.readmodel'] = function ($app) {
+    return new DBalCircularReadModel($app['db']);
+};
+
+$app['circular.service'] = function ($app) {
+    return new CircularService($app['circular.readmodel']);
+};
+
+$app['circular.controller'] = function ($app) {
+    return new CircularController($app['circular.service'], $app['twig']);
+};
+
+$app['api.circular.controller'] = function ($app) {
+    return new ApiCircularController($app['circular.service'], $app['twig']);
+};
+
 /* End of service definitions */
 
 $app['api.article.controller'] = function () use ($app) {
@@ -261,6 +281,8 @@ $app->error(
 
 /* Routes */
 
+$app->get('/circulars/last', "circular.controller:last");
+
 $app->get('/api/articles', "api.article.controller:feed")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"
 )
@@ -270,6 +292,9 @@ $app->get('/api/events', "api.event.controller:last")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"
 )
 ;
+
+$app->get('/api/circulars', "api.circular.controller:last");
+
 
 $app->mount('/uploads', new UploadsProvider());
 $app->mount('/cantine', new CantineProvider());

@@ -1,7 +1,7 @@
 {% extends 'layouts/main.twig' %}
 {% block content %}
 	<header>
-		<h1>Últimas circulares. Curso {{ SchoolYear.string }}</h1>
+        <h1>Últimas circulares.</h1>
 	</header>
     <div class="small-up-1 medium-up-2 row">
         {% for circular in circulars %}
@@ -9,18 +9,18 @@
                 <article class="mh-circular card">
                     <div class="card-divider">
                         <h2>
-                            <a href="/circulars/circulars/view/{{ circular.Circular.id }}">{{ circular.Circular.title }}</a>
+                            <a href="/circulars/circulars/view/{{ circular.id }}">{{ circular.title }}</a>
                         </h2>
 
                     </div>
                     <div class="card-section">
-                        <p>{{ circular.Circular.adressee }}</p>
-                        <p>{{ circular.Circular.content|nl2br|slice(0, 100) }}…</p>
+                        <p>{{ circular.addressee }}</p>
+                        <p>{{ circular.content|nl2br|slice(0, 100) }}…</p>
 
                     </div>
                     <div class="card-divider">
-                        <p>Publicada en {{ circular.Circular.pubDate|date('j/n') }}</p>
-                        <p>{% if circular.CircularBox.id %}<i class="fi-alert"></i>Require respuesta{% endif %}</p>
+                        <p>Publicada en {{ circular.pubDate|date('j/n') }}</p>
+                        <p>{% if circular.id %}<i class="fi-alert"></i>Require respuesta{% endif %}</p>
 
                     </div>
                 </article>
