@@ -1,0 +1,63 @@
+.mh-cantine-day-menu {
+  display: grid;
+  grid-template-rows: 2em auto;
+  grid-template-columns: 60% 40%;
+  grid-row-gap: $spacing;
+
+  font: {
+    size: .8rem;
+    family: $interface-font;
+    weight: 300;
+  }
+
+  h3 {
+    font: {
+      family: $interface-font;
+      size: inherit;
+    }
+  ;
+  }
+
+  header {
+    font: {
+      weight: 500;
+    }
+    border-bottom: none;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .mh-cantine-meals {
+    grid-column-start: 1;
+
+    p {
+      line-height: 150%;
+    }
+
+    padding-right: 2*$spacing;
+  }
+
+  .mh-cantine-facts {
+    grid-column-start: 2;
+
+    font: {
+      size: .6rem;
+    }
+
+    dl {
+      dt {
+        float: left;
+        clear: left;
+        margin-right: $spacing / 3;
+        font: {
+          weight: 300;
+        }
+      }
+
+      dd {
+        float: left;
+      }
+    }
+  }
+
+}

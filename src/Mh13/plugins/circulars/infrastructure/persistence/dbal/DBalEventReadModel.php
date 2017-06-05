@@ -57,19 +57,4 @@ class DBalEventReadModel implements EventReadModel
         return $statement->fetchAll();
     }
 
-    /**-
-     * @param $field
-     *
-     * @param $locale
-     *
-     * @return string
-     */
-//    protected function selectFieldFromTranslation($field, $locale): string
-//    {
-//        return sprintf($this->subQueryTemplate, $field, $locale);
-//    }
-
-    public function getEventOrFail($eventId)
-    {
-    }
 }

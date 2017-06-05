@@ -29,4 +29,9 @@ class CircularService
     {
         return $this->readModel->findCirculars(5);
     }
+
+    public function getCircular($id)
+    {
+        return $this->readModel->getByIdOrFail($id);
+    }
 }

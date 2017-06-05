@@ -1,0 +1,65 @@
+.mh-vertical-navigation-list {
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+
+    &:hover {
+      background-color: $light-gray;
+
+      .prefix {
+        color: $dark-gray;
+      }
+    }
+
+    font: {
+      family: $interface-font;
+      size: 0.8rem;
+    }
+    padding: $spacing;
+    background-color: $white;
+
+    .prefix {
+      float: left;
+      color: $medium-gray;
+      margin-right: $spacing;
+
+      width: 16.18%;
+
+      font: {
+        size: 200%;
+        weight: 600;
+
+      }
+    ;
+    }
+
+    .linked {
+      color: $black;
+      font: {
+        weight: 500;
+      }
+    ;
+      line-height: 120%;
+      a {
+        color: inherit;
+      }
+    }
+
+    .description {
+      margin-left: 16.18%;
+      padding-left: $spacing;
+      font-weight: 300;
+      margin-bottom: 0;
+      color: $dark-gray;
+      font: {
+        size: .7rem;
+      }
+    }
+
+    border-bottom: 1px solid $light-gray;
+  }
+
+}

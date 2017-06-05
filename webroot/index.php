@@ -282,6 +282,7 @@ $app->error(
 /* Routes */
 
 $app->get('/circulars/last', "circular.controller:last");
+$app->get('/circulars/view/{id}', "circular.controller:view");
 
 $app->get('/api/articles', "api.article.controller:feed")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"

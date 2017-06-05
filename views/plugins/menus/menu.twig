@@ -1,5 +1,6 @@
-<ul class="vertical menu">
+<ul class="mh-vertical-navigation-list">
     {% for item in menu.items %}
-    <li><a href="{{ item.url }}" {% if item.icon %}class="fi-{{item.icon}}"{% endif %}>{{item.label}}</a></li>
+        <li><p class="linked"><a href="{{ item.url }}"
+                                 {% if item.icon %}class="fi-{{ item.icon }}"{% endif %}>{{ item.label }}</a></p></li>
 {% endfor %}
 </ul>

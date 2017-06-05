@@ -13,5 +13,6 @@ interface CircularReadModel
 {
     public function findCirculars($maxCount);
 
+    public function getByIdOrFail($id);
 
 }

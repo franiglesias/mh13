@@ -37,4 +37,5 @@ class CircularController
 
         return new JsonResponse($circulars, Response::HTTP_OK);
     }
+
 }

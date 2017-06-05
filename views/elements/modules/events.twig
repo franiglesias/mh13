@@ -6,7 +6,7 @@
     <aside class="mh-widget">
         <header><h1>Próximos eventos</h1></header>
         <div id="mh-next-events">
-            <ul>
+            <ul class="mh-vertical-navigation-list">
                 <li v-for="event in events">
                     <event :id="event.id" :date="event.startDate" :label="event.title"></event>
                 </li>
@@ -34,7 +34,7 @@
                 }
 
             },
-            template: '<p><span class="date">{{ day }}/{{ month }}</span>: <span>{{ label }}</span></p>',
+            template: '<p><span class="date prefix">{{ day }}/{{ month }}</span><span class="linked">{{ label }}</span></p>',
         };
 
         var nextEvents = new Vue({

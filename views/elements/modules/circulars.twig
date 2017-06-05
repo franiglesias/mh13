@@ -6,9 +6,9 @@
     <aside class="mh-widget">
         <header><h1>Circulares vigentes</h1></header>
         <div id="mh-next-circulars">
-            <ul>
+            <ul class="mh-vertical-navigation-list">
                 <template v-for="circular in circulars">
-                    <circular :id="circular.id" :date="circular.pubDate" :label="circular.title"
+                    <circular :id="circular.id" :date="circular.pubDate" :label="circular.type + ': ' + circular.title"
                               :addressee="circular.addressee"></circular>
                 </template>
             </ul>
@@ -33,10 +33,13 @@
                 month: function () {
                     theDate = new Date(this.date);
                     return theDate.getMonth() + 1;
+                },
+                url: function () {
+                    return '/circulars/view/' + this.id;
                 }
 
             },
-            template: '<li><p class="date prefix">{{ day }}/{{ month }}</p><p class="linked">{{ label }}</p><p class="description">{{ addressee }}</p></li>',
+            template: '<li><p class="date prefix">{{ day }}/{{ month }}</p><p class="linked"><a :href="url">{{ label }}</a></p><p class="description">{{ addressee }}</p></li>',
         };
 
         var nextEvents = new Vue({

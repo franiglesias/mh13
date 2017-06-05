@@ -1,6 +1,9 @@
+<ul class="mh-vertical-navigation-list">
 {% for article in articles %}
     {% import 'macros/catalog.twig' as catalog %}
 
     {% set blog = {'slug': article.blogSlug, 'title': article.blogTitle} %}
+
     {{ attribute(catalog, layout|default('index'), [article, blog, article.image]) }}
 {% endfor %}
+</ul>

@@ -13,7 +13,6 @@ interface EventReadModel
 {
     public function findEvents($maxCount);
 
-    public function getEventOrFail($eventId);
 
 
 }

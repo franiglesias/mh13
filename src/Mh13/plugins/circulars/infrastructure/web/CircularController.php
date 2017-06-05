@@ -37,4 +37,16 @@ class CircularController
             ]
         );
     }
+
+    public function view($id)
+    {
+        $circular = $this->circularService->getCircular($id);
+
+        return $this->templating->render(
+            'plugins/circulars/view.twig',
+            [
+                'circular' => $circular,
+            ]
+        );
+    }
 }

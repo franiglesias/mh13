@@ -1,8 +1,11 @@
-<h2>Menú para el día ({{ date()|date('l, j/n/Y') }})</h2>
-	<div class="body">
+<div class="mh-cantine-day-menu">
+	<header><p>Menú para el día ({{ date()|date('l, j/n/Y') }})</p></header>
+	<div class="mh-cantine-meals">
 		<h3>Platos</h3>
-		<p>{{meals.menu|nl2br}}</p>
-		<h2>Información nutricional (media)</h2>
+		<p>{{ meals.menu|nl2br }}</p>
+	</div>
+	<div class="mh-cantine-facts">
+		<h3>Información nutricional (media)</h3>
 		<dl class="mh-nutrition-facts">
 			<dt>Calorías:</dt>
 			<dd>{{ meals.calories }}</dd>
@@ -14,3 +17,4 @@
 			<dd>{{ meals.proteines }}</dd>
 		</dl>
 	</div>
+</div>
