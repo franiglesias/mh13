@@ -1,0 +1,15 @@
+h2 span.blog {
+  color: $medium-gray;
+
+  a {
+    color: inherit;
+  }
+}
+
+#mh-blog-home {
+
+  h2 span.blog {
+    display: none;
+  }
+
+}

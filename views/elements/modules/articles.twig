@@ -86,7 +86,8 @@
                 'title',
                 'abstract',
                 'blogTitle',
-                'blogSlug'
+                'blogSlug',
+                'pubDate'
             ],
             components: {
                 'article-image': ArticleImage,
@@ -95,17 +96,21 @@
             computed: {
                 articleUrl: function () {
                     return '/' + this.slug;
+                },
+                date: function () {
+                    var publicationDate = new Date(this.pubDate.split(" ", 1));
+                    return publicationDate.getDate() + '/' + (publicationDate.getMonth() + 1) + '/' + publicationDate.getFullYear();
+                },
+                blogUrl: function () {
+                    return '/blog/' + this.blogSlug;
                 }
             },
             template: '<article class="media-object">' +
             '<article-image v-bind:path="image"></article-image>' +
             '<div class="media-object-section main-section">' +
-            '<h2><a v-bind:href="articleUrl">{{ title }}</a></h2>' +
-            '<p>{{ abstract }}</p>' +
-            '<p><a v-bind:href="articleUrl" class="button secondary small">Leer más</a></p>' +
-            '<div class="metadata">' +
-            '<blog-link v-bind:blog="blogTitle" v-bind:alias="blogSlug"></blog-link>' +
-            '</div>' +
+            '<h2><span class="blog"><a :href="blogUrl">{{ blogTitle }}</a>: </span><a :href="articleUrl">{{ title }}</a></h2>' +
+            '<p><span class="date">{{ date }}</span> {{ abstract }}</p>' +
+            '<p><a :href="articleUrl" class="button secondary small">Leer más</a></p>' +
             '</div>' +
             '</article>'
         });
@@ -113,7 +118,7 @@
         Vue.component('article-list', {
             props: ['articles'],
             template: '<div>' +
-            '<article-abstract v-for="article in articles" :key="article.id" :image="article.image" :slug="article.slug" :title="article.title" :abstract="article.abstract" :blog-slug="article.blog_slug" :blog-title="article.blog_title"></article-abstract>' +
+            '<article-abstract v-for="article in articles" :key="article.id" :image="article.image" :slug="article.slug" :title="article.title" :abstract="article.abstract" :blog-slug="article.blog_slug" :blog-title="article.blog_title" :pub-date="article.pubDate"></article-abstract>' +
             '</div>',
 
         });

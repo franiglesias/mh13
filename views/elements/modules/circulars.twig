@@ -27,11 +27,11 @@
             ],
             computed: {
                 day: function () {
-                    theDate = new Date(this.date);
+                    var theDate = new Date(this.date);
                     return theDate.getDate();
                 },
                 month: function () {
-                    theDate = new Date(this.date);
+                    var theDate = new Date(this.date);
                     return theDate.getMonth() + 1;
                 },
                 url: function () {
