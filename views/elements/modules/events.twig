@@ -17,6 +17,18 @@
 
     <script type="text/javascript">
 
+        Date.prototype.isToday = function () {
+            var today = new Date();
+            return (today.getDate() == this.getDate()) && (today.getMonth() == this.getMonth()) && (today.getFullYear() == this.getFullYear());
+        };
+
+        Date.prototype.daysFromNow = function () {
+            var aDay = 3600 * 24 * 1000;
+            var today = new Date();
+            var difference = this.getTime() - today.getTime();
+            return Math.round(Math.abs(difference) / aDay);
+        };
+
         var Event = {
             props: [
                 'date',
@@ -31,10 +43,20 @@
                 month: function () {
                     theDate = new Date(this.date);
                     return theDate.getMonth() + 1;
+                },
+                today: function () {
+                    theDate = new Date(this.date);
+                    return theDate.isToday();
+                },
+                daysTo: function () {
+                    theDate = new Date(this.date);
+                    var days = theDate.daysFromNow();
+
+                    return days > 1 ? ('Dentro de ' + days + ' días.') : (days == 1 ? 'Mañana' : 'Hoy');
                 }
 
             },
-            template: '<p><span class="date prefix">{{ day }}/{{ month }}</span><span class="linked">{{ label }}</span></p>',
+            template: '<p><span class="date prefix">{{ today ? "Hoy" : (day + "/" + month) }}</span><span class="linked">{{ label }}</span><span class="description">{{ daysTo }}</span></p>',
         };
 
         var nextEvents = new Vue({

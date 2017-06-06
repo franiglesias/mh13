@@ -42,14 +42,14 @@ class DBalEventReadModel implements EventReadModel
                 'events'
             )
             ->where(
-                'events.publish = 1 and ((events.endDate is null and events.startDate >= now() ) or events.endDate >= now() )'
+                'events.publish = 1 and ((events.endDate is null and events.startDate >= CURDATE() ) or events.endDate >= CURDATE() )'
             )
             ->orderBy(
                 'startDate',
-                'desc'
+                'asc'
             )->addOrderBy(
                 'startTime',
-                'desc'
+                'asc'
             )->setMaxResults($maxCount)
         ;
         $statement = $builder->execute();

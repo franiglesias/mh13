@@ -51,9 +51,12 @@ class DBalCircularReadModel implements CircularReadModel
             ->where(
                 'circulars.status = 2'
             )
+            ->andWhere(
+                'circulars.pubDate >= CURDATE()'
+            )
             ->orderBy(
                 'pubDate',
-                'desc'
+                'asc'
             )->setMaxResults($maxCount)
         ;
         $statement = $builder->execute();
