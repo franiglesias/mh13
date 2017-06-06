@@ -72,11 +72,7 @@
                 <div class="mh-image-crop small circle" style="background-image: url({{ image }})"></div>
             </div>
         {% endif %}
-        <p class="linked">
-                <a href="/{{ article.slug }}">{{ article.title }}</a>
-        </p>
-        <div class="description">
-                <span class="date left">{{ article.pubDate|date("j/m/y") }}</span>
-            </div>
+        <p class="linked"><a href="/{{ article.slug }}">{{ article.title }}</a></p>
+        <div class="description"><span class="date left">{{ article.pubDate|date("j/m/y") }}</span></div>
     </li>
 {% endmacro channel_feed %}

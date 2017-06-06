@@ -25,9 +25,11 @@ $mh-prefix-size: 4rem;
     padding: $spacing;
     background-color: $white;
 
+    overflow: hidden;
+
     .prefix {
       float: left;
-      color: $light-gray;
+      color: $white;
       background-color: $medium-gray;
 
       margin-right: $spacing;
