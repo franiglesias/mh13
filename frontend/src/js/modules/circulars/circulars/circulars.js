@@ -33,7 +33,7 @@ var nextCirculars = new Vue({
     template: `
         <ul class="mh-vertical-navigation-list">
               <circular :id="circular.id" :date="circular.pubDate" :label="circular.type + ': ' + circular.title"
-                              :addressee="circular.addressee" v-for="circular in circulars"></circular>
+                              :addressee="circular.addressee" v-for="circular in circulars" :key="circular.id"></circular>
  
         </ul>
     `,

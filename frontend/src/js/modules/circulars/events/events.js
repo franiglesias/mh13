@@ -52,7 +52,7 @@ var nextEvents = new Vue({
     el: '#mh-next-events',
     template: `
            <ul class="mh-vertical-navigation-list">
-               <event :id="event.id" :date="event.startDate" :label="event.title" v-for="event in events"></event>
+               <event :id="event.id" :date="event.startDate" :label="event.title" v-for="event in events" :key="event.id"></event>
            </ul>
     `,
     components: {
