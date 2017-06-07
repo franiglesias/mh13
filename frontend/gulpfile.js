@@ -29,7 +29,9 @@ var foundationSrc = [
 
 var vueSrc = [
     "node_modules/vue/dist/vue.js",
-    "node_modules/vue-resource/dist/vue-resource.js"
+    "node_modules/vue-resource/dist/vue-resource.js",
+    "node_modules/vue/dist/vue.min.js",
+    "node_modules/vue-resource/dist/vue-resource.min.js"
 ];
 
 // Tasks
@@ -111,7 +113,7 @@ gulp.task("copy-foundation", function () {
 
 gulp.task("copy-vue", function () {
     gulp.src(vueSrc)
-        .pipe(gulp.dest(jsVendorSource))
+        .pipe(gulp.dest(destination + "/js/vendor"))
 });
 
 gulp.task("copy-jquery-te", function () {
@@ -137,6 +139,9 @@ gulp.task("compile-jsx", function () {
 
 gulp.task("scripts", function () {
     gulp.src(jsSource)
+        .pipe(babel({
+            presets: ["es2015"]
+        }))
         .pipe(gulp.dest(destination + "/js"))
         .pipe(rename({
             suffix: ".min"

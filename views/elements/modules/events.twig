@@ -1,88 +1,9 @@
-<script src="/assets/js/vendor/vue.js"></script>
-<script src="/assets/js/vendor/vue-resource.js"></script>
+<aside class="mh-widget">
+    <header><h1>Próximos eventos</h1></header>
+    <div id="mh-next-events">
 
-{% raw %}
+    </div>
+</aside>
 
-    <aside class="mh-widget">
-        <header><h1>Próximos eventos</h1></header>
-        <div id="mh-next-events">
-            <ul class="mh-vertical-navigation-list">
-                <li v-for="event in events">
-                    <event :id="event.id" :date="event.startDate" :label="event.title"></event>
-                </li>
-            </ul>
 
-        </div>
-    </aside>
-
-    <script type="text/javascript">
-
-        Date.prototype.isToday = function () {
-            var today = new Date();
-            return (today.getDate() == this.getDate()) && (today.getMonth() == this.getMonth()) && (today.getFullYear() == this.getFullYear());
-        };
-
-        Date.prototype.daysFromNow = function () {
-            var aDay = 3600 * 24 * 1000;
-            var today = new Date();
-            var difference = this.getTime() - today.getTime();
-            return Math.round(Math.abs(difference) / aDay);
-        };
-
-        var Event = {
-            props: [
-                'date',
-                'label',
-                'id'
-            ],
-            computed: {
-                day: function () {
-                    theDate = new Date(this.date);
-                    return theDate.getDate();
-                },
-                month: function () {
-                    theDate = new Date(this.date);
-                    return theDate.getMonth() + 1;
-                },
-                today: function () {
-                    theDate = new Date(this.date);
-                    return theDate.isToday();
-                },
-                daysTo: function () {
-                    theDate = new Date(this.date);
-                    var days = theDate.daysFromNow();
-
-                    return days > 1 ? ('Dentro de ' + days + ' días.') : (days == 1 ? 'Mañana' : 'Hoy');
-                }
-
-            },
-            template: '<p><span class="date prefix">{{ today ? "Hoy" : (day + "/" + month) }}</span><span class="linked">{{ label }}</span><span class="description">{{ daysTo }}</span></p>',
-        };
-
-        var nextEvents = new Vue({
-            el: '#mh-next-events',
-            components: {
-                'event': Event
-
-            },
-            data: {
-                events: []
-            },
-            created: function () {
-                this.load();
-                this.timer = setInterval(this.load, 300000)
-            },
-            methods: {
-                load() {
-                    this.$http.get('/api/events').then(function (response) {
-                        this.events = response.body;
-                    }, function (response) {
-                        this.events = false;
-                    })
-
-                }
-            }
-        });
-    </script>
-
-{% endraw %}
+<script src="/assets/js/modules/circulars/events/events.js"></script>

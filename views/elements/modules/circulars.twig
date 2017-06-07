@@ -1,71 +1,9 @@
-<script src="/assets/js/vendor/vue.js"></script>
-<script src="/assets/js/vendor/vue-resource.js"></script>
+<aside class="mh-widget">
+    <header><h1>Circulares vigentes</h1></header>
+    <div id="mh-next-circulars">
 
-{% raw %}
+    </div>
+</aside>
 
-    <aside class="mh-widget">
-        <header><h1>Circulares vigentes</h1></header>
-        <div id="mh-next-circulars">
-            <ul class="mh-vertical-navigation-list">
-                <template v-for="circular in circulars">
-                    <circular :id="circular.id" :date="circular.pubDate" :label="circular.type + ': ' + circular.title"
-                              :addressee="circular.addressee"></circular>
-                </template>
-            </ul>
 
-        </div>
-    </aside>
-
-    <script type="text/javascript">
-
-        var Circular = {
-            props: [
-                'date',
-                'label',
-                'addressee',
-                'id'
-            ],
-            computed: {
-                day: function () {
-                    var theDate = new Date(this.date);
-                    return theDate.getDate();
-                },
-                month: function () {
-                    var theDate = new Date(this.date);
-                    return theDate.getMonth() + 1;
-                },
-                url: function () {
-                    return '/circulars/view/' + this.id;
-                }
-
-            },
-            template: '<li><p class="date prefix">{{ day }}/{{ month }}</p><p class="linked"><a :href="url">{{ label }}</a></p><p class="description">{{ addressee }}</p></li>',
-        };
-
-        var nextEvents = new Vue({
-            el: '#mh-next-circulars',
-            components: {
-                'circular': Circular
-
-            },
-            data: {
-                circulars: []
-            },
-            created: function () {
-                this.load();
-                this.timer = setInterval(this.load, 300000)
-            },
-            methods: {
-                load() {
-                    this.$http.get('/api/circulars').then(function (response) {
-                        this.circulars = response.body;
-                    }, function (response) {
-                        this.circulars = false;
-                    })
-
-                }
-            }
-        });
-    </script>
-
-{% endraw %}
+<script src="/assets/js/modules/circulars/circulars/circulars.js"></script>
