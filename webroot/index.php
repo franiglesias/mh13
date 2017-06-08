@@ -222,7 +222,7 @@ $app['cantine.readmodel'] = function ($app) {
 };
 
 $app['cantine.controller'] = function ($app) {
-    return new CantineController($app['cantine.readmodel'], $app['command.bus'], $app['twig']);
+    return new CantineController($app['command.bus'], $app['twig']);
 };
 
 $app['event.readmodel'] = function ($app) {

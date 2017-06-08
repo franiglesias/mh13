@@ -41,12 +41,11 @@ class GetDescendantsWithDepthForPageWithSlug implements DBalStaticPageRelatedFin
                 'parent'
             )
             ->where('node.lft BETWEEN parent.lft AND parent.rght')
-            ->andWhere('node.slug = ?')
-            ->groupBy('node.slug')
+            ->andWhere('node.slug = ?')->groupBy('node.slug, node.title, node.lft')
             ->orderBy('node.lft', 'asc')
         ;
 
-        $this->builder->select('node.title, node.slug, count(parent.slug) - (sub_tree.depth) as depth')->from(
+        $this->builder->select('node.title, node.slug, count(parent.slug) - min(sub_tree.depth) as depth')->from(
                 'static_pages',
                 'node'
             )
@@ -61,8 +60,7 @@ class GetDescendantsWithDepthForPageWithSlug implements DBalStaticPageRelatedFin
                 'node.lft BETWEEN sub_parent.lft AND sub_parent.rght'
             )
             ->andWhere('sub_parent.slug = sub_tree.slug')
-            ->andWhere('node.slug <> parent.slug')
-            ->groupBy('node.slug')
+            ->andWhere('node.slug <> parent.slug')->groupBy('node.slug', 'node.title', 'node.lft')
             ->orderBy('node.lft', 'asc')
             ->setParameter(0, $this->slug)
         ;

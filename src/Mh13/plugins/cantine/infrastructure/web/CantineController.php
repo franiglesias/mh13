@@ -10,7 +10,6 @@ namespace Mh13\plugins\cantine\infrastructure\web;
 
 
 use League\Tactician\CommandBus;
-use Mh13\plugins\cantine\application\CantineReadModel;
 use Mh13\plugins\cantine\application\GetMenuForDay;
 use Mh13\plugins\cantine\application\GetMenuForMonth;
 use Mh13\plugins\cantine\application\GetMenuForWeek;
@@ -18,26 +17,20 @@ use Mh13\plugins\cantine\application\GetMenuForWeek;
 
 class CantineController
 {
-    /**
-     * @var CantineReadModel
-     */
-    private $readModel;
     private $templating;
     /**
      * @var CommandBus
      */
     private $bus;
 
-    public function __construct(CantineReadModel $readModel, CommandBus $bus, $templating)
+    public function __construct(CommandBus $bus, $templating)
     {
-        $this->readModel = $readModel;
         $this->templating = $templating;
         $this->bus = $bus;
     }
 
     public function today()
     {
-
         $today = new \DateTimeImmutable();
         $getMenuForDay = new GetMenuForDay($today);
         $result = $this->bus->handle($getMenuForDay);
