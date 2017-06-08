@@ -12,6 +12,7 @@ namespace Mh13\plugins\cantine\infrastructure\web;
 use League\Tactician\CommandBus;
 use Mh13\plugins\cantine\application\CantineReadModel;
 use Mh13\plugins\cantine\application\GetMenuForDay;
+use Mh13\plugins\cantine\application\GetMenuForMonth;
 use Mh13\plugins\cantine\application\GetMenuForWeek;
 
 
@@ -69,13 +70,14 @@ class CantineController
     public function month()
     {
         $today = new \DateTimeImmutable();
-        $result = $this->readModel->getMealsForMonth($today);
+        $getMenuForMonth = new GetMenuForMonth($today->format('m'), $today->format('Y'));
+        $meals = $this->bus->handle($getMenuForMonth);
 
         return $this->templating->render(
             'plugins/cantine/month.twig',
             [
                 'month' => $today->format('m'),
-                'meals' => $result,
+                'meals' => $meals,
                 'range' => [
                     'start' => $today->modify('first day of this month'),
                     'end'   => $today->modify('last day of this month'),

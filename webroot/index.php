@@ -27,6 +27,8 @@ use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Mh13\plugins\cantine\application\GetMenuForDay;
 use Mh13\plugins\cantine\application\GetMenuForDayHandler;
+use Mh13\plugins\cantine\application\GetMenuForMonth;
+use Mh13\plugins\cantine\application\GetMenuForMonthHandler;
 use Mh13\plugins\cantine\application\GetMenuForWeek;
 use Mh13\plugins\cantine\application\GetMenuForWeekHandler;
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
@@ -264,6 +266,10 @@ $app[GetMenuForWeekHandler::class] = function ($app) {
     return new GetMenuForWeekHandler($app['cantine.readmodel']);
 };
 
+$app[GetMenuForMonthHandler::class] = function ($app) {
+    return new GetMenuForMonthHandler($app['cantine.readmodel']);
+};
+
 /* End of service definitions */
 
 /* Tactician Command Bus */
@@ -280,6 +286,7 @@ $app['command.bus'] = function ($app) {
     $locator->addHandler($app[GetLastEventsHandler::class], GetLastEvents::class);
     $locator->addHandler($app[GetMenuForDayHandler::class], GetMenuForDay::class);
     $locator->addHandler($app[GetMenuForWeekHandler::class], GetMenuForWeek::class);
+    $locator->addHandler($app[GetMenuForMonthHandler::class], GetMenuForMonth::class);
 
 // Choose our Handler naming strategy
     $nameExtractor = new ClassNameExtractor();

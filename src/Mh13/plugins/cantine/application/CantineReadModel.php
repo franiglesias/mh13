@@ -14,5 +14,5 @@ interface CantineReadModel
 
     public function getMealsForWeek($weekNumber, $year);
 
-    public function getMealsForMonth(\DateTimeInterface $today);
+    public function getMealsForMonth($month, $year);
 }
