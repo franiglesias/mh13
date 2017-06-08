@@ -25,7 +25,7 @@ class DBalCantineReadModel implements CantineReadModel
         $this->connection = $connection;
     }
 
-    public function getTodayMeals(\DateTimeInterface $today)
+    public function getMealsForDay(\DateTimeInterface $today)
     {
         $builder = $this->connection->createQueryBuilder();
         $builder->select('*')
@@ -42,16 +42,17 @@ class DBalCantineReadModel implements CantineReadModel
         return $result;
     }
 
-    public function getWeekMeals(\DateTimeInterface $today)
+    public function getMealsForWeek($weekNumber, $year)
     {
         $builder = $this->connection->createQueryBuilder();
         $builder->select('*')
             ->from('cantine_menu_dates', 'dates')
             ->leftJoin('dates', 'cantine_week_menus', 'week', 'dates.cantine_week_menu_id = week.id')
             ->leftJoin('week', 'cantine_day_menus', 'meals', 'meals.cantine_week_menu_id = week.id')
-            ->where(':today between dates.start and (dates.start + interval 4 day)')
+            ->where('week(dates.start, 1) = :week and year(dates.start) = :year')
             ->orderBy('meals.weekday', 'asc')
-            ->setParameter('today', $today->format('Y-m-d'))
+            ->setParameter('week', $weekNumber)
+            ->setParameter('year', $year)
         ;
         $statement = $builder->execute();
         $result = $statement->fetchAll();
@@ -59,7 +60,7 @@ class DBalCantineReadModel implements CantineReadModel
         return $result;
     }
 
-    public function getMonthMeals(\DateTimeInterface $today)
+    public function getMealsForMonth(\DateTimeInterface $today)
     {
         $builder = $this->connection->createQueryBuilder();
         $builder->select('*')

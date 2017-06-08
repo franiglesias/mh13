@@ -10,7 +10,7 @@ namespace Mh13\plugins\circulars\infrastructure\persistence\dbal;
 
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\circulars\application\readmodel\EventReadModel;
+use Mh13\plugins\circulars\application\event\EventReadModel;
 use Mh13\shared\persistence\Multilingual;
 
 

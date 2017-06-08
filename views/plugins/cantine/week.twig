@@ -21,11 +21,12 @@
                         <p>{{ meal.menu|nl2br }}</p>
 
                     </td>
-                    {% set current = weekday < 5 ? current|date_modify('+1day') : current|date_modify('+3day') %}
-                {% else %}
-                    <td></td>
-                {% endif %}
 
+                {% else %}
+                    <td><p class="text-right">{{ current|date("j/n") }}</p>
+                        <p>{{ meal.menu|nl2br }}</p></td>
+                {% endif %}
+                {% set current = weekday < 5 ? current|date_modify('+1day') : current|date_modify('+3day') %}
             {% endfor %}
 
             <td>

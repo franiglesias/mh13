@@ -9,26 +9,29 @@
 namespace Mh13\plugins\circulars\infrastructure\web;
 
 
-use Mh13\plugins\circulars\application\service\CircularService;
+use League\Tactician\CommandBus;
+use Mh13\plugins\circulars\application\circular\GetCircular;
+use Mh13\plugins\circulars\application\circular\GetLastCirculars;
 
 
 class CircularController
 {
-    /**
-     * @var CircularService
-     */
-    private $circularService;
     private $templating;
+    /**
+     * @var CommandBus
+     */
+    private $bus;
 
-    public function __construct(CircularService $circularService, $templating)
+    public function __construct(CommandBus $bus, $templating)
     {
-        $this->circularService = $circularService;
         $this->templating = $templating;
+        $this->bus = $bus;
     }
 
     public function last()
     {
-        $circulars = $this->circularService->getLastCirculars();
+        $command = new GetLastCirculars(5);
+        $circulars = $this->bus->handle($command);
 
         return $this->templating->render(
             'plugins/circulars/current.twig',
@@ -40,7 +43,8 @@ class CircularController
 
     public function view($id)
     {
-        $circular = $this->circularService->getCircular($id);
+        $command = new GetCircular($id);
+        $circular = $this->bus->handle($command);
 
         return $this->templating->render(
             'plugins/circulars/view.twig',

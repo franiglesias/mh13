@@ -9,28 +9,30 @@
 namespace Mh13\plugins\circulars\infrastructure\api;
 
 
-use Mh13\plugins\circulars\application\service\CircularService;
+use League\Tactician\CommandBus;
+use Mh13\plugins\circulars\application\circular\GetLastCirculars;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 
 class CircularController
 {
-    /**
-     * @var CircularService
-     */
-    private $circularService;
-    private $templating;
 
-    public function __construct(CircularService $circularService, $templating)
+
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+
+    public function __construct(CommandBus $bus)
     {
-        $this->circularService = $circularService;
-        $this->templating = $templating;
+        $this->bus = $bus;
     }
 
     public function last()
     {
-        $circulars = $this->circularService->getLastCirculars();
+        $command = new GetLastCirculars(5);
+        $circulars = $this->bus->handle($command);
         if (!$circulars) {
             return new JsonResponse([], Response::HTTP_NO_CONTENT);
         }

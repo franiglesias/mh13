@@ -10,9 +10,9 @@ namespace Mh13\plugins\cantine\application;
 
 interface CantineReadModel
 {
-    public function getTodayMeals(\DateTimeInterface $today);
+    public function getMealsForDay(\DateTimeInterface $today);
 
-    public function getWeekMeals(\DateTimeInterface $today);
+    public function getMealsForWeek($weekNumber, $year);
 
-    public function getMonthMeals(\DateTimeInterface $today);
+    public function getMealsForMonth(\DateTimeInterface $today);
 }

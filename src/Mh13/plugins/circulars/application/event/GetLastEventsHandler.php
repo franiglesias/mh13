@@ -6,13 +6,10 @@
  * Time: 9:37
  */
 
-namespace Mh13\plugins\circulars\application\service;
+namespace Mh13\plugins\circulars\application\event;
 
 
-use Mh13\plugins\circulars\application\readmodel\EventReadModel;
-
-
-class EventService
+class GetLastEventsHandler
 {
     /**
      * @var EventReadModel
@@ -24,9 +21,9 @@ class EventService
         $this->readModel = $readModel;
     }
 
-    public function getLastEvents()
+    public function handle(GetLastEvents $getLastEvent)
     {
-        return $this->readModel->findEvents('5');
+        return $this->readModel->findEvents($getLastEvent->getMaxNumber());
     }
 
 }

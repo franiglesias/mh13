@@ -9,7 +9,8 @@
 namespace Mh13\plugins\circulars\infrastructure\api;
 
 
-use Mh13\plugins\circulars\application\service\EventService;
+use League\Tactician\CommandBus;
+use Mh13\plugins\circulars\application\event\GetLastEvents;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,18 +18,18 @@ use Symfony\Component\HttpFoundation\Response;
 class EventController
 {
     /**
-     * @var EventService
+     * @var CommandBus
      */
-    private $eventService;
+    private $bus;
 
-    public function __construct(EventService $eventService)
+    public function __construct(CommandBus $bus)
     {
-        $this->eventService = $eventService;
+        $this->bus = $bus;
     }
 
     public function last()
     {
-        $events = $this->eventService->getLastEvents();
+        $events = $this->bus->handle(new GetLastEvents(5));
         if (!$events) {
             return new JsonResponse([], Response::HTTP_NO_CONTENT);
         }

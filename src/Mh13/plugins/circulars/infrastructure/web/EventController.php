@@ -8,27 +8,27 @@
 
 namespace Mh13\plugins\circulars\infrastructure\web;
 
-
-use Mh13\plugins\circulars\application\service\EventService;
+use League\Tactician\CommandBus;
+use Mh13\plugins\circulars\application\event\GetLastEvents;
 
 
 class EventController
 {
     /**
-     * @var EventService
+     * @var CommandBus
      */
-    private $eventService;
+    private $bus;
     private $templating;
 
-    public function __construct(EventService $eventService, $templating)
+    public function __construct(CommandBus $bus, $templating)
     {
-        $this->eventService = $eventService;
+        $this->bus = $bus;
         $this->templating = $templating;
     }
 
     public function last()
     {
-        $events = $this->eventService->getLastEvents();
+        $events = $this->bus->handle(new GetLastEvents(5));
 
         return $this->templating->render(
             'plugins/circulars/nextevents.twig',

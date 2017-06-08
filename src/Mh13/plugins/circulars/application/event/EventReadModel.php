@@ -6,7 +6,7 @@
  * Time: 9:28
  */
 
-namespace Mh13\plugins\circulars\application\readmodel;
+namespace Mh13\plugins\circulars\application\event;
 
 
 interface EventReadModel

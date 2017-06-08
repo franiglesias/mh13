@@ -20,11 +20,24 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+use League\Tactician\CommandBus;
+use League\Tactician\Handler\CommandHandlerMiddleware;
+use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
+use League\Tactician\Handler\Locator\InMemoryLocator;
+use League\Tactician\Handler\MethodNameInflector\HandleInflector;
+use Mh13\plugins\cantine\application\GetMenuForDay;
+use Mh13\plugins\cantine\application\GetMenuForDayHandler;
+use Mh13\plugins\cantine\application\GetMenuForWeek;
+use Mh13\plugins\cantine\application\GetMenuForWeekHandler;
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
 use Mh13\plugins\cantine\infrastructure\web\CantineController;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
-use Mh13\plugins\circulars\application\service\CircularService;
-use Mh13\plugins\circulars\application\service\EventService;
+use Mh13\plugins\circulars\application\circular\GetCircular;
+use Mh13\plugins\circulars\application\circular\GetCircularHandler;
+use Mh13\plugins\circulars\application\circular\GetLastCirculars;
+use Mh13\plugins\circulars\application\circular\GetLastCircularsHandler;
+use Mh13\plugins\circulars\application\event\GetLastEvents;
+use Mh13\plugins\circulars\application\event\GetLastEventsHandler;
 use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
 use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalCircularReadModel;
@@ -88,6 +101,7 @@ $app['debug'] = true;
 
 $app->register(new ServiceControllerServiceProvider());
 
+
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
     [
@@ -106,6 +120,7 @@ $app->register(
         'db.options' => $config['doctrine']['dbal']['connections'][$config['doctrine']['dbal']['default_connection']],
     ]
 );
+
 
 /* End of register service providers */
 
@@ -205,46 +220,90 @@ $app['cantine.readmodel'] = function ($app) {
 };
 
 $app['cantine.controller'] = function ($app) {
-    return new CantineController($app['cantine.readmodel'], $app['twig']);
+    return new CantineController($app['cantine.readmodel'], $app['command.bus'], $app['twig']);
 };
 
 $app['event.readmodel'] = function ($app) {
     return new DBalEventReadModel($app['db']);
 };
 
-$app['event.service'] = function ($app) {
-    return new EventService($app['event.readmodel']);
-};
-
 $app['circular.readmodel'] = function ($app) {
     return new DBalCircularReadModel($app['db']);
 };
 
-$app['circular.service'] = function ($app) {
-    return new CircularService($app['circular.readmodel']);
-};
+
 
 $app['circular.controller'] = function ($app) {
-    return new CircularController($app['circular.service'], $app['twig']);
+    return new CircularController($app['command.bus'], $app['twig']);
+};
+
+
+$app[GetLastCircularsHandler::class] = function ($app) {
+    return new GetLastCircularsHandler($app['circular.readmodel']);
+};
+
+$app[GetCircularHandler::class] = function ($app) {
+    return new GetCircularHandler($app['circular.readmodel']);
+};
+
+$app[GetLastEventsHandler::class] = function ($app) {
+    return new GetLastEventsHandler($app['event.readmodel']);
 };
 
 $app['api.circular.controller'] = function ($app) {
-    return new ApiCircularController($app['circular.service'], $app['twig']);
+    return new ApiCircularController($app['command.bus']);
+};
+
+# CANTINE
+
+$app[GetMenuForDayHandler::class] = function ($app) {
+    return new GetMenuForDayHandler($app['cantine.readmodel']);
+};
+
+$app[GetMenuForWeekHandler::class] = function ($app) {
+    return new GetMenuForWeekHandler($app['cantine.readmodel']);
 };
 
 /* End of service definitions */
 
+/* Tactician Command Bus */
+
+
+$app['command.bus'] = function ($app) {
+    // Choose our method name
+    $inflector = new HandleInflector();
+
+// Choose our locator and register our command
+    $locator = new InMemoryLocator();
+    $locator->addHandler($app[GetLastCircularsHandler::class], GetLastCirculars::class);
+    $locator->addHandler($app[GetCircularHandler::class], GetCircular::class);
+    $locator->addHandler($app[GetLastEventsHandler::class], GetLastEvents::class);
+    $locator->addHandler($app[GetMenuForDayHandler::class], GetMenuForDay::class);
+    $locator->addHandler($app[GetMenuForWeekHandler::class], GetMenuForWeek::class);
+
+// Choose our Handler naming strategy
+    $nameExtractor = new ClassNameExtractor();
+
+// Create the middleware that executes commands with Handlers
+    $commandHandlerMiddleware = new CommandHandlerMiddleware($nameExtractor, $locator, $inflector);
+
+// Create the command bus, with a list of middleware
+    return new CommandBus([$commandHandlerMiddleware]);
+};
+
+/*  */
 $app['api.article.controller'] = function () use ($app) {
     return new ApiArticleController($app['article.request.builder'], $app['article.service']);
 };
 
 $app['event.controller'] = function () use ($app) {
-    return new EventController($app['event.service'], $app['twig']);
+    return new EventController($app['command.bus'], $app['twig']);
 };
 
 $app['api.event.controller'] = function () use ($app) {
-    return new ApiEventController($app['event.service']);
+    return new ApiEventController($app['command.bus']);
 };
+
 
 $app->extend(
     'twig',
@@ -278,6 +337,7 @@ $app->error(
 
     }
 );
+
 
 /* Routes */
 

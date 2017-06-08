@@ -9,7 +9,10 @@
 namespace Mh13\plugins\cantine\infrastructure\web;
 
 
+use League\Tactician\CommandBus;
 use Mh13\plugins\cantine\application\CantineReadModel;
+use Mh13\plugins\cantine\application\GetMenuForDay;
+use Mh13\plugins\cantine\application\GetMenuForWeek;
 
 
 class CantineController
@@ -19,17 +22,24 @@ class CantineController
      */
     private $readModel;
     private $templating;
+    /**
+     * @var CommandBus
+     */
+    private $bus;
 
-    public function __construct(CantineReadModel $readModel, $templating)
+    public function __construct(CantineReadModel $readModel, CommandBus $bus, $templating)
     {
         $this->readModel = $readModel;
         $this->templating = $templating;
+        $this->bus = $bus;
     }
 
     public function today()
     {
+
         $today = new \DateTimeImmutable();
-        $result = $this->readModel->getTodayMeals($today);
+        $getMenuForDay = new GetMenuForDay($today);
+        $result = $this->bus->handle($getMenuForDay);
 
         return $this->templating->render(
             'plugins/cantine/today.twig',
@@ -37,19 +47,21 @@ class CantineController
                 'meals' => $result,
             ]
         );
-
     }
 
     public function week()
     {
         $today = new \DateTimeImmutable();
-        $result = $this->readModel->getWeekMeals($today);
+        $getMenuForWeek = new GetMenuForWeek($today->format('W'), $today->format('Y'));
+        $start = new \DateTimeImmutable($today->format('Y').'W'.$today->format('W'));
+
+        $meals = $this->bus->handle($getMenuForWeek);
 
         return $this->templating->render(
             'plugins/cantine/week.twig',
             [
-                'meals' => $result,
-                'range' => ['start' => $today, 'end' => $today],
+                'meals' => $meals,
+                'range' => ['start' => $start, 'end' => $start->modify('+4 day')],
             ]
         );
     }
@@ -57,7 +69,7 @@ class CantineController
     public function month()
     {
         $today = new \DateTimeImmutable();
-        $result = $this->readModel->getMonthMeals($today);
+        $result = $this->readModel->getMealsForMonth($today);
 
         return $this->templating->render(
             'plugins/cantine/month.twig',

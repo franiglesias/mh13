@@ -6,7 +6,7 @@
  * Time: 14:23
  */
 
-namespace Mh13\plugins\circulars\application\readmodel;
+namespace Mh13\plugins\circulars\application\circular;
 
 
 interface CircularReadModel
