@@ -6,7 +6,7 @@
  * Time: 11:18
  */
 
-namespace Mh13\plugins\contents\application\readmodel;
+namespace Mh13\plugins\contents\application\site;
 
 
 /**

@@ -9,8 +9,11 @@
 namespace Mh13\plugins\cantine\infrastructure\web;
 
 
+use Mh13\plugins\cantine\application\GetMenuForDay;
 use Mh13\plugins\cantine\application\GetMenuForDayHandler;
+use Mh13\plugins\cantine\application\GetMenuForMonth;
 use Mh13\plugins\cantine\application\GetMenuForMonthHandler;
+use Mh13\plugins\cantine\application\GetMenuForWeek;
 use Mh13\plugins\cantine\application\GetMenuForWeekHandler;
 use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
 use Silex\Api\ControllerProviderInterface;
@@ -50,6 +53,9 @@ class CantineProvider implements ControllerProviderInterface
             return new GetMenuForMonthHandler($app['cantine.readmodel']);
         };
 
+        $app['command.bus.locator']->addHandler($app[GetMenuForDayHandler::class], GetMenuForDay::class);
+        $app['command.bus.locator']->addHandler($app[GetMenuForWeekHandler::class], GetMenuForWeek::class);
+        $app['command.bus.locator']->addHandler($app[GetMenuForMonthHandler::class], GetMenuForMonth::class);
 
         $cantine = $app['controllers_factory'];
         $cantine->get('/today', "cantine.controller:today");

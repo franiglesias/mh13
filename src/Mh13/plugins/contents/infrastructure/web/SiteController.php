@@ -9,16 +9,30 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Silex\Application;
+use League\Tactician\CommandBus;
+use Mh13\plugins\contents\application\site\GetSiteWithSlug;
 
 
 class SiteController
 {
-    public function view($slug, Application $app)
-    {
-        $site = $app['site.service']->getWithSlug($slug);
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+    private $templating;
 
-        return $app['twig']->render(
+    public function __construct(CommandBus $bus, $templating)
+    {
+
+        $this->bus = $bus;
+        $this->templating = $templating;
+    }
+
+    public function view($slug)
+    {
+        $site = $this->bus->handle(new GetSiteWithSlug($slug));
+
+        return $this->templating->render(
             'plugins/contents/sites/view.twig',
             [
                 'site' => $site,

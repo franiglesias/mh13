@@ -25,18 +25,7 @@ use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
-use Mh13\plugins\cantine\application\GetMenuForDay;
-use Mh13\plugins\cantine\application\GetMenuForDayHandler;
-use Mh13\plugins\cantine\application\GetMenuForMonth;
-use Mh13\plugins\cantine\application\GetMenuForMonthHandler;
-use Mh13\plugins\cantine\application\GetMenuForWeek;
-use Mh13\plugins\cantine\application\GetMenuForWeekHandler;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
-use Mh13\plugins\circulars\application\circular\GetCircular;
-use Mh13\plugins\circulars\application\circular\GetCircularHandler;
-use Mh13\plugins\circulars\application\circular\GetLastCirculars;
-use Mh13\plugins\circulars\application\circular\GetLastCircularsHandler;
-use Mh13\plugins\circulars\application\event\GetLastEvents;
 use Mh13\plugins\circulars\application\event\GetLastEventsHandler;
 use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
@@ -47,9 +36,14 @@ use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\SiteService;
-use Mh13\plugins\contents\application\service\StaticPageService;
 use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
+use Mh13\plugins\contents\application\site\GetListOfBlogInSite;
+use Mh13\plugins\contents\application\site\GetListOfBlogInSiteHandler;
+use Mh13\plugins\contents\application\site\GetSiteWithSlug;
+use Mh13\plugins\contents\application\site\GetSiteWithSlugHandler;
+use Mh13\plugins\contents\application\staticpage\GetPageByAlias;
+use Mh13\plugins\contents\application\staticpage\GetPageByAliasHandler;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleReadModel;
@@ -129,6 +123,8 @@ $app['bar.loader'] = function ($app) {
     return new MenuBarLoader(dirname(__DIR__).'/config/menus.yml');
 };
 
+# SITE
+
 
 $app['site.readmodel'] = function ($app) {
     return new FSSiteReadModel(dirname(__DIR__).'/config/config.yml');
@@ -137,6 +133,20 @@ $app['site.readmodel'] = function ($app) {
 $app['site.service'] = function ($app) {
     return new SiteService($app['site.readmodel']);
 };
+
+$app[GetSiteWithSlugHandler::class] = function ($app) {
+    return new GetSiteWithSlugHandler($app['site.readmodel']);
+};
+
+$app[GetListOfBlogInSiteHandler::class] = function ($app) {
+    return new GetListOfBlogInSiteHandler($app['site.readmodel']);
+};
+
+$app['site.controller'] = function ($app) {
+    return new SiteController($app['command.bus'], $app['twig']);
+};
+
+# /SITE
 
 $app['article.request.builder'] = function ($app) {
     return new ArticleRequestBuilder($app['site.service']);
@@ -158,6 +168,9 @@ $app['article.service'] = function ($app) {
     return new ArticleService($app['article.readmodel'], $app['article.specification.factory']);
 };
 
+
+# STATIC PAGE
+
 $app['staticpage.readmodel'] = function ($app) {
     return new DbalStaticPageReadModel($app['db']);
 };
@@ -170,13 +183,19 @@ $app['staticpage.relatedquery.factory'] = function ($app) {
     return new DbalStaticPageRelatedFinderFactory($app['db']);
 };
 
-$app['staticpage.service'] = function ($app) {
-    return new StaticPageService(
+$app[GetPageByAliasHandler::class] = function ($app) {
+    return new GetPageByAliasHandler(
         $app['staticpage.readmodel'],
         $app['staticpage.specification.factory'],
         $app['staticpage.relatedquery.factory']
     );
 };
+
+$app['staticpage.controller'] = function ($app) {
+    return new StaticPageController($app['command.bus'], $app['twig']);
+};
+
+# /STATIC PAGE
 
 $app['upload.readmodel'] = function ($app) {
     return new DbalUploadReadModel($app['db']);
@@ -214,6 +233,15 @@ $app['event.readmodel'] = function ($app) {
     return new DBalEventReadModel($app['db']);
 };
 
+$app['api.event.controller'] = function () use ($app) {
+    return new ApiEventController($app['command.bus']);
+};
+
+$app['event.controller'] = function () use ($app) {
+    return new EventController($app['command.bus'], $app['twig']);
+};
+
+
 $app[GetLastEventsHandler::class] = function ($app) {
     return new GetLastEventsHandler($app['event.readmodel']);
 };
@@ -226,43 +254,32 @@ $app['api.circular.controller'] = function ($app) {
 /* End of service definitions */
 
 /* Tactician Command Bus */
+$app['command.bus.locator'] = function ($app) {
+    // Choose our locator and register our command
+    $locator = new InMemoryLocator();
+    $locator->addHandler($app[GetSiteWithSlugHandler::class], GetSiteWithSlug::class);
+    $locator->addHandler($app[GetListOfBlogInSiteHandler::class], GetListOfBlogInSite::class);
+    $locator->addHandler($app[GetPageByAliasHandler::class], GetPageByAlias::class);
 
+    return $locator;
+};
 
 $app['command.bus'] = function ($app) {
     // Choose our method name
     $inflector = new HandleInflector();
-
-// Choose our locator and register our command
-    $locator = new InMemoryLocator();
-    $locator->addHandler($app[GetLastCircularsHandler::class], GetLastCirculars::class);
-    $locator->addHandler($app[GetCircularHandler::class], GetCircular::class);
-    $locator->addHandler($app[GetLastEventsHandler::class], GetLastEvents::class);
-    $locator->addHandler($app[GetMenuForDayHandler::class], GetMenuForDay::class);
-    $locator->addHandler($app[GetMenuForWeekHandler::class], GetMenuForWeek::class);
-    $locator->addHandler($app[GetMenuForMonthHandler::class], GetMenuForMonth::class);
-
 // Choose our Handler naming strategy
     $nameExtractor = new ClassNameExtractor();
-
 // Create the middleware that executes commands with Handlers
-    $commandHandlerMiddleware = new CommandHandlerMiddleware($nameExtractor, $locator, $inflector);
-
+    $commandHandlerMiddleware = new CommandHandlerMiddleware($nameExtractor, $app['command.bus.locator'], $inflector);
 // Create the command bus, with a list of middleware
     return new CommandBus([$commandHandlerMiddleware]);
 };
 
-/*  */
+
 $app['api.article.controller'] = function () use ($app) {
     return new ApiArticleController($app['article.request.builder'], $app['article.service']);
 };
 
-$app['event.controller'] = function () use ($app) {
-    return new EventController($app['command.bus'], $app['twig']);
-};
-
-$app['api.event.controller'] = function () use ($app) {
-    return new ApiEventController($app['command.bus']);
-};
 
 
 $app->extend(
@@ -300,9 +317,6 @@ $app->error(
 
 /* Routes */
 
-//$app->get('/circulars/last', "circular.controller:last");
-//$app->get('/circulars/view/{id}', "circular.controller:view");
-
 $app->get('/api/articles', "api.article.controller:feed")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"
 )
@@ -325,9 +339,9 @@ $app->get('/events/last', 'event.controller:last');
 
 // Compatibility with old route scheme
 $app->get('/contents/channels/external', BlogController::class.'::public');
-$app->get('/static/{slug}', StaticPageController::class.'::view');
+$app->get('/static/{slug}', 'staticpage.controller:view');
 $app->get('/page/{page}', PageController::class.'::view');
-$app->get('/site/{slug}', SiteController::class.'::view');
+$app->get('/site/{slug}', 'site.controller:view');
 $app->get('/blog/{slug}', BlogController::class.'::view');
 $app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 
