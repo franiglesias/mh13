@@ -26,22 +26,15 @@ use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
-use Mh13\plugins\circulars\application\event\GetLastEventsHandler;
 use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
-use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalEventReadModel;
 use Mh13\plugins\circulars\infrastructure\web\CircularProvider;
-use Mh13\plugins\circulars\infrastructure\web\EventController;
+use Mh13\plugins\circulars\infrastructure\web\EventProvider;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\BlogService;
-use Mh13\plugins\contents\application\service\SiteService;
 use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
-use Mh13\plugins\contents\application\site\GetListOfBlogInSite;
-use Mh13\plugins\contents\application\site\GetListOfBlogInSiteHandler;
-use Mh13\plugins\contents\application\site\GetSiteWithSlug;
-use Mh13\plugins\contents\application\site\GetSiteWithSlugHandler;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleReadModel;
@@ -51,12 +44,10 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogReadModel
 use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
-use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\BlogController;
 use Mh13\plugins\contents\infrastructure\web\PageController;
-use Mh13\plugins\contents\infrastructure\web\SiteController;
+use Mh13\plugins\contents\infrastructure\web\SiteProvider;
 use Mh13\plugins\contents\infrastructure\web\StaticPageProvider;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
 use Mh13\plugins\uploads\infrastructure\web\UploadsProvider;
@@ -74,12 +65,14 @@ error_reporting(E_ALL ^ E_STRICT ^ E_WARNING);
 
 require_once(dirname(__DIR__).'/vendor/autoload.php');
 
-$config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 /** @var $app */
 $app = new \Silex\Application();
 
 $app['debug'] = true;
+$app['config.path'] = dirname(__DIR__).'/config/config.yml';
+
+$config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 /* Register service providers */
 
@@ -118,29 +111,8 @@ $app['bar.loader'] = function ($app) {
     return new MenuBarLoader(dirname(__DIR__).'/config/menus.yml');
 };
 
-# SITE
 
-$app['site.readmodel'] = function ($app) {
-    return new FSSiteReadModel(dirname(__DIR__).'/config/config.yml');
-};
-
-$app['site.service'] = function ($app) {
-    return new SiteService($app['site.readmodel']);
-};
-
-$app[GetSiteWithSlugHandler::class] = function ($app) {
-    return new GetSiteWithSlugHandler($app['site.readmodel']);
-};
-
-$app[GetListOfBlogInSiteHandler::class] = function ($app) {
-    return new GetListOfBlogInSiteHandler($app['site.readmodel']);
-};
-
-$app['site.controller'] = function ($app) {
-    return new SiteController($app['command.bus'], $app['twig']);
-};
-
-# /SITE
+# ARTICLE
 
 $app['article.request.builder'] = function ($app) {
     return new ArticleRequestBuilder($app['site.service']);
@@ -162,6 +134,9 @@ $app['article.service'] = function ($app) {
     return new ArticleService($app['article.readmodel'], $app['article.specification.factory']);
 };
 
+# /ARTICLE
+
+# UPLOAD
 
 $app['upload.readmodel'] = function ($app) {
     return new DbalUploadReadModel($app['db']);
@@ -183,6 +158,10 @@ $app['upload.service'] = function ($app) {
     );
 };
 
+# /UPLOAD
+
+# BLOG
+
 $app['blog.specification.factory'] = function ($app) {
     return new DBalBlogSpecificationFactory();
 };
@@ -195,55 +174,39 @@ $app['blog.service'] = function ($app) {
     return new BlogService($app['blog.readmodel'], $app['blog.specification.factory']);
 };
 
-$app['event.readmodel'] = function ($app) {
-    return new DBalEventReadModel($app['db']);
+# /BLOG
+
+$app['api.circular.controller'] = function ($app) {
+    return new ApiCircularController($app['command.bus']);
+};
+
+$app['api.article.controller'] = function () use ($app) {
+    return new ApiArticleController($app['article.request.builder'], $app['article.service']);
 };
 
 $app['api.event.controller'] = function () use ($app) {
     return new ApiEventController($app['command.bus']);
 };
 
-$app['event.controller'] = function () use ($app) {
-    return new EventController($app['command.bus'], $app['twig']);
-};
-
-
-$app[GetLastEventsHandler::class] = function ($app) {
-    return new GetLastEventsHandler($app['event.readmodel']);
-};
-
-$app['api.circular.controller'] = function ($app) {
-    return new ApiCircularController($app['command.bus']);
-};
-
-
 /* End of service definitions */
 
 /* Tactician Command Bus */
+// Choose our locator
 $app['command.bus.locator'] = function ($app) {
-    // Choose our locator and register our command
-    $locator = new InMemoryLocator();
-    $locator->addHandler($app[GetSiteWithSlugHandler::class], GetSiteWithSlug::class);
-    $locator->addHandler($app[GetListOfBlogInSiteHandler::class], GetListOfBlogInSite::class);
-
-    return $locator;
+    return new InMemoryLocator();
 };
+
+// Choose our method name
+// Choose our Handler naming strategy
+// Create the middleware that executes commands with Handlers
+// Create the command bus, with a list of middleware
 
 $app['command.bus'] = function ($app) {
-    // Choose our method name
     $inflector = new HandleInflector();
-    // Choose our Handler naming strategy
     $nameExtractor = new ClassNameExtractor();
-    // Create the middleware that executes commands with Handlers
     $commandHandlerMiddleware = new CommandHandlerMiddleware($nameExtractor, $app['command.bus.locator'], $inflector);
 
-    // Create the command bus, with a list of middleware
     return new CommandBus([$commandHandlerMiddleware]);
-};
-
-
-$app['api.article.controller'] = function () use ($app) {
-    return new ApiArticleController($app['article.request.builder'], $app['article.service']);
 };
 
 
@@ -294,23 +257,21 @@ $app->get('/api/events', "api.event.controller:last")->when(
 
 $app->get('/api/circulars', "api.circular.controller:last");
 
-
+$app->mount('/site', new SiteProvider());
 $app->mount('/static', new StaticPageProvider());
 $app->mount('/circulars', new CircularProvider());
 $app->mount('/uploads', new UploadsProvider());
 $app->mount('/cantine', new CantineProvider());
 $app->mount("/articles", new ArticleProvider());
 $app->mount("/ui", new UiProvider());
-
-
-$app->get('/events/last', 'event.controller:last');
+$app->mount('/events', new EventProvider());
 
 // Compatibility with old route scheme
+
 $app->get('/contents/channels/external', BlogController::class.'::public');
 $app->get('/page/{page}', PageController::class.'::view');
-$app->get('/site/{slug}', 'site.controller:view');
 $app->get('/blog/{slug}', BlogController::class.'::view');
-$app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
+//$app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 
 // Default route renders home page
 $app->get(
