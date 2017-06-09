@@ -31,8 +31,6 @@ use Mh13\plugins\cantine\application\GetMenuForMonth;
 use Mh13\plugins\cantine\application\GetMenuForMonthHandler;
 use Mh13\plugins\cantine\application\GetMenuForWeek;
 use Mh13\plugins\cantine\application\GetMenuForWeekHandler;
-use Mh13\plugins\cantine\infrastructure\persistence\dbal\DBalCantineReadModel;
-use Mh13\plugins\cantine\infrastructure\web\CantineController;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
 use Mh13\plugins\circulars\application\circular\GetCircular;
 use Mh13\plugins\circulars\application\circular\GetCircularHandler;
@@ -42,9 +40,8 @@ use Mh13\plugins\circulars\application\event\GetLastEvents;
 use Mh13\plugins\circulars\application\event\GetLastEventsHandler;
 use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
-use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalCircularReadModel;
 use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalEventReadModel;
-use Mh13\plugins\circulars\infrastructure\web\CircularController;
+use Mh13\plugins\circulars\infrastructure\web\CircularProvider;
 use Mh13\plugins\circulars\infrastructure\web\EventController;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
@@ -88,10 +85,6 @@ error_reporting(E_ALL ^ E_STRICT ^ E_WARNING);
 
 require_once(dirname(__DIR__).'/vendor/autoload.php');
 
-//require_once('cakeindex.php');
-//require_once(dirname(__DIR__).'/plugins/contents/models/item.php');
-//require_once(dirname(__DIR__).'/config/mh13.php');
-
 $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 /** @var $app */
@@ -107,11 +100,11 @@ $app->register(new ServiceControllerServiceProvider());
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
     [
-        'twig.path' => __DIR__.'/../views',
+        'twig.path'    => __DIR__.'/../views',
         'twig.options' => [
             'auto_reload' => true,
-            'cache' => false,
-            'debug' => true,
+            'cache'       => false,
+            'debug'       => true,
         ],
     ]
 );
@@ -217,35 +210,8 @@ $app['blog.service'] = function ($app) {
     return new BlogService($app['blog.readmodel'], $app['blog.specification.factory']);
 };
 
-$app['cantine.readmodel'] = function ($app) {
-    return new DBalCantineReadModel($app['db']);
-};
-
-$app['cantine.controller'] = function ($app) {
-    return new CantineController($app['command.bus'], $app['twig']);
-};
-
 $app['event.readmodel'] = function ($app) {
     return new DBalEventReadModel($app['db']);
-};
-
-$app['circular.readmodel'] = function ($app) {
-    return new DBalCircularReadModel($app['db']);
-};
-
-
-
-$app['circular.controller'] = function ($app) {
-    return new CircularController($app['command.bus'], $app['twig']);
-};
-
-
-$app[GetLastCircularsHandler::class] = function ($app) {
-    return new GetLastCircularsHandler($app['circular.readmodel']);
-};
-
-$app[GetCircularHandler::class] = function ($app) {
-    return new GetCircularHandler($app['circular.readmodel']);
 };
 
 $app[GetLastEventsHandler::class] = function ($app) {
@@ -256,19 +222,6 @@ $app['api.circular.controller'] = function ($app) {
     return new ApiCircularController($app['command.bus']);
 };
 
-# CANTINE
-
-$app[GetMenuForDayHandler::class] = function ($app) {
-    return new GetMenuForDayHandler($app['cantine.readmodel']);
-};
-
-$app[GetMenuForWeekHandler::class] = function ($app) {
-    return new GetMenuForWeekHandler($app['cantine.readmodel']);
-};
-
-$app[GetMenuForMonthHandler::class] = function ($app) {
-    return new GetMenuForMonthHandler($app['cantine.readmodel']);
-};
 
 /* End of service definitions */
 
@@ -336,20 +289,19 @@ $app->error(
             $app['twig']->render(
                 'errors/404.twig',
                 [
-                    'url' => $request->get('url'),
+                    'url'     => $request->get('url'),
                     'message' => $exception->getMessage(),
                 ]
             ), 404
         );
-
     }
 );
 
 
 /* Routes */
 
-$app->get('/circulars/last', "circular.controller:last");
-$app->get('/circulars/view/{id}', "circular.controller:view");
+//$app->get('/circulars/last', "circular.controller:last");
+//$app->get('/circulars/view/{id}', "circular.controller:view");
 
 $app->get('/api/articles', "api.article.controller:feed")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"
@@ -363,7 +315,7 @@ $app->get('/api/events', "api.event.controller:last")->when(
 
 $app->get('/api/circulars', "api.circular.controller:last");
 
-
+$app->mount('/circulars', new CircularProvider());
 $app->mount('/uploads', new UploadsProvider());
 $app->mount('/cantine', new CantineProvider());
 $app->mount("/articles", new ArticleProvider());
@@ -379,7 +331,7 @@ $app->get('/site/{slug}', SiteController::class.'::view');
 $app->get('/blog/{slug}', BlogController::class.'::view');
 $app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 
-// Default route render home page
+// Default route renders home page
 $app->get(
     '/',
     function () use ($app) {

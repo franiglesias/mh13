@@ -238,7 +238,7 @@ menus:
             - { label: Plataforma, url: 'https://www.jesuitinas.net/miralba/alumno/login.asp', access: '0', help: '', icon: web, class: '' }
             - { label: Comedor, url: /cantine/, access: '0', help: '', icon: record, class: '' }
             - separator
-            - { label: Circulares, url: /circulars/circulars/current, access: '0', help: '', icon: mail, class: '' }
+            - { label: Circulares, url: /circulars/last, access: '0', help: '', icon: mail, class: '' }
             - separator
             - { label: APA, url: /blog/apa, access: '0', help: '', icon: results-demographics, class: '' }
             - { label: Orientación, url: /blog/orientacion, access: '0', help: '', icon: heart, class: '' }
