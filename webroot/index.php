@@ -44,9 +44,11 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogReadModel
 use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\BlogController;
-use Mh13\plugins\contents\infrastructure\web\PageController;
+use Mh13\plugins\contents\infrastructure\web\BlogProvider;
+use Mh13\plugins\contents\infrastructure\web\PageProvider;
 use Mh13\plugins\contents\infrastructure\web\SiteProvider;
 use Mh13\plugins\contents\infrastructure\web\StaticPageProvider;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
@@ -263,15 +265,16 @@ $app->mount('/circulars', new CircularProvider());
 $app->mount('/uploads', new UploadsProvider());
 $app->mount('/cantine', new CantineProvider());
 $app->mount("/articles", new ArticleProvider());
-$app->mount("/ui", new UiProvider());
 $app->mount('/events', new EventProvider());
+$app->mount('/page', new PageProvider());
+$app->mount("/ui", new UiProvider());
+$app->mount('/blog', new BlogProvider());
 
 // Compatibility with old route scheme
 
 $app->get('/contents/channels/external', BlogController::class.'::public');
-$app->get('/page/{page}', PageController::class.'::view');
-$app->get('/blog/{slug}', BlogController::class.'::view');
-//$app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
+
+$app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 
 // Default route renders home page
 $app->get(

@@ -9,20 +9,35 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
+use League\Tactician\CommandBus;
 use Silex\Application;
 
 
 class BlogController
 {
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+    private $templating;
+
+    public function __construct(CommandBus $bus, $templating)
+    {
+
+        $this->bus = $bus;
+        $this->templating = $templating;
+    }
+
+
     public function view($slug, Application $app)
     {
         $blog = $app['blog.service']->getBlogWithSlug($slug);
 
-        return $app['twig']->render(
+        return $this->templating->render(
             'plugins/contents/channels/view.twig',
             [
-                'blog' => $blog,
-                'tag' => false,
+                'blog'     => $blog,
+                'tag'      => false,
                 'level_id' => false,
             ]
         );

@@ -9,13 +9,18 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Silex\Application;
-
-
 class PageController
 {
-    public function view($page, Application $app)
+    private $templating;
+
+    public function __construct($templating)
     {
-        return $app['twig']->render('pages/'.$page.'.twig');
+
+        $this->templating = $templating;
+    }
+
+    public function view($page)
+    {
+        return $this->templating->render('pages/'.$page.'.twig');
     }
 }
