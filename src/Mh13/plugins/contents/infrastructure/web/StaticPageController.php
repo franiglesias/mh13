@@ -9,26 +9,38 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Silex\Application;
+use League\Tactician\CommandBus;
+use Mh13\plugins\contents\application\staticpage\GetPageByAlias;
 
 
 class StaticPageController
 {
-    public function view($slug, Application $app)
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+    private $templating;
+
+    public function __construct(CommandBus $bus, $templating)
     {
-        $page = $app['staticpage.service']->getPageWithSlug($slug);
+        $this->bus = $bus;
+        $this->templating = $templating;
+    }
 
+    public function view($slug)
+    {
+        $page = $this->bus->handle(new GetPageByAlias($slug));
 
-        return $app['twig']->render(
+        return $this->templating->render(
             'plugins/contents/static_pages/view.twig',
             [
-                'page' => $page,
-                'tag' => false,
-                'level_id' => false,
-                'preview' => false,
-                'parents' => $app['staticpage.service']->getParentsForPage($slug),
-                'siblings' => $app['staticpage.service']->getSiblingsForPage($slug),
-                'descendants' => $app['staticpage.service']->getDescendantsForPage($slug),
+                'page'        => $page['page'],
+                'tag'         => false,
+                'level_id'    => false,
+                'preview'     => false,
+                'parents'     => $page['parents'],
+                'siblings'    => $page['siblings'],
+                'descendants' => $page['descendants'],
             ]
         );
     }

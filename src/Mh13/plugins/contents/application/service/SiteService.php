@@ -2,13 +2,13 @@
 
 namespace Mh13\plugins\contents\application\service;
 
-use Mh13\plugins\contents\application\readmodel\SiteReadModel;
+use Mh13\plugins\contents\application\site\SiteReadModel;
 
 
 class SiteService
 {
     /**
-     * @var SiteReadModel
+     * @var \Mh13\plugins\contents\application\site\SiteReadModel
      */
     private $readModel;
 

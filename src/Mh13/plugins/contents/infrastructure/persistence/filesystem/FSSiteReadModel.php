@@ -2,7 +2,7 @@
 
 namespace Mh13\plugins\contents\infrastructure\persistence\filesystem;
 
-use Mh13\plugins\contents\application\readmodel\SiteReadModel;
+use Mh13\plugins\contents\application\site\SiteReadModel;
 use Mh13\plugins\contents\exceptions\InvalidSite;
 use Symfony\Component\Yaml\Yaml;
 

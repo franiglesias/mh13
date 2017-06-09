@@ -9,7 +9,9 @@
 namespace Mh13\plugins\circulars\infrastructure\web;
 
 
+use Mh13\plugins\circulars\application\circular\GetCircular;
 use Mh13\plugins\circulars\application\circular\GetCircularHandler;
+use Mh13\plugins\circulars\application\circular\GetLastCirculars;
 use Mh13\plugins\circulars\application\circular\GetLastCircularsHandler;
 use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalCircularReadModel;
 use Silex\Api\ControllerProviderInterface;
@@ -47,6 +49,9 @@ class CircularProvider implements ControllerProviderInterface
         $app[GetCircularHandler::class] = function ($app) {
             return new GetCircularHandler($app['circular.readmodel']);
         };
+
+        $app['command.bus.locator']->addHandler($app[GetLastCircularsHandler::class], GetLastCirculars::class);
+        $app['command.bus.locator']->addHandler($app[GetCircularHandler::class], GetCircular::class);
 
         $circulars = $app['controllers_factory'];
         $circulars->get('/last', "circular.controller:last");

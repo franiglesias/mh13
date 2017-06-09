@@ -2,8 +2,8 @@
 
 namespace spec\Mh13\plugins\contents\application\service;
 
-use Mh13\plugins\contents\application\readmodel\SiteReadModel;
 use Mh13\plugins\contents\application\service\SiteService;
+use Mh13\plugins\contents\application\site\SiteReadModel;
 use PhpSpec\ObjectBehavior;
 
 
