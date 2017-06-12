@@ -12,7 +12,6 @@ namespace Mh13\plugins\contents\infrastructure\api;
 use Doctrine\DBAL\Exception\ConnectionException;
 use League\Tactician\CommandBus;
 use Mh13\plugins\contents\application\article\GetArticleCountForRequest;
-use Mh13\plugins\contents\application\article\GetArticleCountForRequestHandler;
 use Mh13\plugins\contents\application\article\GetArticlesByRequest;
 use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\SiteService;
@@ -25,10 +24,6 @@ class ArticleController
 {
 
     /**
-     * @var GetArticleCountForRequestHandler
-     */
-    private $articleService;
-    /**
      * @var ArticleRequestBuilder
      */
     private $articleRequestBuilder;
@@ -40,11 +35,9 @@ class ArticleController
 
     public function __construct(
         CommandBus $bus,
-        ArticleRequestBuilder $articleRequestBuilder,
-        GetArticleCountForRequestHandler $articleService
+        ArticleRequestBuilder $articleRequestBuilder
     )
     {
-        $this->articleService = $articleService;
         $this->articleRequestBuilder = $articleRequestBuilder;
         $this->bus = $bus;
     }
@@ -64,7 +57,7 @@ class ArticleController
             }
 
             $currentPage = $articleRequest->getPage();
-            $maxPages = $this->bus->handle(new GetArticleCountForRequest($articleRequest));
+            $maxPages = $articleRequest->maxPages($this->bus->handle(new GetArticleCountForRequest($articleRequest)));
 
             return new JsonResponse(
                 $articles, Response::HTTP_OK, [

@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\article;
 
 
-use Mh13\plugins\contents\application\service\article\ArticleRequest;
+use Mh13\plugins\contents\application\article\request\ArticleRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleFromBlogs;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\specification\ArticleIsAvailable;

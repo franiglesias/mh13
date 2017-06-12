@@ -15,7 +15,7 @@ use Mh13\plugins\contents\application\article\request\ArticleRequest;
 class GetArticleCountForRequest
 {
     /**
-     * @var \Mh13\plugins\contents\application\service\article\request\ArticleRequest
+     * @var \Mh13\plugins\contents\application\article\request\ArticleRequest
      */
     private $request;
 
