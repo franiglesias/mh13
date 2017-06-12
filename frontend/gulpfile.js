@@ -94,16 +94,6 @@ gulp.task("copy-foundation-icons", function () {
 
 // Javascript
 
-gulp.task("copy-react", function () {
-    return gulp.src("node_modules/react/dist/react.js")
-        .pipe(newer(jsVendorSource + "/react.js"))
-        .pipe(gulp.dest(jsVendorSource));
-});
-gulp.task("copy-react-dom", function () {
-    return gulp.src("node_modules/react-dom/dist/react-dom.js")
-        .pipe(newer(jsVendorSource + "/react-dom.js"))
-        .pipe(gulp.dest(jsVendorSource));
-});
 
 
 gulp.task("copy-foundation", function () {
@@ -121,21 +111,6 @@ gulp.task("copy-jquery-te", function () {
         .pipe(gulp.dest(destination + "/js"))
 });
 
-gulp.task("compile-jsx", function () {
-    return gulp.src(jsxSource)
-        .pipe(babel({
-            presets: ["react"]
-        }))
-        .pipe(rename({
-            extname: ".js"
-        }))
-        .pipe(gulp.dest(destination + "/js"))
-        .pipe(rename({
-            suffix: ".min"
-        }))
-        .pipe(uglify())
-        .pipe(gulp.dest(destination + "/js"));
-});
 
 gulp.task("scripts", function () {
     gulp.src(jsSource)

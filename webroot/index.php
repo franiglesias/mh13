@@ -38,7 +38,6 @@ use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadM
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
-use Mh13\plugins\contents\infrastructure\web\BlogController;
 use Mh13\plugins\contents\infrastructure\web\BlogProvider;
 use Mh13\plugins\contents\infrastructure\web\PageProvider;
 use Mh13\plugins\contents\infrastructure\web\SiteProvider;
@@ -220,7 +219,7 @@ $app->get('/api/events', "api.event.controller:last")->when(
 $app->get('/api/circulars', "api.circular.controller:last");
 
 
-$app->get('/contents/channels/external', BlogController::class.'::public');
+$app->get('/contents/channels/external', 'blog.controller:public');
 
 # /API
 
