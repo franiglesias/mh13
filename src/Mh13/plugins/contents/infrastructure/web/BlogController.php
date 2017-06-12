@@ -10,7 +10,9 @@ namespace Mh13\plugins\contents\infrastructure\web;
 
 
 use League\Tactician\CommandBus;
-use Silex\Application;
+use Mh13\plugins\contents\application\blog\GetBlogByAlias;
+use Mh13\plugins\contents\application\blog\GetPublicBlogs;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class BlogController
@@ -29,10 +31,10 @@ class BlogController
     }
 
 
-    public function view($slug, Application $app)
+    public function view($slug)
     {
-        $blog = $app['blog.service']->getBlogWithSlug($slug);
-
+        $command = new GetBlogByAlias($slug);
+        $blog = $this->bus->handle($command);
         return $this->templating->render(
             'plugins/contents/channels/view.twig',
             [
@@ -43,11 +45,11 @@ class BlogController
         );
     }
 
-    public function public (Application $app)
+    public function public ()
     {
-        $blogs = $app['blog.service']->getPublicBlogs();
+        $blogs = $this->bus->handle(new GetPublicBlogs());
 
-        return $app->json($blogs);
+        return new JsonResponse($blogs);
     }
 
 }

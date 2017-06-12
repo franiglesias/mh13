@@ -32,7 +32,6 @@ use Mh13\plugins\circulars\infrastructure\web\CircularProvider;
 use Mh13\plugins\circulars\infrastructure\web\EventProvider;
 use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\ArticleService;
-use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\exceptions\ContentException;
@@ -40,8 +39,6 @@ use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleCont
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DbalArticleRepository;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogReadModel;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\web\ArticleController;
@@ -136,6 +133,7 @@ $app['article.service'] = function ($app) {
     return new ArticleService($app['article.readmodel'], $app['article.specification.factory']);
 };
 
+
 # /ARTICLE
 
 # UPLOAD
@@ -161,22 +159,6 @@ $app['upload.service'] = function ($app) {
 };
 
 # /UPLOAD
-
-# BLOG
-
-$app['blog.specification.factory'] = function ($app) {
-    return new DBalBlogSpecificationFactory();
-};
-
-$app['blog.readmodel'] = function ($app) {
-    return new DbalBlogReadModel($app['db']);
-};
-
-$app['blog.service'] = function ($app) {
-    return new BlogService($app['blog.readmodel'], $app['blog.specification.factory']);
-};
-
-# /BLOG
 
 $app['api.circular.controller'] = function ($app) {
     return new ApiCircularController($app['command.bus']);
@@ -247,6 +229,8 @@ $app->error(
 
 /* Routes */
 
+# API
+
 $app->get('/api/articles', "api.article.controller:feed")->when(
     "request.headers.get('Accept') matches '/application\\\\/json/'"
 )
@@ -258,6 +242,11 @@ $app->get('/api/events', "api.event.controller:last")->when(
 ;
 
 $app->get('/api/circulars', "api.circular.controller:last");
+
+
+$app->get('/contents/channels/external', BlogController::class.'::public');
+
+# /API
 
 $app->mount('/site', new SiteProvider());
 $app->mount('/static', new StaticPageProvider());
@@ -272,7 +261,6 @@ $app->mount('/blog', new BlogProvider());
 
 // Compatibility with old route scheme
 
-$app->get('/contents/channels/external', BlogController::class.'::public');
 
 $app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
 

@@ -6,14 +6,14 @@
  * Time: 20:39
  */
 
-namespace Mh13\plugins\contents\application\service;
+namespace Mh13\plugins\contents\application\blog;
 
 
 use Mh13\plugins\contents\application\readmodel\BlogReadModel;
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
 
 
-class BlogService
+class GetPublicBlogsHandler
 {
     /**
      * @var BlogReadModel
@@ -31,15 +31,7 @@ class BlogService
         $this->specificationFactory = $specificationFactory;
     }
 
-    public function getBlogWithSlug(string $slug)
-    {
-        $specification = $this->specificationFactory->createBlogWithSlug($slug);
-        $blog = $this->readmodel->getBlog($specification);
-
-        return $blog;
-    }
-
-    public function getPublicBlogs()
+    public function handle(GetPublicBlogs $getPublicBlogs)
     {
         $specification = $this->specificationFactory->createPublicBlogs();
         $blogs = $this->readmodel->findBlogs($specification);
