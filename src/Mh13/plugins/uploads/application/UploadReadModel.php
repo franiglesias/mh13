@@ -6,7 +6,7 @@
  * Time: 10:03
  */
 
-namespace Mh13\plugins\contents\application\readmodel;
+namespace Mh13\plugins\uploads\application;
 
 
 use Mh13\plugins\contents\application\service\upload\UploadContext;

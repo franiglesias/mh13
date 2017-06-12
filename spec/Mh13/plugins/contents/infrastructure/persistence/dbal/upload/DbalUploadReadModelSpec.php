@@ -3,7 +3,7 @@
 namespace spec\Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\application\readmodel\UploadReadModel;
+use Mh13\plugins\uploads\application\UploadReadModel;
 use PhpSpec\ObjectBehavior;
 
 

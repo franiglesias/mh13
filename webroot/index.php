@@ -25,13 +25,9 @@ use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularC
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
 use Mh13\plugins\circulars\infrastructure\web\CircularProvider;
 use Mh13\plugins\circulars\infrastructure\web\EventProvider;
-use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
-use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
 use Mh13\plugins\contents\infrastructure\api\BlogController as ApiBlogController;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\BlogProvider;
 use Mh13\plugins\contents\infrastructure\web\PageProvider;
@@ -101,35 +97,6 @@ $app['bar.loader'] = function ($app) {
     return new MenuBarLoader(dirname(__DIR__).'/config/menus.yml');
 };
 
-
-# ARTICLE
-
-
-# /ARTICLE
-
-# UPLOAD
-
-$app['upload.readmodel'] = function ($app) {
-    return new DbalUploadReadModel($app['db']);
-};
-
-$app['upload.specification.factory'] = function ($app) {
-    return new DbalUploadSpecificationFactory();
-};
-
-$app['upload.context.factory'] = function ($app) {
-    return new UploadContextFactory();
-};
-
-$app['upload.service'] = function ($app) {
-    return new UploadService(
-        $app['upload.readmodel'],
-        $app['upload.specification.factory'],
-        $app['upload.context.factory']
-    );
-};
-
-# /UPLOAD
 
 $app['api.circular.controller'] = function ($app) {
     return new ApiCircularController($app['command.bus']);

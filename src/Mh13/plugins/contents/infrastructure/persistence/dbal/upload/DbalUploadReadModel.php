@@ -3,8 +3,8 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\application\readmodel\UploadReadModel;
 use Mh13\plugins\contents\application\service\upload\UploadContext;
+use Mh13\plugins\uploads\application\UploadReadModel;
 
 
 class DbalUploadReadModel implements UploadReadModel

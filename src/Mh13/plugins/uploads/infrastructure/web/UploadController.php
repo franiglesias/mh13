@@ -6,19 +6,34 @@
  * Time: 11:28
  */
 
-namespace Mh13\plugins\contents\infrastructure\web;
+namespace Mh13\plugins\uploads\infrastructure\web;
 
 
+use League\Tactician\CommandBus;
+use Mh13\plugins\uploads\application\GetImagesForObject;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
 
 class UploadController
 {
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+    private $templating;
+
+    public function __construct(CommandBus $bus, $templating)
+    {
+
+        $this->bus = $bus;
+        $this->templating = $templating;
+    }
 
     public function gallery(string $model, string $type, string $slug, Request $request, Application $app)
     {
-        $images = $app['upload.service']->getImagesOf($model, $slug);
+//        $images = $app['upload.service']->getImagesOf($model, $slug);
+        $images = $this->bus->handle(new GetImagesForObject($model, $slug));
 
         return $app['twig']->render(
             'plugins/images/galleries/'.$type.'.twig',

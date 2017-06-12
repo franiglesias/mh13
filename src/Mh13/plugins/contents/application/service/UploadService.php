@@ -9,15 +9,15 @@
 namespace Mh13\plugins\contents\application\service;
 
 
-use Mh13\plugins\contents\application\readmodel\UploadReadModel;
 use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\domain\UploadSpecificationFactory;
+use Mh13\plugins\uploads\application\UploadReadModel;
 
 
 class UploadService
 {
     /**
-     * @var UploadReadModel
+     * @var \Mh13\plugins\uploads\application\UploadReadModel
      */
     private $readModel;
     /**
