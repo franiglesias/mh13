@@ -9,7 +9,6 @@
 namespace Mh13\plugins\contents\application\staticpage;
 
 
-use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
 use Mh13\plugins\contents\domain\StaticPageRelatedFinderFactory;
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
 

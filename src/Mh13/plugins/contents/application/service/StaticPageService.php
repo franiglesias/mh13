@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\application\service;
 
 
-use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
+use Mh13\plugins\contents\application\staticpage\StaticPageReadModel;
 use Mh13\plugins\contents\domain\StaticPageRelatedFinderFactory;
 use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
 
@@ -17,7 +17,7 @@ use Mh13\plugins\contents\domain\StaticPageSpecificationFactory;
 class StaticPageService
 {
     /**
-     * @var StaticPageReadModel
+     * @var \Mh13\plugins\contents\application\staticpage\StaticPageReadModel
      */
     private $readModel;
     /**

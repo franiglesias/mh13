@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage;
 
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\application\readmodel\StaticPageReadModel;
+use Mh13\plugins\contents\application\staticpage\StaticPageReadModel;
 use Mh13\plugins\contents\exceptions\InvalidStaticPage;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related\DBalStaticPageRelatedFinder;
 

@@ -6,7 +6,7 @@
  * Time: 10:25
  */
 
-namespace Mh13\plugins\contents\application\readmodel;
+namespace Mh13\plugins\contents\application\staticpage;
 
 
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\related\DBalStaticPageRelatedFinder;
