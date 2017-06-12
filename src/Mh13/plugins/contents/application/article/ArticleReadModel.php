@@ -6,7 +6,7 @@
  * Time: 18:13
  */
 
-namespace Mh13\plugins\contents\application\readmodel;
+namespace Mh13\plugins\contents\application\article;
 
 
 interface ArticleReadModel

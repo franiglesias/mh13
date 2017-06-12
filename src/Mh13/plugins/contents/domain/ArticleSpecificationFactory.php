@@ -9,7 +9,7 @@
 namespace Mh13\plugins\contents\domain;
 
 
-use Mh13\plugins\contents\application\service\article\ArticleRequest;
+use Mh13\plugins\contents\application\article\request\ArticleRequest;
 
 
 interface ArticleSpecificationFactory

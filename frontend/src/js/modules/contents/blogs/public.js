@@ -6,7 +6,7 @@ var publicblogs = new Vue({
     el: '#mh-public-blogs',
     data: {
         blogs: '',
-        url: '/contents/channels/external'
+        url: '/api/blogs'
     },
     created: function () {
         this.getBlogs();
@@ -22,16 +22,16 @@ var publicblogs = new Vue({
     },
     template: `
 <div class="blogsList small-up-1 medium-up-4 large-up-6 row">
-<div class="column" key="blog.id" v-for="blog in blogs">
-    <a :href="'/blog/' + blog.slug">
+    <div class="column" key="blog.id" v-for="blog in blogs">
+      <a :href="'/blog/' + blog.slug">
         <div  class="media-object button">
                 <div class="media-object-section align-self-center" v-if="blog.icon">
                     <img :src="blog.icon" :alt="blog.title" width="32"/>
                 </div>
             <div class="media-object-section main-section text-left">{{ blog.title }}</div>
         </div>
-    </a>
-</div>
+      </a>
+    </div>
 </div>
 `
 

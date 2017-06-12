@@ -10,7 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\persistence\dbal\article;
 
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
+use Mh13\plugins\contents\application\article\ArticleReadModel;
 use Mh13\plugins\contents\exceptions\ArticleNotFound;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\DBalSpecification;
 

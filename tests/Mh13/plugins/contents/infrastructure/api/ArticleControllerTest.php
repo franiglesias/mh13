@@ -8,9 +8,9 @@
 
 namespace Mh13\plugins\contents\infrastructure\api;
 
-use Mh13\plugins\contents\application\service\article\ArticleRequest;
-use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
-use Mh13\plugins\contents\application\service\ArticleService;
+use Mh13\plugins\contents\application\article\GetArticleCountForRequestHandler;
+use Mh13\plugins\contents\application\article\request\ArticleRequest;
+use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -35,7 +35,7 @@ class ArticleControllerTest extends TestCase
         $articleRequestBuilder = $this->prophesize(ArticleRequestBuilder::class);
         $articleRequestBuilder->buildFromQueryData(Argument::any())->willReturn($articleRequest);
 
-        $this->articleService = $this->prophesize(ArticleService::class);
+        $this->articleService = $this->prophesize(GetArticleCountForRequestHandler::class);
 
         $this->articleController = new ArticleController(
             $articleRequestBuilder->reveal(),

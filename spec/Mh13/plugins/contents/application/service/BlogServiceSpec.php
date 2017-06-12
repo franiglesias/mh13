@@ -2,7 +2,7 @@
 
 namespace spec\Mh13\plugins\contents\application\service;
 
-use Mh13\plugins\contents\application\readmodel\BlogReadModel;
+use Mh13\plugins\contents\application\blog\BlogReadModel;
 use Mh13\plugins\contents\application\service\BlogService;
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\blog\ActiveBlogWithSlug;

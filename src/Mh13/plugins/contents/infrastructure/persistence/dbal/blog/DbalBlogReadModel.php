@@ -3,7 +3,7 @@
 namespace Mh13\plugins\contents\infrastructure\persistence\dbal\blog;
 
 use Doctrine\DBAL\Connection;
-use Mh13\plugins\contents\application\readmodel\BlogReadModel;
+use Mh13\plugins\contents\application\blog\BlogReadModel;
 use Mh13\plugins\contents\exceptions\InvalidBlog;
 
 

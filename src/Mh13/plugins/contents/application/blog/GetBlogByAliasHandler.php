@@ -9,7 +9,6 @@
 namespace Mh13\plugins\contents\application\blog;
 
 
-use Mh13\plugins\contents\application\readmodel\BlogReadModel;
 use Mh13\plugins\contents\domain\BlogSpecificationFactory;
 
 

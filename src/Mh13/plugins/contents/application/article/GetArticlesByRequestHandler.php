@@ -6,16 +6,14 @@
  * Time: 20:14
  */
 
-namespace Mh13\plugins\contents\application\service;
+namespace Mh13\plugins\contents\application\article;
 
 
-use Mh13\plugins\contents\application\readmodel\ArticleReadModel;
-use Mh13\plugins\contents\application\service\article\ArticleRequest;
 use Mh13\plugins\contents\domain\ArticleSpecificationFactory;
 use Mh13\shared\web\twig\filter\Summarizer;
 
 
-class ArticleService
+class GetArticlesByRequestHandler
 {
 
     /**
@@ -36,15 +34,9 @@ class ArticleService
         $this->specificationFactory = $specificationFactory;
     }
 
-    public function getArticleWithSlug(string $slug)
+    public function handle(GetArticlesByRequest $getArticlesByRequest)
     {
-        $specification = $this->specificationFactory->createPublishedArticleWithSlug($slug);
-
-        return $this->readmodel->getArticle($specification);
-    }
-
-    public function getArticlesFromRequest(ArticleRequest $request)
-    {
+        $request = $getArticlesByRequest->getRequest();
         $specification = $this->specificationFactory->createFromCatalogRequest($request);
 
         $articles = $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
@@ -62,14 +54,5 @@ class ArticleService
         );
     }
 
-    public function getArticlesCountForRequest(ArticleRequest $request)
-    {
-        $specification = $this->specificationFactory->createFromCatalogRequest($request);
-
-        return $this->readmodel->ignoringStickFlag($request->ignoreSticky())->from($request->from())->max(
-            $request->max()
-        )->count($specification)
-            ;
-    }
 
 }

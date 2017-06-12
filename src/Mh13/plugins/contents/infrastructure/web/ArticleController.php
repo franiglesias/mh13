@@ -9,7 +9,11 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
+use League\Tactician\CommandBus;
+use Mh13\plugins\contents\application\article\GetArticleByAlias;
+use Mh13\plugins\contents\application\article\GetArticlesByRequest;
+use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
+use Mh13\plugins\contents\application\blog\GetBlogByAlias;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\model\ArticleListView;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\model\FullArticleView;
 use Silex\Application;
@@ -18,6 +22,19 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController
 {
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+    private $templating;
+
+    public function __construct(CommandBus $bus, $templating)
+    {
+
+        $this->bus = $bus;
+        $this->templating = $templating;
+    }
+
     /**
      * Returns a selection of articles
      *
@@ -28,10 +45,11 @@ class ArticleController
      */
     public function catalog(Request $request, Application $app)
     {
-        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['command.bus'])->getRequest();
-        $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
+        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $this->bus)->getRequest();
+        $articles = $this->bus->handle(new GetArticlesByRequest($articleRequest));
 
-        return $app['twig']->render(
+
+        return $this->templating->render(
             'plugins/contents/items/catalog.twig',
             [
                 'articles' => array_map(
@@ -53,12 +71,12 @@ class ArticleController
      *
      * @return string
      */
-    public function view($slug, Application $app)
+    public function view($slug)
     {
-        $article = $app['article.service']->getArticleWithSlug($slug);
-        $blog = $app['blog.service']->getBlogWithSlug($article['blog_slug']);
+        $article = $this->bus->handle(new GetArticleByAlias($slug));
+        $blog = $this->bus->handle(new GetBlogByAlias($article['blog_slug']));
 
-        return $app['twig']->render(
+        return $this->templating->render(
             'plugins/contents/items/view.twig',
             [
                 'article' => FullArticleView::fromArray($article),

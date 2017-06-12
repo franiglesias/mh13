@@ -2,7 +2,7 @@
 
 namespace spec\Mh13\plugins\contents\application\service\article;
 
-use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
+use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\SiteService;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\ParameterBag;

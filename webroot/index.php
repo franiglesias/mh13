@@ -25,18 +25,13 @@ use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularC
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
 use Mh13\plugins\circulars\infrastructure\web\CircularProvider;
 use Mh13\plugins\circulars\infrastructure\web\EventProvider;
-use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
-use Mh13\plugins\contents\application\service\ArticleService;
 use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
 use Mh13\plugins\contents\application\service\UploadService;
 use Mh13\plugins\contents\exceptions\ContentException;
 use Mh13\plugins\contents\infrastructure\api\ArticleController as ApiArticleController;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleReadModel;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DbalArticleRepository;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleSpecificationFactory;
+use Mh13\plugins\contents\infrastructure\api\BlogController as ApiBlogController;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
-use Mh13\plugins\contents\infrastructure\web\ArticleController;
 use Mh13\plugins\contents\infrastructure\web\ArticleProvider;
 use Mh13\plugins\contents\infrastructure\web\BlogProvider;
 use Mh13\plugins\contents\infrastructure\web\PageProvider;
@@ -109,26 +104,6 @@ $app['bar.loader'] = function ($app) {
 
 # ARTICLE
 
-$app['article.request.builder'] = function ($app) {
-    return new ArticleRequestBuilder($app['command.bus']);
-};
-
-$app['article.specification.factory'] = function ($app) {
-    return new DBalArticleSpecificationFactory($app['db']);
-};
-
-$app['article.repository'] = function ($app) {
-    return new DbalArticleRepository($app['db']);
-};
-
-$app['article.readmodel'] = function ($app) {
-    return new DBalArticleReadModel($app['db']);
-};
-
-$app['article.service'] = function ($app) {
-    return new ArticleService($app['article.readmodel'], $app['article.specification.factory']);
-};
-
 
 # /ARTICLE
 
@@ -161,13 +136,16 @@ $app['api.circular.controller'] = function ($app) {
 };
 
 $app['api.article.controller'] = function () use ($app) {
-    return new ApiArticleController($app['article.request.builder'], $app['article.service']);
+    return new ApiArticleController($app['command.bus'], $app['article.request.builder'], $app['article.service']);
 };
 
 $app['api.event.controller'] = function () use ($app) {
     return new ApiEventController($app['command.bus']);
 };
 
+$app['api.blog.controller'] = function () use ($app) {
+    return new ApiBlogController($app['command.bus']);
+};
 
 $app->extend(
     'twig',
@@ -219,7 +197,7 @@ $app->get('/api/events', "api.event.controller:last")->when(
 $app->get('/api/circulars', "api.circular.controller:last");
 
 
-$app->get('/contents/channels/external', 'blog.controller:public');
+$app->get('/api/blogs', 'api.blog.controller:public');
 
 # /API
 
@@ -237,7 +215,7 @@ $app->mount('/blog', new BlogProvider());
 // Compatibility with old route scheme
 
 
-$app->get('/{slug}', ArticleController::class.'::view')->assert('slug', '\b(?!articles\b).*?\b');
+$app->get('/{slug}', 'article.controller:view')->assert('slug', '\b(?!articles\b).*?\b');
 
 // Default route renders home page
 $app->get(

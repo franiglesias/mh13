@@ -1,6 +1,6 @@
 <?php
 
-namespace Mh13\plugins\contents\application\service\article;
+namespace Mh13\plugins\contents\application\article\request;
 
 use League\Tactician\CommandBus;
 use Mh13\plugins\contents\application\service\SiteService;

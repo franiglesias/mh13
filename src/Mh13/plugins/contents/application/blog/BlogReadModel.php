@@ -6,7 +6,7 @@
  * Time: 18:07
  */
 
-namespace Mh13\plugins\contents\application\readmodel;
+namespace Mh13\plugins\contents\application\blog;
 
 interface BlogReadModel
 {

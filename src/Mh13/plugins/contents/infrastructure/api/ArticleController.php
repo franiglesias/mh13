@@ -10,8 +10,11 @@ namespace Mh13\plugins\contents\infrastructure\api;
 
 
 use Doctrine\DBAL\Exception\ConnectionException;
-use Mh13\plugins\contents\application\service\article\ArticleRequestBuilder;
-use Mh13\plugins\contents\application\service\ArticleService;
+use League\Tactician\CommandBus;
+use Mh13\plugins\contents\application\article\GetArticleCountForRequest;
+use Mh13\plugins\contents\application\article\GetArticleCountForRequestHandler;
+use Mh13\plugins\contents\application\article\GetArticlesByRequest;
+use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\SiteService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,26 +25,37 @@ class ArticleController
 {
 
     /**
-     * @var ArticleService
+     * @var GetArticleCountForRequestHandler
      */
     private $articleService;
     /**
      * @var ArticleRequestBuilder
      */
     private $articleRequestBuilder;
+    /**
+     * @var CommandBus
+     */
+    private $bus;
 
 
-    public function __construct(ArticleRequestBuilder $articleRequestBuilder, ArticleService $articleService)
+    public function __construct(
+        CommandBus $bus,
+        ArticleRequestBuilder $articleRequestBuilder,
+        GetArticleCountForRequestHandler $articleService
+    )
     {
         $this->articleService = $articleService;
         $this->articleRequestBuilder = $articleRequestBuilder;
+        $this->bus = $bus;
     }
 
     public function feed(Request $request): JsonResponse
     {
         try {
             $articleRequest = $this->articleRequestBuilder->buildFromQueryData($request->query);
-            $articles = $this->articleService->getArticlesFromRequest($articleRequest);
+
+            $articles = $this->bus->handle(new GetArticlesByRequest($articleRequest));
+
             if (!$articles) {
                 return new JsonResponse(
                     ['code' => 204, 'message' => 'No articles found for this query.'],
@@ -50,7 +64,7 @@ class ArticleController
             }
 
             $currentPage = $articleRequest->getPage();
-            $maxPages = $articleRequest->maxPages($this->articleService->getArticlesCountForRequest($articleRequest));
+            $maxPages = $this->bus->handle(new GetArticleCountForRequest($articleRequest));
 
             return new JsonResponse(
                 $articles, Response::HTTP_OK, [
