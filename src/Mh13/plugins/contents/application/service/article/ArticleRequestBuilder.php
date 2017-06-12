@@ -2,7 +2,9 @@
 
 namespace Mh13\plugins\contents\application\service\article;
 
+use League\Tactician\CommandBus;
 use Mh13\plugins\contents\application\service\SiteService;
+use Mh13\plugins\contents\application\site\GetListOfBlogInSite;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 
@@ -36,19 +38,25 @@ class ArticleRequestBuilder
     private $public = true;
     private $ignoreSticky = false;
 
-    /**
-     * @var SiteService
-     */
-    private $siteService;
 
-    public function __construct(SiteService $siteService)
+    /**
+     * @var CommandBus
+     */
+    private $bus;
+
+    /**
+     * ArticleRequestBuilder constructor.
+     *
+     * @param CommandBus $bus
+     */
+    public function __construct(CommandBus $bus)
     {
-        $this->siteService = $siteService;
+        $this->bus = $bus;
     }
 
-    public static function fromQuery(ParameterBag $query, SiteService $siteService)
+    public static function fromQuery(ParameterBag $query, CommandBus $bus)
     {
-        $builder = new ArticleRequestBuilder($siteService);
+        $builder = new ArticleRequestBuilder($bus);
 
         return $builder->withQuery($query);
     }
@@ -62,7 +70,7 @@ class ArticleRequestBuilder
             $this->excludeBlogs(...$query->get('excludeBlogs'));
         }
         if ($site = $query->getAlnum('site')) {
-            $this->fromBlogs($this->siteService->getBlogs($site));
+            $this->fromBlogs($this->bus->handle(new GetListOfBlogInSite($site)));
         }
         if ($query->getBoolean('featured', false)) {
             $this->onlyFeatured();
@@ -105,7 +113,6 @@ class ArticleRequestBuilder
         $this->manageCollissions();
 
         return $this;
-
     }
 
     public function onlyFeatured(): self

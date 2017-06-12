@@ -28,7 +28,7 @@ class ArticleController
      */
     public function catalog(Request $request, Application $app)
     {
-        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['site.service'])->getRequest();
+        $articleRequest = ArticleRequestBuilder::fromQuery($request->query, $app['command.bus'])->getRequest();
         $articles = $app['article.service']->getArticlesFromRequest($articleRequest);
 
         return $app['twig']->render(

@@ -20,10 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ArticleController
 {
-    /**
-     * @var SiteService
-     */
-    private $siteService;
+
     /**
      * @var ArticleService
      */
@@ -32,6 +29,7 @@ class ArticleController
      * @var ArticleRequestBuilder
      */
     private $articleRequestBuilder;
+
 
     public function __construct(ArticleRequestBuilder $articleRequestBuilder, ArticleService $articleService)
     {

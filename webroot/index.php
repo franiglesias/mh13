@@ -111,7 +111,7 @@ $app['bar.loader'] = function ($app) {
 # ARTICLE
 
 $app['article.request.builder'] = function ($app) {
-    return new ArticleRequestBuilder($app['site.service']);
+    return new ArticleRequestBuilder($app['command.bus']);
 };
 
 $app['article.specification.factory'] = function ($app) {
