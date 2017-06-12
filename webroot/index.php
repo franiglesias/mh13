@@ -20,11 +20,6 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-use League\Tactician\CommandBus;
-use League\Tactician\Handler\CommandHandlerMiddleware;
-use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
-use League\Tactician\Handler\Locator\InMemoryLocator;
-use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Mh13\plugins\cantine\infrastructure\web\CantineProvider;
 use Mh13\plugins\circulars\infrastructure\api\CircularController as ApiCircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController as ApiEventController;
@@ -50,6 +45,7 @@ use Mh13\plugins\contents\infrastructure\web\SiteProvider;
 use Mh13\plugins\contents\infrastructure\web\StaticPageProvider;
 use Mh13\plugins\contents\infrastructure\web\UiProvider;
 use Mh13\plugins\uploads\infrastructure\web\UploadsProvider;
+use Mh13\shared\CommandBus\TacticianServiceProvider;
 use Mh13\shared\web\menus\MenuBarLoader;
 use Mh13\shared\web\menus\MenuLoader;
 use Mh13\shared\web\twig\Twig_Extension_Media;
@@ -77,6 +73,7 @@ $config = Yaml::parse(file_get_contents(dirname(__DIR__).'/config/config.yml'));
 
 $app->register(new ServiceControllerServiceProvider());
 
+$app->register(new TacticianServiceProvider());
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -170,27 +167,6 @@ $app['api.article.controller'] = function () use ($app) {
 
 $app['api.event.controller'] = function () use ($app) {
     return new ApiEventController($app['command.bus']);
-};
-
-/* End of service definitions */
-
-/* Tactician Command Bus */
-// Choose our locator
-$app['command.bus.locator'] = function ($app) {
-    return new InMemoryLocator();
-};
-
-// Choose our method name
-// Choose our Handler naming strategy
-// Create the middleware that executes commands with Handlers
-// Create the command bus, with a list of middleware
-
-$app['command.bus'] = function ($app) {
-    $inflector = new HandleInflector();
-    $nameExtractor = new ClassNameExtractor();
-    $commandHandlerMiddleware = new CommandHandlerMiddleware($nameExtractor, $app['command.bus.locator'], $inflector);
-
-    return new CommandBus([$commandHandlerMiddleware]);
 };
 
 
