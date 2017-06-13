@@ -6,10 +6,10 @@
  * Time: 16:19
  */
 
-namespace Mh13\plugins\contents\application\service\upload;
+namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\context;
 
 
-class ArticleContext extends UploadContext
+class ArticleContextDBal extends DBalUploadContext
 {
     const ALIAS = 'article';
     const MODEL = 'Item';

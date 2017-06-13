@@ -6,10 +6,10 @@
  * Time: 16:19
  */
 
-namespace Mh13\plugins\contents\application\service\upload;
+namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\context;
 
 
-class ImageCollectionContext extends UploadContext
+class ImageCollectionContextDBal extends DBalUploadContext
 {
     const ALIAS = 'collection';
     const MODEL = 'ImageCollection';

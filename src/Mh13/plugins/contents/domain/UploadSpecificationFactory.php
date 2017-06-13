@@ -9,16 +9,16 @@
 namespace Mh13\plugins\contents\domain;
 
 
-use Mh13\plugins\contents\application\service\upload\UploadContext;
+use Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContext;
 
 
 interface UploadSpecificationFactory
 {
 
-    public function createAttachedImages(UploadContext $context, string $slug);
+    public function createAttachedImages(DBalUploadContext $context, string $slug);
 
-    public function createAttachedDownloads(UploadContext $context, string $slug);
+    public function createAttachedDownloads(DBalUploadContext $context, string $slug);
 
-    public function createAttachedMedia(UploadContext $context, string $slug);
+    public function createAttachedMedia(DBalUploadContext $context, string $slug);
 
 }

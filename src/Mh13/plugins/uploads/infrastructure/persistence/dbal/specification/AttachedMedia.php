@@ -6,22 +6,22 @@
  * Time: 19:17
  */
 
-namespace Mh13\plugins\contents\infrastructure\persistence\dbal\upload\specification;
+namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\specification;
 
 
-use Mh13\plugins\contents\application\service\upload\UploadContext;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\specification\CompositeDbalSpecification;
+use Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContext;
 
 
 class AttachedMedia extends CompositeDbalSpecification
 {
 
     /**
-     * @var UploadContext
+     * @var DBalUploadContext
      */
     private $context;
 
-    public function __construct(UploadContext $context, string $slug)
+    public function __construct(DBalUploadContext $context, string $slug)
     {
         $this->setParameter('slug', $slug, 'string');
         $this->context = $context;

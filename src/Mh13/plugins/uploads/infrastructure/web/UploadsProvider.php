@@ -9,12 +9,15 @@
 namespace Mh13\plugins\uploads\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\service\upload\UploadContextFactory;
-use Mh13\plugins\contents\application\service\UploadService;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel;
-use Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadSpecificationFactory;
+use Mh13\plugins\uploads\application\GetDownloadsForObject;
+use Mh13\plugins\uploads\application\GetDownloadsForObjectHandler;
 use Mh13\plugins\uploads\application\GetImagesForObject;
 use Mh13\plugins\uploads\application\GetImagesForObjectHandler;
+use Mh13\plugins\uploads\application\GetMediaForObject;
+use Mh13\plugins\uploads\application\GetMediaForObjectHandler;
+use Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContextFactory;
+use Mh13\plugins\uploads\infrastructure\persistence\dbal\DbalUploadReadModel;
+use Mh13\plugins\uploads\infrastructure\persistence\dbal\DbalUploadSpecificationFactory;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
@@ -41,11 +44,11 @@ class UploadsProvider implements ControllerProviderInterface
         };
 
         $app['upload.context.factory'] = function ($app) {
-            return new UploadContextFactory();
+            return new DBalUploadContextFactory();
         };
 
         $app['upload.service'] = function ($app) {
-            return new UploadService(
+            return new GetMediaForObjectHandler(
                 $app['upload.readmodel'],
                 $app['upload.specification.factory'],
                 $app['upload.context.factory']
@@ -59,18 +62,38 @@ class UploadsProvider implements ControllerProviderInterface
         $app[GetImagesForObjectHandler::class] = function ($app) {
             return new GetImagesForObjectHandler(
                 $app['upload.readmodel'],
-                $app['upload.specification.handler'],
+                $app['upload.specification.factory'],
+                $app['upload.context.factory']
+            );
+        };
+
+        $app[GetDownloadsForObjectHandler::class] = function ($app) {
+            return new GetDownloadsForObjectHandler(
+                $app['upload.readmodel'],
+                $app['upload.specification.factory'],
+                $app['upload.context.factory']
+            );
+        };
+
+        $app[GetMediaForObjectHandler::class] = function ($app) {
+            return new GetMediaForObjectHandler(
+                $app['upload.readmodel'],
+                $app['upload.specification.factory'],
                 $app['upload.context.factory']
             );
         };
 
         $app['command.bus.locator']->addHandler($app[GetImagesForObjectHandler::class], GetImagesForObject::class);
-
+        $app['command.bus.locator']->addHandler(
+            $app[GetDownloadsForObjectHandler::class],
+            GetDownloadsForObject::class
+        );
+        $app['command.bus.locator']->addHandler($app[GetMediaForObjectHandler::class], GetMediaForObject::class);
 
         $uploads = $app['controllers_factory'];
-        $uploads->get('/{model}/gallery/{type}/{slug}', UploadController::class.'::gallery');
-        $uploads->get('/collection/{type}/{collection}', UploadController::class.'::collection');
-        $uploads->get('/downloads/{slug}', UploadController::class.'::downloads');
+        $uploads->get('/{model}/gallery/{type}/{slug}', 'upload.controller:gallery');
+        $uploads->get('/collection/{type}/{collection}', 'upload.controller:collection');
+        $uploads->get('/downloads/{slug}', 'upload.controller:downloads');
 
         return $uploads;
     }

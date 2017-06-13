@@ -13,10 +13,10 @@ use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 use Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContextFactory;
 
 
-class GetImagesForObjectHandler
+class GetMediaForObjectHandler
 {
     /**
-     * @var UploadReadModel
+     * @var \Mh13\plugins\uploads\application\UploadReadModel
      */
     private $readModel;
     /**
@@ -24,7 +24,7 @@ class GetImagesForObjectHandler
      */
     private $factory;
     /**
-     * @var \Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContextFactory
+     * @var DBalUploadContextFactory
      */
     private $contextFactory;
 
@@ -32,20 +32,20 @@ class GetImagesForObjectHandler
         UploadReadModel $readModel,
         UploadSpecificationFactory $factory,
         DBalUploadContextFactory $contextFactory
-    ) {
+    )
+    {
 
         $this->readModel = $readModel;
         $this->factory = $factory;
         $this->contextFactory = $contextFactory;
     }
 
-    public function handle(GetImagesForObject $getImagesForObject)
+    public function handle(GetMediaForObject $getMediaForObject)
     {
-        $context = $this->contextFactory->getContextFor($getImagesForObject->getObject());
-        $specification = $this->factory->createAttachedImages($context, $getImagesForObject->getAlias());
+        $context = $this->contextFactory->getContextFor($getMediaForObject->getObject());
+        $specification = $this->factory->createAttachedMedia($context, $getMediaForObject->getAlias());
 
         return $this->readModel->findUploads($specification, $context);
     }
-
 
 }

@@ -6,10 +6,13 @@
  * Time: 16:18
  */
 
-namespace Mh13\plugins\contents\application\service\upload;
+namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\context;
 
 
-class UploadContext
+use Mh13\plugins\uploads\application\UploadContext;
+
+
+class DBalUploadContext implements UploadContext
 {
     const ALIAS = 'file';
     const MODEL = 'Uploads';

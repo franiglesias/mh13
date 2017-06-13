@@ -16,7 +16,7 @@ class DbalUploadReadModelSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(\Mh13\plugins\contents\infrastructure\persistence\dbal\upload\DbalUploadReadModel::class);
+        $this->shouldHaveType(\Mh13\plugins\uploads\infrastructure\persistence\dbal\DbalUploadReadModel::class);
         $this->shouldImplement(UploadReadModel::class);
     }
 }

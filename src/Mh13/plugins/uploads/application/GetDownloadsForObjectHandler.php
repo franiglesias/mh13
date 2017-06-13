@@ -13,10 +13,10 @@ use Mh13\plugins\contents\domain\UploadSpecificationFactory;
 use Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContextFactory;
 
 
-class GetImagesForObjectHandler
+class GetDownloadsForObjectHandler
 {
     /**
-     * @var UploadReadModel
+     * @var \Mh13\plugins\uploads\application\UploadReadModel
      */
     private $readModel;
     /**
@@ -39,10 +39,10 @@ class GetImagesForObjectHandler
         $this->contextFactory = $contextFactory;
     }
 
-    public function handle(GetImagesForObject $getImagesForObject)
+    public function handle(GetDownloadsForObject $getDownloadsForObject)
     {
-        $context = $this->contextFactory->getContextFor($getImagesForObject->getObject());
-        $specification = $this->factory->createAttachedImages($context, $getImagesForObject->getAlias());
+        $context = $this->contextFactory->getContextFor($getDownloadsForObject->getObject());
+        $specification = $this->factory->createAttachedDownloads($context, $getDownloadsForObject->getAlias());
 
         return $this->readModel->findUploads($specification, $context);
     }

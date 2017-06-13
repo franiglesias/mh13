@@ -6,10 +6,10 @@
  * Time: 16:19
  */
 
-namespace Mh13\plugins\contents\application\service\upload;
+namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\context;
 
 
-class StaticPageContext extends UploadContext
+class StaticPageContextDBal extends DBalUploadContext
 {
     const ALIAS = 'page';
     const MODEL = 'StaticPage';
