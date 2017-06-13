@@ -33,11 +33,7 @@ class SiteProvider implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $app['site.readmodel'] = function ($app) {
-            return new FSSiteReadModel($app['config.path']);
-        };
-
-        $app['site.service'] = function ($app) {
-            return new SiteService($app['site.readmodel']);
+            return new FSSiteReadModel($app['config.file']);
         };
 
         $app[GetSiteWithSlugHandler::class] = function ($app) {
