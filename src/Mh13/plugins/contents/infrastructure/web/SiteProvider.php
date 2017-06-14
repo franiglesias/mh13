@@ -10,9 +10,7 @@ namespace Mh13\plugins\contents\infrastructure\web;
 
 
 use Mh13\plugins\contents\application\service\SiteService;
-use Mh13\plugins\contents\application\site\GetListOfBlogInSite;
 use Mh13\plugins\contents\application\site\GetListOfBlogInSiteHandler;
-use Mh13\plugins\contents\application\site\GetSiteWithSlug;
 use Mh13\plugins\contents\application\site\GetSiteWithSlugHandler;
 use Mh13\plugins\contents\infrastructure\persistence\filesystem\FSSiteReadModel;
 use Silex\Api\ControllerProviderInterface;
@@ -47,9 +45,6 @@ class SiteProvider implements ControllerProviderInterface
         $app['site.controller'] = function ($app) {
             return new SiteController($app['command.bus'], $app['twig']);
         };
-
-        $app['command.bus.locator']->addHandler($app[GetSiteWithSlugHandler::class], GetSiteWithSlug::class);
-        $app['command.bus.locator']->addHandler($app[GetListOfBlogInSiteHandler::class], GetListOfBlogInSite::class);
 
         $sites = $app['controllers_factory'];
         $sites->get('/{slug}', 'site.controller:view');

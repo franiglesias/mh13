@@ -3,8 +3,6 @@
 namespace Mh13\plugins\contents\application\article\request;
 
 use League\Tactician\CommandBus;
-use Mh13\plugins\contents\application\service\SiteService;
-use Mh13\plugins\contents\application\site\GetListOfBlogInSite;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 
@@ -40,23 +38,17 @@ class ArticleRequestBuilder
 
 
     /**
-     * @var CommandBus
-     */
-    private $bus;
-
-    /**
      * ArticleRequestBuilder constructor.
      *
      * @param CommandBus $bus
      */
-    public function __construct(CommandBus $bus)
+    public function __construct()
     {
-        $this->bus = $bus;
     }
 
-    public static function fromQuery(ParameterBag $query, CommandBus $bus)
+    public static function fromQuery(ParameterBag $query)
     {
-        $builder = new ArticleRequestBuilder($bus);
+        $builder = new ArticleRequestBuilder();
 
         return $builder->withQuery($query);
     }
@@ -69,9 +61,7 @@ class ArticleRequestBuilder
         if ($query->has('excludeBlogs')) {
             $this->excludeBlogs(...$query->get('excludeBlogs'));
         }
-        if ($site = $query->getAlnum('site')) {
-            $this->fromBlogs($this->bus->handle(new GetListOfBlogInSite($site)));
-        }
+
         if ($query->getBoolean('featured', false)) {
             $this->onlyFeatured();
         }
@@ -156,16 +146,6 @@ class ArticleRequestBuilder
 
         return $this;
     }
-
-
-    public function fromSite($site): self
-    {
-        $this->fromBlogs($this->siteService->getBlogs($site));
-        $this->manageCollissions();
-
-        return $this;
-    }
-
 
     public function ignoreSticky()
     {

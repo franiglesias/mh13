@@ -15,6 +15,7 @@ use Mh13\plugins\contents\application\article\GetArticleCountForRequest;
 use Mh13\plugins\contents\application\article\GetArticlesByRequest;
 use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use Mh13\plugins\contents\application\service\SiteService;
+use Mh13\plugins\contents\application\site\GetListOfBlogInSite;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,6 +46,9 @@ class ArticleController
     public function feed(Request $request): JsonResponse
     {
         try {
+            if ($site = $request->query->getAlnum('site')) {
+                $this->articleRequestBuilder->fromBlogs($this->bus->handle(new GetListOfBlogInSite($site)));
+            }
             $articleRequest = $this->articleRequestBuilder->buildFromQueryData($request->query);
 
             $articles = $this->bus->handle(new GetArticlesByRequest($articleRequest));

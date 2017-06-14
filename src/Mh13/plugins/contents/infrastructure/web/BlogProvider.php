@@ -9,9 +9,7 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\blog\GetBlogByAlias;
 use Mh13\plugins\contents\application\blog\GetBlogByAliasHandler;
-use Mh13\plugins\contents\application\blog\GetPublicBlogs;
 use Mh13\plugins\contents\application\blog\GetPublicBlogsHandler;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\blog\DbalBlogSpecificationFactory;
@@ -50,8 +48,6 @@ class BlogProvider implements ControllerProviderInterface
             return new GetPublicBlogsHandler($app['blog.readmodel'], $app['blog.specification.factory']);
         };
 
-        $app['command.bus.locator']->addHandler($app[GetBlogByAliasHandler::class], GetBlogByAlias::class);
-        $app['command.bus.locator']->addHandler($app[GetPublicBlogsHandler::class], GetPublicBlogs::class);
         $app['blog.controller'] = function ($app) {
             return new BlogController($app['command.bus'], $app['twig']);
         };

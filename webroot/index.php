@@ -59,7 +59,12 @@ $config = Yaml::parse(file_get_contents($app['config.file']));
 
 $app->register(new ServiceControllerServiceProvider());
 
-$app->register(new TacticianServiceProvider());
+$app->register(
+    new TacticianServiceProvider(),
+    [
+        'tactician.locator' => 'silex',
+    ]
+);
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),

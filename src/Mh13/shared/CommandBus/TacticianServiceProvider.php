@@ -14,6 +14,7 @@ use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
+use Mh13\shared\CommandBus\Locator\SilexHandlerLocator;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -33,7 +34,15 @@ class TacticianServiceProvider implements ServiceProviderInterface
     {
         // Choose our locator
         $app['command.bus.locator'] = function ($app) {
-            return new InMemoryLocator();
+            $locator = isset($app['tactician.locator']) ? $app['tactician.locator'] : 'default';
+            switch ($locator) {
+                case 'silex':
+                    return new SilexHandlerLocator($app);
+                case 'in_memory':
+                default:
+                    return new InMemoryLocator();
+            }
+
         };
 
 // Choose our method name

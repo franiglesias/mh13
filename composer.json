@@ -4,7 +4,7 @@
   "type": "project",
   "require": {
     "symfony/http-foundation": "^3.2",
-    "twig/twig": "^1.31",
+    "twig/twig": "^2.0",
     "silex/silex": "2.1.x-dev",
     "symfony/console": "^3.2",
     "doctrine/dbal": "^2.5",
@@ -28,11 +28,7 @@
   ],
   "autoload": {
     "classmap": [
-      "plugins/",
-      "app_model.php",
-      "app_controller.php",
-      "app_helper.php",
-      "app_error.php",
+      "legacy/",
       "vendors/cakephp/"
     ],
     "exclude-from-classmap": [

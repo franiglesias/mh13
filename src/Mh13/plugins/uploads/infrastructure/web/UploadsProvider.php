@@ -9,11 +9,8 @@
 namespace Mh13\plugins\uploads\infrastructure\web;
 
 
-use Mh13\plugins\uploads\application\GetDownloadsForObject;
 use Mh13\plugins\uploads\application\GetDownloadsForObjectHandler;
-use Mh13\plugins\uploads\application\GetImagesForObject;
 use Mh13\plugins\uploads\application\GetImagesForObjectHandler;
-use Mh13\plugins\uploads\application\GetMediaForObject;
 use Mh13\plugins\uploads\application\GetMediaForObjectHandler;
 use Mh13\plugins\uploads\infrastructure\persistence\dbal\context\DBalUploadContextFactory;
 use Mh13\plugins\uploads\infrastructure\persistence\dbal\DbalUploadReadModel;
@@ -82,13 +79,6 @@ class UploadsProvider implements ControllerProviderInterface
                 $app['upload.context.factory']
             );
         };
-
-        $app['command.bus.locator']->addHandler($app[GetImagesForObjectHandler::class], GetImagesForObject::class);
-        $app['command.bus.locator']->addHandler(
-            $app[GetDownloadsForObjectHandler::class],
-            GetDownloadsForObject::class
-        );
-        $app['command.bus.locator']->addHandler($app[GetMediaForObjectHandler::class], GetMediaForObject::class);
 
         $uploads = $app['controllers_factory'];
         $uploads->get('/{model}/gallery/{type}/{slug}', 'upload.controller:gallery');

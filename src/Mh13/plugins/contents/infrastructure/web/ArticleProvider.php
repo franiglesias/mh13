@@ -9,11 +9,8 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\article\GetArticleByAlias;
 use Mh13\plugins\contents\application\article\GetArticleByAliasHandler;
-use Mh13\plugins\contents\application\article\GetArticleCountForRequest;
 use Mh13\plugins\contents\application\article\GetArticleCountForRequestHandler;
-use Mh13\plugins\contents\application\article\GetArticlesByRequest;
 use Mh13\plugins\contents\application\article\GetArticlesByRequestHandler;
 use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\article\DBalArticleReadModel;
@@ -28,7 +25,7 @@ class ArticleProvider implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $app['article.request.builder'] = function ($app) {
-            return new ArticleRequestBuilder($app['command.bus']);
+            return new ArticleRequestBuilder();
         };
 
         $app['article.specification.factory'] = function ($app) {
@@ -66,13 +63,6 @@ class ArticleProvider implements ControllerProviderInterface
                 $app['article.readmodel'], $app['article.specification.factory']
             );
         };
-
-        $app['command.bus.locator']->addHandler($app[GetArticleByAliasHandler::class], GetArticleByAlias::class);
-        $app['command.bus.locator']->addHandler($app[GetArticlesByRequestHandler::class], GetArticlesByRequest::class);
-        $app['command.bus.locator']->addHandler(
-            $app[GetArticleCountForRequestHandler::class],
-            GetArticleCountForRequest::class
-        );
 
         $articles = $app['controllers_factory'];
         $articles->get('/catalog', "article.controller:catalog");

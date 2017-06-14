@@ -9,7 +9,6 @@
 namespace Mh13\plugins\circulars\infrastructure\web;
 
 
-use Mh13\plugins\circulars\application\event\GetLastEvents;
 use Mh13\plugins\circulars\application\event\GetLastEventsHandler;
 use Mh13\plugins\circulars\infrastructure\persistence\dbal\DBalEventReadModel;
 use Silex\Api\ControllerProviderInterface;
@@ -40,8 +39,6 @@ class EventProvider implements ControllerProviderInterface
         $app[GetLastEventsHandler::class] = function ($app) {
             return new GetLastEventsHandler($app['event.readmodel']);
         };
-
-        $app['command.bus.locator']->addHandler($app[GetLastEventsHandler::class], GetLastEvents::class);
 
         $events = $app['controllers_factory'];
         $events->get('/last', 'event.controller:last');

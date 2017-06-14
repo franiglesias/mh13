@@ -9,7 +9,6 @@
 namespace Mh13\plugins\contents\infrastructure\web;
 
 
-use Mh13\plugins\contents\application\staticpage\GetPageByAlias;
 use Mh13\plugins\contents\application\staticpage\GetPageByAliasHandler;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\DbalStaticPageReadModel;
 use Mh13\plugins\contents\infrastructure\persistence\dbal\staticpage\DbalStaticPageRelatedFinderFactory;
@@ -54,9 +53,6 @@ class StaticPageProvider implements ControllerProviderInterface
         $app['staticpage.controller'] = function ($app) {
             return new StaticPageController($app['command.bus'], $app['twig']);
         };
-
-        $app['command.bus.locator']->addHandler($app[GetPageByAliasHandler::class], GetPageByAlias::class);
-
 
         $statics = $app['controllers_factory'];
         $statics->get('/{slug}', 'staticpage.controller:view');
