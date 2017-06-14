@@ -66,6 +66,14 @@ $app->register(
     ]
 );
 
+
+$app->register(
+    new DoctrineServiceProvider(),
+    [
+        'db.options' => $config['doctrine']['dbal']['connections'][$config['doctrine']['dbal']['default_connection']],
+    ]
+);
+
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
     [
@@ -78,13 +86,6 @@ $app->register(
     ]
 );
 
-$app->register(
-    new DoctrineServiceProvider(),
-    [
-        'db.options' => $config['doctrine']['dbal']['connections'][$config['doctrine']['dbal']['default_connection']],
-    ]
-);
-
 
 $app->extend(
     'twig',
@@ -94,28 +95,13 @@ $app->extend(
         }
         $twig->addGlobal('title_for_layout', 'Página principal');
         $twig->addGlobal('BaseUrl', '/');
-        $twig->addExtension(new Twig_Extension_Debug());
+//        $twig->addExtension(new Twig_Extension_Debug());
         $twig->addExtension(new Twig_Extension_Media());
 
         return $twig;
     }
 );
 
-
-$app->extend(
-    'twig',
-    function ($twig, $app) use ($config) {
-        foreach ($config as $key => $value) {
-            $twig->addGlobal($key, $config[$key]);
-        }
-        $twig->addGlobal('title_for_layout', 'Página principal');
-        $twig->addGlobal('BaseUrl', '/');
-        $twig->addExtension(new Twig_Extension_Debug());
-        $twig->addExtension(new Twig_Extension_Media());
-
-        return $twig;
-    }
-);
 
 /* Error Handlers */
 
