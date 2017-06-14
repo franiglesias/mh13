@@ -8,7 +8,8 @@
 
 namespace Mh13\plugins\contents\application\service\article;
 
-use PHPUnit\Framework\TestCase;
+
+use TestCase;
 
 
 class ArticleRequestBuilderTest extends TestCase

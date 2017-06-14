@@ -1,6 +1,6 @@
 <?php
 /**
- * Test Case bake template
+ * SilexHandlerLocatorTest Case bake template
  *
  *
  * PHP versions 4 and 5
@@ -19,12 +19,12 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 echo "<?php\n";
-echo "/* ". $className ." Test cases generated on: " . date('Y-m-d H:m:s') . " : ". time() . "*/\n";
+echo "/* ". $className ." SilexHandlerLocatorTest cases generated on: " . date('Y-m-d H:m:s') . " : ". time() . "*/\n";
 ?>
 App::import('<?php echo $type; ?>', '<?php echo $plugin . $className;?>');
 
 <?php if ($mock and strtolower($type) == 'controller'): ?>
-class Test<?php echo $fullClassName; ?> extends <?php echo $fullClassName; ?> {
+class SilexHandlerLocatorTest<?php echo $fullClassName; ?> extends <?php echo $fullClassName; ?> {
 	var $autoRender = false;
 
 	function redirect($url, $status = null, $exit = true) {

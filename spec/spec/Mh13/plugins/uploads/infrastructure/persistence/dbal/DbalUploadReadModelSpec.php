@@ -1,9 +1,10 @@
 <?php
 
-namespace spec\Mh13\plugins\contents\infrastructure\persistence\dbal\upload;
+namespace spec\Mh13\plugins\uploads\infrastructure\persistence\dbal;
 
 use Doctrine\DBAL\Connection;
 use Mh13\plugins\uploads\application\UploadReadModel;
+use Mh13\plugins\uploads\infrastructure\persistence\dbal\DbalUploadReadModel;
 use PhpSpec\ObjectBehavior;
 
 
@@ -16,7 +17,7 @@ class DbalUploadReadModelSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(\Mh13\plugins\uploads\infrastructure\persistence\dbal\DbalUploadReadModel::class);
+        $this->shouldHaveType(DbalUploadReadModel::class);
         $this->shouldImplement(UploadReadModel::class);
     }
 }

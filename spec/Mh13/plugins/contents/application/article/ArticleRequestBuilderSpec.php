@@ -3,7 +3,6 @@
 namespace spec\Mh13\plugins\contents\application\service\article;
 
 use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
-use Mh13\plugins\contents\application\service\SiteService;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -11,9 +10,9 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 class ArticleRequestBuilderSpec extends ObjectBehavior
 {
 
-    public function let(SiteService $siteService)
+    public function let()
     {
-        $this->beConstructedWith($siteService);
+        $this->beConstructedWith();
     }
 
     function it_is_initializable()
@@ -106,18 +105,11 @@ class ArticleRequestBuilderSpec extends ObjectBehavior
 
     }
 
-    public function it_can_specify_a_site(SiteService $siteService)
-    {
-        $siteService->getBlogs('site')->shouldBeCalled()->willReturn(['blog1', 'blog2', 'blog3']);
-        $this->fromSite('site')->shouldBe($this);
-        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2', 'blog3']);
-    }
 
-
-    public function it_manages_featured_flag_from_request_query(SiteService $siteService)
+    public function it_manages_featured_flag_from_request_query()
     {
         $query = $this->getFullFixtureQuery();
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
+        $this->beConstructedThrough('fromQuery', [$query]);
         $this->getRequest()->onlyFeatured()->shouldBe(true);
     }
 
@@ -139,62 +131,49 @@ class ArticleRequestBuilderSpec extends ObjectBehavior
         );
     }
 
-    public function it_manages_public_flag_from_request_query(SiteService $siteService)
+    public function it_manages_public_flag_from_request_query()
     {
         $query = $this->getFullFixtureQuery();
 
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
+        $this->beConstructedThrough('fromQuery', [$query]);
         $this->getRequest()->onlyPublic()->shouldBe(true);
     }
 
-    public function it_manages_sticky_flag_from_request_query(SiteService $siteService)
+    public function it_manages_sticky_flag_from_request_query()
     {
         $query = $this->getFullFixtureQuery();
 
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
+        $this->beConstructedThrough('fromQuery', [$query]);
         $this->getRequest()->ignoreSticky()->shouldBe(false);
 
     }
 
 
-    public function it_manags_home_flag_from_request_query(SiteService $siteService)
+    public function it_manags_home_flag_from_request_query()
     {
         $query = $this->getFullFixtureQuery();
 
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
+        $this->beConstructedThrough('fromQuery', [$query]);
         $this->getRequest()->onlyHome()->shouldBe(false);
     }
 
-    public function it_manages_blogs_key_from_request_query(SiteService $siteService)
+    public function it_manages_blogs_key_from_request_query()
     {
         $query = $this->getFullFixtureQuery();
 
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
+        $this->beConstructedThrough('fromQuery', [$query]);
 
         $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2']);
 
     }
 
-    public function it_manages_excluded_blogs_from_request_query(SiteService $siteService)
+    public function it_manages_excluded_blogs_from_request_query()
     {
         $query = $this->getFullFixtureQuery();
 
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
+        $this->beConstructedThrough('fromQuery', [$query]);
         $this->getRequest()->excludedBlogs()->shouldBe(['blog3']);
 
-    }
-
-    public function it_manages_site_key_from_request_query(SiteService $siteService)
-    {
-        $siteService->getBlogs('main')->shouldBeCalled()->willReturn(['blog1', 'blog2']);
-        $query = new ParameterBag(
-            [
-                'site' => 'main',
-            ]
-        );
-
-        $this->beConstructedThrough('fromQuery', [$query, $siteService]);
-        $this->getRequest()->blogs()->shouldBe(['blog1', 'blog2']);
     }
 
 
