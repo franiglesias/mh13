@@ -13,6 +13,7 @@ use Mh13\plugins\circulars\infrastructure\api\CircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController;
 use Mh13\plugins\contents\infrastructure\api\ArticleController;
 use Mh13\plugins\contents\infrastructure\api\BlogController;
+use Mh13\plugins\uploads\infrastructure\api\UploadController;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
@@ -47,23 +48,23 @@ class ApiProvider implements ControllerProviderInterface
             return new BlogController($app['command.bus']);
         };
 
+        $app['api.upload.controller'] = function () use ($app) {
+            return new UploadController($app['command.bus']);
+        };
 
         $api = $app['controllers_factory'];
+
         $api->get('/articles', "api.article.controller:feed")->when(
             "request.headers.get('Accept') matches '/application\\\\/json/'"
         )
         ;
-
         $api->get('/events', "api.event.controller:last")->when(
             "request.headers.get('Accept') matches '/application\\\\/json/'"
         )
         ;
-
         $api->get('/circulars', "api.circular.controller:last");
-
-
         $api->get('/blogs', 'api.blog.controller:public');
-
+        $api->get('/downloads', 'api.upload.controller:downloads');
         return $api;
     }
 }

@@ -29,7 +29,7 @@ class DBalUploadContext implements UploadContext
     /**
      * @return string
      */
-    public function getModel(): string
+    public function getContext(): string
     {
         return static::MODEL;
     }

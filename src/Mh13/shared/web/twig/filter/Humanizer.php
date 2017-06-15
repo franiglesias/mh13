@@ -38,7 +38,7 @@ class Humanizer
         return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
     }
 
-    public function humanizeFileName($name)
+    public static function humanizeFileName($name)
     {
         $name = str_replace('_', ' ', $name);
 

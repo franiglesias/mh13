@@ -21,11 +21,11 @@ class DBalUploadContextFactory implements UploadContextFactory
     {
         switch (strtolower($type)) {
             case 'article':
-                return new ArticleContextDBal();
+                return new DBalArticleContext();
             case 'collection':
-                return new ImageCollectionContextDBal();
+                return new DBalImageCollectionContext();
             case 'static':
-                return new StaticPageContextDBal();
+                return new DBalStaticPageContext();
             default:
                 return new DBalUploadContext();
         }

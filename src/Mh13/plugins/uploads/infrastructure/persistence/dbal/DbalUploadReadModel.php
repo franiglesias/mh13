@@ -41,7 +41,7 @@ class DbalUploadReadModel implements UploadReadModel
         )->where($specification->getConditions())->setParameters(
                 $specification->getParameters(),
                 $specification->getTypes()
-        )->setParameter('model', $context->getModel())->orderBy('upload.order', 'asc')
+        )->setParameter('model', $context->getContext())->orderBy('upload.order', 'asc')
         ;
         $uploads = $builder->execute()->fetchAll();
 

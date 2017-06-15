@@ -6,7 +6,7 @@ use Mh13\shared\web\twig\filter\Humanizer;
 use Mh13\shared\web\twig\filter\Summarizer;
 use Mh13\shared\web\twig\filter\YoutubeLinkParser;
 use Twig_Extension;
-use Twig_SimpleFilter;
+use Twig_Filter;
 
 
 class Twig_Extension_Media extends Twig_Extension
@@ -16,15 +16,15 @@ class Twig_Extension_Media extends Twig_Extension
     public function getFilters()
     {
         return [
-            new Twig_SimpleFilter('readable_size', [Humanizer::class, 'humanizeFileSize']),
+            new Twig_Filter('readable_size', [Humanizer::class, 'humanizeFileSize']),
 
-            new Twig_SimpleFilter('readable_playtime', [Humanizer::class, 'humanizePlayTime']),
+            new Twig_Filter('readable_playtime', [Humanizer::class, 'humanizePlayTime']),
 
-            new Twig_SimpleFilter('humanize', [Humanizer::class, 'humanizeFileName']),
+            new Twig_Filter('humanize', [Humanizer::class, 'humanizeFileName']),
 
-            new Twig_SimpleFilter('abstract', [Summarizer::class, 'summarizeText']),
+            new Twig_Filter('abstract', [Summarizer::class, 'summarizeText']),
 
-            new Twig_SimpleFilter('parse', [YoutubeLinkParser::class, 'parse']),
+            new Twig_Filter('parse', [YoutubeLinkParser::class, 'parse']),
         ];
     }
 

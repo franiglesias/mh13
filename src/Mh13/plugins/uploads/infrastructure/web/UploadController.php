@@ -10,8 +10,8 @@ namespace Mh13\plugins\uploads\infrastructure\web;
 
 
 use League\Tactician\CommandBus;
+use Mh13\plugins\uploads\application\GetDownloadsForObject;
 use Mh13\plugins\uploads\application\GetImagesForObject;
-use Mh13\plugins\uploads\application\GetMediaForObject;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -45,7 +45,7 @@ class UploadController
 
     public function downloads(string $slug, Request $request, Application $app)
     {
-        $files = $this->bus->handle(new GetMediaForObject('article', $slug));
+        $files = $this->bus->handle(new GetDownloadsForObject('article', $slug));
 
         return $this->templating->render(
             'plugins/contents/items/widgets/downloads.twig',

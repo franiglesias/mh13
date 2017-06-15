@@ -10,13 +10,6 @@ namespace Mh13\plugins\uploads\application;
 
 interface UploadContext
 {
-    /**
-     * @return string
-     */
-    public function getAlias(): string;
+    public function getContext(): string;
 
-    /**
-     * @return string
-     */
-    public function getModel(): string;
 }

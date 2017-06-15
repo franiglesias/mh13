@@ -9,9 +9,9 @@
 namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\context;
 
 
-class ImageCollectionContextDBal extends DBalUploadContext
+class DBalStaticPageContext extends DBalUploadContext
 {
-    const ALIAS = 'collection';
-    const MODEL = 'ImageCollection';
-    const TABLE = 'image_collections';
+    const ALIAS = 'page';
+    const MODEL = 'StaticPage';
+    const TABLE = 'static_pages';
 }

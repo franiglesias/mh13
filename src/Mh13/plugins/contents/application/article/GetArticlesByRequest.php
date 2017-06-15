@@ -15,20 +15,20 @@ use Mh13\plugins\contents\application\article\request\ArticleRequest;
 class GetArticlesByRequest
 {
     /**
-     * @var \Mh13\plugins\contents\application\service\article\request\ArticleRequest
+     * @var ArticleRequest
      */
     private $request;
 
-    public function __construct(request\ArticleRequest $request)
+    public function __construct(ArticleRequest $request)
     {
 
         $this->request = $request;
     }
 
     /**
-     * @return \Mh13\plugins\contents\application\service\article\request\\Mh13\plugins\contents\application\article\request\ArticleRequest
+     * @return ArticleRequest
      */
-    public function getRequest(): request\ArticleRequest
+    public function getRequest(): ArticleRequest
     {
         return $this->request;
     }

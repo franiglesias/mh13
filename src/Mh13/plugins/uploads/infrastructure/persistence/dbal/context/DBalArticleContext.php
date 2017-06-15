@@ -9,7 +9,7 @@
 namespace Mh13\plugins\uploads\infrastructure\persistence\dbal\context;
 
 
-class ArticleContextDBal extends DBalUploadContext
+class DBalArticleContext extends DBalUploadContext
 {
     const ALIAS = 'article';
     const MODEL = 'Item';

@@ -95,7 +95,6 @@ $app->extend(
         }
         $twig->addGlobal('title_for_layout', 'Página principal');
         $twig->addGlobal('BaseUrl', '/');
-//        $twig->addExtension(new Twig_Extension_Debug());
         $twig->addExtension(new Twig_Extension_Media());
 
         return $twig;
