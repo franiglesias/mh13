@@ -2,41 +2,94 @@
  * Created by miralba on 15/6/17.
  */
 
-var downloads = new Vue({
-    el: 'mh-downloads',
-    data: {
-        files: '',
-        url: '/api/downloads',
-    },
-    created: function () {
-        this.getFiles();
-    },
-    methods: {
-        getFiles: function () {
-            this.$http.get(this.url).then(function (response) {
-                this.blogs = response.body;
-            }, function () {
-
-            });
+function humanFileSize(size) {
+    var convert = [
+        'B',
+        'KB',
+        'MB',
+        'GB'
+    ];
+    for (var i = convert.length; i > 0; i--) {
+        var limit = Math.pow(2, i * 10);
+        if (size >= limit) {
+            return (size / limit).toFixed(2) + ' ' + convert[i];
+        }
+    }
+    return size + ' ' + convert[0];
+}
+var DownloadItem = {
+    props: ['file'],
+    computed: {
+        filesize: function () {
+            return humanFileSize(this.file.size);
         }
     },
     template: `
-        
-        <div class="column" v-for="file in files" :key="file.id">
-            <a :href="file.path" class="mh-download-button">
+            <a :href="file.path" class="mh-download-button column">
                 <div class="card">
                     <div class="card-section">
                         <p class="mh-download-name"><strong>{{ file.name }}</strong></p>    
                     </div>
                     <div class="card-divider">
                         <p class="clearfix">
-                            <small class="float-left">{{ file.size }}</small>
+                            <small class="float-left">{{ filesize }}</small>
                             <small class="float-left">{{ file.type }}</small>
                         </p>
                     </div>
                 </div>
             </a>
-        </div>
+    `
+
+};
+
+var DownloadsCollection = {
+    props: [
+        'context',
+        'alias'
+    ],
+    components: {
+        'download-item': DownloadItem
+    },
+    data: function () {
+        return {
+            files: [],
+            baseurl: '/api/downloads',
+        }
+    },
+    methods: {
+        getFiles: function () {
+            this.$http.get(this.baseurl, {
+                params: {
+                    context: this.context,
+                    alias: this.alias
+                }
+            }).then(
+                function (response) {
+                    this.files = response.body;
+                },
+                function (response) {
+
+                }
+            );
+        }
+    },
+    created: function () {
+        this.getFiles();
+    },
+    template: `
+        <div class="small-up-2 large-up-4 row">
+        <download-item v-for="file in files" :file="file" :key="file.id"></download-item>     
+
+    </div>    
     
     `
+
+
+};
+
+var downloads = new Vue({
+    el: '#mh-downloads',
+    components: {
+        'downloads-collection': DownloadsCollection
+    }
 });
