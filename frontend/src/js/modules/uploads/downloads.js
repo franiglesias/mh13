@@ -3,19 +3,13 @@
  */
 
 function humanFileSize(size) {
-    var convert = [
-        'B',
-        'KB',
-        'MB',
-        'GB'
-    ];
-    for (var i = convert.length; i > 0; i--) {
+    var convert = ['B', 'KB', 'MB', 'GB'];
+    for (var i = convert.length; i >= 0; i--) {
         var limit = Math.pow(2, i * 10);
         if (size >= limit) {
             return (size / limit).toFixed(2) + ' ' + convert[i];
         }
     }
-    return size + ' ' + convert[0];
 }
 var DownloadItem = {
     props: ['file'],
@@ -68,7 +62,6 @@ var DownloadsCollection = {
                     this.files = response.body;
                 },
                 function (response) {
-
                 }
             );
         }
