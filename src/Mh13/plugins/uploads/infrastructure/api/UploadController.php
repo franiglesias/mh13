@@ -11,6 +11,7 @@ namespace Mh13\plugins\uploads\infrastructure\api;
 
 use League\Tactician\CommandBus;
 use Mh13\plugins\uploads\application\GetDownloadsForObject;
+use Mh13\plugins\uploads\application\GetImagesForObject;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -52,4 +53,15 @@ class UploadController
             );
         }
     }
+
+    public function images(Request $request)
+    {
+        $query = $request->query;
+        $context = $query->get('context');
+        $alias = $query->get('alias');
+        $images = $this->bus->handle(new GetImagesForObject($context, $alias));
+
+        return new JsonResponse($images, Response::HTTP_OK);
+    }
+
 }

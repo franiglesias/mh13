@@ -11,27 +11,28 @@ function humanFileSize(size) {
         }
     }
 }
+
 var DownloadItem = {
     props: ['file'],
     computed: {
-        filesize: function () {
+        humanizedFileSize: function () {
             return humanFileSize(this.file.size);
         }
     },
     template: `
-            <a :href="file.path" class="mh-download-button column">
-                <div class="card">
-                    <div class="card-section">
-                        <p class="mh-download-name"><strong>{{ file.name }}</strong></p>    
-                    </div>
-                    <div class="card-divider">
-                        <p class="clearfix">
-                            <small class="float-left">{{ filesize }}</small>
-                            <small class="float-left">{{ file.type }}</small>
-                        </p>
-                    </div>
+        <a :href="file.path" class="mh-download-button column">
+            <div class="card">
+                <div class="card-section">
+                    <p class="mh-download-name"><strong>{{ file.name }}</strong></p>    
                 </div>
-            </a>
+                <div class="card-divider">
+                    <p class="clearfix">
+                        <small class="float-left">{{ humanizedFileSize }}</small>
+                        <small class="float-left">{{ file.type }}</small>   
+                    </p>
+                </div>
+            </div>
+        </a>
     `
 
 };
@@ -70,11 +71,9 @@ var DownloadsCollection = {
         this.getFiles();
     },
     template: `
-        <div class="small-up-2 large-up-4 row">
+    <div class="small-up-2 large-up-4 row">
         <download-item v-for="file in files" :file="file" :key="file.id"></download-item>     
-
     </div>    
-    
     `
 
 

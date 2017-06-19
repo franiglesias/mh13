@@ -25,6 +25,7 @@ class DbalUploadReadModel implements UploadReadModel
         $builder = $this->connection->createQueryBuilder();
         $builder->select(
             [
+                'upload.id',
                 'upload.path',
                 'upload.name',
                 'upload.description',

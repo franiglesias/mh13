@@ -65,6 +65,7 @@ class ApiProvider implements ControllerProviderInterface
         $api->get('/circulars', "api.circular.controller:last");
         $api->get('/blogs', 'api.blog.controller:public');
         $api->get('/downloads', 'api.upload.controller:downloads');
+        $api->get('/images', 'api.upload.controller:images');
         return $api;
     }
 }
