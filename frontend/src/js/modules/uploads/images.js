@@ -20,7 +20,8 @@ var ImagesCollection = {
         'alias'
     ],
     components: {
-        'image-item': ImageItem
+        'image-item': ImageItem,
+        'vue-images': vueImages.default
     },
     data: function () {
         return {
@@ -30,27 +31,29 @@ var ImagesCollection = {
     },
     methods: {
         getFiles: function () {
-            this.$http.get(this.baseurl, {
+            self = this;
+            axios.get(this.baseurl, {
                 params: {
                     context: this.context,
                     alias: this.alias
                 }
-            }).then(
+            })
+                .then(
                 function (response) {
-                    this.images = response.body;
-                },
-                function (response) {
-                }
-            );
+                    self.images = response.data;
+
+                })
+                .catch(
+                    function (error) {
+                    }
+                );
         }
     },
     created: function () {
         this.getFiles();
     },
     template: `
-    <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
-        <image-item v-for="image in images" :image="image" :key="image.id"></image-item>     
-    </div>    
+        <vue-images :imgs="images" :showclosebutton="true" :showimagecount="true" imagecountseparator=" de " :modalclose="true" :showcaption="true"></vue-images>
     `
 
 

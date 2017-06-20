@@ -60,7 +60,10 @@ class UploadController
         $context = $query->get('context');
         $alias = $query->get('alias');
         $images = $this->bus->handle(new GetImagesForObject($context, $alias));
-
+        foreach ($images as &$image) {
+            $image['imageUrl'] = $image['path'];
+            $image['caption'] = $image['name'];
+        }
         return new JsonResponse($images, Response::HTTP_OK);
     }
 

@@ -31,8 +31,17 @@ var vueSrc = [
     "node_modules/vue/dist/vue.js",
     "node_modules/vue-resource/dist/vue-resource.js",
     "node_modules/vue/dist/vue.min.js",
-    "node_modules/vue-resource/dist/vue-resource.min.js"
+    "node_modules/vue-resource/dist/vue-resource.min.js",
+    "node-modules/vue-images/dist/vue-images.js"
 ];
+
+var axiosSrc = [
+    'node_modules/axios/dist/axios.js',
+    'node_modules/axios/dist/axios.min.js',
+    'node_modules/axios/dist/axios.map',
+    'node_modules/axios/dist/axios.min.map',
+];
+
 
 // Tasks
 
@@ -50,6 +59,7 @@ gulp.task("update", [
     "copy-images",
     "copy-jquery-te",
     "copy-vue",
+    "copy-axios",
     "default"
 ]);
 
@@ -78,6 +88,7 @@ gulp.task("sass", function () {
         .pipe(gulp.dest(destination + "/css"))
 });
 
+
 gulp.task("copy-images", function () {
     gulp.src(imgSource)
         .pipe(newer(destination + "/img"))
@@ -104,6 +115,11 @@ gulp.task("copy-foundation", function () {
 gulp.task("copy-vue", function () {
     gulp.src(vueSrc)
         .pipe(gulp.dest(destination + "/js/vendor"))
+});
+
+gulp.task("copy-axios", function () {
+    gulp.src(axiosSrc)
+        .pipe(gulp.dest(destination + '/js/vendor'))
 });
 
 gulp.task("copy-jquery-te", function () {
