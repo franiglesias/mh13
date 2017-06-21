@@ -71,9 +71,10 @@ var DownloadsCollection = {
         this.getFiles();
     },
     template: `
-    <div class="small-up-2 large-up-4 row">
+    <div class="small-up-2 large-up-4 row" v-if="files.length">
         <download-item v-for="file in files" :file="file" :key="file.id"></download-item>     
     </div>    
+    <div v-else="">No hay elementos para descargar.</div>
     `
 
 

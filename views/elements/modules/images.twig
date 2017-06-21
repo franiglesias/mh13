@@ -1,15 +1,26 @@
 <style>
-    #mh-images {
+    .slideshow {
         position: relative;
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: 500px;
     }
 
-    #mh-images .navigation {
+    .slideshow .navigation {
         position: absolute;
         top: 50%;
         width: 100%;
+        z-index: 10;
     }
 
-    #mh-images .navigation a {
+    .slideshow img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .slideshow .navigation a {
         background-color: #0a0a0a;
         color: #fff;
         text-decoration: none;
@@ -21,33 +32,51 @@
         text-align: center;
         line-height: 30px;
         opacity: .4;
-        transition: opacity .5s;
+        transition: .5s;
     }
 
-    #mh-images .navigation a:hover {
+    .slideshow .navigation a:hover {
         opacity: 1;
     }
 
-    #mh-images .navigation a:first-child {
+    .slideshow .navigation a:first-child {
         float: left;
         margin-left: 10px;
     }
 
-    #mh-images .navigation a:last-child {
+    .slideshow .navigation a:last-child {
         float: right;
         margin-right: 10px;
     }
 
+    .fade-enter-active, .fade-leave-active {
+        transition: transform 1s
+    }
+
+    .fade-enter /* .fade-leave-active in <2.1.8 */
+    {
+        opacity: 1;
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    .fade-leave-to {
+        opacity: 1;
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+
 </style>
 <aside class="mh-page-extras" id="mh-images">
     <h2 class="mh-page-extras-title">Imágenes</h2>
-    <image-slider>
-        <p class="navigation">
-            <a @click="prev">◀︎</a><a @click="next">▶︎</a>
-        </p>
-        <img :src="images[currentNumber].path" v-on:mouseover="stopRotation" v-on:mouseout="startRotation"/>
-    </image-slider>
-    {#<images-collection context="{{ context }}" alias="{{ alias }}"></images-collection>#}
+    <image-slider context="{{ context }}" alias="{{ alias }}"></image-slider>
 </aside>
 
 <script src="/assets/js/modules/uploads/slideshow.js"></script>
