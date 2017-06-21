@@ -1,7 +1,53 @@
+<style>
+    #mh-images {
+        position: relative;
+    }
+
+    #mh-images .navigation {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+
+    #mh-images .navigation a {
+        background-color: #0a0a0a;
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 80px;
+        text-align: center;
+        line-height: 30px;
+        opacity: .4;
+        transition: opacity .5s;
+    }
+
+    #mh-images .navigation a:hover {
+        opacity: 1;
+    }
+
+    #mh-images .navigation a:first-child {
+        float: left;
+        margin-left: 10px;
+    }
+
+    #mh-images .navigation a:last-child {
+        float: right;
+        margin-right: 10px;
+    }
+
+</style>
 <aside class="mh-page-extras" id="mh-images">
     <h2 class="mh-page-extras-title">Imágenes</h2>
-    <images-collection context="{{ context }}" alias="{{ alias }}"></images-collection>
+    <image-slider>
+        <p class="navigation">
+            <a @click="prev">◀︎</a><a @click="next">▶︎</a>
+        </p>
+        <img :src="images[currentNumber].path" v-on:mouseover="stopRotation" v-on:mouseout="startRotation"/>
+    </image-slider>
+    {#<images-collection context="{{ context }}" alias="{{ alias }}"></images-collection>#}
 </aside>
 
-<script src="/assets/js/vendor/vue-images.js"></script>
-<script src="/assets/js/modules/uploads/images.js"></script>
+<script src="/assets/js/modules/uploads/slideshow.js"></script>
