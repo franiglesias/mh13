@@ -1,7 +1,7 @@
 {% import 'macros/blocks.twig' as blocks %}
 {% set images = [] %}
 {% set multimedia = [] %}
-{% set downloads = [] %}
+{% set getDownloads = [] %}
 {% set widget_body %}
     <ul id="mh-metadata">
         <li><a href="/{{ article.slug }}" class="fi-link">Enlace</a></li>
@@ -15,8 +15,8 @@
         {% if multimedia|length %}
             <li><a href="#mh-multimedia" class="fi-video">{{ multimedia|length }} videos</a></li>
         {% endif %}
-        {% if downloads|length %}
-            <li><a href="#mh-downloads" class="fi-download">{{ downloads|length }} archivos</a></li>
+        {% if getDownloads|length %}
+            <li><a href="#mh-downloads" class="fi-download">{{ getDownloads|length }} archivos</a></li>
         {% endif %}
         <li><a class="fi-eye" id="mh-item-readings">0</a></li>
 	</ul>

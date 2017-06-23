@@ -11,8 +11,6 @@ namespace Mh13\plugins\contents\infrastructure\web;
 
 use League\Tactician\CommandBus;
 use Mh13\plugins\contents\application\blog\GetBlogByAlias;
-use Mh13\plugins\contents\application\blog\GetPublicBlogs;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class BlogController
@@ -45,11 +43,5 @@ class BlogController
         );
     }
 
-    public function public ()
-    {
-        $blogs = $this->bus->handle(new GetPublicBlogs());
-
-        return new JsonResponse($blogs);
-    }
 
 }

@@ -65,7 +65,6 @@ class ArticleProvider implements ControllerProviderInterface
         };
 
         $articles = $app['controllers_factory'];
-        $articles->get('/catalog', "article.controller:catalog");
         $articles->get('/{slug}', "article.controller:view");
 
         return $articles;

@@ -48,7 +48,7 @@ class UploadController
         $files = $this->bus->handle(new GetDownloadsForObject('article', $slug));
 
         return $this->templating->render(
-            'plugins/contents/items/widgets/downloads.twig',
+            'plugins/contents/items/widgets/getDownloads.twig',
             [
                 'files' => $files,
             ]

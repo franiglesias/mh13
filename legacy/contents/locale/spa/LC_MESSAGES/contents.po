@@ -822,7 +822,7 @@ msgid "%s multimedia"
 msgstr "%s multimedia"
 
 #: /plugins/contents/views/elements/items/widgets/mdata.ctp:32
-msgid "%s downloads"
+msgid "%s getDownloads"
 msgstr "%s archivos"
 
 #: /plugins/contents/views/elements/items/widgets/mdata.ctp:33

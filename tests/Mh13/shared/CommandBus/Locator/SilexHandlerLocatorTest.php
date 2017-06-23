@@ -40,7 +40,7 @@ class SilexHandlerLocatorTest extends TestCase
         $this->assertInstanceOf(SilexHandlerLocator::class, $this->locator);
     }
 
-    public function test_it_returns_a_handler_for_a_given_command()
+    public function test_it_returns_CommandHandler_for_Command()
     {
         $command = new DummyCommand();
 

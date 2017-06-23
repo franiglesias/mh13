@@ -24,7 +24,6 @@
     {#{{ modules.module('mh-image-gallery', '/uploads/article/gallery/%gallery%/%article%'|replace({'%gallery%': article.gallery, '%article%': article.slug}) ) }}#}
 
     {% include 'elements/modules/images.twig' with {'context': 'article', 'alias': article.slug } only %}
-
     {% include 'elements/modules/downloads.twig' with {'context': 'article', 'alias': article.slug } only %}
 {% endblock %}
 

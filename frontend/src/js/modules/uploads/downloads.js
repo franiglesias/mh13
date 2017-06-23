@@ -48,7 +48,7 @@ var DownloadsCollection = {
     data: function () {
         return {
             files: [],
-            baseurl: '/api/downloads',
+            baseurl: '/api/getDownloads',
         }
     },
     methods: {
@@ -81,7 +81,7 @@ var DownloadsCollection = {
 };
 
 var downloads = new Vue({
-    el: '#mh-downloads',
+    el: '#mh-getDownloads',
     components: {
         'downloads-collection': DownloadsCollection
     }

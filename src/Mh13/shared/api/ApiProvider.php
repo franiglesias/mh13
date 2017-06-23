@@ -13,6 +13,7 @@ use Mh13\plugins\circulars\infrastructure\api\CircularController;
 use Mh13\plugins\circulars\infrastructure\api\EventController;
 use Mh13\plugins\contents\infrastructure\api\ArticleController;
 use Mh13\plugins\contents\infrastructure\api\BlogController;
+use Mh13\plugins\uploads\infrastructure\api\ImageController;
 use Mh13\plugins\uploads\infrastructure\api\UploadController;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
@@ -52,6 +53,10 @@ class ApiProvider implements ControllerProviderInterface
             return new UploadController($app['command.bus']);
         };
 
+        $app['api.images.controller'] = function () use ($app) {
+            return new ImageController($app['command.bus']);
+        };
+
         $api = $app['controllers_factory'];
 
         $api->get('/articles', "api.article.controller:feed")->when(
@@ -64,8 +69,8 @@ class ApiProvider implements ControllerProviderInterface
         ;
         $api->get('/circulars', "api.circular.controller:last");
         $api->get('/blogs', 'api.blog.controller:public');
-        $api->get('/downloads', 'api.upload.controller:downloads');
-        $api->get('/images', 'api.upload.controller:images');
+        $api->get('/getDownloads', 'api.upload.controller:getDownloads');
+        $api->get('/images', 'api.images.controller:getImages');
         return $api;
     }
 }

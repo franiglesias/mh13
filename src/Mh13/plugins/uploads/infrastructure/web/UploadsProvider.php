@@ -83,7 +83,7 @@ class UploadsProvider implements ControllerProviderInterface
         $uploads = $app['controllers_factory'];
         $uploads->get('/{model}/gallery/{type}/{slug}', 'upload.controller:gallery');
         $uploads->get('/collection/{type}/{collection}', 'upload.controller:collection');
-        $uploads->get('/downloads/{slug}', 'upload.controller:downloads');
+        $uploads->get('/getDownloads/{slug}', 'upload.controller:getDownloads');
 
         return $uploads;
     }

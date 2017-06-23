@@ -19,7 +19,7 @@ use Pimple\Container;
  *
  * Locator for Tactician wrapping the Pimple DIC
  *
- * Handlers are located using a simple convention, Command Handler name is composer with Command name + Handler
+ * Handlers are located using a simple convention, Command Handler name is composed with Command name + Handler
  *
  * Examples:
  *
@@ -55,7 +55,6 @@ class SilexHandlerLocator implements HandlerLocator
     {
         try {
             $handlerName = $commandName.'Handler';
-
             return $this->container[$handlerName];
         } catch (\InvalidArgumentException $exception) {
             throw MissingHandlerException::forCommand($commandName);
