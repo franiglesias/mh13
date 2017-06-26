@@ -8,15 +8,14 @@
 
 namespace Mh13\plugins\contents\infrastructure\api;
 
-use Mh13\plugins\contents\application\article\GetArticleCountForRequestHandler;
+use League\Tactician\CommandBus;
+use Mh13\plugins\contents\application\article\GetArticleCountForRequest;
+use Mh13\plugins\contents\application\article\GetArticlesByRequest;
 use Mh13\plugins\contents\application\article\request\ArticleRequest;
 use Mh13\plugins\contents\application\article\request\ArticleRequestBuilder;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class ArticleControllerTest extends TestCase
@@ -26,75 +25,89 @@ class ArticleControllerTest extends TestCase
 
     protected $articleRequestBuilder;
 
-    public function setUp()
+    public function test_feed_returns_a_JsonResponse()
     {
-        $articleRequest = $this->prophesize(ArticleRequest::class);
-        $articleRequest->getPage()->willReturn(1);
-        $articleRequest->maxPages(Argument::any())->willReturn(1);
+        $controller = new ArticleController(new CommandBus([]), new ArticleRequestBuilder());
+        $result = $controller->feed(new Request());
+        $this->assertInstanceOf(JsonResponse::class, $result);
+    }
 
-        $articleRequestBuilder = $this->prophesize(ArticleRequestBuilder::class);
-        $articleRequestBuilder->buildFromQueryData(Argument::any())->willReturn($articleRequest);
+    public function test_no_params_query_should_equally_return_articles()
+    {
+        $bus = $this->createMock(CommandBus::class);
+        $articleRequest = new ArticleRequest();
+        $bus->method('handle')
+            ->withConsecutive(
+                new GetArticlesByRequest($articleRequest),
+                new GetArticleCountForRequest($articleRequest)
+            )
+            ->willReturnOnConsecutiveCalls(['articles'], 20)
+        ;
 
-        $this->articleService = $this->prophesize(GetArticleCountForRequestHandler::class);
+        $controller = new ArticleController($bus, new ArticleRequestBuilder());
+        $result = $controller->feed(new Request());
 
-        $this->articleController = new ArticleController(
-            $articleRequestBuilder->reveal(),
-            $this->articleService->reveal()
+        $this->assertNotEmpty($result->getContent());
+        $this->assertEquals($result->getStatusCode(), 200);
+    }
+
+    public function test_no_params_query_should_equally_return_200_code()
+    {
+        $bus = $this->createMock(CommandBus::class);
+        $articleRequest = new ArticleRequest();
+        $bus->method('handle')
+            ->withConsecutive(
+                new GetArticlesByRequest($articleRequest),
+                new GetArticleCountForRequest($articleRequest)
+            )
+            ->willReturnOnConsecutiveCalls(['articles'], 20)
+        ;
+
+        $controller = new ArticleController($bus, new ArticleRequestBuilder());
+        $result = $controller->feed(new Request());
+
+        $this->assertEquals($result->getStatusCode(), 200);
+    }
+
+    public function test_if_valid_request_does_not_found_articles_should_return_204_code()
+    {
+        $bus = $this->createMock(CommandBus::class);
+        $bus->method('handle')
+            ->willReturn(false)
+        ;
+
+        $controller = new ArticleController($bus, new ArticleRequestBuilder());
+        $result = $controller->feed(new Request());
+        $this->assertEquals(json_encode([]), $result->getContent());
+        $this->assertEquals($result->getStatusCode(), 204);
+    }
+
+    public function test_it_site_param_is_passed_it_is_converted_to_blogs()
+    {
+        $articleRequestBuilder = $this->createMock(ArticleRequestBuilder::class)
+            ->method('fromBlogs')
+        ;
+
+        $bus = $this->createMock(CommandBus::class);
+        $articleRequest = new ArticleRequest();
+        $bus->method('handle')
+            ->withConsecutive(
+                new GetArticlesByRequest($articleRequest),
+                new GetArticleCountForRequest($articleRequest)
+            )
+            ->willReturnOnConsecutiveCalls(['articles'], 20)
+        ;
+
+        $controller = new ArticleController($bus, $articleRequestBuilder);
+        $request = new Request();
+        $request->query = new ParameterBag(
+            [
+                'site' => 'example',
+            ]
         );
+        $result = $controller->feed($request);
+
+        $this->assertNotEmpty($result->getContent());
+        $this->assertEquals($result->getStatusCode(), 200);
     }
-
-    public function test_it_returns_an_empty_list_of_articles_as_json_response()
-    {
-        $request = $this->getRequestDouble();
-
-        /** @var JsonResponse $response */
-        $response = $this->articleController->feed($request->reveal());
-
-        $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals(Response::HTTP_NO_CONTENT, $response->getStatusCode());
-    }
-
-    /**
-     * @return \Prophecy\Prophecy\ObjectProphecy
-     */
-    protected function getRequestDouble(): \Prophecy\Prophecy\ObjectProphecy
-    {
-        $parameters = $this->prophesize(ParameterBag::class);
-        $request = $this->prophesize(Request::class);
-        $request->query = $parameters->reveal();
-
-        return $request;
-    }
-
-    public function test_it_returns_a_list_of_articles_as_json_response()
-    {
-        $request = $this->getRequestDouble();
-
-        $this->articleService->getArticlesFromRequest(Argument::type(ArticleRequest::class))->willReturn(
-            ['article1', 'article2']
-        )
-        ;
-        $this->articleService->getArticlesCountForRequest(Argument::type(ArticleRequest::class))->willReturn(2);
-
-        /** @var JsonResponse $response */
-        $response = $this->articleController->feed($request->reveal());
-
-        $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
-    }
-
-    public function test_it_should_return_500_error_if_article_service_fails()
-    {
-        $request = $this->getRequestDouble();
-
-        $this->articleService->getArticlesFromRequest(Argument::type(ArticleRequest::class))->willThrow(
-            \Exception::class
-        )
-        ;
-
-        /** @var JsonResponse $response */
-        $response = $this->articleController->feed($request->reveal());
-        $this->assertEquals(Response::HTTP_INTERNAL_SERVER_ERROR, $response->getStatusCode());
-    }
-
 }

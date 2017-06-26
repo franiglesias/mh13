@@ -55,7 +55,7 @@ class ArticleController
 
             if (!$articles) {
                 return new JsonResponse(
-                    ['code' => 204, 'message' => 'No articles found for this query.'],
+                    [],
                     Response::HTTP_NO_CONTENT
                 );
             }

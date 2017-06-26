@@ -11,12 +11,12 @@
     "symfony/yaml": "3.2.x-dev",
     "ramsey/uuid": "4.x-dev",
     "symfony/expression-language": "3.2.x-dev",
-    "league/tactician": "^1.0",
-    "phpspec/phpspec": "^3.4"
+    "league/tactician": "^1.0"
   },
   "require-dev": {
     "mikey179/vfsStream": "v1.6.4",
-    "phpunit/phpunit": "^6.2"
+    "phpunit/phpunit": "^6.2",
+    "phpspec/phpspec": "^3.4"
 
   },
   "license": "MIT",
