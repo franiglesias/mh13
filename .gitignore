@@ -13,7 +13,7 @@ tmp/
 /vendors/cakephp/
 
 /frontend/node_modules/
-/webroot/assets/
+/webroot/assets-old/
 /config/config.yml
 /ansistrano/
 /bin/doctrine-dbal

@@ -26,7 +26,7 @@ class ArticleRequest
     /**
      * @var int
      */
-    protected $max;
+    protected $max = 20;
     protected $blogs;
     protected $excludedBlogs;
     protected $ignoreSticky;
